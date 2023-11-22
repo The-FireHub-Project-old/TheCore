@@ -14,4 +14,4 @@ max_line_length = 120
 indent_size = 2
 
 [*.md]
-max_line_length = 1000
+max_line_length = off
