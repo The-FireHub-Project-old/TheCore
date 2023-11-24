@@ -1,0 +1,13 @@
+parameters:
+    level: 8
+    paths:
+        - src/
+    treatPhpDocTypesAsCertain: false
+    checkExplicitMixedMissingReturn: true
+    checkFunctionNameCase: true
+    checkInternalClassCaseSensitivity: true
+    reportMaybesInMethodSignatures: true
+    reportMaybesInPropertyPhpDocTypes: true
+    reportStaticMethodSignatures: true
+    checkUninitializedProperties: true
+    tipsOfTheDay: false
