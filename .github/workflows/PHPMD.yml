@@ -22,7 +22,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@aa1fe473f9c687b6fb896056d771232c0bc41161
         with:
-          php-version: ${{ vars.PHPVERSION }}
+          php-version: 8.3
           coverage: none
           tools: phpmd
       - name: Run PHPMD
