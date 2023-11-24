@@ -13,4 +13,6 @@
 /CHANGELOG.md export-ignore
 /CITATION.cff export-ignore
 /LICENCE.md export-ignore
+/phpmd.xml export-ignore
+/phpstan.neon export-ignore
 /README.md export-ignore
