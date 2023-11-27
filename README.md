@@ -10,6 +10,7 @@
 
 [![PHPMD](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml)
 [![PHPStan](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml)
+[![Qodana](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml)
 [![GitHub Discussions](https://img.shields.io/github/discussions/The-FireHub-Project/Core?style=flat&labelColor=30363d)](https://github.com/orgs/The-FireHub-Project/discussions)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/The-FireHub-Project/Core/master?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/master/)
 [![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Core/master?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/master/)
