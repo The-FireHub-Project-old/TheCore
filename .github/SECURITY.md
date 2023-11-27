@@ -1,5 +1,7 @@
 # Security Policies and Procedures
 
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/The-FireHub-Project/Core/badge)](https://securityscorecards.dev/viewer/?uri=github.com/The-FireHub-Project/Core)
+
 - [Supported Versions](#supported-versions)
 - [Reporting a Vulnerability](#reporting-a-vulnerability)
 - [Disclosure Policy](#disclosure-policy)
