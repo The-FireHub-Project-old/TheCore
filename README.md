@@ -8,12 +8,12 @@
 
 ## About
 
-[![PHPMD](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml)
-[![PHPStan](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml)
-[![Qodana](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml/badge.svg?branch=master)](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml)
+[![PHPMD](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml)
+[![PHPStan](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml)
+[![Qodana](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml)
 [![GitHub Discussions](https://img.shields.io/github/discussions/The-FireHub-Project/Core?style=flat&labelColor=30363d)](https://github.com/orgs/The-FireHub-Project/discussions)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/The-FireHub-Project/Core/master?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/master/)
-[![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Core/master?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/master/)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/The-FireHub-Project/Core/develop-pre-alpha-m1?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/)
+[![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Core/develop-pre-alpha-m1?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/)
 [![GitHub contributors](https://img.shields.io/github/contributors/The-FireHub-Project/Core?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/graphs/contributors)
 [![Website](https://img.shields.io/website?down_message=offline&up_message=online&url=https%3A%2F%2Fthe-firehub-project.github.io%2F?style=flat&labelColor=30363d)](https://the-firehub-project.github.io/)
 
