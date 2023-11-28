@@ -3,7 +3,7 @@
 ## [v0.1.2](https://github.com/The-FireHub-Project/Core/compare/v0.1.1...v0.1.2) - (2023-11-28)
 
 ### Added
-- Created UML diagram theme ([#9](https://github.com/The-FireHub-Project/FireHub/issues/9), [5740a0d](https://github.com/The-FireHub-Project/Core/pull/7/commits/5740a0d))
+- Created UML diagram theme ([#9](https://github.com/The-FireHub-Project/Core/issues/9), [5740a0d](https://github.com/The-FireHub-Project/Core/pull/7/commits/5740a0d))
 
 ## [v0.1.1](https://github.com/The-FireHub-Project/Core/compare/v0.1.0...v0.1.1) - (2023-11-28)
 
