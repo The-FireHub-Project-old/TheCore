@@ -13,7 +13,7 @@
 /tests export-ignore
 /CHANGELOG.md export-ignore
 /CITATION.cff export-ignore
-/LICENCE.md export-ignore
+/LICENSE.md export-ignore
 /phpmd.xml export-ignore
 /phpstan.neon export-ignore
 /phpunit.xml export-ignore
