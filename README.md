@@ -11,6 +11,7 @@
 [![PHPMD](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml)
 [![PHPStan](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml)
 [![Qodana](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml)
+[![codecov](https://codecov.io/gh/The-FireHub-Project/Core/branch/develop-pre-alpha-m1/graph/badge.svg?token=38D32MP5TL)](https://app.codecov.io/gh/The-FireHub-Project/Core/tree/develop-pre-alpha-m1)
 [![GitHub Discussions](https://img.shields.io/github/discussions/The-FireHub-Project/Core?style=flat&labelColor=30363d)](https://github.com/orgs/The-FireHub-Project/discussions)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/The-FireHub-Project/Core/develop-pre-alpha-m1?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/)
 [![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/The-FireHub-Project/Core/develop-pre-alpha-m1?style=flat&labelColor=30363d)](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/)
