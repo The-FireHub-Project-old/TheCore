@@ -1,5 +1,11 @@
-name: Workflow for Codecov example-php
-on: [push, pull_request]
+name: Code Coverage
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
 jobs:
   run:
     runs-on: ubuntu-latest
