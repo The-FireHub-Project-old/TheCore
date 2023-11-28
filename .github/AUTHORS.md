@@ -18,7 +18,7 @@
             <td><a href="https://github.com/danijelgalic">@Riddick</a></td>
         </tr>
         <tr>
-            <td>Original Author and project owner.</td>
+            <td>Current maintainer of the code and has written much of the current code base.</td>
         </tr>
     </table>
 
