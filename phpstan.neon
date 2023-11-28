@@ -1,5 +1,5 @@
 parameters:
-    level: 8
+    level: 9
     paths:
         - src/
     treatPhpDocTypesAsCertain: false
@@ -9,5 +9,7 @@ parameters:
     reportMaybesInMethodSignatures: true
     reportMaybesInPropertyPhpDocTypes: true
     reportStaticMethodSignatures: true
+    reportUnmatchedIgnoredErrors: false
     checkUninitializedProperties: true
+    checkImplicitMixed: true
     tipsOfTheDay: false
