@@ -1,0 +1,20 @@
+name: Workflow for Codecov example-php
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring
+          tools: phpunit
+      - name: Run PHPUnit and collect coverage
+        run: phpunit --coverage-clover coverage.xml .
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4-beta
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV }}
