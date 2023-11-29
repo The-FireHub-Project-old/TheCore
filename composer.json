@@ -13,6 +13,7 @@
         "phpstan/phpstan": "^1.10.46",
         "phpunit/phpunit": "^10.4.2",
         "phpmd/phpmd": "^2.14.1",
+        "friendsofphp/php-cs-fixer": "v3.40.0",
         "ext-openssl": "*"
     },
     "suggest": {
