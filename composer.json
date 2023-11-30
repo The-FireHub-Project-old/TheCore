@@ -21,6 +21,9 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "scripts": {
+        "php-cs-fixer": "php-cs-fixer"
+    },
     "authors": [
         {
             "name": "Danijel Galić",
