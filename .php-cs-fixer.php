@@ -1,11 +1,28 @@
-<?php
+<?php declare(strict_types = 1);
 
-/*
- * This document has been generated with
- * https://mlocati.github.io/php-cs-fixer-configurator/#version:3.40.0|configurator
- * you can change this configuration by importing this file.
+/**
+ * This file is part of FireHub Web Application Framework package
+ *
+ * This is a PHP-CS-Fixer configuration file.
+ * This will help align the code style throughout the project following
+ * specific rules such as 'no_trailing_whitespace', 'no_empty_phpdoc', 'no_superfluous_phpdoc_tags' and many others.
+ * This brings consistency to coding style and makes the code easier to read and understand.
+ * @since 1.0.0
+ *
+ * @author Danijel Galić <danijel.galic@outlook.com>
+ * @copyright 2024 FireHub Web Application Framework
+ * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
+ *
+ * @package FireHub
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
-return (new PhpCsFixer\Config)
+
+use PhpCsFixer\ {
+    Config, Finder
+};
+
+return (new Config)
     ->setCacheFile(__DIR__.'/vendor/friendsofphp/.php-cs-fixer.cache')
     ->setRiskyAllowed(true)
     ->setRules([
@@ -85,15 +102,7 @@ return (new PhpCsFixer\Config)
         'short_scalar_cast' => true,
 
         // class notation
-        /*'class_attributes_separation' => [
-            'elements' => [
-                'const' => 'one',
-                'method' => 'one',
-                'property' => 'one',
-                'trait_import' => 'one',
-                'case' => 'one'
-            ]
-        ],*/
+        'class_attributes_separation' => false,
         'class_definition' => [
             'inline_constructor_arguments' => false,
             'multi_line_extends_each_single_line' => true,
@@ -228,11 +237,7 @@ return (new PhpCsFixer\Config)
         'fopen_flags' => [
             'b_mode' => true
         ],
-        'function_declaration' => false, /* [
-            'closure_fn_spacing' => 'none',
-            'closure_function_spacing' => 'one',
-            'trailing_comma_single_line' => false
-        ],*/
+        'function_declaration' => false,
         'implode_call' => true,
         'lambda_not_used_import' => true,
         'method_argument_space' => [
@@ -500,9 +505,7 @@ return (new PhpCsFixer\Config)
         'phpdoc_tag_type' => [
             'tags' => []
         ],
-        'phpdoc_to_comment' => [
-            'ignored_tags' => []
-        ],
+        'phpdoc_to_comment' => false,
         'phpdoc_trim_consecutive_blank_line_separation' => true,
         'phpdoc_trim' => true,
         'phpdoc_types' => [
@@ -514,12 +517,6 @@ return (new PhpCsFixer\Config)
         ],
         'phpdoc_var_annotation_correct_order' => true,
         'phpdoc_var_without_name' => true,
-
-        // return notation
-        'no_useless_return' => true,
-        'return_assignment' => true,
-        'simplified_null_return' => true,
-        'phpdoc_add_missing_param_annotation' => false,
 
         // semicolon
         'multiline_whitespace_before_semicolons' => [
@@ -593,6 +590,6 @@ return (new PhpCsFixer\Config)
             'space_multiple_catch' => null
         ]
     ])
-    ->setFinder(PhpCsFixer\Finder::create()
-        ->in(__DIR__.'/src/support')
+    ->setFinder(Finder::create()
+        ->in(__DIR__.'/src')
     );
