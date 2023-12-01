@@ -125,7 +125,6 @@ final class SplAutoload {
     }
 
     /**
-     *
      * ### Get all registered autoload functions
      * @since 1.0.0
      *
