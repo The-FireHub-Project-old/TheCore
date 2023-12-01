@@ -11,6 +11,7 @@
 /.gitignore export-ignore
 /src export-ignore
 /tests export-ignore
+/php-cs-fixer.php
 /CHANGELOG.md export-ignore
 /CITATION.cff export-ignore
 /LICENSE.md export-ignore
