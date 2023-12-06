@@ -6,6 +6,7 @@
 
 # files and directories that won’t be added to archive files
 /.github export-ignore
+/docs export-ignore
 /src export-ignore
 /tests export-ignore
 /.editorconfig export-ignore
