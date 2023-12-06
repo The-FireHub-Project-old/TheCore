@@ -1,0 +1,8 @@
+# main owner
+*   @The-FireHub-Project/admin-team @The-FireHub-Project/maintenance-team
+
+# all dot files will be handled by lead dev
+.*  @dieselxxx
+
+# CODEOWNERS will be handled by the owner
+/.github/CODEOWNERS @dieselxxx
