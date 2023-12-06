@@ -34,7 +34,7 @@ final class SplAutoload {
     /**
      * ### Default autoload implementation
      *
-     * This function is intended to be used as a default implementation for register().
+     * This function is intended to be used as a default implementation for [[SplAutoload#register()]].
      * If nothing else is specified and register method is called without any parameters,
      * then this function will be used for any later call to autoload.
      * @since 1.0.0
@@ -61,7 +61,7 @@ final class SplAutoload {
      * ### Register and return file extensions for default autoload
      *
      * This function can modify and check the file extensions that the built-in autoload fallback function
-     * spl_autoload() will be using.
+     * [[SplAutoload#default()]] will be using.
      * @since 1.0.0
      *
      * @param null|non-empty-string $file_extensions [optional] <p>
