@@ -2,7 +2,7 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
-<instance-profile id="c"
+<instance-profile id="core"
                  name="FireHub Core"
                  start-page="discover-firehub-core.topic">
     <toc-element topic="discover-firehub-core.topic"/>
