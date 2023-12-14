@@ -39,39 +39,39 @@ skinparam useBetaStyle false
 '' procedures
 ''
 !procedure $primarySchema()
-	FontColor                   $TEXT
-	FontStyle                   "normal"
-	BorderStyle                 solid
+	FontColor $TEXT
+	FontStyle "normal"
+	BorderStyle solid
 !endprocedure
 !procedure $firehubColors()
-	BackgroundColor             $RED
-	BorderColor                 $DARK_RED
+	BackgroundColor $RED
+	BorderColor $DARK_RED
 !endprocedure
 
 ''
 '' global variables
 ''
-skinparam defaultFontName       "Helvetica"
-skinparam defaultFontSize       12
-skinparam dpi                   100
-skinparam shadowing             true
-skinparam padding               1
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam dpi 100
+skinparam shadowing true
+skinparam padding 1
 
 ''
 '' components
 ''
 skinparam package {
     $primarySchema()
-    BackgroundColor             $WHITE
-  	BorderColor                 $DARK_RED
-  	FontSize                    8
-	FontColor                   $DARK_RED
-	BorderThickness             1
+    BackgroundColor $WHITE
+  	BorderColor $DARK_RED
+  	FontSize 8
+	FontColor $DARK_RED
+	BorderThickness 1
 }
 skinparam class {
     $primarySchema()
     $firehubColors()
-    AttributeIconSize           12
+    AttributeIconSize 12
 }
 skinparam component {
     $primarySchema()
