@@ -16,6 +16,8 @@
 /CHANGELOG.md export-ignore
 /CITATION.cff export-ignore
 /LICENSE.md export-ignore
+/phpdoc.xml export-ignore
+/phpdoc.wiki.xml export-ignore
 /phpmd.xml export-ignore
 /phpstan.neon export-ignore
 /phpunit.xml export-ignore
