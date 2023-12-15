@@ -1,6 +1,9 @@
 # JetBrains
 .idea/
 
+# Wiki
+/.wiki/
+
 # Phar
 /phar/**
 !/phar/*.phar
