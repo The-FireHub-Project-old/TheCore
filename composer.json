@@ -10,6 +10,7 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
+        "firehub/documentor": "~0.1",
         "phpstan/phpstan": "^1.10.46",
         "phpunit/phpunit": "^10.4.2",
         "phpmd/phpmd": "^2.14.1",
