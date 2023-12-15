@@ -3,7 +3,7 @@
     "description": "FireHub Web Application Framework",
     "type": "library",
     "keywords": ["php", "framework", "core", "firehub"],
-    "homepage": "https://the-firehub-project.github.io/",
+    "homepage": "https://the-firehub-project.github.io/Core/",
     "license": "OSL-3.0",
     "require": {
         "php": "^8.2",
