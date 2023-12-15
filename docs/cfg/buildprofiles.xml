@@ -13,6 +13,11 @@
             <versions-switcher>https://raw.githubusercontent.com/The-FireHub-Project/Core/docs/help-versions.json</versions-switcher>
         </variables>
     </build-profile>
+    <build-profile instance="api">
+        <variables>
+            <noindex-content>true</noindex-content>
+        </variables>
+    </build-profile>
     <footer>
         <copyright>FireHub Web Application Framework 2024</copyright>
     </footer>

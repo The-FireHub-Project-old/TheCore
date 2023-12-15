@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="api"
+name="FireHub Core API"
+start-page="api.md">
+<toc-element topic="api.md"/>
+    <toc-element toc-title="\Core\Support">
+        <toc-element toc-title="classes">
+            <toc-element topic="SplAutoload.md"/>
+        </toc-element>
+    </toc-element>
+</instance-profile>
