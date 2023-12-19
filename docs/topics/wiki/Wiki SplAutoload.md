@@ -171,7 +171,7 @@ The autoload function that will be unregistered._
 <h2><a name="functions()"># method: functions</a></h2>
 
 ```php
-public static SplAutoload::functions():array&lt;array-key,mixed&gt;
+public static SplAutoload::functions():array<array-key,mixed>
 ```
 
 

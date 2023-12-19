@@ -277,7 +277,7 @@ The autoload function that will be unregistered.</format></li></list>
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-public static SplAutoload::functions():array&lt;array-key,mixed&gt;
+public static SplAutoload::functions():array<array-key,mixed>
 </code-block>
 
 
