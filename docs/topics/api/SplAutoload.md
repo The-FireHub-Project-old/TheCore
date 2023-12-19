@@ -1,7 +1,7 @@
 <title># SplAutoload</title>
 
 <code-block lang="php">
-final class \FireHub\Core\Support\LowLevel\SplAutoload()
+<![CDATA[final class \FireHub\Core\Support\LowLevel\SplAutoload()]]>
 </code-block>
 
 
@@ -68,7 +68,7 @@ final class \FireHub\Core\Support\LowLevel\SplAutoload()
 ## method: default {id="default()"}
 
 <code-block lang="php">
-public static SplAutoload::default(class-string $class, null|string $file_extensions = null):void
+    <![CDATA[public static SplAutoload::default(class-string $class, null|string $file_extensions = null):void]]>
 </code-block>
 
 
@@ -124,7 +124,7 @@ filename extensions .inc and .php.</format></li></list>
 ## method: extensions {id="extensions()"}
 
 <code-block lang="php">
-public static SplAutoload::extensions(null|non-empty-string $file_extensions = null):string
+    <![CDATA[public static SplAutoload::extensions(null|non-empty-string $file_extensions = null):string]]>
 </code-block>
 
 
@@ -175,7 +175,7 @@ in a single string with each extension separated by comma.</format></li></list>
 ## method: register {id="register()"}
 
 <code-block lang="php">
-public static SplAutoload::register(null|callable $callback = null, bool $prepend = false):bool
+    <![CDATA[public static SplAutoload::register(null|callable $callback = null, bool $prepend = false):bool]]>
 </code-block>
 
 
@@ -227,7 +227,7 @@ Whether to prepend the autoloader on the stack instead of appending it.</format>
 ## method: unregister {id="unregister()"}
 
 <code-block lang="php">
-public static SplAutoload::unregister(callable $callback):bool
+    <![CDATA[public static SplAutoload::unregister(callable $callback):bool]]>
 </code-block>
 
 
@@ -277,7 +277,7 @@ The autoload function that will be unregistered.</format></li></list>
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-public static SplAutoload::functions():array<array-key,mixed>
+    <![CDATA[public static SplAutoload::functions():array<array-key,mixed>]]>
 </code-block>
 
 
@@ -321,7 +321,7 @@ array.</format></li></list>
 ## method: load {id="load()"}
 
 <code-block lang="php">
-public static SplAutoload::load(class-string $class):void
+    <![CDATA[public static SplAutoload::load(class-string $class):void]]>
 </code-block>
 
 
