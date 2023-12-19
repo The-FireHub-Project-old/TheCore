@@ -277,7 +277,7 @@ The autoload function that will be unregistered.</format></li></list>
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-public static SplAutoload::functions():list
+public static SplAutoload::functions():array&lt;array-key,mixed&gt;
 </code-block>
 
 
@@ -313,7 +313,7 @@ public static SplAutoload::functions():list
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>list - <format style="italic">An array of all registered autoload functions.
+        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">An array of all registered autoload functions.
 If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
 array.</format></li></list>
     </def>

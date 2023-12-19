@@ -171,7 +171,7 @@ The autoload function that will be unregistered._
 <h2><a name="functions()"># method: functions</a></h2>
 
 ```php
-public static SplAutoload::functions():list
+public static SplAutoload::functions():array&lt;array-key,mixed&gt;
 ```
 
 
@@ -192,7 +192,7 @@ public static SplAutoload::functions():list
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L135)**</sub>
 #### Returns
 
-* list - _An array of all registered autoload functions.
+* array&lt;array-key,mixed&gt; - _An array of all registered autoload functions.
 If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
 array._
 <h2><a name="load()"># method: load</a></h2>

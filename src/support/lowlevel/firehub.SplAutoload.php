@@ -128,7 +128,7 @@ final class SplAutoload {
      * ### Get all registered autoload functions
      * @since 1.0.0
      *
-     * @return list<mixed> An array of all registered autoload functions.
+     * @return array<array-key, mixed> An array of all registered autoload functions.
      * If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
      * array.
      */
