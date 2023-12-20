@@ -194,7 +194,7 @@ public static SplAutoload::functions():array
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137)**</sub>
 #### Returns
 
-* array - _<code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+* array - _<code>array<array-key, mixed></code> An array of all registered autoload functions.
 If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array._
 <h2><a name="load()"># method: load</a></h2>
 
