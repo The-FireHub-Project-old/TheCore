@@ -89,6 +89,7 @@ final class SplAutoload {
      * @since 1.0.0
      *
      * @param null|callable(string $class):void $callback [optional] <p>
+     * <code>callable (string $class):void</code>
      * The autoload function being registered. If no callback is provided, then the default autoloader
      * will be used.
      * </p>
@@ -113,6 +114,7 @@ final class SplAutoload {
      * @since 1.0.0
      *
      * @param callable(string $class):void $callback [optional] <p>
+     * <code>callable (string $class):void</code>
      * The autoload function that will be unregistered.
      * </p>
      *
@@ -128,9 +130,9 @@ final class SplAutoload {
      * ### Get all registered autoload functions
      * @since 1.0.0
      *
-     * @return array<array-key, mixed> An array of all registered autoload functions.
-     * If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
-     * array.
+     * @return array <code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+     * If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array.
+     * @phpstan-return array<array-key, mixed>
      */
     public static function functions ():array {
 
