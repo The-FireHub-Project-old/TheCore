@@ -125,11 +125,12 @@ _Register a function with the spl provided autoload queue. If the queue is not y
 activated. If there must be multiple autoload functions, this method allows for this. It effectively creates a
 queue of autoload functions, and runs through each of them in the order they are defined._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L101)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L101)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102)**</sub>
 #### Parameters
 
 * null or callable **$callback** = null - _[optional] 
+<code>callable (string $class):void</code>
 The autoload function being registered. If no callback is provided, then the default autoloader
 will be used._
 * bool **$prepend** = false - _[optional] 
@@ -159,11 +160,12 @@ _Removes a function from the autoloaded queue. If the queue is activated and emp
 function, then it will be deactivated. When this function results in the queue being deactivated, any autoload
 function that previously existed will not be reactivated._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L121)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L121)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123)**</sub>
 #### Parameters
 
 * callable **$callback** - _[optional] 
+<code>callable (string $class):void</code>
 The autoload function that will be unregistered._
 #### Returns
 
@@ -171,7 +173,7 @@ The autoload function that will be unregistered._
 <h2><a name="functions()"># method: functions</a></h2>
 
 ```php
-public static SplAutoload::functions():array<array-key,mixed>
+public static SplAutoload::functions():array
 ```
 
 
@@ -188,13 +190,12 @@ public static SplAutoload::functions():array<array-key,mixed>
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L135)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L135)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137)**</sub>
 #### Returns
 
-* array&lt;array-key,mixed&gt; - _An array of all registered autoload functions.
-If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
-array._
+* array - _<code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array._
 <h2><a name="load()"># method: load</a></h2>
 
 ```php
@@ -215,8 +216,8 @@ public static SplAutoload::load(class-string $class):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156)**</sub>
 #### Parameters
 
 * class-string **$class** - _Fully qualified class name that is being called._

@@ -106,9 +106,12 @@ then this function will be used for any later call to autoload.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>class-string <format style="bold">$class</format> - <format style="italic">The name of the class (and namespace) being instantiated.</format></li><li>null or string <format style="bold">$file_extensions</format> = null - <format style="italic">[optional] 
+        <list><li>class-string <format style="bold">$class</format> - <format style="italic">
+The name of the class (and namespace) being instantiated.
+</format></li><li>null or string <format style="bold">$file_extensions</format> = null - <format style="italic">[optional] 
 By default, it checks all include paths to contain filenames built up by the lowercase class name appended by the
-filename extensions .inc and .php.</format></li></list>
+filename extensions .inc and .php.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -164,7 +167,8 @@ filename extensions .inc and .php.</format></li></list>
         <list><li>null or non-empty-string <format style="bold">$file_extensions</format> = null - <format style="italic">[optional] 
 If null, it simply returns the current list of extensions each separated by comma.
 To modify the list of file extensions, invoke the functions with the new list of file extensions to use
-in a single string with each extension separated by comma.</format></li></list>
+in a single string with each extension separated by comma.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -197,12 +201,12 @@ activated. If there must be multiple autoload functions, this method allows for 
 queue of autoload functions, and runs through each of them in the order they are defined.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L101">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L101">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102">
                     View blame
                 </a>
             </def></deflist>
@@ -214,9 +218,12 @@ queue of autoload functions, and runs through each of them in the order they are
 <deflist>
     <def title="This method has parameters:">
         <list><li>null or callable <format style="bold">$callback</format> = null - <format style="italic">[optional] 
+<code>callable (string $class):void</code>
 The autoload function being registered. If no callback is provided, then the default autoloader
-will be used.</format></li><li>bool <format style="bold">$prepend</format> = false - <format style="italic">[optional] 
-Whether to prepend the autoloader on the stack instead of appending it.</format></li></list>
+will be used.
+</format></li><li>bool <format style="bold">$prepend</format> = false - <format style="italic">[optional] 
+Whether to prepend the autoloader on the stack instead of appending it.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -249,12 +256,12 @@ function, then it will be deactivated. When this function results in the queue b
 function that previously existed will not be reactivated.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L121">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L121">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123">
                     View blame
                 </a>
             </def></deflist>
@@ -266,7 +273,9 @@ function that previously existed will not be reactivated.</format></p>
 <deflist>
     <def title="This method has parameters:">
         <list><li>callable <format style="bold">$callback</format> - <format style="italic">[optional] 
-The autoload function that will be unregistered.</format></li></list>
+<code>callable (string $class):void</code>
+The autoload function that will be unregistered.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -277,7 +286,7 @@ The autoload function that will be unregistered.</format></li></list>
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-    <![CDATA[public static SplAutoload::functions():array<array-key,mixed>]]>
+    <![CDATA[public static SplAutoload::functions():array]]>
 </code-block>
 
 
@@ -297,12 +306,12 @@ The autoload function that will be unregistered.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137">
                     View blame
                 </a>
             </def></deflist>
@@ -313,9 +322,8 @@ The autoload function that will be unregistered.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">An array of all registered autoload functions.
-If no function is registered, or the autoloaded queue is not activated, then the return value will be an empty
-array.</format></li></list>
+        <list><li>array - <format style="italic"><code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array.</format></li></list>
     </def>
 </deflist>
 ## method: load {id="load()"}
@@ -341,12 +349,12 @@ array.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156">
                     View blame
                 </a>
             </def></deflist>
@@ -357,7 +365,9 @@ array.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>class-string <format style="bold">$class</format> - <format style="italic">Fully qualified class name that is being called.</format></li></list>
+        <list><li>class-string <format style="bold">$class</format> - <format style="italic">
+Fully qualified class name that is being called.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
