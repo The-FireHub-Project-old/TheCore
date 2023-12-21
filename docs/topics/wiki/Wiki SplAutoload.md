@@ -13,6 +13,8 @@ This class is marked as **final**.
 
 
 
+
+
 ### ### SPL Autoload low-level proxy class
 
 
@@ -40,6 +42,8 @@ This class is marked as **final**.
 ```php
 public static SplAutoload::default(class-string $class, null|string $file_extensions = null):void
 ```
+
+
 
 
 
@@ -87,6 +91,9 @@ public static SplAutoload::extensions(null|non-empty-string $file_extensions = n
 
 
 
+> [!NOTE]
+            There should not be a space between the defined file extensions.
+
 ### ### Register and return file extensions for default autoload
 
 _This function can modify and check the file extensions that the built-in autoload fallback function
@@ -108,6 +115,8 @@ in a single string with each extension separated by comma._
 ```php
 public static SplAutoload::register(null|callable $callback = null, bool $prepend = false):bool
 ```
+
+
 
 
 
@@ -154,6 +163,8 @@ public static SplAutoload::unregister(callable $callback):bool
 
 
 
+
+
 ### ### Unregister autoload implementation
 
 _Removes a function from the autoloaded queue. If the queue is activated and empty after removing the given
@@ -175,6 +186,8 @@ The autoload function that will be unregistered._
 ```php
 public static SplAutoload::functions():array
 ```
+
+
 
 
 
@@ -211,6 +224,10 @@ public static SplAutoload::load(class-string $class):void
 
 
 
+
+> [!NOTE]
+            This method can be used to manually search for a class or interface using the registered autoloader
+functions.
 
 ### ### Try all registered autoload functions to load the requested class
 
