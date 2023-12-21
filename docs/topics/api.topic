@@ -7,6 +7,6 @@
 
     <title>API</title>
 
-    <p>API documentation can be found <a href="https://the-firehub-project.github.io/%version%/Core/api/">here</a></p>
+    <p>API documentation can be found <a href="https://the-firehub-project.github.io/Core/%version%/api/">here</a></p>
 
 </topic>
