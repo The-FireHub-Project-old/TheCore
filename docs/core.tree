@@ -6,4 +6,5 @@
                  name="FireHub Core"
                  start-page="discover-firehub-core.topic">
     <toc-element topic="discover-firehub-core.topic"/>
+    <toc-element topic="api.topic"/>
 </instance-profile>
