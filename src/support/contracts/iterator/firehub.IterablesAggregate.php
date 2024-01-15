@@ -34,7 +34,8 @@ interface IterablesAggregate extends Traversable, IteratorAggregate {
      * ### Retrieve an external iterator
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Support\Contracts\Iterator\Traversable An instance of an object implementing Iterator or Traversable.
+     * @return \FireHub\Core\Support\Contracts\Iterator\Traversable <code><![CDATA[ \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue> ]]></code>
+     * An instance of an object implementing Iterator or Traversable.
      * @phpstan-return \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue>
      */
     public function getIterator ():Traversable;

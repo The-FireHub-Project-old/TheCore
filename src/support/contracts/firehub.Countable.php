@@ -28,7 +28,7 @@ interface Countable extends InternalCountable {
      * ### Count elements of an object
      * @since 1.0.0
      *
-     * @return int Number of elements of an object.
+     * @return int <code>non-negative-int</code> Number of elements of an object.
      * @phpstan-return non-negative-int
      */
     public function count ():int;
