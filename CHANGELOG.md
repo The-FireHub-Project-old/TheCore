@@ -1,5 +1,18 @@
 # Release Notes for v0.x.x.pre-alpha
 
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.2...develop-pre-alpha-m1)
+
+### Added
+- Create Countable contract ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [2a4234a](https://github.com/The-FireHub-Project/Core/pull/7/commits/2a4234a))
+- Create iterator contracts ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [62b261a](https://github.com/The-FireHub-Project/Core/pull/7/commits/62b261a))
+- Create CaseFolding enum ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [d9e8aa0](https://github.com/The-FireHub-Project/Core/pull/7/commits/d9e8aa0))
+- Create Order enum ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [d4966c4](https://github.com/The-FireHub-Project/Core/pull/7/commits/d4966c4))
+- Create Sort enum ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [4063d8c](https://github.com/The-FireHub-Project/Core/pull/7/commits/4063d8c))
+- Create Arr low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f1c8868](https://github.com/The-FireHub-Project/Core/pull/7/commits/f1c8868))
+- Create DataIs low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f8b2f4f](https://github.com/The-FireHub-Project/Core/pull/7/commits/f8b2f4f))
+- Create Iterator low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [ec5b35b](https://github.com/The-FireHub-Project/Core/pull/7/commits/ec5b35b))
+- Create Iterables low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f1b3cb5](https://github.com/The-FireHub-Project/Core/pull/7/commits/f1b3cb5))
+
 ## [v0.1.2](https://github.com/The-FireHub-Project/Core/compare/v0.1.1...v0.1.2) - (2023-11-28)
 
 ### Added
