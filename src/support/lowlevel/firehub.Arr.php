@@ -1931,9 +1931,12 @@ final class Arr {
      * @return true Always true.
      *
      * @note Resets array's internal pointer to the first element.
+     *
+     * @todo Replace phpstan error when update is available.
      */
     public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::SORT_REGULAR, bool $preserve_keys = false):true {
 
+        /** @phpstan-ignore-next-line In PHP 8.2 wrong return as bool, instead of true */
         return $order === Order::ASC
             ? ($preserve_keys
                 ? asort($array, $flag->value)
