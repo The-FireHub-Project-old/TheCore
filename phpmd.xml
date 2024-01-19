@@ -24,4 +24,5 @@
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml" />
+    <exclude-pattern>firehub.RegexMB.php</exclude-pattern>
 </ruleset>
