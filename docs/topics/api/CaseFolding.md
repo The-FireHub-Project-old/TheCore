@@ -22,7 +22,7 @@
 
 <deflist>
     <def title="Enum basic info:">
-        <list><li>This enum was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;</li><li>Copyright: 2023 FireHub Web Application Framework</li><li>License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3</li><li>Version: GIT: $Id$ Blob checksum.</li></list>
+        <list><li>This enum was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;</li><li>Copyright: 2024 FireHub Web Application Framework</li><li>License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3</li><li>Version: GIT: $Id$ Blob checksum.</li></list>
     </def>
 </deflist>
 
@@ -92,7 +92,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li></list>
+        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to lowercase.</format></li></list>
     </def>
 </deflist>
 ## case: UPPER {id="upper"}
@@ -129,7 +129,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li></list>
+        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to uppercase.</format></li></list>
     </def>
 </deflist>
 ## case: TITLE {id="title"}
@@ -162,5 +162,10 @@
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This case is used by:">
+        <list><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to title-case.</format></li></list>
     </def>
 </deflist>

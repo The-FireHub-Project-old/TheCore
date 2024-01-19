@@ -150,7 +150,7 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">Current element.</format></li></list>
+        <list><li>mixed - <format style="italic"><code>TValue</code> Current element.</format></li></list>
     </def>
 </deflist>
 ## method: key {id="key()"}
@@ -192,7 +192,7 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">Key of the current element.</format></li></list>
+        <list><li>mixed - <format style="italic"><code>null|TKey</code> Key of the current element.</format></li></list>
     </def>
 </deflist>
 ## method: next {id="next()"}

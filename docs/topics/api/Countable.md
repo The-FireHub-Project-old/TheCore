@@ -95,6 +95,6 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic">Number of elements of an object.</format></li></list>
+        <list><li>int - <format style="italic"><code>non-negative-int</code> Number of elements of an object.</format></li></list>
     </def>
 </deflist>

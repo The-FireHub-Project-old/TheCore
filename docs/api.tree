@@ -9,10 +9,18 @@ start-page="api.md">
     <toc-element toc-title="\Core\Support">
         <toc-element toc-title="classes">
             <toc-element topic="Arr.md"/>
+            <toc-element topic="CharMB.md"/>
+            <toc-element topic="CharSB.md"/>
             <toc-element topic="DataIs.md"/>
             <toc-element topic="Iterables.md"/>
             <toc-element topic="Iterator.md"/>
+            <toc-element topic="RegexMB.md"/>
+            <toc-element topic="RegexSB.md"/>
             <toc-element topic="SplAutoload.md"/>
+            <toc-element topic="StrEncode.md"/>
+            <toc-element topic="StrMB.md"/>
+            <toc-element topic="StrSB.md"/>
+            <toc-element topic="StrSafe.md"/>
         </toc-element>
         <toc-element toc-title="interfaces">
             <toc-element topic="Countable.md"/>
@@ -22,8 +30,19 @@ start-page="api.md">
         </toc-element>
         <toc-element toc-title="enums">
             <toc-element topic="Order.md"/>
+            <toc-element topic="Side.md"/>
             <toc-element topic="Sort.md"/>
             <toc-element topic="CaseFolding.md"/>
+            <toc-element topic="Encoding.md"/>
+        </toc-element>
+        <toc-element toc-title="constants">
+            <toc-element topic="FLOAT_DIG.md"/>
+            <toc-element topic="FLOAT_EPSILON.md"/>
+            <toc-element topic="FLOAT_MAX.md"/>
+            <toc-element topic="FLOAT_MIN.md"/>
+            <toc-element topic="MAX.md"/>
+            <toc-element topic="MIN.md"/>
+            <toc-element topic="SIZE.md"/>
         </toc-element>
     </toc-element>
 </instance-profile>

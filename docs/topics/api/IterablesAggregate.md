@@ -85,12 +85,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L41">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L41">
                     View blame
                 </a>
             </def></deflist>
@@ -101,6 +101,7 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="Traversable.md">\FireHub\Core\Support\Contracts\Iterator\Traversable</a> - <format style="italic">An instance of an object implementing Iterator or Traversable.</format></li></list>
+        <list><li><a href="Traversable.md">\FireHub\Core\Support\Contracts\Iterator\Traversable</a> - <format style="italic"><code><![CDATA[ \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue> ]]></code>
+An instance of an object implementing Iterator or Traversable.</format></li></list>
     </def>
 </deflist>
