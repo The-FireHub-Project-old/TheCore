@@ -12,6 +12,12 @@
 - Create DataIs low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f8b2f4f](https://github.com/The-FireHub-Project/Core/pull/7/commits/f8b2f4f))
 - Create Iterator low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [ec5b35b](https://github.com/The-FireHub-Project/Core/pull/7/commits/ec5b35b))
 - Create Iterables low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f1b3cb5](https://github.com/The-FireHub-Project/Core/pull/7/commits/f1b3cb5))
+- Create string encoding enum ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [946a3c6](https://github.com/The-FireHub-Project/Core/pull/7/commits/946a3c6))
+- Create char low-level proxy classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [06fcae1](https://github.com/The-FireHub-Project/Core/pull/7/commits/06fcae1))
+- Create Create Side enum ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [c62a4ee](https://github.com/The-FireHub-Project/Core/pull/7/commits/c62a4ee))
+- Create Number constants ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [ac37a80](https://github.com/The-FireHub-Project/Core/pull/7/commits/ac37a80))
+- Create string low-level classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [5626109](https://github.com/The-FireHub-Project/Core/pull/7/commits/5626109))
+- Create Regex low-level classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [18ac58f](https://github.com/The-FireHub-Project/Core/pull/7/commits/18ac58f))
 
 ## [v0.1.2](https://github.com/The-FireHub-Project/Core/compare/v0.1.1...v0.1.2) - (2023-11-28)
 
