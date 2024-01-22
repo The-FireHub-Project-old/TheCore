@@ -27,6 +27,8 @@ use function unserialize;
  *
  * Class contains variable handling methods.
  * @since 1.0.0
+ *
+ * @comment Temporary exclude on phpmd.md because match pattern is not read correctly on line 196.
  */
 final class Data {
 
