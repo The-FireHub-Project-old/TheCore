@@ -946,6 +946,11 @@ The string replaced from.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To get part of microtime.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The string to extract the substring from.

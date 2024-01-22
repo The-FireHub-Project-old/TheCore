@@ -165,6 +165,11 @@ The variable being type checked.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To set microtime to another type.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 The variable being converted to type.

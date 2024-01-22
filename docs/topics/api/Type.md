@@ -186,7 +186,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Data.md#gettype()">\FireHub\Core\Support\LowLevel\Data::getType()</a>  - <format style="italic">As data type.</format></li><li><a href="Data.md#settype()">\FireHub\Core\Support\LowLevel\Data::setType()</a>  - <format style="italic">As data type.</format></li></list>
+        <list><li><a href="Data.md#gettype()">\FireHub\Core\Support\LowLevel\Data::getType()</a>  - <format style="italic">As data type.</format></li><li><a href="Data.md#settype()">\FireHub\Core\Support\LowLevel\Data::setType()</a>  - <format style="italic">As data type.</format></li><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To set microtime as integer.</format></li></list>
     </def>
 </deflist>
 ## case: T_FLOAT {id="t_float"}
