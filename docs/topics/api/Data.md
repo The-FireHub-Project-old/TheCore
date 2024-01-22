@@ -33,7 +33,7 @@
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Data
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L31">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L33">
             View source code
         </a>
     </def>
@@ -86,12 +86,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56">
                     View blame
                 </a>
             </def></deflist>
@@ -145,12 +145,12 @@ The variable being type checked.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114">
                     View blame
                 </a>
             </def></deflist>
@@ -217,12 +217,12 @@ This is useful for storing or passing PHP values around without losing their typ
 To make the serialized string into a PHP value again, use unserialize().</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L156">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L156">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158">
                     View blame
                 </a>
             </def></deflist>
@@ -272,12 +272,12 @@ The value to be serialized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L186">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L186">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188">
                     View blame
                 </a>
             </def></deflist>

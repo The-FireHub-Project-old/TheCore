@@ -22,7 +22,7 @@ _Class contains variable handling methods._
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\LowLevel\Data**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L31)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L33)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php)**</sub>
 
@@ -57,8 +57,8 @@ public static Data::getType(mixed $value):\FireHub\Core\Support\Enums\Data\Type
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L54)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L54)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56)**</sub>
 #### Parameters
 
 * mixed **$value** - _The variable being type checked._
@@ -90,8 +90,8 @@ public static Data::setType(mixed $value, \FireHub\Core\Support\Enums\Data\Type 
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114)**</sub>
 #### Parameters
 
 * mixed **$value** - _The variable being converted to type._
@@ -131,8 +131,8 @@ _Generates a storable representation of a value.
 This is useful for storing or passing PHP values around without losing their type and structure.
 To make the serialized string into a PHP value again, use unserialize()._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L156)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L156)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158)**</sub>
 #### Parameters
 
 * string or int or float or bool or array or object or null **$value** - _<code>scalar|array<array-key, mixed>|object|null</code>
@@ -165,8 +165,8 @@ public static Data::unserializeValue(string $data, bool|array $allowed_classes =
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L186)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L186)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188)**</sub>
 #### Parameters
 
 * string **$data** - _<code>non-empty-string</code>
