@@ -45,11 +45,14 @@ final class Constant {
      * @phpstan-param non-empty-string $name
      * @phpstan-param null|array<array-key, mixed>|scalar $value
      *
-     * @return bool True on success or false on failure.
+     * @Error If failed to define constant.
+     *
+     * @return true True on success.
      */
-    public static function define (string $name, null|array|bool|float|int|string $value):bool {
+    public static function define (string $name, null|array|bool|float|int|string $value):true {
 
-        return define($name, $value);
+        return define($name, $value)
+            ?: throw new Error('Failed to define constant.');
 
     }
 

@@ -88,9 +88,9 @@ final class Data {
      * Type to convert variable to.
      * </p>
      *
-     * @throws Error If a type cannot be set to resource.
+     * @throws Error If a type cannot be set to resource or failed to set a type for value.
      *
-     * @return mixed Converted value or false if conversion failed.
+     * @return mixed Converted value.
      * @phpstan-return (
      *  $type is Type::T_ARRAY
      *  ? array<array-key, mixed>
@@ -125,7 +125,7 @@ final class Data {
             Type::T_NULL => 'NULL',
             default => 'string'
 
-        });
+        }) ?: throw new Error('Failed to set a type for value.');
 
         return $value;
 

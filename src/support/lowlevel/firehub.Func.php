@@ -14,6 +14,8 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use Error;
+
 use function function_exists;
 use function call_user_func;
 use function register_shutdown_function;
@@ -128,11 +130,16 @@ final class Func {
      * Parameters for callback function.
      * </p>
      *
-     * @return bool True on success or false on failure.
+     * @throws Error If failed to register tick function.
+     *
+     * @return bool True on success.
+     *
+     * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */
-    public static function registerTick (callable $callback, mixed ...$arguments):bool {
+    public static function registerTick (callable $callback, mixed ...$arguments):true {
 
-        return register_tick_function($callback, ...$arguments);
+        return register_tick_function($callback, ...$arguments)
+            ?: throw new Error('Failed to register tick function.');
 
     }
 

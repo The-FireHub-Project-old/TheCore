@@ -141,20 +141,20 @@ final class RegexMB {
      *
      * @throws Error If encoding is invalid or failed to get regex encoding.
      *
-     * @return bool|Encoding If encoding is set, then returns true on success or false on failure. In this case, the
-     * internal character encoding is NOT changed. If encoding is omitted, then the current character encoding name
-     * for a multibyte regex is returned.
+     * @return true|Encoding If encoding is set, then returns true. In this case, the internal character encoding is
+     * NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned.
      *
      * @SuppressWarnings(PHPMD)
      *
      * @phpstan-ignore-next-line PHPStan reports that mb_regex_encoding can only be bool.
      */
-    public static function encoding (Encoding $encoding = null):bool|Encoding {
+    public static function encoding (Encoding $encoding = null):true|Encoding {
 
         return match ($regex_encoding = mb_regex_encoding($encoding?->value)) {
             true => true,
             false => throw new Error('Failed to get regex encoding.'),
-            DataIs::string($regex_encoding) => Encoding::tryFrom($regex_encoding) ?? throw new Error('Invalid regex encoding.') // @phpstan-ignore-line PHPStan reports that mb_regex_encoding can only be bool
+            DataIs::string($regex_encoding) => Encoding::tryFrom($regex_encoding) // @phpstan-ignore-line PHPStan reports that mb_regex_encoding can only be bool
+                ?? throw new Error('Invalid regex encoding.')
         };
 
     }

@@ -14,7 +14,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
-use LogicException;
+use Error, LogicException;
 
 use function spl_autoload;
 use function spl_autoload_call;
@@ -97,11 +97,16 @@ final class SplAutoload {
      * Whether to prepend the autoloader on the stack instead of appending it.
      * </p>
      *
-     * @return bool True if autoloader was registered, or false on failure.
+     * @throws Error If failed to register a callback function as an autoloader.
+     *
+     * @return bool True if autoloader was registered.
+     *
+     * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */
-    public static function register (callable $callback = null, bool $prepend = false):bool {
+    public static function register (callable $callback = null, bool $prepend = false):true {
 
-        return spl_autoload_register($callback, true, $prepend);
+        return spl_autoload_register($callback, true, $prepend)
+            ?: throw new Error('Failed to register a callback function as an autoloader.');
 
     }
 
@@ -118,11 +123,14 @@ final class SplAutoload {
      * The autoload function that will be unregistered.
      * </p>
      *
-     * @return bool True if autoloader was unregistered, false otherwise.
+     * @throws Error If failed to unregister autoload implementation.
+     *
+     * @return bool True if autoloader was unregistered.
      */
     public static function unregister (callable $callback):bool {
 
-        return spl_autoload_unregister($callback);
+        return spl_autoload_unregister($callback)
+            ?: throw new Error('Failed to unregister autoload implementation.');
 
     }
 

@@ -185,16 +185,20 @@ final class Arr {
      * </p>
      * @phpstan-param array<array-key, array<array-key, mixed>> $array
      *
+     * @throws Error Failed to sort a multi-sort array.
      * @throws ValueError If array sizes are inconsistent.
      *
-     * @return bool True on success, false otherwise.
+     * @return bool True on success.
      *
      * @caution Associative (string) keys will be maintained, but numeric keys will be re-indexed.
      * @note Resets array's internal pointer to the first element.
+     *
+     * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */
-    public static function multiSort (array $array):bool {
+    public static function multiSort (array $array):true {
 
-        return array_multisort(...$array);
+        return array_multisort(...$array)
+            ?: throw new Error('Failed to sort a multi-sort array.');
 
     }
 
@@ -224,9 +228,9 @@ final class Arr {
      *
      * @throws ArgumentCountError If the $callback function requires more than two parameters.
      *
-     * @return bool True on success, false otherwise.
+     * @return true True on success.
      */
-    public static function walk (array &$array, callable $callback):bool {
+    public static function walk (array &$array, callable $callback):true {
 
         return array_walk($array, $callback);
 
@@ -256,9 +260,9 @@ final class Arr {
      * </p>
      * @phpstan-param array<TKey, TValue> $array
      *
-     * @return bool True on success, false otherwise.
+     * @return true True on success.
      */
-    public static function walkRecursive (array &$array, callable $callback):bool {
+    public static function walkRecursive (array &$array, callable $callback):true {
 
         return array_walk_recursive($array, $callback);
 

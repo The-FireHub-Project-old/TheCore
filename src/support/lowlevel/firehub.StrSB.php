@@ -550,11 +550,15 @@ final class StrSB extends StrSafe {
      * </p>
      * @phpstan-param 0|1|2 $format
      *
-     * @return int|array<int, string>|false Number of words found or list of words.
+     * @throws Error If failed to count words for string.
+     *
+     * @return int|array <code><![CDATA[ int|array<int, string> ]]></code> Number of words found or list of words.
+     * @phpstan-return int|array<int, string>
      */
-    public static function countWords (string $string, string $characters = null, int $format = 0):int|array|false {
+    public static function countWords (string $string, string $characters = null, int $format = 0):int|array {
 
-        return str_word_count($string, $format, $characters);
+        return str_word_count($string, $format, $characters)
+            ?: throw new Error('Failed to count words for string.');
 
     }
 

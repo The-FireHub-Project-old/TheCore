@@ -351,11 +351,11 @@ final class StrMB extends StrSafe {
      * @throws ValueError If the value of encoding is an invalid encoding.
      * @throws Error If we could not get current encoding.
      *
-     * @return \FireHub\Core\Support\Enums\String\Encoding|bool If encoding is set, then returns true on success or
-     * false on failure. In this case, the character encoding for multibyte regex is NOT changed. If encoding is
-     * omitted, then the current character encoding name is returned.
+     * @return true|\FireHub\Core\Support\Enums\String\Encoding If encoding is set, then returns true. In this case, the
+     * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
+     * encoding name is returned.
      */
-    public static function encoding (Encoding $encoding = null):Encoding|bool {
+    public static function encoding (Encoding $encoding = null):true|Encoding {
 
         return $encoding
             ? mb_internal_encoding($encoding->value)

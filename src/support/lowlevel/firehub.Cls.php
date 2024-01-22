@@ -146,15 +146,18 @@ final class Cls extends ClsObj {
      * @phpstan-param class-string $class
      * @phpstan-param class-string $alias
      *
-     * @return bool True on success or false on failure.
+     * @throws Error If failed to alias the class.
+     *
+     * @return true True on success.
      *
      * @note Class names are case-insensitive in PHP, and this is reflected in this function. Aliases created by
      * [[Cls#alias()]] are declared in lowercase. This means that for a class MyClass, the [[Cls#alias('MyClass',
      * 'MyClassAlias')]] call will declare a new class alias named myclassalias.
      */
-    public static function alias (string $class, string $alias, bool $autoload = true):bool {
+    public static function alias (string $class, string $alias, bool $autoload = true):true {
 
-        return class_alias($class, $alias, $autoload);
+        return class_alias($class, $alias, $autoload)
+            ?: throw new Error('Failed to alias the class.');
 
     }
 

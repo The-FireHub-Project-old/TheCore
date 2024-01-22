@@ -103,7 +103,7 @@ final class StrEncode {
      *
      * @throws Error If we cannot uudecode $data.
      *
-     * @return string Decoded data as a string or false on failure.
+     * @return string Decoded data as a string.
      *
      * @note UUDecode neither accepts the beginning nor the end line, which are part of uuencoded files.
      */
