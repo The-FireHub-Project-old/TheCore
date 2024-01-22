@@ -14,6 +14,7 @@ start-page="api.md">
             <toc-element topic="Cls.md"/>
             <toc-element topic="ClsObj.md"/>
             <toc-element topic="Constant.md"/>
+            <toc-element topic="Data.md"/>
             <toc-element topic="DataIs.md"/>
             <toc-element topic="Iterables.md"/>
             <toc-element topic="Iterator.md"/>
@@ -36,6 +37,8 @@ start-page="api.md">
             <toc-element topic="Traversable.md"/>
         </toc-element>
         <toc-element toc-title="enums">
+            <toc-element topic="Category.md"/>
+            <toc-element topic="Type.md"/>
             <toc-element topic="LogBase.md"/>
             <toc-element topic="Round.md"/>
             <toc-element topic="Order.md"/>
