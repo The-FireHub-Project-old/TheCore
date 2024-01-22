@@ -20,6 +20,10 @@
 - Create Regex low-level classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [18ac58f](https://github.com/The-FireHub-Project/Core/pull/7/commits/18ac58f))
 - Create number enums ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [025ebff](https://github.com/The-FireHub-Project/Core/pull/7/commits/025ebff))
 - Create number low-level proxy classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [f3f5a9b](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3f5a9b))
+- Create class and object low-level proxy classes ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [5cc528c](https://github.com/The-FireHub-Project/Core/pull/7/commits/5cc528c))
+- Create Constant low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [3744571](https://github.com/The-FireHub-Project/Core/pull/7/commits/3744571))
+- Created data enums ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [9dd59c6](https://github.com/The-FireHub-Project/Core/pull/7/commits/9dd59c6))
+- Created Data low-level proxy class ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [e545e6e](https://github.com/The-FireHub-Project/Core/pull/7/commits/e545e6e))
 
 ## [v0.1.2](https://github.com/The-FireHub-Project/Core/compare/v0.1.1...v0.1.2) - (2023-11-28)
 
