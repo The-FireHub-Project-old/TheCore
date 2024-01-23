@@ -6,6 +6,26 @@
 name="FireHub Core API"
 start-page="api.md">
 <toc-element topic="api.md"/>
+    <toc-element toc-title="\Core">
+        <toc-element toc-title="classes">
+            <toc-element topic="FireHub.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element toc-title="\Core\Initializers">
+        <toc-element toc-title="classes">
+            <toc-element topic="Kernel.md"/>
+        </toc-element>
+        <toc-element toc-title="enums">
+            <toc-element topic="Kernel.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element toc-title="\Core\Kernel">
+        <toc-element toc-title="classes">
+            <toc-element topic="Kernel.md"/>
+            <toc-element topic="Kernel.md"/>
+            <toc-element topic="Kernel.md"/>
+        </toc-element>
+    </toc-element>
     <toc-element toc-title="\Core\Support">
         <toc-element toc-title="classes">
             <toc-element topic="Arr.md"/>
