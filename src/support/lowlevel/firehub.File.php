@@ -347,6 +347,7 @@ final class File extends FileSystem {
      * @error\exeption E_WARNING if permission denied to write to file.
      *
      * @return int <code>non-negative-int</code> Number of bytes that were written to the file, false otherwise.
+
      * @phpstan-return non-negative-int
      */
     public static function putContent (string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int {
