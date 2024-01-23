@@ -37,7 +37,7 @@ _Class allows you to obtain information about constants._
 <h2><a name="define()"># method: define</a></h2>
 
 ```php
-public static Constant::define(string $name, null|array|bool|float|int|string $value):bool
+public static Constant::define(string $name, null|array|bool|float|int|string $value):true
 ```
 
 
@@ -56,8 +56,8 @@ public static Constant::define(string $name, null|array|bool|float|int|string $v
 
 _Defines a named constant at runtime._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L50)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L50)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52)**</sub>
 #### Parameters
 
 * string **$name** - _<code>non-empty-string</code>
@@ -66,7 +66,7 @@ The name of the constant._
 The value of the constant._
 #### Returns
 
-* bool - _True on success or false on failure._
+* true - _True on success._
 <h2><a name="defined()"># method: defined</a></h2>
 
 ```php
@@ -90,8 +90,8 @@ public static Constant::defined(string $name):bool
 
 _This function works also with class constants and enum cases._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L72)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L72)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75)**</sub>
 #### Parameters
 
 * string **$name** - _<code>non-empty-string</code>
@@ -123,8 +123,8 @@ public static Constant::value(string $name):mixed
 _Method [[Constant#value()]] is useful if you need to retrieve the value of a constant, but do not know its name.
 I.e., it is stored in a variable or returned by a function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L97)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L97)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100)**</sub>
 #### Parameters
 
 * string **$name** - _<code>non-empty-string</code>

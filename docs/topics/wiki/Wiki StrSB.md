@@ -152,8 +152,8 @@ public static StrSB::compare(string $string_1, string $string_2, bool $case_sens
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L702)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L702)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L706)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L706)**</sub>
 #### Parameters
 
 * string **$string_1** - _String to compare against._
@@ -773,7 +773,7 @@ byte in size._
 <h2><a name="countwords()"># method: countWords</a></h2>
 
 ```php
-public static StrSB::countWords(string $string, null|string $characters = null, int $format):int|array<int,string>|false
+public static StrSB::countWords(string $string, null|string $characters = null, int $format):int|array
 ```
 
 
@@ -795,8 +795,8 @@ be an integer representing the number of words found. In the event the format is
 the return value will be an array, the content of which is dependent on the format.
 The possible value for the format and the resultant outputs are listed below._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L555)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L555)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L558)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L558)**</sub>
 #### Parameters
 
 * string **$string** - _The string._
@@ -809,9 +809,12 @@ A string to search words.
 1 - returns an array containing all the words found inside the string.
 2 - returns an associative array, where the key is the numeric position of the word inside the string and the
 value is the actual word itself._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If failed to count words for string._
 #### Returns
 
-* int or array&lt;int,string&gt; or false - _Number of words found or list of words._
+* int or array - _<code>int|array<int, string></code> Number of words found or list of words._
 <h2><a name="partcount()"># method: partCount</a></h2>
 
 ```php
@@ -836,8 +839,8 @@ public static StrSB::partCount(string $string, string $search, int $start, null|
 _Returns the number of times the needle substring occurs in the haystack string. Please note that needle is
 case-sensitive._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L587)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L587)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L591)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L591)**</sub>
 #### Parameters
 
 * string **$string** - _The string being checked._
@@ -874,8 +877,8 @@ beginning of the string.
 
 _Finds the length of the initial segment of $string that contains only characters from $characters._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L623)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L623)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L627)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L627)**</sub>
 #### Parameters
 
 * string **$string** - _The string to examine._
@@ -917,8 +920,8 @@ beginning of the string.
 
 _Returns the length of the initial segment of $string which does not contain any of the characters in $characters._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L660)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L660)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L664)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L664)**</sub>
 #### Parameters
 
 * string **$string** - _The string to examine._
@@ -960,8 +963,8 @@ public static StrSB::length(string $string):int
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L679)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L679)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L683)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L683)**</sub>
 #### Parameters
 
 * string **$string** - _The string being measured for length._
@@ -990,8 +993,8 @@ public static StrSB::comparePart(string $string_1, string $string_2, int $offset
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L735)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L735)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L739)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L739)**</sub>
 #### Parameters
 
 * string **$string_1** - _String to compare against._
@@ -1031,8 +1034,8 @@ public static StrSB::compareFirstN(string $string_1, string $string_2, int $leng
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L764)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L764)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L768)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L768)**</sub>
 #### Parameters
 
 * string **$string_1** - _String to compare against._
@@ -1067,8 +1070,8 @@ value of this function.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L793)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L793)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L797)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L797)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._
@@ -1105,8 +1108,8 @@ value of this function.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L824)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L824)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L828)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L828)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._

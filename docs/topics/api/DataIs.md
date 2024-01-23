@@ -355,6 +355,11 @@ Value to check.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="FileSystem.md#getpermissions()">\FireHub\Core\Support\LowLevel\FileSystem::getPermissions()</a>  - <format style="italic">To find whether fileperms() function returns integer.</format></li><li><a href="FileSystem.md#setpermissions()">\FireHub\Core\Support\LowLevel\FileSystem::setPermissions()</a>  - <format style="italic">To find whether octdec returns integer.</format></li><li><a href="Folder.md#create()">\FireHub\Core\Support\LowLevel\Folder::create()</a>  - <format style="italic">To find whether octdec() returns an integer.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 Value to check.
@@ -699,7 +704,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="RegexMB.md#encoding()">\FireHub\Core\Support\LowLevel\RegexMB::encoding()</a>  - <format style="italic">To check if provider encoding is string.</format></li></list>
+        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To find whether the statistics key is string or not.</format></li><li><a href="RegexMB.md#encoding()">\FireHub\Core\Support\LowLevel\RegexMB::encoding()</a>  - <format style="italic">To check if provider encoding is string.</format></li></list>
     </def>
 </deflist>
 <deflist>

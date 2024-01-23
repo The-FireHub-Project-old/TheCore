@@ -150,7 +150,7 @@ String representing the date/time._
 #### Returns
 
 * array - _<code>array<string, mixed></code> Associative array with detailed info about a
-given date/time or false in case the date/time format has an error._
+given date/time._
 <h2><a name="format()"># method: format</a></h2>
 
 ```php
@@ -195,7 +195,7 @@ Format a GMT/UTC date/time._
 <h2><a name="formatinteger()"># method: formatInteger</a></h2>
 
 ```php
-public static DateAndTime::formatInteger(string $format, null|int $timestamp = null):false|int
+public static DateAndTime::formatInteger(string $format, null|int $timestamp = null):int
 ```
 
 
@@ -216,8 +216,8 @@ _Returns a formatted number, according to the given format string using the give
 local time, if no timestamp is given. In other words, timestamp is optional and defaults to the value of
 [[DateAndTime#time()]]._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L185)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L185)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L186)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L186)**</sub>
 #### Parameters
 
 * string **$format** - _<code>'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z'</code>
@@ -225,9 +225,12 @@ Single format character._
 * null or int **$timestamp** = null - _[optional] 
 The optional timestamp parameter is an integer Unix timestamp that defaults to the current local time
 if a timestamp is not given._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If failed to format a Unix timestamp as integer._
 #### Returns
 
-* false or int - _Formatted date as integer, false otherwise._
+* int - _Formatted date as integer._
 #### Links
 
 * [https://www.php.net/manual/en/function.idate.phP](https://www.php.net/manual/en/function.idate.phP)
@@ -253,8 +256,8 @@ public static DateAndTime::get(null|int $timestamp = null):array
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L223)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L223)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L225)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L225)**</sub>
 #### Parameters
 
 * null or int **$timestamp** = null - _[optional] 
@@ -290,8 +293,8 @@ public static DateAndTime::sunInfo(int $timestamp, float $latitude, float $longi
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L267)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L267)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L269)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L269)**</sub>
 #### Parameters
 
 * int **$timestamp** - _Unix timestamp._
@@ -337,8 +340,8 @@ _The method expects to be given a string containing an English date format and w
 into a Unix timestamp (the number of seconds since January 1, 1970 00:00:00 UTC), relative to the timestamp
 given in baseTimestamp, or the current time if baseTimestamp is not supplied._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L310)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L310)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L312)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L312)**</sub>
 #### Parameters
 
 * string **$datetime** - _<code>non-empty-string</code>
@@ -377,8 +380,8 @@ public static DateAndTime::toTimestamp(int $hour, null|int $minute = null, null|
 _Returns the Unix timestamp corresponding to the arguments given. This timestamp is a long integer containing
 the number of seconds between the Unix Epoch (January, 1 1970 00:00:00 GMT) and the time specified._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L361)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L361)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L363)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L363)**</sub>
 #### Parameters
 
 * int **$hour** - _The number of hours relative to the start of the day is determined by month, day and year. Negative values
@@ -429,8 +432,8 @@ public static DateAndTime::time():int
 
 _Returns the current time measured in the number of seconds since the Unix Epoch (January, 1 1970 00:00:00 GMT)._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L381)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L381)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L383)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L383)**</sub>
 #### Returns
 
 * int - _The current timestamp._
@@ -458,8 +461,8 @@ public static DateAndTime::microtime():int
 _Method returns the current Unix timestamp with microseconds. This function is only available on operating
 systems that support the gettimeofday() system call._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L403)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L403)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L405)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L405)**</sub>
 #### Returns
 
 * int - _Current microseconds._

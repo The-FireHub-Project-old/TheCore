@@ -181,7 +181,7 @@ Whether to autoload if not already loaded._
 <h2><a name="alias()"># method: alias</a></h2>
 
 ```php
-public static Cls::alias(string $class, string $alias, bool $autoload = true):bool
+public static Cls::alias(string $class, string $alias, bool $autoload = true):true
 ```
 
 
@@ -204,8 +204,8 @@ public static Cls::alias(string $class, string $alias, bool $autoload = true):bo
 _Creates an alias named alias based on the user-defined class. The aliased class is exactly the same as the
 original class._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L155)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L155)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L157)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L157)**</sub>
 #### Parameters
 
 * string **$class** - _<code>class-string</code>
@@ -214,9 +214,12 @@ The original class._
 The alias name for the class._
 * bool **$autoload** = true - _[optional] 
 Whether to autoload if the original class is not found._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If failed to alias the class._
 #### Returns
 
-* bool - _True on success or false on failure._
+* true - _True on success._
 <h2><a name="properties()"># method: properties</a></h2>
 
 ```php
@@ -241,8 +244,8 @@ public static Cls::properties(string $class):array
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L182)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L182)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L185)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L185)**</sub>
 #### Parameters
 
 * string **$class** - _<code>class-string</code>

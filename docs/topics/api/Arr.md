@@ -311,12 +311,12 @@ The array being evaluated.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L195">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L195">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198">
                     View blame
                 </a>
             </def></deflist>
@@ -335,18 +335,18 @@ A multidimensional array being sorted.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If array sizes are inconsistent.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">Failed to sort a multi-sort array.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If array sizes are inconsistent.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: walk {id="walk()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::walk(array &$array, callable $callback):bool]]>
+    <![CDATA[public static Arr::walk(array &$array, callable $callback):true]]>
 </code-block>
 
 
@@ -367,12 +367,12 @@ A multidimensional array being sorted.
 internal array pointer of an array. Method will walk through the entire array regardless of pointer position.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L229">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L233">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L229">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L233">
                     View blame
                 </a>
             </def></deflist>
@@ -408,13 +408,13 @@ elements, unset elements, etc.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success, false otherwise.</format></li></list>
+        <list><li>true - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: walkRecursive {id="walkrecursive()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::walkRecursive(array &$array, callable $callback):bool]]>
+    <![CDATA[public static Arr::walkRecursive(array &$array, callable $callback):true]]>
 </code-block>
 
 
@@ -435,12 +435,12 @@ elements, unset elements, etc.
 deeper arrays.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L261">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L265">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L261">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L265">
                     View blame
                 </a>
             </def></deflist>
@@ -471,7 +471,7 @@ elements, unset elements, etc.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success, false otherwise.</format></li></list>
+        <list><li>true - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: countValues {id="countvalues()"}
@@ -498,12 +498,12 @@ elements, unset elements, etc.
 $array as values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L288">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L292">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L288">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L292">
                     View blame
                 </a>
             </def></deflist>
@@ -555,12 +555,12 @@ input as keys and their count as value.</format></li></list>
 parameter.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L320">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L324">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L320">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L324">
                     View blame
                 </a>
             </def></deflist>
@@ -617,12 +617,12 @@ The first index of the returned array.
 <p><format style="italic">Fills an array with the value of the $value parameter, using the values of the $keys array as keys.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L352">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L356">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L352">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L356">
                     View blame
                 </a>
             </def></deflist>
@@ -681,12 +681,12 @@ Value to use for filling.
 <p><format style="italic">Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L391">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L391">
                     View blame
                 </a>
             </def></deflist>
@@ -744,12 +744,12 @@ Either LOWER or UPPER case folding.
 <p><format style="italic">Chunks an array into arrays with $length elements. The last chunk may contain less than $length elements.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L422">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L426">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L422">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L426">
                     View blame
                 </a>
             </def></deflist>
@@ -813,12 +813,12 @@ be provided to $index the values in the returned array by the values from the in
 input array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L464">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L468">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L464">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L468">
                     View blame
                 </a>
             </def></deflist>
@@ -881,12 +881,12 @@ representing a single column from the input array.</format></li></list>
 corresponding values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L497">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L497">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501">
                     View blame
                 </a>
             </def></deflist>
@@ -950,12 +950,12 @@ using [[Arr#difference($array1[0], $array2[0])]].</p>
 the other arrays.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L531">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L535">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L531">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L535">
                     View blame
                 </a>
             </def></deflist>
@@ -1019,12 +1019,12 @@ check deeper dimensions by using [[Arr#differenceFunc($array1[0], $array2[0]), '
 [[Arr#difference()]] which uses an internal function for comparing the data.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L573">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L577">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L573">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L577">
                     View blame
                 </a>
             </def></deflist>
@@ -1087,12 +1087,12 @@ dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].</p>
 [[Arr#difference()]] except the comparison is done on the keys instead of the values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L607">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L611">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L607">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L611">
                     View blame
                 </a>
             </def></deflist>
@@ -1156,12 +1156,12 @@ dimensions by using [[Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_fu
 [[Arr#difference()]] except the comparison is done on the keys instead of the values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L648">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L652">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L648">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L652">
                     View blame
                 </a>
             </def></deflist>
@@ -1227,12 +1227,12 @@ array should be the first in the list.</p>
 also used in the comparison.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L684">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L688">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L684">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L688">
                     View blame
                 </a>
             </def></deflist>
@@ -1296,12 +1296,12 @@ check deeper dimensions by using, for example,
 <p><format style="italic">Computes the difference of arrays with additional index check, compares data by a callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L725">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L729">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L725">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L729">
                     View blame
                 </a>
             </def></deflist>
@@ -1369,12 +1369,12 @@ used in the comparison. Unlike [[Arr#differenceAssoc()]], a user-supplied callba
 indices comparison, not internal function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L767">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L771">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L767">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L771">
                     View blame
                 </a>
             </def></deflist>
@@ -1442,12 +1442,12 @@ dimensions by using, for example,
 Note that the keys are used in the comparison unlike [[Arr#difference()]] and [[Arr#differenceFunc()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L813">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L817">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L813">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L817">
                     View blame
                 </a>
             </def></deflist>
@@ -1512,12 +1512,12 @@ string representation is the same.</p>
 preserved.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L846">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L850">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L846">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L850">
                     View blame
                 </a>
             </def></deflist>
@@ -1579,12 +1579,12 @@ string representation is the same.</p>
 <p><format style="italic">Computes the intersection of arrays, compares data by a callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L886">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L890">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L886">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L890">
                     View blame
                 </a>
             </def></deflist>
@@ -1641,12 +1641,12 @@ are not present in any of the other arrays.</format></li></list>
 <p><format style="italic">Returns an array containing all the entries of array which have keys that are present in all the arguments.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L915">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L919">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L915">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L919">
                     View blame
                 </a>
             </def></deflist>
@@ -1705,12 +1705,12 @@ value of 0, which will compare such values as equal.</p>
 arguments.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L954">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L958">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L954">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L958">
                     View blame
                 </a>
             </def></deflist>
@@ -1772,12 +1772,12 @@ In other words, a strict type check is executed, so the string representation mu
 are also used in the comparison unlike in [[Arr#intersect()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L987">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L991">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L987">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L991">
                     View blame
                 </a>
             </def></deflist>
@@ -1837,12 +1837,12 @@ that the keys are used in the comparison unlike in [[Arr#intersectFunc()]]. The 
 callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1027">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1031">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1027">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1031">
                     View blame
                 </a>
             </def></deflist>
@@ -1909,12 +1909,12 @@ argument is considered to be respectively less than, equal to, or greater than t
 callback functions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1068">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1072">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1068">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1072">
                     View blame
                 </a>
             </def></deflist>
@@ -1981,12 +1981,12 @@ argument is considered to be respectively less than, equal to, or greater than t
 callback functions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1113">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1117">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1113">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1117">
                     View blame
                 </a>
             </def></deflist>
@@ -2052,12 +2052,12 @@ returns true, the current value from an $array is returned into the result array
 may result in gaps if the $array was indexed. The result array can be re-indexed using the values() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1152">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1156">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1152">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1156">
                     View blame
                 </a>
             </def></deflist>
@@ -2069,6 +2069,11 @@ may result in gaps if the $array was indexed. The result array can be re-indexed
 <deflist>
     <def title="This method uses:">
         <list><li><a href="DataIs.md#null">\FireHub\Core\Support\LowLevel\DataIs::null</a>  - <format style="italic">To find whether a callable parameter is null.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To filter string keys in statistics.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -2122,12 +2127,12 @@ result. If a value has several occurrences, the latest key will be used as its v
 lost.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1187">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1191">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1187">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1191">
                     View blame
                 </a>
             </def></deflist>
@@ -2178,12 +2183,12 @@ The array to flip.
 value are returned. Otherwise, all the keys from the array are returned.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1212">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1216">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1212">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1216">
                     View blame
                 </a>
             </def></deflist>
@@ -2230,12 +2235,12 @@ If specified, then only keys containing these values are returned.
 <p><format style="italic">Returns all the values from the array and indexes the array numerically.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1237">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1241">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1237">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1241">
                     View blame
                 </a>
             </def></deflist>
@@ -2288,12 +2293,12 @@ number of arrays passed to map(). Excess input arrays are ignored. An ArgumentCo
 insufficient number of arguments is provided.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1273">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1277">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1273">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1277">
                     View blame
                 </a>
             </def></deflist>
@@ -2368,12 +2373,12 @@ value will not overwrite the original value, but will be appended. Values in the
 keys will be renumbered with incrementing keys starting from zero in the result array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1306">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1310">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1306">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1310">
                     View blame
                 </a>
             </def></deflist>
@@ -2427,12 +2432,12 @@ itself, the function will merge it with a corresponding entry in another array t
 have the same numeric key, the later value will not overwrite the original value, but will be appended.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1331">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1335">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1331">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1335">
                     View blame
                 </a>
             </def></deflist>
@@ -2483,12 +2488,12 @@ less than or equal to the length of the array, then no padding takes place. It i
 1048576 elements at a time.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1365">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1369">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1365">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1369">
                     View blame
                 </a>
             </def></deflist>
@@ -2544,12 +2549,12 @@ processed in order, the later arrays overwriting the previous values. Method is 
 values in the first array by whatever type is in the second array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1398">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1402">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1398">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1402">
                     View blame
                 </a>
             </def></deflist>
@@ -2605,12 +2610,12 @@ will be replaced by the value in the second array, may it be scalar or array. Wh
 array and the second array are both arrays, replaceRecursive() will replace their respective values recursively.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1432">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1436">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1432">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1436">
                     View blame
                 </a>
             </def></deflist>
@@ -2660,12 +2665,12 @@ The array in which elements are replaced.
 <p><format style="italic">Takes an input array and returns a new array with the order of the elements reversed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1460">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1464">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1460">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1464">
                     View blame
                 </a>
             </def></deflist>
@@ -2718,12 +2723,12 @@ Non-numeric keys are not affected by this setting and will always be preserved.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1495">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1499">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1495">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1499">
                     View blame
                 </a>
             </def></deflist>
@@ -2791,12 +2796,12 @@ This may result in unexpected behavior when using an object or null replacement.
 of the replacement array, if supplied.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1541">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1545">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1541">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1545">
                     View blame
                 </a>
             </def></deflist>
@@ -2866,12 +2871,12 @@ Keys in a replacement array are not preserved.
 <p><format style="italic">Takes an input array and returns a new array without duplicate values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1568">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1572">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1568">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1572">
                     View blame
                 </a>
             </def></deflist>
@@ -2925,12 +2930,12 @@ only the first character is used.</p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1604">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1608">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1604">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1608">
                     View blame
                 </a>
             </def></deflist>
@@ -2991,12 +2996,12 @@ cryptographic purposes, or purposes that require returned values to be unguessab
 <p><format style="italic">Picks one or more random entries out of an array, and returns the key (or keys) of the random entries.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1635">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1639">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1635">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1639">
                     View blame
                 </a>
             </def></deflist>
@@ -3049,12 +3054,12 @@ array_rand() returns the key for a random entry. Otherwise, an array of keys for
 <p><format style="italic">Iteratively applies the $callback function to the elements of the $array, to reduce the array to a single value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1663">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1667">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1663">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1667">
                     View blame
                 </a>
             </def></deflist>
@@ -3108,12 +3113,12 @@ or as a final result in case the array is empty.
 <p><format style="italic">Pops and returns the last element value of th $array, shortening the $array by one element.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1688">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1692">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1688">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1692">
                     View blame
                 </a>
             </def></deflist>
@@ -3168,12 +3173,12 @@ is no overhead of calling a function.</p>
 increases by the number of variables pushed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1715">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1719">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1715">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1719">
                     View blame
                 </a>
             </def></deflist>
@@ -3225,12 +3230,12 @@ everything down. All numerical array keys will be modified to start counting fro
 be affected.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1742">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1742">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746">
                     View blame
                 </a>
             </def></deflist>
@@ -3285,12 +3290,12 @@ Note that the list of elements is prepended as a whole, so that the prepended el
 All numerical array keys will be modified to start counting from zero while literal keys won't be changed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1769">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1769">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773">
                     View blame
                 </a>
             </def></deflist>
@@ -3337,12 +3342,12 @@ The values to prepend.
 <p><format style="italic">Get the first key of the given $array without affecting the internal array pointer.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1789">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1793">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1789">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1793">
                     View blame
                 </a>
             </def></deflist>
@@ -3387,12 +3392,12 @@ An array.
 <p><format style="italic">Get the last key of the given $array without affecting the internal array pointer.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1809">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1813">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1809">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1813">
                     View blame
                 </a>
             </def></deflist>
@@ -3437,12 +3442,12 @@ An array.
 <p><format style="italic">Returns the product of values in an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1829">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1833">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1829">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1833">
                     View blame
                 </a>
             </def></deflist>
@@ -3487,12 +3492,12 @@ The array.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1847">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1851">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1847">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1851">
                     View blame
                 </a>
             </def></deflist>
@@ -3542,12 +3547,12 @@ this function.</p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1877">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1881">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1877">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1881">
                     View blame
                 </a>
             </def></deflist>
@@ -3611,12 +3616,12 @@ It will remove any existing keys that may have been assigned, rather than just r
 <p><format style="italic">This function shuffles (randomizes the order of the elements in) an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1903">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1907">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1903">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1907">
                     View blame
                 </a>
             </def></deflist>
@@ -3667,12 +3672,12 @@ The array.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1937">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1941">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1937">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1941">
                     View blame
                 </a>
             </def></deflist>
@@ -3731,12 +3736,12 @@ Whether you want to preserve keys from an original array or not.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1973">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1977">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1973">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1977">
                     View blame
                 </a>
             </def></deflist>
@@ -3793,12 +3798,12 @@ Sort flag.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2006">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2010">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2006">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2010">
                     View blame
                 </a>
             </def></deflist>
@@ -3854,12 +3859,12 @@ Whether you want to preserve keys from an original array or not.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2037">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2041">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2037">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2041">
                     View blame
                 </a>
             </def></deflist>

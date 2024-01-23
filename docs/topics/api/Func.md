@@ -33,7 +33,7 @@
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Func
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L29">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L31">
             View source code
         </a>
     </def>
@@ -94,12 +94,12 @@ options.</p>
 <p><format style="italic">Checks the list of defined functions, both built-in (internal) and user-defined, for function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L50">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L50">
                     View blame
                 </a>
             </def></deflist>
@@ -147,12 +147,12 @@ in a previous callback.</p>
 <p><format style="italic">Calls the callback given by the first parameter and passes the remaining parameters as arguments.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L76">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L78">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L76">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L78">
                     View blame
                 </a>
             </def></deflist>
@@ -222,12 +222,12 @@ registered shutdown functions will be called. Shutdown functions may also call [
 themselves to add a shutdown function to the end of the queue.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L114">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L114">
                     View blame
                 </a>
             </def></deflist>
@@ -275,12 +275,12 @@ It is possible to pass parameters to the shutdown function by passing additional
 <p><format style="italic">Registers the given callback to be executed when a tick is called.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L139">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L139">
                     View blame
                 </a>
             </def></deflist>
@@ -299,8 +299,13 @@ Parameters for callback function.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to register tick function.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success or false on failure.</format></li></list>
+        <list><li>bool - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: unregisterTick {id="unregistertick()"}
@@ -326,12 +331,12 @@ Parameters for callback function.
 <p><format style="italic">De-registers the function, so it is no longer executed when a tick is called.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L158">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L158">
                     View blame
                 </a>
             </def></deflist>

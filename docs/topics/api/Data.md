@@ -180,12 +180,12 @@ Type to convert variable to.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a type cannot be set to resource.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a type cannot be set to resource or failed to set a type for value.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">Converted value or false if conversion failed.</format></li></list>
+        <list><li>mixed - <format style="italic">Converted value.</format></li></list>
     </def>
 </deflist>
 ## method: serializeValue {id="serializevalue()"}

@@ -646,7 +646,7 @@ Character encoding. If it is null, the internal character encoding value will be
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):\FireHub\Core\Support\Enums\String\Encoding|bool]]>
+    <![CDATA[public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding]]>
 </code-block>
 
 
@@ -701,9 +701,9 @@ module. You should notice that the internal encoding is totally different from t
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> or bool - <format style="italic">If encoding is set, then returns true on success or
-false on failure. In this case, the character encoding for multibyte regex is NOT changed. If encoding is
-omitted, then the current character encoding name is returned.</format></li></list>
+        <list><li>true or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">If encoding is set, then returns true. In this case, the
+character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
+encoding name is returned.</format></li></list>
     </def>
 </deflist>
 ## method: detectEncoding {id="detectencoding()"}

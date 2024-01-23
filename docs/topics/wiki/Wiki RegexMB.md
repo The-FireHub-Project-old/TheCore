@@ -154,7 +154,7 @@ and replace._
 <h2><a name="encoding()"># method: encoding</a></h2>
 
 ```php
-public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):bool|\FireHub\Core\Support\Enums\String\Encoding
+public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding
 ```
 
 
@@ -173,8 +173,8 @@ public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L152)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L152)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
@@ -184,6 +184,5 @@ Character encoding. If it is null, the internal character encoding value will be
 * [\Error](./Wiki-Error) - _If encoding is invalid or failed to get regex encoding._
 #### Returns
 
-* bool or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _If encoding is set, then returns true on success or false on failure. In this case, the
-internal character encoding is NOT changed. If encoding is omitted, then the current character encoding name
-for a multibyte regex is returned._
+* true or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _If encoding is set, then returns true. In this case, the internal character encoding is
+NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned._

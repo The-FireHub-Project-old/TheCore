@@ -278,7 +278,7 @@ The uuencoded data.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">Decoded data as a string or false on failure.</format></li></list>
+        <list><li>string - <format style="italic">Decoded data as a string.</format></li></list>
     </def>
 </deflist>
 ## method: quotedPrintableEncode {id="quotedprintableencode()"}

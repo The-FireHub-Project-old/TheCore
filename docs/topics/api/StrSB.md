@@ -228,12 +228,12 @@ If true, octal and hexadecimal representation from addSlashes method are recogni
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L702">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L706">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L702">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L706">
                     View blame
                 </a>
             </def></deflist>
@@ -947,7 +947,7 @@ The string replaced from.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To get part of microtime.</format></li></list>
+        <list><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To get part of microtime.</format></li><li><a href="FileSystem.md#getpermissions()">\FireHub\Core\Support\LowLevel\FileSystem::getPermissions()</a>  - <format style="italic">To get part of decoct() function.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1239,7 +1239,7 @@ byte in size.</format></li></list>
 ## method: countWords {id="countwords()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrSB::countWords(string $string, null|string $characters = null, int $format):int|array<int,string>|false]]>
+    <![CDATA[public static StrSB::countWords(string $string, null|string $characters = null, int $format):int|array]]>
 </code-block>
 
 
@@ -1262,12 +1262,12 @@ the return value will be an array, the content of which is dependent on the form
 The possible value for the format and the resultant outputs are listed below.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L555">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L558">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L555">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L558">
                     View blame
                 </a>
             </def></deflist>
@@ -1293,8 +1293,13 @@ value is the actual word itself.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to count words for string.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>int or array&lt;int,string&gt; or false - <format style="italic">Number of words found or list of words.</format></li></list>
+        <list><li>int or array - <format style="italic"><code><![CDATA[ int|array<int, string> ]]></code> Number of words found or list of words.</format></li></list>
     </def>
 </deflist>
 ## method: partCount {id="partcount()"}
@@ -1324,12 +1329,12 @@ value is the actual word itself.
 case-sensitive.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L587">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L591">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L587">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L591">
                     View blame
                 </a>
             </def></deflist>
@@ -1384,12 +1389,12 @@ beginning of the string.</p>
 <p><format style="italic">Finds the length of the initial segment of $string that contains only characters from $characters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L623">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L627">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L623">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L627">
                     View blame
                 </a>
             </def></deflist>
@@ -1449,12 +1454,12 @@ beginning of the string.</p>
 <p><format style="italic">Returns the length of the initial segment of $string which does not contain any of the characters in $characters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L660">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L664">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L660">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L664">
                     View blame
                 </a>
             </def></deflist>
@@ -1514,12 +1519,12 @@ characters.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L679">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L683">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L679">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L683">
                     View blame
                 </a>
             </def></deflist>
@@ -1563,12 +1568,12 @@ The string being measured for length.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L735">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L739">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L735">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L739">
                     View blame
                 </a>
             </def></deflist>
@@ -1626,12 +1631,12 @@ If case_sensitive is true, comparison is case-insensitive.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L764">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L768">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L764">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L768">
                     View blame
                 </a>
             </def></deflist>
@@ -1685,12 +1690,12 @@ value of this function.</p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L793">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L797">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L793">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L797">
                     View blame
                 </a>
             </def></deflist>
@@ -1745,12 +1750,12 @@ value of this function.</p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L824">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L828">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L824">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSB.php#L828">
                     View blame
                 </a>
             </def></deflist>

@@ -168,7 +168,7 @@ public static StrEncode::uuDecode(string $data):string
 * [\Error](./Wiki-Error) - _If we cannot uudecode $data._
 #### Returns
 
-* string - _Decoded data as a string or false on failure._
+* string - _Decoded data as a string._
 <h2><a name="quotedprintableencode()"># method: quotedPrintableEncode</a></h2>
 
 ```php

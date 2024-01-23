@@ -65,7 +65,7 @@
 ## method: define {id="define()"}
 
 <code-block lang="php">
-    <![CDATA[public static Constant::define(string $name, null|array|bool|float|int|string $value):bool]]>
+    <![CDATA[public static Constant::define(string $name, null|array|bool|float|int|string $value):true]]>
 </code-block>
 
 
@@ -85,12 +85,12 @@
 <p><format style="italic">Defines a named constant at runtime.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52">
                     View blame
                 </a>
             </def></deflist>
@@ -112,7 +112,7 @@ The value of the constant.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success or false on failure.</format></li></list>
+        <list><li>true - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: defined {id="defined()"}
@@ -141,12 +141,12 @@ The value of the constant.
 <p><format style="italic">This function works also with class constants and enum cases.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75">
                     View blame
                 </a>
             </def></deflist>
@@ -195,12 +195,12 @@ The constant name.
 I.e., it is stored in a variable or returned by a function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100">
                     View blame
                 </a>
             </def></deflist>

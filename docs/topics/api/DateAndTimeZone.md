@@ -141,12 +141,12 @@ If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will retu
 default timezone in your script, you can also use the INI setting 'date.timezone' to set the default timezone.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L68">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L68">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72">
                     View blame
                 </a>
             </def></deflist>
@@ -163,8 +163,13 @@ The timezone identifier.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to set the default timezone.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">False if the timezone_identifier isn't valid, or true otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">Always true.</format></li></list>
     </def>
 </deflist>
 ## method: abbreviationList {id="abbreviationlist()"}
@@ -190,12 +195,12 @@ The timezone identifier.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91">
                     View blame
                 </a>
             </def></deflist>

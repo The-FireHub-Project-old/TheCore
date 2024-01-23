@@ -252,7 +252,7 @@ and replace.</format></li></list>
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):bool|\FireHub\Core\Support\Enums\String\Encoding]]>
+    <![CDATA[public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding]]>
 </code-block>
 
 
@@ -272,12 +272,12 @@ and replace.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151">
                     View blame
                 </a>
             </def></deflist>
@@ -305,8 +305,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">If encoding is set, then returns true on success or false on failure. In this case, the
-internal character encoding is NOT changed. If encoding is omitted, then the current character encoding name
-for a multibyte regex is returned.</format></li></list>
+        <list><li>true or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">If encoding is set, then returns true. In this case, the internal character encoding is
+NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned.</format></li></list>
     </def>
 </deflist>

@@ -204,12 +204,12 @@ activated. If there must be multiple autoload functions, this method allows for 
 queue of autoload functions, and runs through each of them in the order they are defined.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L106">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L102">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L106">
                     View blame
                 </a>
             </def></deflist>
@@ -230,8 +230,13 @@ Whether to prepend the autoloader on the stack instead of appending it.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to register a callback function as an autoloader.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if autoloader was registered, or false on failure.</format></li></list>
+        <list><li>bool - <format style="italic">True if autoloader was registered.</format></li></list>
     </def>
 </deflist>
 ## method: unregister {id="unregister()"}
@@ -259,12 +264,12 @@ function, then it will be deactivated. When this function results in the queue b
 function that previously existed will not be reactivated.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L130">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L130">
                     View blame
                 </a>
             </def></deflist>
@@ -282,8 +287,13 @@ The autoload function that will be unregistered.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to unregister autoload implementation.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if autoloader was unregistered, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if autoloader was unregistered.</format></li></list>
     </def>
 </deflist>
 ## method: functions {id="functions()"}
@@ -309,12 +319,12 @@ The autoload function that will be unregistered.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145">
                     View blame
                 </a>
             </def></deflist>
@@ -356,12 +366,12 @@ functions.</p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L156">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164">
                     View blame
                 </a>
             </def></deflist>

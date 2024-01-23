@@ -91,7 +91,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#sort()">\FireHub\Core\Support\LowLevel\Arr::sort()</a>  - <format style="italic">As default parameter.</format></li><li><a href="Arr.md#sortbykey()">\FireHub\Core\Support\LowLevel\Arr::sortByKey()</a>  - <format style="italic">As default parameter.</format></li></list>
+        <list><li><a href="Arr.md#sort()">\FireHub\Core\Support\LowLevel\Arr::sort()</a>  - <format style="italic">As default parameter.</format></li><li><a href="Arr.md#sortbykey()">\FireHub\Core\Support\LowLevel\Arr::sortByKey()</a>  - <format style="italic">As default parameter.</format></li><li><a href="FileSystem.md#list()">\FireHub\Core\Support\LowLevel\FileSystem::list()</a>  - <format style="italic">To list files and folders in ascending order.</format></li></list>
     </def>
 </deflist>
 ## case: DESC {id="desc"}
@@ -124,5 +124,10 @@
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This case is used by:">
+        <list><li><a href="FileSystem.md#list()">\FireHub\Core\Support\LowLevel\FileSystem::list()</a>  - <format style="italic">To list files and folders in descending order.</format></li></list>
     </def>
 </deflist>

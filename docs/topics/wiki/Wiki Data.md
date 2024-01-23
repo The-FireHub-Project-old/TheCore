@@ -98,10 +98,10 @@ public static Data::setType(mixed $value, \FireHub\Core\Support\Enums\Data\Type 
 * [\FireHub\Core\Support\Enums\Data\Type](./Wiki-Type) **$type** - _Type to convert variable to._
 #### Throws
 
-* [\Error](./Wiki-Error) - _If a type cannot be set to resource._
+* [\Error](./Wiki-Error) - _If a type cannot be set to resource or failed to set a type for value._
 #### Returns
 
-* mixed - _Converted value or false if conversion failed._
+* mixed - _Converted value._
 <h2><a name="serializevalue()"># method: serializeValue</a></h2>
 
 ```php

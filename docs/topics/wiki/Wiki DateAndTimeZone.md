@@ -90,14 +90,17 @@ public static DateAndTimeZone::setDefaultTimezone(\FireHub\Core\Support\Enums\Da
 _Method sets the default timezone used by all date/time functions. Instead of using this function to set the
 default timezone in your script, you can also use the INI setting 'date.timezone' to set the default timezone._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L68)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L68)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72)**</sub>
 #### Parameters
 
 * [\FireHub\Core\Support\Enums\DateTime\Zone](./Wiki-Zone) **$time_zone** - _The timezone identifier._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If failed to set the default timezone._
 #### Returns
 
-* bool - _False if the timezone_identifier isn't valid, or true otherwise._
+* bool - _Always true._
 <h2><a name="abbreviationlist()"># method: abbreviationList</a></h2>
 
 ```php
@@ -120,8 +123,8 @@ public static DateAndTimeZone::abbreviationList():array
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L86)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L86)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91)**</sub>
 #### Returns
 
 * array - _<code>array<string, array<int, array{dst: bool, offset: int, timezone_id: string|null}></code>

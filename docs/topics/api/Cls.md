@@ -302,7 +302,7 @@ Whether to autoload if not already loaded.
 ## method: alias {id="alias()"}
 
 <code-block lang="php">
-    <![CDATA[public static Cls::alias(string $class, string $alias, bool $autoload = true):bool]]>
+    <![CDATA[public static Cls::alias(string $class, string $alias, bool $autoload = true):true]]>
 </code-block>
 
 
@@ -328,12 +328,12 @@ Whether to autoload if not already loaded.
 original class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L155">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L157">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L155">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L157">
                     View blame
                 </a>
             </def></deflist>
@@ -356,8 +356,13 @@ Whether to autoload if the original class is not found.
     </def>
 </deflist>
 <deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If failed to alias the class.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True on success or false on failure.</format></li></list>
+        <list><li>true - <format style="italic">True on success.</format></li></list>
     </def>
 </deflist>
 ## method: properties {id="properties()"}
@@ -389,12 +394,12 @@ Whether to autoload if the original class is not found.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L185">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Cls.php#L185">
                     View blame
                 </a>
             </def></deflist>

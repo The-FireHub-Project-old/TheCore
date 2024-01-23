@@ -29,17 +29,17 @@
 <deflist><def title="Fully Qualified Constant Name:">
         \FireHub\Core\Support\Constants\Number\FLOAT_DIG
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/firehub.Number.php#L67">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L67">
             View source code
         </a>
     </def>
     <def title="Blame:">
-        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/constants/firehub.Number.php">
+        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/constants/number.php">
             View blame
         </a>
     </def>
     <def title="History:">
-        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/constants/firehub.Number.php">
+        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/constants/number.php">
             View history
         </a>
     </def></deflist>
