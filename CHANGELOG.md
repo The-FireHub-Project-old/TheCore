@@ -1,6 +1,8 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.2...develop-pre-alpha-m1)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.3...develop-pre-alpha-m1)
+
+## [v0.1.3](https://github.com/The-FireHub-Project/Core/compare/v0.1.2...v0.1.3) - (2024-01-23)
 
 ### Added
 - Create Countable contract ([#10](https://github.com/The-FireHub-Project/Core/issues/10), [2a4234a](https://github.com/The-FireHub-Project/Core/pull/7/commits/2a4234a))
