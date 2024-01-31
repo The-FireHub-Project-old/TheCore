@@ -125,7 +125,7 @@ final class SplAutoload {
      *
      * @throws Error If failed to unregister autoload implementation.
      *
-     * @return bool True if autoloader was unregistered.
+     * @return true True if autoloader was unregistered.
      */
     public static function unregister (callable $callback):true {
 
