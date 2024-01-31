@@ -135,7 +135,8 @@ final class Iterables {
      * <code><![CDATA[ array<TKey, TValue> ]]></code>
      * The input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return mixed <code>TValue|false</code> Returns the array value in the previous place that's
      * pointed to by the internal array pointer, or false if there are no more elements.
@@ -168,7 +169,8 @@ final class Iterables {
      * <code><![CDATA[ array<TKey, TValue> ]]></code>
      * The array being affected.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return mixed <code>TValue|false</code> Returns the array value in the next place that's pointed to by the internal array
      * pointer, or false if there are no more elements.
@@ -202,6 +204,7 @@ final class Iterables {
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return mixed <code>TValue|false</code> Returns the value of the first array element, or false if the array is
      * empty.
@@ -234,6 +237,7 @@ final class Iterables {
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return mixed <code>TValue|false</code> Returns the value of the last element or false for an empty array.
      * @phpstan-return TValue|false

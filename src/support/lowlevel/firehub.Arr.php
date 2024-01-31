@@ -224,7 +224,8 @@ final class Arr {
      * original array itself. Users may not change the array itself from the callback function, e.g., add/delete
      * elements, unset elements, etc.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @throws ArgumentCountError If the $callback function requires more than two parameters.
      *
@@ -258,7 +259,8 @@ final class Arr {
      * original array itself. Users may not change the array itself from the callback function. E.g., Add/delete
      * elements, unset elements, etc.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true True on success.
      */
@@ -1533,7 +1535,8 @@ final class Arr {
      * are inserted in the place specified by the offset.
      * Keys in a replacement array are not preserved.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return array <code><![CDATA[ array<TKey|int, TValue> ]]></code> Spliced array.
      * @phpstan-return array<TKey|int, TValue>
@@ -1683,6 +1686,7 @@ final class Arr {
      * The array to get the value from.
      * </p>
      * @phpstan-param array<array-key, TValue> &$array
+     * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return mixed <code>TValue|null</code> The last value of an array. If an array is empty (or is not an array), null will be returned.
      * @phpstan-return TValue|null
@@ -1702,14 +1706,17 @@ final class Arr {
      * increases by the number of variables pushed.
      * @since 1.0.0
      *
+     * @template TValue
+     *
      * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<array-key, TValue> ]]></code>
      * The input array.
      * </p>
-     * @param mixed ...$values [optional] <p>
+     * @param TValue ...$values [optional] <p>
      * The values to push onto the end of the array.
      * </p>
-     * @phpstan-param array<array-key, mixed> &$array
+     * @phpstan-param array<array-key, TValue> &$array
+     * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return int The new number of elements in the array.
      *
@@ -1737,6 +1744,7 @@ final class Arr {
      * Array to shift.
      * </p>
      * @phpstan-param array<array-key, TValue> &$array
+     * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return mixed <code>TValue|null</code> The shifted value, or null if an array is empty or is not an array.
      * @phpstan-return TValue|null
@@ -1757,14 +1765,17 @@ final class Arr {
      * All numerical array keys will be modified to start counting from zero while literal keys won't be changed.
      * @since 1.0.0
      *
+     * @template TValue
+     *
      * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<array-key, TValue> ]]></code>
      * The input array.
      * </p>
-     * @param mixed ...$values [optional] <p>
+     * @param TValue ...$values [optional] <p>
      * The values to prepend.
      * </p>
-     * @phpstan-param array<array-key, mixed> &$array
+     * @phpstan-param array<array-key, TValue> &$array
+     * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return int The new number of elements in the array.
      *
@@ -1890,18 +1901,21 @@ final class Arr {
      * This function shuffles (randomizes the order of the elements in) an array.
      * @since 1.0.0
      *
+     * @template TValue
+     *
      * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<array-key, TValue> ]]></code>
      * The array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
+     * @phpstan-param array<array-key, TValue> &$array
+     * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return true Always returns true.
      *
      * @caution This function does not generate cryptographically secure values, and must not be used for cryptographic
      * purposes, or purposes that require returned values to be unguessable.
-     * @note This function assigns new keys to the elements in array.
-     * It will remove any existing keys that may have been assigned, rather than just reordering the keys.
+     * @note This function assigns new keys to the elements in array. It will remove any existing keys that may have
+     * been assigned, rather than just reordering the keys.
      * @note Resets array's internal pointer to the first element.
      */
     public static function shuffle (array &$array):true {
@@ -1917,8 +1931,11 @@ final class Arr {
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
      * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
      *
+     * @template TKey of array-key
+     * @template TValue
+     *
      * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<TKey, TValue> ]]></code>
      * Array to sort.
      * </p>
      * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
@@ -1930,7 +1947,8 @@ final class Arr {
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
      * </p>
-     * @phpstan-param array<array-key, mixed> &$array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
@@ -1958,8 +1976,11 @@ final class Arr {
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
      * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
      *
+     * @template TKey of array-key
+     * @template TValue
+     *
      * @param array<int|string, mixed> &$array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<TKey, TValue> ]]></code>
      * Array to sort.
      * </p>
      * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
@@ -1968,7 +1989,8 @@ final class Arr {
      * @param \FireHub\Core\Support\Enums\Sort $flag [optional] <p>
      * Sort flag.
      * </p>
-     * @phpstan-param array<array-key, mixed> &$array
+     * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
@@ -2002,6 +2024,7 @@ final class Arr {
      * Whether you want to preserve keys from an original array or not.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
@@ -2033,6 +2056,7 @@ final class Arr {
      * zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
+     * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
