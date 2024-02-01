@@ -1,6 +1,13 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.4...develop-pre-alpha-m1)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...develop-pre-alpha-m1)
+
+## [v0.1.5](https://github.com/The-FireHub-Project/Core/compare/v0.1.4...v0.1.5) - (2024-02-01)
+
+### Added
+- Create PHP helper ([#20](https://github.com/The-FireHub-Project/Core/issues/20), [87d8f9c](https://github.com/The-FireHub-Project/Core/pull/7/commits/87d8f9c))
+- Create Path high-level class ([#20](https://github.com/The-FireHub-Project/Core/issues/20), [051998c](https://github.com/The-FireHub-Project/Core/pull/7/commits/051998c))
+- Create Autoload classes ([#20](https://github.com/The-FireHub-Project/Core/issues/20), [952c601](https://github.com/The-FireHub-Project/Core/pull/7/commits/952c601))
 
 ## [v0.1.4](https://github.com/The-FireHub-Project/Core/compare/v0.1.3...v0.1.4) - (2024-01-23)
 
