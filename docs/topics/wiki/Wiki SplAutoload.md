@@ -153,7 +153,7 @@ Whether to prepend the autoloader on the stack instead of appending it._
 <h2><a name="unregister()"># method: unregister</a></h2>
 
 ```php
-public static SplAutoload::unregister(callable $callback):bool
+public static SplAutoload::unregister(callable $callback):true
 ```
 
 
@@ -186,7 +186,7 @@ The autoload function that will be unregistered._
 * [\Error](./Wiki-Error) - _If failed to unregister autoload implementation._
 #### Returns
 
-* bool - _True if autoloader was unregistered._
+* true - _True if autoloader was unregistered._
 <h2><a name="functions()"># method: functions</a></h2>
 
 ```php

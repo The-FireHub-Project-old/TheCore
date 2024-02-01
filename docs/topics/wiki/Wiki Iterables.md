@@ -182,8 +182,8 @@ that the key() of the prev() element is not null.
 _Method prev() behaves just like next(), except it rewinds the internal array pointer one place instead of
 advancing it._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L150)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L150)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L151)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L151)**</sub>
 #### Templates
 
 * TKey of array-key
@@ -226,8 +226,8 @@ _Method next() behaves like current(), with one difference.
 It advances the internal array pointer one place forward before returning the element value.
 That means it returns the next array value and advances the internal array pointer by one._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L184)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L184)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L186)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L186)**</sub>
 #### Templates
 
 * TKey of array-key
@@ -269,8 +269,8 @@ false elements, first check the count() of the array, or check that key() is not
 _Method reset() rewinds array's internal pointer to the first element and returns the value of the first array
 element._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L217)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L217)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L220)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L220)**</sub>
 #### Templates
 
 * TKey of array-key
@@ -308,8 +308,8 @@ value of this function.
 
 _Method end() advances array's internal pointer to the last element, and returns its value._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L245)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L245)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L249)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L249)**</sub>
 #### Templates
 
 * TKey of array-key

@@ -647,6 +647,11 @@ word that is larger than the given width, it is broken apart.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="FireHub.md#autoload()">\FireHub\Core\FireHub::autoload()</a>  - <format style="italic">To lowercase all namespace components</format></li><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To lowercase all namespaces.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The string being lowercased.

@@ -147,7 +147,7 @@ may return unexpected results for files which are larger than 2GB.</p>
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="File.md#putcontent()">\FireHub\Core\Support\LowLevel\File::putContent()</a>  - <format style="italic">To tell whether the $file is a regular file.</format></li></list>
+        <list><li><a href="Callback.md#__invoke()">\FireHub\Core\Initializers\Autoload\Callback::__invoke()</a>  - <format style="italic">To check if $path is a valid path.</format></li><li><a href="File.md#putcontent()">\FireHub\Core\Support\LowLevel\File::putContent()</a>  - <format style="italic">To tell whether the $file is a regular file.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1390,7 +1390,7 @@ executable permissions.</format></li></list>
 ## method: parent {id="parent()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::parent(non-empty-string $path, int $levels = 1):string]]>
+    <![CDATA[final public static FileSystem::parent(string $path, int $levels = 1):string]]>
 </code-block>
 
 
@@ -1440,8 +1440,8 @@ that is levels up from the current folder.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
-<code>positive-int</code>
+        <list><li>string <format style="bold">$path</format> - <format style="italic">
+<code>non-empty-string</code>
 A path.
 </format></li><li>int <format style="bold">$levels</format> = 1 - <format style="italic">[optional] 
 <code>positive-int</code>

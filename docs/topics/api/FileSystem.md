@@ -608,7 +608,7 @@ executable permissions.</format></li></list>
 ## method: parent {id="parent()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::parent(non-empty-string $path, int $levels = 1):string]]>
+    <![CDATA[final public static FileSystem::parent(string $path, int $levels = 1):string]]>
 </code-block>
 
 
@@ -658,8 +658,8 @@ that is levels up from the current folder.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
-<code>positive-int</code>
+        <list><li>string <format style="bold">$path</format> - <format style="italic">
+<code>non-empty-string</code>
 A path.
 </format></li><li>int <format style="bold">$levels</format> = 1 - <format style="italic">[optional] 
 <code>positive-int</code>

@@ -362,7 +362,7 @@ executable permissions._
 <h2><a name="parent()"># method: parent</a></h2>
 
 ```php
-final public static FileSystem::parent(non-empty-string $path, int $levels = 1):string
+final public static FileSystem::parent(string $path, int $levels = 1):string
 ```
 
 
@@ -389,7 +389,7 @@ that is levels up from the current folder._
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L327)**</sub>
 #### Parameters
 
-* non-empty-string **$path** - _<code>positive-int</code>
+* string **$path** - _<code>non-empty-string</code>
 A path._
 * int **$levels** = 1 - _[optional] 
 <code>positive-int</code>

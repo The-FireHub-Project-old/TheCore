@@ -208,6 +208,11 @@ Value to check.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Callback.md#__invoke()">\FireHub\Core\Initializers\Autoload\Callback::__invoke()</a>  - <format style="italic">To check if $class is callable or string.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 Value to check.

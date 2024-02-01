@@ -219,6 +219,11 @@ queue of autoload functions, and runs through each of them in the order they are
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Autoload.md#__construct()">\FireHub\Core\Initializers\Autoload::__construct()</a>  - <format style="italic">To register a callback function as an autoloader.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>null or callable <format style="bold">$callback</format> = null - <format style="italic">[optional] 
 <code>callable (string $class):void</code>
@@ -242,7 +247,7 @@ Whether to prepend the autoloader on the stack instead of appending it.
 ## method: unregister {id="unregister()"}
 
 <code-block lang="php">
-    <![CDATA[public static SplAutoload::unregister(callable $callback):bool]]>
+    <![CDATA[public static SplAutoload::unregister(callable $callback):true]]>
 </code-block>
 
 
@@ -293,7 +298,7 @@ The autoload function that will be unregistered.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if autoloader was unregistered.</format></li></list>
+        <list><li>true - <format style="italic">True if autoloader was unregistered.</format></li></list>
     </def>
 </deflist>
 ## method: functions {id="functions()"}
