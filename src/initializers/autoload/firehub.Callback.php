@@ -102,7 +102,7 @@ final class Callback {
      * Fully qualified class name that is being loaded.
      * </p>
      *
-     * @throws Error If a path is empty for autoloaded class or system could not get class components.
+     * @throws Error If a system could not get class components.
      * @error\exeption E_WARNING if a system cannot preload class.
      *
      * @return void
@@ -114,10 +114,10 @@ final class Callback {
         $path = DataIs::callable($this->path)
             ? (($path_callable = ($this->path)($class_components['namespace'], $class_components['classname']))
                 ? $path_callable
-                : throw new Error("Path is empty for class: $class."))
+                : false)
             : $this->path.DS.$class.'.php';
 
-        if (File::isFile($path)) include $path;
+        if ($path && File::isFile($path)) include $path;
 
     }
 
