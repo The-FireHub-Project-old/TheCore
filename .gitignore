@@ -1,6 +1,9 @@
 # JetBrains
 .idea/
 
+# PHPUnit cache
+.phpunit.cache/
+
 # Wiki
 /.wiki/
 
