@@ -14,7 +14,7 @@
 
 namespace FireHub\Core\Support\Contracts\Iterator;
 
-use IteratorAggregate;
+use IteratorAggregate, Traversable as InternalTraversable;
 
 /**
  * ### Base iterator aggregate contract
@@ -34,10 +34,10 @@ interface IterablesAggregate extends Traversable, IteratorAggregate {
      * ### Retrieve an external iterator
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Support\Contracts\Iterator\Traversable <code><![CDATA[ \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue> ]]></code>
+     * @return InternalTraversable <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
      * An instance of an object implementing Iterator or Traversable.
-     * @phpstan-return \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue>
+     * @phpstan-return InternalTraversable<TKey, TValue>
      */
-    public function getIterator ():Traversable;
+    public function getIterator ():InternalTraversable;
 
 }
