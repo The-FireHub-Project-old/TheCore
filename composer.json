@@ -14,7 +14,8 @@
         "phpstan/phpstan": "^1.1",
         "phpunit/phpunit": "^11.0",
         "phpmd/phpmd": "^2.0",
-        "friendsofphp/php-cs-fixer": "^v3.4",
+        "friendsofphp/php-cs-fixer": "^3.4",
+        "phpdocumentor/phpdocumentor": "^3.4",
         "ext-openssl": "*"
     },
     "suggest": {
