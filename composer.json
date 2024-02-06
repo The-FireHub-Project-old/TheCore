@@ -11,10 +11,10 @@
     },
     "require-dev": {
         "firehub/documentor": "^0.1",
-        "phpstan/phpstan": "^1.10.46",
-        "phpunit/phpunit": "^11.0.0",
-        "phpmd/phpmd": "^2.14.1",
-        "friendsofphp/php-cs-fixer": "v3.40.0",
+        "phpstan/phpstan": "^1.1",
+        "phpunit/phpunit": "^11.0",
+        "phpmd/phpmd": "^2.0",
+        "friendsofphp/php-cs-fixer": "^v3.4",
         "ext-openssl": "*"
     },
     "suggest": {
