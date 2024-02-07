@@ -15,7 +15,7 @@
 namespace FireHub\Core\Support\LowLevel;
 
 use FireHub\Core\Support\Enums\Data\Type;
-use Error;
+use Error, Exception, Stringable;
 
 use function gettype;
 use function serialize;
@@ -117,7 +117,17 @@ final class Data {
 
         // if value is array that is trying to convert to string
         if (self::getType($value) === Type::T_ARRAY && $type === Type::T_STRING)
-            throw new Error('Cannot convert array to string');
+            throw new Error('Cannot convert array to string.');
+
+        // if value is array that is trying to convert to string
+        if (
+            self::getType($value) === Type::T_OBJECT && !$value instanceof Stringable
+            && (
+                $type === Type::T_STRING
+                || $type === Type::T_INT
+                || $type === Type::T_FLOAT
+            )
+        ) throw new Error('Cannot convert object to string, int or float.');
 
         // resource is not settable
         if ($type === Type::T_RESOURCE)
@@ -164,8 +174,15 @@ final class Data {
      */
     public static function serializeValue (string|int|float|bool|array|object|null $value):string {
 
-        return serialize($value)
-            ?: throw new Error('Anonymous classes, functions and resources cannot be serialized.');
+        try {
+
+            return serialize($value);
+
+        } catch (Exception) {
+
+            throw new Error('Anonymous classes, functions and resources cannot be serialized.');
+
+        }
 
     }
 
@@ -189,6 +206,7 @@ final class Data {
      * @phpstan-param bool|array<class-string> $allowed_classes
      *
      * @throws Error $data is already false already or $data is NULL, or could not unserialize data.
+     * @error\exeption E_WARNING if could not unserialize data.
      *
      * @return mixed The converted value is returned.
      */
