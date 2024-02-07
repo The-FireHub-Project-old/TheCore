@@ -2,6 +2,20 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...develop-pre-alpha-m1)
 
+### Added
+- Create Stringable contract ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [50ca73a](https://github.com/The-FireHub-Project/Core/pull/7/commits/50ca73a))
+- Add FireHub boot to PHAR, on both web and console boot ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [d3056bb](https://github.com/The-FireHub-Project/Core/pull/7/commits/d3056bb))
+- Create base test class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [4ee33fe](https://github.com/The-FireHub-Project/Core/pull/7/commits/4ee33fe))
+
+### Fixed
+- Fixed where autoload class was throwing error if callable is used from another autoloader ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [e04b488](https://github.com/The-FireHub-Project/Core/pull/7/commits/e04b488))
+- IterablesAggregate now extends internal Traversable class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [76f0f3c](https://github.com/The-FireHub-Project/Core/pull/7/commits/76f0f3c))
+- Data low-level proxy class, method setType now throws error if trying to convert an array to string or object to some types ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [0305486](https://github.com/The-FireHub-Project/Core/pull/7/commits/0305486))
+- core method of Pat high-level class now uses __DIR__ instead of a Phar path ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [8977894](https://github.com/The-FireHub-Project/Core/pull/7/commits/8977894))
+
+### Changed
+- Method setType on Data low-level proxy no longer supports converting array ti string ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [2002fab](https://github.com/The-FireHub-Project/Core/pull/7/commits/2002fab))
+
 ## [v0.1.5](https://github.com/The-FireHub-Project/Core/compare/v0.1.4...v0.1.5) - (2024-02-01)
 
 ### Added
