@@ -62,22 +62,12 @@ final class Path {
      *
      * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
      *
-     * @throws Error If a system could not load FireHub Core phar.
-     *
      * @return string <code>non-empty-string</code> FireHub Core path.
      * @phpstan-return non-empty-string
      */
     public static function core ():string {
 
-        try {
-
-            return __DIR__.DS.'..';
-
-        } catch (Throwable) {
-
-            throw new Error('Could not load FireHub Core path.');
-
-        }
+        return __DIR__.DS.'..';
 
     }
 
