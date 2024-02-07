@@ -60,7 +60,7 @@ final class Path {
      * ### Get FireHub Core path
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Path::phar() To get a current phar path.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
      *
      * @throws Error If a system could not load FireHub Core phar.
      *
@@ -71,11 +71,11 @@ final class Path {
 
         try {
 
-            return self::phar(true);
+            return __DIR__.DS.'..';
 
         } catch (Throwable) {
 
-            throw new Error('Could not load FireHub Core phar.');
+            throw new Error('Could not load FireHub Core path.');
 
         }
 
