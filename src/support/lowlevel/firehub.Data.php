@@ -73,7 +73,9 @@ final class Data {
      * ### Sets data type
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Data::getType() To get $value type.
      * @uses \FireHub\Core\Support\Enums\Data\Type::T_BOOL As data type.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_STRING As data type.
      * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT As data type.
      * @uses \FireHub\Core\Support\Enums\Data\Type::T_FLOAT As data type.
      * @uses \FireHub\Core\Support\Enums\Data\Type::T_ARRAY As data type.
@@ -113,8 +115,13 @@ final class Data {
      */
     public static function setType (mixed $value, Type $type):mixed {
 
+        // if value is array that is trying to convert to string
+        if (self::getType($value) === Type::T_ARRAY && $type === Type::T_STRING)
+            throw new Error('Cannot convert array to string');
+
         // resource is not settable
-        if ($type === Type::T_RESOURCE) throw new Error('Type cannot be set to resource');
+        if ($type === Type::T_RESOURCE)
+            throw new Error('Type cannot be set to resource');
 
         settype($value, match ($type) {
             Type::T_BOOL => 'boolean',
