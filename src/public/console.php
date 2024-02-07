@@ -14,3 +14,14 @@
  *
  * @version GIT: $Id$ Blob checksum.
  */
+
+use FireHub\Core\FireHub;
+use FireHub\Core\Initializers\Enums\Kernel;
+
+/**
+ * Let there be light
+ */
+require __DIR__.'/../firehub.FireHub.php';
+require __DIR__.'/../initializers/enums/firehub.Kernel.php';
+
+echo FireHub::boot(Kernel::CONSOLE);
