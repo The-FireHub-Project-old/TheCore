@@ -190,6 +190,7 @@ final class FireHub {
 
         // register FireHub preloaders
         Autoload::include($preloaders, function (string $class):string {
+            var_dump($class);
             $class_components = explode(DS, $class);
 
             array_shift($class_components);
