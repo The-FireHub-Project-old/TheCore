@@ -190,7 +190,6 @@ final class FireHub {
 
         // register FireHub preloaders
         Autoload::include($preloaders, function (string $class):string {
-            var_dump($class);
             $class_components = explode(DS, $class);
 
             array_shift($class_components);
@@ -198,6 +197,8 @@ final class FireHub {
 
             $classname = array_pop($class_components);
             $namespace = strtolower(implode(DS, $class_components));
+
+            var_dump(__DIR__.DS.$namespace.DS.'firehub.'.$classname.'.php');
 
             return __DIR__.DS.$namespace.DS.'firehub.'.$classname.'.php';
         });
