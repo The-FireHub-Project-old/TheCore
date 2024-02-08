@@ -4,6 +4,8 @@ parameters:
     level: 9
     paths:
         - src/
+    excludePaths:
+        - testing/*
     treatPhpDocTypesAsCertain: false
     checkExplicitMixedMissingReturn: true
     checkFunctionNameCase: true
