@@ -227,6 +227,8 @@ final class FireHub {
      */
     private function autoload ():self {
 
+        var_dump('x');
+
         // register FireHub main autoloader
         Autoload::prepend('FireHub', function (string $namespace, string $classname):string|false {
             $namespace = StrSB::explode($namespace, '\\');
