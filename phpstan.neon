@@ -5,7 +5,8 @@ parameters:
     paths:
         - src/
     excludePaths:
-        - testing/*
+        analyseAndScan:
+            - src/testing/
     treatPhpDocTypesAsCertain: false
     checkExplicitMixedMissingReturn: true
     checkFunctionNameCase: true
