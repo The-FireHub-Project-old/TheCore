@@ -191,7 +191,6 @@ final class FireHub {
         // register FireHub preloaders
         Autoload::include($preloaders, function (string $class):string {
             $class_components = explode('\\', $class);
-            var_dump($class_components);
 
             array_shift($class_components);
             array_shift($class_components);
@@ -230,7 +229,7 @@ final class FireHub {
 
         // register FireHub main autoloader
         Autoload::prepend('FireHub', function (string $namespace, string $classname):string|false {
-            $namespace = StrSB::explode($namespace, DS);
+            $namespace = StrSB::explode($namespace, '\\');
 
             if ($namespace[Arr::firstKey($namespace)] !== 'firehub') return false;
             Arr::shift($namespace);
@@ -238,7 +237,7 @@ final class FireHub {
             if ($namespace[Arr::firstKey($namespace)] !== 'core') return false;
             Arr::shift($namespace);
 
-            $namespace = StrSB::implode($namespace, DS);
+            $namespace = StrSB::implode($namespace, '\\');
 
             $classname_component = StrSB::explode($classname, '_');
             $classname = Arr::shift($classname_component);
