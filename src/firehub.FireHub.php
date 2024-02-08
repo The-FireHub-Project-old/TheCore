@@ -244,6 +244,8 @@ final class FireHub {
             $classname_component = StrSB::implode($classname_component, '_');
             $suffix = !empty($classname_component) ? StrSB::toLower('.'.$classname_component) : '';
 
+            var_dump(Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php');
+
             return Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php';
         });
 
