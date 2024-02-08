@@ -229,7 +229,7 @@ final class FireHub {
 
         // register FireHub main autoloader
         Autoload::prepend('FireHub', function (string $namespace, string $classname):string|false {
-            $namespace = StrSB::explode($namespace, '\\');
+            $namespace = StrSB::explode($namespace, DS);
 
             var_dump($namespace);
 
