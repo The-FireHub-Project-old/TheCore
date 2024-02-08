@@ -237,7 +237,7 @@ final class FireHub {
             if ($namespace[Arr::firstKey($namespace)] !== 'core') return false;
             Arr::shift($namespace);
 
-            $namespace = StrSB::implode($namespace, '\\');
+            $namespace = StrSB::implode($namespace, DS);
 
             $classname_component = StrSB::explode($classname, '_');
             $classname = Arr::shift($classname_component);

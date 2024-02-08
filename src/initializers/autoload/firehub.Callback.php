@@ -74,7 +74,7 @@ final class Callback {
             Arr::pop($class_components);
 
             foreach ($class_components as $key => $value) $class_components[$key] = StrSB::toLower($value);
-            $namespace = StrSB::implode($class_components, '\\');
+            $namespace = StrSB::implode($class_components, DS);
 
         } catch (Throwable) {
 
