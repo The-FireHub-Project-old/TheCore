@@ -196,7 +196,7 @@ final class FireHub {
             array_shift($class_components);
 
             $classname = array_pop($class_components);
-            $namespace = strtolower(implode(DS, $class_components));
+            $namespace = strtolower(implode('\\', $class_components));
 
             return __DIR__.DS.$namespace.DS.'firehub.'.$classname.'.php';
         });

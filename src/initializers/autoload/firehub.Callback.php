@@ -68,13 +68,13 @@ final class Callback {
 
         try {
 
-            $class_components = StrSB::explode($class, DS);
+            $class_components = StrSB::explode($class, '\\');
 
             $classname = $class_components[Arr::lastKey($class_components)];
             Arr::pop($class_components);
 
             foreach ($class_components as $key => $value) $class_components[$key] = StrSB::toLower($value);
-            $namespace = StrSB::implode($class_components, DS);
+            $namespace = StrSB::implode($class_components, '\\');
 
         } catch (Throwable) {
 
