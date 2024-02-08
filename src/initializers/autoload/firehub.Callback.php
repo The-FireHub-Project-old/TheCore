@@ -109,8 +109,6 @@ final class Callback {
      */
     public function __invoke (string $class):void {
 
-        var_dump($class);
-
         $class_components = $this->classComponents($class);
 
         $path = DataIs::callable($this->path)
@@ -118,6 +116,9 @@ final class Callback {
                 ? $path_callable
                 : false)
             : $this->path.DS.$class.'.php';
+
+        var_dump($path);
+        var_dump(File::isFile($path));
 
         if ($path && File::isFile($path)) include $path;
 
