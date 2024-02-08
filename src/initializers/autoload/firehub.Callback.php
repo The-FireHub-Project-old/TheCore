@@ -111,8 +111,6 @@ final class Callback {
 
         $class_components = $this->classComponents($class);
 
-        var_dump(($this->path)($class_components['namespace'], $class_components['classname']));
-
         $path = DataIs::callable($this->path)
             ? (($path_callable = ($this->path)($class_components['namespace'], $class_components['classname']))
                 ? $path_callable
