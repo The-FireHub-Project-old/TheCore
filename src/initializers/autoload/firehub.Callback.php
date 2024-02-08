@@ -111,14 +111,14 @@ final class Callback {
 
         $class_components = $this->classComponents($class);
 
+        var_dump(DataIs::callable($this->path));
+        var_dump(($this->path)($class_components['namespace'], $class_components['classname']));
+
         $path = DataIs::callable($this->path)
             ? (($path_callable = ($this->path)($class_components['namespace'], $class_components['classname']))
                 ? $path_callable
                 : false)
             : $this->path.DS.$class.'.php';
-
-        var_dump($path);
-        var_dump(File::isFile($path));
 
         if ($path && File::isFile($path)) include $path;
 
