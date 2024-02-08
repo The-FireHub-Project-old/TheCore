@@ -12,8 +12,6 @@ constant int EXTENSION_DIR = \PHP_EXTENSION_DIR
 
 
 
-
-
 ### ### The default directory where to look for dynamically loadable extensions (unless overridden by extension_dir)
 
 _Defaults to PHP_PREFIX (or PHP_PREFIX . "\\ext" on Windows)._

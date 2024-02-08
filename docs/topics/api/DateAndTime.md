@@ -143,11 +143,7 @@ The day is within the allowed number of days for the given month. Leap years are
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>The number of array elements in the warnings and errors arrays might be less than warning_count or
-error_count if they occurred at the same position.</p>
-            </warning>
+
 
 ### ### Returns associative array with detailed info about given date/time
 
@@ -198,11 +194,7 @@ date/time.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>The number of array elements in the warnings and errors arrays might be less than warning_count or
-error_count if they occurred at the same position.</p>
-            </warning>
+
 
 ### ### Get info about given date formatted according to the specified format
 
@@ -503,18 +495,7 @@ nautical_twilight_end: int|bool, astronomical_twilight_begin: int|bool, astronom
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>If the number of the year is specified in a two-digit format, the values between 00-69 are mapped to
-2000-2069 and 70-99 to 1970-1999. See the notes below for possible differences on 32bit systems (possible
-dates might end on 2038-01-19 03:14:07).</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The valid range of a timestamp is typically from Fri, 13 Dec 1901 20:45:54 UTC to Tue, 19 Jan 2038
-03:14:07 UTC. (These are the dates that correspond to the minimum and maximum values for a 32-bit signed
-integer.). For 64-bit versions of PHP, the valid range of a timestamp is effectively infinite, as 64 bits can
-represent approximately 293 billion years in either direction.</p>
-            </note>
+
 
 ### ### Parse about any English textual datetime description into a Unix timestamp
 
@@ -656,10 +637,7 @@ Get a GMT/UTC timestamp.
 
 
 
-<tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Timestamp of the start for the request is available in $_SERVER['REQUEST_TIME'].</p>
-            </tip>
+
 
 ### ### Return current Unix timestamp
 
@@ -701,10 +679,7 @@ Get a GMT/UTC timestamp.
 
 
 
-<tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>For performance measurements, using hrtime() is recommended.</p>
-            </tip>
+
 
 ### ### Get current Unix microseconds
 

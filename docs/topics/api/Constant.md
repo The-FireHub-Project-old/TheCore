@@ -131,10 +131,7 @@ The value of the constant.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function works also with class constants and enum cases.</p>
-            </note>
+
 
 ### ### Checks whether a given named constant exists
 
@@ -184,10 +181,7 @@ The constant name.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function works also with class constants and enum cases.</p>
-            </note>
+
 
 ### ### Returns the value of a constant
 

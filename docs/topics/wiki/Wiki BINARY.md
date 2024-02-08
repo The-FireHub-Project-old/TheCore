@@ -12,8 +12,6 @@ constant string BINARY = \PHP_BINARY
 
 
 
-
-
 ### ### Specifies the PHP binary path during script execution
 
 

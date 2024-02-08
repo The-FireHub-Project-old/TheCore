@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Single-byte regex low-level proxy class
 
 _The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
@@ -53,11 +51,6 @@ public static RegexSB::match(string $pattern, string $string, int $offset):bool
 
 
 
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.
-
 ### ### Perform a regular expression match
 
 _Searches subject for a match to the regular expression given in a pattern._
@@ -79,8 +72,6 @@ to specify the alternate place from which to start the search (in bytes)._
 ```php
 public static RegexSB::replace(string $pattern, string $replacement, string $string, int $limit = -1):string
 ```
-
-
 
 
 
@@ -116,8 +107,6 @@ The maximum possible replacements for each pattern in each subject string. Defau
 ```php
 public static RegexSB::replaceFunc(string $pattern, callable $callback, string $string, int $limit = -1):string
 ```
-
-
 
 
 

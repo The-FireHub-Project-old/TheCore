@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### String encoding low-level proxy class
 
 _Encoding is the process of assigning numbers to graphical characters, especially the written characters of human
@@ -54,8 +52,6 @@ public static StrEncode::base64Encode(string $string):string
 
 
 
-
-
 ### ### Encodes string with MIME base64
 
 _This encoding is designed to make binary data survive transport through transport layers that are not 8-bit
@@ -74,8 +70,6 @@ clean, such as mail bodies. Base64-encoded data takes about 33% more space than 
 ```php
 public static StrEncode::base64Decode(string $data):string
 ```
-
-
 
 
 
@@ -118,9 +112,6 @@ public static StrEncode::uuEncode(string $string):string
 
 
 
-> [!NOTE]
-            UUEncode neither produces the beginning nor the end line, which are part of uuencoded files.
-
 ### ### Uuencode a string
 
 _Encodes a string using the uuencode algorithm. Uuencode translates all strings (including binary data) into
@@ -150,9 +141,6 @@ public static StrEncode::uuDecode(string $data):string
 
 
 
-
-> [!NOTE]
-            UUDecode neither accepts the beginning nor the end line, which are part of uuencoded files.
 
 ### ### Decode an uuencoded data
 
@@ -185,9 +173,6 @@ public static StrEncode::quotedPrintableEncode(string $string):string
 
 
 
-> [!NOTE]
-            This method is a useful tool for working with email messages.
-
 ### ### Convert a 8bit string to a quoted-printable data
 
 
@@ -215,9 +200,6 @@ public static StrEncode::quotedPrintableDecode(string $data):string
 
 
 
-
-> [!NOTE]
-            This method is a useful tool for working with email messages.
 
 ### ### Convert a quoted-printable data to an 8 bit string
 

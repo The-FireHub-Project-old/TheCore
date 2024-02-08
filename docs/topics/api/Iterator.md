@@ -78,12 +78,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>If this parameter $preserve_keys is not set or set to true, duplicate keys will be overwritten. The last
-value with a given key will be in the returned array. Set this parameter as false to get all the values in any
-case.</p>
-            </note>
+
 
 ### ### Copy the iterator into an array
 

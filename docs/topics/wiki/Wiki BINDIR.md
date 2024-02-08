@@ -12,8 +12,6 @@ constant string BINDIR = \PHP_BINDIR
 
 
 
-
-
 ### ### The value --bindir was set to at configuring
 
 _On Windows, it is the value --with-prefix was set to at configuring._

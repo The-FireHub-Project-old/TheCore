@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Array low-level proxy class
 
 
@@ -107,10 +105,6 @@ public static Arr::keyExist(array-key $key, array $array):bool
 
 
 
-> [!NOTE]
-            Method will search for the keys in the first dimension only. Nested keys in multidimensional arrays will
-not be found.
-
 ### ### Checks if the given key or index exists in the array
 
 _Returns true if the given key is set in the array. Key can be any value possible for an array index._
@@ -130,8 +124,6 @@ An array with keys to check._
 ```php
 public static Arr::inArray(mixed $value, array $array):bool
 ```
-
-
 
 
 
@@ -174,9 +166,6 @@ public static Arr::isList(array $array):bool
 
 
 
-> [!NOTE]
-            This function returns true on empty arrays.
-
 ### ### Checks whether a given array is a list
 
 _Determines if the given array is a list. An array is considered a list if its keys consist of consecutive
@@ -207,10 +196,6 @@ public static Arr::multiSort(array $array):bool
 
 
 
-> [!CAUTION]
-            Associative (string) keys will be maintained, but numeric keys will be re-indexed.> [!NOTE]
-            Resets array's internal pointer to the first element.
-
 ### ### Sort multiple or multidimensional arrays
 
 
@@ -233,8 +218,6 @@ A multidimensional array being sorted._
 ```php
 public static Arr::walk(array &$array, callable $callback):true
 ```
-
-
 
 
 
@@ -289,8 +272,6 @@ public static Arr::walkRecursive(array &$array, callable $callback):true
 
 
 
-
-
 ### ### Apply a user function recursively to every member of an array
 
 _Applies the user-defined callback function to each element of the array. This function will recurse into
@@ -320,8 +301,6 @@ elements, unset elements, etc._
 ```php
 public static Arr::countValues(array $array):array
 ```
-
-
 
 
 
@@ -367,8 +346,6 @@ public static Arr::fill(mixed $value, int $start_index, int $length):array
 
 
 
-
-
 ### ### Fill an array with values
 
 _Fills an array with $length entries of the value of the $value parameter, keys starting at the $start_index
@@ -396,8 +373,6 @@ Value to use for filling._
 ```php
 public static Arr::fillKeys(array $keys, mixed $value):array
 ```
-
-
 
 
 
@@ -448,8 +423,6 @@ public static Arr::foldKeys(array $array, \FireHub\Core\Support\Enums\String\Cas
 
 
 
-
-
 ### ### Changes the case of all keys in an array
 
 _Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is._
@@ -475,8 +448,6 @@ Either LOWER or UPPER case folding._
 ```php
 public static Arr::chunk(array $array, positive-int $length, bool $preserve_keys = false):array
 ```
-
-
 
 
 
@@ -519,8 +490,6 @@ Multidimensional numerically indexed array, starting with zero, with each dimens
 ```php
 public static Arr::column(array $array, int|string $key, null|int|string $index = null):array
 ```
-
-
 
 
 
@@ -578,8 +547,6 @@ public static Arr::combine(array $keys, array $values):array
 
 
 
-
-
 ### ### Creates an array by using one array for keys and another for its values
 
 _Creates an array by using the values from the $keys array as keys and the values from the $values array as the
@@ -620,10 +587,6 @@ public static Arr::difference(array $array, array ...$excludes):array
 
 
 
-> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. You can check deeper dimensions by
-using [[Arr#difference($array1[0], $array2[0])]].
-
 ### ### Computes the difference of arrays using values for comparison
 
 _Compares an array against one or more other arrays and returns the values in array that are not present in any of
@@ -661,13 +624,6 @@ public static Arr::differenceFunc(array $array, array $excludes, callable $callb
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
-check deeper dimensions by using [[Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func']].
 
 ### ### Computes the difference of arrays using values for comparison by using a callback for comparison
 
@@ -709,10 +665,6 @@ public static Arr::differenceKey(array $array, array ...$excludes):array
 
 
 
-> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
-dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].
-
 ### ### Computes the difference of arrays using keys for comparison
 
 _Compares the keys from array against the keys from arrays and returns the difference. This function is like
@@ -750,13 +702,6 @@ public static Arr::differenceKeyFunc(array $array, array $excludes, callable $ca
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
-of 0, which will compare such values as equal.> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
-dimensions by using [[Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_func')]].
 
 ### ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
 
@@ -797,12 +742,6 @@ public static Arr::differenceAssoc(array $array, array ...$excludes):array
 
 
 
-> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example, [[Arr#differenceAssoc($array1[0], $array2[0])]].> [!NOTE]
-            Ensure arguments are passed in the correct order when comparing similar arrays with more keys. The new
-array should be the first in the list.
-
 ### ### Computes the difference of arrays with additional index check
 
 _Compares an array against arrays and returns the difference. Unlike [[Arr#difference()]], the array keys are
@@ -841,14 +780,6 @@ public static Arr::differenceAssocFuncValue(array $array, array $excludes, calla
 
 
 
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
-of 0, which will compare such values as equal.> [!NOTE]
-            Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
-check deeper dimensions by using, for example,
-[[Arr#differenceAssocFuncValue($array1[0], $array2[0], 'some_comparison_func')]].
-
 ### ### Computes the difference of arrays with additional index check by using a callback for value comparison
 
 _Computes the difference of arrays with additional index check, compares data by a callback function._
@@ -886,13 +817,6 @@ public static Arr::differenceAssocFuncKey(array $array, array $excludes, callabl
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example, [[Arr#differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func')]].
 
 ### ### Computes the difference of arrays with additional index check by using a callback for key comparison
 
@@ -933,14 +857,6 @@ public static Arr::differenceAssocFuncKeyValue(array $array, array $excludes, ca
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example,
-[[Arr#differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func')]].
 
 ### ### Computes the difference of arrays with additional index check by using a callback for key-value comparison
 
@@ -983,10 +899,6 @@ public static Arr::intersect(array $array, array ...$arrays):array
 
 
 
-> [!NOTE]
-            Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
-string representation is the same.
-
 ### ### Computes the intersection of arrays using values for comparison
 
 _Returns an array containing all the values of array that are present in all the arguments. Note that keys are
@@ -1024,13 +936,6 @@ public static Arr::intersectFunc(array $array, array $excludes, callable $callba
 
 
 
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
-string representation is the same.
-
 ### ### Computes the intersection of arrays using values for comparison by using a callback for data comparison
 
 _Computes the intersection of arrays, compares data by a callback function._
@@ -1058,8 +963,6 @@ are not present in any of the other arrays._
 ```php
 public static Arr::intersectKey(array $array, array ...$arrays):array
 ```
-
-
 
 
 
@@ -1107,11 +1010,6 @@ public static Arr::intersectKeyFunc(array $array, array $excludes, callable $cal
 
 
 
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.
-
 ### ### Computes the intersection of arrays using keys for comparison by using a callback for data comparison
 
 _Returns an array containing all the values of array which have matching keys that are present in all the
@@ -1151,10 +1049,6 @@ public static Arr::intersectAssoc(array $array, array ...$arrays):array
 
 
 
-> [!NOTE]
-            The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.
-In other words, a strict type check is executed, so the string representation must be the same.
-
 ### ### Computes the intersection of arrays with additional index check
 
 _Returns an array containing all the values of array that are present in all the arguments. Note that the keys
@@ -1191,11 +1085,6 @@ public static Arr::intersectAssocFuncValue(array $array, array $excludes, callab
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.
 
 ### ### Computes the intersection of arrays with additional index check by using a callback for value comparison
 
@@ -1238,13 +1127,6 @@ public static Arr::intersectAssocFuncKey(array $array, array $excludes, callable
 
 
 
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            The comparison function must return an integer less than, equal to, or greater than zero if the first
-argument is considered to be respectively less than, equal to, or greater than the second.
-
 ### ### Computes the intersection of arrays with additional index check by using a callback for key comparison
 
 _Computes the intersection of arrays with additional index check, compares data and indexes by separate
@@ -1283,13 +1165,6 @@ public static Arr::intersectAssocFuncKeyValue(array $array, array $excludes, cal
 
 
 
-
-> [!CAUTION]
-            Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.> [!NOTE]
-            The comparison function must return an integer less than, equal to, or greater than zero if the first
-argument is considered to be respectively less than, equal to, or greater than the second.
 
 ### ### Computes the intersection of arrays with additional index check by using a callback for key-value comparison
 
@@ -1332,10 +1207,6 @@ public static Arr::filter(array $array, null|callable $callback = null, bool $pa
 
 
 
-> [!CAUTION]
-            If the array is changed from the callback function (e.g., an element added, deleted or unset) then
-behavior of this function is undefined.
-
 ### ### Filter elements in an array
 
 _Iterates over each value in the $array passing them to the $callback function. If the $callback function
@@ -1366,8 +1237,6 @@ Pass key as the argument to callback._
 ```php
 public static Arr::flip(array $array):array
 ```
-
-
 
 
 
@@ -1416,8 +1285,6 @@ public static Arr::keys(array $array, mixed $filter = null):array
 
 
 
-
-
 ### ### Return all the keys or a subset of the keys of an array
 
 _Returns the keys, numeric and string, from the $array. If a $filter is specified, then only the keys for that
@@ -1450,8 +1317,6 @@ public static Arr::values(array $array):array
 
 
 
-
-
 ### ### Return all the values from an array
 
 _Returns all the values from the array and indexes the array numerically._
@@ -1473,8 +1338,6 @@ The array._
 ```php
 public static Arr::map(array $array, callable $callback):array
 ```
-
-
 
 
 
@@ -1530,12 +1393,6 @@ public static Arr::merge(array ...$arrays):array
 
 
 
-> [!NOTE]
-            If the input arrays have the same string keys, then the later value for that key will overwrite the
-previous one.> [!NOTE]
-            If the arrays contain numeric keys, the later value will be appended.> [!NOTE]
-            Numeric keys will be renumbered.
-
 ### ### Merges the elements of one or more arrays together
 
 _Merges the elements of one or more arrays together so that the values of one are appended to the end of the
@@ -1563,8 +1420,6 @@ Variable list of arrays to merge._
 ```php
 public static Arr::mergeRecursive(array ...$arrays):array
 ```
-
-
 
 
 
@@ -1610,9 +1465,6 @@ public static Arr::pad(array $array, int $length, mixed $value):array
 
 
 
-> [!CAUTION]
-            Keys can be re-numbered.
-
 ### ### Pad array to the specified length with a value
 
 _Returns a copy of the array padded to size specified by $length with value $value. If the length is positive,
@@ -1638,8 +1490,6 @@ If the absolute value of length is less than or equal to the length of the array
 ```php
 public static Arr::replace(array $array, array ...$replacements):array
 ```
-
-
 
 
 
@@ -1678,8 +1528,6 @@ The array in which elements are replaced._
 ```php
 public static Arr::replaceRecursive(array $array, array ...$replacements):array
 ```
-
-
 
 
 
@@ -1730,8 +1578,6 @@ public static Arr::reverse(array $array, bool $preserve_keys = false):array
 
 
 
-
-
 ### ### Reverse the order of array items
 
 _Takes an input array and returns a new array with the order of the elements reversed._
@@ -1757,8 +1603,6 @@ Non-numeric keys are not affected by this setting and will always be preserved._
 ```php
 public static Arr::slice(array $array, int $offset, null|int $length = null, bool $preserve_keys = false):array
 ```
-
-
 
 
 
@@ -1812,11 +1656,6 @@ public static Arr::splice(array &$array, int $offset, null|int $length = null, m
 
 
 
-> [!NOTE]
-            Numerical keys in an array are not preserved.> [!NOTE]
-            If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
-This may result in unexpected behavior when using an object or null replacement.
-
 ### ### Remove a portion of the array and replace it with something else
 
 _Removes the elements designated by offset and length from the array $array, and replaces them with the elements
@@ -1864,10 +1703,6 @@ public static Arr::unique(array $array):array
 
 
 
-> [!NOTE]
-            The new array will preserve associative keys, and reindex others.> [!NOTE]
-            This method is not intended to work on multidimensional arrays.
-
 ### ### Removes duplicate values from an array
 
 _Takes an input array and returns a new array without duplicate values._
@@ -1900,10 +1735,6 @@ public static Arr::range(int|float|string $start, int|float|string $end, int|flo
 
 
 
-
-> [!NOTE]
-            Character sequence values are limited to a length of one. If a length greater than one is entered.
-only the first character is used.
 
 ### ### Create an array containing a range of elements
 
@@ -1943,10 +1774,6 @@ public static Arr::random(array $array, int $number = 1):array|int|string
 
 
 
-> [!CAUTION]
-            This function does not generate cryptographically secure values, and must not be used for
-cryptographic purposes, or purposes that require returned values to be unguessable.
-
 ### ### Pick one or more random keys out of an array
 
 _Picks one or more random entries out of an array, and returns the key (or keys) of the random entries._
@@ -1971,8 +1798,6 @@ array_rand() returns the key for a random entry. Otherwise, an array of keys for
 ```php
 public static Arr::reduce(array $array, callable $callback, mixed $initial = null):mixed
 ```
-
-
 
 
 
@@ -2018,9 +1843,6 @@ public static Arr::pop(array &$array):mixed
 
 
 
-> [!NOTE]
-            This function will reset the array pointer of the input array after use.
-
 ### ### Pop the element off the end of array
 
 _Pops and returns the last element value of th $array, shortening the $array by one element._
@@ -2052,10 +1874,6 @@ public static Arr::push(array &$array, \FireHub\Core\Support\LowLevel\TValue ...
 
 
 
-
-> [!NOTE]
-            If you use push to add one element to the array, it's better to use $array[] = because in that way there
-is no overhead of calling a function.
 
 ### ### Push elements onto the end of array
 
@@ -2092,9 +1910,6 @@ public static Arr::shift(array &$array):mixed
 
 
 
-> [!NOTE]
-            This function will reset the array pointer of the input array after use.
-
 ### ### Removes an item at the beginning of an array
 
 _Shifts the first value of the array off and returns it, shortening the array by one element and moving
@@ -2129,9 +1944,6 @@ public static Arr::unshift(array &$array, \FireHub\Core\Support\LowLevel\TValue 
 
 
 
-> [!NOTE]
-            Resets array's internal pointer to the first element.
-
 ### ### Prepend one or more elements to the beginning of an array
 
 _Method prepends passed elements to the front of the array.
@@ -2157,8 +1969,6 @@ The values to prepend._
 ```php
 public static Arr::firstKey(array $array):null|int|string
 ```
-
-
 
 
 
@@ -2199,8 +2009,6 @@ public static Arr::lastKey(array $array):null|int|string
 
 
 
-
-
 ### ### Get last key from array
 
 _Get the last key of the given $array without affecting the internal array pointer._
@@ -2219,8 +2027,6 @@ An array._
 ```php
 public static Arr::product(array $array):int|float
 ```
-
-
 
 
 
@@ -2261,8 +2067,6 @@ public static Arr::sum(array $array):int|float
 
 
 
-
-
 ### ### Calculate the sum of values in an array
 
 
@@ -2291,11 +2095,6 @@ public static Arr::search(mixed $value, array $array):int|string|false
 
 
 
-
-> [!WARNING]
-            This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
-Please read the section on Booleans for more information. Use the === operator for testing the return value of
-this function.
 
 ### ### Searches the array for a given value and returns the first corresponding key if successful
 
@@ -2332,13 +2131,6 @@ public static Arr::shuffle(array &$array):true
 
 
 
-> [!CAUTION]
-            This function does not generate cryptographically secure values, and must not be used for cryptographic
-purposes, or purposes that require returned values to be unguessable.> [!NOTE]
-            This function assigns new keys to the elements in array. It will remove any existing keys that may have
-been assigned, rather than just reordering the keys.> [!NOTE]
-            Resets array's internal pointer to the first element.
-
 ### ### Shuffle array
 
 _This function shuffles (randomizes the order of the elements in) an array._
@@ -2370,9 +2162,6 @@ public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order 
 
 
 
-
-> [!NOTE]
-            Resets array's internal pointer to the first element.
 
 ### ### Sorts array
 
@@ -2413,9 +2202,6 @@ public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Supp
 
 
 
-> [!NOTE]
-            Resets array's internal pointer to the first element.
-
 ### ### Sorts array by key
 
 
@@ -2453,9 +2239,6 @@ public static Arr::sortBy(array &$array, callable $callback, bool $preserve_keys
 
 
 
-> [!NOTE]
-            Resets array's internal pointer to the first element.
-
 ### ### Sorts an array by values using a user-defined comparison function
 
 
@@ -2492,9 +2275,6 @@ public static Arr::sortKeyBy(array &$array, callable $callback):true
 
 
 
-
-> [!NOTE]
-            Resets array's internal pointer to the first element.
 
 ### ### Sorts array by key using a user-defined comparison function
 

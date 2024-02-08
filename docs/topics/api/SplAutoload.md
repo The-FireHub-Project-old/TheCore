@@ -140,10 +140,7 @@ filename extensions .inc and .php.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>There should not be a space between the defined file extensions.</p>
-            </note>
+
 
 ### ### Register and return file extensions for default autoload
 
@@ -360,11 +357,7 @@ If no function is registered, or autoloaded queue is not activated, then the ret
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method can be used to manually search for a class or interface using the registered autoloader
-functions.</p>
-            </note>
+
 
 ### ### Try all registered autoload functions to load the requested class
 

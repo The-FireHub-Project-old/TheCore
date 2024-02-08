@@ -56,8 +56,8 @@
 
 
 ### Properties
-| Type | Name | Title | Default |
-|:-----|:-----|:------|:--------|
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
 |private|<a href="#$list">list</a>|### List of loaders|[]|
 
 ### Methods

@@ -12,8 +12,6 @@ constant string PREFIX = \PHP_PREFIX
 
 
 
-
-
 ### ### The value --prefix was set to at configuring
 
 _On Windows, it is the value --with-prefix was set to at configure-_

@@ -12,8 +12,6 @@ constant string LIBDIR = \PHP_LIBDIR
 
 
 
-
-
 ### ### Specifies libdir directory
 
 

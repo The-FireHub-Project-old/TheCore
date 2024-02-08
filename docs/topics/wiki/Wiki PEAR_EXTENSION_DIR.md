@@ -12,8 +12,6 @@ constant int PEAR_EXTENSION_DIR = \PEAR_EXTENSION_DIR
 
 
 
-
-
 ### ### PEAR extension directory
 
 

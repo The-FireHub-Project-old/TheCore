@@ -12,8 +12,6 @@ constant float FLOAT_EPSILON = \PHP_FLOAT_EPSILON
 
 
 
-
-
 ### ### Smallest representable positive number x, so that x + 1.0 != 1.0
 
 

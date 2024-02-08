@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Array or Traversable low-level proxy class
 
 
@@ -43,8 +41,6 @@ This class is marked as **final**.
 ```php
 public static Iterables::count(array|\Countable $array, bool $multidimensional = false):int
 ```
-
-
 
 
 
@@ -87,16 +83,6 @@ public static Iterables::current(array $array):mixed
 
 
 
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.> [!NOTE]
-            The results of calling current() on an empty array and on an array, whose internal pointer points beyond
-the end of the elements is indistinguishable from a bool false element. To properly traverse an array which
-may contain false elements, see the foreach control structure. To still use current() and properly check if
-the value is really an element of the array, the key() of the current() element should be checked to be
-strictly different from null.
-
 ### ### Return the current element in an array
 
 _Every array has an internal pointer to its "current" element, which is initialized to the first element
@@ -122,8 +108,6 @@ the end of the elements list or the array is empty, current() returns false._
 ```php
 public static Iterables::key(array $array):null|int|string
 ```
-
-
 
 
 
@@ -170,13 +154,6 @@ public static Iterables::prev(array &$array):mixed
 
 
 
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.> [!NOTE]
-            The beginning of an array is indistinguishable from a bool false element. To make the distinction, check
-that the key() of the prev() element is not null.
-
 ### ### Rewind the internal array pointer
 
 _Method prev() behaves just like next(), except it rewinds the internal array pointer one place instead of
@@ -211,14 +188,6 @@ public static Iterables::next(array &$array):mixed
 
 
 
-
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.> [!NOTE]
-            The end of an array is indistinguishable from a bool false element. To properly traverse an array which
-may contain false elements, see the foreach function. To still use next() and properly check if the end of the
-array has been reached, verify that the key() is null.
 
 ### ### Advance the internal pointer of an array
 
@@ -256,14 +225,6 @@ public static Iterables::reset(array &$array):mixed
 
 
 
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.> [!NOTE]
-            The return value for an empty array is indistinguishable from the return value in case of an array which
-has a bool false first element. To properly check the value of the first element in an array which may contain
-false elements, first check the count() of the array, or check that key() is not null, after calling reset().
-
 ### ### Set the internal pointer of an array to its first element
 
 _Method reset() rewinds array's internal pointer to the first element and returns the value of the first array
@@ -298,11 +259,6 @@ public static Iterables::end(array &$array):mixed
 
 
 
-
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.
 
 ### ### Set the internal pointer of an array to its last element
 

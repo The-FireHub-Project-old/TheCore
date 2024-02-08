@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Declared low-level proxy class
 
 _Class allows you to get information about declared classes and objects._
@@ -52,10 +50,6 @@ public static Declared::classes():array
 
 
 
-> [!NOTE]
-            Note that depending on what extensions you have compiled or loaded into PHP, additional classes could be
-present. This means that you will not be able to define your own classes using these names.
-
 ### ### Gets the declared classes
 
 
@@ -71,8 +65,6 @@ the current script._
 ```php
 public static Declared::interfaces():array
 ```
-
-
 
 
 
@@ -110,8 +102,6 @@ public static Declared::traits():array
 
 
 
-
-
 ### ### Gets the declared traits
 
 
@@ -127,8 +117,6 @@ the current script._
 ```php
 public static Declared::constants(bool $categorize = false):array
 ```
-
-
 
 
 
@@ -161,8 +149,6 @@ array of constant name => constant value array, optionally grouped by extension 
 ```php
 public static Declared::functions(bool $exclude_disabled = true):array
 ```
-
-
 
 
 

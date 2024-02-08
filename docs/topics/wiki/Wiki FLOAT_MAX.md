@@ -12,8 +12,6 @@ constant float FLOAT_MAX = \PHP_FLOAT_MAX
 
 
 
-
-
 ### ### Largest representable floating point number
 
 

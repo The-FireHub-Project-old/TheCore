@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Integer number low-level proxy class
 
 _An int is a number of the set Z = {..., -2, -1, 0, 1, 2, ...}.
@@ -61,8 +59,6 @@ public static NumInt::divide(int $dividend, int $divisor):int
 
 
 
-
-
 ### ### Integer division
 
 
@@ -98,8 +94,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Absolute value
 
 _Returns the absolute value of $number._
@@ -124,8 +118,6 @@ final public static Num::ceil(float|int $number):int
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -160,8 +152,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Round fractions down
 
 _Returns the next lowest integer value (as float) by rounding down $number if necessary._
@@ -186,8 +176,6 @@ final public static Num::round(float|int $number, int $precision, \FireHub\Core\
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -230,8 +218,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Natural logarithm
 
 
@@ -258,8 +244,6 @@ final public static Num::log1p(float|int $number):float
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -294,8 +278,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Base-10 logarithm
 
 
@@ -320,8 +302,6 @@ final public static Num::max(\FireHub\Core\Support\LowLevel\TInt $value, \FireHu
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -362,8 +342,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Find lowest value
 
 
@@ -399,9 +377,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            It is possible to use the ** operator instead.
-
 ### ### Exponential expression
 
 
@@ -429,8 +404,6 @@ final public static Num::format(int|float $number, int $decimals, string $decima
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 

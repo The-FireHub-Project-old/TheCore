@@ -12,8 +12,6 @@ enum Sort
 
 
 
-
-
 ### ### Sorting enum
 
 
@@ -47,8 +45,6 @@ SORT_REGULAR
 
 
 
-
-
 ### ### Compare items normally
 
 
@@ -60,8 +56,6 @@ SORT_REGULAR
 ```php
 SORT_NUMERIC = 1
 ```
-
-
 
 
 
@@ -83,8 +77,6 @@ SORT_STRING = 2
 
 
 
-
-
 ### ### Compare items as strings
 
 
@@ -96,8 +88,6 @@ SORT_STRING = 2
 ```php
 SORT_LOCALE_STRING = 5
 ```
-
-
 
 
 
@@ -119,8 +109,6 @@ SORT_NATURAL = 6
 
 
 
-
-
 ### ### Compare items as strings using "natural ordering" like natsort()
 
 
@@ -137,8 +125,6 @@ SORT_STRING_FLAG_CASE = 10
 
 
 
-
-
 ### ### Sort strings case-insensitively
 
 
@@ -150,8 +136,6 @@ SORT_STRING_FLAG_CASE = 10
 ```php
 SORT_NATURAL_FLAG_CASE = 14
 ```
-
-
 
 
 

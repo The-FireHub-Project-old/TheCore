@@ -12,8 +12,6 @@ constant string DATADIR = \PHP_DATADIR
 
 
 
-
-
 ### ### Specifies datadir directory
 
 

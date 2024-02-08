@@ -12,8 +12,6 @@ enum Type
 
 
 
-
-
 ### ### Data type enum
 
 _Data type defines the type of data a variable can store._
@@ -59,8 +57,6 @@ public Type::category():\FireHub\Core\Support\Enums\Data\Category
 
 
 
-
-
 ### ## Gets data type category
 
 
@@ -75,8 +71,6 @@ public Type::category():\FireHub\Core\Support\Enums\Data\Category
 ```php
 T_BOOL
 ```
-
-
 
 
 
@@ -98,8 +92,6 @@ T_INT
 
 
 
-
-
 ### ### An int is a number of the set Z = {..., -2, -1, 0, 1, 2, ...}
 
 
@@ -111,8 +103,6 @@ T_INT
 ```php
 T_FLOAT
 ```
-
-
 
 
 
@@ -134,8 +124,6 @@ T_STRING
 
 
 
-
-
 ### ### A string is a series of characters, where a character is the same as a byte
 
 
@@ -147,8 +135,6 @@ T_STRING
 ```php
 T_ARRAY
 ```
-
-
 
 
 
@@ -170,8 +156,6 @@ T_OBJECT
 
 
 
-
-
 ### ### An object is an individual instance of the data structure defined by a class
 
 
@@ -188,8 +172,6 @@ T_NULL
 
 
 
-
-
 ### ### The special null value represents a variable with no value
 
 
@@ -201,8 +183,6 @@ T_NULL
 ```php
 T_RESOURCE
 ```
-
-
 
 
 

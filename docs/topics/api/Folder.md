@@ -236,10 +236,7 @@ Path to folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Tells whether the filename is a regular folder
 
@@ -291,15 +288,7 @@ enabled open_basedir, further restrictions may apply.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Given a file name instead of a folder, the behavior of the function is unspecified and may differ
-between operating systems and PHP versions.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note>
+
 
 ### ### Gets total size of a filesystem or disk partition
 
@@ -354,15 +343,7 @@ Path to folder ot disk partition.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Given a file name instead of a folder, the behavior of the function is unspecified and may differ
-between operating systems and PHP versions.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note>
+
 
 ### ### Gets free space of a filesystem or disk partition
 
@@ -421,18 +402,7 @@ Path to folder ot disk partition.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>On windows, use //computername/share/filename or \\computername\share\filename to check files on network
-shares.</p>
-            </tip>
+
 
 ### ### Checks whether a file or folder exists
 
@@ -486,13 +456,7 @@ Path to the file or folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The check is done using the real UID/GID instead of the effective one.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Tells whether a file exists and is readable
 
@@ -546,10 +510,7 @@ Path to the file or folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### Tells whether the path is writable
 
@@ -603,10 +564,7 @@ Path to the file.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Tells whether the path is a symbolic link
 
@@ -656,11 +614,7 @@ Path to the file.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>On Windows, if $new_name already exists, it must be writable, otherwise [[FileSystem#rename()]] fails and
-issues E_WARNING.</p>
-            </note>
+
 
 ### ### Renames a file or directory
 
@@ -729,16 +683,7 @@ The new name.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Method is locale aware, so for it to see the correct basename with multibyte character paths,
-the matching locale must be set using the setlocale() function. If a path contains characters which are invalid
-for the current locale, the behavior of [[FileSystem#basename()]] is undefined.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Method operates naively on the input string, and is not aware of the actual filesystem, or path
-components such as "..".</p>
-            </note>
+
 
 ### ### Returns a trailing name component of a path
 
@@ -795,19 +740,7 @@ If the name component ends in suffix, this will also be cut off.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>[[FileSystem#pathInfo()]] is locale aware, so for it to parse a path containing multibyte characters
-correctly, the matching locale must be set using the setlocale() function.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>[[FileSystem#pathInfo()]] operates naively on the input string, and is not aware of the actual filesystem,
-or path components such as "..".</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>On Windows systems only, the \ character will be interpreted as a directory separator. On other systems
-it will be treated like any other character.</p>
-            </note>
+
 
 ### ### Returns information about a file path
 
@@ -861,29 +794,7 @@ The path to be parsed.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Whilst a path must be supplied, the value can be an empty string. In this case, the value is interpreted
-as the current directory.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The running script must have executable permissions on all directories in the hierarchy, otherwise
-[[FileSystem#absolutePath()]] will return false.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>For case-insensitive filesystems absolutePath() may or may not normalize the character case.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The function [[FileSystem#absolutePath()]] will not work for a file which is inside a Phar as such a path
-would be virtual path, not a real one.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>On Windows, one level only expands junctions and symbolic links to directories.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.</p>
-            </note>
+
 
 ### ### Returns canonical absolute pathname
 
@@ -943,11 +854,7 @@ executable permissions.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Be careful when using this function in a loop that can reach the top-level directory as this can
-result in an infinite loop.</p>
-            </warning>
+
 
 ### ### Returns parent folder path
 
@@ -1016,16 +923,7 @@ returned, indicating the current folder.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This method does not work on Windows.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See clearCache() for more details.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getgrgid() to resolve it to a group name.</p>
-            </tip>
+
 
 ### ### Gets file or folder group
 
@@ -1084,13 +982,7 @@ Path of the file or folder.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This method does not work on Windows.</p>
-            </warning><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getgrgid() to resolve it to a group name.</p>
-            </tip>
+
 
 ### ### Changes file or folder group
 
@@ -1153,16 +1045,7 @@ A group name or number.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This method does not work on Windows.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See clearCache() for more details.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getpwuid() to resolve it to a username.</p>
-            </tip>
+
 
 ### ### Gets file or folder owner
 
@@ -1221,17 +1104,7 @@ Path of the file or folder.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This method does not work on Windows.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getpwuid() to resolve it to a username.</p>
-            </tip>
+
 
 ### ### Gets file or folder owner
 
@@ -1293,10 +1166,7 @@ A username or number.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note><tip>
+<tip>
                 <p><format style="bold" color="DarkBlue">Todo:</format></p>
                 <p><format color="DarkBlue">Replace decoct with low level class.</format></p>
             </tip>
@@ -1363,15 +1233,7 @@ The path.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The current user is the user under which PHP runs. It is probably not the same user you use for normal
-shell or FTP access. The mode can be changed only by user who owns the file on most systems.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note><tip>
+<tip>
                 <p><format style="bold" color="DarkBlue">Todo:</format></p>
                 <p><format color="DarkBlue">Replace octdec with low level class.</format></p>
             </tip>
@@ -1444,19 +1306,7 @@ Everyone's permission,
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The atime of a file is supposed to change whenever the data blocks of a file are being read. This can be
-costly performance-wise when an application regularly accesses a huge number of files or directories. Some
-Unix filesystems can be mounted with atime updates disabled to increase the performance of such applications;
-USENET news spools are a common example. On such filesystems this function will be useless.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Note that time resolution may differ from one file system to another.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Gets last access time of path
 
@@ -1515,13 +1365,7 @@ Path to file or folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Note that time resolution may differ from one file system to another.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached.See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Gets last modification time of a path
 
@@ -1581,22 +1425,7 @@ Path to file or folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>In most Unix filesystems, a file is considered changed when its inode data is changed; that is, when the
-permissions, owner, group, or other metadata from the inode is updated. See also [[FileSystem#lastModified()]]
-(which is what you want to use when you want to create "Last Modified" footers on web pages) and
-[[FileSystem#lastAccessed()]].</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>On Windows, this function will return creating time, but on UNIX inode change time.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Note that time resolution may differ from one file system to another.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Gets inode change time of a path
 
@@ -1656,13 +1485,7 @@ Path to file or folder.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>If the file does not exist, it will be created.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Note that time resolution may differ from one file system to another.</p>
-            </note>
+
 
 ### ### Sets last access and modification time of a path
 
@@ -1727,10 +1550,7 @@ value passed to the mtime parameter. If both are null, the current system time i
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The results of this function are cached. See [[FileSystem#clearCache()]] for more details.</p>
-            </note>
+
 
 ### ### Gets file inode
 
@@ -1855,14 +1675,7 @@ Result order.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function isn't available on some systems (e.g., old Sun OS).</p>
-            </note>
+
 
 ### ### Find path-names matching a pattern
 
@@ -2051,17 +1864,7 @@ Path to the symlink.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function is not implemented on Windows platforms.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getgrgid() to resolve it to a group name.</p>
-            </tip>
+
 
 ### ### Changes group ownership of symlink
 
@@ -2124,17 +1927,7 @@ The group specified by name or number.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function is not implemented on Windows platforms.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>Use posix_getpwuid() to resolve it to a username.</p>
-            </tip>
+
 
 ### ### Changes user ownership of symlink
 
@@ -2265,12 +2058,7 @@ Statistics about file or folder.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function caches information about specific filenames, so you only need to call clearCache() if you
-are performing multiple operations on the same filename and require the information about that particular file
-to not be cached.</p>
-            </note>
+
 
 ### ### Clears file status cache
 

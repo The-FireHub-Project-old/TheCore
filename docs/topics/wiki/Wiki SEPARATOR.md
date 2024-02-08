@@ -12,8 +12,6 @@ constant string SEPARATOR = \PATH_SEPARATOR
 
 
 
-
-
 ### ### Semicolon on Windows, colon otherwise
 
 

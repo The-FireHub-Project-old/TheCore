@@ -91,10 +91,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>When an object is destroyed, its id may be reused for other objects.</p>
-            </note>
+
 
 ### ### Return the integer object handle for given object
 
@@ -145,14 +142,7 @@ is always the same for each object.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>When an object is destroyed, its hash may be reused for other objects.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Object hashes should be compared for identity with === and !==, because the returned hash could be a
-numeric string. For example, 0000000000000e600000000000000000.</p>
-            </note>
+
 
 ### ### Return hash id for a given object
 
@@ -252,10 +242,7 @@ The tested object.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Uninitialized properties are considered inaccessible, and thus will not be included in the array.</p>
-            </note>
+
 
 ### ### Gets the properties of the given object
 
@@ -358,10 +345,7 @@ of visibility, of an object.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Using this function will use any registered autoloaders if the class is not already known.</p>
-            </note>
+
 
 ### ### Checks if the class method exists
 
@@ -418,16 +402,7 @@ The method name.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method cannot detect properties that are magically accessible using the __get magic method.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Using this function will use any registered autoloaders if the class is not already known.</p>
-            </note>
+
 
 ### ### Checks if the object or class has a property
 
@@ -599,10 +574,7 @@ false otherwise.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The result depends on the current scope.</p>
-            </note>
+
 
 ### ### Gets the class or object methods names
 

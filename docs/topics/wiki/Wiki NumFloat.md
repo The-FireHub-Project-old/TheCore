@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Float number low-level proxy class
 
 _Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the
@@ -83,8 +81,6 @@ public static NumFloat::isFinite(float $number):bool
 
 
 
-
-
 ### ### Finds whether a value is a legal finite number
 
 _Checks whether $number is legally finite on this platform._
@@ -103,8 +99,6 @@ false otherwise._
 ```php
 public static NumFloat::isInfinite(float $number):bool
 ```
-
-
 
 
 
@@ -145,8 +139,6 @@ public static NumFloat::isNan(float $number):bool
 
 
 
-
-
 ### ### Finds whether a value is not a number
 
 _Checks whether num is 'not a number', like the result of acos(1.01)._
@@ -164,8 +156,6 @@ _Checks whether num is 'not a number', like the result of acos(1.01)._
 ```php
 public static NumFloat::divide(float $dividend, float $divisor):float
 ```
-
-
 
 
 
@@ -196,8 +186,6 @@ _Returns the floating point result of dividing the num1 by the num2. If the num2
 ```php
 public static NumFloat::remainder(float $dividend, float $divisor):float
 ```
-
-
 
 
 
@@ -240,8 +228,6 @@ public static NumFloat::cosine(float $number):float
 
 
 
-
-
 ### ### Cosine
 
 _Method returns the cosine of the $number parameter. The $number parameter is in radians._
@@ -259,8 +245,6 @@ _Method returns the cosine of the $number parameter. The $number parameter is in
 ```php
 public static NumFloat::cosineArc(float $number):float
 ```
-
-
 
 
 
@@ -301,8 +285,6 @@ public static NumFloat::cosineHyperbolic(float $number):float
 
 
 
-
-
 ### ### Hyperbolic cosine
 
 _Returns the hyperbolic cosine of $number, defined as (exponent($number) + exponent(-$number))/2._
@@ -320,8 +302,6 @@ _Returns the hyperbolic cosine of $number, defined as (exponent($number) + expon
 ```php
 public static NumFloat::cosineInverseHyperbolic(float $number):float
 ```
-
-
 
 
 
@@ -361,8 +341,6 @@ public static NumFloat::sine(float $number):float
 
 
 
-
-
 ### ### Sine
 
 _Method returns the sine of the num parameter. The num parameter is in radians._
@@ -380,8 +358,6 @@ _Method returns the sine of the num parameter. The num parameter is in radians._
 ```php
 public static NumFloat::sineArc(float $number):float
 ```
-
-
 
 
 
@@ -422,8 +398,6 @@ public static NumFloat::sineHyperbolic(float $number):float
 
 
 
-
-
 ### ### Hyperbolic sine
 
 _Returns the hyperbolic sine of num, defined as (exponent($number) - exponent(-$number))/2._
@@ -441,8 +415,6 @@ _Returns the hyperbolic sine of num, defined as (exponent($number) - exponent(-$
 ```php
 public static NumFloat::sineHyperbolicInverse(float $number):float
 ```
-
-
 
 
 
@@ -482,8 +454,6 @@ public static NumFloat::tangent(float $number):float
 
 
 
-
-
 ### ### Tangent
 
 _Returns the tangent of the num parameter. The num parameter is in radians._
@@ -501,8 +471,6 @@ _Returns the tangent of the num parameter. The num parameter is in radians._
 ```php
 public static NumFloat::tangentArc(float $number):float
 ```
-
-
 
 
 
@@ -532,8 +500,6 @@ $num == tangent(tangentArc($number)) for every value of a that is within tangent
 ```php
 public static NumFloat::tangentArc2(float $x, float $y):float
 ```
-
-
 
 
 
@@ -576,8 +542,6 @@ public static NumFloat::tangentHyperbolic(float $number):float
 
 
 
-
-
 ### ### Hyperbolic tangent
 
 _Returns the hyperbolic tangent of $number, defined as sineHyperbolic($number)/cosineHyperbolic($number)._
@@ -595,8 +559,6 @@ _Returns the hyperbolic tangent of $number, defined as sineHyperbolic($number)/c
 ```php
 public static NumFloat::tangentInverseHyperbolic(float $number):float
 ```
-
-
 
 
 
@@ -636,8 +598,6 @@ public static NumFloat::degreesToRadian(float $number):float
 
 
 
-
-
 ### ### Converts the number in degrees to the radian equivalent
 
 
@@ -655,8 +615,6 @@ public static NumFloat::degreesToRadian(float $number):float
 ```php
 public static NumFloat::radianToDegrees(float $number):float
 ```
-
-
 
 
 
@@ -696,9 +654,6 @@ public static NumFloat::exponent(float $number):float
 
 
 
-> [!NOTE]
-            'e' is the base of the natural system of logarithms, or approximately 2.718282.
-
 ### ### Calculates the exponent of e
 
 
@@ -727,9 +682,6 @@ public static NumFloat::exponent1(float $number):float
 
 
 
-> [!NOTE]
-            'e' to the power of num minus one.
-
 ### ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
 
 _Method returns the equivalent to 'exp(num) - 1' computed in a way that is accurate even if the value of num is
@@ -749,8 +701,6 @@ equal._
 ```php
 public static NumFloat::hypotenuseLength(float $x, float $y):float
 ```
-
-
 
 
 
@@ -792,8 +742,6 @@ public static NumFloat::squareRoot(float $number):float
 
 
 
-
-
 ### ### Square root
 
 
@@ -818,8 +766,6 @@ final public static Num::absolute(float|int $number):int|float
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -854,8 +800,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Round fractions up
 
 _Returns the next highest integer value by rounding up $number if necessary._
@@ -885,8 +829,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Round fractions down
 
 _Returns the next lowest integer value (as float) by rounding down $number if necessary._
@@ -911,8 +853,6 @@ final public static Num::round(float|int $number, int $precision, \FireHub\Core\
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -955,8 +895,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Natural logarithm
 
 
@@ -983,8 +921,6 @@ final public static Num::log1p(float|int $number):float
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1019,8 +955,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Base-10 logarithm
 
 
@@ -1045,8 +979,6 @@ final public static Num::max(\FireHub\Core\Support\LowLevel\TInt $value, \FireHu
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1087,8 +1019,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Find lowest value
 
 
@@ -1124,9 +1054,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            It is possible to use the ** operator instead.
-
 ### ### Exponential expression
 
 
@@ -1154,8 +1081,6 @@ final public static Num::format(int|float $number, int $decimals, string $decima
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 

@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Data low-level proxy class
 
 _Class contains variable handling methods._
@@ -40,8 +38,6 @@ _Class contains variable handling methods._
 ```php
 public static Data::getType(mixed $value):\FireHub\Core\Support\Enums\Data\Type
 ```
-
-
 
 
 
@@ -84,14 +80,12 @@ public static Data::setType(mixed $value, \FireHub\Core\Support\Enums\Data\Type 
 
 
 
-
-
 ### ### Sets data type
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116)**</sub>
 #### Parameters
 
 * mixed **$value** - _The variable being converted to type._
@@ -118,21 +112,14 @@ public static Data::serializeValue(string|int|float|bool|array|object|null $valu
 
 
 
-> [!WARNING]
-            When serialize() serializes objects, the leading backslash is not included in the class name of
-namespaced classes for maximum compatibility.> [!NOTE]
-            This is a binary string that may include null bytes and needs to be stored and handled as such. For
-example, serialize() output should generally be stored in a BLOB field in a database, rather than a CHAR or
-TEXT field.
-
 ### ### Generates storable representation of data
 
 _Generates a storable representation of a value.
 This is useful for storing or passing PHP values around without losing their type and structure.
 To make the serialized string into a PHP value again, use unserialize()._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175)**</sub>
 #### Parameters
 
 * string or int or float or bool or array or object or null **$value** - _<code>scalar|array<array-key, mixed>|object|null</code>
@@ -159,14 +146,12 @@ public static Data::unserializeValue(string $data, bool|array $allowed_classes =
 
 
 
-
-
 ### ### Creates a PHP value from a stored representation
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213)**</sub>
 #### Parameters
 
 * string **$data** - _<code>non-empty-string</code>

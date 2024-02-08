@@ -465,11 +465,7 @@ length is zero, then this function will have the effect of inserting $replace in
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>This function does not generate cryptographically secure values, and must not be used for
-cryptographic purposes, or purposes that require returned values to be unguessable.</p>
-            </warning>
+
 
 ### ### Randomly shuffles a string
 
@@ -1323,10 +1319,7 @@ value is the actual word itself.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method doesn't count overlapped substring.</p>
-            </note>
+
 
 ### ### Get number of times the searched substring occurs in the string
 
@@ -1383,11 +1376,7 @@ plus the length is greater than the $string length. A negative length counts fro
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>When offset parameter is set, the returned length is counted starting from this position, not from
-beginning of the string.</p>
-            </note>
+
 
 ### ### Length of the initial segment for a string consisting entirely of characters contained within a given mask
 
@@ -1448,11 +1437,7 @@ the subject will be examined from the starting position up-to-length characters 
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>When offset parameter is set, the returned length is counted starting from this position, not from
-beginning of the string.</p>
-            </note>
+
 
 ### ### Find length of initial segment not matching mask
 
@@ -1514,10 +1499,7 @@ characters.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The function returns the number of bytes rather than the number of characters in a string.</p>
-            </note>
+
 
 ### ### Get string length
 
@@ -1683,12 +1665,7 @@ equal, or false if length is less than 0.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.</p>
-            </warning>
+
 
 ### ### Find the position of the first occurrence of a substring in a string
 
@@ -1743,12 +1720,7 @@ If specified, search will start this number of characters counted from the begin
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.</p>
-            </warning>
+
 
 ### ### Find the position of the last occurrence of a substring in a string
 
@@ -2095,17 +2067,7 @@ The input string.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Multibyte characters may not work as expected while $case_sensitive is on.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because method replaces left to right, it might replace a previously inserted value when doing
-multiple replacements.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>To replace text based on a pattern rather than a fixed string, use preg_replace().</p>
-            </tip>
+
 
 ### ### Replace all occurrences of the search string with the replacement string
 
@@ -2230,12 +2192,7 @@ Separator in between any repeated string.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
-For example, to allow both <br> and <br/>, you should use: <br>.
-</p></p>
-            </note>
+
 
 ### ### Strip HTML and PHP tags from a string
 
@@ -2292,13 +2249,7 @@ You can use the optional second parameter to specify tags which should not be st
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
-thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-seemingly does not.</p>
-            </note>
+
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 

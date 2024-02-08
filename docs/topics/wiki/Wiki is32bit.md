@@ -12,8 +12,6 @@ function \FireHub\Core\Support\Helpers\PHP\is32bit():bool
 
 
 
-
-
 ### ### Check if using 32bit version of PHP
 
 

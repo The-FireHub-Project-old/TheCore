@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Multibyte regex low-level proxy class
 
 _The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
@@ -43,8 +41,6 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 ```php
 public static RegexMB::match(string $pattern, string $string, bool $case_sensitive = true):bool
 ```
-
-
 
 
 
@@ -87,13 +83,6 @@ public static RegexMB::replace(string $pattern, string $replacement, string $str
 
 
 
-> [!WARNING]
-            Never use the e modifier when working on untrusted input. No automatic escaping will happen (as known
-from [[RegexSB#replace()]]). Not taking care of this will most likely create remote code execution
-vulnerabilities in your application.> [!NOTE]
-            The internal encoding or the character encoding specified by encoding() will be used as character
-encoding for this function.
-
 ### ### Perform a regular expression search and replace
 
 _Searches $subject for matches to $pattern and replaces them with $replacement._
@@ -117,8 +106,6 @@ and replace._
 ```php
 public static RegexMB::replaceFunc(string $pattern, callable $callback, string $string):string
 ```
-
-
 
 
 
@@ -156,8 +143,6 @@ and replace._
 ```php
 public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding
 ```
-
-
 
 
 

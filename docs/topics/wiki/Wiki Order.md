@@ -12,8 +12,6 @@ enum Order
 
 
 
-
-
 ### ### Ordering enum
 
 
@@ -42,8 +40,6 @@ ASC = &#039;ASC&#039;
 
 
 
-
-
 ### ### Arranging in ascending order
 
 
@@ -55,8 +51,6 @@ ASC = &#039;ASC&#039;
 ```php
 DESC = &#039;DESC&#039;
 ```
-
-
 
 
 

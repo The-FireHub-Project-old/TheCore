@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### The autoload function being registered
 
 
@@ -38,8 +36,6 @@ This class is marked as **final**.
 ```php
 public Callback::__construct(callable|string $path):void
 ```
-
-
 
 
 
@@ -81,8 +77,6 @@ public Callback::__invoke(string $class):void
 
 
 
-
-
 ### ### Invoke autoload function being registered
 
 
@@ -94,7 +88,7 @@ public Callback::__invoke(string $class):void
 * string **$class** - _Fully qualified class name that is being loaded._
 #### Throws
 
-* [\Error](./Wiki-Error) - _If a path is empty for autoloaded class or system could not get class components._
+* [\Error](./Wiki-Error) - _If a system could not get class components._
 #### Returns
 
 * void

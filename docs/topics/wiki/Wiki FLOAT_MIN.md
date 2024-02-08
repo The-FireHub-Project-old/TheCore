@@ -12,8 +12,6 @@ constant float FLOAT_MIN = \PHP_FLOAT_MIN
 
 
 
-
-
 ### ### Smallest representable positive floating point number
 
 

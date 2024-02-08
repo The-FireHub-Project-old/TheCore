@@ -12,8 +12,6 @@ enum LogBase
 
 
 
-
-
 ### ### Logarithmic base
 
 
@@ -56,8 +54,6 @@ public LogBase::value():float
 
 
 
-
-
 ### ### Get log value
 
 
@@ -72,8 +68,6 @@ public LogBase::value():float
 ```php
 E
 ```
-
-
 
 
 
@@ -95,8 +89,6 @@ LOG2E
 
 
 
-
-
 ### ### log_2 e
 
 
@@ -108,8 +100,6 @@ LOG2E
 ```php
 LOG10E
 ```
-
-
 
 
 
@@ -131,8 +121,6 @@ LN2
 
 
 
-
-
 ### ### log_e 10
 
 
@@ -144,8 +132,6 @@ LN2
 ```php
 LN10
 ```
-
-
 
 
 

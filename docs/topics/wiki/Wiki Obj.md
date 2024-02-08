@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Object low-level proxy class
 
 _Class allows you to obtain information about objects._
@@ -61,9 +59,6 @@ public static Obj::id(object $object):int
 
 
 
-> [!NOTE]
-            When an object is destroyed, its id may be reused for other objects.
-
 ### ### Return the integer object handle for given object
 
 _This function returns a unique identifier for the object. The object id is unique for the lifetime of the object.
@@ -94,11 +89,6 @@ public static Obj::hash(object $object):string
 
 
 
-> [!NOTE]
-            When an object is destroyed, its hash may be reused for other objects.> [!NOTE]
-            Object hashes should be compared for identity with === and !==, because the returned hash could be a
-numeric string. For example, 0000000000000e600000000000000000.
-
 ### ### Return hash id for a given object
 
 _This function returns a unique identifier for the object. This id can be used as a hash key for storing objects,
@@ -118,8 +108,6 @@ may be reused for other objects._
 ```php
 public static Obj::className(object $object):string
 ```
-
-
 
 
 
@@ -159,9 +147,6 @@ public static Obj::properties(object $object):array
 
 
 
-> [!NOTE]
-            Uninitialized properties are considered inaccessible, and thus will not be included in the array.
-
 ### ### Gets the properties of the given object
 
 _Gets the accessible non-static properties of the given object according to scope._
@@ -180,8 +165,6 @@ non-static properties for a specified object in scope._
 ```php
 public static Obj::mangledProperties(object $object):array
 ```
-
-
 
 
 
@@ -225,9 +208,6 @@ public static ClsObj::methodExist(string|object $object_or_class, string $method
 
 
 
-> [!NOTE]
-            Using this function will use any registered autoloaders if the class is not already known.
-
 ### ### Checks if the class method exists
 
 
@@ -259,11 +239,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.> [!NOTE]
-            This method cannot detect properties that are magically accessible using the __get magic method.> [!NOTE]
-            Using this function will use any registered autoloaders if the class is not already known.
 
 ### ### Checks if the object or class has a property
 
@@ -299,8 +274,6 @@ public static ClsObj::ofClass(string|object $object_or_class, string $class, boo
 
 
 
-
-
 ### ### Checks whether the object or class is of a given type or subtype
 
 _Checks if the given $object_or_class is of this object type or has this object type as one of its supertypes._
@@ -323,8 +296,6 @@ false otherwise._
 ```php
 public static ClsObj::subClassOf(string|object $object_or_class, string $class, bool $autoload = true):bool
 ```
-
-
 
 
 
@@ -370,9 +341,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The result depends on the current scope.
-
 ### ### Gets the class or object methods names
 
 
@@ -406,8 +374,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Retrieves the parent class name for an object or class
 
 
@@ -434,8 +400,6 @@ final public static ClsObj::parents(string|object $object_or_class, bool $autolo
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -476,8 +440,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Return the interfaces which are implemented by the given class or interface
 
 _This function returns an array with the names of the interfaces that the given object_or_class
@@ -509,8 +471,6 @@ final public static ClsObj::uses(string|object $object_or_class, bool $autoload 
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 

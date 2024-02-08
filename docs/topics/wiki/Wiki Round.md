@@ -12,8 +12,6 @@ enum Round
 
 
 
-
-
 ### ### Round number enum
 
 
@@ -44,8 +42,6 @@ HALF_UP
 
 
 
-
-
 ### ### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2
 
 
@@ -57,8 +53,6 @@ HALF_UP
 ```php
 HALF_DOWN
 ```
-
-
 
 
 
@@ -80,8 +74,6 @@ HALF_EVEN
 
 
 
-
-
 ### ### towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
 
 
@@ -93,8 +85,6 @@ HALF_EVEN
 ```php
 HALF_ODD
 ```
-
-
 
 
 

@@ -186,10 +186,7 @@ The base64 encoded data.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>UUEncode neither produces the beginning nor the end line, which are part of uuencoded files.</p>
-            </note>
+
 
 ### ### Uuencode a string
 
@@ -240,10 +237,7 @@ The data to be encoded.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>UUDecode neither accepts the beginning nor the end line, which are part of uuencoded files.</p>
-            </note>
+
 
 ### ### Decode an uuencoded data
 
@@ -297,10 +291,7 @@ The uuencoded data.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method is a useful tool for working with email messages.</p>
-            </note>
+
 
 ### ### Convert a 8bit string to a quoted-printable data
 
@@ -349,10 +340,7 @@ The data to be encoded.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method is a useful tool for working with email messages.</p>
-            </note>
+
 
 ### ### Convert a quoted-printable data to an 8 bit string
 

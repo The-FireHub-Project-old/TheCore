@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### File low-level proxy class
 
 _Class contains methods related to files._
@@ -87,11 +85,6 @@ public static File::isFile(string $path):bool
 
 
 
-> [!NOTE]
-            Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Tells whether the path is a regular file
 
 
@@ -121,12 +114,6 @@ public static File::isExecutable(string $path):bool
 
 
 
-> [!NOTE]
-            On POSIX systems, a file is executable if the executable bit of the file permissions is set. On Windows,
-a file is considered executable if it is a properly executable file as reported by the Win API GetBinaryType();
-for BC reasons, files with a .bat or .cmd extension are also considered executable.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Tells whether the path is executable
 
 
@@ -145,8 +132,6 @@ Path to the file._
 ```php
 public static File::isUploaded(string $path):bool
 ```
-
-
 
 
 
@@ -192,11 +177,6 @@ public static File::size(string $path):int
 
 
 
-> [!NOTE]
-            Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Gets file size
 
 
@@ -229,9 +209,6 @@ public static File::copy(string $path, string $to):void
 
 
 
-> [!WARNING]
-            If the destination file already exists, it will be overwritten.
-
 ### ### Copies file
 
 _Makes a copy of the file $path to $to._
@@ -255,8 +232,6 @@ of existing files. If the destination file already exists, it will be overwritte
 ```php
 public static File::delete(string $path):void
 ```
-
-
 
 
 
@@ -300,11 +275,6 @@ public static File::link(string $path, string $link):void
 
 
 
-> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.> [!NOTE]
-            For Windows only: This function requires PHP to run in an elevated mode or with the UAC disabled.
-
 ### ### Create a hard link
 
 
@@ -337,10 +307,6 @@ public static File::getContent(string $path, int $offset, null|int $length = nul
 
 
 
-
-> [!NOTE]
-            If you're opening a URI with special characters, such as spaces, you need to encode the URI with
-urlencode().
 
 ### ### Reads entire file into a string
 
@@ -382,19 +348,6 @@ public static File::getContentArray(string $path, bool $skip_empty_lines = false
 
 
 
-> [!WARNING]
-            When using SSL, Microsoft IIS will violate the protocol by closing the connection without sending a
-close_notify indicator. PHP will report this as "SSL: Fatal Protocol Error" when you reach the end of the data.
-To work around this, the value of error_reporting should be lowered to a level that does not include warnings.
-PHP can detect buggy IIS server software when you open the stream using the https:// wrapper and will suppress
-the warning. When using fsockopen() to create a ssl:// socket, the developer is responsible for detecting and
-suppressing this warning.> [!NOTE]
-            Each line in the resulting array will include the line ending, unless $ignore_new_lines is used.> [!TIP]
-            If PHP is not properly recognizing the line endings when reading files either on or created by a
-Macintosh computer, enabling the auto_detect_line_endings run-time configuration option may help resolve the
-problem.> [!TIP]
-            A URL can be used as a $path.
-
 ### ### Reads entire file into an array
 
 
@@ -421,8 +374,6 @@ the file, with newline still attached._
 ```php
 public static File::putContent(string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int
 ```
-
-
 
 
 
@@ -474,10 +425,6 @@ public static File::read(string $path):int
 
 
 
-> [!NOTE]
-            [[File#read()]] will not present any memory issues, even when sending large files, on its own. If you
-encounter out of memory error ensures that output buffering is off with ob_get_level().
-
 ### ### Outputs a file
 
 _Reads a file and writes it to the output buffer._
@@ -509,12 +456,6 @@ public static File::moveUploaded(string $from, string $to):void
 
 
 
-
-> [!WARNING]
-            If the destination file already exists, it will be overwritten.> [!NOTE]
-            [[File#moveUploaded()]] is open_basedir aware. However, restrictions are placed only on the path as to
-allow moving of uploaded files in which from may conflict with such restrictions. [[File#moveUploaded()]] ensures
-the safety of this operation by allowing only those files uploaded through PHP to be moved.
 
 ### ### Moves an uploaded file to a new location
 
@@ -553,13 +494,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.> [!TIP]
-            On windows, use //computername/share/filename or \\computername\share\filename to check files on network
-shares.
-
 ### ### Checks whether a file or folder exists
 
 
@@ -589,10 +523,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            The check is done using the real UID/GID instead of the effective one.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
 
 ### ### Tells whether a file exists and is readable
 
@@ -624,9 +554,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### Tells whether the path is writable
 
 
@@ -657,9 +584,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Tells whether the path is a symbolic link
 
 
@@ -688,10 +612,6 @@ public static FileSystem::rename(string $path, string $new_name):void
 
 
 
-
-> [!NOTE]
-            On Windows, if $new_name already exists, it must be writable, otherwise [[FileSystem#rename()]] fails and
-issues E_WARNING.
 
 ### ### Renames a file or directory
 
@@ -730,13 +650,6 @@ This method is marked as **final**.
 
 
 
-> [!CAUTION]
-            Method is locale aware, so for it to see the correct basename with multibyte character paths,
-the matching locale must be set using the setlocale() function. If a path contains characters which are invalid
-for the current locale, the behavior of [[FileSystem#basename()]] is undefined.> [!NOTE]
-            Method operates naively on the input string, and is not aware of the actual filesystem, or path
-components such as "..".
-
 ### ### Returns a trailing name component of a path
 
 _Given a string containing the path to a file or directory, this function will return the trailing name component._
@@ -770,14 +683,6 @@ This method is marked as **final**.
 
 
 
-> [!CAUTION]
-            [[FileSystem#pathInfo()]] is locale aware, so for it to parse a path containing multibyte characters
-correctly, the matching locale must be set using the setlocale() function.> [!NOTE]
-            [[FileSystem#pathInfo()]] operates naively on the input string, and is not aware of the actual filesystem,
-or path components such as "..".> [!NOTE]
-            On Windows systems only, the \ character will be interpreted as a directory separator. On other systems
-it will be treated like any other character.
-
 ### ### Returns information about a file path
 
 
@@ -807,18 +712,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Whilst a path must be supplied, the value can be an empty string. In this case, the value is interpreted
-as the current directory.> [!NOTE]
-            The running script must have executable permissions on all directories in the hierarchy, otherwise
-[[FileSystem#absolutePath()]] will return false.> [!NOTE]
-            For case-insensitive filesystems absolutePath() may or may not normalize the character case.> [!NOTE]
-            The function [[FileSystem#absolutePath()]] will not work for a file which is inside a Phar as such a path
-would be virtual path, not a real one.> [!NOTE]
-            On Windows, one level only expands junctions and symbolic links to directories.> [!NOTE]
-            Because PHP's integer type is signed and many platforms use 32bit integers, some filesystem functions
-may return unexpected results for files which are larger than 2GB.
 
 ### ### Returns canonical absolute pathname
 
@@ -853,10 +746,6 @@ This method is marked as **final**.
 
 
 
-
-> [!CAUTION]
-            Be careful when using this function in a loop that can reach the top-level directory as this can
-result in an infinite loop.
 
 ### ### Returns parent folder path
 
@@ -896,11 +785,6 @@ This method is marked as **final**.
 
 
 
-> [!WARNING]
-            This method does not work on Windows.> [!NOTE]
-            The results of this function are cached. See clearCache() for more details.> [!TIP]
-            Use posix_getgrgid() to resolve it to a group name.
-
 ### ### Gets file or folder group
 
 _Gets the file or folder group. The group ID is returned in numerical format._
@@ -933,10 +817,6 @@ This method is marked as **final**.
 
 
 
-
-> [!WARNING]
-            This method does not work on Windows.> [!TIP]
-            Use posix_getgrgid() to resolve it to a group name.
 
 ### ### Changes file or folder group
 
@@ -974,11 +854,6 @@ This method is marked as **final**.
 
 
 
-> [!WARNING]
-            This method does not work on Windows.> [!NOTE]
-            The results of this function are cached. See clearCache() for more details.> [!TIP]
-            Use posix_getpwuid() to resolve it to a username.
-
 ### ### Gets file or folder owner
 
 
@@ -1011,12 +886,6 @@ This method is marked as **final**.
 
 
 
-
-> [!WARNING]
-            This method does not work on Windows.> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.> [!TIP]
-            Use posix_getpwuid() to resolve it to a username.
 
 ### ### Gets file or folder owner
 
@@ -1053,9 +922,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Gets path permissions
 
 _Gets permissions for the given path._
@@ -1088,12 +954,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            The current user is the user under which PHP runs. It is probably not the same user you use for normal
-shell or FTP access. The mode can be changed only by user who owns the file on most systems.> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.
 
 ### ### Sets path permissions
 
@@ -1131,14 +991,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The atime of a file is supposed to change whenever the data blocks of a file are being read. This can be
-costly performance-wise when an application regularly accesses a huge number of files or directories. Some
-Unix filesystems can be mounted with atime updates disabled to increase the performance of such applications;
-USENET news spools are a common example. On such filesystems this function will be useless.> [!NOTE]
-            Note that time resolution may differ from one file system to another.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Gets last access time of path
 
 
@@ -1171,10 +1023,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Note that time resolution may differ from one file system to another.> [!NOTE]
-            The results of this function are cached.See [[FileSystem#clearCache()]] for more details.
 
 ### ### Gets last modification time of a path
 
@@ -1210,15 +1058,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            In most Unix filesystems, a file is considered changed when its inode data is changed; that is, when the
-permissions, owner, group, or other metadata from the inode is updated. See also [[FileSystem#lastModified()]]
-(which is what you want to use when you want to create "Last Modified" footers on web pages) and
-[[FileSystem#lastAccessed()]].> [!NOTE]
-            On Windows, this function will return creating time, but on UNIX inode change time.> [!NOTE]
-            Note that time resolution may differ from one file system to another.> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Gets inode change time of a path
 
 _Represents the time when the metadata or inode data of a file is altered, such as the change of permissions,
@@ -1252,10 +1091,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            If the file does not exist, it will be created.> [!NOTE]
-            Note that time resolution may differ from one file system to another.
 
 ### ### Sets last access and modification time of a path
 
@@ -1296,9 +1131,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The results of this function are cached. See [[FileSystem#clearCache()]] for more details.
-
 ### ### Gets file inode
 
 _Inode are special disk blocks they are created when the file system is created._
@@ -1327,8 +1159,6 @@ final public static FileSystem::list(string $folder, null|\FireHub\Core\Support\
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1368,11 +1198,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.> [!NOTE]
-            This function isn't available on some systems (e.g., old Sun OS).
 
 ### ### Find path-names matching a pattern
 
@@ -1416,8 +1241,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Creates a symbolic link
 
 _Creates a symbolic link to the existing $path with the specified name $link._
@@ -1448,8 +1271,6 @@ final public static FileSystem::symlinkTarget(string $path):string
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1488,12 +1309,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.> [!NOTE]
-            This function is not implemented on Windows platforms.> [!TIP]
-            Use posix_getgrgid() to resolve it to a group name.
-
 ### ### Changes group ownership of symlink
 
 _Attempts to change the group of the symlink filenames to group. Only the superuser may change the group of a
@@ -1530,12 +1345,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            This function will not work on remote files as the file to be examined must be accessible via the
-server's filesystem.> [!NOTE]
-            This function is not implemented on Windows platforms.> [!TIP]
-            Use posix_getpwuid() to resolve it to a username.
-
 ### ### Changes user ownership of symlink
 
 _Attempts to change the owner of the symlink $path to user $user. Only the superuser may change the owner of a
@@ -1567,8 +1376,6 @@ final public static FileSystem::statistics(string $path, bool $symlink = false):
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1610,11 +1417,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            This function caches information about specific filenames, so you only need to call clearCache() if you
-are performing multiple operations on the same filename and require the information about that particular file
-to not be cached.
 
 ### ### Clears file status cache
 

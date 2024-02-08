@@ -12,8 +12,6 @@ constant int PEAR_INSTALL_DIR = \PEAR_INSTALL_DIR
 
 
 
-
-
 ### ### PEAR installation directory
 
 

@@ -12,8 +12,6 @@ enum Permission
 
 
 
-
-
 ### ### File permission enum
 
 
@@ -48,8 +46,6 @@ NOTHING
 
 
 
-
-
 ### ### User has no permissions
 
 
@@ -61,8 +57,6 @@ NOTHING
 ```php
 EXECUTE = 1
 ```
-
-
 
 
 
@@ -84,8 +78,6 @@ WRITE = 2
 
 
 
-
-
 ### ### Grants the capability to modify, or remove the content of the file
 
 
@@ -97,8 +89,6 @@ WRITE = 2
 ```php
 WRITE_EXECUTE = 3
 ```
-
-
 
 
 
@@ -120,8 +110,6 @@ READ = 4
 
 
 
-
-
 ### ### Grants the capability to read, i.e., view the contents of the file
 
 
@@ -133,8 +121,6 @@ READ = 4
 ```php
 READ_EXECUTE = 5
 ```
-
-
 
 
 
@@ -156,8 +142,6 @@ READ_WRITE = 6
 
 
 
-
-
 ### ### Combination of read and write permissions
 
 
@@ -169,8 +153,6 @@ READ_WRITE = 6
 ```php
 ALL = 7
 ```
-
-
 
 
 

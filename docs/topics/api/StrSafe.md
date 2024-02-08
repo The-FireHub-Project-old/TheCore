@@ -255,11 +255,7 @@ The string to search in.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>The [[StrSafe#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
-database-specific escaping functions and/or prepared statements should be used.</p>
-            </warning>
+
 
 ### ### Quote string with slashes
 
@@ -440,17 +436,7 @@ The input string.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Multibyte characters may not work as expected while $case_sensitive is on.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because method replaces left to right, it might replace a previously inserted value when doing
-multiple replacements.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>To replace text based on a pattern rather than a fixed string, use preg_replace().</p>
-            </tip>
+
 
 ### ### Replace all occurrences of the search string with the replacement string
 
@@ -575,12 +561,7 @@ Separator in between any repeated string.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
-For example, to allow both <br> and <br/>, you should use: <br>.
-</p></p>
-            </note>
+
 
 ### ### Strip HTML and PHP tags from a string
 
@@ -632,15 +613,7 @@ You can use the optional second parameter to specify tags which should not be st
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>[[StrSafe#stripSlashes()]] is not recursive. If you want to apply this function to multidimensional
-array, you need to use a recursive function.</p>
-            </note><tip>
-                <p><format style="bold">Tip:</format></p>
-                <p>[[StrSafe#stripSlashes()]] can be used if you aren't inserting this data into a place (such as a database)
-that requires escaping. For example, if you're simply outputting data straight from an HTML form.</p>
-            </tip>
+
 
 ### ### Un-quotes a quoted string
 
@@ -699,13 +672,7 @@ The string to be unquoted.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
-thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-seemingly does not.</p>
-            </note>
+
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
@@ -847,10 +814,7 @@ returned.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This comparison is case-sensitive.</p>
-            </note>
+
 
 ### ### String comparison
 

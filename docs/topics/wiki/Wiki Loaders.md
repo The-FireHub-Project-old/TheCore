@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### List of active loader implementations for autoloader
 
 
@@ -51,8 +49,6 @@ public Loaders::get(string $name):callable
 
 
 
-
-
 ### ### Get loader callback
 
 
@@ -74,8 +70,6 @@ Loader name._
 ```php
 public Loaders::add(string $name, callable $callback):true
 ```
-
-
 
 
 
@@ -121,8 +115,6 @@ public Loaders::remove(string $name):true
 
 
 
-
-
 ### ### Removes loader
 
 
@@ -144,8 +136,6 @@ Loader name._
 ```php
 public Loaders::list():array
 ```
-
-
 
 
 

@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Data type checker low-level proxy class
 
 
@@ -60,8 +58,6 @@ public static DataIs::array(mixed $value):bool
 
 
 
-
-
 ### ### Checks if value is array
 
 
@@ -79,8 +75,6 @@ public static DataIs::array(mixed $value):bool
 ```php
 public static DataIs::bool(mixed $value):bool
 ```
-
-
 
 
 
@@ -120,8 +114,6 @@ public static DataIs::callable(mixed $value):bool
 
 
 
-
-
 ### ### Verify that the contents of a variable can be called as a function
 
 
@@ -139,8 +131,6 @@ public static DataIs::callable(mixed $value):bool
 ```php
 public static DataIs::countable(mixed $value):bool
 ```
-
-
 
 
 
@@ -180,8 +170,6 @@ public static DataIs::float(mixed $value):bool
 
 
 
-
-
 ### ### Finds whether the type of variable is a float
 
 
@@ -199,8 +187,6 @@ public static DataIs::float(mixed $value):bool
 ```php
 public static DataIs::int(mixed $value):bool
 ```
-
-
 
 
 
@@ -240,8 +226,6 @@ public static DataIs::iterable(mixed $value):bool
 
 
 
-
-
 ### ### Verify that the contents of a variable is an iterable value
 
 
@@ -259,8 +243,6 @@ public static DataIs::iterable(mixed $value):bool
 ```php
 public static DataIs::null(mixed $value):bool
 ```
-
-
 
 
 
@@ -300,8 +282,6 @@ public static DataIs::numeric(mixed $value):bool
 
 
 
-
-
 ### ### Finds whether a variable is a number or a numeric string
 
 
@@ -319,8 +299,6 @@ public static DataIs::numeric(mixed $value):bool
 ```php
 public static DataIs::object(mixed $value):bool
 ```
-
-
 
 
 
@@ -360,8 +338,6 @@ public static DataIs::resource(mixed $value):bool
 
 
 
-
-
 ### ### Finds whether a variable is a resource
 
 
@@ -390,8 +366,6 @@ public static DataIs::scalar(mixed $value):bool
 
 
 
-
-
 ### ### Finds whether a variable is a scalar
 
 _Scalar values include: string, int, float and bool._
@@ -409,8 +383,6 @@ _Scalar values include: string, int, float and bool._
 ```php
 public static DataIs::string(mixed $value):bool
 ```
-
-
 
 
 

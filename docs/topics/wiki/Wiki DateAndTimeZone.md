@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Timezone low-level proxy class
 
 _A time zone is an area that observes a uniform standard time for legal, commercial and social purposes._
@@ -39,8 +37,6 @@ _A time zone is an area that observes a uniform standard time for legal, commerc
 ```php
 public static DateAndTimeZone::getDefaultTimezone():\FireHub\Core\Support\Enums\DateTime\Zone
 ```
-
-
 
 
 
@@ -83,8 +79,6 @@ public static DateAndTimeZone::setDefaultTimezone(\FireHub\Core\Support\Enums\Da
 
 
 
-
-
 ### ### Sets the default timezone used by all date/time functions in a script
 
 _Method sets the default timezone used by all date/time functions. Instead of using this function to set the
@@ -106,8 +100,6 @@ default timezone in your script, you can also use the INI setting 'date.timezone
 ```php
 public static DateAndTimeZone::abbreviationList():array
 ```
-
-
 
 
 

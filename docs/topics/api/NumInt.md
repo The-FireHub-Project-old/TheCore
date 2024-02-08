@@ -677,10 +677,7 @@ Any comparable values.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>It is possible to use the ** operator instead.</p>
-            </note>
+
 
 ### ### Exponential expression
 

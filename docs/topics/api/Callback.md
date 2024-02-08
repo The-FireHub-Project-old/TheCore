@@ -62,8 +62,8 @@
     </def>
 </deflist>
 ### Properties
-| Type | Name | Title | Default |
-|:-----|:-----|:------|:--------|
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
 |readonly private|<a href="#$path">path</a>|||
 
 ### Methods
@@ -269,7 +269,7 @@ Fully qualified class name that is being loaded.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a path is empty for autoloaded class or system could not get class components.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system could not get class components.</format></li></list>
     </def>
 </deflist>
 <deflist>

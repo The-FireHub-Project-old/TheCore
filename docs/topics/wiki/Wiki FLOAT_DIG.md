@@ -12,8 +12,6 @@ constant int FLOAT_DIG = \PHP_FLOAT_DIG
 
 
 
-
-
 ### ### Number of decimal digits that can be rounded into a float and back without precision loss
 
 

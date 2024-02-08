@@ -12,8 +12,6 @@ enum Side
 
 
 
-
-
 ### ### Side enum
 
 
@@ -43,8 +41,6 @@ LEFT
 
 
 
-
-
 ### ### Use left side
 
 
@@ -61,8 +57,6 @@ RIGHT
 
 
 
-
-
 ### ### Use right side
 
 
@@ -74,8 +68,6 @@ RIGHT
 ```php
 BOTH
 ```
-
-
 
 
 

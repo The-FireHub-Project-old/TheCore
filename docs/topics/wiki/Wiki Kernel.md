@@ -12,8 +12,6 @@ enum Kernel
 
 
 
-
-
 ### ### Enum for available Kernel types
 
 
@@ -54,8 +52,6 @@ public Kernel::run():\FireHub\Core\Initializers\Kernel
 
 
 
-
-
 ### ### Run selected Kernel
 
 
@@ -70,8 +66,6 @@ public Kernel::run():\FireHub\Core\Initializers\Kernel
 ```php
 HTTP
 ```
-
-
 
 
 
@@ -96,8 +90,6 @@ MICRO_HTTP
 
 
 
-
-
 ### ### Simplified Micro HTTP Kernel
 
 
@@ -112,8 +104,6 @@ MICRO_HTTP
 ```php
 CONSOLE
 ```
-
-
 
 
 

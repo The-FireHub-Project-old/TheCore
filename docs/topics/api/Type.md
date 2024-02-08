@@ -260,7 +260,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Data.md#gettype()">\FireHub\Core\Support\LowLevel\Data::getType()</a>  - <format style="italic">As data type.</format></li></list>
+        <list><li><a href="Data.md#gettype()">\FireHub\Core\Support\LowLevel\Data::getType()</a>  - <format style="italic">As data type.</format></li><li><a href="Data.md#settype()">\FireHub\Core\Support\LowLevel\Data::setType()</a>  - <format style="italic">As data type.</format></li></list>
     </def>
 </deflist>
 ## case: T_ARRAY {id="t_array"}

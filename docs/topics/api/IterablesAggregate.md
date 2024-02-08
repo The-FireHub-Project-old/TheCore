@@ -65,7 +65,7 @@
 ## method: getIterator {id="getiterator()"}
 
 <code-block lang="php">
-    <![CDATA[public IterablesAggregate::getIterator():\FireHub\Core\Support\Contracts\Iterator\Traversable]]>
+    <![CDATA[public IterablesAggregate::getIterator():\Traversable]]>
 </code-block>
 
 
@@ -101,7 +101,7 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="Traversable.md">\FireHub\Core\Support\Contracts\Iterator\Traversable</a> - <format style="italic"><code><![CDATA[ \FireHub\Core\Support\Contracts\Iterator\Traversable<TKey, TValue> ]]></code>
+        <list><li><a href="Traversable.md">\Traversable</a> - <format style="italic"><code><![CDATA[ Traversable<TKey, TValue> ]]></code>
 An instance of an object implementing Iterator or Traversable.</format></li></list>
     </def>
 </deflist>

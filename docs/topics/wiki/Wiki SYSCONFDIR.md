@@ -12,8 +12,6 @@ constant string SYSCONFDIR = \PHP_SYSCONFDIR
 
 
 
-
-
 ### ### Specifies sysconfig directory
 
 

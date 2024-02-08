@@ -12,8 +12,6 @@ constant string FILE_SCAN = \PHP_CONFIG_FILE_SCAN_DIR
 
 
 
-
-
 ### ### Specifies file scan directory
 
 

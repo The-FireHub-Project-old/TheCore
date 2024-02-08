@@ -12,8 +12,6 @@ constant string LOCALSTATEDIR = \PHP_LOCALSTATEDIR
 
 
 
-
-
 ### ### Specifies localstatedir directory
 
 

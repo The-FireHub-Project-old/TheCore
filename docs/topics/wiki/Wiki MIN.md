@@ -12,8 +12,6 @@ constant int MIN = \PHP_INT_MIN
 
 
 
-
-
 ### ### The smallest integer supported in this build of PHP
 
 _Usually int(-2147483648) in 32bit systems and int(-9223372036854775808) in 64bit systems._

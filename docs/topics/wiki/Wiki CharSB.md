@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Single-byte character low-level proxy class
 
 _Class allows you to manipulate characters in various ways._
@@ -38,8 +36,6 @@ _Class allows you to manipulate characters in various ways._
 ```php
 public static CharSB::chr(int $codepoint):string
 ```
-
-
 
 
 
@@ -76,8 +72,6 @@ value to generate a string in a multibyte encoding like UTF-8 or UTF-16. This fu
 ```php
 public static CharSB::ord(string $character):int
 ```
-
-
 
 
 

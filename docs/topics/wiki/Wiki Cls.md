@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Class low-level proxy class
 
 _Class allows you to obtain information about classes._
@@ -62,8 +60,6 @@ public static Cls::isClass(string $name, bool $autoload = true):bool
 
 
 
-
-
 ### ### Checks if class name exists
 
 _This method checks whether the given class has been defined._
@@ -84,8 +80,6 @@ Whether to autoload if not already loaded._
 ```php
 public static Cls::isInterface(string $name, bool $autoload = true):bool
 ```
-
-
 
 
 
@@ -128,8 +122,6 @@ public static Cls::isEnum(string $name, bool $autoload = true):bool
 
 
 
-
-
 ### ### Checks if enum name exists
 
 _This method checks whether the given enum has been defined._
@@ -150,8 +142,6 @@ Whether to autoload if not already loaded._
 ```php
 public static Cls::isTrait(string $name, bool $autoload = true):bool
 ```
-
-
 
 
 
@@ -194,11 +184,6 @@ public static Cls::alias(string $class, string $alias, bool $autoload = true):tr
 
 
 
-> [!NOTE]
-            Class names are case-insensitive in PHP, and this is reflected in this function. Aliases created by
-[[Cls#alias()]] are declared in lowercase. This means that for a class MyClass, the [[Cls#alias('MyClass',
-'MyClassAlias')]] call will declare a new class alias named myclassalias.
-
 ### ### Creates an alias for a class
 
 _Creates an alias named alias based on the user-defined class. The aliased class is exactly the same as the
@@ -236,10 +221,6 @@ public static Cls::properties(string $class):array
 
 
 
-> [!NOTE]
-            The result depends on the current scope.> [!NOTE]
-            Using this function will use any registered autoloaders if the class is not already known.
-
 ### ### Gets the class public properties and their default values
 
 
@@ -273,9 +254,6 @@ public static ClsObj::methodExist(string|object $object_or_class, string $method
 
 
 
-> [!NOTE]
-            Using this function will use any registered autoloaders if the class is not already known.
-
 ### ### Checks if the class method exists
 
 
@@ -307,11 +285,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.> [!NOTE]
-            This method cannot detect properties that are magically accessible using the __get magic method.> [!NOTE]
-            Using this function will use any registered autoloaders if the class is not already known.
 
 ### ### Checks if the object or class has a property
 
@@ -347,8 +320,6 @@ public static ClsObj::ofClass(string|object $object_or_class, string $class, boo
 
 
 
-
-
 ### ### Checks whether the object or class is of a given type or subtype
 
 _Checks if the given $object_or_class is of this object type or has this object type as one of its supertypes._
@@ -371,8 +342,6 @@ false otherwise._
 ```php
 public static ClsObj::subClassOf(string|object $object_or_class, string $class, bool $autoload = true):bool
 ```
-
-
 
 
 
@@ -418,9 +387,6 @@ This method is marked as **final**.
 
 
 
-> [!NOTE]
-            The result depends on the current scope.
-
 ### ### Gets the class or object methods names
 
 
@@ -454,8 +420,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Retrieves the parent class name for an object or class
 
 
@@ -482,8 +446,6 @@ final public static ClsObj::parents(string|object $object_or_class, bool $autolo
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -524,8 +486,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Return the interfaces which are implemented by the given class or interface
 
 _This function returns an array with the names of the interfaces that the given object_or_class
@@ -557,8 +517,6 @@ final public static ClsObj::uses(string|object $object_or_class, bool $autoload 
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 

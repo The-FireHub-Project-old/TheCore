@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Path support class
 
 _Give info about various paths inside the FireHub framework._
@@ -38,8 +36,6 @@ _Give info about various paths inside the FireHub framework._
 ```php
 public static Path::project():string
 ```
-
-
 
 
 
@@ -79,17 +75,12 @@ public static Path::core():string
 
 
 
-
-
 ### ### Get FireHub Core path
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L70)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L70)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If a system could not load FireHub Core phar._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L68)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L68)**</sub>
 #### Returns
 
 * string - _<code>non-empty-string</code> FireHub Core path._

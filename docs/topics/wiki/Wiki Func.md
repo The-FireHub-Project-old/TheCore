@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Function low-level proxy class
 
 _Class allows you to obtain information about functions._
@@ -52,11 +50,6 @@ public static Func::isFunction(string $name):bool
 
 
 
-> [!NOTE]
-            This function will return false for constructs, such as include_once and echo.> [!NOTE]
-            A function name may exist even if the function itself is unusable due to configuration or compiling
-options.
-
 ### ### Checks if function name exists
 
 _Checks the list of defined functions, both built-in (internal) and user-defined, for function._
@@ -84,10 +77,6 @@ public static Func::call(callable $callback, mixed ...$arguments):mixed
 
 
 
-
-> [!NOTE]
-            Callbacks registered with this method will not be called if there is an uncaught exception thrown
-in a previous callback.
 
 ### ### Call the callback
 
@@ -121,16 +110,6 @@ public static Func::registerShutdown(callable $callback, mixed ...$arguments):vo
 
 
 
-
-> [!NOTE]
-            The working directory of the script can change inside the shutdown function under some web servers,
-e.g. Apache.> [!NOTE]
-            Shutdown functions will not be executed if the process is killed with a SIGTERM or SIGKILL signal. While
-you cannot intercept a SIGKILL, you can use pcntl_signal() to install a handler for a SIGTERM which uses exit()
-to end cleanly.> [!NOTE]
-            Shutdown functions run separately from the time tracked by max_execution_time. That means even if a
-process is terminated for running too long, shutdown functions will still be called. Additionally, if the
-max_execution_time runs out while a shutdown function is running, it will not be terminated.
 
 ### ### Register a function for execution on shutdown
 
@@ -167,8 +146,6 @@ public static Func::registerTick(callable $callback, mixed ...$arguments):bool
 
 
 
-
-
 ### ### Register a function for execution on each tick
 
 _Registers the given callback to be executed when a tick is called._
@@ -190,8 +167,6 @@ _Registers the given callback to be executed when a tick is called._
 ```php
 public static Func::unregisterTick(callable $callback):void
 ```
-
-
 
 
 

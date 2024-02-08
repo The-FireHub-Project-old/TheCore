@@ -135,11 +135,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Method will search for the keys in the first dimension only. Nested keys in multidimensional arrays will
-not be found.</p>
-            </note>
+
 
 ### ### Checks if the given key or index exists in the array
 
@@ -244,10 +240,7 @@ The array.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function returns true on empty arrays.</p>
-            </note>
+
 
 ### ### Checks whether a given array is a list
 
@@ -298,13 +291,7 @@ The array being evaluated.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Associative (string) keys will be maintained, but numeric keys will be re-indexed.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Sort multiple or multidimensional arrays
 
@@ -938,11 +925,7 @@ Array of values to be used as values on a combined array.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. You can check deeper dimensions by
-using [[Arr#difference($array1[0], $array2[0])]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays using values for comparison
 
@@ -1002,16 +985,7 @@ $array that are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
-check deeper dimensions by using [[Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func']].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays using values for comparison by using a callback for comparison
 
@@ -1075,11 +1049,7 @@ that are not present in any of the other arrays.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
-dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays using keys for comparison
 
@@ -1139,16 +1109,7 @@ array whose keys are absent from all the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
-of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
-dimensions by using [[Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_func')]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
 
@@ -1211,15 +1172,7 @@ that are not present in any of the other arrays.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example, [[Arr#differenceAssoc($array1[0], $array2[0])]].</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Ensure arguments are passed in the correct order when comparing similar arrays with more keys. The new
-array should be the first in the list.</p>
-            </note>
+
 
 ### ### Computes the difference of arrays with additional index check
 
@@ -1279,17 +1232,7 @@ that are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
-of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
-check deeper dimensions by using, for example,
-[[Arr#differenceAssocFuncValue($array1[0], $array2[0], 'some_comparison_func')]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays with additional index check by using a callback for value comparison
 
@@ -1351,16 +1294,7 @@ that are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example, [[Arr#differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func')]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays with additional index check by using a callback for key comparison
 
@@ -1424,17 +1358,7 @@ $array that are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function only checks one dimension of an n-dimensional array. It is possible to check deeper
-dimensions by using, for example,
-[[Arr#differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func')]].</p>
-            </note>
+
 
 ### ### Computes the difference of arrays with additional index check by using a callback for key-value comparison
 
@@ -1500,11 +1424,7 @@ that are not present in any of the other arrays.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
-string representation is the same.</p>
-            </note>
+
 
 ### ### Computes the intersection of arrays using values for comparison
 
@@ -1563,16 +1483,7 @@ An array to compare values against.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
-string representation is the same.</p>
-            </note>
+
 
 ### ### Computes the intersection of arrays using values for comparison by using a callback for data comparison
 
@@ -1692,12 +1603,7 @@ An array to compare values against.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning>
+
 
 ### ### Computes the intersection of arrays using keys for comparison by using a callback for data comparison
 
@@ -1760,11 +1666,7 @@ are not present in any of the other arrays.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.
-In other words, a strict type check is executed, so the string representation must be the same.</p>
-            </note>
+
 
 ### ### Computes the intersection of arrays with additional index check
 
@@ -1823,12 +1725,7 @@ An array to compare values against.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning>
+
 
 ### ### Computes the intersection of arrays with additional index check by using a callback for value comparison
 
@@ -1892,16 +1789,7 @@ are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The comparison function must return an integer less than, equal to, or greater than zero if the first
-argument is considered to be respectively less than, equal to, or greater than the second.</p>
-            </note>
+
 
 ### ### Computes the intersection of arrays with additional index check by using a callback for key comparison
 
@@ -1964,16 +1852,7 @@ are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Returning non-integer values from the comparison function, such as float, will result in an internal
-cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
-value of 0, which will compare such values as equal.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The comparison function must return an integer less than, equal to, or greater than zero if the first
-argument is considered to be respectively less than, equal to, or greater than the second.</p>
-            </note>
+
 
 ### ### Computes the intersection of arrays with additional index check by using a callback for key-value comparison
 
@@ -2039,11 +1918,7 @@ are not present in any of the other arrays.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>If the array is changed from the callback function (e.g., an element added, deleted or unset) then
-behavior of this function is undefined.</p>
-            </warning>
+
 
 ### ### Filter elements in an array
 
@@ -2352,17 +2227,7 @@ applying the callback function.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>If the input arrays have the same string keys, then the later value for that key will overwrite the
-previous one.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>If the arrays contain numeric keys, the later value will be appended.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Numeric keys will be renumbered.</p>
-            </note>
+
 
 ### ### Merges the elements of one or more arrays together
 
@@ -2475,10 +2340,7 @@ Variable list of arrays to recursively merge.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>Keys can be re-numbered.</p>
-            </warning>
+
 
 ### ### Pad array to the specified length with a value
 
@@ -2781,14 +2643,7 @@ You can change this behavior by setting preserve_keys to true.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Numerical keys in an array are not preserved.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
-This may result in unexpected behavior when using an object or null replacement.</p>
-            </note>
+
 
 ### ### Remove a portion of the array and replace it with something else
 
@@ -2858,13 +2713,7 @@ Keys in a replacement array are not preserved.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The new array will preserve associative keys, and reindex others.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method is not intended to work on multidimensional arrays.</p>
-            </note>
+
 
 ### ### Removes duplicate values from an array
 
@@ -2919,11 +2768,7 @@ The array to remove duplicates.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Character sequence values are limited to a length of one. If a length greater than one is entered.
-only the first character is used.</p>
-            </note>
+
 
 ### ### Create an array containing a range of elements
 
@@ -2985,11 +2830,7 @@ inclusive, false otherwise.</format></li></list>
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>This function does not generate cryptographically secure values, and must not be used for
-cryptographic purposes, or purposes that require returned values to be unguessable.</p>
-            </warning>
+
 
 ### ### Pick one or more random keys out of an array
 
@@ -3103,10 +2944,7 @@ or as a final result in case the array is empty.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will reset the array pointer of the input array after use.</p>
-            </note>
+
 
 ### ### Pop the element off the end of array
 
@@ -3166,11 +3004,7 @@ The array to get the value from.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>If you use push to add one element to the array, it's better to use $array[] = because in that way there
-is no overhead of calling a function.</p>
-            </note>
+
 
 ### ### Push elements onto the end of array
 
@@ -3228,10 +3062,7 @@ The values to push onto the end of the array.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will reset the array pointer of the input array after use.</p>
-            </note>
+
 
 ### ### Removes an item at the beginning of an array
 
@@ -3293,10 +3124,7 @@ Array to shift.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Prepend one or more elements to the beginning of an array
 
@@ -3565,12 +3393,7 @@ The input array.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
-Please read the section on Booleans for more information. Use the === operator for testing the return value of
-this function.</p>
-            </warning>
+
 
 ### ### Searches the array for a given value and returns the first corresponding key if successful
 
@@ -3628,18 +3451,7 @@ Array to search.
 
 
 
-<warning>
-                <p><format style="bold">Caution:</format></p>
-                <p>This function does not generate cryptographically secure values, and must not be used for cryptographic
-purposes, or purposes that require returned values to be unguessable.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function assigns new keys to the elements in array. It will remove any existing keys that may have
-been assigned, rather than just reordering the keys.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Shuffle array
 
@@ -3694,10 +3506,7 @@ The array.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note><tip>
+<tip>
                 <p><format style="bold" color="DarkBlue">Todo:</format></p>
                 <p><format color="DarkBlue">Replace phpstan error when update is available.</format></p>
             </tip>
@@ -3766,10 +3575,7 @@ Whether you want to preserve keys from an original array or not.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Sorts array by key
 
@@ -3833,10 +3639,7 @@ Sort flag.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Sorts an array by values using a user-defined comparison function
 
@@ -3894,10 +3697,7 @@ Whether you want to preserve keys from an original array or not.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Resets array's internal pointer to the first element.</p>
-            </note>
+
 
 ### ### Sorts array by key using a user-defined comparison function
 

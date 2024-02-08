@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Constant low-level class proxy class
 
 _Class allows you to obtain information about constants._
@@ -39,8 +37,6 @@ _Class allows you to obtain information about constants._
 ```php
 public static Constant::define(string $name, null|array|bool|float|int|string $value):true
 ```
-
-
 
 
 
@@ -83,9 +79,6 @@ public static Constant::defined(string $name):bool
 
 
 
-> [!NOTE]
-            This function works also with class constants and enum cases.
-
 ### ### Checks whether a given named constant exists
 
 _This function works also with class constants and enum cases._
@@ -114,9 +107,6 @@ public static Constant::value(string $name):mixed
 
 
 
-
-> [!NOTE]
-            This function works also with class constants and enum cases.
 
 ### ### Returns the value of a constant
 

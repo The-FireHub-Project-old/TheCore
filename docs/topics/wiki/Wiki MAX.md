@@ -12,8 +12,6 @@ constant int MAX = \PHP_INT_MAX
 
 
 
-
-
 ### ### The largest integer supported in this build of PHP
 
 _Usually int(2147483647) in 32bit systems and int(9223372036854775807) in 64bit systems._

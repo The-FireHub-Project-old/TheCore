@@ -13,8 +13,6 @@ This is an **abstract** class that cannot be instantiated directly.
 
 
 
-
-
 ### ### Safe string low-level proxy class
 
 _Class contains methods that are safe to use on normal as well as on multibyte encoding._
@@ -61,8 +59,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Checks if string contains value
 
 _Performs a case-sensitive check indicating if $string is contained in $string._
@@ -88,8 +84,6 @@ final public static StrSafe::startsWith(string $value, string $string):bool
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -126,8 +120,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Checks if a string ends with a given value
 
 _Performs a case-sensitive check indicating if $string ends with $value._
@@ -158,10 +150,6 @@ public static StrSafe::addSlashes(string $string):string
 
 
 
-> [!CAUTION]
-            The [[StrSafe#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
-database-specific escaping functions and/or prepared statements should be used.
-
 ### ### Quote string with slashes
 
 _Backslashes are added before characters that need to be escaped:
@@ -187,8 +175,6 @@ final public static StrSafe::implode(array $array, string $separator = &#039;&#0
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -230,8 +216,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Quote meta characters
 
 _Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($)._
@@ -264,12 +248,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Multibyte characters may not work as expected while $case_sensitive is on.> [!NOTE]
-            Because method replaces left to right, it might replace a previously inserted value when doing
-multiple replacements.> [!TIP]
-            To replace text based on a pattern rather than a fixed string, use preg_replace().
 
 ### ### Replace all occurrences of the search string with the replacement string
 
@@ -305,8 +283,6 @@ final public static StrSafe::repeat(string $string, int $times, string $separato
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -348,11 +324,6 @@ public static StrSafe::stripTags(string $string, null|string|array $allowed_tags
 
 
 
-> [!NOTE]
-            Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
-For example, to allow both <br> and <br/>, you should use: <br>.
-</p>
-
 ### ### Strip HTML and PHP tags from a string
 
 _This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given string. It
@@ -384,12 +355,6 @@ public static StrSafe::stripSlashes(string $string):string
 
 
 
-> [!NOTE]
-            [[StrSafe#stripSlashes()]] is not recursive. If you want to apply this function to multidimensional
-array, you need to use a recursive function.> [!TIP]
-            [[StrSafe#stripSlashes()]] can be used if you aren't inserting this data into a place (such as a database)
-that requires escaping. For example, if you're simply outputting data straight from an HTML form.
-
 ### ### Un-quotes a quoted string
 
 _Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash)._
@@ -419,12 +384,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
-thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-seemingly does not.
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
@@ -464,8 +423,6 @@ final public static StrSafe::explode(string $string, string $separator, int $lim
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -511,9 +468,6 @@ public static StrSafe::compare(string $string_1, string $string_2):int<-1, 1>
 
 
 
-
-> [!NOTE]
-            This comparison is case-sensitive.
 
 ### ### String comparison
 

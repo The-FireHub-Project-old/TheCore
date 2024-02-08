@@ -81,12 +81,7 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.</p>
-            </warning>
+
 
 ### ### Perform a regular expression match
 

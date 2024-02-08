@@ -12,8 +12,6 @@ enum Category
 
 
 
-
-
 ### ### Data category enum
 
 _Data category defines the category of data type._
@@ -43,8 +41,6 @@ SCALAR
 
 
 
-
-
 ### ### Scalar (predefined) category can hold only a single value
 
 
@@ -61,8 +57,6 @@ COMPOUND
 
 
 
-
-
 ### ### Compound (user-defined) category can hold only multiple values
 
 
@@ -74,8 +68,6 @@ COMPOUND
 ```php
 SPECIAL
 ```
-
-
 
 
 

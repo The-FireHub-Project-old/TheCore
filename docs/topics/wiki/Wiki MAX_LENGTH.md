@@ -12,8 +12,6 @@ constant int MAX_LENGTH = \PHP_MAXPATHLEN
 
 
 
-
-
 ### ### The maximum length of filenames (including a path) supported by this build of PHP
 
 

@@ -80,14 +80,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This function will return false for constructs, such as include_once and echo.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>A function name may exist even if the function itself is unusable due to configuration or compiling
-options.</p>
-            </note>
+
 
 ### ### Checks if function name exists
 
@@ -136,11 +129,7 @@ The function name.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Callbacks registered with this method will not be called if there is an uncaught exception thrown
-in a previous callback.</p>
-            </note>
+
 
 ### ### Call the callback
 
@@ -197,21 +186,7 @@ Zero or more parameters to be passed to the callback.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The working directory of the script can change inside the shutdown function under some web servers,
-e.g. Apache.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Shutdown functions will not be executed if the process is killed with a SIGTERM or SIGKILL signal. While
-you cannot intercept a SIGKILL, you can use pcntl_signal() to install a handler for a SIGTERM which uses exit()
-to end cleanly.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Shutdown functions run separately from the time tracked by max_execution_time. That means even if a
-process is terminated for running too long, shutdown functions will still be called. Additionally, if the
-max_execution_time runs out while a shutdown function is running, it will not be terminated.</p>
-            </note>
+
 
 ### ### Register a function for execution on shutdown
 

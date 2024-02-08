@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Automatically loads classes and interfaces
 
 _Autoload registers any number of autoloaders, enabling for classes and interfaces to be automatically loaded if they
@@ -46,8 +44,6 @@ classes, interfaces, traits, and enumerations._
 ```php
 public static Autoload::include(array $classes, callable $callback):void
 ```
-
-
 
 
 
@@ -93,8 +89,6 @@ Autoload::load([
 ```php
 public static Autoload::append(string $alias, callable|string $path):self
 ```
-
-
 
 
 
@@ -171,8 +165,6 @@ public static Autoload::register(string $alias, callable|string $path):self
 
 
 
-
-
 ### ### This method is alias for [[Autoload#append()]]
 
 
@@ -197,8 +189,6 @@ inside a root path._
 ```php
 public static Autoload::prepend(string $alias, callable|string $path):self
 ```
-
-
 
 
 
@@ -252,8 +242,6 @@ public static Autoload::unregister(string $alias):true
 
 
 
-
-
 ### ### Unregister autoload implementation
 
 _Removes a function from the autoloaded queue. If the queue is activated and empty after removing the given
@@ -295,8 +283,6 @@ public static Autoload::implementations():\FireHub\Core\Initializers\Autoload\Lo
 
 
 
-
-
 ### ### Get all registered autoloader implementations
 
 
@@ -320,8 +306,6 @@ Autoload::implementations();
 ```php
 public static Autoload::load(string $class):void
 ```
-
-
 
 
 

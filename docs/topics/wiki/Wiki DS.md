@@ -12,8 +12,6 @@ constant string DS = \DIRECTORY_SEPARATOR
 
 
 
-
-
 ### ### System definition for separating folders, platform specific
 
 _Convert '\\' and '/' for different operating systems. This is just a shorter version of PHP internal

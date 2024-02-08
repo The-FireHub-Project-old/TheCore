@@ -135,16 +135,7 @@ Case-sensitive match.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>Never use the e modifier when working on untrusted input. No automatic escaping will happen (as known
-from [[RegexSB#replace()]]). Not taking care of this will most likely create remote code execution
-vulnerabilities in your application.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>The internal encoding or the character encoding specified by encoding() will be used as character
-encoding for this function.</p>
-            </note>
+
 
 ### ### Perform a regular expression search and replace
 

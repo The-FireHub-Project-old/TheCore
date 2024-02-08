@@ -1109,10 +1109,7 @@ Radian value.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>'e' is the base of the natural system of logarithms, or approximately 2.718282.</p>
-            </note>
+
 
 ### ### Calculates the exponent of e
 
@@ -1161,10 +1158,7 @@ The argument to process.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>'e' to the power of num minus one.</p>
-            </note>
+
 
 ### ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
 
@@ -1845,10 +1839,7 @@ Any comparable values.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>It is possible to use the ** operator instead.</p>
-            </note>
+
 
 ### ### Exponential expression
 

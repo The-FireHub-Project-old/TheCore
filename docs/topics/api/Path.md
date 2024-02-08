@@ -137,12 +137,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L68">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L68">
                     View blame
                 </a>
             </def></deflist>
@@ -153,17 +153,12 @@
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Path.md#phar()">\FireHub\Core\Support\Path::phar()</a>  - <format style="italic">To get a current phar path.</format></li></list>
+        <list><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method is used by:">
         <list><li><a href="FireHub.md#autoload()">\FireHub\Core\FireHub::autoload()</a>  - <format style="italic">To get FireHub Core path.</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system could not load FireHub Core phar.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -194,12 +189,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L87">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L87">
                     View blame
                 </a>
             </def></deflist>
@@ -210,7 +205,7 @@
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Path.md#project()">\FireHub\Core\Support\Path::project()</a>  - <format style="italic">To get a current phar path.</format></li><li><a href="Path.md#core()">\FireHub\Core\Support\Path::core()</a>  - <format style="italic">To get a current phar path.</format></li></list>
+        <list><li><a href="Path.md#project()">\FireHub\Core\Support\Path::project()</a>  - <format style="italic">To get a current phar path.</format></li></list>
     </def>
 </deflist>
 <deflist>

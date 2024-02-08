@@ -80,11 +80,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Note that depending on what extensions you have compiled or loaded into PHP, additional classes could be
-present. This means that you will not be able to define your own classes using these names.</p>
-            </note>
+
 
 ### ### Gets the declared classes
 

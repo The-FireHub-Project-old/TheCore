@@ -12,8 +12,6 @@ enum CaseFolding
 
 
 
-
-
 ### ### String case folding enum
 
 
@@ -43,8 +41,6 @@ LOWER
 
 
 
-
-
 ### ### Performs a full lower-case folding
 
 
@@ -61,8 +57,6 @@ UPPER = 1
 
 
 
-
-
 ### ### Performs a full upper-case folding
 
 
@@ -74,8 +68,6 @@ UPPER = 1
 ```php
 TITLE = 2
 ```
-
-
 
 
 

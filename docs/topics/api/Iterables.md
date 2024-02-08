@@ -82,10 +82,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method is called after rewind() and next() to check if the current position is valid.</p>
-            </note>
+
 
 ### ### Checks if the current position is valid
 
@@ -211,10 +208,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method is called after each foreach loop.</p>
-            </note>
+
 
 ### ### Move forward to next element
 
@@ -256,10 +250,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>This is the first method called when starting a foreach loop. It will not be executed after foreach loops.</p>
-            </note>
+
 
 ### ### Rewind the iterator to the first element
 

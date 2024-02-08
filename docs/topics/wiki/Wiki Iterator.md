@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Iterator low-level proxy class
 
 
@@ -49,11 +47,6 @@ public static Iterator::toArray(\Traversable $iterator, bool $preserve_keys = tr
 
 
 
-
-> [!NOTE]
-            If this parameter $preserve_keys is not set or set to true, duplicate keys will be overwritten. The last
-value with a given key will be in the returned array. Set this parameter as false to get all the values in any
-case.
 
 ### ### Copy the iterator into an array
 
@@ -94,8 +87,6 @@ public static Iterator::count(\Traversable $iterator):int
 
 
 
-
-
 ### ### Count the elements in an iterator
 
 _Count the elements in an iterator. Method is not guaranteed to retain the current position of the iterator._
@@ -114,8 +105,6 @@ The iterator being counted._
 ```php
 public static Iterator::apply(\Traversable $iterator, callable $callback, null|array $arguments = null):int
 ```
-
-
 
 
 

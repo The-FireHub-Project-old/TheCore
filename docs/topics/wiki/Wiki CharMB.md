@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Multibyte character low-level proxy class
 
 _Class provides multibyte specific character functions that help you deal with multibyte encodings._
@@ -49,8 +47,6 @@ public static CharMB::chr(int $codepoint, \FireHub\Core\Support\Enums\String\Enc
 
 
 
-
-
 ### ### Return character by Unicode code point value
 
 _Returns a string containing the character specified by the Unicode code point value, encoded in the specified
@@ -74,8 +70,6 @@ Character encoding. If it is null, the internal character encoding value will be
 ```php
 public static CharMB::ord(string $character, \FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
-
-
 
 
 

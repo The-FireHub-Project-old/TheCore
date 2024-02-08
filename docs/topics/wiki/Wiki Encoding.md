@@ -12,8 +12,6 @@ enum Encoding
 
 
 
-
-
 ### ### Supported character encodings enum
 
 
@@ -121,8 +119,6 @@ BASE64 = &#039;BASE64&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L26)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L26)**</sub>
 <h2><a name="uuencode"># case: UUENCODE</a></h2>
@@ -130,8 +126,6 @@ BASE64 = &#039;BASE64&#039;
 ```php
 UUENCODE = &#039;UUENCODE&#039;
 ```
-
-
 
 
 
@@ -157,8 +151,6 @@ HTML_ENTITIES = &#039;HTML-ENTITIES&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L36)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L36)**</sub>
 <h2><a name="quoted_printable"># case: QUOTED_PRINTABLE</a></h2>
@@ -166,8 +158,6 @@ HTML_ENTITIES = &#039;HTML-ENTITIES&#039;
 ```php
 QUOTED_PRINTABLE = &#039;Quoted-Printable&#039;
 ```
-
-
 
 
 
@@ -193,8 +183,6 @@ SEVEN_BIT = &#039;7bit&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L46)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L46)**</sub>
 <h2><a name="eight_bit"># case: EIGHT_BIT</a></h2>
@@ -202,8 +190,6 @@ SEVEN_BIT = &#039;7bit&#039;
 ```php
 EIGHT_BIT = &#039;8bit&#039;
 ```
-
-
 
 
 
@@ -229,8 +215,6 @@ UCS_4 = &#039;UCS-4&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L56)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L56)**</sub>
 <h2><a name="ucs_4be"># case: UCS_4BE</a></h2>
@@ -238,8 +222,6 @@ UCS_4 = &#039;UCS-4&#039;
 ```php
 UCS_4BE = &#039;UCS-4BE&#039;
 ```
-
-
 
 
 
@@ -265,8 +247,6 @@ UCS_4LE = &#039;UCS-4LE&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L66)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L66)**</sub>
 <h2><a name="ucs_2"># case: UCS_2</a></h2>
@@ -274,8 +254,6 @@ UCS_4LE = &#039;UCS-4LE&#039;
 ```php
 UCS_2 = &#039;UCS-2&#039;
 ```
-
-
 
 
 
@@ -301,8 +279,6 @@ UCS_2BE = &#039;UCS-2BE&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L76)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L76)**</sub>
 <h2><a name="ucs_2le"># case: UCS_2LE</a></h2>
@@ -310,8 +286,6 @@ UCS_2BE = &#039;UCS-2BE&#039;
 ```php
 UCS_2LE = &#039;UCS-2LE&#039;
 ```
-
-
 
 
 
@@ -337,8 +311,6 @@ UTF_32 = &#039;UTF-32&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L86)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L86)**</sub>
 <h2><a name="utf_32be"># case: UTF_32BE</a></h2>
@@ -346,8 +318,6 @@ UTF_32 = &#039;UTF-32&#039;
 ```php
 UTF_32BE = &#039;UTF-32BE&#039;
 ```
-
-
 
 
 
@@ -373,8 +343,6 @@ UTF_32LE = &#039;UTF-32LE&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L96)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L96)**</sub>
 <h2><a name="utf_16"># case: UTF_16</a></h2>
@@ -382,8 +350,6 @@ UTF_32LE = &#039;UTF-32LE&#039;
 ```php
 UTF_16 = &#039;UTF-16&#039;
 ```
-
-
 
 
 
@@ -409,8 +375,6 @@ UTF_16BE = &#039;UTF-16BE&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L106)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L106)**</sub>
 <h2><a name="utf_16le"># case: UTF_16LE</a></h2>
@@ -418,8 +382,6 @@ UTF_16BE = &#039;UTF-16BE&#039;
 ```php
 UTF_16LE = &#039;UTF-16LE&#039;
 ```
-
-
 
 
 
@@ -445,8 +407,6 @@ UTF_8 = &#039;UTF-8&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L116)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L116)**</sub>
 <h2><a name="utf_7"># case: UTF_7</a></h2>
@@ -454,8 +414,6 @@ UTF_8 = &#039;UTF-8&#039;
 ```php
 UTF_7 = &#039;UTF-7&#039;
 ```
-
-
 
 
 
@@ -481,8 +439,6 @@ UTF7_IMAP = &#039;UTF7-IMAP&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L126)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L126)**</sub>
 <h2><a name="ascii"># case: ASCII</a></h2>
@@ -490,8 +446,6 @@ UTF7_IMAP = &#039;UTF7-IMAP&#039;
 ```php
 ASCII = &#039;ASCII&#039;
 ```
-
-
 
 
 
@@ -517,8 +471,6 @@ EUC_JP = &#039;EUC-JP&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L136)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L136)**</sub>
 <h2><a name="sjis"># case: SJIS</a></h2>
@@ -526,8 +478,6 @@ EUC_JP = &#039;EUC-JP&#039;
 ```php
 SJIS = &#039;SJIS&#039;
 ```
-
-
 
 
 
@@ -553,8 +503,6 @@ EUCJP_WIN = &#039;eucJP-win&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L146)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L146)**</sub>
 <h2><a name="euc_jp_2004"># case: EUC_JP_2004</a></h2>
@@ -562,8 +510,6 @@ EUCJP_WIN = &#039;eucJP-win&#039;
 ```php
 EUC_JP_2004 = &#039;EUC-JP-2004&#039;
 ```
-
-
 
 
 
@@ -589,8 +535,6 @@ SJIS_MOBILE_DOCOMO = &#039;SJIS-Mobile#DOCOMO&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L156)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L156)**</sub>
 <h2><a name="sjis_mobile_kddi"># case: SJIS_MOBILE_KDDI</a></h2>
@@ -598,8 +542,6 @@ SJIS_MOBILE_DOCOMO = &#039;SJIS-Mobile#DOCOMO&#039;
 ```php
 SJIS_MOBILE_KDDI = &#039;SJIS-Mobile#KDDI&#039;
 ```
-
-
 
 
 
@@ -625,8 +567,6 @@ SJIS_MOBILE_SOFTBANK = &#039;SJIS-Mobile#SOFTBANK&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L166)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L166)**</sub>
 <h2><a name="sjis_mac"># case: SJIS_MAC</a></h2>
@@ -634,8 +574,6 @@ SJIS_MOBILE_SOFTBANK = &#039;SJIS-Mobile#SOFTBANK&#039;
 ```php
 SJIS_MAC = &#039;SJIS-mac&#039;
 ```
-
-
 
 
 
@@ -661,8 +599,6 @@ SJIS_2004 = &#039;SJIS-2004&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L176)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L176)**</sub>
 <h2><a name="utf_8_mobile_docomo"># case: UTF_8_MOBILE_DOCOMO</a></h2>
@@ -670,8 +606,6 @@ SJIS_2004 = &#039;SJIS-2004&#039;
 ```php
 UTF_8_MOBILE_DOCOMO = &#039;UTF-8-Mobile#DOCOMO&#039;
 ```
-
-
 
 
 
@@ -697,8 +631,6 @@ UTF_8_MOBILE_KDDI_A = &#039;UTF-8-Mobile#KDDI-A&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L186)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L186)**</sub>
 <h2><a name="utf_8_mobile_kddi_b"># case: UTF_8_MOBILE_KDDI_B</a></h2>
@@ -706,8 +638,6 @@ UTF_8_MOBILE_KDDI_A = &#039;UTF-8-Mobile#KDDI-A&#039;
 ```php
 UTF_8_MOBILE_KDDI_B = &#039;UTF-8-Mobile#KDDI-B&#039;
 ```
-
-
 
 
 
@@ -733,8 +663,6 @@ UTF_8_MOBILE_SOFTBANK = &#039;UTF-8-Mobile#SOFTBANK&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L196)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L196)**</sub>
 <h2><a name="cp932"># case: CP932</a></h2>
@@ -742,8 +670,6 @@ UTF_8_MOBILE_SOFTBANK = &#039;UTF-8-Mobile#SOFTBANK&#039;
 ```php
 CP932 = &#039;CP932&#039;
 ```
-
-
 
 
 
@@ -769,8 +695,6 @@ CP51932 = &#039;CP51932&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L206)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L206)**</sub>
 <h2><a name="jis"># case: JIS</a></h2>
@@ -778,8 +702,6 @@ CP51932 = &#039;CP51932&#039;
 ```php
 JIS = &#039;JIS&#039;
 ```
-
-
 
 
 
@@ -805,8 +727,6 @@ ISO_2022_JP = &#039;ISO-2022-JP&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L216)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L216)**</sub>
 <h2><a name="iso_2022_jp_ms"># case: ISO_2022_JP_MS</a></h2>
@@ -814,8 +734,6 @@ ISO_2022_JP = &#039;ISO-2022-JP&#039;
 ```php
 ISO_2022_JP_MS = &#039;ISO-2022-JP-MS&#039;
 ```
-
-
 
 
 
@@ -841,8 +759,6 @@ GB18030 = &#039;GB18030&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L226)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L226)**</sub>
 <h2><a name="windows_1252"># case: WINDOWS_1252</a></h2>
@@ -850,8 +766,6 @@ GB18030 = &#039;GB18030&#039;
 ```php
 WINDOWS_1252 = &#039;Windows-1252&#039;
 ```
-
-
 
 
 
@@ -877,8 +791,6 @@ WINDOWS_1254 = &#039;Windows-1254&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L236)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L236)**</sub>
 <h2><a name="iso_8859_1"># case: ISO_8859_1</a></h2>
@@ -886,8 +798,6 @@ WINDOWS_1254 = &#039;Windows-1254&#039;
 ```php
 ISO_8859_1 = &#039;ISO-8859-1&#039;
 ```
-
-
 
 
 
@@ -913,8 +823,6 @@ ISO_8859_2 = &#039;ISO-8859-2&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L246)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L246)**</sub>
 <h2><a name="iso_8859_3"># case: ISO_8859_3</a></h2>
@@ -922,8 +830,6 @@ ISO_8859_2 = &#039;ISO-8859-2&#039;
 ```php
 ISO_8859_3 = &#039;ISO-8859-3&#039;
 ```
-
-
 
 
 
@@ -949,8 +855,6 @@ ISO_8859_4 = &#039;ISO-8859-4&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L256)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L256)**</sub>
 <h2><a name="iso_8859_5"># case: ISO_8859_5</a></h2>
@@ -958,8 +862,6 @@ ISO_8859_4 = &#039;ISO-8859-4&#039;
 ```php
 ISO_8859_5 = &#039;ISO-8859-5&#039;
 ```
-
-
 
 
 
@@ -985,8 +887,6 @@ ISO_8859_6 = &#039;ISO-8859-6&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L266)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L266)**</sub>
 <h2><a name="iso_8859_7"># case: ISO_8859_7</a></h2>
@@ -994,8 +894,6 @@ ISO_8859_6 = &#039;ISO-8859-6&#039;
 ```php
 ISO_8859_7 = &#039;ISO-8859-7&#039;
 ```
-
-
 
 
 
@@ -1021,8 +919,6 @@ ISO_8859_8 = &#039;ISO-8859-8&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L276)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L276)**</sub>
 <h2><a name="iso_8859_9"># case: ISO_8859_9</a></h2>
@@ -1030,8 +926,6 @@ ISO_8859_8 = &#039;ISO-8859-8&#039;
 ```php
 ISO_8859_9 = &#039;ISO-8859-9&#039;
 ```
-
-
 
 
 
@@ -1057,8 +951,6 @@ ISO_8859_10 = &#039;ISO-8859-10&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L286)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L286)**</sub>
 <h2><a name="iso_8859_13"># case: ISO_8859_13</a></h2>
@@ -1066,8 +958,6 @@ ISO_8859_10 = &#039;ISO-8859-10&#039;
 ```php
 ISO_8859_13 = &#039;ISO-8859-13&#039;
 ```
-
-
 
 
 
@@ -1093,8 +983,6 @@ ISO_8859_14 = &#039;ISO-8859-14&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L296)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L296)**</sub>
 <h2><a name="iso_8859_15"># case: ISO_8859_15</a></h2>
@@ -1102,8 +990,6 @@ ISO_8859_14 = &#039;ISO-8859-14&#039;
 ```php
 ISO_8859_15 = &#039;ISO-8859-15&#039;
 ```
-
-
 
 
 
@@ -1129,8 +1015,6 @@ ISO_8859_16 = &#039;ISO-8859-16&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L306)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L306)**</sub>
 <h2><a name="euc_cn"># case: EUC_CN</a></h2>
@@ -1138,8 +1022,6 @@ ISO_8859_16 = &#039;ISO-8859-16&#039;
 ```php
 EUC_CN = &#039;EUC-CN&#039;
 ```
-
-
 
 
 
@@ -1165,8 +1047,6 @@ CP936 = &#039;CP936&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L316)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L316)**</sub>
 <h2><a name="hz"># case: HZ</a></h2>
@@ -1174,8 +1054,6 @@ CP936 = &#039;CP936&#039;
 ```php
 HZ = &#039;HZ&#039;
 ```
-
-
 
 
 
@@ -1201,8 +1079,6 @@ EUC_TW = &#039;EUC-TW&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L326)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L326)**</sub>
 <h2><a name="big_5"># case: BIG_5</a></h2>
@@ -1210,8 +1086,6 @@ EUC_TW = &#039;EUC-TW&#039;
 ```php
 BIG_5 = &#039;BIG-5&#039;
 ```
-
-
 
 
 
@@ -1237,8 +1111,6 @@ CP950 = &#039;CP950&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L336)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L336)**</sub>
 <h2><a name="euc_kr"># case: EUC_KR</a></h2>
@@ -1246,8 +1118,6 @@ CP950 = &#039;CP950&#039;
 ```php
 EUC_KR = &#039;EUC-KR&#039;
 ```
-
-
 
 
 
@@ -1273,8 +1143,6 @@ UHC = &#039;UHC&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L346)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L346)**</sub>
 <h2><a name="iso_2022_kr"># case: ISO_2022_KR</a></h2>
@@ -1282,8 +1150,6 @@ UHC = &#039;UHC&#039;
 ```php
 ISO_2022_KR = &#039;ISO-2022-KR&#039;
 ```
-
-
 
 
 
@@ -1309,8 +1175,6 @@ WINDOWS_1251 = &#039;Windows-1251&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L356)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L356)**</sub>
 <h2><a name="cp866"># case: CP866</a></h2>
@@ -1318,8 +1182,6 @@ WINDOWS_1251 = &#039;Windows-1251&#039;
 ```php
 CP866 = &#039;CP866&#039;
 ```
-
-
 
 
 
@@ -1345,8 +1207,6 @@ KOI8_R = &#039;KOI8-R&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L366)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L366)**</sub>
 <h2><a name="koi8_u"># case: KOI8_U</a></h2>
@@ -1354,8 +1214,6 @@ KOI8_R = &#039;KOI8-R&#039;
 ```php
 KOI8_U = &#039;KOI8-U&#039;
 ```
-
-
 
 
 
@@ -1381,8 +1239,6 @@ ARM_SCII_8 = &#039;ArmSCII-8&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L376)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L376)**</sub>
 <h2><a name="cp850"># case: CP850</a></h2>
@@ -1390,8 +1246,6 @@ ARM_SCII_8 = &#039;ArmSCII-8&#039;
 ```php
 CP850 = &#039;CP850&#039;
 ```
-
-
 
 
 
@@ -1417,8 +1271,6 @@ ISO_2022_JP_2004 = &#039;ISO-2022-JP-2004&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L386)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L386)**</sub>
 <h2><a name="iso_2022_jp_mobile_kddi"># case: ISO_2022_JP_MOBILE_KDDI</a></h2>
@@ -1426,8 +1278,6 @@ ISO_2022_JP_2004 = &#039;ISO-2022-JP-2004&#039;
 ```php
 ISO_2022_JP_MOBILE_KDDI = &#039;ISO-2022-JP-MOBILE#KDDI&#039;
 ```
-
-
 
 
 
@@ -1453,8 +1303,6 @@ CP50220 = &#039;CP50220&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L396)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L396)**</sub>
 <h2><a name="cp50221"># case: CP50221</a></h2>
@@ -1471,8 +1319,6 @@ CP50221 = &#039;CP50221&#039;
 
 
 
-
-
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L401)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.Encoding.php#L401)**</sub>
 <h2><a name="cp50222"># case: CP50222</a></h2>
@@ -1480,8 +1326,6 @@ CP50221 = &#039;CP50221&#039;
 ```php
 CP50222 = &#039;CP50222&#039;
 ```
-
-
 
 
 

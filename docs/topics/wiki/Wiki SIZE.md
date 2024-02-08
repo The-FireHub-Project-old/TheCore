@@ -12,8 +12,6 @@ constant int SIZE = \PHP_INT_SIZE
 
 
 
-
-
 ### ### The size of an integer in bytes in this build of PHP
 
 

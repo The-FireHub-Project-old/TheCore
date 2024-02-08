@@ -106,6 +106,11 @@
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Data.md#settype()">\FireHub\Core\Support\LowLevel\Data::setType()</a>  - <format style="italic">To get $value type.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 The variable being type checked.
@@ -145,12 +150,12 @@ The variable being type checked.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L114">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116">
                     View blame
                 </a>
             </def></deflist>
@@ -161,7 +166,7 @@ The variable being type checked.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Type.md#t_bool">\FireHub\Core\Support\Enums\Data\Type::T_BOOL</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_int">\FireHub\Core\Support\Enums\Data\Type::T_INT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_float">\FireHub\Core\Support\Enums\Data\Type::T_FLOAT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_array">\FireHub\Core\Support\Enums\Data\Type::T_ARRAY</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_object">\FireHub\Core\Support\Enums\Data\Type::T_OBJECT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_null">\FireHub\Core\Support\Enums\Data\Type::T_NULL</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_resource">\FireHub\Core\Support\Enums\Data\Type::T_RESOURCE</a>  - <format style="italic">As data type.</format></li></list>
+        <list><li><a href="Data.md#gettype()">\FireHub\Core\Support\LowLevel\Data::getType()</a>  - <format style="italic">To get $value type.</format></li><li><a href="Type.md#t_bool">\FireHub\Core\Support\Enums\Data\Type::T_BOOL</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_string">\FireHub\Core\Support\Enums\Data\Type::T_STRING</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_int">\FireHub\Core\Support\Enums\Data\Type::T_INT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_float">\FireHub\Core\Support\Enums\Data\Type::T_FLOAT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_array">\FireHub\Core\Support\Enums\Data\Type::T_ARRAY</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_object">\FireHub\Core\Support\Enums\Data\Type::T_OBJECT</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_null">\FireHub\Core\Support\Enums\Data\Type::T_NULL</a>  - <format style="italic">As data type.</format></li><li><a href="Type.md#t_resource">\FireHub\Core\Support\Enums\Data\Type::T_RESOURCE</a>  - <format style="italic">As data type.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -204,16 +209,7 @@ Type to convert variable to.
 
 
 
-<warning>
-                <p><format style="bold">Warning:</format></p>
-                <p>When serialize() serializes objects, the leading backslash is not included in the class name of
-namespaced classes for maximum compatibility.</p>
-            </warning><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This is a binary string that may include null bytes and needs to be stored and handled as such. For
-example, serialize() output should generally be stored in a BLOB field in a database, rather than a CHAR or
-TEXT field.</p>
-            </note>
+
 
 ### ### Generates storable representation of data
 
@@ -222,12 +218,12 @@ This is useful for storing or passing PHP values around without losing their typ
 To make the serialized string into a PHP value again, use unserialize().</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L158">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175">
                     View blame
                 </a>
             </def></deflist>
@@ -277,12 +273,12 @@ The value to be serialized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L188">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213">
                     View blame
                 </a>
             </def></deflist>

@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Single-byte string low-level proxy class
 
 _Class allows you to manipulate strings in various ways._
@@ -87,8 +85,6 @@ public static StrSB::addSlashes(string $string, string $characters = null)
 
 
 
-
-
 ### ### Quote string with slashes
 
 
@@ -117,8 +113,6 @@ public static StrSB::stripSlashes(string $string, bool $c_representation = false
 
 
 
-
-
 ### ### Un-quotes a quoted string
 
 
@@ -135,8 +129,6 @@ If true, octal and hexadecimal representation from addSlashes method are recogni
 ```php
 public static StrSB::compare(string $string_1, string $string_2, bool $case_sensitive = true)
 ```
-
-
 
 
 
@@ -177,8 +169,6 @@ public static StrSB::chunkSplit(string $string, int $length = 76, string $separa
 
 
 
-
-
 ### ### Split a string into smaller chunks
 
 _Can be used to split a string into smaller chunks, which is useful for e.g., converting base64_encode() output to
@@ -205,8 +195,6 @@ The line-ending sequence._
 ```php
 public static StrSB::pad(string $string, int $length, string $pad = &quot; &quot;, \FireHub\Core\Support\Enums\Side $side = Side::RIGHT):string
 ```
-
-
 
 
 
@@ -259,8 +247,6 @@ public static StrSB::replacePart(string $string, string $replace, int $offset, n
 
 
 
-
-
 ### ### Replace text within a portion of a string
 
 _Replaces a copy of string delimited by the $offset and (optionally) $length parameters with the string given in
@@ -298,10 +284,6 @@ public static StrSB::shuffle(string $string):string
 
 
 
-> [!CAUTION]
-            This function does not generate cryptographically secure values, and must not be used for
-cryptographic purposes, or purposes that require returned values to be unguessable.
-
 ### ### Randomly shuffles a string
 
 
@@ -319,8 +301,6 @@ cryptographic purposes, or purposes that require returned values to be unguessab
 ```php
 public static StrSB::reverse(string $string):string
 ```
-
-
 
 
 
@@ -350,8 +330,6 @@ public static StrSB::reverse(string $string):string
 public static StrSB::wrap(string $string, int $width = 75, string $break = &quot;
 &quot;, bool $cut_long_words = false):string
 ```
-
-
 
 
 
@@ -399,8 +377,6 @@ public static StrSB::toLower(string $string):string
 
 
 
-
-
 ### ### Make a string lowercase
 
 
@@ -418,8 +394,6 @@ public static StrSB::toLower(string $string):string
 ```php
 public static StrSB::toUpper(string $string):string
 ```
-
-
 
 
 
@@ -459,8 +433,6 @@ public static StrSB::toTitle(string $string):string
 
 
 
-
-
 ### ### Make a string title-cased
 
 
@@ -489,8 +461,6 @@ public static StrSB::capitalize(string $string):string
 
 
 
-
-
 ### ### Make a first character of string uppercased
 
 
@@ -508,8 +478,6 @@ public static StrSB::capitalize(string $string):string
 ```php
 public static StrSB::deCapitalize(string $string):string
 ```
-
-
 
 
 
@@ -550,8 +518,6 @@ public static StrSB::translate(string $string, string $from, string $to):string
 
 
 
-
-
 ### ### Translate characters or replace substrings
 
 
@@ -571,8 +537,6 @@ public static StrSB::translate(string $string, string $from, string $to):string
 ```php
 public static StrSB::part(string $string, int $start, null|int $length = null):string
 ```
-
-
 
 
 
@@ -619,8 +583,6 @@ public static StrSB::firstPart(string $find, string $string, bool $before_needle
 
 
 
-
-
 ### ### Find first part of a string
 
 _Returns part of $string starting from and including the first occurrence of $find to the end of $string._
@@ -642,8 +604,6 @@ If true, return the part of the string before the first occurrence (excluding th
 ```php
 public static StrSB::lastPart(string $find, string $string):string|false
 ```
-
-
 
 
 
@@ -685,8 +645,6 @@ public static StrSB::partFrom(string $characters, string $string):string|false
 
 
 
-
-
 ### ### Find part of a string with characters
 
 
@@ -705,8 +663,6 @@ public static StrSB::partFrom(string $characters, string $string):string|false
 ```php
 public static StrSB::countByChar(string $string):array
 ```
-
-
 
 
 
@@ -747,8 +703,6 @@ public static StrSB::split(string $string, int $length = 1):array
 
 
 
-
-
 ### ### Convert a string to an array
 
 
@@ -775,8 +729,6 @@ byte in size._
 ```php
 public static StrSB::countWords(string $string, null|string $characters = null, int $format):int|array
 ```
-
-
 
 
 
@@ -831,9 +783,6 @@ public static StrSB::partCount(string $string, string $search, int $start, null|
 
 
 
-> [!NOTE]
-            This method doesn't count overlapped substring.
-
 ### ### Get number of times the searched substring occurs in the string
 
 _Returns the number of times the needle substring occurs in the haystack string. Please note that needle is
@@ -868,10 +817,6 @@ public static StrSB::segmentMatching(string $string, string $characters, int $of
 
 
 
-
-> [!NOTE]
-            When offset parameter is set, the returned length is counted starting from this position, not from
-beginning of the string.
 
 ### ### Length of the initial segment for a string consisting entirely of characters contained within a given mask
 
@@ -911,10 +856,6 @@ public static StrSB::segmentNotMatching(string $string, string $characters, int 
 
 
 
-
-> [!NOTE]
-            When offset parameter is set, the returned length is counted starting from this position, not from
-beginning of the string.
 
 ### ### Find length of initial segment not matching mask
 
@@ -956,9 +897,6 @@ public static StrSB::length(string $string):int
 
 
 
-> [!NOTE]
-            The function returns the number of bytes rather than the number of characters in a string.
-
 ### ### Get string length
 
 
@@ -976,8 +914,6 @@ public static StrSB::length(string $string):int
 ```php
 public static StrSB::comparePart(string $string_1, string $string_2, int $offset, null|int $length = null, bool $case_sensitive = true):int
 ```
-
-
 
 
 
@@ -1028,8 +964,6 @@ public static StrSB::compareFirstN(string $string_1, string $string_2, int $leng
 
 
 
-
-
 ### ### String comparison of the first n characters
 
 
@@ -1060,11 +994,6 @@ public static StrSB::firstPosition(string $search, string $string, bool $case_se
 
 
 
-
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.
 
 ### ### Find the position of the first occurrence of a substring in a string
 
@@ -1098,11 +1027,6 @@ public static StrSB::lastPosition(string $search, string $string, bool $case_sen
 
 
 
-
-> [!WARNING]
-            This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-false. Please read the section on Booleans for more information. Use the === operator for testing the return
-value of this function.
 
 ### ### Find the position of the last occurrence of a substring in a string
 
@@ -1138,8 +1062,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Checks if string contains value
 
 _Performs a case-sensitive check indicating if $string is contained in $string._
@@ -1165,8 +1087,6 @@ final public static StrSafe::startsWith(string $value, string $string):bool
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1203,8 +1123,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Checks if a string ends with a given value
 
 _Performs a case-sensitive check indicating if $string ends with $value._
@@ -1231,8 +1149,6 @@ final public static StrSafe::implode(array $array, string $separator = &#039;&#0
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1274,8 +1190,6 @@ This method is marked as **final**.
 
 
 
-
-
 ### ### Quote meta characters
 
 _Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($)._
@@ -1308,12 +1222,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Multibyte characters may not work as expected while $case_sensitive is on.> [!NOTE]
-            Because method replaces left to right, it might replace a previously inserted value when doing
-multiple replacements.> [!TIP]
-            To replace text based on a pattern rather than a fixed string, use preg_replace().
 
 ### ### Replace all occurrences of the search string with the replacement string
 
@@ -1349,8 +1257,6 @@ final public static StrSafe::repeat(string $string, int $times, string $separato
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 
@@ -1392,11 +1298,6 @@ public static StrSafe::stripTags(string $string, null|string|array $allowed_tags
 
 
 
-> [!NOTE]
-            Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
-For example, to allow both <br> and <br/>, you should use: <br>.
-</p>
-
 ### ### Strip HTML and PHP tags from a string
 
 _This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given string. It
@@ -1429,12 +1330,6 @@ This method is marked as **final**.
 
 
 
-
-> [!NOTE]
-            Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
-thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-seemingly does not.
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
@@ -1474,8 +1369,6 @@ final public static StrSafe::explode(string $string, string $separator, int $lim
 
 > [!IMPORTANT]
 This method is marked as **final**.
-
-
 
 
 

@@ -13,8 +13,6 @@ This class is marked as **final**.
 
 
 
-
-
 ### ### Main FireHub class for bootstrapping
 
 _This class contains all system definitions, constants and dependant components for FireHub bootstrapping._
@@ -37,8 +35,6 @@ _This class contains all system definitions, constants and dependant components 
 ```php
 public static FireHub::boot(\FireHub\Core\Initializers\Enums\Kernel $kernel):string
 ```
-
-
 
 
 

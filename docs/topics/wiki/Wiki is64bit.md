@@ -12,8 +12,6 @@ function \FireHub\Core\Support\Helpers\PHP\is64bit():bool
 
 
 
-
-
 ### ### Check if using 64bit version of PHP
 
 

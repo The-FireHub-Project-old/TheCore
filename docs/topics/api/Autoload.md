@@ -59,9 +59,9 @@ classes, interfaces, traits, and enumerations.</format></p>
 
 
 ### Properties
-| Type | Name | Title | Default |
-|:-----|:-----|:------|:--------|
-|private static |<a href="#$loaders">loaders</a>|### List of active loader implementations for autoloader||
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|privatestatic |<a href="#$loaders">loaders</a>|### List of active loader implementations for autoloader||
 |readonly private|<a href="#$alias">alias</a>|||
 |readonly private|<a href="#$callback">callback</a>|||
 |readonly private|<a href="#$prepend">prepend</a>|||

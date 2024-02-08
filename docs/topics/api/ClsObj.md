@@ -84,10 +84,7 @@
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>Using this function will use any registered autoloaders if the class is not already known.</p>
-            </note>
+
 
 ### ### Checks if the class method exists
 
@@ -144,16 +141,7 @@ The method name.
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>This method cannot detect properties that are magically accessible using the __get magic method.</p>
-            </note><note>
-                <p><format style="bold">Note:</format></p>
-                <p>Using this function will use any registered autoloaders if the class is not already known.</p>
-            </note>
+
 
 ### ### Checks if the object or class has a property
 
@@ -325,10 +313,7 @@ false otherwise.</format></li></list>
 
 
 
-<note>
-                <p><format style="bold">Note:</format></p>
-                <p>The result depends on the current scope.</p>
-            </note>
+
 
 ### ### Gets the class or object methods names
 
