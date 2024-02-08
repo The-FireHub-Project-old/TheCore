@@ -231,8 +231,6 @@ final class FireHub {
         Autoload::prepend('FireHub', function (string $namespace, string $classname):string|false {
             $namespace = StrSB::explode($namespace, DS);
 
-            var_dump($namespace);
-
             if ($namespace[Arr::firstKey($namespace)] !== 'firehub') return false;
             Arr::shift($namespace);
 
