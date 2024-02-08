@@ -191,14 +191,13 @@ final class FireHub {
         // register FireHub preloaders
         Autoload::include($preloaders, function (string $class):string {
             $class_components = explode(DS, $class);
+            var_dump($class_components);
 
             array_shift($class_components);
             array_shift($class_components);
 
             $classname = array_pop($class_components);
             $namespace = strtolower(implode(DS, $class_components));
-
-            var_dump(__DIR__.DS.$namespace.DS.'firehub.'.$classname.'.php');
 
             return __DIR__.DS.$namespace.DS.'firehub.'.$classname.'.php';
         });
