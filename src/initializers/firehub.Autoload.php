@@ -122,11 +122,6 @@ final class Autoload {
      */
     public static function include (array $classes, callable $callback):void {
 
-        foreach ($classes as $class) {
-            $x = $callback($class);
-            var_dump($x);
-        }
-
         foreach ($classes as $class) if (!include($callback($class)))
             throw new Error("Cannot preload $class.");
 
