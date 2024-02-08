@@ -231,6 +231,9 @@ final class FireHub {
         Autoload::prepend('FireHub', function (string $namespace, string $classname):string|false {
             $namespace = StrSB::explode($namespace, '\\');
 
+            var_dump($namespace[Arr::firstKey($namespace)]);
+            var_dump($namespace[Arr::firstKey($namespace)] !== 'firehub');
+
             if ($namespace[Arr::firstKey($namespace)] !== 'firehub') return false;
             Arr::shift($namespace);
 
@@ -243,8 +246,6 @@ final class FireHub {
             $classname = Arr::shift($classname_component);
             $classname_component = StrSB::implode($classname_component, '_');
             $suffix = !empty($classname_component) ? StrSB::toLower('.'.$classname_component) : '';
-
-            var_dump(Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php');
 
             return Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php';
         });
