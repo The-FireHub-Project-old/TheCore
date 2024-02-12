@@ -15,6 +15,7 @@
 /php-cs-fixer.php
 /CHANGELOG.md export-ignore
 /CITATION.cff export-ignore
+/Dockerfile export-ignore
 /LICENSE.md export-ignore
 /phpdoc.xml export-ignore
 /phpdoc.wiki.xml export-ignore
