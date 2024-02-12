@@ -1,6 +1,12 @@
 # JetBrains
 .idea/
 
+# PHPUnit cache
+.phpunit.cache/
+
+# Wiki
+/.wiki/
+
 # Phar
 /phar/**
 !/phar/*.phar
