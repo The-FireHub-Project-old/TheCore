@@ -1,7 +1,12 @@
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
 parameters:
-    level: 8
+    level: 9
     paths:
         - src/
+    excludePaths:
+        analyseAndScan:
+            - src/testing/
     treatPhpDocTypesAsCertain: false
     checkExplicitMixedMissingReturn: true
     checkFunctionNameCase: true
@@ -9,5 +14,7 @@ parameters:
     reportMaybesInMethodSignatures: true
     reportMaybesInPropertyPhpDocTypes: true
     reportStaticMethodSignatures: true
+    reportUnmatchedIgnoredErrors: false
     checkUninitializedProperties: true
+    checkImplicitMixed: true
     tipsOfTheDay: false
