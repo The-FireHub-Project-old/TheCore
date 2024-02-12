@@ -3,20 +3,28 @@
     "description": "FireHub Web Application Framework",
     "type": "library",
     "keywords": ["php", "framework", "core", "firehub"],
-    "homepage": "https://the-firehub-project.github.io/",
+    "homepage": "https://the-firehub-project.github.io/Core/",
     "license": "OSL-3.0",
     "require": {
-        "php": ">=8.2",
+        "php": "^8.2",
         "ext-mbstring": "*"
     },
     "require-dev": {
+        "firehub/documentor": "^0.1",
+        "phpstan/phpstan": "^1.1",
+        "phpunit/phpunit": "^11.0",
+        "phpmd/phpmd": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.4",
         "ext-openssl": "*"
     },
     "suggest": {
-        "php-64bit": ">=8.2"
+        "php-64bit": "^8.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "scripts": {
+        "php-cs-fixer": "php-cs-fixer"
+    },
     "authors": [
         {
             "name": "Danijel Galić",
@@ -32,7 +40,7 @@
         "forum": "https://github.com/orgs/The-FireHub-Project/discussions",
         "wiki": "https://github.com/The-FireHub-Project/Core/wiki",
         "source": "https://github.com/The-FireHub-Project/Core",
-        "docs": "https://the-firehub-project.github.io/core/"
+        "docs": "https://the-firehub-project.github.io/Core/"
     },
     "funding": [
         {

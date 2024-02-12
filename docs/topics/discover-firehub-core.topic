@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Discover FireHub Core" id="discover-firehub-core">
+
+    <section-starting-page>
+        <title>Discover FireHub Core</title>
+        <description>
+            These topics will help you get started with FireHub Web Application Framework.
+        </description>
+
+        <spotlight>
+            <a href="" type="open-source" summary="Learn what we are all about and how you can join our community.">Meet FireHub Core</a>
+            <a href="" type="computer" summary="Guide how to install and run latest version of FireHub Core.">Installation</a>
+        </spotlight>
+
+        <primary>
+            <title>The Basics</title>
+            <a href="" type="learn" summary="The Basics."/>
+        </primary>
+
+        <secondary>
+            <title>Explore Advanced Features</title>
+            <a href="" type="academy" summary="Explore Advanced Features."/>
+        </secondary>
+    </section-starting-page>
+
+</topic>

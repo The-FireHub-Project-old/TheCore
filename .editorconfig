@@ -13,5 +13,5 @@ max_line_length = 120
 [*.{yml,yaml,config,cff}]
 indent_size = 2
 
-[*.{md,svg}]
+[*.{md,twig,svg}]
 max_line_length = off
