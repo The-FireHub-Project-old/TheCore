@@ -78,8 +78,6 @@ abstract class ClsObj {
      * @phpstan-param class-string|object $object_or_class
      * @phpstan-param non-empty-string $property
      *
-     * @throws Error If there was an error trying to get property.
-     *
      * @return bool True if the property exists, false if it doesn't exist.
      *
      * @note As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.
@@ -88,13 +86,7 @@ abstract class ClsObj {
      */
     final public static function propertyExist (string|object $object_or_class, string $property):bool {
 
-        /**
-         * PHPStan reports that property_exists could not return NULL, but it can if an error trying to get property.
-         * @phpstan-ignore-next-line
-         */
-        return DataIs::null($property = property_exists($object_or_class, $property))
-            ? $property
-            : throw new Error("There was an error trying to get property: $property");
+        return property_exists($object_or_class, $property);
 
     }
 
