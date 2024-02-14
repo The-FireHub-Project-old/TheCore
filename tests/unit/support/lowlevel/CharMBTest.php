@@ -23,7 +23,7 @@ use PHPUnit\Framework\Attributes\ {
 use Error;
 
 /**
- * ### Test data low-level proxy class
+ * ### Test multibyte character low-level proxy class
  * @since 1.0.0
  */
 #[CoversClass(CharMB::class)]

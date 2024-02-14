@@ -21,7 +21,7 @@ use PHPUnit\Framework\Attributes\ {
 };
 
 /**
- * ### Test data low-level proxy class
+ * ### Test single-byte character low-level proxy class
  * @since 1.0.0
  */
 #[CoversClass(CharSB::class)]
