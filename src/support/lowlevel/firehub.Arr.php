@@ -1841,6 +1841,8 @@ final class Arr {
      * </p>
      * @phpstan-param array<array-key, mixed> $array
      *
+     * @error\exeption E_WARNING If $array values cannot be converted to int or float.
+     *
      * @return int|float The product as an integer or float.
      */
     public static function product (array $array):int|float {
@@ -1858,6 +1860,8 @@ final class Arr {
      * The input array.
      * </p>
      * @phpstan-param array<array-key, mixed> $array
+     *
+     * @error\exeption E_WARNING If $array values cannot be converted to int or float.
      *
      * @return int|float The sum of values as an integer or float; 0 if the array is empty.
      */
