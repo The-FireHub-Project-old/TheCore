@@ -206,7 +206,6 @@ abstract class ClsObj {
      * </p>
      * @phpstan-param class-string|object $object_or_class
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
      * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
      *
      * @return array <code><![CDATA[ array<string, class-string> ]]></code> An array on success.
@@ -214,8 +213,7 @@ abstract class ClsObj {
      */
     final public static function parents (object|string $object_or_class, bool $autoload = true):array {
 
-        return class_parents($object_or_class, $autoload)
-            ?: throw new Error('$object_or_class does not exist and could not be loaded.');
+        return class_parents($object_or_class, $autoload);
 
     }
 
@@ -235,7 +233,6 @@ abstract class ClsObj {
      * </p>
      * @phpstan-param class-string|object $object_or_class
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
      * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
      *
      * @return array <code><![CDATA[ array<string, class-string> ]]></code> An array.
@@ -243,8 +240,7 @@ abstract class ClsObj {
      */
     final public static function implements (object|string $object_or_class, bool $autoload = true):array {
 
-        return class_implements($object_or_class, $autoload)
-            ?: throw new Error('$object_or_class does not exist and could not be loaded.');
+        return class_implements($object_or_class, $autoload);
 
     }
 
@@ -264,7 +260,6 @@ abstract class ClsObj {
      * </p>
      * @phpstan-param class-string|object $object_or_class
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
      * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
      *
      * @return array <code><![CDATA[ array<string, class-string> ]]></code> An array.
@@ -272,8 +267,7 @@ abstract class ClsObj {
      */
     final public static function uses (object|string $object_or_class, bool $autoload = true):array {
 
-        return class_uses($object_or_class, $autoload)
-            ?: throw new Error('$object_or_class does not exist and could not be loaded.');
+        return class_uses($object_or_class, $autoload);
 
     }
 
