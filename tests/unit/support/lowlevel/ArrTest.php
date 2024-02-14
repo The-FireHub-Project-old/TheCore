@@ -16,7 +16,9 @@ namespace support\lowlevel;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\LowLevel\Arr;
-use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\ {
+    CoversClass, RequiresPhp
+};
 use FireHub\Core\Support\Enums\ {
     Order, Sort, String\CaseFolding
 };
@@ -891,6 +893,7 @@ final class ArrTest extends Base {
      *
      * @return void
      */
+    #[RequiresPhp('>=8.3')]
     public function testRangeNegativeStep ():void {
 
         $this->expectException(ValueError::class);
