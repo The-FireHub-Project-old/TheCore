@@ -12,6 +12,7 @@
 - IterablesAggregate now extends internal Traversable class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [76f0f3c](https://github.com/The-FireHub-Project/Core/pull/7/commits/76f0f3c))
 - Data low-level proxy class, method setType now throws error if trying to convert an array to string or object to some types ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [0305486](https://github.com/The-FireHub-Project/Core/pull/7/commits/0305486))
 - core method of Pat high-level class now uses __DIR__ instead of a Phar path ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [8977894](https://github.com/The-FireHub-Project/Core/pull/7/commits/8977894))
+- toTimestamp and formatInteger bugfix ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [dd82703](https://github.com/The-FireHub-Project/Core/pull/7/commits/dd82703))
 
 ### Changed
 - Method setType on Data low-level proxy no longer supports converting array ti string ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [2002fab](https://github.com/The-FireHub-Project/Core/pull/7/commits/2002fab))
