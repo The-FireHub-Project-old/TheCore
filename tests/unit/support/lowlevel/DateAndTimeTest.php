@@ -108,14 +108,13 @@ final class DateAndTimeTest extends Base {
     /**
      * @since 1.0.0
      *
-     * @param int $int
      * @param string $format
      * @param int|null $timestamp
      *
      * @return void
      */
     #[DataProvider('formatInteger')]
-    public function testFormatInteger (int $int, string $format, int $timestamp = null):void {
+    public function testFormatInteger (string $format, int $timestamp = null):void {
 
         $this->assertIsInt(DateAndTime::formatInteger($format, $timestamp));
 
