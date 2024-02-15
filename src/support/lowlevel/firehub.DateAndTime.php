@@ -185,8 +185,9 @@ final class DateAndTime {
      */
     public static function formatInteger (string $format, int $timestamp = null):int {
 
-        return idate($format, $timestamp)
-            ?: throw new Error('Failed to format a Unix timestamp as integer.');
+        return ($format = idate($format, $timestamp)) !== false
+            ? $format
+            : throw new Error('Failed to format a Unix timestamp as integer.');
 
     }
 
@@ -363,10 +364,10 @@ final class DateAndTime {
     public static function toTimestamp (int $hour, int $minute = null, int $second = null, int $year = null, int $month = null, int $day = null, bool $gmt = false):int {
 
         return (
-            $gmt
+            $timestamp = $gmt
                 ? gmmktime($hour, $minute, $second, $month, $day, $year)
                 : mktime($hour, $minute, $second, $month, $day, $year)
-        ) ?: throw new Error("Timestamp doesn't fit in a PHP integer.");
+        ) !== false ? $timestamp : throw new Error("Timestamp doesn't fit in a PHP integer.");
 
     }
 
@@ -406,8 +407,7 @@ final class DateAndTime {
 
         $time_list = StrSB::explode(microtime(), ' ');
 
-        if (!$time_list)
-        throw new Error('Separator cannot be empty string.');
+        if (!$time_list) throw new Error('Separator cannot be empty string.');
 
         return Data::setType(StrSB::part($time_list[0], 2, 6), Type::T_INT);
 
