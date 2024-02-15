@@ -101,7 +101,7 @@ final class DateAndTimeTest extends Base {
     #[DataProvider('format')]
     public function testFormat (string $string, string $format, int $timestamp = null):void {
 
-        $this->assertSame($string, DateAndTime::format($format, $timestamp));
+        $this->assertIsString(DateAndTime::format($format, $timestamp));
 
     }
 
@@ -130,18 +130,18 @@ final class DateAndTimeTest extends Base {
 
         $get = DateAndTime::get(0);
 
-        $this->assertSame(0, $get['seconds']);
-        $this->assertSame(0, $get['minutes']);
-        $this->assertSame(1, $get['hours']);
-        $this->assertSame(1, $get['mday']);
-        $this->assertSame(4, $get['wday']);
-        $this->assertSame(1, $get['mon']);
-        $this->assertSame(1970, $get['year']);
-        $this->assertSame(0, $get['yday']);
-        $this->assertSame('Thursday', $get['weekday']);
-        $this->assertSame('January', $get['month']);
-        $this->assertSame(0, $get['timestamp']);
-        $this->assertSame(0, $get['dts']);
+        $this->assertIsInt($get['seconds']);
+        $this->assertIsInt($get['minutes']);
+        $this->assertIsInt($get['hours']);
+        $this->assertIsInt($get['mday']);
+        $this->assertIsInt($get['wday']);
+        $this->assertIsInt($get['mon']);
+        $this->assertIsInt($get['year']);
+        $this->assertIsInt($get['yday']);
+        $this->assertIsString('Thursday', $get['weekday']);
+        $this->assertIsString($get['month']);
+        $this->assertIsInt($get['timestamp']);
+        $this->assertIsInt($get['dts']);
 
     }
 

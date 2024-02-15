@@ -15,6 +15,7 @@
 namespace support\lowlevel;
 
 use FireHub\Core\Testing\Base;
+use FireHub\Core\Kernel\HTTP\Kernel as HTTPKernel;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
     Cls, ClsObj
@@ -86,9 +87,9 @@ final class ClsTest extends Base {
      */
     public function testAlias ():void {
 
-        Cls::alias(DateTime::class, 'NewDateTime');
+        Cls::alias(HTTPKernel::class, 'NewHTTPKernel');
 
-        $this->assertInstanceOf('NewDateTime', new DateTime);
+        $this->assertInstanceOf('NewHTTPKernel', new HTTPKernel());
         $this->assertNotInstanceOf(DateInterval::class, new DateTime);
 
     }
