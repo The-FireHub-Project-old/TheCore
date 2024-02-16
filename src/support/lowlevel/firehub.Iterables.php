@@ -40,7 +40,7 @@ final class Iterables {
      * @since 1.0.0
      *
      * @param array|Countable $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<array-key, mixed>|Countable ]]></code>
      * Array to count.
      * </p>
      * @param bool $multidimensional [optional] <p>
@@ -132,7 +132,7 @@ final class Iterables {
      * @template TValue
      *
      * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
@@ -165,8 +165,8 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array &$array <p>
+     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
      * The array being affected.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array

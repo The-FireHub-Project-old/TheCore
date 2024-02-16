@@ -95,17 +95,17 @@ final class Iterator {
      * <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
      * The iterator objects to iterate over.
      * </p>
-     * @param callable(TValue $value, TKey $key):bool $callback <p>
-     * <code>callable (TValue $value, TKey $key):bool</code>
+     * @param callable(TValue $value=):bool $callback <p>
+     * <code>callable (TValue $value=):bool</code>
      * The callback function to call on every element The function must return true to continue iterating over the
      * iterator.
      * </p>
      * @param null|array $arguments <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<TValue> ]]></code>
      * An array of arguments; each element of args is passed to the callback as separate argument.
      * </p>
      * @phpstan-param Traversable<TKey, TValue> $iterator
-     * @phpstan-param null|array<array-key, mixed> $arguments
+     * @phpstan-param null|array<TValue> $arguments
      *
      * @return int Iteration count.
      */
