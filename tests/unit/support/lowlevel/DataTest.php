@@ -22,7 +22,9 @@ use FireHub\Core\Support\Contracts\{
     Countable, Iterator\IterablesAggregate
 };
 use PHPUnit\Framework\Attributes\CoversClass;
-use FireHub\Core\Support\Enums\Data\Type;
+use FireHub\Core\Support\Enums\Data\ {
+    Category, Type
+};
 use Error, Stringable, Traversable;
 
 /**
@@ -31,6 +33,7 @@ use Error, Stringable, Traversable;
  */
 #[CoversClass(Data::class)]
 #[CoversClass(DataIs::class)]
+#[CoversClass(Type::class)]
 final class DataTest extends Base {
 
     public array $empty_arr = [];
@@ -1074,6 +1077,24 @@ final class DataTest extends Base {
         $this->expectException(Error::class);
 
         Data::unserializeValue('N;');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCategory ():void {
+
+        $this->assertSame(Category::SCALAR, Type::T_FLOAT->category());
+        $this->assertSame(Category::COMPOUND, Type::T_OBJECT->category());
+        $this->assertSame(Category::SPECIAL, Type::T_RESOURCE->category());
+        $this->assertSame(Category::SCALAR, Type::T_INT->category());
+        $this->assertSame(Category::SPECIAL, Type::T_NULL->category());
+        $this->assertSame(Category::SCALAR, Type::T_BOOL->category());
+        $this->assertSame(Category::COMPOUND, Type::T_ARRAY->category());
+        $this->assertSame(Category::SCALAR, Type::T_STRING->category());
 
     }
 
