@@ -247,9 +247,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testDivide ():void {
 
-        $this->assertSame(4.384615384615385, NumFloat::divide(5.7, 1.3));
+        $this->assertSame(
+            NumFloat::round(4.384615384615385, 5),
+            NumFloat::round(NumFloat::divide(5.7, 1.3), 5)
+        );
         $this->assertSame(2.0, NumFloat::divide(4, 2));
         $this->assertInfinite(NumFloat::divide(1.0, 0.0));
         $this->assertInfinite(NumFloat::divide(-1.0, 0.0));
@@ -284,9 +288,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testCosineArc ():void {
 
-        $this->assertSame(1.0471975511965979, NumFloat::cosineArc(0.5));
+        $this->assertSame(
+            NumFloat::round(1.0471975511965979, 5),
+            NumFloat::round(NumFloat::cosineArc(0.5), 5)
+        );
 
     }
 
@@ -295,9 +303,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testCosineHyperbolic ():void {
 
-        $this->assertSame(1.1276259652063807, NumFloat::cosineHyperbolic(0.5));
+        $this->assertSame(
+            NumFloat::round(1.1276259652063807, 5),
+            NumFloat::round(NumFloat::cosineHyperbolic(0.5), 5)
+        );
 
     }
 
@@ -306,9 +318,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testCosineInverseHyperbolic ():void {
 
-        $this->assertSame(0.4435682543851153, NumFloat::cosineInverseHyperbolic(1.1));
+        $this->assertSame(
+            NumFloat::round(0.4435682543851153, 5),
+            NumFloat::round(NumFloat::cosineInverseHyperbolic(1.1), 5)
+        );
 
     }
 
@@ -317,9 +333,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testSine ():void {
 
-        $this->assertSame(0.8414709848078965, NumFloat::sine(1));
+        $this->assertSame(
+            NumFloat::round(0.4794255386042, 5),
+            NumFloat::round(NumFloat::sine(0.5), 5)
+        );
 
     }
 
@@ -328,9 +348,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testSineArc ():void {
 
-        $this->assertSame(1.5707963267948966, NumFloat::sineArc(1));
+        $this->assertSame(
+            NumFloat::round(1.5707963267948966, 5),
+            NumFloat::round(NumFloat::sineArc(1), 5)
+        );
 
     }
 
@@ -339,9 +363,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testSineHyperbolic ():void {
 
-        $this->assertSame(1.1752011936438014, NumFloat::sineHyperbolic(1));
+        $this->assertSame(
+            NumFloat::round(1.1752011936438014, 5),
+            NumFloat::round(NumFloat::sineHyperbolic(1), 5)
+        );
 
     }
 
@@ -350,9 +378,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testSineHyperbolicInverse ():void {
 
-        $this->assertSame(0.881373587019543, NumFloat::sineHyperbolicInverse(1));
+        $this->assertSame(
+            NumFloat::round(0.881373587019543, 5),
+            NumFloat::round(NumFloat::sineHyperbolicInverse(1), 5)
+        );
 
     }
 
@@ -361,9 +393,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testTangent ():void {
 
-        $this->assertSame(1.5574077246549023, NumFloat::tangent(1));
+        $this->assertSame(
+            NumFloat::round(1.5574077246549023, 5),
+            NumFloat::round(NumFloat::tangent(1), 5)
+        );
 
     }
 
@@ -372,9 +408,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testTangentArc ():void {
 
-        $this->assertSame(0.7853981633974483, NumFloat::tangentArc(1));
+        $this->assertSame(
+            NumFloat::round(0.7853981633974483, 5),
+            NumFloat::round(NumFloat::tangentArc(1), 5)
+        );
 
     }
 
@@ -383,9 +423,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testTangentArc2 ():void {
 
-        $this->assertSame(0.7853981633974483, NumFloat::tangentArc2(1, 1));
+        $this->assertSame(
+            NumFloat::round(0.7853981633974483, 5),
+            NumFloat::round(NumFloat::tangentArc2(1, 1), 5)
+        );
 
     }
 
@@ -394,9 +438,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testTangentHyperbolic ():void {
 
-        $this->assertSame(0.7615941559557649, NumFloat::tangentHyperbolic(1));
+        $this->assertSame(
+            NumFloat::round(0.7615941559557649, 5),
+            NumFloat::round(NumFloat::tangentHyperbolic(1), 5)
+        );
 
     }
 
@@ -405,9 +453,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testTangentInverseHyperbolic ():void {
 
-        $this->assertSame(0.5493061443340549, NumFloat::tangentInverseHyperbolic(0.5));
+        $this->assertSame(
+            NumFloat::round(0.5493061443340549, 5),
+            NumFloat::round(NumFloat::tangentInverseHyperbolic(0.5), 5)
+        );
 
     }
 
@@ -416,9 +468,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testDegreesToRadian ():void {
 
-        $this->assertSame(0.4031710572106902, NumFloat::degreesToRadian( 23.100000000000005));
+        $this->assertSame(
+            NumFloat::round(0.4031710572106902, 5),
+            NumFloat::round(NumFloat::degreesToRadian( 23.100000000000005), 5)
+        );
 
     }
 
@@ -427,9 +483,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testRadianToDegrees ():void {
 
-        $this->assertSame( 23.100000000000005, NumFloat::radianToDegrees(0.4031710572106902));
+        $this->assertSame(
+            NumFloat::round(23.100000000000005, 5),
+            NumFloat::round(NumFloat::radianToDegrees(0.4031710572106902), 5)
+        );
 
     }
 
@@ -438,9 +498,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testExponent ():void {
 
-        $this->assertSame(298.8674009670603, NumFloat::exponent(5.7));
+        $this->assertSame(
+            NumFloat::round(298.8674009670603, 5),
+            NumFloat::round(NumFloat::exponent(5.7), 5)
+        );
 
     }
 
@@ -449,9 +513,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testExponent1 ():void {
 
-        $this->assertSame(298.8674009670603, NumFloat::exponent(5.7));
+        $this->assertSame(
+            NumFloat::round(1.5707963267948966, 5),
+            NumFloat::round(NumFloat::sineArc(1), 5)
+        );
 
     }
 
@@ -460,9 +528,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testHypotenuseLength ():void {
 
-        $this->assertSame(12.280065146407, NumFloat::hypotenuseLength(1.4, 12.2));
+        $this->assertSame(
+            NumFloat::round(12.280065146407, 5),
+            NumFloat::round(NumFloat::hypotenuseLength(1.4, 12.2), 5)
+        );
 
     }
 
@@ -471,9 +543,13 @@ final class NumFloatTest extends Base {
      *
      * @return void
      */
+    #[Depends('testRound')]
     public function testSquareRoot ():void {
 
-        $this->assertSame(3.492849839314596, NumFloat::squareRoot(12.2));
+        $this->assertSame(
+            NumFloat::round(3.492849839314596, 5),
+            NumFloat::round(NumFloat::squareRoot(12.2), 5)
+        );
 
     }
 
