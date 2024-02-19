@@ -23,18 +23,13 @@ use function atan2;
 use function atanh;
 use function cos;
 use function cosh;
-use function deg2rad;
-use function exp;
 use function fdiv;
 use function fmod;
-use function hypot;
 use function is_finite;
 use function is_infinite;
 use function is_nan;
-use function rad2deg;
 use function sin;
 use function sinh;
-use function sqrt;
 use function tan;
 use function tanh;
 
@@ -389,116 +384,6 @@ final class NumFloat extends Num {
     public static function tangentInverseHyperbolic (float $number):float {
 
         return atanh($number);
-
-    }
-
-    /**
-     * ### Converts the number in degrees to the radian equivalent
-     * @since 1.0.0
-     *
-     * @param float $number <p>
-     * Angular value in degrees.
-     * </p>
-     *
-     * @return float Radian equivalent of number.
-     */
-    public static function degreesToRadian (float $number):float {
-
-        return deg2rad($number);
-
-    }
-
-    /**
-     * ### Converts the radian number to the equivalent number in degrees
-     * @since 1.0.0
-     *
-     * @param float $number <p>
-     * Radian value.
-     * </p>
-     *
-     * @return float Equivalent of number in degrees.
-     */
-    public static function radianToDegrees (float $number):float {
-
-        return rad2deg($number);
-
-    }
-
-    /**
-     * ### Calculates the exponent of e
-     * @since 1.0.0
-     *
-     * @param float $number <p>
-     * The argument to process.
-     * </p>
-     *
-     * @return float 'e' raised to the power of number.
-     *
-     * @note 'e' is the base of the natural system of logarithms, or approximately 2.718282.
-     */
-    public static function exponent (float $number):float {
-
-        return exp($number);
-
-    }
-
-    /**
-     * ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
-     *
-     * Method returns the equivalent to 'exp(num) - 1' computed in a way that is accurate even if the value of num is
-     * near zero, a case where 'exp (num) - 1' would be inaccurate due to subtraction of two numbers that are nearly
-     * equal.
-     * @since 1.0.0
-     *
-     * @param float $number <p>
-     * The argument to process.
-     * </p>
-     *
-     * @return float 'e' raised to the power of number.
-     *
-     * @note 'e' to the power of num minus one.
-     */
-    public static function exponent1 (float $number):float {
-
-        return expm1($number);
-
-    }
-
-    /**
-     * ### Calculate the length of the hypotenuse of a right-angle triangle
-     *
-     * Method returns the length of the hypotenuse of a right-angle triangle with sides of length x and y, or the
-     * distance of the point (x, y) from the origin. This is equivalent to sqrt($x*$x + $y*$y).
-     * @since 1.0.0
-     *
-     * @param float $x <p>
-     * Length of the first side.
-     * </p>
-     * @param float $y <p>
-     * Length of the second side.
-     * </p>
-     *
-     * @return float Calculated length of the hypotenuse.
-     */
-    public static function hypotenuseLength (float $x, float $y):float {
-
-        return hypot($x, $y);
-
-    }
-
-    /**
-     * ### Square root
-     * @since 1.0.0
-     *
-     * @param float $number  <p>
-     * The argument to process.
-     * </p>
-     *
-     * @return float The square root of num or the special value NAN for negative numbers.
-     */
-    public static function squareRoot (float $number):float {
-
-        return sqrt($number);
 
     }
 
