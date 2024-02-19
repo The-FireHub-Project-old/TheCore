@@ -102,6 +102,7 @@ final class StrEncode {
      * @phpstan-param non-empty-string $data
      *
      * @throws Error If we cannot uudecode $data.
+     * @error\exeption E_WARNING if $data is not a valid uuencoded string.
      *
      * @return string Decoded data as a string.
      *
