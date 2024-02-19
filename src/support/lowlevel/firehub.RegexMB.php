@@ -133,7 +133,6 @@ final class RegexMB {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding To get or set regex character encoding.
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if provider encoding is string.
      *
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
@@ -153,8 +152,7 @@ final class RegexMB {
         return match ($regex_encoding = mb_regex_encoding($encoding?->value)) {
             true => true,
             false => throw new Error('Failed to get regex encoding.'),
-            DataIs::string($regex_encoding) => Encoding::tryFrom($regex_encoding) // @phpstan-ignore-line PHPStan reports that mb_regex_encoding can only be bool
-                ?? throw new Error('Invalid regex encoding.')
+            default => Encoding::tryFrom($regex_encoding) ?? throw new Error('Invalid regex encoding.')
         };
 
     }
