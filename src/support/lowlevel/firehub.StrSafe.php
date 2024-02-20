@@ -410,7 +410,7 @@ abstract class StrSafe {
      */
     public static function compare (string $string_1, string $string_2):int {
 
-        return strcmp($string_1, $string_2);
+        return strcmp($string_1, $string_2) <=> 0;
 
     }
 

@@ -707,7 +707,7 @@ final class StrSB extends StrSafe {
 
         return $case_sensitive
             ? parent::compare($string_1, $string_2)
-            : strcasecmp($string_1, $string_2);
+            : strcasecmp($string_1, $string_2) <=> 0;
 
     }
 
@@ -767,7 +767,7 @@ final class StrSB extends StrSafe {
      */
     public static function compareFirstN (string $string_1, string $string_2, int $length):int|false {
 
-        return $length > 0 ? strncmp($string_1, $string_2, $length) : false;
+        return $length > 0 ? strncmp($string_1, $string_2, $length) <=> 0 : false;
 
     }
 
