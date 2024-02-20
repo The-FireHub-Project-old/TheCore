@@ -21,6 +21,9 @@
 ### Changed
 - Method setType on Data low-level proxy no longer supports converting array ti string ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [2002fab](https://github.com/The-FireHub-Project/Core/pull/7/commits/2002fab))
 
+### Fixed
+- Methods compare and compareFirstN in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [da4d1df](https://github.com/The-FireHub-Project/Core/pull/7/commits/da4d1df))
+
 ## [v0.1.5](https://github.com/The-FireHub-Project/Core/compare/v0.1.4...v0.1.5) - (2024-02-01)
 
 ### Added
