@@ -1,6 +1,9 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...develop-pre-alpha-m1)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...develop-pre-alpha-m1)
+
+
+## [v0.1.6](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...v0.1.5) - (2024-02-20)
 
 ### Added
 - Create Stringable contract ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [50ca73a](https://github.com/The-FireHub-Project/Core/pull/7/commits/50ca73a))
@@ -17,12 +20,10 @@
 - toTimestamp and formatInteger bugfix ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [dd82703](https://github.com/The-FireHub-Project/Core/pull/7/commits/dd82703))
 - Move some methods to Num from NumFloat low-level proxy class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [dd82703](https://github.com/The-FireHub-Project/Core/pull/7/commits/dd82703))
 - Refactor RegexMB::encoding method ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [b7cb32e](https://github.com/The-FireHub-Project/Core/pull/7/commits/b7cb32e))
+- Methods compare and compareFirstN in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [da4d1df](https://github.com/The-FireHub-Project/Core/pull/7/commits/da4d1df))
 
 ### Changed
 - Method setType on Data low-level proxy no longer supports converting array ti string ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [2002fab](https://github.com/The-FireHub-Project/Core/pull/7/commits/2002fab))
-
-### Fixed
-- Methods compare and compareFirstN in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [da4d1df](https://github.com/The-FireHub-Project/Core/pull/7/commits/da4d1df))
 
 ## [v0.1.5](https://github.com/The-FireHub-Project/Core/compare/v0.1.4...v0.1.5) - (2024-02-01)
 
