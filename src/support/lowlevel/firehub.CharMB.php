@@ -40,7 +40,7 @@ final class CharMB {
      * @param int $codepoint <p>
      * The codepoint value.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
@@ -66,7 +66,7 @@ final class CharMB {
      * @param string $character <p>
      * A character.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
