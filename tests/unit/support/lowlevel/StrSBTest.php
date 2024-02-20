@@ -818,7 +818,7 @@ final class StrSBTest extends Base {
      *
      * @return void
      */
-    public function testComparePartOffsetHighrtThenString ():void {
+    public function testComparePartOffsetHigherThenString ():void {
 
         $this->expectException(ValueError::class);
 
