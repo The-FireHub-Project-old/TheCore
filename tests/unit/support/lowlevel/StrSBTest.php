@@ -318,6 +318,8 @@ final class StrSBTest extends Base {
      */
     public function testCompare ():void {
 
+        var_dump(strcmp('a', 'z'));
+
         $this->assertSame(-1, StrSB::compare('a', 'z'));
         $this->assertSame(1, StrSB::compare('hello', 'Hello'));
         $this->assertSame(0, StrSB::compare('Hello', 'Hello'));
