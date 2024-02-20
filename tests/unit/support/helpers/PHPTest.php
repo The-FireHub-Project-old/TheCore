@@ -23,7 +23,7 @@ use function FireHub\Core\Support\Helpers\PHP\is64bit;
 use function FireHub\Core\Support\Helpers\PHP\is32bit;
 
 /**
- * ### Test class low-level proxy class
+ * ### Test PHP functions
  * @since 1.0.0
  */
 #[CoversFunction('\FireHub\Core\Support\Helpers\PHP\is64bit')]
