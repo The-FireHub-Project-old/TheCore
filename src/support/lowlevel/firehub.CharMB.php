@@ -50,8 +50,8 @@ final class CharMB {
      */
     public static function chr (int $codepoint, Encoding $encoding = null):string {
 
-        return mb_chr($codepoint, $encoding?->value)
-            ?: throw new Error('Codepoint could not be converted to character.');
+        return ($chr = mb_chr($codepoint, $encoding?->value)) !== false
+            ? $chr : throw new Error('Codepoint could not be converted to character');
 
     }
 
@@ -74,8 +74,8 @@ final class CharMB {
      */
     public static function ord (string $character, Encoding $encoding = null):int {
 
-        return mb_ord($character, $encoding?->value)
-            ?: throw new Error('Character could not be converted to codepoint');
+        return ($ord = mb_ord($character, $encoding?->value)) !== false
+            ? $ord : throw new Error('Character could not be converted to codepoint');
 
     }
 
