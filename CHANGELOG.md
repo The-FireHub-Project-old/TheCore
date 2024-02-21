@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...develop-pre-alpha-m1)
 
+### Changed
+- CharMB methods chr and ord have their descriptions changed ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [f3aca75](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3aca75))
+
+### Fixed
+- CharMB methods chr and ord returned Error if the result was 0 ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [d77d018](https://github.com/The-FireHub-Project/Core/pull/7/commits/d77d018))
 
 ## [v0.1.6](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...v0.1.5) - (2024-02-20)
 
