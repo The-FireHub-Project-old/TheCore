@@ -354,6 +354,7 @@ final class StrMB extends StrSafe {
      * @return true|\FireHub\Core\Support\Enums\String\Encoding If encoding is set, then returns true. In this case, the
      * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
      * encoding name is returned.
+     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true)
      */
     public static function encoding (Encoding $encoding = null):true|Encoding {
 
