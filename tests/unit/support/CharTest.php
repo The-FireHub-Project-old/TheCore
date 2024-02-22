@@ -23,7 +23,7 @@ use FireHub\Core\Support\Enums\String\Encoding;
 use Error;
 
 /**
- * ### Test path support class
+ * ### Test char high-level support class
  * @since 1.0.0
  */
 #[CoversClass(Char::class)]
