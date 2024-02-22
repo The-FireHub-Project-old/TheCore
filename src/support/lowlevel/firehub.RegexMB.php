@@ -144,6 +144,7 @@ final class RegexMB {
      *
      * @return true|Encoding If encoding is set, then returns true. In this case, the internal character encoding is
      * NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned.
+     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true)
      *
      * @SuppressWarnings(PHPMD)
      *

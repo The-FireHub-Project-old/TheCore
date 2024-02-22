@@ -59,7 +59,7 @@ final class StrMB extends StrSafe {
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To convert to lowercase.
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::TITLE To convert to title-case.
      *
-     * @param $string <p>
+     * @param string $string <p>
      * The string being converted.
      * </p>
      * @param \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding <p>
@@ -69,7 +69,8 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string Converted string.
+     * @return string <code>$string is non-empty-string ? non-empty-string : string</code> Converted string.
+     * @phpstan-return ($string is non-empty-string ? non-empty-string : string)
      */
     public static function convert (string $string, CaseFolding $caseFolding, Encoding $encoding = null):string {
 
