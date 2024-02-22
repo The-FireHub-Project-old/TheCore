@@ -54,6 +54,8 @@ final class RegexMB {
      * Case-sensitive match.
      * </p>
      *
+     * @error\exeption E_WARNING if an invalid POSIX bracket type.
+     *
      * @return bool True if string matches the regular expression pattern, false if not.
      */
     public static function match (string $pattern, string $string, bool $case_sensitive = true):bool {
