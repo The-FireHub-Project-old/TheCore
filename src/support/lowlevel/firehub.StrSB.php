@@ -744,7 +744,7 @@ final class StrSB extends StrSafe {
             $offset,
             $length,
             !$case_sensitive
-        );
+        ) <=> 0;
 
     }
 
