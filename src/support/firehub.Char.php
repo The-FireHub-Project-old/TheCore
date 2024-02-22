@@ -685,7 +685,7 @@ class Char implements Stringable {
      * ```php
      * use FireHub\Core\Support\Char;
      *
-     * echo Char::from(70);
+     * echo Char::from('F');
      *
      * // F
      * ```
