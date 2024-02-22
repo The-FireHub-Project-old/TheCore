@@ -31,7 +31,7 @@ use Error, ValueError;
  *
  * @api
  */
-class Char implements Stringable {
+final class Char implements Stringable {
 
     /**
      * ### Constructor
