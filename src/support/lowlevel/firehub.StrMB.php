@@ -96,8 +96,8 @@ final class StrMB extends StrSafe {
      * </p>
      * @param int $start <p>
      * If start is non-negative, the returned string will start at the start position in string, counting from zero.
-     * For instance, in the string 'abcdef', the character at position 0 is 'a',
-     * the character at position 2 is 'c', and so forth.
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.
      * If the start is negative, the returned string will start at the start character from the end of the string.
      * </p>
      * @param null|int $length [optional] <p>
