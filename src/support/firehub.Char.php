@@ -163,7 +163,7 @@ final class Char implements Characters {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\RegexMB::match() To perform a regular expression match.
+     * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
      *
      * @example
      * ```php
