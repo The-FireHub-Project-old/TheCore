@@ -15,7 +15,7 @@
 namespace FireHub\Core\Support\LowLevel;
 
 use FireHub\Core\Support\Enums\Side;
-use Error, ValueError;
+use Error, ValueError, Stringable;
 
 use const FireHub\Core\Support\Constants\Number\MAX;
 
@@ -144,13 +144,13 @@ abstract class StrSafe {
      * @since 1.0.0
      *
      * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * <code><![CDATA[ array<array-key, null|scalar|Stringable> ]]></code>
      * The array of strings to implode.
      * </p>
      * @param string $separator [optional] <p>
      * The boundary string.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
+     * @phpstan-param array<array-key, null|scalar|Stringable> $array
      *
      * @throws Error If array item could not be converted to string.
      *

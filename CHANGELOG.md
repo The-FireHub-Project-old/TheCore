@@ -2,11 +2,17 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...develop-pre-alpha-m1)
 
+### Added
+- Create Char high-level class and tests ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [543c366](https://github.com/The-FireHub-Project/Core/pull/7/commits/543c366))
+- Create contracts for high-level classes ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [2198382](https://github.com/The-FireHub-Project/Core/pull/7/commits/2198382))
+
 ### Changed
 - CharMB methods chr and ord have their descriptions changed ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [f3aca75](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3aca75))
+- Char high-level class is now final ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [c6ca87b](https://github.com/The-FireHub-Project/Core/pull/7/commits/c6ca87b))
 
 ### Fixed
 - CharMB methods chr and ord returned Error if the result was 0 ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [d77d018](https://github.com/The-FireHub-Project/Core/pull/7/commits/d77d018))
+- Method comparePart in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [3a12dbd](https://github.com/The-FireHub-Project/Core/pull/7/commits/3a12dbd))
 
 ## [v0.1.6](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...v0.1.5) - (2024-02-20)
 

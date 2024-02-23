@@ -20,7 +20,7 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use FireHub\Core\Support\Enums\Side;
 use PHPUnit\Framework\Attributes\CoversClass;
-use Error, ValueError;
+use Error, ValueError, Stringable;
 
 /**
  * ### Test single-byte string low-level proxy class
@@ -171,6 +171,16 @@ final class StrSBTest extends Base {
         $this->assertSame(
             'The lazy fox - over the fence',
             StrSB::implode(['The lazy fox ', ' over the fence'], '-')
+        );
+
+        $this->assertSame(
+            '1;;;2;3.12;x',
+            StrSB::implode(
+                [
+                    true, false, null, 2, 3.12,
+                    new class implements Stringable {public function __toString() : string{return 'x';}}
+                ],
+                ';')
         );
 
     }
