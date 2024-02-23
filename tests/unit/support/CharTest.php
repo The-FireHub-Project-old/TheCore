@@ -563,6 +563,7 @@ final class CharTest extends Base {
      *
      * @return void
      */
+    #[Depends('testString')]
     public function testPrint ():void {
 
         $this->assertSame($this->control->string(), $this->control->__toString());

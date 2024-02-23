@@ -14,7 +14,7 @@
 
 namespace FireHub\Core\Support;
 
-use FireHub\Core\Support\Contracts\Stringable;
+use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\LowLevel\ {
     CharMB, RegexMB, StrMB
 };
@@ -31,7 +31,7 @@ use Error, ValueError;
  *
  * @api
  */
-final class Char implements Stringable {
+final class Char implements Characters {
 
     /**
      * ### Constructor
@@ -159,7 +159,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is lowercase
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\RegexMB::match() To perform a regular expression match.
@@ -174,8 +175,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is lowercase, false otherwise.
      */
     public function isLower ():bool {
 
@@ -184,7 +183,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is uppercase
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -199,8 +199,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is uppercase, false otherwise.
      */
     public function isUpper ():bool {
 
@@ -209,7 +207,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is alphabetic
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -224,8 +223,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is alphabetic, false otherwise.
      */
     public function isAlphabetic ():bool {
 
@@ -234,7 +231,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is alphanumeric
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -249,8 +247,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is alphanumeric, false otherwise.
      */
     public function isAlphanumeric ():bool {
 
@@ -259,7 +255,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is whitespace
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -274,8 +271,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is whitespace, false otherwise.
      */
     public function isBlank ():bool {
 
@@ -284,7 +279,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is numeric
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -299,8 +295,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is numeric, false otherwise.
      */
     public function isNumeric ():bool {
 
@@ -309,7 +303,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is hexadecimal
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -324,8 +319,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is hexadecimal, false otherwise.
      */
     public function isHexadecimal ():bool {
 
@@ -334,7 +327,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is control code
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -349,8 +343,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is control code, false otherwise.
      */
     public function isControl ():bool {
 
@@ -359,7 +351,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is printable
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -382,8 +375,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is printable, false otherwise.
      */
     public function isPrintable ():bool {
 
@@ -392,7 +383,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is graphical
+     *
+     * @inheritDoc
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -415,8 +407,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is graphical, false otherwise.
      */
     public function isGraphical ():bool {
 
@@ -425,7 +415,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is punctuation
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::regexMatch() To perform a regular expression match.
@@ -440,8 +431,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is punctuation, false otherwise.
      */
     public function isPunctuation ():bool {
 
@@ -450,7 +439,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is a symbol
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Char::isAlphanumeric() To check if the character is alphanumeric.
@@ -467,8 +457,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if character is a symbol, false otherwise.
      */
     public function isSymbol ():bool {
 
@@ -477,7 +465,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Checks if character is ASCII
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::checkEncoding() To check if character is valid ASCII.
@@ -491,8 +480,6 @@ final class Char implements Stringable {
      *
      * // true
      * ```
-     *
-     * @return bool True if character is ASCII, false otherwise.
      */
     public function isASCII ():bool {
 
@@ -537,7 +524,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Make a character lowercase
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
@@ -551,8 +539,6 @@ final class Char implements Stringable {
      *
      * // f
      * ```
-     *
-     * @return $this This character.
      */
     public function toLower ():self {
 
@@ -567,7 +553,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Make a character uppercase
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
@@ -581,8 +568,6 @@ final class Char implements Stringable {
      *
      * // F
      * ```
-     *
-     * @return $this This character.
      */
     public function toUpper ():self {
 
@@ -597,7 +582,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Get character as raw string
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @example
@@ -608,9 +594,6 @@ final class Char implements Stringable {
      *
      * // F
      * ```
-     *
-     * @return string <code>non-empty-string</code> Character as string.
-     * @return non-empty-string
      */
     public function string ():string {
 
@@ -619,7 +602,8 @@ final class Char implements Stringable {
     }
 
     /**
-     * ### Get character as codepoint
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\CharMB::ord To get codepoint value from character.
@@ -636,8 +620,6 @@ final class Char implements Stringable {
      * ```
      *
      * @throws Error If character could not be converted to codepoint.
-     *
-     * @return int Character as codepoint.
      */
     public function codepoint ():int {
 
