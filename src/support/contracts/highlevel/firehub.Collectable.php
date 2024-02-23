@@ -14,12 +14,28 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
+use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
+
 /**
  * ### Collectable contract
  *
  * Efficient data structures, provided as an alternative to the array.
  * @since 1.0.0
+ *
+ * @template TKey
+ * @template TValue
+ *
+ * @extends \FireHub\Core\Support\Contracts\Iterator\IterablesAggregate<TKey, TValue>
  */
-interface Collectable {
+interface Collectable extends IterablesAggregate {
+
+    /**
+     * ### Get collection as an array
+     * @since 1.0.0
+     *
+     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Collection items as an array.
+     * @phpstan-return array<TKey, TValue>
+     */
+    public function all ():array;
 
 }
