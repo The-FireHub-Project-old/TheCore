@@ -842,6 +842,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
+<deflist>
+    <def title="This case is used by:">
+        <list><li><a href="Char.md#isascii()">\FireHub\Core\Support\Char::isASCII()</a>  - <format style="italic">As string encoding.</format></li><li><a href="Str.md#isascii()">\FireHub\Core\Support\Str::isASCII()</a>  - <format style="italic">As string encoding.</format></li></list>
+    </def>
+</deflist>
 ## case: EUC_JP {id="euc_jp"}
 
 <code-block lang="php">

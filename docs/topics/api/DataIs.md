@@ -55,6 +55,12 @@
 </deflist>
 
 
+### Used by
+<deflist>
+    <def title="This class is used by:">
+        <list><li><a href="Str.md#isempty()">\FireHub\Core\Support\Str::isEmpty()</a>  - <format style="italic">To check if a string is numeric.</format></li></list>
+    </def>
+</deflist>
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -709,7 +715,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To find whether the statistics key is string or not.</format></li><li><a href="RegexMB.md#encoding()">\FireHub\Core\Support\LowLevel\RegexMB::encoding()</a>  - <format style="italic">To check if provider encoding is string.</format></li></list>
+        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To find whether the statistics key is string or not.</format></li></list>
     </def>
 </deflist>
 <deflist>

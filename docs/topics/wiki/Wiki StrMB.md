@@ -58,7 +58,7 @@ _Class provides multibyte specific string functions that help you deal with mult
 <h2><a name="convert()"># method: convert</a></h2>
 
 ```php
-public static StrMB::convert( $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):string
+public static StrMB::convert(string $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):string
 ```
 
 
@@ -75,17 +75,17 @@ public static StrMB::convert( $string, \FireHub\Core\Support\Enums\String\CaseFo
 
 _Performs case folding on a string, converted in the way specified by $caseFolding._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L75)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L75)**</sub>
 #### Parameters
 
-*  **$string** - _The string being converted._
+* string **$string** - _The string being converted._
 * [\FireHub\Core\Support\Enums\String\CaseFolding](./Wiki-CaseFolding) **$caseFolding** - _The case folding type._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* string - _Converted string._
+* string - _<code>$string is non-empty-string ? non-empty-string : string</code> Converted string._
 <h2><a name="part()"># method: part</a></h2>
 
 ```php
@@ -107,14 +107,14 @@ public static StrMB::part(string $string, int $start, null|int $length = null, n
 _Performs a multibyte safe [[StrSB#part()]] operation based on the number of characters. Position is counted
 from the beginning of $string. First character's position is 0. Second character position is 1, and so on._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L113)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L113)**</sub>
 #### Parameters
 
 * string **$string** - _The string to extract the substring from._
 * int **$start** - _If start is non-negative, the returned string will start at the start position in string, counting from zero.
-For instance, in the string 'abcdef', the character at position 0 is 'a',
-the character at position 2 is 'c', and so forth.
+For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+and so forth.
 If the start is negative, the returned string will start at the start character from the end of the string._
 * null or int **$length** = null - _[optional] 
 Maximum number of characters to use from string.
@@ -144,8 +144,8 @@ public static StrMB::firstPart(string $find, string $string, bool $before_needle
 
 _Returns part of $string starting from and including the first occurrence of $find to the end of $string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L145)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L145)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -180,8 +180,8 @@ public static StrMB::lastPart(string $find, string $string, bool $before_needle 
 _This function returns the portion of $string which starts at the last occurrence of $find and goes until the
 end of $string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L180)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L180)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -218,8 +218,8 @@ variable character size as well as fixed-size encodings of 1,2 or 4 byte charact
 is specified, the string is broken down into chunks of the specified length in characters (not bytes). The
 $encoding parameter can be optionally specified, and it is good practice to do so._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L219)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L219)**</sub>
 #### Parameters
 
 * string **$string** - _The input string._
@@ -257,8 +257,8 @@ public static StrMB::partCount(string $string, string $search, null|\FireHub\Cor
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L246)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L246)**</sub>
 #### Parameters
 
 * string **$string** - _The string being checked._
@@ -288,8 +288,8 @@ public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L270)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L270)**</sub>
 #### Parameters
 
 * string **$string** - _The string being measured for length._
@@ -318,8 +318,8 @@ public static StrMB::firstPosition(string $search, string $string, bool $case_se
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L299)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L299)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L300)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L300)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._
@@ -353,8 +353,8 @@ public static StrMB::lastPosition(string $search, string $string, bool $case_sen
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L331)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L331)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L332)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L332)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._
@@ -388,8 +388,8 @@ public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L358)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L358)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L360)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L360)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _Encoding is the character encoding name used for the HTTP input character encoding conversion, HTTP output
@@ -424,8 +424,8 @@ public static StrMB::detectEncoding(string $string):null|\FireHub\Core\Support\E
 
 _Detects the most likely character encoding for string from an ordered list of candidates._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L382)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L382)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L384)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L384)**</sub>
 #### Parameters
 
 * string **$string** - _The string to detect encoding._
@@ -454,8 +454,8 @@ public static StrMB::convertEncoding(string $string, \FireHub\Core\Support\Enums
 _Converts string from $from, or the current internal encoding, to $to. If a string is an array, all its $string
 values will be converted recursively._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L417)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L417)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L419)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L419)**</sub>
 #### Parameters
 
 * string **$string** - _The string to be converted._
@@ -489,8 +489,8 @@ public static StrMB::checkEncoding(string $string, null|\FireHub\Core\Support\En
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L439)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L439)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L441)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L441)**</sub>
 #### Parameters
 
 * string **$string** - _The string to check encoding on._
@@ -644,7 +644,7 @@ _Join array elements with a $separator string._
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L160)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
+* array **$array** - _<code>array<array-key, null|scalar|Stringable></code>
 The array of strings to implode._
 * string **$separator** = '' - _[optional] 
 The boundary string._

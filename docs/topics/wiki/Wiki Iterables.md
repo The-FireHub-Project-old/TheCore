@@ -60,7 +60,7 @@ public static Iterables::count(array|\Countable $array, bool $multidimensional =
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L56)**</sub>
 #### Parameters
 
-* array or [\Countable](./Wiki-Countable) **$array** - _<code>array<array-key, mixed></code>
+* array or [\Countable](./Wiki-Countable) **$array** - _<code>array<array-key, mixed>|Countable</code>
 Array to count._
 * bool **$multidimensional** = false - _[optional] 
 Count multidimensional items._
@@ -167,7 +167,7 @@ advancing it._
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
+* by reference array **$array** - _<code>&array<TKey, TValue></code>
 The input array._
 #### Returns
 
@@ -203,7 +203,7 @@ That means it returns the next array value and advances the internal array point
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
+* by reference array **$array** - _<code>&array<TKey, TValue></code>
 The array being affected._
 #### Returns
 

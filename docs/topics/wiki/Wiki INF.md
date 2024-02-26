@@ -1,5 +1,5 @@
 ```php
-constant int FLOAT_DIG = \PHP_FLOAT_DIG
+constant float INF = \INF
 ```
 
 
@@ -12,14 +12,14 @@ constant int FLOAT_DIG = \PHP_FLOAT_DIG
 
 
 
-### ### Number of decimal digits that can be rounded into a float and back without precision loss
+### ### The infinite
 
 
 
 <sub>_This constant was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
-><sub>Fully Qualified Constant Name:  **\FireHub\Core\Support\Constants\Number\FLOAT_DIG**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L69)**</sub><br/>
+><sub>Fully Qualified Constant Name:  **\FireHub\Core\Support\Constants\Number\INF**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L109)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/constants/number.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/constants/number.php)**</sub>
 

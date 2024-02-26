@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Constant Name:">
         \FireHub\Core\Support\Constants\Number\FLOAT_MIN
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L87">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L89">
             View source code
         </a>
     </def>

@@ -1162,7 +1162,7 @@ _Join array elements with a $separator string._
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L160)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
+* array **$array** - _<code>array<array-key, null|scalar|Stringable></code>
 The array of strings to implode._
 * string **$separator** = '' - _[optional] 
 The boundary string._

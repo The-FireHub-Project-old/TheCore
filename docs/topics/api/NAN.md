@@ -1,7 +1,7 @@
-<title># FLOAT_EPSILON</title>
+<title># NAN</title>
 
 <code-block lang="php">
-<![CDATA[constant float FLOAT_EPSILON = \PHP_FLOAT_EPSILON]]>
+<![CDATA[constant float NAN = \NAN]]>
 </code-block>
 
 
@@ -16,7 +16,7 @@
 
 
 
-### ### Smallest representable positive number x, so that x + 1.0 != 1.0
+### ### Not A Number
 
 
 
@@ -27,9 +27,9 @@
 </deflist>
 
 <deflist><def title="Fully Qualified Constant Name:">
-        \FireHub\Core\Support\Constants\Number\FLOAT_EPSILON
+        \FireHub\Core\Support\Constants\Number\NAN
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L79">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L119">
             View source code
         </a>
     </def>

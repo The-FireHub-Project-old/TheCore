@@ -130,10 +130,10 @@ public static Iterator::apply(\Traversable $iterator, callable $callback, null|a
 
 * [\Traversable](./Wiki-Traversable) **$iterator** - _<code>Traversable<TKey, TValue></code>
 The iterator objects to iterate over._
-* callable **$callback** - _<code>callable (TValue $value, TKey $key):bool</code>
+* callable **$callback** - _<code>callable (TValue $value=):bool</code>
 The callback function to call on every element The function must return true to continue iterating over the
 iterator._
-* null or array **$arguments** = null - _<code>array<array-key, mixed></code>
+* null or array **$arguments** = null - _<code>array<TValue></code>
 An array of arguments; each element of args is passed to the callback as separate argument._
 #### Returns
 

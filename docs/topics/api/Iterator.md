@@ -221,11 +221,11 @@ The iterator being counted.
 <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
 The iterator objects to iterate over.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
-<code>callable (TValue $value, TKey $key):bool</code>
+<code>callable (TValue $value=):bool</code>
 The callback function to call on every element The function must return true to continue iterating over the
 iterator.
 </format></li><li>null or array <format style="bold">$arguments</format> = null - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+<code><![CDATA[ array<TValue> ]]></code>
 An array of arguments; each element of args is passed to the callback as separate argument.
 </format></li></list>
     </def>

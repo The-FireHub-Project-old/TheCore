@@ -92,7 +92,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to lowercase.</format></li></list>
+        <list><li><a href="Char.md#tolower()">\FireHub\Core\Support\Char::toLower()</a>  - <format style="italic">To lowercase string.</format></li><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to lowercase.</format></li></list>
     </def>
 </deflist>
 ## case: UPPER {id="upper"}
@@ -129,7 +129,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to uppercase.</format></li></list>
+        <list><li><a href="Char.md#toupper()">\FireHub\Core\Support\Char::toUpper()</a>  - <format style="italic">To uppercase string.</format></li><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to uppercase.</format></li></list>
     </def>
 </deflist>
 ## case: TITLE {id="title"}

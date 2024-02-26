@@ -1970,7 +1970,7 @@ The string to search in.
 <deflist>
     <def title="This method has parameters:">
         <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+<code><![CDATA[ array<array-key, null|scalar|Stringable> ]]></code>
 The array of strings to implode.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 The boundary string.

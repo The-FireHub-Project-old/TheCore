@@ -1,7 +1,7 @@
-<title># FLOAT_EPSILON</title>
+<title># PI</title>
 
 <code-block lang="php">
-<![CDATA[constant float FLOAT_EPSILON = \PHP_FLOAT_EPSILON]]>
+<![CDATA[constant float PI = \M_PI]]>
 </code-block>
 
 
@@ -16,7 +16,7 @@
 
 
 
-### ### Smallest representable positive number x, so that x + 1.0 != 1.0
+### ### Ratio of a circle's circumference to its diameter
 
 
 
@@ -27,19 +27,19 @@
 </deflist>
 
 <deflist><def title="Fully Qualified Constant Name:">
-        \FireHub\Core\Support\Constants\Number\FLOAT_EPSILON
+        \FireHub\Core\Support\Constants\Math\PI
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L79">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/math.php#L29">
             View source code
         </a>
     </def>
     <def title="Blame:">
-        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/constants/number.php">
+        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/constants/math.php">
             View blame
         </a>
     </def>
     <def title="History:">
-        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/constants/number.php">
+        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/constants/math.php">
             View history
         </a>
     </def></deflist>
