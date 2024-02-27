@@ -86,6 +86,7 @@ final class RegexMB {
      * and replace.
      *
      * @return string Replaced string.
+     *
      * @warning Never use the e modifier when working on untrusted input. No automatic escaping will happen (as known
      * from [[RegexSB#replace()]]). Not taking care of this will most likely create remote code execution
      * vulnerabilities in your application.
