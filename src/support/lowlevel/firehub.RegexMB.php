@@ -14,8 +14,8 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
-use Error;
 use FireHub\Core\Support\Enums\String\Encoding;
+use Error;
 
 use function mb_ereg;
 use function mb_ereg_replace;
