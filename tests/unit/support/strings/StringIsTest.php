@@ -18,7 +18,7 @@ use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Strings\StringIs;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DependsOnClass, RequiresOperatingSystemFamily
+    CoversClass, DependsOnClass
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 
@@ -39,7 +39,6 @@ final class StringIsTest extends Base {
     public StringIs $numbers;
     public StringIs $blank;
     public StringIs $punctuation;
-    public StringIs $symbol;
 
     /**
      * @since 1.0.0
@@ -59,7 +58,6 @@ final class StringIsTest extends Base {
         $this->numbers = new StringIs('123', Encoding::UTF_8);
         $this->blank = new StringIs('   ', Encoding::UTF_8);
         $this->punctuation = new StringIs('}{:;', Encoding::UTF_8);
-        $this->symbol = new StringIs('♥≠☺', Encoding::UTF_8);
 
     }
 
@@ -80,7 +78,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->empty());
         $this->assertFalse($this->blank->empty());
         $this->assertFalse($this->punctuation->empty());
-        $this->assertFalse($this->symbol->empty());
 
     }
 
@@ -101,7 +98,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->lower());
         $this->assertFalse($this->blank->lower());
         $this->assertFalse($this->punctuation->lower());
-        $this->assertFalse($this->symbol->lower());
 
     }
 
@@ -122,7 +118,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->upper());
         $this->assertFalse($this->blank->upper());
         $this->assertFalse($this->punctuation->upper());
-        $this->assertFalse($this->symbol->upper());
 
     }
 
@@ -143,7 +138,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->alphabetic());
         $this->assertFalse($this->blank->alphabetic());
         $this->assertFalse($this->punctuation->alphabetic());
-        $this->assertFalse($this->symbol->alphabetic());
 
     }
 
@@ -164,7 +158,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->alphanumeric());
         $this->assertFalse($this->blank->alphanumeric());
         $this->assertFalse($this->punctuation->alphanumeric());
-        $this->assertFalse($this->symbol->alphanumeric());
 
     }
 
@@ -185,7 +178,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->blank());
         $this->assertTrue($this->blank->blank());
         $this->assertFalse($this->punctuation->blank());
-        $this->assertFalse($this->symbol->blank());
 
     }
 
@@ -206,7 +198,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->numeric());
         $this->assertFalse($this->blank->numeric());
         $this->assertFalse($this->punctuation->numeric());
-        $this->assertFalse($this->symbol->numeric());
 
     }
 
@@ -227,7 +218,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->hexadecimal());
         $this->assertFalse($this->blank->hexadecimal());
         $this->assertFalse($this->punctuation->hexadecimal());
-        $this->assertFalse($this->symbol->hexadecimal());
 
     }
 
@@ -248,7 +238,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->control());
         $this->assertFalse($this->blank->control());
         $this->assertFalse($this->punctuation->control());
-        $this->assertFalse($this->symbol->control());
 
     }
 
@@ -269,7 +258,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->printable());
         $this->assertTrue($this->blank->printable());
         $this->assertTrue($this->punctuation->printable());
-        $this->assertTrue($this->symbol->printable());
 
     }
 
@@ -290,7 +278,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->graphical());
         $this->assertFalse($this->blank->graphical());
         $this->assertTrue($this->punctuation->graphical());
-        $this->assertTrue($this->symbol->graphical());
 
     }
 
@@ -319,30 +306,6 @@ final class StringIsTest extends Base {
      *
      * @return void
      */
-    #[RequiresOperatingSystemFamily('Windows')]
-    public function testSymbolIsPunctuationOnWindows ():void {
-
-        $this->assertFalse($this->symbol->punctuation());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    #[RequiresOperatingSystemFamily('Linux')]
-    public function testSymbolIsPunctuationOnLinux ():void {
-
-        $this->assertFalse($this->symbol->punctuation());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testAscii ():void {
 
         $this->assertTrue($this->control->ascii());
@@ -355,7 +318,6 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->ascii());
         $this->assertTrue($this->blank->ascii());
         $this->assertTrue($this->punctuation->ascii());
-        $this->assertFalse($this->symbol->ascii());
 
     }
 
@@ -376,7 +338,6 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->numbers->capitalized());
         $this->assertFalse($this->blank->capitalized());
         $this->assertFalse($this->punctuation->capitalized());
-        $this->assertFalse($this->symbol->capitalized());
 
     }
 

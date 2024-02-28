@@ -93,16 +93,16 @@ final class CharTest extends Base {
      */
     public function testIsLower ():void {
 
-        $this->assertFalse($this->control->isLower());
-        $this->assertFalse($this->punctuation->isLower());
-        $this->assertFalse($this->blank->isLower());
-        $this->assertFalse($this->latin_alphabet->isLower());
-        $this->assertFalse($this->ascii_digit->isLower());
-        $this->assertTrue($this->latin_extended->isLower());
-        $this->assertFalse($this->latin_historic->isLower());
-        $this->assertFalse($this->greek->isLower());
-        $this->assertFalse($this->cyrillic->isLower());
-        $this->assertFalse($this->arabic->isLower());
+        $this->assertFalse($this->control->is()->lower());
+        $this->assertFalse($this->punctuation->is()->lower());
+        $this->assertFalse($this->blank->is()->lower());
+        $this->assertFalse($this->latin_alphabet->is()->lower());
+        $this->assertFalse($this->ascii_digit->is()->lower());
+        $this->assertTrue($this->latin_extended->is()->lower());
+        $this->assertFalse($this->latin_historic->is()->lower());
+        $this->assertFalse($this->greek->is()->lower());
+        $this->assertFalse($this->cyrillic->is()->lower());
+        $this->assertFalse($this->arabic->is()->lower());
 
     }
 
@@ -113,16 +113,16 @@ final class CharTest extends Base {
      */
     public function testIsUpper ():void {
 
-        $this->assertFalse($this->control->isUpper());
-        $this->assertFalse($this->punctuation->isUpper());
-        $this->assertFalse($this->blank->isUpper());
-        $this->assertTrue($this->latin_alphabet->isUpper());
-        $this->assertFalse($this->ascii_digit->isUpper());
-        $this->assertFalse($this->latin_extended->isUpper());
-        $this->assertTrue($this->latin_historic->isUpper());
-        $this->assertTrue($this->greek->isUpper());
-        $this->assertTrue($this->cyrillic->isUpper());
-        $this->assertFalse($this->arabic->isUpper());
+        $this->assertFalse($this->control->is()->upper());
+        $this->assertFalse($this->punctuation->is()->upper());
+        $this->assertFalse($this->blank->is()->upper());
+        $this->assertTrue($this->latin_alphabet->is()->upper());
+        $this->assertFalse($this->ascii_digit->is()->upper());
+        $this->assertFalse($this->latin_extended->is()->upper());
+        $this->assertTrue($this->latin_historic->is()->upper());
+        $this->assertTrue($this->greek->is()->upper());
+        $this->assertTrue($this->cyrillic->is()->upper());
+        $this->assertFalse($this->arabic->is()->upper());
 
     }
 
@@ -133,16 +133,16 @@ final class CharTest extends Base {
      */
     public function testIsAlphabetic ():void {
 
-        $this->assertFalse($this->control->isAlphabetic());
-        $this->assertFalse($this->punctuation->isAlphabetic());
-        $this->assertFalse($this->blank->isAlphabetic());
-        $this->assertTrue($this->latin_alphabet->isAlphabetic());
-        $this->assertFalse($this->ascii_digit->isAlphabetic());
-        $this->assertTrue($this->latin_extended->isAlphabetic());
-        $this->assertTrue($this->latin_historic->isAlphabetic());
-        $this->assertTrue($this->greek->isAlphabetic());
-        $this->assertTrue($this->cyrillic->isAlphabetic());
-        $this->assertTrue($this->arabic->isAlphabetic());
+        $this->assertFalse($this->control->is()->alphabetic());
+        $this->assertFalse($this->punctuation->is()->alphabetic());
+        $this->assertFalse($this->blank->is()->alphabetic());
+        $this->assertTrue($this->latin_alphabet->is()->alphabetic());
+        $this->assertFalse($this->ascii_digit->is()->alphabetic());
+        $this->assertTrue($this->latin_extended->is()->alphabetic());
+        $this->assertTrue($this->latin_historic->is()->alphabetic());
+        $this->assertTrue($this->greek->is()->alphabetic());
+        $this->assertTrue($this->cyrillic->is()->alphabetic());
+        $this->assertTrue($this->arabic->is()->alphabetic());
 
     }
 
@@ -153,16 +153,16 @@ final class CharTest extends Base {
      */
     public function testIsAlphanumeric ():void {
 
-        $this->assertFalse($this->control->isAlphanumeric());
-        $this->assertFalse($this->punctuation->isAlphanumeric());
-        $this->assertFalse($this->blank->isAlphanumeric());
-        $this->assertTrue($this->latin_alphabet->isAlphanumeric());
-        $this->assertTrue($this->ascii_digit->isAlphanumeric());
-        $this->assertTrue($this->latin_extended->isAlphanumeric());
-        $this->assertTrue($this->latin_historic->isAlphanumeric());
-        $this->assertTrue($this->greek->isAlphanumeric());
-        $this->assertTrue($this->cyrillic->isAlphanumeric());
-        $this->assertTrue($this->arabic->isAlphanumeric());
+        $this->assertFalse($this->control->is()->alphanumeric());
+        $this->assertFalse($this->punctuation->is()->alphanumeric());
+        $this->assertFalse($this->blank->is()->alphanumeric());
+        $this->assertTrue($this->latin_alphabet->is()->alphanumeric());
+        $this->assertTrue($this->ascii_digit->is()->alphanumeric());
+        $this->assertTrue($this->latin_extended->is()->alphanumeric());
+        $this->assertTrue($this->latin_historic->is()->alphanumeric());
+        $this->assertTrue($this->greek->is()->alphanumeric());
+        $this->assertTrue($this->cyrillic->is()->alphanumeric());
+        $this->assertTrue($this->arabic->is()->alphanumeric());
 
     }
 
@@ -173,15 +173,15 @@ final class CharTest extends Base {
      */
     public function testIsBlank ():void {
 
-        $this->assertFalse($this->control->isBlank());
-        $this->assertTrue($this->blank->isBlank());
-        $this->assertFalse($this->latin_alphabet->isBlank());
-        $this->assertFalse($this->ascii_digit->isBlank());
-        $this->assertFalse($this->latin_extended->isBlank());
-        $this->assertFalse($this->latin_historic->isBlank());
-        $this->assertFalse($this->greek->isBlank());
-        $this->assertFalse($this->cyrillic->isBlank());
-        $this->assertFalse($this->arabic->isBlank());
+        $this->assertFalse($this->control->is()->blank());
+        $this->assertTrue($this->blank->is()->blank());
+        $this->assertFalse($this->latin_alphabet->is()->blank());
+        $this->assertFalse($this->ascii_digit->is()->blank());
+        $this->assertFalse($this->latin_extended->is()->blank());
+        $this->assertFalse($this->latin_historic->is()->blank());
+        $this->assertFalse($this->greek->is()->blank());
+        $this->assertFalse($this->cyrillic->is()->blank());
+        $this->assertFalse($this->arabic->is()->blank());
 
     }
 
@@ -192,16 +192,16 @@ final class CharTest extends Base {
      */
     public function testIsNumeric ():void {
 
-        $this->assertFalse($this->control->isNumeric());
-        $this->assertFalse($this->punctuation->isNumeric());
-        $this->assertFalse($this->blank->isNumeric());
-        $this->assertFalse($this->latin_alphabet->isNumeric());
-        $this->assertTrue($this->ascii_digit->isNumeric());
-        $this->assertFalse($this->latin_extended->isNumeric());
-        $this->assertFalse($this->latin_historic->isNumeric());
-        $this->assertFalse($this->greek->isNumeric());
-        $this->assertFalse($this->cyrillic->isNumeric());
-        $this->assertFalse($this->arabic->isNumeric());
+        $this->assertFalse($this->control->is()->numeric());
+        $this->assertFalse($this->punctuation->is()->numeric());
+        $this->assertFalse($this->blank->is()->numeric());
+        $this->assertFalse($this->latin_alphabet->is()->numeric());
+        $this->assertTrue($this->ascii_digit->is()->numeric());
+        $this->assertFalse($this->latin_extended->is()->numeric());
+        $this->assertFalse($this->latin_historic->is()->numeric());
+        $this->assertFalse($this->greek->is()->numeric());
+        $this->assertFalse($this->cyrillic->is()->numeric());
+        $this->assertFalse($this->arabic->is()->numeric());
 
     }
 
@@ -212,16 +212,16 @@ final class CharTest extends Base {
      */
     public function testIsHexadecimal ():void {
 
-        $this->assertFalse($this->control->isHexadecimal());
-        $this->assertFalse($this->punctuation->isHexadecimal());
-        $this->assertFalse($this->blank->isHexadecimal());
-        $this->assertTrue($this->latin_alphabet->isHexadecimal());
-        $this->assertTrue($this->ascii_digit->isHexadecimal());
-        $this->assertFalse($this->latin_extended->isHexadecimal());
-        $this->assertFalse($this->latin_historic->isHexadecimal());
-        $this->assertFalse($this->greek->isHexadecimal());
-        $this->assertFalse($this->cyrillic->isHexadecimal());
-        $this->assertFalse($this->arabic->isHexadecimal());
+        $this->assertFalse($this->control->is()->hexadecimal());
+        $this->assertFalse($this->punctuation->is()->hexadecimal());
+        $this->assertFalse($this->blank->is()->hexadecimal());
+        $this->assertTrue($this->latin_alphabet->is()->hexadecimal());
+        $this->assertTrue($this->ascii_digit->is()->hexadecimal());
+        $this->assertFalse($this->latin_extended->is()->hexadecimal());
+        $this->assertFalse($this->latin_historic->is()->hexadecimal());
+        $this->assertFalse($this->greek->is()->hexadecimal());
+        $this->assertFalse($this->cyrillic->is()->hexadecimal());
+        $this->assertFalse($this->arabic->is()->hexadecimal());
 
     }
 
@@ -232,16 +232,16 @@ final class CharTest extends Base {
      */
     public function testIsControl ():void {
 
-        $this->assertTrue($this->control->isControl());
-        $this->assertFalse($this->punctuation->isControl());
-        $this->assertFalse($this->blank->isControl());
-        $this->assertFalse($this->latin_alphabet->isControl());
-        $this->assertFalse($this->ascii_digit->isControl());
-        $this->assertFalse($this->latin_extended->isControl());
-        $this->assertFalse($this->latin_historic->isControl());
-        $this->assertFalse($this->greek->isControl());
-        $this->assertFalse($this->cyrillic->isControl());
-        $this->assertFalse($this->arabic->isControl());
+        $this->assertTrue($this->control->is()->control());
+        $this->assertFalse($this->punctuation->is()->control());
+        $this->assertFalse($this->blank->is()->control());
+        $this->assertFalse($this->latin_alphabet->is()->control());
+        $this->assertFalse($this->ascii_digit->is()->control());
+        $this->assertFalse($this->latin_extended->is()->control());
+        $this->assertFalse($this->latin_historic->is()->control());
+        $this->assertFalse($this->greek->is()->control());
+        $this->assertFalse($this->cyrillic->is()->control());
+        $this->assertFalse($this->arabic->is()->control());
 
     }
 
@@ -252,16 +252,16 @@ final class CharTest extends Base {
      */
     public function testIsPrintable ():void {
 
-        $this->assertFalse($this->control->isPrintable());
-        $this->assertTrue($this->punctuation->isPrintable());
-        $this->assertTrue($this->blank->isPrintable());
-        $this->assertTrue($this->latin_alphabet->isPrintable());
-        $this->assertTrue($this->ascii_digit->isPrintable());
-        $this->assertTrue($this->latin_extended->isPrintable());
-        $this->assertTrue($this->latin_historic->isPrintable());
-        $this->assertTrue($this->greek->isPrintable());
-        $this->assertTrue($this->cyrillic->isPrintable());
-        $this->assertTrue($this->arabic->isPrintable());
+        $this->assertFalse($this->control->is()->printable());
+        $this->assertTrue($this->punctuation->is()->printable());
+        $this->assertTrue($this->blank->is()->printable());
+        $this->assertTrue($this->latin_alphabet->is()->printable());
+        $this->assertTrue($this->ascii_digit->is()->printable());
+        $this->assertTrue($this->latin_extended->is()->printable());
+        $this->assertTrue($this->latin_historic->is()->printable());
+        $this->assertTrue($this->greek->is()->printable());
+        $this->assertTrue($this->cyrillic->is()->printable());
+        $this->assertTrue($this->arabic->is()->printable());
 
     }
 
@@ -272,16 +272,16 @@ final class CharTest extends Base {
      */
     public function testIsGraphical ():void {
 
-        $this->assertFalse($this->control->isGraphical());
-        $this->assertTrue($this->punctuation->isGraphical());
-        $this->assertFalse($this->blank->isGraphical());
-        $this->assertTrue($this->latin_alphabet->isGraphical());
-        $this->assertTrue($this->ascii_digit->isGraphical());
-        $this->assertTrue($this->latin_extended->isGraphical());
-        $this->assertTrue($this->latin_historic->isGraphical());
-        $this->assertTrue($this->greek->isGraphical());
-        $this->assertTrue($this->cyrillic->isGraphical());
-        $this->assertTrue($this->arabic->isGraphical());
+        $this->assertFalse($this->control->is()->graphical());
+        $this->assertTrue($this->punctuation->is()->graphical());
+        $this->assertFalse($this->blank->is()->graphical());
+        $this->assertTrue($this->latin_alphabet->is()->graphical());
+        $this->assertTrue($this->ascii_digit->is()->graphical());
+        $this->assertTrue($this->latin_extended->is()->graphical());
+        $this->assertTrue($this->latin_historic->is()->graphical());
+        $this->assertTrue($this->greek->is()->graphical());
+        $this->assertTrue($this->cyrillic->is()->graphical());
+        $this->assertTrue($this->arabic->is()->graphical());
 
     }
 
@@ -292,16 +292,16 @@ final class CharTest extends Base {
      */
     public function testIsPunctuation ():void {
 
-        $this->assertFalse($this->control->isPunctuation());
-        $this->assertTrue($this->punctuation->isPunctuation());
-        $this->assertFalse($this->blank->isPunctuation());
-        $this->assertFalse($this->latin_alphabet->isPunctuation());
-        $this->assertFalse($this->ascii_digit->isPunctuation());
-        $this->assertFalse($this->latin_extended->isPunctuation());
-        $this->assertFalse($this->latin_historic->isPunctuation());
-        $this->assertFalse($this->greek->isPunctuation());
-        $this->assertFalse($this->cyrillic->isPunctuation());
-        $this->assertFalse($this->arabic->isPunctuation());
+        $this->assertFalse($this->control->is()->punctuation());
+        $this->assertTrue($this->punctuation->is()->punctuation());
+        $this->assertFalse($this->blank->is()->punctuation());
+        $this->assertFalse($this->latin_alphabet->is()->punctuation());
+        $this->assertFalse($this->ascii_digit->is()->punctuation());
+        $this->assertFalse($this->latin_extended->is()->punctuation());
+        $this->assertFalse($this->latin_historic->is()->punctuation());
+        $this->assertFalse($this->greek->is()->punctuation());
+        $this->assertFalse($this->cyrillic->is()->punctuation());
+        $this->assertFalse($this->arabic->is()->punctuation());
 
     }
 
@@ -312,16 +312,16 @@ final class CharTest extends Base {
      */
     public function testIsASCII ():void {
 
-        $this->assertTrue($this->control->isASCII());
-        $this->assertTrue($this->punctuation->isASCII());
-        $this->assertTrue($this->blank->isASCII());
-        $this->assertTrue($this->latin_alphabet->isASCII());
-        $this->assertTrue($this->ascii_digit->isASCII());
-        $this->assertFalse($this->latin_extended->isASCII());
-        $this->assertFalse($this->latin_historic->isASCII());
-        $this->assertFalse($this->greek->isASCII());
-        $this->assertFalse($this->cyrillic->isASCII());
-        $this->assertFalse($this->arabic->isASCII());
+        $this->assertTrue($this->control->is()->ascii());
+        $this->assertTrue($this->punctuation->is()->ascii());
+        $this->assertTrue($this->blank->is()->ascii());
+        $this->assertTrue($this->latin_alphabet->is()->ascii());
+        $this->assertTrue($this->ascii_digit->is()->ascii());
+        $this->assertFalse($this->latin_extended->is()->ascii());
+        $this->assertFalse($this->latin_historic->is()->ascii());
+        $this->assertFalse($this->greek->is()->ascii());
+        $this->assertFalse($this->cyrillic->is()->ascii());
+        $this->assertFalse($this->arabic->is()->ascii());
 
     }
 

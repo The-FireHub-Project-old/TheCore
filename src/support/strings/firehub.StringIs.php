@@ -375,8 +375,8 @@ final class StringIs implements StringIsContract {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Strings\StringIs::empty() To check if the current string is empty.
+     * @uses \FireHub\Core\Support\Strings\StringIs::upper() To check if the current string is uppercase.
      * @uses \FireHub\Core\Support\Char::from() To create character from string.
-     * @uses \FireHub\Core\Support\Char::isUpper() To check if a first letter of the string is uppercased.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get the first character of the string.
      *
      * @example
@@ -395,7 +395,7 @@ final class StringIs implements StringIsContract {
             /** @phpstan-ignore-next-line Character is not empty at this point */
                 StrMB::part($this->string, 0, 1, $this->encoding),
                 $this->encoding
-            )->isUpper();
+            )->is()->upper();
 
     }
 

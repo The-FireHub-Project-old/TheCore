@@ -15,6 +15,7 @@
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
+use FireHub\Core\Support\Contracts\HighLevel\Strings\StringIs;
 
 /**
  * ### Characters contract
@@ -25,100 +26,12 @@ use FireHub\Core\Support\Contracts\Stringable;
 interface Characters extends Stringable {
 
     /**
-     * ### Checks if character is lowercase
+     * ### Check character
      * @since 1.0.0
      *
-     * @return bool True if character is lowercase, false otherwise.
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Strings\StringIs String checker.
      */
-    public function isLower ():bool;
-
-    /**
-     * ### Checks if character is uppercase
-     * @since 1.0.0
-     *
-     * @return bool True if character is uppercase, false otherwise.
-     */
-    public function isUpper ():bool;
-
-    /**
-     * ### Checks if character is alphabetic
-     * @since 1.0.0
-     *
-     * @return bool True if character is alphabetic, false otherwise.
-     */
-    public function isAlphabetic ():bool;
-
-    /**
-     * ### Checks if character is alphanumeric
-     * @since 1.0.0
-     *
-     * @return bool True if character is alphanumeric, false otherwise.
-     */
-    public function isAlphanumeric ():bool;
-
-    /**
-     * ### Checks if character is whitespace
-     * @since 1.0.0
-     *
-     * @return bool True if character is whitespace, false otherwise.
-     */
-    public function isBlank ():bool;
-
-    /**
-     * ### Checks if character is numeric
-     * @since 1.0.0
-     *
-     * @return bool True if character is numeric, false otherwise.
-     */
-    public function isNumeric ():bool;
-
-    /**
-     * ### Checks if character is hexadecimal
-     * @since 1.0.0
-     *
-     * @return bool True if character is hexadecimal, false otherwise.
-     */
-    public function isHexadecimal ():bool;
-
-    /**
-     * ### Checks if character is control code
-     * @since 1.0.0
-     *
-     * @return bool True if character is control code, false otherwise.
-     */
-    public function isControl ():bool;
-
-    /**
-     * ### Checks if character is printable
-     * @since 1.0.0
-     *
-     * @return bool True if character is printable, false otherwise.
-     */
-    public function isPrintable ():bool;
-
-    /**
-     * ### Checks if character is graphical
-     * @since 1.0.0
-     *
-     * @return bool True if character is graphical, false otherwise.
-     */
-    public function isGraphical ():bool;
-
-    /**
-     * ### Checks if character is punctuation
-     * @since 1.0.0
-     *
-     * @return bool True if character is punctuation, false otherwise.
-     */
-    public function isPunctuation ():bool;
-
-    /**
-     * ### Checks if character is ASCII
-     * @since 1.0.0
-     *
-     * @return bool True if character is ASCII, false otherwise.
-     */
-    public function isASCII ():bool;
+    public function is ():StringIs;
 
     /**
      * ### Make a character lowercase

@@ -25,6 +25,8 @@ use FireHub\Core\Support\Strings\Expression;
  *
  * A string is a stream of character.
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 interface Strings extends Stringable {
 
@@ -45,13 +47,117 @@ interface Strings extends Stringable {
     public function has ():StringHas;
 
     /**
+     * ### Checks if a string starts with a given value
+     *
+     * Performs a case-sensitive check indicating if $string begins with $value.
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string></code>
+     * The value to search for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Comparison is case-sensitive or not.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return bool True if string starts with value, false otherwise.
+     */
+    public function startsWith (string $value, bool $case_sensitive = true):bool;
+
+    /**
+     * ### Checks if a string ends with a given value
+     *
+     * Performs a case-sensitive check indicating if $string ends with $value.
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string></code>
+     * The value to search for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Comparison is case-sensitive or not.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return bool True if string ends with value, false otherwise.
+     */
+    public function endsWith (string $value, bool $case_sensitive = true):bool;
+
+    /**
+     * ### Checks if string contains value
+     *
+     * Performs a case-sensitive check indicating if $string is contained in $string.
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string</code>
+     * The value to search for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Comparison is case-sensitive or not.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return bool True if a string contains value, false otherwise.
+     */
+    public function contains (string $value, bool $case_sensitive = true):bool;
+
+    /**
+     * ### Checks if string contains all values
+     * @since 1.0.0
+     *
+     * @param array $values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to search for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Comparison is case-sensitive or not.
+     * </p>
+     * @phpstan-param non-empty-string[] $values
+     *
+     * @return bool True if a string contains all values, false otherwise.
+     */
+    public function containsAll (array $values, bool $case_sensitive = true):bool;
+
+    /**
+     * ### Checks if string contains any of the values
+     * @since 1.0.0
+     *
+     * @param array $values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to search for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Comparison is case-sensitive or not.
+     * </p>
+     * @phpstan-param non-empty-string[] $values
+     *
+     * @return bool True if a string contains any of the values, false otherwise.
+     */
+    public function containsAny (array $values, bool $case_sensitive = true):bool;
+
+    /**
+     * ### Checks if string is equal to any of the values
+     * @since 1.0.0
+     *
+     * @param array $values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to compare to.
+     * </p>
+     * @phpstan-param non-empty-string[] $values
+     *
+     * @return bool True if a string contains any of the values, false otherwise.
+     */
+    public function equalToAny (array $values):bool;
+
+    /**
      * ### Regular expression
      * @since 1.0.0
      *
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
     public function expression ():Expression;
-
 
     /**
      * ### Get string as raw string

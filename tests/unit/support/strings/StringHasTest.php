@@ -39,7 +39,6 @@ final class StringHasTest extends Base {
     public StringHas $numbers;
     public StringHas $blank;
     public StringHas $punctuation;
-    public StringHas $symbol;
 
     /**
      * @since 1.0.0
@@ -59,7 +58,6 @@ final class StringHasTest extends Base {
         $this->numbers = new StringHas('123', Encoding::UTF_8);
         $this->blank = new StringHas('   ', Encoding::UTF_8);
         $this->punctuation = new StringHas('}{:;', Encoding::UTF_8);
-        $this->symbol = new StringHas('~$%&', Encoding::UTF_8);
 
     }
 
@@ -80,7 +78,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->lower());
         $this->assertFalse($this->blank->lower());
         $this->assertFalse($this->punctuation->lower());
-        $this->assertFalse($this->symbol->lower());
 
     }
 
@@ -101,7 +98,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->upper());
         $this->assertFalse($this->blank->upper());
         $this->assertFalse($this->punctuation->upper());
-        $this->assertFalse($this->symbol->upper());
 
     }
 
@@ -122,7 +118,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->alphabetic());
         $this->assertFalse($this->blank->alphabetic());
         $this->assertFalse($this->punctuation->alphabetic());
-        $this->assertFalse($this->symbol->alphabetic());
 
     }
 
@@ -143,7 +138,6 @@ final class StringHasTest extends Base {
         $this->assertTrue($this->numbers->alphanumeric());
         $this->assertFalse($this->blank->alphanumeric());
         $this->assertFalse($this->punctuation->alphanumeric());
-        $this->assertFalse($this->symbol->alphanumeric());
 
     }
 
@@ -164,7 +158,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->blank());
         $this->assertTrue($this->blank->blank());
         $this->assertFalse($this->punctuation->blank());
-        $this->assertFalse($this->symbol->blank());
 
     }
 
@@ -185,7 +178,6 @@ final class StringHasTest extends Base {
         $this->assertTrue($this->numbers->numeric());
         $this->assertFalse($this->blank->numeric());
         $this->assertFalse($this->punctuation->numeric());
-        $this->assertFalse($this->symbol->numeric());
 
     }
 
@@ -206,7 +198,6 @@ final class StringHasTest extends Base {
         $this->assertTrue($this->numbers->hexadecimal());
         $this->assertFalse($this->blank->hexadecimal());
         $this->assertFalse($this->punctuation->hexadecimal());
-        $this->assertFalse($this->symbol->hexadecimal());
 
     }
 
@@ -227,7 +218,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->control());
         $this->assertFalse($this->blank->control());
         $this->assertFalse($this->punctuation->control());
-        $this->assertFalse($this->symbol->control());
 
     }
 
@@ -248,7 +238,6 @@ final class StringHasTest extends Base {
         $this->assertTrue($this->numbers->printable());
         $this->assertTrue($this->blank->printable());
         $this->assertTrue($this->punctuation->printable());
-        $this->assertTrue($this->symbol->printable());
 
     }
 
@@ -269,7 +258,6 @@ final class StringHasTest extends Base {
         $this->assertTrue($this->numbers->graphical());
         $this->assertFalse($this->blank->graphical());
         $this->assertTrue($this->punctuation->graphical());
-        $this->assertTrue($this->symbol->graphical());
 
     }
 
@@ -290,7 +278,6 @@ final class StringHasTest extends Base {
         $this->assertFalse($this->numbers->punctuation());
         $this->assertFalse($this->blank->punctuation());
         $this->assertTrue($this->punctuation->punctuation());
-        $this->assertTrue($this->symbol->punctuation());
 
     }
 

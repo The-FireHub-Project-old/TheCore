@@ -20,7 +20,9 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
 use FireHub\Core\Support\Strings\ {
     Expression, StringHas, StringIs
 };
-use FireHub\Core\Support\LowLevel\StrMB;
+use FireHub\Core\Support\LowLevel\ {
+    Arr, StrMB
+};
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding
 };
@@ -33,6 +35,8 @@ use Error, Stringable;
  * @since 1.0.0
  *
  * @api
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 final class Str implements Strings {
 
@@ -173,6 +177,169 @@ final class Str implements Strings {
     public function expression ():Expression {
 
         return new Expression($this->string, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::startsWith() To check if a string starts with a given value.
+     * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To make a string lowercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->startsWith('Fire');
+     *
+     * // true
+     * ```
+     */
+    public function startsWith (string $value, bool $case_sensitive = true):bool {
+
+        $string = $this->string;
+
+        return $case_sensitive
+            ? StrMB::startsWith($value, $string)
+            : StrMB::startsWith(
+                StrMB::convert($value, CaseFolding::LOWER, $this->encoding),
+                StrMB::convert($string, CaseFolding::LOWER, $this->encoding)
+            );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::endsWith() To check if a string ends with a given value.
+     * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To make a string lowercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->endsWith('Hub');
+     *
+     * // true
+     * ```
+     */
+    public function endsWith (string $value, bool $case_sensitive = true):bool {
+
+        $string = $this->string;
+
+        return $case_sensitive
+            ? StrMB::endsWith($value, $string)
+            : StrMB::endsWith(
+                StrMB::convert($value, CaseFolding::LOWER, $this->encoding),
+                StrMB::convert($string, CaseFolding::LOWER, $this->encoding)
+            );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains value.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert the string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->contains('ire');
+     *
+     * // true
+     * ```
+     */
+    public function contains (string $value, bool $case_sensitive = true):bool {
+
+        $string = $this->string;
+
+        return $case_sensitive
+            ? StrMB::contains($value, $string)
+            : StrMB::contains(
+                StrMB::convert($value, CaseFolding::LOWER, $this->encoding),
+                StrMB::convert($string, CaseFolding::LOWER, $this->encoding)
+            );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::contains() To check if a string contains any of the provided values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->containsAll('ire', 'Fi');
+     *
+     * // true
+     * ```
+     */
+    public function containsAll (array $values, bool $case_sensitive = true):bool {
+
+        foreach ($values as $value)
+            if (!$this->contains($value, $case_sensitive)) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::contains() To check if a string contains all the provided values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->containsAny('ire', 'Fi');
+     *
+     * // true
+     * ```
+     */
+    public function containsAny (array $values, bool $case_sensitive = true):bool {
+
+        foreach ($values as $value)
+            if ($this->contains($value, $case_sensitive)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if a value exists in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->equalToAny('FireHub', 'Web', 'App');
+     *
+     * // true
+     * ```
+     */
+    public function equalToAny (array $values):bool {
+
+        return Arr::inArray($this->string, $values);
 
     }
 
