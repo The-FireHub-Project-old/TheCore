@@ -443,32 +443,6 @@ final class Char implements Characters {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Char::isAlphanumeric() To check if the character is alphanumeric.
-     * @uses \FireHub\Core\Support\Char::isBlank() To check if the character is whitespace.
-     * @uses \FireHub\Core\Support\Char::isControl() To check if the character is control code.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Char;
-     *
-     * Char::from('F')->isSymbol();
-     *
-     * // false
-     * ```
-     *
-     * @throws Error If we could not get current regex encoding.
-     */
-    public function isSymbol ():bool {
-
-        return !$this->isAlphanumeric() && !$this->isBlank() && !$this->isControl();
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::checkEncoding() To check if character is valid ASCII.
      * @uses \FireHub\Core\Support\Enums\String\Encoding::ASCII As string encoding.
      *

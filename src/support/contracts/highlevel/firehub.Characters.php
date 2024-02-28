@@ -113,14 +113,6 @@ interface Characters extends Stringable {
     public function isPunctuation ():bool;
 
     /**
-     * ### Checks if character is a symbol
-     * @since 1.0.0
-     *
-     * @return bool True if character is a symbol, false otherwise.
-     */
-    public function isSymbol ():bool;
-
-    /**
      * ### Checks if character is ASCII
      * @since 1.0.0
      *

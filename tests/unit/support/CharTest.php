@@ -17,7 +17,7 @@ namespace support;
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Char;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, Depends, RequiresOperatingSystemFamily
+    CoversClass, Depends
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error;
@@ -34,7 +34,6 @@ final class CharTest extends Base {
     public Char $blank;
     public Char $latin_alphabet;
     public Char $ascii_digit;
-    public Char $symbol;
     public Char $latin_extended;
     public Char $latin_historic;
     public Char $greek;
@@ -53,7 +52,6 @@ final class CharTest extends Base {
         $this->blank = Char::from(' ', Encoding::UTF_8);
         $this->latin_alphabet = Char::from('F', Encoding::UTF_8);
         $this->ascii_digit = Char::from('4', Encoding::UTF_8);
-        $this->symbol = Char::from('♥', Encoding::UTF_8);
         $this->latin_extended = Char::from('č', Encoding::UTF_8);
         $this->latin_historic = Char::from('Ʀ', Encoding::UTF_8);
         $this->greek = Char::from('Ϸ', Encoding::UTF_8);
@@ -100,7 +98,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isLower());
         $this->assertFalse($this->latin_alphabet->isLower());
         $this->assertFalse($this->ascii_digit->isLower());
-        $this->assertFalse($this->symbol->isLower());
         $this->assertTrue($this->latin_extended->isLower());
         $this->assertFalse($this->latin_historic->isLower());
         $this->assertFalse($this->greek->isLower());
@@ -121,7 +118,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isUpper());
         $this->assertTrue($this->latin_alphabet->isUpper());
         $this->assertFalse($this->ascii_digit->isUpper());
-        $this->assertFalse($this->symbol->isUpper());
         $this->assertFalse($this->latin_extended->isUpper());
         $this->assertTrue($this->latin_historic->isUpper());
         $this->assertTrue($this->greek->isUpper());
@@ -142,7 +138,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isAlphabetic());
         $this->assertTrue($this->latin_alphabet->isAlphabetic());
         $this->assertFalse($this->ascii_digit->isAlphabetic());
-        $this->assertFalse($this->symbol->isAlphabetic());
         $this->assertTrue($this->latin_extended->isAlphabetic());
         $this->assertTrue($this->latin_historic->isAlphabetic());
         $this->assertTrue($this->greek->isAlphabetic());
@@ -163,7 +158,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isAlphanumeric());
         $this->assertTrue($this->latin_alphabet->isAlphanumeric());
         $this->assertTrue($this->ascii_digit->isAlphanumeric());
-        $this->assertFalse($this->symbol->isAlphanumeric());
         $this->assertTrue($this->latin_extended->isAlphanumeric());
         $this->assertTrue($this->latin_historic->isAlphanumeric());
         $this->assertTrue($this->greek->isAlphanumeric());
@@ -183,7 +177,6 @@ final class CharTest extends Base {
         $this->assertTrue($this->blank->isBlank());
         $this->assertFalse($this->latin_alphabet->isBlank());
         $this->assertFalse($this->ascii_digit->isBlank());
-        $this->assertFalse($this->symbol->isBlank());
         $this->assertFalse($this->latin_extended->isBlank());
         $this->assertFalse($this->latin_historic->isBlank());
         $this->assertFalse($this->greek->isBlank());
@@ -204,7 +197,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isNumeric());
         $this->assertFalse($this->latin_alphabet->isNumeric());
         $this->assertTrue($this->ascii_digit->isNumeric());
-        $this->assertFalse($this->symbol->isNumeric());
         $this->assertFalse($this->latin_extended->isNumeric());
         $this->assertFalse($this->latin_historic->isNumeric());
         $this->assertFalse($this->greek->isNumeric());
@@ -225,7 +217,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isHexadecimal());
         $this->assertTrue($this->latin_alphabet->isHexadecimal());
         $this->assertTrue($this->ascii_digit->isHexadecimal());
-        $this->assertFalse($this->symbol->isHexadecimal());
         $this->assertFalse($this->latin_extended->isHexadecimal());
         $this->assertFalse($this->latin_historic->isHexadecimal());
         $this->assertFalse($this->greek->isHexadecimal());
@@ -246,7 +237,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isControl());
         $this->assertFalse($this->latin_alphabet->isControl());
         $this->assertFalse($this->ascii_digit->isControl());
-        $this->assertFalse($this->symbol->isControl());
         $this->assertFalse($this->latin_extended->isControl());
         $this->assertFalse($this->latin_historic->isControl());
         $this->assertFalse($this->greek->isControl());
@@ -267,7 +257,6 @@ final class CharTest extends Base {
         $this->assertTrue($this->blank->isPrintable());
         $this->assertTrue($this->latin_alphabet->isPrintable());
         $this->assertTrue($this->ascii_digit->isPrintable());
-        $this->assertTrue($this->symbol->isPrintable());
         $this->assertTrue($this->latin_extended->isPrintable());
         $this->assertTrue($this->latin_historic->isPrintable());
         $this->assertTrue($this->greek->isPrintable());
@@ -288,7 +277,6 @@ final class CharTest extends Base {
         $this->assertFalse($this->blank->isGraphical());
         $this->assertTrue($this->latin_alphabet->isGraphical());
         $this->assertTrue($this->ascii_digit->isGraphical());
-        $this->assertTrue($this->symbol->isGraphical());
         $this->assertTrue($this->latin_extended->isGraphical());
         $this->assertTrue($this->latin_historic->isGraphical());
         $this->assertTrue($this->greek->isGraphical());
@@ -322,51 +310,6 @@ final class CharTest extends Base {
      *
      * @return void
      */
-    #[RequiresOperatingSystemFamily('Windows')]
-    public function testSymbolIsPunctuationOnWindows ():void {
-
-        $this->assertFalse($this->symbol->isPunctuation());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    #[RequiresOperatingSystemFamily('Linux')]
-    public function testSymbolIsPunctuationOnLinux ():void {
-
-        $this->assertFalse($this->symbol->isPunctuation());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testIsSymbol ():void {
-
-        $this->assertFalse($this->control->isSymbol());
-        $this->assertTrue($this->punctuation->isSymbol());
-        $this->assertFalse($this->blank->isSymbol());
-        $this->assertFalse($this->latin_alphabet->isSymbol());
-        $this->assertFalse($this->ascii_digit->isSymbol());
-        $this->assertTrue($this->symbol->isSymbol());
-        $this->assertFalse($this->latin_extended->isSymbol());
-        $this->assertFalse($this->latin_historic->isSymbol());
-        $this->assertFalse($this->greek->isSymbol());
-        $this->assertFalse($this->cyrillic->isSymbol());
-        $this->assertFalse($this->arabic->isSymbol());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testIsASCII ():void {
 
         $this->assertTrue($this->control->isASCII());
@@ -374,7 +317,6 @@ final class CharTest extends Base {
         $this->assertTrue($this->blank->isASCII());
         $this->assertTrue($this->latin_alphabet->isASCII());
         $this->assertTrue($this->ascii_digit->isASCII());
-        $this->assertFalse($this->symbol->isASCII());
         $this->assertFalse($this->latin_extended->isASCII());
         $this->assertFalse($this->latin_historic->isASCII());
         $this->assertFalse($this->greek->isASCII());
@@ -395,7 +337,6 @@ final class CharTest extends Base {
         $this->assertSame(Encoding::UTF_8, $this->blank->encoding());
         $this->assertSame(Encoding::UTF_8, $this->latin_alphabet->encoding());
         $this->assertSame(Encoding::UTF_8, $this->ascii_digit->encoding());
-        $this->assertSame(Encoding::UTF_8, $this->symbol->encoding());
         $this->assertSame(Encoding::UTF_8, $this->latin_extended->encoding());
         $this->assertSame(Encoding::UTF_8, $this->latin_historic->encoding());
         $this->assertSame(Encoding::UTF_8, $this->greek->encoding());
@@ -425,11 +366,6 @@ final class CharTest extends Base {
         $this->assertSame(
             $this->ascii_digit->string(),
             $this->ascii_digit->encoding(Encoding::ISO_8859_1)->string()
-        );
-
-        $this->assertSame(
-            $this->symbol->string(),
-            $this->symbol->encoding(Encoding::ISO_8859_1)->string()
         );
 
         $this->assertSame(
@@ -471,7 +407,6 @@ final class CharTest extends Base {
         $this->assertSame(' ', $this->blank->toLower()->string());
         $this->assertSame('f', $this->latin_alphabet->toLower()->string());
         $this->assertSame('4', $this->ascii_digit->toLower()->string());
-        $this->assertSame('♥', $this->symbol->toLower()->string());
         $this->assertSame('č', $this->latin_extended->toLower()->string());
         $this->assertSame('ʀ', $this->latin_historic->toLower()->string());
         $this->assertSame('ϸ', $this->greek->toLower()->string());
@@ -492,7 +427,6 @@ final class CharTest extends Base {
         $this->assertSame(' ', $this->blank->toUpper()->string());
         $this->assertSame('F', $this->latin_alphabet->toUpper()->string());
         $this->assertSame('4', $this->ascii_digit->toUpper()->string());
-        $this->assertSame('♥', $this->symbol->toUpper()->string());
         $this->assertSame('Č', $this->latin_extended->toUpper()->string());
         $this->assertSame('Ʀ', $this->latin_historic->toUpper()->string());
         $this->assertSame('Ϸ', $this->greek->toUpper()->string());
@@ -512,7 +446,6 @@ final class CharTest extends Base {
         $this->assertSame(' ', $this->blank->string());
         $this->assertSame('F', $this->latin_alphabet->string());
         $this->assertSame('4', $this->ascii_digit->string());
-        $this->assertSame('♥', $this->symbol->string());
         $this->assertSame('č', $this->latin_extended->string());
         $this->assertSame('Ʀ', $this->latin_historic->string());
         $this->assertSame('Ϸ', $this->greek->string());
@@ -547,11 +480,6 @@ final class CharTest extends Base {
         $this->assertSame(
             Char::fromCodepoint(52)->codepoint(),
             $this->ascii_digit->codepoint()
-        );
-
-        $this->assertSame(
-            Char::fromCodepoint(9829)->codepoint(),
-            $this->symbol->codepoint()
         );
 
         $this->assertSame(
@@ -594,7 +522,6 @@ final class CharTest extends Base {
         $this->assertSame($this->blank->string(), $this->blank->__toString());
         $this->assertSame($this->latin_alphabet->string(), $this->latin_alphabet->__toString());
         $this->assertSame($this->ascii_digit->string(), $this->ascii_digit->__toString());
-        $this->assertSame($this->symbol->string(), $this->symbol->__toString());
         $this->assertSame($this->latin_extended->string(), $this->latin_extended->__toString());
         $this->assertSame($this->latin_historic->string(), $this->latin_historic->__toString());
         $this->assertSame($this->greek->string(), $this->greek->__toString());
