@@ -17,7 +17,7 @@ namespace support;
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Char;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, Depends
+    CoversClass, Depends, RequiresOperatingSystemFamily
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error;
@@ -304,19 +304,40 @@ final class CharTest extends Base {
      */
     public function testIsPunctuation ():void {
 
-        var_dump(PHP_OS_FAMILY);
-
         $this->assertFalse($this->control->isPunctuation());
         $this->assertTrue($this->punctuation->isPunctuation());
         $this->assertFalse($this->blank->isPunctuation());
         $this->assertFalse($this->latin_alphabet->isPunctuation());
         $this->assertFalse($this->ascii_digit->isPunctuation());
-        $this->assertFalse($this->symbol->isPunctuation());
         $this->assertFalse($this->latin_extended->isPunctuation());
         $this->assertFalse($this->latin_historic->isPunctuation());
         $this->assertFalse($this->greek->isPunctuation());
         $this->assertFalse($this->cyrillic->isPunctuation());
         $this->assertFalse($this->arabic->isPunctuation());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Windows')]
+    public function testSymbolIsPunctuationOnWindows ():void {
+
+        $this->assertFalse($this->symbol->isPunctuation());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    public function testSymbolIsPunctuationOnLinux ():void {
+
+        $this->assertFalse($this->symbol->isPunctuation());
 
     }
 

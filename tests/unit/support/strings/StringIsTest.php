@@ -18,7 +18,7 @@ use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Strings\StringIs;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DependsOnClass
+    CoversClass, DependsOnClass, RequiresOperatingSystemFamily
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 
@@ -310,7 +310,30 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->with_numbers->punctuation());
         $this->assertFalse($this->numbers->punctuation());
         $this->assertFalse($this->blank->punctuation());
-        $this->assertTrue($this->punctuation->punctuation());
+        $this->assertFalse($this->symbol->punctuation());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Windows')]
+    public function testSymbolIsPunctuationOnWindows ():void {
+
+        $this->assertFalse($this->symbol->punctuation());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    public function testSymbolIsPunctuationOnLinux ():void {
+
         $this->assertFalse($this->symbol->punctuation());
 
     }
