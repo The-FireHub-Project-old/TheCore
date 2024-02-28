@@ -17,7 +17,7 @@ namespace FireHub\Core\Support;
 use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\Strings\StringIs;
 use FireHub\Core\Support\LowLevel\ {
-    CharMB, RegexMB, StrMB
+    CharMB, StrMB
 };
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding
@@ -309,37 +309,6 @@ final class Char implements Characters {
     public function codepoint ():int {
 
         return CharMB::ord($this->character, $this->encoding);
-
-    }
-
-    /**
-     * ### Perform a regular expression match
-     *
-     * Searches subject for a match to the regular expression given in a pattern.
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\RegexMB::encoding() To set character encoding for multibyte regex.
-     * @uses \FireHub\Core\Support\LowLevel\RegexMB::match() To perform a regular expression match.
-     *
-     * @param string $pattern <p>
-     * The regular expression pattern.
-     * </p>
-     *
-     * @throws Error If we could not get current regex encoding.
-     *
-     * @return bool True if string matches the regular expression pattern, false if not.
-     */
-    private function regexMatch (string $pattern):bool {
-
-        $regex_encoding = RegexMB::encoding();
-
-        RegexMB::encoding($this->encoding);
-
-        $match = RegexMB::match($pattern, $this->character);
-
-        RegexMB::encoding($regex_encoding);
-
-        return $match;
 
     }
 
