@@ -10,6 +10,7 @@
 
 [![PHPMD](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPMD.yml)
 [![PHPStan](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPStan.yml)
+[![PHPUnit](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPUnit.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/PHPUnit.yml)
 [![Qodana](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml/badge.svg?branch=develop-pre-alpha-m1)](https://github.com/The-FireHub-Project/Core/actions/workflows/Qodana.yml)
 [![codecov](https://codecov.io/gh/The-FireHub-Project/Core/branch/develop-pre-alpha-m1/graph/badge.svg?token=38D32MP5TL)](https://app.codecov.io/gh/The-FireHub-Project/Core/tree/develop-pre-alpha-m1)
 [![GitHub Discussions](https://img.shields.io/github/discussions/The-FireHub-Project/Core?style=flat&labelColor=30363d)](https://github.com/orgs/The-FireHub-Project/discussions)
