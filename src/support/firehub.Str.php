@@ -26,7 +26,7 @@ use FireHub\Core\Support\LowLevel\ {
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding
 };
-use Error, Stringable;
+use Error, Stringable, ValueError;
 
 /**
  * ### String high-level class
@@ -340,6 +340,177 @@ final class Str implements Strings {
     public function equalToAny (array $values):bool {
 
         return Arr::inArray($this->string, $values);
+
+    }
+
+    /**
+     * ### Change character encoding
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\String\Encoding;
+     *
+     * Str::from('FireHub')->encoding(Encoding::UTF_8);
+     * ```
+     *
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding <p>
+     * Character encoding.
+     * </p>
+     *
+     * @throws Error If we could not get current encoding.
+     * @throws ValueError If the value of encoding is an invalid encoding.
+     *
+     * @return $this|\FireHub\Core\Support\Enums\String\Encoding This character or current encoding.
+     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : $this)
+     */
+    public function encoding (?Encoding $encoding = null):self|Encoding {
+
+        if ($encoding) {
+
+            $this->encoding = $encoding;
+
+            return $this;
+
+        }
+
+        return $this->encoding ?? StrMB::encoding();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To convert string to lowercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->toLower();
+     *
+     * // firehub
+     * ```
+     */
+    public function toLower ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::LOWER, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::UPPER To convert string to uppercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->toUpper();
+     *
+     * // FIREHUB
+     * ```
+     */
+    public function toUpper ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::UPPER, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::TITLE To convert string to title-case.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub web app')->toTitle();
+     *
+     * // Firehub Web App
+     * ```
+     */
+    public function toTitle ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::TITLE, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To perform case folding on a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get the first character of a string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::UPPER To uppercase the first character of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('firehub')->capitalize();
+     *
+     * // Firehub
+     * ```
+     */
+    public function capitalize ():self {
+
+        $this->string = StrMB::convert(
+                StrMB::part($this->string, 0, 1, $this->encoding),
+                CaseFolding::UPPER,
+                $this->encoding
+            ).StrMB::part($this->string, 1, encoding: $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To perform case folding on a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get the first character of a string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase the first character of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->deCapitalize();
+     *
+     * // fireHub
+     * ```
+     */
+    public function deCapitalize ():self {
+
+        $this->string = StrMB::convert(
+                StrMB::part($this->string, 0, 1, $this->encoding),
+                CaseFolding::LOWER,
+                $this->encoding
+            ).StrMB::part($this->string, 1, encoding: $this->encoding);
+
+        return $this;
 
     }
 

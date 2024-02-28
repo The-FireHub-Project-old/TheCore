@@ -104,6 +104,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testExpression ():void {
+
+        $this->assertInstanceOf(Expression::class, $this->string->expression());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('đščćž'));
@@ -244,9 +255,216 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testExpression ():void {
+    public function testEncoding ():void {
 
-        $this->assertInstanceOf(Expression::class, $this->string->expression());
+        $this->assertSame(Encoding::UTF_8, $this->control->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->empty->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->with_glue->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->lowercased->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->uppercased->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->mb->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->with_numbers->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->numbers->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->blank->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->punctuation->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->mixed->encoding());
+
+        $this->assertSame(
+            $this->control->string(),
+            $this->control->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->empty->string(),
+            $this->empty->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string->string(),
+            $this->string->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->with_glue->string(),
+            $this->with_glue->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->lowercased->string(),
+            $this->lowercased->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->uppercased->string(),
+            $this->uppercased->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->mb->string(),
+            $this->mb->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->with_numbers->string(),
+            $this->with_numbers->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->numbers->string(),
+            $this->numbers->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->blank->string(),
+            $this->blank->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->punctuation->string(),
+            $this->punctuation->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->mixed->string(),
+            $this->mixed->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testToLower ():void {
+
+        $this->assertSame(Char::fromCodepoint(0, Encoding::UTF_8)->string(), $this->control->toLower()->string());
+        $this->assertSame('', $this->empty->toLower()->string());
+        $this->assertSame('firehub', $this->string->toLower()->string());
+        $this->assertSame('f-i-r-e-h-u-b', $this->with_glue->toLower()->string());
+        $this->assertSame('firehub', $this->lowercased->toLower()->string());
+        $this->assertSame('firehub', $this->uppercased->toLower()->string());
+        $this->assertSame('đščćž 诶杰艾玛 лй èßá カタカナ', $this->mb->toLower()->string());
+        $this->assertSame('firehub123', $this->with_numbers->toLower()->string());
+        $this->assertSame('123', $this->numbers->toLower()->string());
+        $this->assertSame('   ', $this->blank->toLower()->string());
+        $this->assertSame('}{:;', $this->punctuation->toLower()->string());
+        $this->assertSame(
+            '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
+            $this->mixed->toLower()->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testToUpper ():void {
+
+        $this->assertSame(Char::fromCodepoint(0, Encoding::UTF_8)->string(), $this->control->toUpper()->string());
+        $this->assertSame('', $this->empty->toUpper()->string());
+        $this->assertSame('FIREHUB', $this->string->toUpper()->string());
+        $this->assertSame('F-I-R-E-H-U-B', $this->with_glue->toUpper()->string());
+        $this->assertSame('FIREHUB', $this->lowercased->toUpper()->string());
+        $this->assertSame('FIREHUB', $this->uppercased->toUpper()->string());
+        $this->assertSame('ĐŠČĆŽ 诶杰艾玛 ЛЙ ÈSSÁ カタカナ', $this->mb->toUpper()->string());
+        $this->assertSame('FIREHUB123', $this->with_numbers->toUpper()->string());
+        $this->assertSame('123', $this->numbers->toUpper()->string());
+        $this->assertSame('   ', $this->blank->toUpper()->string());
+        $this->assertSame('}{:;', $this->punctuation->toUpper()->string());
+        $this->assertSame(
+            '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
+            $this->mixed->toUpper()->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testToTitle ():void {
+
+        $this->assertSame(Char::fromCodepoint(0, Encoding::UTF_8)->string(), $this->control->toTitle()->string());
+        $this->assertSame('', $this->empty->toTitle()->string());
+        $this->assertSame('Firehub', $this->string->toTitle()->string());
+        $this->assertSame('F-I-R-E-H-U-B', $this->with_glue->toTitle()->string());
+        $this->assertSame('Firehub', $this->lowercased->toTitle()->string());
+        $this->assertSame('Firehub', $this->uppercased->toTitle()->string());
+        $this->assertSame('Đščćž 诶杰艾玛 Лй Èßá カタカナ', $this->mb->toTitle()->string());
+        $this->assertSame('Firehub123', $this->with_numbers->toTitle()->string());
+        $this->assertSame('123', $this->numbers->toTitle()->string());
+        $this->assertSame('   ', $this->blank->toTitle()->string());
+        $this->assertSame('}{:;', $this->punctuation->toTitle()->string());
+        $this->assertSame(
+            '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
+            $this->mixed->toTitle()->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCapitalize ():void {
+
+        $this->assertSame(
+            Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8)->string(),
+            $this->control->capitalize()->string()
+        );
+        $this->assertSame('', $this->empty->capitalize()->string());
+        $this->assertSame('FireHub', $this->string->capitalize()->string());
+        $this->assertSame('F-i-r-e-H-u-b', $this->with_glue->capitalize()->string());
+        $this->assertSame('Firehub', $this->lowercased->capitalize()->string());
+        $this->assertSame('FIREHUB', $this->uppercased->capitalize()->string());
+        $this->assertSame('Đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ', $this->mb->capitalize()->string());
+        $this->assertSame('FireHub123', $this->with_numbers->capitalize()->string());
+        $this->assertSame('123', $this->numbers->capitalize()->string());
+        $this->assertSame('   ', $this->blank->capitalize()->string());
+        $this->assertSame('}{:;', $this->punctuation->capitalize()->string());
+        $this->assertSame(
+            '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
+            $this->mixed->capitalize()->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testDeCapitalize ():void {
+
+        $this->assertSame(
+            Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8)->string(),
+            $this->control->deCapitalize()->string()
+        );
+        $this->assertSame('', $this->empty->deCapitalize()->string());
+        $this->assertSame('fireHub', $this->string->deCapitalize()->string());
+        $this->assertSame('f-i-r-e-H-u-b', $this->with_glue->deCapitalize()->string());
+        $this->assertSame('firehub', $this->lowercased->deCapitalize()->string());
+        $this->assertSame('fIREHUB', $this->uppercased->deCapitalize()->string());
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ', $this->mb->deCapitalize()->string());
+        $this->assertSame('fireHub123', $this->with_numbers->deCapitalize()->string());
+        $this->assertSame('123', $this->numbers->deCapitalize()->string());
+        $this->assertSame('   ', $this->blank->deCapitalize()->string());
+        $this->assertSame('}{:;', $this->punctuation->deCapitalize()->string());
+        $this->assertSame(
+            '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
+            $this->mixed->deCapitalize()->string()
+        );
 
     }
 

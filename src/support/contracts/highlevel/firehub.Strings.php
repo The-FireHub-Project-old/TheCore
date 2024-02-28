@@ -47,6 +47,14 @@ interface Strings extends Stringable {
     public function has ():StringHas;
 
     /**
+     * ### Regular expression
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Strings\Expression Regular expression.
+     */
+    public function expression ():Expression;
+
+    /**
      * ### Checks if a string starts with a given value
      *
      * Performs a case-sensitive check indicating if $string begins with $value.
@@ -152,12 +160,44 @@ interface Strings extends Stringable {
     public function equalToAny (array $values):bool;
 
     /**
-     * ### Regular expression
+     * ### Make a string lowercase
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Support\Strings\Expression Regular expression.
+     * @return $this This string.
      */
-    public function expression ():Expression;
+    public function toLower ():self;
+
+    /**
+     * ### Make a string uppercase
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function toUpper ():self;
+
+    /**
+     * ### Make a string title-case
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function toTitle ():self;
+
+    /**
+     * ### Make a first character of string uppercased
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function capitalize ():self;
+
+    /**
+     * ### Make a first character of string uppercased
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function deCapitalize ():self;
 
     /**
      * ### Get string as raw string
