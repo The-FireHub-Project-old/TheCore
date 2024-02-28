@@ -43,7 +43,6 @@ use function trim;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 abstract class StrSafe {
 

@@ -19,7 +19,7 @@ use FireHub\Core\Support\ {
     Char, Str
 };
 use FireHub\Core\Support\Strings\ {
-    Expression, StringIs
+    Expression, StringHas, StringIs
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, DependsOnClass
@@ -89,6 +89,20 @@ final class StrTest extends Base {
         $this->assertInstanceOf(
             StringIs::class,
             $this->string->is()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testStringHas ():void {
+
+        $this->assertInstanceOf(
+            StringHas::class,
+            $this->string->has()
         );
 
     }

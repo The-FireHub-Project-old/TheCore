@@ -39,8 +39,6 @@ use function sqrt;
  *
  * Class contains methods that are used on all number types.
  * @since 1.0.0
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 abstract class Num {
 

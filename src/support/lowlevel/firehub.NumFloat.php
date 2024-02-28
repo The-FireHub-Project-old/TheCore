@@ -39,8 +39,6 @@ use function tanh;
  * Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the
  * following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.
  * @since 1.0.0
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class NumFloat extends Num {
 

@@ -35,7 +35,6 @@ use function is_string;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class DataIs {
 

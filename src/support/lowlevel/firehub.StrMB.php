@@ -44,7 +44,6 @@ use function mb_substr_count;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StrMB extends StrSafe {
 

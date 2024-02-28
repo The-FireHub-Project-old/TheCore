@@ -21,8 +21,6 @@ use Error;
 /**
  * ### Strings has checker
  * @since 1.0.0
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StringHas implements StringHasContract {
 

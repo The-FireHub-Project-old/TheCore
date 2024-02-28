@@ -25,8 +25,6 @@ use Error;
 /**
  * ### Strings checker
  * @since 1.0.0
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StringIs implements StringIsContract {
 

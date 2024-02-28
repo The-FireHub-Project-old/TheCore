@@ -8,7 +8,26 @@
     <rule ref="rulesets/cleancode.xml">
         <exclude name="StaticAccess" />
     </rule>
-    <rule ref="rulesets/codesize.xml" />
+    <rule ref="rulesets/codesize.xml">
+        <exclude name="TooManyMethods" />
+        <exclude name="TooManyPublicMethods"/>
+        <exclude name="ExcessivePublicCount"/>
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="30" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
+        <properties>
+            <property name="maxmethods" value="20" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessivePublicCount">
+        <properties>
+            <property name="minimum" value="60" />
+        </properties>
+    </rule>
     <rule ref="rulesets/controversial.xml">
         <exclude name="CamelCasePropertyName" />
         <exclude name="CamelCaseParameterName" />
