@@ -18,7 +18,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
     Collectable, Strings
 };
 use FireHub\Core\Support\Strings\ {
-    Expression, StringIs
+    Expression, StringHas, StringIs
 };
 use FireHub\Core\Support\LowLevel\StrMB;
 use FireHub\Core\Support\Enums\String\Encoding;
@@ -145,6 +145,19 @@ final class Str implements Strings {
     public function is ():StringIs {
 
         return new StringIs($this->string, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\StringHas As string checker.
+     */
+    public function has ():StringHas {
+
+        return new StringHas($this->string, $this->encoding);
 
     }
 

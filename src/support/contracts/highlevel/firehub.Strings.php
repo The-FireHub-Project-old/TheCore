@@ -15,7 +15,9 @@
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
-use FireHub\Core\Support\Contracts\HighLevel\Strings\StringIs;
+use FireHub\Core\Support\Contracts\HighLevel\Strings\ {
+    StringHas, StringIs
+};
 use FireHub\Core\Support\Strings\Expression;
 
 /**
@@ -35,12 +37,21 @@ interface Strings extends Stringable {
     public function is ():StringIs;
 
     /**
+     * ### Check string has
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Strings\StringHas String has checker.
+     */
+    public function has ():StringHas;
+
+    /**
      * ### Regular expression
      * @since 1.0.0
      *
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
     public function expression ():Expression;
+
 
     /**
      * ### Get string as raw string

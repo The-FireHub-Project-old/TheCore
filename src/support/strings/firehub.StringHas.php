@@ -14,21 +14,17 @@
 
 namespace FireHub\Core\Support\Strings;
 
-use FireHub\Core\Support\Contracts\HighLevel\Strings\StringIs as StringIsContract;
-use FireHub\Core\Support\Char;
-use FireHub\Core\Support\LowLevel\ {
-    DataIs, StrMB
-};
+use FireHub\Core\Support\Contracts\HighLevel\Strings\StringHas as StringHasContract;
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error;
 
 /**
- * ### Strings checker
+ * ### Strings has checker
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-final class StringIs implements StringIsContract {
+final class StringHas implements StringHasContract {
 
     /**
      * ### Constructor
@@ -51,43 +47,21 @@ final class StringIs implements StringIsContract {
     /**
      * @inheritDoc
      *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if a string is numeric.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
-     *
-     * (new StringIs('FireHub'))->empty();
-     *
-     * // false
-     * ```
-     */
-    public function empty ():bool {
-
-        return empty($this->string) && !DataIs::numeric($this->string);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
      * @uses \FireHub\Core\Support\Str::regexMatch() To perform a regular expression match.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->lower();
+     * (new StringHas('FireHub'))->lower();
      *
-     * // false
+     * // true
      *
      * @throws Error If we could not get current regex encoding.
      */
     public function lower ():bool {
 
-        return $this->regexMatch('^[[:lower:]]*$');
+        return $this->regexMatch('.*[[:lower:]]');
 
     }
 
@@ -100,18 +74,18 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->upper();
+     * (new StringHas('FireHub'))->upper();
      *
-     * // false
+     * // true
      * ```
      *
      * @throws Error If we could not get current regex encoding.
      */
     public function upper ():bool {
 
-        return $this->regexMatch('^[[:upper:]]*$');
+        return $this->regexMatch('.*[[:upper:]]');
 
     }
 
@@ -124,9 +98,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->alphabetic();
+     * (new StringHas('FireHub'))->alphabetic();
      *
      * // true
      * ```
@@ -135,7 +109,7 @@ final class StringIs implements StringIsContract {
      */
     public function alphabetic ():bool {
 
-        return $this->regexMatch('^[[:alpha:]]*$');
+        return $this->regexMatch('.*[[:alpha:]]');
 
     }
 
@@ -148,9 +122,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->alphanumeric();
+     * (new StringHas('FireHub'))->alphanumeric();
      *
      * // true
      * ```
@@ -159,7 +133,7 @@ final class StringIs implements StringIsContract {
      */
     public function alphanumeric ():bool {
 
-        return $this->regexMatch('^[[:alnum:]]*$');
+        return $this->regexMatch('.*[[:alnum:]]');
 
     }
 
@@ -172,9 +146,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->blank();
+     * (new StringHas('FireHub'))->blank();
      *
      * // false
      * ```
@@ -183,7 +157,7 @@ final class StringIs implements StringIsContract {
      */
     public function blank ():bool {
 
-        return $this->regexMatch('^[[:space:]]*$');
+        return $this->regexMatch('.*[[:space:]]');
 
     }
 
@@ -196,9 +170,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->numeric();
+     * (new StringHas('FireHub'))->numeric();
      *
      * // false
      * ```
@@ -207,7 +181,7 @@ final class StringIs implements StringIsContract {
      */
     public function numeric ():bool {
 
-        return $this->regexMatch('^[[:digit:]]*$');
+        return $this->regexMatch('.*[[:digit:]]');
 
     }
 
@@ -220,9 +194,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->hexadecimal();
+     * (new StringHas('FireHub'))->hexadecimal();
      *
      * // true
      * ```
@@ -231,7 +205,7 @@ final class StringIs implements StringIsContract {
      */
     public function hexadecimal ():bool {
 
-        return $this->regexMatch('^[[:xdigit:]]*$');
+        return $this->regexMatch('.*[[:xdigit:]]');
 
     }
 
@@ -244,9 +218,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->control();
+     * (new StringHas('FireHub'))->control();
      *
      * // false
      * ```
@@ -255,7 +229,7 @@ final class StringIs implements StringIsContract {
      */
     public function control ():bool {
 
-        return $this->regexMatch('^[[:cntrl:]]*$');
+        return $this->regexMatch('.*[[:cntrl:]]');
 
     }
 
@@ -268,17 +242,17 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->printable();
+     * (new StringHas('FireHub'))->printable();
      *
      * // true
      * ```
      * @example Space is also printable.
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs(' '))->printable();
+     * (new StringHas(' '))->printable();
      *
      * // true
      * ```
@@ -287,7 +261,7 @@ final class StringIs implements StringIsContract {
      */
     public function printable ():bool {
 
-        return $this->regexMatch('^[[:print:]]*$');
+        return $this->regexMatch('.*[[:print:]]');
 
     }
 
@@ -301,17 +275,17 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->graphical();
+     * (new StringHas('FireHub'))->graphical();
      *
      * // true
      * ```
      * @example Space is not graphical.
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs(' '))->graphical();
+     * (new StringHas(' '))->graphical();
      *
      * // false
      * ```
@@ -320,7 +294,7 @@ final class StringIs implements StringIsContract {
      */
     public function graphical ():bool {
 
-        return $this->regexMatch('^[[:graph:]]*$');
+        return $this->regexMatch('.*[[:graph:]]');
 
     }
 
@@ -333,9 +307,9 @@ final class StringIs implements StringIsContract {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
+     * use FireHub\Core\Support\Strings\StringHas;
      *
-     * (new StringIs('FireHub'))->punctuation();
+     * (new StringHas('FireHub'))->punctuation();
      *
      * // false
      * ```
@@ -344,60 +318,7 @@ final class StringIs implements StringIsContract {
      */
     public function punctuation ():bool {
 
-        return $this->regexMatch('^[[:punct:]]*$');
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::checkEncoding() To check if character is valid ASCII.
-     * @uses \FireHub\Core\Support\Enums\String\Encoding::ASCII As string encoding.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
-     *
-     * (new StringIs('FireHub'))->ascii();
-     *
-     * // true
-     * ```
-     */
-    public function ascii ():bool {
-
-        return StrMB::checkEncoding($this->string, Encoding::ASCII);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Strings\StringIs::empty() To check if the current string is empty.
-     * @uses \FireHub\Core\Support\Char::from() To create character from string.
-     * @uses \FireHub\Core\Support\Char::isUpper() To check if a first letter of the string is uppercased.
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get the first character of the string.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Strings\StringIs;
-     *
-     * (new StringIs('FireHub'))->capitalized();
-     *
-     * // true
-     * ```
-     */
-    public function capitalized ():bool {
-
-        return !$this->empty()
-            && Char::from(
-            /** @phpstan-ignore-next-line Character is not empty at this point */
-                StrMB::part($this->string, 0, 1, $this->encoding),
-                $this->encoding
-            )->isUpper();
+        return $this->regexMatch('.*[[:punct:]]');
 
     }
 
