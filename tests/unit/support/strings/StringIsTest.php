@@ -59,7 +59,7 @@ final class StringIsTest extends Base {
         $this->numbers = new StringIs('123', Encoding::UTF_8);
         $this->blank = new StringIs('   ', Encoding::UTF_8);
         $this->punctuation = new StringIs('}{:;', Encoding::UTF_8);
-        $this->symbol = new StringIs('~$%&', Encoding::UTF_8);
+        $this->symbol = new StringIs('♥≠☺', Encoding::UTF_8);
 
     }
 
@@ -332,7 +332,7 @@ final class StringIsTest extends Base {
         $this->assertTrue($this->numbers->ascii());
         $this->assertTrue($this->blank->ascii());
         $this->assertTrue($this->punctuation->ascii());
-        $this->assertTrue($this->symbol->ascii());
+        $this->assertFalse($this->symbol->ascii());
 
     }
 
