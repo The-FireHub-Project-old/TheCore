@@ -304,6 +304,8 @@ final class CharTest extends Base {
      */
     public function testIsPunctuation ():void {
 
+        var_dump(PHP_OS_FAMILY);
+
         $this->assertFalse($this->control->isPunctuation());
         $this->assertTrue($this->punctuation->isPunctuation());
         $this->assertFalse($this->blank->isPunctuation());
