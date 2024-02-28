@@ -21,7 +21,9 @@ use FireHub\Core\Support\Strings\ {
     Expression, StringHas, StringIs
 };
 use FireHub\Core\Support\LowLevel\StrMB;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\ {
+    CaseFolding, Encoding
+};
 use Error, Stringable;
 
 /**
