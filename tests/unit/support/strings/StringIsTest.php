@@ -310,7 +310,7 @@ final class StringIsTest extends Base {
         $this->assertFalse($this->with_numbers->punctuation());
         $this->assertFalse($this->numbers->punctuation());
         $this->assertFalse($this->blank->punctuation());
-        $this->assertFalse($this->symbol->punctuation());
+        $this->assertTrue($this->punctuation->punctuation());
 
     }
 
