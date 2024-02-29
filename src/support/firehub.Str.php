@@ -856,7 +856,7 @@ final class Str implements Strings {
      * use FireHub\Core\Support\Str;
      *
      * Str::from(' Fire
-     *  Hub ')->normalize();
+     *  Hub ')->streamline();
      *
      * // FireHub
      * ```
