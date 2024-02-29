@@ -15,7 +15,7 @@
 namespace FireHub\Core\Support\Enums\Number;
 
 /**
- * ### Round number enum
+ * ### Enum for rounding number options
  * @since 1.0.0
  */
 enum Round {
@@ -33,7 +33,7 @@ enum Round {
     case HALF_DOWN;
 
     /**
-     * ### towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
+     * ### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
      * @since 1.0.0
      */
     case HALF_EVEN;
