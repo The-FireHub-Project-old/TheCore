@@ -1058,18 +1058,18 @@ final class ArrTest extends Base {
     public function testSort ():void {
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sort($array, Order::ASC, Sort::SORT_REGULAR);
+        Arr::sort($array, Order::ASC, Sort::BY_REGULAR);
         $this->assertSame(['190cm', 25, 'Doe', 'John', 'male'], $array);
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sort($array, Order::ASC, Sort::SORT_REGULAR, true);
+        Arr::sort($array, Order::ASC, Sort::BY_REGULAR, true);
         $this->assertSame(
             ['height' => '190cm', 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John', 'gender' => 'male'],
             $array
         );
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sort($array, Order::DESC, Sort::SORT_NUMERIC, true);
+        Arr::sort($array, Order::DESC, Sort::BY_NUMERIC, true);
         $this->assertSame(
             ['height' => '190cm', 'age' => 25, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male'],
             $array
@@ -1085,14 +1085,14 @@ final class ArrTest extends Base {
     public function testSortByKey ():void {
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortByKey($array, Order::ASC, Sort::SORT_REGULAR);
+        Arr::sortByKey($array, Order::ASC, Sort::BY_REGULAR);
         $this->assertSame(
             ['age' => 25, 'firstname' => 'John', 'gender' => 'male', 'height' => '190cm', 'lastname' => 'Doe'],
             $array
         );
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortByKey($array, Order::DESC, Sort::SORT_STRING);
+        Arr::sortByKey($array, Order::DESC, Sort::BY_NUMERIC);
         $this->assertSame(
             ['lastname' => 'Doe', 'height' => '190cm', 'gender' => 'male', 'firstname' => 'John', 'age' => 25],
             $array
