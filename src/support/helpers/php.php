@@ -45,7 +45,7 @@ function is64bit ():bool {
  * ### Check if using 32bit version of PHP
  * @since 1.0.0
  *
- * @uses \FireHub\Core\Support\Helpers\PHP\is64bit() To check if using 64bit version of PHP.
+ * @uses \FireHub\Core\Support\Constants\Number\SIZE To get the size of an integer in bytes in this build of PHP.
  *
  * @example
  * ```php
