@@ -359,7 +359,7 @@ final class File extends FileSystem {
             $append => FILE_APPEND,
             $lock => LOCK_EX,
             default => 0
-        }) ?: throw new Error("Could not put content on path: {$path}.");
+        }) ?: throw new Error("Could not put content on path: $path.");
 
     }
 
