@@ -32,4 +32,19 @@ enum Order:string {
      */
     case DESC = 'DESC';
 
+    /**
+     * Get the reverse order.
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Enums\Order The reversed order.
+     */
+    public function reverse ():Order {
+
+        return match ($this) {
+            self::ASC => self::DESC,
+            self::DESC => self::ASC,
+        };
+
+    }
+
 }
