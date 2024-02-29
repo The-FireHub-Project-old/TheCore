@@ -701,6 +701,18 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    #[Depends('testString')]
+    public function testStreamline ():void {
+
+        $this->assertSame('FireHub Web App', Str::from(" FireHub  Web  App\r\n")->streamline()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testString ():void {
 
         $this->assertSame(

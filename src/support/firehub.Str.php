@@ -23,8 +23,8 @@ use FireHub\Core\Support\Strings\ {
 use FireHub\Core\Support\LowLevel\ {
     Arr, StrMB
 };
-use FireHub\Core\Support\Enums\String\ {
-    CaseFolding, Encoding
+use FireHub\Core\Support\Enums\ {
+    Side, String\CaseFolding, String\Encoding
 };
 use Error, Stringable, ValueError;
 
@@ -37,6 +37,7 @@ use Error, Stringable, ValueError;
  * @api
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class Str implements Strings {
 
@@ -511,6 +512,360 @@ final class Str implements Strings {
             ).StrMB::part($this->string, 1, encoding: $this->encoding);
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from("Is your name O'Reilly?")->addSlashes();
+     *
+     * // Is your name O\'Reilly?
+     * ```
+     *
+     * @caution The [[Str#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
+     * database-specific escaping functions and/or prepared statements should be used.
+     */
+    public function addSlashes ():self {
+
+        $this->string = StrMB::addSlashes($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::stripSlashes() To un-quote a quoted string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Is your name O\'Reilly?')->stripSlashes();
+     *
+     * // Is your name O'Reilly?
+     * ```
+     *
+     * @note [[Str#stripSlashes()]] is not recursive. If you want to apply this function to multidimensional
+     * array, you need to use a recursive function.
+     * @tip [[Str#stripSlashes()]] can be used if you aren't inserting this data into a place (such as a database)
+     * that requires escaping.
+     * For example, if you're simply outputting data straight from an HTML form.
+     */
+    public function stripSlashes ():self {
+
+        $this->string = StrMB::stripSlashes($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::stripTags() To strip HTML and PHP tags from a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('<p>FireHub</p>')->stripTags();
+     *
+     * // FireHub
+     * ```
+     * @example With $allowed_tags parameter, you allow certain tags to be excluded for the strip.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>');
+     *
+     *  // <p>FireHub</p>
+     *  ```
+     * @example Alternatively, you can use array in $allowed_tags parameter to allow multiple tags.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>']);
+     *
+     *  // <p><a>FireHub</a></p>
+     *  ```
+     *
+     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * For example, to allow both <br> and <br/>, you should use: <br>.
+     * </p>
+     */
+    public function stripTags (null|string|array $allowed_tags = null):self {
+
+        $this->string = StrMB::stripTags($this->string, $allowed_tags);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Quote meta characters
+     *
+     * Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\StringIs::empty() To check if string is empty.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::quoteMeta() To quote meta characters.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub?')->quoteMeta();
+     *
+     * // FireHub\?
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function quoteMeta ():self {
+
+        /** @phpstan-ignore-next-line Character is not empty at this point */
+        if (!$this->is()->empty()) $this->string = StrMB::quoteMeta($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->carry(3);
+     *
+     * // eHub
+     * ```
+     * @example Getting part of string with passed length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->carry(3, 2);
+     *
+     * // eH
+     * ```
+     * @example $from parameter can also be negative.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('FireHub')->carry(-3, 2);
+     *
+     *  // Hu
+     *  ```
+     */
+    public function carry (int $from, ?int $length = null):self {
+
+        $this->string = StrMB::part($this->string, $from, $length, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryFrom('Web');
+     *
+     * // Web App
+     * ```
+     */
+    public function carryFrom (string $find, bool $case_sensitive = true):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, false,
+            $case_sensitive, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryUntil('Web');
+     *
+     * // FireHub
+     * ```
+     */
+    public function carryUntil (string $find, bool $case_sensitive = true):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, true,
+            $case_sensitive, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryFromLast('Web');
+     *
+     * // Web App
+     * ```
+     */
+    public function carryFromLast (string $find, bool $case_sensitive = true):self {
+
+        $this->string = StrMB::lastPart(
+            $find, $this->string, false,
+            $case_sensitive, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryUntilLast('Web');
+     *
+     * // FireHub
+     * ```
+     */
+    public function carryUntilLast (string $find, bool $case_sensitive = true):self {
+
+        $this->string = StrMB::lastPart(
+            $find, $this->string, true,
+            $case_sensitive, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from(" FireHub \n\r")->trim();
+     *
+     * // FireHub
+     * ```
+     * @example Trim only left side with first parameter.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from("FireHub \n\r")->trim(Side::LEFT);
+     *
+     * // FireHub \n\r
+     * ```
+     * @example Trim with a custom set of characters.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from("FireHub \n\r")->trim(Side::RIGHT, "\n\r ");
+     *
+     * // FireHub
+     * ```
+     *
+     * @note Because [[Str#trim()]] trims characters from the beginning and end of a string, it may be confusing when
+     * characters are (or are not) removed from the middle.
+     * Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a' thus moving 'b' to the beginning to also be
+     * trimmed.
+     * So, this is why it "works" whereas trim('abc', 'b') seemingly does not.
+     */
+    public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self {
+
+        $this->string = StrMB::trim($this->string, $side, $characters);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Expression::replace() To perform a regular expression search and replace.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace (or other characters) from the beginning and end
+     * of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from(' Fire
+     *  Hub ')->normalize();
+     *
+     * // FireHub
+     * ```
+     */
+    public function streamline ():self {
+
+        $this->string = $this->expression()->replace('\s+',' ')->string();
+
+        return $this->trim();
 
     }
 
