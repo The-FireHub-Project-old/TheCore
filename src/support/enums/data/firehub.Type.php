@@ -71,7 +71,7 @@ enum Type {
     case T_RESOURCE;
 
     /**
-     * ## Gets data type category
+     * ## Gets the data type category
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Data\Category::SCALAR To check if this enum is a scalar type category.
