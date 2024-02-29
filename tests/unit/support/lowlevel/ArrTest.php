@@ -1092,7 +1092,7 @@ final class ArrTest extends Base {
         );
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortByKey($array, Order::DESC, Sort::BY_NUMERIC);
+        Arr::sortByKey($array, Order::DESC, Sort::BY_STRING);
         $this->assertSame(
             ['lastname' => 'Doe', 'height' => '190cm', 'gender' => 'male', 'firstname' => 'John', 'age' => 25],
             $array
