@@ -51,7 +51,7 @@ enum LogBase {
     case LN10;
 
     /**
-     * ### Get log value
+     * ### Get the numerical value of the logarithmic base
      * @since 1.0.0
      *
      * @return float Log value.
