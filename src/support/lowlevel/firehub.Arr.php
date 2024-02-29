@@ -1935,7 +1935,7 @@ final class Arr {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
-     * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As default parameter.
      *
      * @template TKey of array-key
      * @template TValue
@@ -1962,7 +1962,7 @@ final class Arr {
      *
      * @todo Replace phpstan error when update is available.
      */
-    public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::SORT_REGULAR, bool $preserve_keys = false):true {
+    public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true {
 
         /** @phpstan-ignore-next-line In PHP 8.2 wrong return as bool, instead of true */
         return $order === Order::ASC
@@ -1980,7 +1980,7 @@ final class Arr {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
-     * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As default parameter.
      *
      * @template TKey of array-key
      * @template TValue
@@ -2002,7 +2002,7 @@ final class Arr {
      *
      * @note Resets array's internal pointer to the first element.
      */
-    public static function sortByKey (array &$array, Order $order = Order::ASC, Sort $flag = Sort::SORT_REGULAR):true {
+    public static function sortByKey (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):true {
 
         return $order === Order::ASC
             ? ksort($array, $flag->value)
