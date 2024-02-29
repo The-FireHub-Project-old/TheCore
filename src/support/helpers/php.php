@@ -62,6 +62,6 @@ function is64bit ():bool {
  */
 function is32bit ():bool {
 
-    return !is64bit();
+    return SIZE === 4;
 
 }
