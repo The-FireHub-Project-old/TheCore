@@ -53,8 +53,6 @@ interface Iterables extends Traversable, Iterator {
      * ### Return the key of the current element
      * @since 1.0.0
      *
-     * @error\exeption E_NOTICE on failure.
-     *
      * @return mixed <code>null|TKey</code> Key of the current element.
      * @phpstan-return null|TKey
      */
