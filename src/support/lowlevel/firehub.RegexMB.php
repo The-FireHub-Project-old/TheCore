@@ -21,6 +21,7 @@ use function mb_ereg;
 use function mb_ereg_replace;
 use function mb_ereg_replace_callback;
 use function mb_eregi;
+use function mb_eregi_replace;
 use function mb_regex_encoding;
 
 /**
@@ -81,6 +82,9 @@ final class RegexMB {
      * @param string $string <p>
      * The string being evaluated.
      * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Case-sensitive replace.
+     * </p>
      *
      * @throws Error If string is not valid for the current encoding, or while performing a regular expression search
      * and replace.
@@ -93,10 +97,12 @@ final class RegexMB {
      * @note The internal encoding or the character encoding specified by encoding() will be used as character
      * encoding for this function.
      */
-    public static function replace (string $pattern, string $replacement, string $string):string {
+    public static function replace (string $pattern, string $replacement, string $string, bool $case_sensitive = true):string {
 
-        return mb_ereg_replace($pattern, $replacement, $string)
-            ?: throw new Error('Error while perform a regular expression search and replace.');
+        return ($case_sensitive
+            ? mb_ereg_replace($pattern, $replacement, $string)
+            : mb_eregi_replace($pattern, $replacement, $string)
+        ) ?: throw new Error('Error while performing a regular expression search and replace.');
 
     }
 

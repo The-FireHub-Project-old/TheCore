@@ -310,8 +310,8 @@ abstract class StrSafe {
     /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
-     * This function returns a string with whitespace stripped from the beginning and end of string. Without the
-     * second parameter, trim() will strip these characters.
+     * This function returns a string with whitespace stripped from the beginning and end of string.
+     * Without the second parameter, [[StrSafe#trim()]] will strip these characters.
      *
      * - " " (ASCII 32 (0x20)), an ordinary space.
      * - "\t" (ASCII 9 (0x09)), a tab.

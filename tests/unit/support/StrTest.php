@@ -24,7 +24,9 @@ use FireHub\Core\Support\Strings\ {
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, DependsOnClass
 };
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\ {
+    Side, String\Encoding
+};
 
 /**
  * ### Test string high-level support class
@@ -465,6 +467,232 @@ final class StrTest extends Base {
             '}~'.Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8),
             $this->mixed->deCapitalize()->string()
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testSlashes ():void {
+
+        $this->assertSame('Is your name O\\\'Reilly?', Str::from("Is your name O'Reilly?")->addSlashes()->string());
+        $this->assertSame("Is your name O'Reilly?", Str::from('Is your name O\'Reilly?')->stripSlashes()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testStripTags ():void {
+
+        $this->assertSame(
+            'FireHub',
+            Str::from('<p><i><a>FireHub</a></i></p>')->stripTags()->string()
+        );
+
+        $this->assertSame(
+            '<p>FireHub</p>',
+            Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>')->string()
+        );
+
+        $this->assertSame(
+            '<p><a>FireHub</a></p>',
+            Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>'])->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testQuoteMeta ():void {
+
+        $this->assertSame('FireHub\?', Str::from('FireHub?')->quoteMeta()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarry ():void {
+
+        $this->assertSame('', $this->control->carry(2, 3)->string());
+        $this->assertSame('', $this->empty->carry(2, 3)->string());
+        $this->assertSame('reH', $this->string->carry(2, 3)->string());
+        $this->assertSame('i-r', $this->with_glue->carry(2, 3)->string());
+        $this->assertSame('reh', $this->lowercased->carry(2, 3)->string());
+        $this->assertSame('REH', $this->uppercased->carry(2, 3)->string());
+        $this->assertSame('čćž', $this->mb->carry(2, 3)->string());
+        $this->assertSame('reH', $this->with_numbers->carry(2, 3)->string());
+        $this->assertSame('3', $this->numbers->carry(2, 3)->string());
+        $this->assertSame(' ', $this->blank->carry(2, 3)->string());
+        $this->assertSame(':;', $this->punctuation->carry(2, 3)->string());
+        $this->assertSame(
+            Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string())->string(),
+            $this->mixed->carry(2, 3)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryWithoutLength ():void {
+
+        $this->assertSame('reHub', $this->string->carry(2)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryWithNegativeStart ():void {
+
+        $this->assertSame('Hu', $this->string->carry(-3, 2)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryWithNegativeStartAndWithoutLength ():void {
+
+        $this->assertSame('eHub', $this->string->carry(-4)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryFrom ():void {
+
+        $this->assertSame(
+            'ЛЙ ÈßÁ カタカナ ЛЙ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryFrom('ЛЙ', true)->string()
+        );
+
+        $this->assertSame(
+            '',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryFrom('лй', true)->string()
+        );
+
+        $this->assertSame(
+            'ЛЙ ÈßÁ カタカナ ЛЙ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryFrom('лй', false)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryUntil ():void {
+
+        $this->assertSame(
+            'đščćž 诶杰艾玛 ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntil('ЛЙ', true)->string()
+        );
+
+        $this->assertSame(
+            '',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntil('лй', true)->string()
+        );
+
+        $this->assertSame(
+            'đščćž 诶杰艾玛 ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntil('лй', false)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryFromLst ():void {
+
+        $this->assertSame(
+            'ЛЙ カタカナ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ カタカナ')->carryFromLast('ЛЙ', true)->string()
+        );
+
+        $this->assertSame(
+            '',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ カタカナ')->carryFromLast('лй', true)->string()
+        );
+
+        $this->assertSame(
+            'ЛЙ カタカナ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ カタカナ')->carryFromLast('лй', false)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testCarryUntilLast ():void {
+
+        $this->assertSame(
+            'đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntilLast('ЛЙ', true)->string()
+        );
+
+        $this->assertSame(
+            '',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntilLast('лй', true)->string()
+        );
+
+        $this->assertSame(
+            'đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ',
+            Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ ЛЙ')->carryUntilLast('лй', false)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testTrim ():void {
+
+        $this->assertSame('FireHub', Str::from(" FireHub  \r\n")->trim()->string());
+        $this->assertSame("FireHub \r\n", Str::from(" FireHub \r\n")->trim(Side::LEFT)->string());
+        $this->assertSame(" FireHub ", Str::from(" FireHub \r\n")->trim(Side::RIGHT, "\r\n")->string());
 
     }
 

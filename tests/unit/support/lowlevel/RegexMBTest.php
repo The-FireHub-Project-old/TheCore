@@ -54,7 +54,12 @@ final class RegexMBTest extends Base {
 
         $this->assertSame(
             'PhP, ça marche !',
-            RegexMB::replace('[é]', 'P', 'éhé, ça marche !')
+            RegexMB::replace('[é]', 'P', 'éhé, ça marche !', true)
+        );
+
+        $this->assertSame(
+            'PhP, ça marche !',
+            RegexMB::replace('[P]', 'P', 'Php, ça marche !', false)
         );
 
     }

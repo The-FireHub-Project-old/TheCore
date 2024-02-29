@@ -21,6 +21,8 @@ use Error, FireHub\Core\Support\Contracts\Stringable;
 /**
  * ### Regular expression
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 final class Expression implements Stringable {
 
@@ -54,7 +56,7 @@ final class Expression implements Stringable {
      * @param string $pattern <p>
      * The regular expression pattern.
      * </p>
-     * @param bool $case_sensitive <p>
+     * @param bool $case_sensitive [optional] <p>
      * Case-sensitive match.
      * </p>
      *
@@ -62,7 +64,7 @@ final class Expression implements Stringable {
      *
      * @return bool True if string matches the regular expression pattern, false if not.
      */
-    public function match (string $pattern, bool $case_sensitive):bool {
+    public function match (string $pattern, bool $case_sensitive = true):bool {
 
         $regex_encoding = RegexMB::encoding();
 
@@ -100,6 +102,9 @@ final class Expression implements Stringable {
      * @param string $replacement <p>
      * The string to replace.
      * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Case-sensitive replace.
+     * </p>
      *
      * @throws Error If string is not valid for the current encoding, or while performing a regular expression search
      * and replace.
@@ -110,13 +115,13 @@ final class Expression implements Stringable {
      * from [[Expression#replace()]]). Not taking care of this will most likely create remote code execution
      * vulnerabilities in your application.
      */
-    public function replace (string $pattern, string $replacement):self {
+    public function replace (string $pattern, string $replacement, bool $case_sensitive = true):self {
 
         $regex_encoding = RegexMB::encoding();
 
         RegexMB::encoding($this->encoding);
 
-        $this->string = RegexMB::replace($pattern, $replacement, $this->string);
+        $this->string = RegexMB::replace($pattern, $replacement, $this->string, $case_sensitive);
 
         RegexMB::encoding($regex_encoding);
 
