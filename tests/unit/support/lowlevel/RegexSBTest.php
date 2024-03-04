@@ -33,8 +33,10 @@ final class RegexSBTest extends Base {
     public function testMatch ():void {
 
         $this->assertTrue(
-            RegexSB::match('/php/i', 'PHP is the web scripting language of choice.')
+            RegexSB::match('/php/i', 'PHP is the web scripting language of choice.', result: $result)
         );
+
+        $this->assertSame([0 => 'PHP'], $result);
 
         $this->assertFalse(
             RegexSB::match('/php/i', 'PHP is the web scripting language of choice.', 10)

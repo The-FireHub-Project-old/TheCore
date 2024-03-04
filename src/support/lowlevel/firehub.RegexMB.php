@@ -59,11 +59,11 @@ final class RegexMB {
      *
      * @return bool True if string matches the regular expression pattern, false if not.
      */
-    public static function match (string $pattern, string $string, bool $case_sensitive = true):bool {
+    public static function match (string $pattern, string $string, bool $case_sensitive = true, &$result = null):bool {
 
         return $case_sensitive
-            ? mb_ereg($pattern, $string)
-            : mb_eregi($pattern, $string);
+            ? mb_ereg($pattern, $string, $result)
+            : mb_eregi($pattern, $string, $result);
 
     }
 

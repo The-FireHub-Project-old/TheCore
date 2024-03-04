@@ -56,9 +56,9 @@ final class RegexSB {
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
      * value of this function.
      */
-    public static function match (string $pattern, string $string, int $offset = 0):bool {
+    public static function match (string $pattern, string $string, int $offset = 0, &$result = null):bool {
 
-        return preg_match($pattern, $string, offset: $offset) === 1;
+        return preg_match($pattern, $string, $result, offset: $offset) === 1;
 
     }
 

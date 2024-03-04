@@ -36,8 +36,10 @@ final class RegexMBTest extends Base {
     public function testMatch ():void {
 
         $this->assertTrue(
-            RegexMB::match('danži', 'Danži is a boy.', false)
+            RegexMB::match('danži', 'Danži is a boy.', false, $result)
         );
+
+        $this->assertSame([0 => 'Danži'], $result);
 
         $this->assertFalse(
             RegexMB::match('danži', 'Danži is a boy.', true)
