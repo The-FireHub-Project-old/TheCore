@@ -47,6 +47,11 @@ final class RegexSB {
      * Normally, the search starts from the beginning of the subject string. The optional parameter offset can be used
      * to specify the alternate place from which to start the search (in bytes).
      * </p>
+     * @param null|array &$result [optional] <p>
+     * <code>null|string[]</code>
+     * Case-sensitive match.
+     * </p>
+     * @phpstan-param null|string[] $result
      *
      * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
      *
@@ -56,7 +61,7 @@ final class RegexSB {
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
      * value of this function.
      */
-    public static function match (string $pattern, string $string, int $offset = 0, &$result = null):bool {
+    public static function match (string $pattern, string $string, int $offset = 0, array &$result = null):bool {
 
         return preg_match($pattern, $string, $result, offset: $offset) === 1;
 
