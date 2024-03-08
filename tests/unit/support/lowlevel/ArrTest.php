@@ -29,6 +29,7 @@ use ArgumentCountError, Error, ValueError;
  * @since 1.0.0
  */
 #[CoversClass(Arr::class)]
+#[CoversClass(Order::class)]
 final class ArrTest extends Base {
 
     public array $empty_arr = [];
@@ -1060,6 +1061,9 @@ final class ArrTest extends Base {
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
         Arr::sort($array, Order::ASC, Sort::BY_REGULAR);
         $this->assertSame(['190cm', 25, 'Doe', 'John', 'male'], $array);
+
+        Arr::sort($array, Order::ASC->reverse(), Sort::BY_REGULAR);
+        $this->assertSame(['male', 'John', 'Doe', 25, '190cm'], $array);
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
         Arr::sort($array, Order::ASC, Sort::BY_REGULAR, true);
