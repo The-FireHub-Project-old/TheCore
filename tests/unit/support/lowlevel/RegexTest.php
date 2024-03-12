@@ -15,15 +15,15 @@
 namespace support\lowlevel;
 
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\LowLevel\RegexSB;
+use FireHub\Core\Support\LowLevel\Regex;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * ### Test single-byte regex low-level proxy class
  * @since 1.0.0
  */
-#[CoversClass(RegexSB::class)]
-final class RegexSBTest extends Base {
+#[CoversClass(Regex::class)]
+final class RegexTest extends Base {
 
     /**
      * @since 1.0.0
@@ -33,17 +33,17 @@ final class RegexSBTest extends Base {
     public function testMatch ():void {
 
         $this->assertTrue(
-            RegexSB::match('/php/i', 'PHP is the web scripting language of choice.', result: $result)
+            Regex::match('/php/i', 'PHP is the web scripting language of choice.', result: $result)
         );
 
         $this->assertSame([0 => 'PHP'], $result);
 
         $this->assertFalse(
-            RegexSB::match('/php/i', 'PHP is the web scripting language of choice.', 10)
+            Regex::match('/php/i', 'PHP is the web scripting language of choice.', 10)
         );
 
         $this->assertFalse(
-            RegexSB::match('/\bweb\b/i', 'PHP is the website scripting language of choice.')
+            Regex::match('/\bweb\b/i', 'PHP is the website scripting language of choice.')
         );
 
     }
@@ -57,7 +57,7 @@ final class RegexSBTest extends Base {
 
         $this->assertSame(
             'April1,2003',
-            RegexSB::replace('/(\w+) (\d+), (\d+)/i', '${1}1,$3', 'April 15, 2003')
+            Regex::replace('/(\w+) (\d+), (\d+)/i', '${1}1,$3', 'April 15, 2003')
         );
 
     }
@@ -74,7 +74,7 @@ final class RegexSBTest extends Base {
 
         $this->assertSame(
             'April fools day is 04/01/2003 and last christmas was 12/24/2002.',
-            RegexSB::replaceFunc(
+            Regex::replaceFunc(
                 '|(\d{2}/\d{2}/)(\d{4})|',
                 fn($matches) => $matches[1].($matches[2]+1),
                 $text

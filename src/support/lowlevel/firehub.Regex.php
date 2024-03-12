@@ -21,7 +21,7 @@ use function preg_replace;
 use function preg_replace_callback;
 
 /**
- * ### Single-byte regex low-level proxy class
+ * ### Regex low-level proxy class
  *
  * The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
  * delimiters, a forward slash (/), for example. Delimiters can be any non-alphanumeric, non-whitespace ASCII character
@@ -29,7 +29,7 @@ use function preg_replace_callback;
  * it needs to be escaped by backslash. Perl-style (), {}, [], and <> matching delimiters may also be used.
  * @since 1.0.0
  */
-final class RegexSB {
+final class Regex {
 
     /**
      * ### Perform a regular expression match
