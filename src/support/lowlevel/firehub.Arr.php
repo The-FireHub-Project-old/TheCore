@@ -1538,7 +1538,7 @@ final class Arr {
      * Keys in a replacement array are not preserved.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
-     * @phpstan-param-out array<TKey, TValue> $array
+     * @phpstan-param-out array<TKey, mixed> $array
      *
      * @return array <code><![CDATA[ array<TKey|int, TValue> ]]></code> Spliced array.
      * @phpstan-return array<TKey|int, TValue>
