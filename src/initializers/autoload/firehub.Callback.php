@@ -95,6 +95,7 @@ final class Callback {
      *
      * @uses \FireHub\Core\Initializers\Autoload\Callback::classComponents() To get class components from class FQN.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $class is callable or string.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if callable path return string.
      * @uses \FireHub\Core\Support\LowLevel\File::isFile() To check if $path is a valid path.
      * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
      *
@@ -112,7 +113,7 @@ final class Callback {
         $class_components = $this->classComponents($class);
 
         $path = DataIs::callable($this->path)
-            ? (($path_callable = ($this->path)($class_components['namespace'], $class_components['classname']))
+            ? (DataIs::string(($path_callable = ($this->path)($class_components['namespace'], $class_components['classname'])))
                 ? $path_callable
                 : false)
             : $this->path.DS.$class.'.php';
