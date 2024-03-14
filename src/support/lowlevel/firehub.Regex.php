@@ -49,9 +49,10 @@ final class Regex {
      * </p>
      * @param null|array &$result [optional] <p>
      * <code>null|string[]</code>
-     * Case-sensitive match.
+     * Regular expression match result.
      * </p>
-     * @phpstan-param null|string[] $result
+     * @phpstan-param null|string[] &$result
+     * @param-out string[] $result
      *
      * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
      *
