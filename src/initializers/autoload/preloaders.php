@@ -38,7 +38,7 @@ return [
     \FireHub\Core\Support\LowLevel\NumFloat::class,
     \FireHub\Core\Support\LowLevel\NumInt::class,
     \FireHub\Core\Support\LowLevel\RegexMB::class,
-    \FireHub\Core\Support\LowLevel\RegexSB::class,
+    \FireHub\Core\Support\LowLevel\Regex::class,
     \FireHub\Core\Support\LowLevel\SplAutoload::class,
     \FireHub\Core\Support\LowLevel\StrEncode::class,
     \FireHub\Core\Support\LowLevel\StrSafe::class,
