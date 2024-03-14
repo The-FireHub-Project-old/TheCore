@@ -58,7 +58,8 @@ final class RegexMB {
      * <code>null|string[]</code>
      * Case-sensitive match.
      * </p>
-     * @phpstan-param null|string[] $result
+     * @phpstan-param null|string[] &$result
+     * @param-out string[] $result
      *
      * @error\exeption E_WARNING if an invalid POSIX bracket type.
      *
@@ -67,8 +68,8 @@ final class RegexMB {
     public static function match (string $pattern, string $string, bool $case_sensitive = true, array &$result = null):bool {
 
         return $case_sensitive
-            ? mb_ereg($pattern, $string, $result)
-            : mb_eregi($pattern, $string, $result);
+            ? mb_ereg($pattern, $string, $result) // @phpstan-ignore-line PHPSan report return mixed
+            : mb_eregi($pattern, $string, $result); // @phpstan-ignore-line PHPSan report return mixed
 
     }
 
