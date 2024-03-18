@@ -212,6 +212,7 @@ abstract class StrSafe {
      * </p>
      * @phpstan-param string|list<string> $search
      * @phpstan-param string|list<string> $replace
+     * @param-out int $count
      *
      * @return string String with the replaced values.
      *
