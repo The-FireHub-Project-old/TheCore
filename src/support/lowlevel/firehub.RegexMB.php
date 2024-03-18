@@ -68,8 +68,8 @@ final class RegexMB {
     public static function match (string $pattern, string $string, bool $case_sensitive = true, array &$result = null):bool {
 
         return $case_sensitive
-            ? mb_ereg($pattern, $string, $result) // @phpstan-ignore-line PHPSan report return mixed
-            : mb_eregi($pattern, $string, $result); // @phpstan-ignore-line PHPSan report return mixed
+            ? mb_ereg($pattern, $string, $result) // @phpstan-ignore-line PHPStan report return mixed
+            : mb_eregi($pattern, $string, $result); // @phpstan-ignore-line PHPStan report return mixed
 
     }
 
