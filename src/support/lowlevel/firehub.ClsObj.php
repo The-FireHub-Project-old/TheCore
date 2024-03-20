@@ -97,7 +97,6 @@ abstract class ClsObj {
      * @since 1.0.0
      *
      * @param string|object $object_or_class <p>
-     * <code>class-string|object</code>
      * A class name or an object instance.
      * </p>
      * @param string $class <p>
@@ -106,8 +105,6 @@ abstract class ClsObj {
      * @param bool $autoload [optional] <p>
      * Whether to allow this function to load the class automatically through the __autoload magic method.
      * </p>
-     * @phpstan-param class-string|object $object_or_class
-     * class-string $class
      *
      * @return bool True if the object is of this object type or has this object type as one of its supertypes,
      * false otherwise.

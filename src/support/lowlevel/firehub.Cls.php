@@ -42,13 +42,11 @@ final class Cls extends ClsObj {
      * @uses \FireHub\Core\Support\LowLevel\Cls::isEnum() To check if $name is enum.
      *
      * @param string $name <p>
-     * <code>class-string</code>
      * The class name.
      * </p>
      * @param bool $autoload [optional] <p>
      * Whether to autoload if not already loaded.
      * </p>
-     * @phpstan-param class-string $name
      *
      * @return bool True if class exist, false otherwise.
      */
@@ -65,13 +63,11 @@ final class Cls extends ClsObj {
      * @since 1.0.0
      *
      * @param string $name <p>
-     * <code>class-string</code>
      * The interface name.
      * </p>
      * @param bool $autoload [optional] <p>
      * Whether to autoload if not already loaded.
      * </p>
-     * @phpstan-param class-string $name
      *
      * @return bool True if the interface exists, false otherwise.
      */
@@ -88,13 +84,11 @@ final class Cls extends ClsObj {
      * @since 1.0.0
      *
      * @param string $name <p>
-     * <code>class-string</code>
      * The enum name.
      * </p>
      * @param bool $autoload [optional] <p>
      * Whether to autoload if not already loaded.
      * </p>
-     * @phpstan-param class-string $name
      *
      * @return bool True if enum exists, false otherwise.
      */
@@ -109,13 +103,11 @@ final class Cls extends ClsObj {
      * @since 1.0.0
      *
      * @param string $name <p>
-     * <code>class-string</code>
      * The trait name.
      * </p>
      * @param bool $autoload [optional] <p>
      * Whether to autoload if not already loaded.
      * </p>
-     * @phpstan-param class-string $name
      *
      * @return bool True if trait exists, false otherwise.
      */
