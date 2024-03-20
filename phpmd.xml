@@ -37,6 +37,7 @@
     <rule ref="rulesets/naming.xml">
         <exclude name="ShortVariable" />
         <exclude name="ShortMethodName"/>
+        <exclude name="ShortClassName"/>
     </rule>
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
@@ -46,6 +47,11 @@
     <rule ref="rulesets/naming.xml/ShortMethodName">
         <properties>
             <property name="minimum" description="Minimum length for a method name" value="2"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortClassName">
+        <properties>
+            <property name="minimum" description="Minimum length for a class name" value="2"/>
         </properties>
     </rule>
     <rule ref="rulesets/unusedcode.xml" />
