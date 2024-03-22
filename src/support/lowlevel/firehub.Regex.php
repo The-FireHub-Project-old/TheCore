@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\LowLevel;
 use Error;
 
 use function preg_match;
+use function preg_match_all;
 use function preg_replace;
 use function preg_replace_callback;
 
@@ -28,6 +29,8 @@ use function preg_replace_callback;
  * except the backslash (\) and the null byte. If the delimiter character has to be used in the expression itself,
  * it needs to be escaped by backslash. Perl-style (), {}, [], and <> matching delimiters may also be used.
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
 final class Regex {
 
@@ -47,12 +50,15 @@ final class Regex {
      * Normally, the search starts from the beginning of the subject string. The optional parameter offset can be used
      * to specify the alternate place from which to start the search (in bytes).
      * </p>
+     * @param bool $all [optional] <p>
+     * If true, search subject for a match to the regular expression given in a pattern.
+     * </p>
      * @param null|array &$result [optional] <p>
      * <code>null|string[]</code>
      * Regular expression match result.
      * </p>
      * @phpstan-param null|string[] &$result
-     * @param-out string[] $result
+     * @param-out array $result
      *
      * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
      *
@@ -62,9 +68,11 @@ final class Regex {
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
      * value of this function.
      */
-    public static function match (string $pattern, string $string, int $offset = 0, array &$result = null):bool {
+    public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, array &$result = null):bool {
 
-        return preg_match($pattern, $string, $result, offset: $offset) === 1;
+        return $all
+            ? preg_match_all($pattern, $string, $result, offset: $offset) === 1
+            : preg_match($pattern, $string, $result, offset: $offset) === 1;
 
     }
 
