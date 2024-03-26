@@ -72,8 +72,8 @@ final class Regex {
     public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, array &$result = null):bool {
 
         return $all
-            ? preg_match_all($pattern, $string, $result, offset: $offset) === 1
-            : preg_match($pattern, $string, $result, offset: $offset) === 1;
+            ? preg_match_all($pattern, $string, $result, offset: $offset) !== 0
+            : preg_match($pattern, $string, $result, offset: $offset) !== 0;
 
     }
 
