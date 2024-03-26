@@ -46,6 +46,12 @@ final class RegexTest extends Base {
             Regex::match('/\bweb\b/i', 'PHP is the website scripting language of choice.')
         );
 
+        $this->assertTrue(
+            Regex::match('/Web/', 'FireHub Web App FireHub Web App.', all: true, result: $result)
+        );
+
+        $this->assertSame([0 => [0 => 'Web', 1 => 'Web']], $result);
+
     }
 
     /**
@@ -59,6 +65,17 @@ final class RegexTest extends Base {
             'April1,2003',
             Regex::replace('/(\w+) (\d+), (\d+)/i', '${1}1,$3', 'April 15, 2003')
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSplit ():void {
+
+        $this->assertSame(['Fire', 'ub'], Regex::split('/H/', 'FireHub'));
 
     }
 

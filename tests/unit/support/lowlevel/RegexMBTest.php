@@ -92,6 +92,17 @@ final class RegexMBTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertSame(['Fire', 'ub'], RegexMB::split('H', 'FireHub'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSetEncoding ():void {
 
         $this->assertTrue(RegexMB::encoding(Encoding::UTF_8));
