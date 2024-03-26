@@ -20,6 +20,7 @@ use function preg_match;
 use function preg_match_all;
 use function preg_replace;
 use function preg_replace_callback;
+use function preg_split;
 
 /**
  * ### Regex low-level proxy class
@@ -92,11 +93,12 @@ final class Regex {
      * The string being evaluated.
      * </p>
      * @param int $limit [optional] <p>
-     * The maximum possible replacements for each pattern in each subject string. Defaults to -1 (no limit).
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
      * </p>
      *
      * @throws Error If error while performing a regular expression search and replace.
-     * @error\exeption E_WARNING using the "\e" modifier, or If the regex pattern passed does not compile to valid
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
      * regex.
      *
      * @return string Replaced string.
@@ -127,11 +129,12 @@ final class Regex {
      * The string being evaluated.
      * </p>
      * @param int $limit [optional] <p>
-     * The maximum possible replacements for each pattern in each subject string. Defaults to -1 (no limit).
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
      * </p>
      *
      * @throws Error If error while performing a regular expression search and replace.
-     * @error\exeption E_WARNING using the "\e" modifier, or If the regex pattern passed does not compile to valid
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
      * regex.
      *
      * @return string Replaced string.
@@ -140,6 +143,38 @@ final class Regex {
 
         return preg_replace_callback($pattern, $callback, $string, $limit)
             ?? throw new Error("Error while performing a regular expression search and replace.");
+
+    }
+
+    /**
+     * ### Split string by a regular expression
+     *
+     * Split the given string by a regular expression.
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The regular expression pattern.
+     * </p>
+     * @param string $string <p>
+     * The input string.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
+     * </p>
+     *
+     * @throws Error If error while performing a regular expression split.
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
+     * regex.
+     *
+     * @return array <code>string[]</code> Array containing substrings of $string split along boundaries matched
+     * by $pattern.
+     * @phpstan-return string[]
+     */
+    public static function split (string $pattern, string $string, int $limit = -1):array {
+
+        return preg_split($pattern, $string, $limit)
+            ?: throw new Error("Error while performing a regular expression split.");
 
     }
 

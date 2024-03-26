@@ -23,6 +23,7 @@ use function mb_ereg_replace_callback;
 use function mb_eregi;
 use function mb_eregi_replace;
 use function mb_regex_encoding;
+use function mb_split;
 
 /**
  * ### Multibyte regex low-level proxy class
@@ -140,6 +141,37 @@ final class RegexMB {
 
         return mb_ereg_replace_callback($pattern, $callback, $string)
             ?: throw new Error('Error while performing a regular expression search and replace.');
+
+    }
+
+    /**
+     * ### Split string by a regular expression
+     *
+     * Split the given string by a regular expression.
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The regular expression pattern.
+     * </p>
+     * @param string $string <p>
+     * The input string.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
+     * </p>
+     *
+     * @error\exeption E_WARNING if an invalid POSIX bracket type.
+     * @throws Error If error while performing a regular expression split.
+     *
+     * @return array <code>string[]</code> Array containing substrings of $string split along boundaries matched
+     * by $pattern.
+     * @phpstan-return string[]
+     */
+    public static function split (string $pattern, string $string, int $limit = -1):array {
+
+        return mb_split($pattern, $string, $limit)
+            ?: throw new Error("Error while performing a regular expression split.");
 
     }
 
