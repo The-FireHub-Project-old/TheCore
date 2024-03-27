@@ -8,7 +8,7 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 insert_final_newline = false
-max_line_length = 120
+max_line_length = 160
 
 [*.{yml,yaml,config,cff}]
 indent_size = 2
