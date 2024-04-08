@@ -184,7 +184,7 @@ final class StrTest extends Base {
 
         $this->string->expression()->replace('x')->atMost(1)->lower();
 
-        $this->assertSame('xFxixrxexHxuxbx', $this->string->string());
+        $this->assertSame('xFxxxxHxxx', $this->string->string());
 
     }
 
