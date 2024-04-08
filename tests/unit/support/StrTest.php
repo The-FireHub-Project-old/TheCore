@@ -1,0 +1,425 @@
+<?php declare(strict_types = 1);
+
+/**
+ * This file is part of FireHub Web Application Framework package
+ *
+ * @author Danijel Galić <danijel.galic@outlook.com>
+ * @copyright 2024 FireHub Web Application Framework
+ * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
+ *
+ * @package Core\Test
+ *
+ * @version GIT: $Id$ Blob checksum.
+ */
+
+namespace support;
+
+use FireHub\Core\Testing\Base;
+use FireHub\Core\Support\Strings\Expression;
+use FireHub\Core\Support\Strings\Expression\ {
+    FunctionFamily, Check, Replace, Get, Pattern, Split
+};
+use FireHub\Core\Support\Strings\Expression\Pattern\ {
+    Any, AtLeast, AtMost, Between, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
+};
+use FireHub\Core\Support\Strings\Expression\Pattern\Predefined\ {
+    Chars, NotChars
+};
+use FireHub\Core\Support\ {
+    Char, Str, InsensitiveStr
+};
+use PHPUnit\Framework\Attributes\ {
+    CoversClass, Depends, DependsOnClass
+};
+use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\Expression\Modifier;
+use Error;
+
+/**
+ * ### Test string high-level support class
+ * @since 1.0.0
+ */
+#[CoversClass(Str::class)]
+#[CoversClass(InsensitiveStr::class)]
+#[CoversClass(Expression::class)]
+#[CoversClass(FunctionFamily::class)]
+#[CoversClass(Check::class)]
+#[CoversClass(Replace::class)]
+#[CoversClass(Get::class)]
+#[CoversClass(Split::class)]
+#[CoversClass(Pattern::class)]
+#[CoversClass(Any::class)]
+#[CoversClass(AtLeast::class)]
+#[CoversClass(AtMost::class)]
+#[CoversClass(Between::class)]
+#[CoversClass(Exactly::class)]
+#[CoversClass(Occurrences::class)]
+#[CoversClass(OneOrMore::class)]
+#[CoversClass(ZeroOrMore::class)]
+#[CoversClass(ZeroOrOne::class)]
+#[CoversClass(Has::class)]
+#[CoversClass(Is::class)]
+#[CoversClass(Chars::class)]
+#[CoversClass(NotChars::class)]
+final class StrTest extends Base {
+
+    public Str $control;
+    public Str $string;
+    public Str $insensitive_string;
+    public Str $string_with_glue;
+    public Str $string_lower;
+    public Str $string_upper;
+    public Str $string_with_num;
+    public Str $mixed;
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[DependsOnClass(Char::class)]
+    public function setUp ():void {
+
+        $this->control = Str::from(
+            Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8
+        );
+        $this->string = Str::from('FireHub', Encoding::UTF_8);
+        $this->insensitive_string = InsensitiveStr::from('FireHub', Encoding::UTF_8);
+        $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', Encoding::UTF_8);
+        $this->string_lower = Str::from('firehub', Encoding::UTF_8);
+        $this->string_upper = Str::from('FIREHUB', Encoding::UTF_8);
+        $this->string_with_num = Str::from('FireHub123', Encoding::UTF_8);
+        $this->mixed = Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', Encoding::UTF_8);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testChunkLengthLessThenZero ():void {
+
+        $this->expectException(Error::class);
+
+        $this->string->expression()->check()->withDelimiter(Char::from('x'))->is()->custom('FireHub');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionCheckIs ():void {
+
+        $this->assertTrue($this->string->expression()->check()->withDelimiter(Char::from('#'))->is()->custom('FireHub'));
+
+        $this->assertFalse($this->string->expression()->check()->is()->custom('FIREHUB'));
+        $this->assertTrue($this->string->expression()->check(Modifier::CASELESS)->is()->custom('FIREHUB'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceAny ():void {
+
+        $this->string->expression()->replace('x')->any()->lower();
+
+        $this->assertSame('FxxxHxx', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceAtLeast ():void {
+
+        $this->string->expression()->replace('x')->atLeast(1)->lower();
+
+        $this->assertSame('FxHx', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceAtMost ():void {
+
+        $this->string->expression()->replace('x')->atMost(1)->lower();
+
+        $this->assertSame('FireHub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceBetween ():void {
+
+        $this->string->expression()->replace('x')->between(2,3)->lower();
+
+        $this->assertSame('FxHx', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceExactly ():void {
+
+        $this->string->expression()->replace('=')->exactly(3)->lower();
+
+        $this->assertSame('F=Hub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceOneOrMore ():void {
+
+        $this->string->expression()->replace('=')->oneOrMore()->lower();
+
+        $this->assertSame('F=H=', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceZeroOrMore ():void {
+
+        $this->string->expression()->replace('=')->zeroOrMore()->lower();
+
+        $this->assertSame('=F==H==', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceZeroOrOne ():void {
+
+        $this->string->expression()->replace('=')->zeroOrOne()->lower();
+
+        $this->assertSame('=F====H===', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceHas ():void {
+
+        $this->string->expression()->replace('x')->has()->custom('r');
+
+        $this->assertSame('xeHub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionReplaceIs ():void {
+
+        $this->string->expression()->replace('x', Modifier::CASELESS)->is()->custom('FIREHUB');
+        $this->assertSame('x', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionGetIs ():void {
+
+        $this->string->expression()->get(Modifier::CASELESS)->is()->custom('FIREHUB');
+
+        $this->assertSame('FireHub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionSplitIs ():void {
+
+        $this->assertSame(
+            ['F','reHub'],
+            $this->string->expression()->split()->any()->custom('i')
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testStartsWith ():void {
+
+        $this->assertFalse($this->control->startsWith('fire'));
+        $this->assertFalse( $this->string->startsWith('fire'));
+        $this->assertTrue($this->mixed->startsWith('đščćž'));
+
+        $this->assertTrue($this->insensitive_string->startsWith('fire'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEndsWith ():void {
+
+        $this->assertFalse($this->control->endsWith('Hub'));
+        $this->assertTrue( $this->string->endsWith('Hub'));
+        $this->assertTrue($this->mixed->endsWith('{:;'));
+
+        $this->assertTrue($this->insensitive_string->endsWith('hub'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testContains ():void {
+
+        $this->assertFalse($this->control->contains('reHu'));
+        $this->assertTrue( $this->string->contains('reHu'));
+        $this->assertTrue($this->mixed->contains('ЛЙ'));
+
+        $this->assertTrue($this->insensitive_string->contains('rehu'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testEncoding ():void {
+
+        $this->assertSame(Encoding::UTF_8, $this->control->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string_with_glue->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string_lower->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string_upper->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->string_with_num->encoding());
+        $this->assertSame(Encoding::UTF_8, $this->mixed->encoding());
+
+        $this->assertSame(
+            $this->control->string(),
+            $this->control->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string->string(),
+            $this->string->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->insensitive_string->string(),
+            $this->insensitive_string->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string_with_glue->string(),
+            $this->string_with_glue->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string_lower->string(),
+            $this->string_lower->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string_upper->string(),
+            $this->string_upper->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->string_with_num->string(),
+            $this->string_with_num->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+        $this->assertSame(
+            $this->mixed->string(),
+            $this->mixed->encoding(Encoding::ISO_8859_1)->string()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testString ():void {
+
+        $this->assertSame(
+            Str::from(Char::fromCodepoint(0, Encoding::UTF_8)->string())->string(),
+            $this->control->string()
+        );
+        $this->assertSame('FireHub', $this->string->string());
+        $this->assertSame('FireHub Web App', $this->string->string('FireHub Web App')->string());
+        $this->assertSame('FireHub Web App', $this->insensitive_string->string('FireHub Web App')->string());
+        $this->assertSame('F-i-r-e-H-u-b', $this->string_with_glue->string());
+        $this->assertSame('firehub', $this->string_lower->string());
+        $this->assertSame('FIREHUB', $this->string_upper->string());
+        $this->assertSame('FireHub123', $this->string_with_num->string());
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', $this->mixed->string());
+
+        $this->assertSame('Fire', $this->string->string('Fire')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testString')]
+    public function testPrint ():void {
+
+        $this->assertSame($this->control->string(), $this->control->__toString());
+        $this->assertSame($this->string->string(), $this->string->__toString());
+        $this->assertSame($this->insensitive_string->string(), $this->insensitive_string->__toString());
+        $this->assertSame($this->string_with_glue->string(), $this->string_with_glue->__toString());
+        $this->assertSame($this->string_lower->string(), $this->string_lower->__toString());
+        $this->assertSame($this->string_upper->string(), $this->string_upper->__toString());
+        $this->assertSame($this->string_with_num->string(), $this->string_with_num->__toString());
+        $this->assertSame($this->mixed->string(), $this->mixed->__toString());
+
+    }
+
+}
