@@ -29,7 +29,7 @@ use FireHub\Core\Support\ {
     Char, Str, InsensitiveStr
 };
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, Depends, DependsOnClass
+    CoversClass, Depends, DependsOnClass, RequiresOperatingSystemFamily
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\Enums\String\Expression\Modifier;
@@ -151,11 +151,40 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testExpressionReplaceAtMost ():void {
+    #[RequiresOperatingSystemFamily('Windows')]
+    public function testExpressionReplaceAtMostWindows ():void {
 
-        $this->string->expression()->replace('x')->atMost(1)->custom('x');
+        $this->string->expression()->replace('x')->atMost(1)->lower();
 
         $this->assertSame('FireHub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Linux')]
+    public function testExpressionReplaceAtMostLinux ():void {
+
+        $this->string->expression()->replace('x')->atMost(1)->lower();
+
+        $this->assertSame('FireHub', $this->string->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RequiresOperatingSystemFamily('Darwin')]
+    public function testExpressionReplaceAtMostDarwin ():void {
+
+        $this->string->expression()->replace('x')->atMost(1)->lower();
+
+        $this->assertSame('xFxixrxexHxuxbx', $this->string->string());
 
     }
 
