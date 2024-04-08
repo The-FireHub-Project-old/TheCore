@@ -57,4 +57,5 @@
     <rule ref="rulesets/unusedcode.xml" />
     <exclude-pattern>firehub.Data.php</exclude-pattern>
     <exclude-pattern>firehub.RegexMB.php</exclude-pattern>
+    <exclude-pattern>firehub.Pattern.php</exclude-pattern>
 </ruleset>
