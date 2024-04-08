@@ -153,7 +153,7 @@ final class StrTest extends Base {
      */
     public function testExpressionReplaceAtMost ():void {
 
-        $this->string->expression()->replace('x')->atMost(1)->lower();
+        $this->string->expression()->replace('x')->atMost(1)->custom('x');
 
         $this->assertSame('FireHub', $this->string->string());
 
