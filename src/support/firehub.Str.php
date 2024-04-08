@@ -47,7 +47,7 @@ class Str implements Strings {
      *
      * @return void
      */
-    public function __construct (
+    final public function __construct (
         protected string $string,
         protected ?Encoding $encoding = null
     ) {}

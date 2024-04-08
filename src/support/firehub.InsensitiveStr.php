@@ -103,7 +103,7 @@ final class InsensitiveStr extends Str {
      * // true
      * ```
      */
-    public function contains (string $value, bool $case_sensitive = true):bool {
+    public function contains (string $value):bool {
 
         $string = $this->string;
 

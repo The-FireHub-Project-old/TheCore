@@ -53,10 +53,10 @@ interface Characters extends Stringable {
      * ### Get character as raw string
      * @since 1.0.0
      *
-     * @return static|string <code>$this|non-empty-string</code> Character as string.
-     * @phpstan-return ($string is null ? non-empty-string : static)
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|string <code>$this|non-empty-string</code> Character as string.
+     * @phpstan-return ($string is null ? non-empty-string : \FireHub\Core\Support\Contracts\HighLevel\Characters)
      */
-    public function string (string $string = null):static|string;
+    public function string (string $string = null):Characters|string;
 
     /**
      * ### Get character as codepoint

@@ -228,7 +228,7 @@ class Char implements Characters {
      * // X
      * ```
      */
-    public function string (string $string = null):static|string {
+    public function string (string $string = null):Characters|string {
 
         return !DataIs::null($string) && !empty($string)
             ? self::from($string)
