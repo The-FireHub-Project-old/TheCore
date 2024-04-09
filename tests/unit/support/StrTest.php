@@ -357,11 +357,54 @@ final class StrTest extends Base {
      */
     public function testContainsAll ():void {
 
+        $this->assertFalse($this->mixed->containsAll('ЛЙ', '123'));
+        $this->assertTrue($this->mixed->containsAll('ЛЙ', 'đščćž'));
+
+        $this->assertFalse($this->insensitive_string->containsAll('test', '123'));
+        $this->assertTrue($this->insensitive_string->containsAll('fir', 'hub'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testContainsAny ():void {
+
         $this->assertFalse($this->mixed->containsAny('test', '123'));
         $this->assertTrue($this->mixed->containsAny('ЛЙ', '123'));
 
         $this->assertFalse($this->insensitive_string->containsAny('test', '123'));
         $this->assertTrue($this->insensitive_string->containsAny('fir', '123'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEquals ():void {
+
+        $this->assertFalse( $this->string->equals('firehub'));
+        $this->assertTrue($this->string->equals('FireHub'));
+
+        $this->assertTrue( $this->insensitive_string->equals('firehub'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEqualsAny ():void {
+
+        $this->assertFalse($this->string->equalsAny('test', 'firehub'));
+        $this->assertTrue($this->string->equalsAny('test', 'FireHub'));
+
+        $this->assertTrue($this->insensitive_string->equalsAny('test', 'firehub'));
 
     }
 

@@ -269,6 +269,51 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->equals('FireHub');
+     *
+     * // true
+     * ```
+     */
+    public function equals (string $value):bool {
+
+        return $this->string === $value;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::equals() To check if a string equals the provided values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->equalsAny('FireHub', 'Fi');
+     *
+     * // true
+     * ```
+     */
+    public function equalsAny (...$values):bool {
+
+        foreach ($values as $value)
+            if ($this->equals($value)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::encoding() To get internal character encoding if default is not set.
      *

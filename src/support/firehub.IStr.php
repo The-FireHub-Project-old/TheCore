@@ -114,4 +114,30 @@ final class IStr extends Str {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert the string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->contains('firehub');
+     *
+     * // true
+     * ```
+     */
+    public function equals (string $value):bool {
+
+        $string = $this->string;
+
+        return StrMB::convert($value, CaseFolding::LOWER, $this->encoding)
+            === StrMB::convert($string, CaseFolding::LOWER, $this->encoding);
+
+    }
+
 }

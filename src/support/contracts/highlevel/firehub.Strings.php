@@ -53,7 +53,7 @@ interface Strings extends Stringable {
     /**
      * ### Checks if a string ends with a given value
      *
-     * Performs a case-sensitive check indicating if $string ends with $value.
+     * Performs a check indicating if $string ends with $value.
      * @since 1.0.0
      *
      * @param string $value <p>
@@ -69,7 +69,7 @@ interface Strings extends Stringable {
     /**
      * ### Checks if string contains value
      *
-     * Performs a case-sensitive check indicating if $string is contained in $string.
+     * Performs a check indicating if $string is contained in $string.
      * @since 1.0.0
      *
      * @param string $value <p>
@@ -109,6 +109,36 @@ interface Strings extends Stringable {
      * @return bool True if a string contains any of the values, false otherwise.
      */
     public function containsAny (...$values):bool;
+
+    /**
+     * ### Checks if string equals value
+     *
+     * Performs a case-sensitive check indicating if $string is contained in $string.
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string</code>
+     * The value to search for.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return bool True if a string equals value, false otherwise.
+     */
+    public function equals (string $value):bool;
+
+    /**
+     * ### Checks if string equals to any of the values
+     * @since 1.0.0
+     *
+     * @param string ...$values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to search for.
+     * </p>
+     * @phpstan-param non-empty-string $values
+     *
+     * @return bool True if a string equals to any of the values, false otherwise.
+     */
+    public function equalsAny (...$values):bool;
 
     /**
      * ### Get or change string encoding
