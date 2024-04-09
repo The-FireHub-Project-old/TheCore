@@ -175,6 +175,31 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::startsWith() To check if a string starts with a given value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->startsWithAny('Fire', 'test');
+     *
+     * // true
+     * ```
+     */
+    public function startsWithAny (string ...$values):bool {
+
+        foreach ($values as $value)
+            if ($this->startsWith($value)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::endsWith() To check if a string ends with a given value.
      *
      * @example
@@ -189,6 +214,31 @@ class Str implements Strings {
     public function endsWith (string $value):bool {
 
         return StrMB::endsWith($value, $this->string);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::endsWith() To check if a string ends with a given value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->endsWithAny('Hub', 'test');
+     *
+     * // true
+     * ```
+     */
+    public function endsWithAny (string ...$values):bool {
+
+        foreach ($values as $value)
+            if ($this->endsWith($value)) return true;
+
+        return false;
 
     }
 
@@ -230,7 +280,7 @@ class Str implements Strings {
      * // true
      * ```
      */
-    public function containsAll (...$values):bool {
+    public function containsAll (string ...$values):bool {
 
         foreach ($values as $value)
             if (!$this->contains($value)) return false;
@@ -255,7 +305,7 @@ class Str implements Strings {
      * // true
      * ```
      */
-    public function containsAny (...$values):bool {
+    public function containsAny (string ...$values):bool {
 
         foreach ($values as $value)
             if ($this->contains($value)) return true;
@@ -300,7 +350,7 @@ class Str implements Strings {
      * // true
      * ```
      */
-    public function equalsAny (...$values):bool {
+    public function equalsAny (string ...$values):bool {
 
         foreach ($values as $value)
             if ($this->equals($value)) return true;

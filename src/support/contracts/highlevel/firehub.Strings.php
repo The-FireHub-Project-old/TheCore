@@ -37,7 +37,7 @@ interface Strings extends Stringable {
     /**
      * ### Checks if a string starts with a given value
      *
-     * Performs a case-sensitive check indicating if $string begins with $value.
+     * Performs a check indicating if $string begins with $value.
      * @since 1.0.0
      *
      * @param string $value <p>
@@ -49,6 +49,22 @@ interface Strings extends Stringable {
      * @return bool True if string starts with value, false otherwise.
      */
     public function startsWith (string $value):bool;
+
+    /**
+     * ### Checks if a string starts with any of the given values
+     *
+     * Performs a check indicating if $string begins with $value.
+     * @since 1.0.0
+     *
+     * @param string ...$values <p>
+     * <code>non-empty-string></code>
+     * The value to search for.
+     * </p>
+     * @phpstan-param non-empty-string $values
+     *
+     * @return bool True if string starts with any of the given values, false otherwise.
+     */
+    public function startsWithAny (string ...$values):bool;
 
     /**
      * ### Checks if a string ends with a given value
@@ -65,6 +81,22 @@ interface Strings extends Stringable {
      * @return bool True if string ends with value, false otherwise.
      */
     public function endsWith (string $value):bool;
+
+    /**
+     * ### Checks if a string ends with any of the given values
+     *
+     * Performs a check indicating if $string begins with $value.
+     * @since 1.0.0
+     *
+     * @param string ...$values <p>
+     * <code>non-empty-string></code>
+     * The value to search for.
+     * </p>
+     * @phpstan-param non-empty-string $values
+     *
+     * @return bool True if string ends with any of the given values, false otherwise.
+     */
+    public function endsWithAny (string ...$values):bool;
 
     /**
      * ### Checks if string contains value
@@ -94,7 +126,7 @@ interface Strings extends Stringable {
      *
      * @return bool True if a string contains all values, false otherwise.
      */
-    public function containsAll (...$values):bool;
+    public function containsAll (string ...$values):bool;
 
     /**
      * ### Checks if string contains any of the values
@@ -108,7 +140,7 @@ interface Strings extends Stringable {
      *
      * @return bool True if a string contains any of the values, false otherwise.
      */
-    public function containsAny (...$values):bool;
+    public function containsAny (string ...$values):bool;
 
     /**
      * ### Checks if string equals value
@@ -138,7 +170,7 @@ interface Strings extends Stringable {
      *
      * @return bool True if a string equals to any of the values, false otherwise.
      */
-    public function equalsAny (...$values):bool;
+    public function equalsAny (string ...$values):bool;
 
     /**
      * ### Get or change string encoding

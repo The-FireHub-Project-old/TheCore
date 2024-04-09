@@ -325,6 +325,20 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testStartWithAny ():void {
+
+        $this->assertFalse($this->string->startsWithAny('fire', 'test'));
+        $this->assertTrue( $this->string->startsWithAny('Fire', 'test'));
+
+        $this->assertTrue($this->insensitive_string->startsWithAny('fire', 'test'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEndsWith ():void {
 
         $this->assertFalse($this->control->endsWith('Hub'));
@@ -332,6 +346,20 @@ final class StrTest extends Base {
         $this->assertTrue($this->mixed->endsWith('{:;'));
 
         $this->assertTrue($this->insensitive_string->endsWith('hub'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEndsWithAny ():void {
+
+        $this->assertFalse($this->string->endsWithAny('hub', 'test'));
+        $this->assertTrue( $this->string->endsWithAny('Hub', 'test'));
+
+        $this->assertTrue($this->insensitive_string->endsWithAny('hub', 'test'));
 
     }
 
