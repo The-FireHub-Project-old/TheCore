@@ -205,7 +205,7 @@ interface Strings extends Stringable {
      * @since 1.0.0
      *
      * @return int Length of the string.
-     * @phpstan-return positive-int
+     * @phpstan-return non-negative-int
      */
     public function length ():int;
 
