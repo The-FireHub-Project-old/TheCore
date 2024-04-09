@@ -25,7 +25,7 @@ use FireHub\Core\Support\Enums\String\CaseFolding;
  *
  * @api
  */
-final class InsensitiveStr extends Str {
+final class IStr extends Str {
 
     /**
      * @inheritDoc
@@ -40,7 +40,7 @@ final class InsensitiveStr extends Str {
      * ```php
      * use FireHub\Core\Support\Str;
      *
-     * Str::from('FireHub')->startsWith('Fire');
+     * Str::from('FireHub')->startsWith('fire');
      *
      * // true
      * ```
@@ -69,7 +69,7 @@ final class InsensitiveStr extends Str {
      * ```php
      * use FireHub\Core\Support\Str;
      *
-     * Str::from('FireHub')->endsWith('Hub');
+     * Str::from('FireHub')->endsWith('hub');
      *
      * // true
      * ```
@@ -98,7 +98,7 @@ final class InsensitiveStr extends Str {
      * ```php
      * use FireHub\Core\Support\Str;
      *
-     * Str::from('FireHub')->contains('ire');
+     * Str::from('FireHub')->contains('fire');
      *
      * // true
      * ```

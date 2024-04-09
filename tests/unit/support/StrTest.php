@@ -26,7 +26,7 @@ use FireHub\Core\Support\Strings\Expression\Pattern\Predefined\ {
     Chars, NotChars
 };
 use FireHub\Core\Support\ {
-    Char, Str, InsensitiveStr
+    Char, Str, IStr
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, DependsOnClass, RequiresOperatingSystemFamily
@@ -40,7 +40,7 @@ use Error;
  * @since 1.0.0
  */
 #[CoversClass(Str::class)]
-#[CoversClass(InsensitiveStr::class)]
+#[CoversClass(IStr::class)]
 #[CoversClass(Expression::class)]
 #[CoversClass(FunctionFamily::class)]
 #[CoversClass(Check::class)]
@@ -84,7 +84,7 @@ final class StrTest extends Base {
             Char::fromCodepoint(0, Encoding::UTF_8)->string(), Encoding::UTF_8
         );
         $this->string = Str::from('FireHub', Encoding::UTF_8);
-        $this->insensitive_string = InsensitiveStr::from('FireHub', Encoding::UTF_8);
+        $this->insensitive_string = IStr::from('FireHub', Encoding::UTF_8);
         $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', Encoding::UTF_8);
         $this->string_lower = Str::from('firehub', Encoding::UTF_8);
         $this->string_upper = Str::from('FIREHUB', Encoding::UTF_8);
@@ -347,6 +347,21 @@ final class StrTest extends Base {
         $this->assertTrue($this->mixed->contains('ЛЙ'));
 
         $this->assertTrue($this->insensitive_string->contains('rehu'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testContainsAll ():void {
+
+        $this->assertFalse($this->mixed->containsAny('test', '123'));
+        $this->assertTrue($this->mixed->containsAny('ЛЙ', '123'));
+
+        $this->assertFalse($this->insensitive_string->containsAny('test', '123'));
+        $this->assertTrue($this->insensitive_string->containsAny('fir', '123'));
 
     }
 

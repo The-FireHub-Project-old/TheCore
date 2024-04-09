@@ -83,6 +83,34 @@ interface Strings extends Stringable {
     public function contains (string $value):bool;
 
     /**
+     * ### Checks if string contains all values
+     * @since 1.0.0
+     *
+     * @param string ...$values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to search for.
+     * </p>
+     * @phpstan-param non-empty-string $values
+     *
+     * @return bool True if a string contains all values, false otherwise.
+     */
+    public function containsAll (...$values):bool;
+
+    /**
+     * ### Checks if string contains any of the values
+     * @since 1.0.0
+     *
+     * @param string ...$values <p>
+     * <code>non-empty-string[]</code>
+     * The list of values to search for.
+     * </p>
+     * @phpstan-param non-empty-string $values
+     *
+     * @return bool True if a string contains any of the values, false otherwise.
+     */
+    public function containsAny (...$values):bool;
+
+    /**
      * ### Get or change string encoding
      * @since 1.0.0
      *

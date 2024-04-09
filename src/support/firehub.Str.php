@@ -219,6 +219,56 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Str::contains() To check if a string contains any of the provided values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->containsAll('ire', 'Fi');
+     *
+     * // true
+     * ```
+     */
+    public function containsAll (...$values):bool {
+
+        foreach ($values as $value)
+            if (!$this->contains($value)) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::contains() To check if a string contains all the provided values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->containsAny('ire', 'Fi');
+     *
+     * // true
+     * ```
+     */
+    public function containsAny (...$values):bool {
+
+        foreach ($values as $value)
+            if ($this->contains($value)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::encoding() To get internal character encoding if default is not set.
      *
