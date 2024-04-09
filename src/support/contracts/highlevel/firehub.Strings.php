@@ -200,4 +200,13 @@ interface Strings extends Stringable {
      */
     public function string (string $string = null):self|string;
 
+    /**
+     * ### Get string length
+     * @since 1.0.0
+     *
+     * @return int Length of the string.
+     * @phpstan-return positive-int
+     */
+    public function length ():int;
+
 }

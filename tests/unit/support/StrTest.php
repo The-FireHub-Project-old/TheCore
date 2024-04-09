@@ -523,6 +523,18 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testLength ():void {
+
+        $this->assertSame(7,  $this->string->length());
+        $this->assertSame(27,  $this->mixed->length());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     #[Depends('testString')]
     public function testPrint ():void {
 

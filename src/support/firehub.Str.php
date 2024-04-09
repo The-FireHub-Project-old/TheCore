@@ -431,6 +431,28 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     *  @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get string length.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->length();
+     *
+     * // 7
+     * ```
+     */
+    public function length ():int {
+
+        return StrMB::length($this->string, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Str;
