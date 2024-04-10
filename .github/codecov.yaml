@@ -157,6 +157,22 @@ coverage:
     # Changes in coverage that are NOT included in the commit/pull diff, and report these changes as a commit status.
     changes: false
 
+component_management:
+
+  default_rules:
+
+    statuses:
+
+      - type: project
+        target: auto
+
+    individual_components:
+
+      - component_id: module_support
+        name: support
+        paths:
+          - src/support/**
+
 github_checks:
 
   annotations: true
