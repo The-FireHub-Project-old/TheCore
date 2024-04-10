@@ -1,24 +1,51 @@
 codecov:
 
+  # The age you want coverage reports to expire at, or if you want to disable this check. Expired reports will not be processed by codecov.
+  # max_report_age can be listed in hours '#h' (hours) or '#d' (days).
+  max_report_age: 24h
+
+  # Should Codecov's default path fixes be disabled.
+  disable_default_path_fixes: no
+
   # Should Codecov wait for all other statuses to pass before sending its status.
   require_ci_to_pass: yes
 
 comment:
-  behavior: test
+
+  behavior: default
+
   layout: reach,diff,flags,tree,reach
+
   show_carryforward_flags: false
+
 coverage:
+
+  # What precision do you want the coverage value to be (from 0 to 5).
   precision: 2
+
+  # The value range where you want the value to be green.
   range:
-    - 60.0
-    - 80.0
+    - 70
+    - 100
+
+  # Which direction to you want to round the coverage value.
+  # One of 'down', 'up', 'nearest'.
   round: down
+
   status:
+
     changes: false
+
     default_rules:
+
       flag_coverage_not_uploaded_behavior: include
+
     patch: true
+
     project: true
+
 github_checks:
+
   annotations: true
+
 slack_app: true
