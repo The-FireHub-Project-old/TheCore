@@ -41,6 +41,13 @@ The maintainer of this repo has not yet edited this section.
 
 Read our [Support](https://github.com/The-FireHub-Project/.github/blob/master/.github/SUPPORT.md) file that explains how you can get help with the repository and project.
 
+**This project has been extensively tested and here are the results with icicle graph:**
+
+<img src="https://codecov.io/gh/The-FireHub-Project/Core/graphs/icicle.svg?token=38D32MP5TL" width="100%" height="200px" alt="codecov_icicle_graph">
+
+> [!NOTE]
+> The top section represents the entire project. Proceeding with folders and finally individual files. The size and color of each slice is representing the number of statements and the coverage, respectively.
+
 ## Community
 
 ![GitHub watchers](https://img.shields.io/github/watchers/The-FireHub-Project/Core?style=social)
