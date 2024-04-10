@@ -45,9 +45,7 @@ coverage:
   precision: 2
 
   # The value range where you want the value to be green.
-  range:
-    - 60
-    - 80
+  range: 60..80
 
   # Which direction to you want to round the coverage value.
   # One of 'down', 'up', 'nearest'.
