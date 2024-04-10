@@ -140,4 +140,40 @@ final class IStr extends Str {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     */
+    public function carryFrom (string $find):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, false,
+            false, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     */
+    public function carryUntil (string $find):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, true,
+            false, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
 }

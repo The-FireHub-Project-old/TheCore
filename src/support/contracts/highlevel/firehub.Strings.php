@@ -201,6 +201,82 @@ interface Strings extends Stringable {
     public function string (string $string = null):self|string;
 
     /**
+     * ### Slice with part of the string
+     *
+     * Slice with part of the string specified by the $from and $until parameters.
+     * @since 1.0.0
+     *
+     * @param int $from <p>
+     * Returned string will start at the start position in string, counting from zero.
+     * </p>
+     * @param null|int $until [optional] <p>
+     * Returned string will end at the start position in string.
+     * If omitted or NULL is passed, extract all characters to the end of the string.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $end is omitted, the function extracts the remaining string.
+     * @tip If $end is negative, it is computed from the end of the string.
+     */
+    public function slice (int $from, ?int $until = null):self;
+
+    /**
+     * ### Carry with part of the string
+     *
+     * Carry with part of the string specified by the $from and $length parameters.
+     * @since 1.0.0
+     *
+     * @param int $from <p>
+     * If start is non-negative, the returned string will start at the start position in string, counting from zero.
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.
+     * If the start is negative, the returned string will start at the start character from the end of the string.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * Maximum number of characters to use from string.
+     * If omitted or NULL is passed, extract all characters to the end of the string.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $length is negative, it is computed from the end of the string.
+     */
+    public function carry (int $from, ?int $length = null):self;
+
+    /**
+     * ### Carry from part of the string
+     *
+     * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $length is negative, it is computed from the end of the string.
+     */
+    public function carryFrom (string $find):self;
+
+    /**
+     * ### Carry until part of the string
+     *
+     * Returns part of $string starting from the beginning until the first occurrence of $find.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $length is negative, it is computed from the end of the string.
+     */
+    public function carryUntil (string $find):self;
+
+    /**
      * ### Get string length
      * @since 1.0.0
      *

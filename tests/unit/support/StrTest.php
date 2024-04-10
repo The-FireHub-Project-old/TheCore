@@ -523,6 +523,55 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testSlice ():void {
+
+        $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());
+        $this->assertSame('eHu',  $this->string->slice(2)->string());
+        $this->assertSame('eH',  $this->string->slice(-5, 2)->string());
+        $this->assertSame('đš',  $this->mixed->slice(0, 2)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCarry ():void {
+
+        $this->assertSame('ćž 诶杰艾',  $this->mixed->carry(3, 6)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCarryFrom ():void {
+
+        $this->assertSame('ЛЙ ÈßÁ カタカナ }{:;',  $this->mixed->carryFrom('ЛЙ')->string());
+        $this->assertSame('Hub',  $this->insensitive_string->carryFrom('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCarryUntil ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ',  $this->mixed->carryUntil('ЛЙ')->string());
+        $this->assertSame('Fire',  $this->insensitive_string->carryUntil('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLength ():void {
 
         $this->assertSame(7,  $this->string->length());

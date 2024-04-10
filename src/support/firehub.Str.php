@@ -19,7 +19,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
 };
 use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
-    DataIs, StrMB
+    DataIs, NumInt, StrMB
 };
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error, ValueError, Stringable;
@@ -31,6 +31,8 @@ use Error, ValueError, Stringable;
  * @since 1.0.0
  *
  * @api
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 class Str implements Strings {
 
@@ -427,6 +429,149 @@ class Str implements Strings {
     }
 
     /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->slice(3);
+     *
+     * // Fir
+     * ```
+     * @example Getting slice of string with passed $until argument.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->slice(3, 5);
+     *
+     * // eHu
+     * ```
+     * @example Getting slice of string with negative $until argument.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('FireHub')->slice(1, -1);
+     *
+     *  // ireHu
+     *  ```
+     */
+    public function slice (int $from, ?int $until = null):self {
+
+        $from = NumInt::max($from, 0);
+
+        $this->string = StrMB::part($this->string, $from, match (true) {
+            $until === null => $this->length(),
+            $until >= 0 && $until <= $from => 0,
+            $until < 0 => $this->length() + $until - $from,
+            default => $until - $from
+        }, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->carry(3);
+     *
+     * // eHub
+     * ```
+     * @example Getting part of string with passed length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->carry(3, 2);
+     *
+     * // eH
+     * ```
+     * @example $from and $length parameters can also be negative.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('FireHub')->carry(-3, -1);
+     *
+     *  // Hu
+     *  ```
+     */
+    public function carry (int $from, ?int $length = null):self {
+
+        $this->string = StrMB::part($this->string, $from, $length, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryFrom('Web');
+     *
+     * // Web App
+     * ```
+     */
+    public function carryFrom (string $find):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, false,
+            true, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryUntil('Web');
+     *
+     * // FireHub
+     * ```
+     */
+    public function carryUntil (string $find):self {
+
+        $this->string = StrMB::firstPart(
+            $find, $this->string, true,
+            true, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+
+        /**
      * @inheritDoc
      *
      * @since 1.0.0
