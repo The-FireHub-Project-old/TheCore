@@ -570,8 +570,61 @@ class Str implements Strings {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryFromLast('Web');
+     *
+     * // Web App
+     * ```
+     */
+    public function carryFromLast (string $find):self {
 
-        /**
+        $this->string = StrMB::lastPart(
+            $find, $this->string, false,
+            true, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryUntilLast('Web');
+     *
+     * // FireHub
+     * ```
+     */
+    public function carryUntilLast (string $find):self {
+
+        $this->string = StrMB::lastPart(
+            $find, $this->string, true,
+            true, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

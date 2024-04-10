@@ -277,6 +277,35 @@ interface Strings extends Stringable {
     public function carryUntil (string $find):self;
 
     /**
+     * ### Carry from the last part of a string
+     *
+     * This function returns the portion of $string which starts at the last occurrence of and including $find
+     * and goes until the end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function carryFromLast (string $find):self;
+
+    /**
+     * ### Carry until the last part of a string
+     *
+     * Returns part of $string starting from the beginning until and goes until the last occurrence of $find.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function carryUntilLast (string $find):self;
+
+    /**
      * ### Get string length
      * @since 1.0.0
      *

@@ -176,4 +176,40 @@ final class IStr extends Str {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     */
+    public function carryFromLast (string $find):self {
+
+        $this->string = StrMB::lastPart(
+            $find, $this->string, false,
+            false, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPart() To get the last part of a string.
+     */
+    public function carryUntilLast (string $find):self {
+
+        $this->string = StrMB::lastPart(
+            $find, $this->string, true,
+            false, $this->encoding
+        ) ?: '';
+
+        return $this;
+
+    }
+
 }

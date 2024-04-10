@@ -572,6 +572,30 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testCarryFromLast ():void {
+
+        $this->assertSame('カナ }{:;',  $this->mixed->carryFromLast('カ')->string());
+        $this->assertSame('Hub',  $this->insensitive_string->carryFromLast('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCarryUntilLast ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタ',  $this->mixed->carryUntilLast('カ')->string());
+        $this->assertSame('Fire',  $this->insensitive_string->carryUntilLast('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLength ():void {
 
         $this->assertSame(7,  $this->string->length());
