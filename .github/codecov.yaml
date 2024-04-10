@@ -1,0 +1,43 @@
+codecov:
+
+  # The age you want coverage reports to expire at, or if you want to disable this check. Expired reports will not be processed by codecov.
+  # max_report_age can be listed in hours '#h' (hours) or '#d' (days).
+  max_report_age: '24h'
+
+  # Should Codecov's default path fixes be disabled.
+  disable_default_path_fixes: no
+
+  # Should Codecov wait for all other statuses to pass before sending its status.
+  require_ci_to_pass: yes
+
+  notify:
+
+    # How many uploaded reports Codecov should wait to receive before sending statuses.
+    after_n_builds: 1
+
+    # Should Codecov wait for all CI statuses to complete before sending ours.
+    # Codecov considers all non-codecov statuses to be CI statuses.
+    wait_for_ci: yes
+
+    # Codecov will trigger no notifications or statuses until explicitly told do so by the CLI. This setting is helpful if your CI upload pipeline uploads a
+    # variable number of coverage reports per commit, and you would prefer to get no notifications from Codecov until Codecov is told to do so (e.g., at the
+    # end of the CI process).
+    manual_trigger: false
+
+  coverage:
+
+    # What precision do you want the coverage value to be (from 0 to 5).
+    precision: 2
+
+    # Which direction to you want to round the coverage value.
+    # One of 'down', 'up', 'nearest'.
+    round: down
+
+    # The value range where you want the value to be green.
+    range: 70..100
+
+  github_checks:
+
+    annotations: true
+
+  slack_app: true
