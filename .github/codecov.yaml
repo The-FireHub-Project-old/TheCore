@@ -10,12 +10,33 @@ codecov:
   # Should Codecov wait for all other statuses to pass before sending its status.
   require_ci_to_pass: yes
 
+# The Codecov pull request comment is a quick overview of how a pull request (and relevant commits) will affect the code coverage.
+# This simple integration allows developers to see the effects of their work, without having to leave the familiar GitHub UI.
+# The PR comment provides details on the coverage changes in the pull request that help with speeding up code reviews,
+# and ensuring that all incoming features and fixes are well tested.
+# The comment is customizable to adjust the behavior and logic, as well as the actual output, please see below for configuration details.
 comment:
 
-  behavior: default
-
+  # Customize your comment layout by choosing the order and types of components to include.
+  # The following are components you can add or choose to opt out of.
+  # Omitting any of these from your layout will cause them to not show up.
   layout: reach,diff,flags,tree,reach
 
+  # Choose the way Codecov submits comments in your pull requests.
+  #  default: update, if exists. Otherwise, post new.
+  # - once: update, if exists. Otherwise, post new. Skip if deleted.
+  # - new: delete old and post new.
+  behavior: default
+
+  # You can force comments to post on pull requests even if Codecov doesn't have coverage reports for either the base or head commit.
+  # This generally isn't recommended since, without base and head coverage report information, the resulting comment is not very helpful.
+  # However, setting both require_base and require_head to false can allow you to test the ability of Codecov to post a comment to your
+  # pull requests without needing to upload coverage for both the base and head commit.
+  require_head: true
+  require_base: true
+
+  # For those using the CarryForward Flags feature, CarryForward Flags do not show in the pull request
+  # comment by default.
   show_carryforward_flags: false
 
 coverage:
@@ -32,20 +53,33 @@ coverage:
   # One of 'down', 'up', 'nearest'.
   round: down
 
+  # Useful for blocking Pull Requests that don't meet a particular coverage threshold.
   status:
 
-    changes: false
-
+    # This behavior will be applied to all checks by default.
     default_rules:
 
+      # Determines how we handle status checks for which no flag coverage has been newly uploaded on a commit.
+      # This includes status checks where flags have carried forward coverage (since coverage was no newly uploaded),
+      # as well as flags for which coverage is missing entirely.
+      # - include: (default) All the status checks defined in the YAML file will be processed and sent as normal.
+      # - exclude: Status checks that haven't newly uploaded any flag coverage will not be sent.
+      # - pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically.
       flag_coverage_not_uploaded_behavior: include
 
+    # Measures overall project coverage and compares it against the base of the pull request or parent commit.
+    project: true
+
+    # Only measures lines adjusted in the pull request or single commit, if the commit is not in a pull request.
+    # This status provides an indication on how well the pull request is tested.
     patch: true
 
-    project: true
+    # Changes in coverage that are NOT included in the commit/pull diff, and report these changes as a commit status.
+    changes: false
 
 github_checks:
 
   annotations: true
 
+# Toggle the sending of notifications through the Codecov Slack App
 slack_app: true
