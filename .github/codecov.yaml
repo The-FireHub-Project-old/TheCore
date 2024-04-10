@@ -4,7 +4,7 @@ codecov:
   require_ci_to_pass: yes
 
 comment:
-  behavior: default
+  behavior: test
   layout: reach,diff,flags,tree,reach
   show_carryforward_flags: false
 coverage:
