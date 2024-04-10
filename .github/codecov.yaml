@@ -2,7 +2,7 @@ codecov:
 
   # The age you want coverage reports to expire at, or if you want to disable this check. Expired reports will not be processed by codecov.
   # max_report_age can be listed in hours '#h' (hours) or '#d' (days).
-  max_report_age: 24h
+  max_report_age: 12
 
   # Should Codecov's default path fixes be disabled.
   disable_default_path_fixes: no
