@@ -310,6 +310,30 @@ interface Strings extends Stringable {
      */
     public function length ():int;
 
+    /**
+     * ### Find the position of the first occurrence of a substring
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return int|false Position of the first occurrence of a substring.
+     * @phpstan-return non-negative-int|false
+     */
+    public function indexOf (string $find):int|false;
 
+    /**
+     * ### Find the position of the last occurrence of a substring
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return int|false Position of the last occurrence of a substring.
+     * @phpstan-return non-negative-int|false
+     */
+    public function lastIndexOf (string $find):int|false;
 
 }
