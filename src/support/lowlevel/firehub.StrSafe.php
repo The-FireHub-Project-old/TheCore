@@ -169,19 +169,14 @@ abstract class StrSafe {
      * @since 1.0.0
      *
      * @param string $string <p>
-     * <code>non-empty-string</code>
      * The input string.
      * </p>
-     * @phpstan-param non-empty-string $string
-     *
-     * @throws Error If empty string is given as string.
      *
      * @return string The string with meta-characters quoted.
      */
     final public static function quoteMeta (string $string):string {
 
-        return quotemeta($string)
-            ?: throw new Error('Empty string is given as string.');
+        return quotemeta($string);
 
     }
 
