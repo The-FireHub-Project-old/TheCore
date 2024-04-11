@@ -592,6 +592,19 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testStripTags ():void {
+
+        $this->assertSame("FireHub", Str::from('<p>FireHub</p>')->stripTags()->string());
+        $this->assertSame("<p>FireHub</p>", Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>')->string());
+        $this->assertSame("<p><a>FireHub</a></p>", Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>'])->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());

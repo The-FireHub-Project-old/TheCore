@@ -629,6 +629,50 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::stripTags() To strip HTML and PHP tags from a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('<p>FireHub</p>')->stripTags();
+     *
+     * // FireHub
+     * ```
+     * @example With $allowed_tags parameter, you allow certain tags to be excluded for the strip.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>');
+     *
+     *  // <p>FireHub</p>
+     *  ```
+     * @example Alternatively, you can use array in $allowed_tags parameter to allow multiple tags.
+     *  ```php
+     *  use FireHub\Core\Support\Str;
+     *
+     *  Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>']);
+     *
+     *  // <p><a>FireHub</a></p>
+     *  ```
+     *
+     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * For example, to allow both <br> and <br/>, you should use: <br>.
+     * </p>
+     */
+    public function stripTags (null|string|array $allowed_tags = null):self {
+
+        $this->string = StrMB::stripTags($this->string, $allowed_tags);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *

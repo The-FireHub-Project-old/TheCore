@@ -262,6 +262,26 @@ interface Strings extends Stringable {
     public function stripSlashes ():self;
 
     /**
+     * ### Strip HTML and PHP tags from a string
+     *
+     * This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given string.
+     * It uses the same tag stripping state machine as the fgetss() function.
+     * @since 1.0.0
+     *
+     * @param null|string|array $allowed_tags <p>
+     * <code><![CDATA[ null|string|array<int, string> ]]></code>
+     * You can use the optional second parameter to specify tags which should not be stripped.
+     * @phpstan-param null|string|array<int, string> $allowed_tags
+     *
+     * @return $this This string.
+     *
+     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * For example, to allow both <br> and <br/>, you should use: <br>.
+     * </p>
+     */
+    public function stripTags (null|string|array $allowed_tags = null):self;
+
+    /**
      * ### Slice with part of the string
      *
      * Slice with part of the string specified by the $from and $until parameters.
