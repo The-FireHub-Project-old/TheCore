@@ -523,6 +523,28 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testToLower ():void {
+
+        $this->assertSame('firehub', $this->string->toLower()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testToUpper ():void {
+
+        $this->assertSame('FIREHUB', $this->string->toUpper()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());

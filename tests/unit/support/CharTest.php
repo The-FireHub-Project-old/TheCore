@@ -168,6 +168,28 @@ final class CharTest extends Base {
      *
      * @return void
      */
+    public function testToLower ():void {
+
+        $this->assertSame('y', $this->char_upper->toLower()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testToUpper ():void {
+
+        $this->assertSame('X', $this->char_lower->toUpper()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCodepoint ():void {
 
         $this->assertSame(

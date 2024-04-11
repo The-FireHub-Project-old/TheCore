@@ -201,6 +201,22 @@ interface Strings extends Stringable {
     public function string (string $string = null):self|string;
 
     /**
+     * ### Make a string lowercase
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function toLower ():self;
+
+    /**
+     * ### Make a string uppercase
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function toUpper ():self;
+
+    /**
      * ### Slice with part of the string
      *
      * Slice with part of the string specified by the $from and $until parameters.

@@ -19,7 +19,9 @@ use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
     CharMB, DataIs, StrMB
 };
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\ {
+    CaseFolding, Encoding
+};
 use Error, ValueError;
 
 /**
@@ -54,7 +56,7 @@ class Char implements Characters {
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values.
      */
     public function __construct (
-        private readonly string $character,
+        private string $character,
         private ?Encoding $encoding = null
     ) {
 
@@ -233,6 +235,56 @@ class Char implements Characters {
         return !DataIs::null($string) && !empty($string)
             ? self::from($string)
             : $this->character;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert character.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase character.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Char;
+     *
+     * Char::fromString('F')->toLower();
+     *
+     * // f
+     * ```
+     */
+    public function toLower ():self {
+
+        $this->character = StrMB::convert($this->character, CaseFolding::LOWER, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert character.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::UPPER To uppercase character.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Char;
+     *
+     * Char::fromString('f')->toUpper();
+     *
+     * // F
+     * ```
+     */
+    public function toUpper ():self {
+
+        $this->character = StrMB::convert($this->character, CaseFolding::UPPER, $this->encoding);
+
+        return $this;
 
     }
 

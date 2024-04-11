@@ -21,7 +21,9 @@ use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, NumInt, StrMB
 };
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\ {
+    CaseFolding, Encoding
+};
 use Error, ValueError, Stringable;
 
 /**
@@ -433,6 +435,56 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To convert string to lowercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->toLower();
+     *
+     * // firehub
+     * ```
+     */
+    public function toLower ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::LOWER, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::UPPER To convert string to uppercase.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->toUpper();
+     *
+     * // FIREHUB
+     * ```
+     */
+    public function toUpper ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::UPPER, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *
@@ -534,10 +586,8 @@ class Str implements Strings {
      */
     public function carryFrom (string $find):self {
 
-        $this->string = StrMB::firstPart(
-            $find, $this->string, false,
-            true, $this->encoding
-        ) ?: '';
+        $this->string = StrMB::firstPart($find, $this->string, false, true, $this->encoding)
+            ?: '';
 
         return $this;
 
@@ -587,10 +637,8 @@ class Str implements Strings {
      */
     public function carryUntil (string $find):self {
 
-        $this->string = StrMB::firstPart(
-            $find, $this->string, true,
-            true, $this->encoding
-        ) ?: '';
+        $this->string = StrMB::firstPart($find, $this->string, true, true, $this->encoding)
+            ?: '';
 
         return $this;
 
@@ -614,10 +662,8 @@ class Str implements Strings {
      */
     public function carryFromLast (string $find):self {
 
-        $this->string = StrMB::lastPart(
-            $find, $this->string, false,
-            true, $this->encoding
-        ) ?: '';
+        $this->string = StrMB::lastPart($find, $this->string, false, true, $this->encoding)
+            ?: '';
 
         return $this;
 
@@ -667,10 +713,8 @@ class Str implements Strings {
      */
     public function carryUntilLast (string $find):self {
 
-        $this->string = StrMB::lastPart(
-            $find, $this->string, true,
-            true, $this->encoding
-        ) ?: '';
+        $this->string = StrMB::lastPart($find, $this->string, true, true, $this->encoding)
+            ?: '';
 
         return $this;
 

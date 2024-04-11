@@ -59,6 +59,22 @@ interface Characters extends Stringable {
     public function string (string $string = null):Characters|string;
 
     /**
+     * ### Make a character lowercase
+     * @since 1.0.0
+     *
+     * @return $this This character.
+     */
+    public function toLower ():self;
+
+    /**
+     * ### Make a character uppercase
+     * @since 1.0.0
+     *
+     * @return $this This character.
+     */
+    public function toUpper ():self;
+
+    /**
      * ### Get character as codepoint
      * @since 1.0.0
      *
