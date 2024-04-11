@@ -241,6 +241,27 @@ interface Strings extends Stringable {
     public function deCapitalize ():self;
 
     /**
+     * ### Quote string with slashes
+     *
+     * Backslashes are added before characters that need to be escaped:
+     * (single quote, double quote, backslash, NUL).
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function addSlashes ():self;
+
+    /**
+     * ### Un-quotes a quoted string
+     *
+     * Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash).
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function stripSlashes ():self;
+
+    /**
      * ### Slice with part of the string
      *
      * Slice with part of the string specified by the $from and $until parameters.

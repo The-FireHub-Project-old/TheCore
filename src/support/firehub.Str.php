@@ -573,6 +573,62 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from("Is your name O'Reilly?")->addSlashes();
+     *
+     * // Is your name O\'Reilly?
+     * ```
+     *
+     * @caution The [[StrSafe#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
+     * database-specific escaping functions and/or prepared statements should be used.
+     */
+    public function addSlashes ():self {
+
+        $this->string = StrMB::addSlashes($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::stripSlashes() To un-quote a quoted string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Is your name O\'Reilly?')->stripSlashes();
+     *
+     * // Is your name O'Reilly?
+     * ```
+     *
+     * @note [[StrSafe#stripSlashes()]] is not recursive. If you want to apply this function to multidimensional
+     * array, you need to use a recursive function.
+     * @tip [[StrSafe#stripSlashes()]] can be used if you aren't inserting this data into a place (such as a database)
+     * that requires escaping. For example, if you're simply outputting data straight from an HTML form.
+     */
+    public function stripSlashes ():self {
+
+        $this->string = StrMB::stripSlashes($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *

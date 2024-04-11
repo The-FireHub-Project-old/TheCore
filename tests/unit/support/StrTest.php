@@ -578,6 +578,20 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testSlashes ():void {
+
+        $string = Str::from("Is your name O'Reilly?");
+
+        $this->assertSame("Is your name O\'Reilly?", $string->addSlashes()->string());
+        $this->assertSame("Is your name O'Reilly?", $string->stripSlashes()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());
