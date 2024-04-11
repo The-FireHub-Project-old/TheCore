@@ -295,6 +295,7 @@ final class StrMB extends StrSafe {
      * </p>
      *
      * @return false|int Numeric position of the first occurrence or false if none exist.
+     * @phpstan-return non-negative-int|false
      */
     public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
 
@@ -327,6 +328,7 @@ final class StrMB extends StrSafe {
      * </p>
      *
      * @return false|int Numeric position of the last occurrence or false if none exist.
+     * @phpstan-return non-negative-int|false
      */
     public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
 
