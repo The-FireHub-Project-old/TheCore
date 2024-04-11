@@ -548,6 +548,32 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses static::carry() To get last part for string.
+     * @uses static::indexOf() To get position of $find.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryAfter('Web ');
+     *
+     * // App
+     * ```
+     */
+    public function carryAfter (string $find):self {
+
+        $this->string = $this->carry($this->indexOf($find) + StrMB::length($find, $this->encoding))->string;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
      *
      * @example
@@ -592,6 +618,32 @@ class Str implements Strings {
             $find, $this->string, false,
             true, $this->encoding
         ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses static::carry() To get last part for string.
+     * @uses static::lastIndexOf() To get lst position of $find.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->carryAfter('Web ');
+     *
+     * // App
+     * ```
+     */
+    public function carryAfterLast (string $find):self {
+
+        $this->string = $this->carry($this->lastIndexOf($find) + StrMB::length($find, $this->encoding))->string;
 
         return $this;
 

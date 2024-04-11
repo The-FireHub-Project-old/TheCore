@@ -259,6 +259,20 @@ interface Strings extends Stringable {
     public function carryFrom (string $find):self;
 
     /**
+     * ### Carry from part of the string
+     *
+     * Returns part of $string starting from the first occurrence of $find to the end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function carryAfter (string $find):self;
+
+    /**
      * ### Carry until part of the string
      *
      * Returns part of $string starting from the beginning until the first occurrence of $find.
@@ -286,6 +300,20 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function carryFromLast (string $find):self;
+
+    /**
+     * ### Carry from the last part of the string
+     *
+     * Returns last part of $string starting from the first occurrence of $find to the end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function carryAfterLast (string $find):self;
 
     /**
      * ### Carry until the last part of a string
