@@ -30,11 +30,14 @@ use Error, ValueError, Stringable;
  * ### String high-level class
  *
  * Class allows you to manipulate strings in various ways.
+ *
  * @since 1.0.0
  *
  * @api
  *
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Str implements Strings {
 
@@ -485,6 +488,91 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::TITLE To convert string to title-case.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub web app')->toTitle();
+     *
+     * // Firehub Web App
+     * ```
+     */
+    public function toTitle ():self {
+
+        $this->string = StrMB::convert($this->string, CaseFolding::TITLE, $this->encoding);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To perform case folding on a string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::UPPER To uppercase the first character of a string.
+     * @uses static::carry() To carry parts of the string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('firehub')->capitalize();
+     *
+     * // Firehub
+     * ```
+     */
+    public function capitalize ():self {
+
+        $this->string = StrMB::convert(
+                (clone $this)->carry(0, 1)->string,
+                CaseFolding::UPPER,
+                $this->encoding
+            ).$this->carry(1);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To perform case folding on a string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase the first character of a string.
+     * @uses static::carry() To carry parts of the string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->deCapitalize();
+     *
+     * // fireHub
+     * ```
+     */
+    public function deCapitalize ():self {
+
+        $this->string = StrMB::convert(
+                (clone $this)->carry(0, 1)->string,
+                CaseFolding::LOWER,
+                $this->encoding
+            ).$this->carry(1);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *
@@ -586,8 +674,9 @@ class Str implements Strings {
      */
     public function carryFrom (string $find):self {
 
-        $this->string = StrMB::firstPart($find, $this->string, false, true, $this->encoding)
-            ?: '';
+        $this->string = StrMB::firstPart(
+            $find, $this->string, false, true, $this->encoding
+        ) ?: '';
 
         return $this;
 
@@ -637,8 +726,9 @@ class Str implements Strings {
      */
     public function carryUntil (string $find):self {
 
-        $this->string = StrMB::firstPart($find, $this->string, true, true, $this->encoding)
-            ?: '';
+        $this->string = StrMB::firstPart(
+            $find, $this->string, true, true, $this->encoding
+        ) ?: '';
 
         return $this;
 
@@ -662,8 +752,9 @@ class Str implements Strings {
      */
     public function carryFromLast (string $find):self {
 
-        $this->string = StrMB::lastPart($find, $this->string, false, true, $this->encoding)
-            ?: '';
+        $this->string = StrMB::lastPart(
+            $find, $this->string, false, true, $this->encoding
+        ) ?: '';
 
         return $this;
 
@@ -713,8 +804,9 @@ class Str implements Strings {
      */
     public function carryUntilLast (string $find):self {
 
-        $this->string = StrMB::lastPart($find, $this->string, true, true, $this->encoding)
-            ?: '';
+        $this->string = StrMB::lastPart(
+            $find, $this->string, true, true, $this->encoding
+        ) ?: '';
 
         return $this;
 

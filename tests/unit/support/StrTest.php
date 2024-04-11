@@ -545,6 +545,39 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testToTitle ():void {
+
+        $this->assertSame('Đščćž 诶杰艾玛 Лй Èßá カタカナ }{:;', $this->mixed->toTitle()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCapitalize ():void {
+
+        $this->assertSame('Đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', $this->mixed->capitalize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDeCapitalize ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', $this->mixed->deCapitalize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());
