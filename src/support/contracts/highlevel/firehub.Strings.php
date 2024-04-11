@@ -255,8 +255,6 @@ interface Strings extends Stringable {
      * </p>
      *
      * @return $this This string.
-     *
-     * @tip If $length is negative, it is computed from the end of the string.
      */
     public function carryFrom (string $find):self;
 
@@ -271,8 +269,6 @@ interface Strings extends Stringable {
      * </p>
      *
      * @return $this This string.
-     *
-     * @tip If $length is negative, it is computed from the end of the string.
      */
     public function carryUntil (string $find):self;
 
@@ -313,5 +309,7 @@ interface Strings extends Stringable {
      * @phpstan-return non-negative-int
      */
     public function length ():int;
+
+
 
 }

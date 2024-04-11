@@ -608,6 +608,34 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testIndexOf ():void {
+
+        $this->assertSame(4,  $this->string->indexOf('H'));
+        $this->assertFalse($this->string->indexOf('h'));
+        $this->assertSame(4,  $this->insensitive_string->indexOf('h'));
+        $this->assertSame(18,  $this->mixed->indexOf('カ'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLastIndexOf ():void {
+
+        $this->assertSame(4,  $this->string->lastIndexOf('H'));
+        $this->assertFalse($this->string->lastIndexOf('h'));
+        $this->assertSame(4,  $this->insensitive_string->lastIndexOf('h'));
+        $this->assertSame(20,  $this->mixed->lastIndexOf('カ'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     #[Depends('testString')]
     public function testPrint ():void {
 

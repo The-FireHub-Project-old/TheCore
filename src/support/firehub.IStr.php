@@ -212,4 +212,48 @@ final class IStr extends Str {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence of a substring in a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->indexOf('Web');
+     *
+     * // 8
+     * ```
+     */
+    public function indexOf (string $find):int|false {
+
+        return StrMB::firstPosition($find, $this->string, false, 0, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position of the last occurrence of a substring in a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->lastIndexOf('e');
+     *
+     * // 9
+     * ```
+     */
+    public function lastIndexOf (string $find):int|false {
+
+        return StrMB::lastPosition($find, $this->string, false, 0, $this->encoding);
+
+    }
+
 }
