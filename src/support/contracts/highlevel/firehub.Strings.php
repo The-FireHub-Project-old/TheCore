@@ -282,6 +282,16 @@ interface Strings extends Stringable {
     public function stripTags (null|string|array $allowed_tags = null):self;
 
     /**
+     * ### Quote meta characters
+     *
+     * Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function quoteMeta ():self;
+
+    /**
      * ### Slice with part of the string
      *
      * Slice with part of the string specified by the $from and $until parameters.

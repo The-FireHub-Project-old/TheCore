@@ -605,6 +605,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testQuoteMeta ():void {
+
+        $this->assertSame("FireHub\?", Str::from('FireHub?')->quoteMeta()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());

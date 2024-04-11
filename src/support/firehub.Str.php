@@ -673,6 +673,30 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::quoteMeta() To quote meta characters.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub?')->quoteMeta();
+     *
+     * // FireHub\?
+     * ```
+     */
+    public function quoteMeta ():self {
+
+        $this->string = StrMB::quoteMeta($this->string);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *
