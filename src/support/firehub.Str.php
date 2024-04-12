@@ -26,6 +26,8 @@ use FireHub\Core\Support\Enums\String\ {
 };
 use Error, ValueError, Stringable;
 
+use function FireHub\Core\Support\Helpers\String\asBoolean;
+
 /**
  * ### String high-level class
  *
@@ -37,6 +39,7 @@ use Error, ValueError, Stringable;
  *
  * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Str implements Strings {
@@ -933,6 +936,28 @@ class Str implements Strings {
         ) ?: '';
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Yes')->asBoolean();
+     *
+     * // true
+     * ```
+     */
+    public function asBoolean ():bool {
+
+        return asBoolean($this->string);
 
     }
 

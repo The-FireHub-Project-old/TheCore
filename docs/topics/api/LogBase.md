@@ -63,7 +63,7 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#value()">value</a>|### Get log value|
+|public|<a href="#value()">value</a>|### Get the numerical value of the logarithmic base|
 
 ## method: value {id="value()"}
 
@@ -83,7 +83,7 @@
 
 
 
-### ### Get log value
+### ### Get the numerical value of the logarithmic base
 
 
 

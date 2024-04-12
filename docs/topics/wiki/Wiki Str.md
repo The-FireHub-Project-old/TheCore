@@ -1,13 +1,12 @@
 ```php
-final class \FireHub\Core\Support\Str()
+class \FireHub\Core\Support\Str()
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This class is marked as **final**.
+
 
 
 
@@ -20,7 +19,7 @@ _Class allows you to manipulate strings in various ways._
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\Str**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L34)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L44)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/firehub.Str.php)**</sub>
 
@@ -31,47 +30,53 @@ _Class allows you to manipulate strings in various ways._
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public static |<a href="#from()">from</a>|### Create a new string from raw string|
 |public static |<a href="#fromlist()">fromList</a>|### Create a new string from array elements with a string|
-|public|<a href="#isempty()">isEmpty</a>|### Checks if string is empty|
-|public|<a href="#islower()">isLower</a>|### Checks if string is lowercase|
-|public|<a href="#isupper()">isUpper</a>|### Checks if string is uppercase|
-|public|<a href="#isalphabetic()">isAlphabetic</a>|### Checks if string is alphabetic|
-|public|<a href="#isalphanumeric()">isAlphanumeric</a>|### Checks if string is alphanumeric|
-|public|<a href="#isblank()">isBlank</a>|### Checks if string is whitespace|
-|public|<a href="#isnumeric()">isNumeric</a>|### Checks if string is numeric|
-|public|<a href="#ishexadecimal()">isHexadecimal</a>|### Checks if string is hexadecimal|
-|public|<a href="#iscontrol()">isControl</a>|### Checks if string is control code|
-|public|<a href="#isprintable()">isPrintable</a>|### Checks if string is printable|
-|public|<a href="#isgraphical()">isGraphical</a>|### Checks if string is graphical|
-|public|<a href="#ispunctuation()">isPunctuation</a>|### Checks if string is punctuation|
-|public|<a href="#isascii()">isASCII</a>|### Checks if string is ASCII|
-|public|<a href="#iscapitalized()">isCapitalized</a>|### Checks if first character of string uppercased|
-|public|<a href="#haslower()">hasLower</a>|### Checks if string has lowercase|
-|public|<a href="#hasupper()">hasUpper</a>|### Checks if string has uppercase|
-|public|<a href="#hasalphabetic()">hasAlphabetic</a>|### Checks if string has alphabetic|
-|public|<a href="#hasalphanumeric()">hasAlphanumeric</a>|### Checks if string has alphanumeric|
-|public|<a href="#hasblank()">hasBlank</a>|### Checks if string has whitespace|
-|public|<a href="#hasnumeric()">hasNumeric</a>|### Checks if string has numeric|
-|public|<a href="#hashexadecimal()">hasHexadecimal</a>|### Checks if string has hexadecimal|
-|public|<a href="#hascontrol()">hasControl</a>|### Checks if string has control code|
-|public|<a href="#hasprintable()">hasPrintable</a>|### Checks if string has printable|
-|public|<a href="#hasgraphical()">hasGraphical</a>|### Checks if string has graphical|
-|public|<a href="#haspunctuation()">hasPunctuation</a>|### Checks if string has punctuation|
-|public|<a href="#encoding()">encoding</a>|### Change character encoding|
+|public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#startswith()">startsWith</a>|### Checks if a string starts with a given value|
+|public|<a href="#startswithany()">startsWithAny</a>|### Checks if a string starts with any of the given values|
+|public|<a href="#endswith()">endsWith</a>|### Checks if a string ends with a given value|
+|public|<a href="#endswithany()">endsWithAny</a>|### Checks if a string ends with any of the given values|
+|public|<a href="#contains()">contains</a>|### Checks if string contains value|
+|public|<a href="#containsall()">containsAll</a>|### Checks if string contains all values|
+|public|<a href="#containsany()">containsAny</a>|### Checks if string contains any of the values|
+|public|<a href="#equals()">equals</a>|### Checks if string equals value|
+|public|<a href="#equalsany()">equalsAny</a>|### Checks if string equals to any of the values|
+|public|<a href="#encoding()">encoding</a>|### Get or change string encoding|
+|public|<a href="#string()">string</a>|### Get or set string as raw string|
+|public|<a href="#tolower()">toLower</a>|### Make a string lowercase|
+|public|<a href="#toupper()">toUpper</a>|### Make a string uppercase|
+|public|<a href="#totitle()">toTitle</a>|### Make a string title-case|
+|public|<a href="#capitalize()">capitalize</a>|### Make a first character of string uppercased|
+|public|<a href="#decapitalize()">deCapitalize</a>|### Make a first character of string uppercased|
+|public|<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
+|public|<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
+|public|<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
+|public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
+|public|<a href="#slice()">slice</a>|### Slice with part of the string|
 |public|<a href="#carry()">carry</a>|### Carry with part of the string|
-|public|<a href="#string()">string</a>|### Get string as raw string|
+|public|<a href="#carryfrom()">carryFrom</a>|### Carry from part of the string|
+|public|<a href="#carryafter()">carryAfter</a>|### Carry from part of the string|
+|public|<a href="#carryuntil()">carryUntil</a>|### Carry until part of the string|
+|public|<a href="#carryfromlast()">carryFromLast</a>|### Carry from the last part of a string|
+|public|<a href="#carryafterlast()">carryAfterLast</a>|### Carry from the last part of the string|
+|public|<a href="#carryuntillast()">carryUntilLast</a>|### Carry until the last part of a string|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical string value|
+|public|<a href="#length()">length</a>|### Get string length|
+|public|<a href="#indexof()">indexOf</a>|### Find the position of the first occurrence of a substring|
+|public|<a href="#lastindexof()">lastIndexOf</a>|### Find the position of the last occurrence of a substring|
 |public|<a href="#__tostring()">__toString</a>||
 
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php
-public Str::__construct(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void
+final public Str::__construct(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void
 ```
 
 
 
 
 
-
+> [!IMPORTANT]
+This method is marked as **final**.
 
 
 
@@ -81,8 +86,8 @@ public Str::__construct(string $string, null|\FireHub\Core\Support\Enums\String\
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L49)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L49)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L59)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L59)**</sub>
 #### Parameters
 
 * string **$string** - _String to use._
@@ -94,7 +99,7 @@ Character encoding. If it is null, the internal character encoding value will be
 <h2><a name="from()"># method: from</a></h2>
 
 ```php
-public static Str::from(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self
+public static Str::from(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):static
 ```
 
 
@@ -111,8 +116,8 @@ public static Str::from(string $string, null|\FireHub\Core\Support\Enums\String\
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L81)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L81)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L91)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L91)**</sub>
 #### Parameters
 
 * string **$string** - _String to use._
@@ -120,7 +125,7 @@ public static Str::from(string $string, null|\FireHub\Core\Support\Enums\String\
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* self - _New string._
+* static - _New string._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -138,7 +143,7 @@ Str::from('FireHub', Encoding::UTF_8);
 <h2><a name="fromlist()"># method: fromList</a></h2>
 
 ```php
-public static Str::fromList(array|\FireHub\Core\Support\Contracts\HighLevel\Collectable $list, string $glue = &#039;&#039;, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self
+public static Str::fromList(array|\FireHub\Core\Support\Contracts\HighLevel\Collectable $list, string $glue = &#039;&#039;, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):static
 ```
 
 
@@ -155,8 +160,8 @@ public static Str::fromList(array|\FireHub\Core\Support\Contracts\HighLevel\Coll
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L128)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L128)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L138)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L138)**</sub>
 #### Parameters
 
 * array or [\FireHub\Core\Support\Contracts\HighLevel\Collectable](./Wiki-Collectable) **$list** - _<code>array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str></code>
@@ -170,7 +175,7 @@ Character encoding. If it is null, the internal character encoding value will be
 * [\Error](./Wiki-Error) - _If array item could not be converted to string._
 #### Returns
 
-* self - _New string containing a string representation of all the array elements in the same order,
+* static - _New string containing a string representation of all the array elements in the same order,
 with the separator string between each element._
 #### Examples
 ```php
@@ -189,79 +194,102 @@ Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'B'], '-');
 // F-i-r-e-H-u-b
 ```
 
-<h2><a name="isempty()"># method: isEmpty</a></h2>
+<h2><a name="expression()"># method: expression</a></h2>
 
 ```php
-final public Str::isEmpty():bool
+public Str::expression()
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This method is marked as **final**.
 
 
 
 
 
-### ### Checks if string is empty
+
+### ### Regular expression
 
 
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L154)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L154)**</sub>
-#### Returns
+<h2><a name="startswith()"># method: startsWith</a></h2>
 
-* bool - _True if string is empty, false otherwise._
+```php
+public Str::startsWith(string $value)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Checks if a string starts with a given value
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L176)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L176)**</sub>
+#### Parameters
+
+* string **$value** - _<code>non-empty-string></code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isEmpty();
+Str::from('FireHub')->startsWith('Fire');
 
-// false
+// true
 ```
 
-<h2><a name="islower()"># method: isLower</a></h2>
+<h2><a name="startswithany()"># method: startsWithAny</a></h2>
 
 ```php
-final public Str::isLower()
+public Str::startsWithAny(string ...$values)
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This method is marked as **final**.
 
 
 
 
 
-### ### Checks if string is lowercase
+
+### ### Checks if a string starts with any of the given values
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L175)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L175)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L198)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L198)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* variadic string **$values** - _<code>non-empty-string></code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isLower();
+Str::from('FireHub')->startsWithAny('Fire', 'test');
 
-// false
+// true
+```
 
-<h2><a name="isupper()"># method: isUpper</a></h2>
+<h2><a name="endswith()"># method: endsWith</a></h2>
 
 ```php
-public Str::isUpper()
+public Str::endsWith(string $value)
 ```
 
 
@@ -274,62 +302,29 @@ public Str::isUpper()
 
 
 
-### ### Checks if string is uppercase
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L199)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L199)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isUpper();
-
-// false
-```
-
-<h2><a name="isalphabetic()"># method: isAlphabetic</a></h2>
-
-```php
-public Str::isAlphabetic()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is alphabetic
+### ### Checks if a string ends with a given value
 
 
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L223)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L223)**</sub>
-#### Throws
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* string **$value** - _<code>non-empty-string></code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isAlphabetic();
+Str::from('FireHub')->endsWith('Hub');
 
 // true
 ```
 
-<h2><a name="isalphanumeric()"># method: isAlphanumeric</a></h2>
+<h2><a name="endswithany()"># method: endsWithAny</a></h2>
 
 ```php
-public Str::isAlphanumeric()
+public Str::endsWithAny(string ...$values)
 ```
 
 
@@ -342,28 +337,29 @@ public Str::isAlphanumeric()
 
 
 
-### ### Checks if string is alphanumeric
+### ### Checks if a string ends with any of the given values
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L247)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L247)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L245)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L245)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* variadic string **$values** - _<code>non-empty-string></code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isAlphanumeric();
+Str::from('FireHub')->endsWithAny('Hub', 'test');
 
 // true
 ```
 
-<h2><a name="isblank()"># method: isBlank</a></h2>
+<h2><a name="contains()"># method: contains</a></h2>
 
 ```php
-public Str::isBlank()
+public Str::contains(string $value)
 ```
 
 
@@ -376,96 +372,29 @@ public Str::isBlank()
 
 
 
-### ### Checks if string is whitespace
+### ### Checks if string contains value
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L271)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L271)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L270)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L270)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* string **$value** - _<code>non-empty-string</code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isBlank();
-
-// false
-```
-
-<h2><a name="isnumeric()"># method: isNumeric</a></h2>
-
-```php
-public Str::isNumeric()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is numeric
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L295)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L295)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isNumeric();
-
-// false
-```
-
-<h2><a name="ishexadecimal()"># method: isHexadecimal</a></h2>
-
-```php
-public Str::isHexadecimal()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is hexadecimal
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L319)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L319)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isHexadecimal();
+Str::from('FireHub')->contains('ire');
 
 // true
 ```
 
-<h2><a name="iscontrol()"># method: isControl</a></h2>
+<h2><a name="containsall()"># method: containsAll</a></h2>
 
 ```php
-public Str::isControl()
+public Str::containsAll(string ...$values)
 ```
 
 
@@ -478,70 +407,29 @@ public Str::isControl()
 
 
 
-### ### Checks if string is control code
+### ### Checks if string contains all values
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L343)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L343)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L292)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L292)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* variadic string **$values** - _<code>non-empty-string[]</code>
+The list of values to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isControl();
-
-// false
-```
-
-<h2><a name="isprintable()"># method: isPrintable</a></h2>
-
-```php
-public Str::isPrintable()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is printable
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L375)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L375)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isPrintable();
-
-// true
-```
-Space is also printable.
-```php
-use FireHub\Core\Support\Str;
-
-Str::from(' ')->isPrintable();
+Str::from('FireHub')->containsAll('ire', 'Fi');
 
 // true
 ```
 
-<h2><a name="isgraphical()"># method: isGraphical</a></h2>
+<h2><a name="containsany()"># method: containsAny</a></h2>
 
 ```php
-public Str::isGraphical()
+public Str::containsAny(string ...$values)
 ```
 
 
@@ -554,36 +442,29 @@ public Str::isGraphical()
 
 
 
-### ### Checks if string is graphical
+### ### Checks if string contains any of the values
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L408)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L408)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L317)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L317)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* variadic string **$values** - _<code>non-empty-string[]</code>
+The list of values to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isGraphical();
+Str::from('FireHub')->containsAny('ire', 'Fi');
 
 // true
 ```
-Space is not graphical.
-```php
-use FireHub\Core\Support\Str;
 
-Str::from(' ')->isGraphical();
-
-// false
-```
-
-<h2><a name="ispunctuation()"># method: isPunctuation</a></h2>
+<h2><a name="equals()"># method: equals</a></h2>
 
 ```php
-public Str::isPunctuation()
+public Str::equals(string $value)
 ```
 
 
@@ -596,28 +477,29 @@ public Str::isPunctuation()
 
 
 
-### ### Checks if string is punctuation
+### ### Checks if string equals value
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L432)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L432)**</sub>
-#### Throws
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L340)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L340)**</sub>
+#### Parameters
 
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+* string **$value** - _<code>non-empty-string</code>
+The value to search for._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isPunctuation();
+Str::from('FireHub')->equals('FireHub');
 
-// false
+// true
 ```
 
-<h2><a name="isascii()"># method: isASCII</a></h2>
+<h2><a name="equalsany()"># method: equalsAny</a></h2>
 
 ```php
-public Str::isASCII()
+public Str::equalsAny(string ...$values)
 ```
 
 
@@ -630,7 +512,123 @@ public Str::isASCII()
 
 
 
-### ### Checks if string is ASCII
+### ### Checks if string equals to any of the values
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L362)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L362)**</sub>
+#### Parameters
+
+* variadic string **$values** - _<code>non-empty-string[]</code>
+The list of values to search for._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->equalsAny('FireHub', 'Fi');
+
+// true
+```
+
+<h2><a name="encoding()"># method: encoding</a></h2>
+
+```php
+public Str::encoding(?\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get or change string encoding
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L390)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L390)**</sub>
+#### Parameters
+
+* null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _String encoding._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If we could not get current encoding._
+* [\ValueError](./Wiki-ValueError) - _If the value of encoding is an invalid encoding._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+use FireHub\Core\Support\Enums\String\Encoding;
+
+Str::from('FireHub')->encoding(Encoding::UTF_8);
+```
+
+<h2><a name="string()"># method: string</a></h2>
+
+```php
+public Str::string(string $string = null)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get or set string as raw string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L428)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L428)**</sub>
+#### Parameters
+
+* string **$string** = null - _[optional] 
+String to set._
+#### Examples
+Get the string.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->string();
+
+// FireHub
+```
+Set the string.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->string('FireHub Web App');
+
+// FireHub Web App
+```
+
+<h2><a name="tolower()"># method: toLower</a></h2>
+
+```php
+public Str::toLower()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Make a string lowercase
 
 
 
@@ -640,84 +638,77 @@ public Str::isASCII()
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isASCII();
+Str::from('FireHub')->toLower();
 
-// true
+// firehub
 ```
 
-<h2><a name="iscapitalized()"># method: isCapitalized</a></h2>
+<h2><a name="toupper()"># method: toUpper</a></h2>
 
 ```php
-final public Str::isCapitalized():bool
+public Str::toUpper()
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This method is marked as **final**.
 
 
 
 
 
-### ### Checks if first character of string uppercased
+
+### ### Make a string uppercase
 
 
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L480)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L480)**</sub>
-#### Returns
-
-* bool - _True if string is capitalized, false otherwise._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->isCapitalized();
+Str::from('FireHub')->toUpper();
 
-// true
+// FIREHUB
 ```
 
-<h2><a name="haslower()"># method: hasLower</a></h2>
+<h2><a name="totitle()"># method: toTitle</a></h2>
 
 ```php
-final public Str::hasLower()
+public Str::toTitle()
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This method is marked as **final**.
 
 
 
 
 
-### ### Checks if string has lowercase
+
+### ### Make a string title-case
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L502)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L502)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L505)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L505)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->hasLower();
+Str::from('FireHub web app')->toTitle();
 
-// true
+// Firehub Web App
+```
 
-<h2><a name="hasupper()"># method: hasUpper</a></h2>
+<h2><a name="capitalize()"># method: capitalize</a></h2>
 
 ```php
-public Str::hasUpper()
+public Str::capitalize()
 ```
 
 
@@ -730,28 +721,25 @@ public Str::hasUpper()
 
 
 
-### ### Checks if string has uppercase
+### ### Make a first character of string uppercased
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L526)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L526)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L531)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L531)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->hasUpper();
+Str::from('firehub')->capitalize();
 
-// true
+// Firehub
 ```
 
-<h2><a name="hasalphabetic()"># method: hasAlphabetic</a></h2>
+<h2><a name="decapitalize()"># method: deCapitalize</a></h2>
 
 ```php
-public Str::hasAlphabetic()
+public Str::deCapitalize()
 ```
 
 
@@ -764,28 +752,25 @@ public Str::hasAlphabetic()
 
 
 
-### ### Checks if string has alphabetic
+### ### Make a first character of string uppercased
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L550)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L550)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L561)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L561)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->hasAlphabetic();
+Str::from('FireHub')->deCapitalize();
 
-// true
+// fireHub
 ```
 
-<h2><a name="hasalphanumeric()"># method: hasAlphanumeric</a></h2>
+<h2><a name="addslashes()"># method: addSlashes</a></h2>
 
 ```php
-public Str::hasAlphanumeric()
+public Str::addSlashes()
 ```
 
 
@@ -798,28 +783,25 @@ public Str::hasAlphanumeric()
 
 
 
-### ### Checks if string has alphanumeric
+### ### Quote string with slashes
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L574)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L574)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L592)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L592)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->hasAlphanumeric();
+Str::from("Is your name O'Reilly?")->addSlashes();
 
-// true
+// Is your name O\'Reilly?
 ```
 
-<h2><a name="hasblank()"># method: hasBlank</a></h2>
+<h2><a name="stripslashes()"># method: stripSlashes</a></h2>
 
 ```php
-public Str::hasBlank()
+public Str::stripSlashes()
 ```
 
 
@@ -832,28 +814,25 @@ public Str::hasBlank()
 
 
 
-### ### Checks if string has whitespace
+### ### Un-quotes a quoted string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L598)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L598)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L621)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L621)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->hasBlank();
+Str::from('Is your name O\'Reilly?')->stripSlashes();
 
-// false
+// Is your name O'Reilly?
 ```
 
-<h2><a name="hasnumeric()"># method: hasNumeric</a></h2>
+<h2><a name="striptags()"># method: stripTags</a></h2>
 
 ```php
-public Str::hasNumeric()
+public Str::stripTags(null|string|array $allowed_tags = null)
 ```
 
 
@@ -866,248 +845,123 @@ public Str::hasNumeric()
 
 
 
-### ### Checks if string has numeric
+### ### Strip HTML and PHP tags from a string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L622)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L622)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->hasNumeric();
-
-// false
-```
-
-<h2><a name="hashexadecimal()"># method: hasHexadecimal</a></h2>
-
-```php
-public Str::hasHexadecimal()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has hexadecimal
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L646)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L646)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->hasHexadecimal();
-
-// true
-```
-
-<h2><a name="hascontrol()"># method: hasControl</a></h2>
-
-```php
-public Str::hasControl()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has control code
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L670)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L670)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->hasControl();
-
-// false
-```
-
-<h2><a name="hasprintable()"># method: hasPrintable</a></h2>
-
-```php
-public Str::hasPrintable()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has printable
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L702)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L702)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isPrintable();
-
-// true
-```
-Space is also printable.
-```php
-use FireHub\Core\Support\Str;
-
-Str::from(' ')->hasPrintable();
-
-// true
-```
-
-<h2><a name="hasgraphical()"># method: hasGraphical</a></h2>
-
-```php
-public Str::hasGraphical()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has graphical
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L735)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L735)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->isGraphical();
-
-// true
-```
-Space is not graphical.
-```php
-use FireHub\Core\Support\Str;
-
-Str::from(' ')->hasGraphical();
-
-// false
-```
-
-<h2><a name="haspunctuation()"># method: hasPunctuation</a></h2>
-
-```php
-public Str::hasPunctuation()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has punctuation
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L759)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L759)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->hasPunctuation();
-
-// false
-```
-
-<h2><a name="encoding()"># method: encoding</a></h2>
-
-```php
-public Str::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):$this|\FireHub\Core\Support\Enums\String\Encoding
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Change character encoding
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L787)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L787)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L665)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L665)**</sub>
 #### Parameters
 
-* null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _Character encoding._
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current encoding._
-* [\ValueError](./Wiki-ValueError) - _If the value of encoding is an invalid encoding._
-#### Returns
-
-* $this or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _This character or current encoding._
+* null or string or array **$allowed_tags** = null - _<code>null|string|array<int, string></code>
+You can use the optional second parameter to specify tags which should not be stripped._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
-use FireHub\Core\Support\Enums\String\Encoding;
 
-Str::from('FireHub')->encoding(Encoding::UTF_8);
+Str::from('<p>FireHub</p>')->stripTags();
+
+// FireHub
+```
+With $allowed_tags parameter, you allow certain tags to be excluded for the strip.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>');
+
+// <p>FireHub</p>
+```
+Alternatively, you can use array in $allowed_tags parameter to allow multiple tags.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>']);
+
+// <p><a>FireHub</a></p>
+```
+
+<h2><a name="quotemeta()"># method: quoteMeta</a></h2>
+
+```php
+public Str::quoteMeta()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Quote meta characters
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L689)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L689)**</sub>
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub?')->quoteMeta();
+
+// FireHub\?
+```
+
+<h2><a name="slice()"># method: slice</a></h2>
+
+```php
+public Str::slice(int $from, ?int $until = null)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Slice with part of the string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L730)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L730)**</sub>
+#### Parameters
+
+* int **$from** - _Returned string will start at the start position in string, counting from zero._
+* null or int **$until** = null - _[optional] 
+Returned string will end at the start position in string.
+If omitted or NULL is passed, extract all characters to the end of the string._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->slice(3);
+
+// Fir
+```
+Getting slice of string with passed $until argument.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->slice(3, 5);
+
+// eHu
+```
+Getting slice of string with negative $until argument.
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->slice(1, -1);
+
+// ireHu
 ```
 
 <h2><a name="carry()"># method: carry</a></h2>
@@ -1130,8 +984,8 @@ public Str::carry(int $from, ?int $length = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L833)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L833)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L777)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L777)**</sub>
 #### Parameters
 
 * int **$from** - _If start is non-negative, the returned string will start at the start position in string, counting from zero.
@@ -1157,19 +1011,19 @@ Str::from('FireHub')->carry(3, 2);
 
 // eH
 ```
-$from parameter can also be negative.
+$from and $length parameters can also be negative.
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->carry(-3, 2);
+Str::from('FireHub')->carry(-3, -1);
 
 // Hu
 ```
 
-<h2><a name="string()"># method: string</a></h2>
+<h2><a name="carryfrom()"># method: carryFrom</a></h2>
 
 ```php
-public Str::string():string
+public Str::carryFrom(string $find)
 ```
 
 
@@ -1182,22 +1036,322 @@ public Str::string():string
 
 
 
-### ### Get string as raw string
+### ### Carry from part of the string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L856)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L856)**</sub>
-#### Returns
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L801)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L801)**</sub>
+#### Parameters
 
-* string - _String as string._
+* string **$find** - _String to find._
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
 
-Str::from('FireHub')->string();
+Str::from('FireHub Web App')->carryFrom('Web');
+
+// Web App
+```
+
+<h2><a name="carryafter()"># method: carryAfter</a></h2>
+
+```php
+public Str::carryAfter(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from part of the string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L829)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L829)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->carryAfter('Web ');
+
+// App
+```
+
+<h2><a name="carryuntil()"># method: carryUntil</a></h2>
+
+```php
+public Str::carryUntil(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry until part of the string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L853)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L853)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->carryUntil('Web');
 
 // FireHub
+```
+
+<h2><a name="carryfromlast()"># method: carryFromLast</a></h2>
+
+```php
+public Str::carryFromLast(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from the last part of a string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L879)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L879)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->carryFromLast('Web');
+
+// Web App
+```
+
+<h2><a name="carryafterlast()"># method: carryAfterLast</a></h2>
+
+```php
+public Str::carryAfterLast(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from the last part of the string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->carryAfter('Web ');
+
+// App
+```
+
+<h2><a name="carryuntillast()"># method: carryUntilLast</a></h2>
+
+```php
+public Str::carryUntilLast(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry until the last part of a string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L931)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L931)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->carryUntilLast('Web');
+
+// FireHub
+```
+
+<h2><a name="asboolean()"># method: asBoolean</a></h2>
+
+```php
+public Str::asBoolean()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical string value
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L957)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L957)**</sub>
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('Yes')->asBoolean();
+
+// true
+```
+
+<h2><a name="length()"># method: length</a></h2>
+
+```php
+public Str::length()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get string length
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L979)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L979)**</sub>
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->length();
+
+// 7
+```
+
+<h2><a name="indexof()"># method: indexOf</a></h2>
+
+```php
+public Str::indexOf(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Find the position of the first occurrence of a substring
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1001)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1001)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->indexOf('Web');
+
+// 8
+```
+
+<h2><a name="lastindexof()"># method: lastIndexOf</a></h2>
+
+```php
+public Str::lastIndexOf(string $find)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Find the position of the last occurrence of a substring
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1023)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1023)**</sub>
+#### Parameters
+
+* string **$find** - _String to find._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub Web App')->lastIndexOf('e');
+
+// 9
 ```
 
 <h2><a name="__tostring()"># method: __toString</a></h2>
@@ -1220,8 +1374,8 @@ public Str::__toString()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1043)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1043)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;

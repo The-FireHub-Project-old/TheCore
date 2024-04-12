@@ -24,6 +24,8 @@ use FireHub\Core\Support\Enums\String\ {
 };
 use Error, ValueError;
 
+use function FireHub\Core\Support\Helpers\String\asBoolean;
+
 /**
  * ### Character high-level class
  *
@@ -311,6 +313,28 @@ class Char implements Characters {
     public function codepoint ():int {
 
         return CharMB::ord($this->character, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Char;
+     *
+     * Char::from('1')->asBoolean();
+     *
+     * // true
+     * ```
+     */
+    public function asBoolean ():bool {
+
+        return asBoolean($this->character);
 
     }
 

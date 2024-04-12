@@ -241,12 +241,12 @@ Class FQN to resolve.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L110">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L111">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L110">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L111">
                     View blame
                 </a>
             </def></deflist>
@@ -257,7 +257,7 @@ Class FQN to resolve.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get class components from class FQN.</format></li><li><a href="DataIs.md#callable()">\FireHub\Core\Support\LowLevel\DataIs::callable()</a>  - <format style="italic">To check if $class is callable or string.</format></li><li><a href="File.md#isfile()">\FireHub\Core\Support\LowLevel\File::isFile()</a>  - <format style="italic">To check if $path is a valid path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
+        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get class components from class FQN.</format></li><li><a href="DataIs.md#callable()">\FireHub\Core\Support\LowLevel\DataIs::callable()</a>  - <format style="italic">To check if $class is callable or string.</format></li><li><a href="DataIs.md#string()">\FireHub\Core\Support\LowLevel\DataIs::string()</a>  - <format style="italic">To check if callable path return string.</format></li><li><a href="File.md#isfile()">\FireHub\Core\Support\LowLevel\File::isFile()</a>  - <format style="italic">To check if $path is a valid path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
     </def>
 </deflist>
 <deflist>

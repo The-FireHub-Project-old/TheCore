@@ -82,4 +82,16 @@ interface Characters extends Stringable {
      */
     public function codepoint ():int;
 
+    /**
+     * ### Boolean representation of the given logical character value
+     *
+     * True - positive-int
+     * False - non-positive-int
+     * For all other characters, the return value is a result of a boolean cast.
+     * @since 1.0.0
+     *
+     * @return bool True or false, based on boolean representation of the given logical character value.
+     */
+    public function asBoolean ():bool;
+
 }

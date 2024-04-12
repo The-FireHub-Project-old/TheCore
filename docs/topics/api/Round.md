@@ -16,7 +16,7 @@
 
 
 
-### ### Round number enum
+### ### Enum for rounding number options
 
 
 
@@ -56,7 +56,7 @@
 |:-----|:------|:------|
 |<a href="#half_up">HALF_UP</a>|### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2||
 |<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1||
-|<a href="#half_even">HALF_EVEN</a>|### towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2||
+|<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2||
 |<a href="#half_odd">HALF_ODD</a>|### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3||
 
 ## case: HALF_UP {id="half_up"}
@@ -146,7 +146,7 @@
 
 
 
-### ### towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
+### ### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
 
 
 

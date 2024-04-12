@@ -57,12 +57,6 @@
         <list><li><a href="SIZE.md">\FireHub\Core\Support\Constants\Number\SIZE</a>  - <format style="italic">To get the size of an integer in bytes in this build of PHP.</format></li></list>
     </def>
 </deflist>
-### Used by
-<deflist>
-    <def title="This function is used by:">
-        <list><li><a href="is32bit.md">\FireHub\Core\Support\Helpers\PHP\is32bit()</a>  - <format style="italic">To check if using 64bit version of PHP.</format></li></list>
-    </def>
-</deflist>
 ### Returns
 <deflist>
     <def title="This function returns:">

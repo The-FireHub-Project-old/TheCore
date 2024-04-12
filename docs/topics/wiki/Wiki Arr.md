@@ -2150,7 +2150,7 @@ The array._
 <h2><a name="sort()"># method: sort</a></h2>
 
 ```php
-public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::SORT_REGULAR, bool $preserve_keys = false):true
+public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true
 ```
 
 
@@ -2179,7 +2179,7 @@ public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order 
 Array to sort._
 * [\FireHub\Core\Support\Enums\Order](./Wiki-Order) **$order** = Order::ASC - _[optional] 
 Order type._
-* [\FireHub\Core\Support\Enums\Sort](./Wiki-Sort) **$flag** = Sort::SORT_REGULAR - _[optional] 
+* [\FireHub\Core\Support\Enums\Sort](./Wiki-Sort) **$flag** = Sort::BY_REGULAR - _[optional] 
 Sort flag._
 * bool **$preserve_keys** = false - _[optional] 
 Whether you want to preserve keys from an original array or not._
@@ -2189,7 +2189,7 @@ Whether you want to preserve keys from an original array or not._
 <h2><a name="sortbykey()"># method: sortByKey</a></h2>
 
 ```php
-public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::SORT_REGULAR):true
+public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true
 ```
 
 
@@ -2218,7 +2218,7 @@ public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Supp
 Array to sort._
 * [\FireHub\Core\Support\Enums\Order](./Wiki-Order) **$order** = Order::ASC - _[optional] 
 Order type._
-* [\FireHub\Core\Support\Enums\Sort](./Wiki-Sort) **$flag** = Sort::SORT_REGULAR - _[optional] 
+* [\FireHub\Core\Support\Enums\Sort](./Wiki-Sort) **$flag** = Sort::BY_REGULAR - _[optional] 
 Sort flag._
 #### Returns
 

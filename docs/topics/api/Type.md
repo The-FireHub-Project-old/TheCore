@@ -66,7 +66,7 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#category()">category</a>|## Gets data type category|
+|public|<a href="#category()">category</a>|## Gets the data type category|
 
 ## method: category {id="category()"}
 
@@ -86,7 +86,7 @@
 
 
 
-### ## Gets data type category
+### ## Gets the data type category
 
 
 

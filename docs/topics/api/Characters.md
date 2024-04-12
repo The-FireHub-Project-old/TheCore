@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Interface Name:">
         \FireHub\Core\Support\Contracts\HighLevel\Characters
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L25">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L27">
             View source code
         </a>
     </def>
@@ -51,32 +51,28 @@
 </deflist>
 
 
+### Used by
+<deflist>
+    <def title="This interface is used by:">
+        <list><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li></list>
+    </def>
+</deflist>
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#islower()">isLower</a>|### Checks if character is lowercase|
-|public|<a href="#isupper()">isUpper</a>|### Checks if character is uppercase|
-|public|<a href="#isalphabetic()">isAlphabetic</a>|### Checks if character is alphabetic|
-|public|<a href="#isalphanumeric()">isAlphanumeric</a>|### Checks if character is alphanumeric|
-|public|<a href="#isblank()">isBlank</a>|### Checks if character is whitespace|
-|public|<a href="#isnumeric()">isNumeric</a>|### Checks if character is numeric|
-|public|<a href="#ishexadecimal()">isHexadecimal</a>|### Checks if character is hexadecimal|
-|public|<a href="#iscontrol()">isControl</a>|### Checks if character is control code|
-|public|<a href="#isprintable()">isPrintable</a>|### Checks if character is printable|
-|public|<a href="#isgraphical()">isGraphical</a>|### Checks if character is graphical|
-|public|<a href="#ispunctuation()">isPunctuation</a>|### Checks if character is punctuation|
-|public|<a href="#issymbol()">isSymbol</a>|### Checks if character is a symbol|
-|public|<a href="#isascii()">isASCII</a>|### Checks if character is ASCII|
+|public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#encoding()">encoding</a>|### Get or change character encoding|
+|public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a character lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a character uppercase|
-|public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#codepoint()">codepoint</a>|### Get character as codepoint|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |inherited public|<a href="#__tostring()">__toString</a>|### Gets a string representation of the object|
 
-## method: isLower {id="islower()"}
+## method: expression {id="expression()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::isLower():bool]]>
+    <![CDATA[public Characters::expression():\FireHub\Core\Support\Strings\Expression]]>
 </code-block>
 
 
@@ -91,17 +87,17 @@
 
 
 
-### ### Checks if character is lowercase
+### ### Regular expression
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L35">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L35">
                     View blame
                 </a>
             </def></deflist>
@@ -111,14 +107,19 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is lowercase, false otherwise.</format></li></list>
+    <def title="This method is used by:">
+        <list><li><a href="FunctionFamily.md#withdelimiter()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::withDelimiter()</a>  - <format style="italic">To do regular expression on $character.</format></li></list>
     </def>
 </deflist>
-## method: isUpper {id="isupper()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Expression.md">\FireHub\Core\Support\Strings\Expression</a> - <format style="italic">Regular expression.</format></li></list>
+    </def>
+</deflist>
+## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::isUpper():bool]]>
+    <![CDATA[public Characters::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):$this|\FireHub\Core\Support\Enums\String\Encoding]]>
 </code-block>
 
 
@@ -133,17 +134,17 @@
 
 
 
-### ### Checks if character is uppercase
+### ### Get or change character encoding
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L50">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L50">
                     View blame
                 </a>
             </def></deflist>
@@ -153,14 +154,26 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is uppercase, false otherwise.</format></li></list>
+    <def title="This method uses:">
+        <list><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>
-## method: isAlphabetic {id="isalphabetic()"}
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">
+Character encoding.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">This character or current encoding.</format></li></list>
+    </def>
+</deflist>
+## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::isAlphabetic():bool]]>
+    <![CDATA[public Characters::string(string $string = null):\FireHub\Core\Support\Contracts\HighLevel\Characters|string]]>
 </code-block>
 
 
@@ -175,17 +188,17 @@
 
 
 
-### ### Checks if character is alphabetic
+### ### Get character as raw string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L49">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L59">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L49">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L59">
                     View blame
                 </a>
             </def></deflist>
@@ -195,428 +208,18 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is alphabetic, false otherwise.</format></li></list>
+    <def title="This method is used by:">
+        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="FunctionFamily.md#withdelimiter()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::withDelimiter()</a>  - <format style="italic">To get raw value from character.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li></list>
     </def>
 </deflist>
-## method: isAlphanumeric {id="isalphanumeric()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isAlphanumeric():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is alphanumeric
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L57">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L57">
-                    View blame
-                </a>
-            </def></deflist>
 <deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$string</format> = null</li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is alphanumeric, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isBlank {id="isblank()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isBlank():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is whitespace
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L65">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L65">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is whitespace, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isNumeric {id="isnumeric()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isNumeric():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is numeric
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L73">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L73">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is numeric, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isHexadecimal {id="ishexadecimal()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isHexadecimal():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is hexadecimal
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L81">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L81">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is hexadecimal, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isControl {id="iscontrol()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isControl():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is control code
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L89">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L89">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is control code, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isPrintable {id="isprintable()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isPrintable():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is printable
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L97">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L97">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is printable, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isGraphical {id="isgraphical()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isGraphical():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is graphical
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L105">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L105">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is graphical, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isPunctuation {id="ispunctuation()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isPunctuation():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is punctuation
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L113">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L113">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is punctuation, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isSymbol {id="issymbol()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isSymbol():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is a symbol
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L121">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L121">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is a symbol, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isASCII {id="isascii()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::isASCII():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is ASCII
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L129">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L129">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if character is ASCII, false otherwise.</format></li></list>
+        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> or string - <format style="italic"><code>$this|non-empty-string</code> Character as string.</format></li></list>
     </def>
 </deflist>
 ## method: toLower {id="tolower()"}
@@ -642,12 +245,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -684,12 +287,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
                     View blame
                 </a>
             </def></deflist>
@@ -701,48 +304,6 @@
 <deflist>
     <def title="This method returns:">
         <list><li>$this - <format style="italic">This character.</format></li></list>
-    </def>
-</deflist>
-## method: string {id="string()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::string():string]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Get character as raw string
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L154">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L154">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>string - <format style="italic"><code>non-empty-string</code> Character as string.</format></li><li>non-empty-string</li></list>
     </def>
 </deflist>
 ## method: codepoint {id="codepoint()"}
@@ -768,12 +329,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L162">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L162">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
                     View blame
                 </a>
             </def></deflist>
@@ -785,6 +346,48 @@
 <deflist>
     <def title="This method returns:">
         <list><li>int - <format style="italic">Character as codepoint.</format></li></list>
+    </def>
+</deflist>
+## method: asBoolean {id="asboolean()"}
+
+<code-block lang="php">
+    <![CDATA[public Characters::asBoolean():bool]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical character value
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True or false, based on boolean representation of the given logical character value.</format></li></list>
     </def>
 </deflist>
 ## method: __toString {id="__tostring()"}

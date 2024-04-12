@@ -30,6 +30,36 @@ enum Order
 |<a href="#asc">ASC</a>|### Arranging in ascending order|&#039;ASC&#039;|
 |<a href="#desc">DESC</a>|### Arranging in descending order|&#039;DESC&#039;|
 
+### Methods
+| Type | Name | Title |
+|:-----|:-----|:------|
+|public|<a href="#reverse()">reverse</a>|Get the reverse order.|
+
+<h2><a name="reverse()"># method: reverse</a></h2>
+
+```php
+public Order::reverse():\FireHub\Core\Support\Enums\Order
+```
+
+
+
+
+
+
+
+
+
+
+
+### Get the reverse order.
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L41)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L41)**</sub>
+#### Returns
+
+* [\FireHub\Core\Support\Enums\Order](./Wiki-Order) - _The reversed order._
 <h2><a name="asc"># case: ASC</a></h2>
 
 ```php

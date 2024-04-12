@@ -1,13 +1,12 @@
 ```php
-final class \FireHub\Core\Support\Char()
+class \FireHub\Core\Support\Char()
 ```
 
 
 
 
 
-> [!IMPORTANT]
-This class is marked as **final**.
+
 
 
 
@@ -20,7 +19,7 @@ _Class allows you to manipulate characters in various ways._
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\Char**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L34)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L37)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/firehub.Char.php)**</sub>
 
@@ -31,24 +30,13 @@ _Class allows you to manipulate characters in various ways._
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public static |<a href="#from()">from</a>|### Create a new character from raw string|
 |public static |<a href="#fromcodepoint()">fromCodepoint</a>|### Create a new character from raw string|
-|public|<a href="#islower()">isLower</a>|### Checks if character is lowercase|
-|public|<a href="#isupper()">isUpper</a>|### Checks if character is uppercase|
-|public|<a href="#isalphabetic()">isAlphabetic</a>|### Checks if character is alphabetic|
-|public|<a href="#isalphanumeric()">isAlphanumeric</a>|### Checks if character is alphanumeric|
-|public|<a href="#isblank()">isBlank</a>|### Checks if character is whitespace|
-|public|<a href="#isnumeric()">isNumeric</a>|### Checks if character is numeric|
-|public|<a href="#ishexadecimal()">isHexadecimal</a>|### Checks if character is hexadecimal|
-|public|<a href="#iscontrol()">isControl</a>|### Checks if character is control code|
-|public|<a href="#isprintable()">isPrintable</a>|### Checks if character is printable|
-|public|<a href="#isgraphical()">isGraphical</a>|### Checks if character is graphical|
-|public|<a href="#ispunctuation()">isPunctuation</a>|### Checks if character is punctuation|
-|public|<a href="#issymbol()">isSymbol</a>|### Checks if character is a symbol|
-|public|<a href="#isascii()">isASCII</a>|### Checks if character is ASCII|
-|public|<a href="#encoding()">encoding</a>|### Change character encoding|
+|public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#encoding()">encoding</a>|### Get or change character encoding|
+|public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a character lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a character uppercase|
-|public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#codepoint()">codepoint</a>|### Get character as codepoint|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#__tostring()">__toString</a>||
 
 <h2><a name="__construct()"># method: __construct</a></h2>
@@ -71,8 +59,8 @@ public Char::__construct(string $character, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L57)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L57)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub>
 #### Parameters
 
 * string **$character** - _<code>non-empty-string</code>
@@ -108,8 +96,8 @@ public static Char::from(string $character, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L98)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L98)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L101)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L101)**</sub>
 #### Parameters
 
 * string **$character** - _<code>non-empty-string</code>
@@ -156,8 +144,8 @@ public static Char::fromCodepoint(int $codepoint, null|\FireHub\Core\Support\Enu
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L150)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L150)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L153)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L153)**</sub>
 #### Parameters
 
 * int **$codepoint** - _Codepoint to use._
@@ -198,10 +186,10 @@ echo $char->string();
 // č
 ```
 
-<h2><a name="islower()"># method: isLower</a></h2>
+<h2><a name="expression()"># method: expression</a></h2>
 
 ```php
-public Char::isLower()
+public Char::expression()
 ```
 
 
@@ -214,449 +202,16 @@ public Char::isLower()
 
 
 
-### ### Checks if character is lowercase
+### ### Regular expression
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L179)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L179)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isLower();
-
-// false
-```
-
-<h2><a name="isupper()"># method: isUpper</a></h2>
-
-```php
-public Char::isUpper()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is uppercase
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L203)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L203)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isUpper();
-
-// true
-```
-
-<h2><a name="isalphabetic()"># method: isAlphabetic</a></h2>
-
-```php
-public Char::isAlphabetic()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is alphabetic
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L227)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L227)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isAlphabetic();
-
-// true
-```
-
-<h2><a name="isalphanumeric()"># method: isAlphanumeric</a></h2>
-
-```php
-public Char::isAlphanumeric()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is alphanumeric
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L251)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L251)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isAlphanumeric();
-
-// true
-```
-
-<h2><a name="isblank()"># method: isBlank</a></h2>
-
-```php
-public Char::isBlank()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is whitespace
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L275)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L275)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isBlank();
-
-// false
-```
-
-<h2><a name="isnumeric()"># method: isNumeric</a></h2>
-
-```php
-public Char::isNumeric()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is numeric
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L299)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L299)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isNumeric();
-
-// false
-```
-
-<h2><a name="ishexadecimal()"># method: isHexadecimal</a></h2>
-
-```php
-public Char::isHexadecimal()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is hexadecimal
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L323)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L323)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isHexadecimal();
-
-// true
-```
-
-<h2><a name="iscontrol()"># method: isControl</a></h2>
-
-```php
-public Char::isControl()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is control code
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L347)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L347)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isControl();
-
-// false
-```
-
-<h2><a name="isprintable()"># method: isPrintable</a></h2>
-
-```php
-public Char::isPrintable()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is printable
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L379)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L379)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isPrintable();
-
-// true
-```
-Space is also printable.
-```php
-use FireHub\Core\Support\Char;
-
-Char::from(' ')->isPrintable();
-
-// true
-```
-
-<h2><a name="isgraphical()"># method: isGraphical</a></h2>
-
-```php
-public Char::isGraphical()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is graphical
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L411)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L411)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isGraphical();
-
-// true
-```
-Space is not graphical.
-```php
-use FireHub\Core\Support\Char;
-
-Char::from(' ')->isGraphical();
-
-// false
-```
-
-<h2><a name="ispunctuation()"># method: isPunctuation</a></h2>
-
-```php
-public Char::isPunctuation()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is punctuation
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L435)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L435)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isPunctuation();
-
-// false
-```
-
-<h2><a name="issymbol()"># method: isSymbol</a></h2>
-
-```php
-public Char::isSymbol()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is a symbol
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L461)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L461)**</sub>
-#### Throws
-
-* [\Error](./Wiki-Error) - _If we could not get current regex encoding._
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isSymbol();
-
-// false
-```
-
-<h2><a name="isascii()"># method: isASCII</a></h2>
-
-```php
-public Char::isASCII()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if character is ASCII
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L484)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L484)**</sub>
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->isASCII();
-
-// true
-```
-
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L171)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L171)**</sub>
 <h2><a name="encoding()"># method: encoding</a></h2>
 
 ```php
-public Char::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):$this|\FireHub\Core\Support\Enums\String\Encoding
+public Char::encoding(?\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
 
 
@@ -669,12 +224,12 @@ public Char::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding
 
 
 
-### ### Change character encoding
+### ### Get or change character encoding
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L512)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L512)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L196)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L196)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _Character encoding._
@@ -682,15 +237,54 @@ public Char::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding
 
 * [\Error](./Wiki-Error) - _If we could not get current encoding._
 * [\ValueError](./Wiki-ValueError) - _If the value of encoding is an invalid encoding._
-#### Returns
-
-* $this or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _This character or current encoding._
 #### Examples
 ```php
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Enums\String\Encoding;
 
 Char::from('F')->encoding(Encoding::UTF_8);
+```
+
+<h2><a name="string()"># method: string</a></h2>
+
+```php
+public Char::string(string $string = null)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get character as raw string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L235)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L235)**</sub>
+#### Parameters
+
+* string **$string** = null
+#### Examples
+```php
+use FireHub\Core\Support\Char;
+
+Char::from('F')->string();
+
+// F
+```
+Set the character.
+```php
+use FireHub\Core\Support\Char;
+
+Char::from('F')->string('X');
+
+// X
 ```
 
 <h2><a name="tolower()"># method: toLower</a></h2>
@@ -713,8 +307,8 @@ public Char::toLower()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L543)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L543)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L260)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L260)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;
@@ -744,44 +338,13 @@ public Char::toUpper()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L572)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L572)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L285)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L285)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;
 
 Char::fromString('f')->toUpper();
-
-// F
-```
-
-<h2><a name="string()"># method: string</a></h2>
-
-```php
-public Char::string()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Get character as raw string
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L598)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L598)**</sub>
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('F')->string();
 
 // F
 ```
@@ -806,8 +369,8 @@ public Char::codepoint()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L624)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L624)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L313)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L313)**</sub>
 #### Throws
 
 * [\Error](./Wiki-Error) - _If character could not be converted to codepoint._
@@ -820,6 +383,37 @@ $char = Char::fromString('F');
 echo $char->codepoint();
 
 // 70
+```
+
+<h2><a name="asboolean()"># method: asBoolean</a></h2>
+
+```php
+public Char::asBoolean()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical character value
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L335)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L335)**</sub>
+#### Examples
+```php
+use FireHub\Core\Support\Char;
+
+Char::from('1')->asBoolean();
+
+// true
 ```
 
 <h2><a name="__tostring()"># method: __toString</a></h2>
@@ -842,8 +436,8 @@ public Char::__toString()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L675)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L675)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L355)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L355)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;

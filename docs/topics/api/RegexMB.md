@@ -36,7 +36,7 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\RegexMB
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L39">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L41">
             View source code
         </a>
     </def>
@@ -64,12 +64,13 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 |public static |<a href="#match()">match</a>|### Perform a regular expression match|
 |public static |<a href="#replace()">replace</a>|### Perform a regular expression search and replace|
 |public static |<a href="#replacefunc()">replaceFunc</a>|### Perform a regular expression search and replace using a callback|
+|public static |<a href="#split()">split</a>|### Split string by a regular expression|
 |public static |<a href="#encoding()">encoding</a>|### Set/Get character encoding for multibyte regex|
 
 ## method: match {id="match()"}
 
 <code-block lang="php">
-    <![CDATA[public static RegexMB::match(string $pattern, string $string, bool $case_sensitive = true):bool]]>
+    <![CDATA[public static RegexMB::match(string $pattern, string $string, bool $case_sensitive = true, null|array &$result = null):bool]]>
 </code-block>
 
 
@@ -89,12 +90,12 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 <p><format style="italic">Searches subject for a match to the regular expression given in a pattern.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L61">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L69">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L61">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L69">
                     View blame
                 </a>
             </def></deflist>
@@ -104,17 +105,15 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
     </def>
 </deflist>
 <deflist>
-    <def title="This method is used by:">
-        <list><li><a href="Char.md#regexmatch()">\FireHub\Core\Support\Char::regexMatch()</a>  - <format style="italic">To perform a regular expression match.</format></li><li><a href="Str.md#regexmatch()">\FireHub\Core\Support\Str::regexMatch()</a>  - <format style="italic">To perform a regular expression match.</format></li></list>
-    </def>
-</deflist>
-<deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$pattern</format> - <format style="italic">
 The regular expression pattern.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string being evaluated.
 </format></li><li>bool <format style="bold">$case_sensitive</format> = true - <format style="italic">[optional] 
+Case-sensitive match.
+</format></li><li>by reference null or array <format style="bold">$result</format> = null - <format style="italic">[optional] 
+<code>null|string[]</code>
 Case-sensitive match.
 </format></li></list>
     </def>
@@ -127,7 +126,7 @@ Case-sensitive match.
 ## method: replace {id="replace()"}
 
 <code-block lang="php">
-    <![CDATA[public static RegexMB::replace(string $pattern, string $replacement, string $string):string]]>
+    <![CDATA[public static RegexMB::replace(string $pattern, string $replacement, string $string, bool $case_sensitive = true):string]]>
 </code-block>
 
 
@@ -147,12 +146,12 @@ Case-sensitive match.
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L95">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L107">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L95">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L107">
                     View blame
                 </a>
             </def></deflist>
@@ -169,6 +168,8 @@ The regular expression pattern.
 The string to replace.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string being evaluated.
+</format></li><li>bool <format style="bold">$case_sensitive</format> = true - <format style="italic">[optional] 
+Case-sensitive replace.
 </format></li></list>
     </def>
 </deflist>
@@ -206,12 +207,12 @@ and replace.</format></li></list>
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L126">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L140">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L126">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L140">
                     View blame
                 </a>
             </def></deflist>
@@ -245,6 +246,66 @@ and replace.</format></li></list>
         <list><li>string - <format style="italic">Replaced string.</format></li></list>
     </def>
 </deflist>
+## method: split {id="split()"}
+
+<code-block lang="php">
+    <![CDATA[public static RegexMB::split(string $pattern, string $string, int $limit = -1):array]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Split string by a regular expression
+
+<p><format style="italic">Split the given string by a regular expression.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L171">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L171">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$pattern</format> - <format style="italic">
+The regular expression pattern.
+</format></li><li>string <format style="bold">$string</format> - <format style="italic">
+The input string.
+</format></li><li>int <format style="bold">$limit</format> = -1 - <format style="italic">[optional] 
+The maximum possible replacements for each pattern in each subject string.
+Defaults to -1 (no limit).
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If error while performing a regular expression split.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>array - <format style="italic"><code>string[]</code> Array containing substrings of $string split along boundaries matched
+by $pattern.</format></li></list>
+    </def>
+</deflist>
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
@@ -268,12 +329,12 @@ and replace.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L198">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L198">
                     View blame
                 </a>
             </def></deflist>
@@ -285,11 +346,6 @@ and replace.</format></li></list>
 <deflist>
     <def title="This method uses:">
         <list><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a>  - <format style="italic">To get or set regex character encoding.</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method is used by:">
-        <list><li><a href="Char.md#regexmatch()">\FireHub\Core\Support\Char::regexMatch()</a>  - <format style="italic">To set character encoding for multibyte regex.</format></li><li><a href="Str.md#regexmatch()">\FireHub\Core\Support\Str::regexMatch()</a>  - <format style="italic">To set string encoding for multibyte regex.</format></li></list>
     </def>
 </deflist>
 <deflist>

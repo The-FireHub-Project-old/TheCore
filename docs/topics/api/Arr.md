@@ -3493,7 +3493,7 @@ The array.
 ## method: sort {id="sort()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::SORT_REGULAR, bool $preserve_keys = false):true]]>
+    <![CDATA[public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true]]>
 </code-block>
 
 
@@ -3532,7 +3532,7 @@ The array.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Order.md#asc">\FireHub\Core\Support\Enums\Order::ASC</a>  - <format style="italic">As default parameter.</format></li><li><a href="Sort.md#sort_regular">\FireHub\Core\Support\Enums\Sort::SORT_REGULAR</a>  - <format style="italic">As default parameter.</format></li></list>
+        <list><li><a href="Order.md#asc">\FireHub\Core\Support\Enums\Order::ASC</a>  - <format style="italic">As default parameter.</format></li><li><a href="Sort.md#by_regular">\FireHub\Core\Support\Enums\Sort::BY_REGULAR</a>  - <format style="italic">As default parameter.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3547,7 +3547,7 @@ The array.
 Array to sort.
 </format></li><li><a href="Order.md">\FireHub\Core\Support\Enums\Order</a> <format style="bold">$order</format> = Order::ASC - <format style="italic">[optional] 
 Order type.
-</format></li><li><a href="Sort.md">\FireHub\Core\Support\Enums\Sort</a> <format style="bold">$flag</format> = Sort::SORT_REGULAR - <format style="italic">[optional] 
+</format></li><li><a href="Sort.md">\FireHub\Core\Support\Enums\Sort</a> <format style="bold">$flag</format> = Sort::BY_REGULAR - <format style="italic">[optional] 
 Sort flag.
 </format></li><li>bool <format style="bold">$preserve_keys</format> = false - <format style="italic">[optional] 
 Whether you want to preserve keys from an original array or not.
@@ -3562,7 +3562,7 @@ Whether you want to preserve keys from an original array or not.
 ## method: sortByKey {id="sortbykey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::SORT_REGULAR):true]]>
+    <![CDATA[public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true]]>
 </code-block>
 
 
@@ -3598,7 +3598,7 @@ Whether you want to preserve keys from an original array or not.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Order.md#asc">\FireHub\Core\Support\Enums\Order::ASC</a>  - <format style="italic">As default parameter.</format></li><li><a href="Sort.md#sort_regular">\FireHub\Core\Support\Enums\Sort::SORT_REGULAR</a>  - <format style="italic">As default parameter.</format></li></list>
+        <list><li><a href="Order.md#asc">\FireHub\Core\Support\Enums\Order::ASC</a>  - <format style="italic">As default parameter.</format></li><li><a href="Sort.md#by_regular">\FireHub\Core\Support\Enums\Sort::BY_REGULAR</a>  - <format style="italic">As default parameter.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3613,7 +3613,7 @@ Whether you want to preserve keys from an original array or not.
 Array to sort.
 </format></li><li><a href="Order.md">\FireHub\Core\Support\Enums\Order</a> <format style="bold">$order</format> = Order::ASC - <format style="italic">[optional] 
 Order type.
-</format></li><li><a href="Sort.md">\FireHub\Core\Support\Enums\Sort</a> <format style="bold">$flag</format> = Sort::SORT_REGULAR - <format style="italic">[optional] 
+</format></li><li><a href="Sort.md">\FireHub\Core\Support\Enums\Sort</a> <format style="bold">$flag</format> = Sort::BY_REGULAR - <format style="italic">[optional] 
 Sort flag.
 </format></li></list>
     </def>

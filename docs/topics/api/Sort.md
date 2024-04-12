@@ -54,19 +54,19 @@
 ### Cases
 | Name | Title | Value |
 |:-----|:------|:------|
-|<a href="#sort_regular">SORT_REGULAR</a>|### Compare items normally|0|
-|<a href="#sort_numeric">SORT_NUMERIC</a>|### Compare items numerically|1|
-|<a href="#sort_string">SORT_STRING</a>|### Compare items as strings|2|
-|<a href="#sort_locale_string">SORT_LOCALE_STRING</a>|### Compare items as strings, based on the current locale|5|
-|<a href="#sort_natural">SORT_NATURAL</a>|### Compare items as strings using "natural ordering" like natsort()|6|
-|<a href="#sort_string_flag_case">SORT_STRING_FLAG_CASE</a>|### Sort strings case-insensitively|10|
-|<a href="#sort_natural_flag_case">SORT_NATURAL_FLAG_CASE</a>|### Sort natural case-insensitively|14|
+|<a href="#by_regular">BY_REGULAR</a>|### Compare items normally|0|
+|<a href="#by_numeric">BY_NUMERIC</a>|### Compare items numerically|1|
+|<a href="#by_string">BY_STRING</a>|### Compare items as strings|2|
+|<a href="#by_locale_string">BY_LOCALE_STRING</a>|### Compare items as strings, based on the current locale|5|
+|<a href="#by_natural">BY_NATURAL</a>|### Compare items as strings using "natural ordering" like natsort()|6|
+|<a href="#by_string_flag_case">BY_STRING_FLAG_CASE</a>|### Sort strings case-insensitively|10|
+|<a href="#by_natural_flag_case">BY_NATURAL_FLAG_CASE</a>|### Sort natural case-insensitively|14|
 
-## case: SORT_REGULAR {id="sort_regular"}
+## case: BY_REGULAR {id="by_regular"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_REGULAR    ]]>
+    BY_REGULAR    ]]>
 </code-block>
 
 
@@ -99,11 +99,11 @@
         <list><li><a href="Arr.md#sort()">\FireHub\Core\Support\LowLevel\Arr::sort()</a>  - <format style="italic">As default parameter.</format></li><li><a href="Arr.md#sortbykey()">\FireHub\Core\Support\LowLevel\Arr::sortByKey()</a>  - <format style="italic">As default parameter.</format></li></list>
     </def>
 </deflist>
-## case: SORT_NUMERIC {id="sort_numeric"}
+## case: BY_NUMERIC {id="by_numeric"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_NUMERIC = 1    ]]>
+    BY_NUMERIC = 1    ]]>
 </code-block>
 
 
@@ -131,11 +131,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
-## case: SORT_STRING {id="sort_string"}
+## case: BY_STRING {id="by_string"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_STRING = 2    ]]>
+    BY_STRING = 2    ]]>
 </code-block>
 
 
@@ -163,11 +163,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
-## case: SORT_LOCALE_STRING {id="sort_locale_string"}
+## case: BY_LOCALE_STRING {id="by_locale_string"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_LOCALE_STRING = 5    ]]>
+    BY_LOCALE_STRING = 5    ]]>
 </code-block>
 
 
@@ -195,11 +195,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
-## case: SORT_NATURAL {id="sort_natural"}
+## case: BY_NATURAL {id="by_natural"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_NATURAL = 6    ]]>
+    BY_NATURAL = 6    ]]>
 </code-block>
 
 
@@ -227,11 +227,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
-## case: SORT_STRING_FLAG_CASE {id="sort_string_flag_case"}
+## case: BY_STRING_FLAG_CASE {id="by_string_flag_case"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_STRING_FLAG_CASE = 10    ]]>
+    BY_STRING_FLAG_CASE = 10    ]]>
 </code-block>
 
 
@@ -259,11 +259,11 @@
         <list><li>1.0.0</li></list>
     </def>
 </deflist>
-## case: SORT_NATURAL_FLAG_CASE {id="sort_natural_flag_case"}
+## case: BY_NATURAL_FLAG_CASE {id="by_natural_flag_case"}
 
 <code-block lang="php">
 <![CDATA[
-    SORT_NATURAL_FLAG_CASE = 14    ]]>
+    BY_NATURAL_FLAG_CASE = 14    ]]>
 </code-block>
 
 

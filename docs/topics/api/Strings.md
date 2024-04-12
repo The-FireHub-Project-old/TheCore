@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Interface Name:">
         \FireHub\Core\Support\Contracts\HighLevel\Strings
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L25">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L27">
             View source code
         </a>
     </def>
@@ -51,40 +51,54 @@
 </deflist>
 
 
+### Used by
+<deflist>
+    <def title="This interface is used by:">
+        <list><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li></list>
+    </def>
+</deflist>
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#islower()">isLower</a>|### Checks if string is lowercase|
-|public|<a href="#isupper()">isUpper</a>|### Checks if string is uppercase|
-|public|<a href="#isalphabetic()">isAlphabetic</a>|### Checks if string is alphabetic|
-|public|<a href="#isalphanumeric()">isAlphanumeric</a>|### Checks if string is alphanumeric|
-|public|<a href="#isblank()">isBlank</a>|### Checks if string is whitespace|
-|public|<a href="#isnumeric()">isNumeric</a>|### Checks if string is numeric|
-|public|<a href="#ishexadecimal()">isHexadecimal</a>|### Checks if string is hexadecimal|
-|public|<a href="#iscontrol()">isControl</a>|### Checks if string is control code|
-|public|<a href="#isprintable()">isPrintable</a>|### Checks if string is printable|
-|public|<a href="#isgraphical()">isGraphical</a>|### Checks if string is graphical|
-|public|<a href="#ispunctuation()">isPunctuation</a>|### Checks if string is punctuation|
-|public|<a href="#isascii()">isASCII</a>|### Checks if string is ASCII|
-|public|<a href="#haslower()">hasLower</a>|### Checks if string has lowercase|
-|public|<a href="#hasupper()">hasUpper</a>|### Checks if string has uppercase|
-|public|<a href="#hasalphabetic()">hasAlphabetic</a>|### Checks if string has alphabetic|
-|public|<a href="#hasalphanumeric()">hasAlphanumeric</a>|### Checks if string has alphanumeric|
-|public|<a href="#hasblank()">hasBlank</a>|### Checks if string has whitespace|
-|public|<a href="#hasnumeric()">hasNumeric</a>|### Checks if string has numeric|
-|public|<a href="#hashexadecimal()">hasHexadecimal</a>|### Checks if string has hexadecimal|
-|public|<a href="#hascontrol()">hasControl</a>|### Checks if string has control code|
-|public|<a href="#hasprintable()">hasPrintable</a>|### Checks if string has printable|
-|public|<a href="#hasgraphical()">hasGraphical</a>|### Checks if string has graphical|
-|public|<a href="#haspunctuation()">hasPunctuation</a>|### Checks if string has punctuation|
-|public|<a href="#string()">string</a>|### Get string as raw string|
+|public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#startswith()">startsWith</a>|### Checks if a string starts with a given value|
+|public|<a href="#startswithany()">startsWithAny</a>|### Checks if a string starts with any of the given values|
+|public|<a href="#endswith()">endsWith</a>|### Checks if a string ends with a given value|
+|public|<a href="#endswithany()">endsWithAny</a>|### Checks if a string ends with any of the given values|
+|public|<a href="#contains()">contains</a>|### Checks if string contains value|
+|public|<a href="#containsall()">containsAll</a>|### Checks if string contains all values|
+|public|<a href="#containsany()">containsAny</a>|### Checks if string contains any of the values|
+|public|<a href="#equals()">equals</a>|### Checks if string equals value|
+|public|<a href="#equalsany()">equalsAny</a>|### Checks if string equals to any of the values|
+|public|<a href="#encoding()">encoding</a>|### Get or change string encoding|
+|public|<a href="#string()">string</a>|### Get or set string as raw string|
+|public|<a href="#tolower()">toLower</a>|### Make a string lowercase|
+|public|<a href="#toupper()">toUpper</a>|### Make a string uppercase|
+|public|<a href="#totitle()">toTitle</a>|### Make a string title-case|
+|public|<a href="#capitalize()">capitalize</a>|### Make a first character of string uppercased|
+|public|<a href="#decapitalize()">deCapitalize</a>|### Make a first character of string uppercased|
+|public|<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
+|public|<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
+|public|<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
+|public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
+|public|<a href="#slice()">slice</a>|### Slice with part of the string|
 |public|<a href="#carry()">carry</a>|### Carry with part of the string|
+|public|<a href="#carryfrom()">carryFrom</a>|### Carry from part of the string|
+|public|<a href="#carryafter()">carryAfter</a>|### Carry from part of the string|
+|public|<a href="#carryuntil()">carryUntil</a>|### Carry until part of the string|
+|public|<a href="#carryfromlast()">carryFromLast</a>|### Carry from the last part of a string|
+|public|<a href="#carryafterlast()">carryAfterLast</a>|### Carry from the last part of the string|
+|public|<a href="#carryuntillast()">carryUntilLast</a>|### Carry until the last part of a string|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical string value|
+|public|<a href="#length()">length</a>|### Get string length|
+|public|<a href="#indexof()">indexOf</a>|### Find the position of the first occurrence of a substring|
+|public|<a href="#lastindexof()">lastIndexOf</a>|### Find the position of the last occurrence of a substring|
 |inherited public|<a href="#__tostring()">__toString</a>|### Gets a string representation of the object|
 
-## method: isLower {id="islower()"}
+## method: expression {id="expression()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isLower():bool]]>
+    <![CDATA[public Strings::expression():\FireHub\Core\Support\Strings\Expression]]>
 </code-block>
 
 
@@ -99,17 +113,17 @@
 
 
 
-### ### Checks if string is lowercase
+### ### Regular expression
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L35">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L35">
                     View blame
                 </a>
             </def></deflist>
@@ -120,13 +134,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is lowercase, false otherwise.</format></li></list>
+        <list><li><a href="Expression.md">\FireHub\Core\Support\Strings\Expression</a> - <format style="italic">Regular expression.</format></li></list>
     </def>
 </deflist>
-## method: isUpper {id="isupper()"}
+## method: startsWith {id="startswith()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isUpper():bool]]>
+    <![CDATA[public Strings::startsWith(string $value):bool]]>
 </code-block>
 
 
@@ -141,17 +155,17 @@
 
 
 
-### ### Checks if string is uppercase
+### ### Checks if a string starts with a given value
 
-
+<p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L51">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L51">
                     View blame
                 </a>
             </def></deflist>
@@ -161,14 +175,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is uppercase, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+<code>non-empty-string></code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: isAlphabetic {id="isalphabetic()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if string starts with value, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: startsWithAny {id="startswithany()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isAlphabetic():bool]]>
+    <![CDATA[public Strings::startsWithAny(string ...$values):bool]]>
 </code-block>
 
 
@@ -183,17 +205,17 @@
 
 
 
-### ### Checks if string is alphabetic
+### ### Checks if a string starts with any of the given values
 
-
+<p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L49">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L49">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -203,14 +225,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is alphabetic, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>variadic string <format style="bold">$values</format> - <format style="italic">
+<code>non-empty-string></code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: isAlphanumeric {id="isalphanumeric()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if string starts with any of the given values, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: endsWith {id="endswith()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isAlphanumeric():bool]]>
+    <![CDATA[public Strings::endsWith(string $value):bool]]>
 </code-block>
 
 
@@ -225,17 +255,17 @@
 
 
 
-### ### Checks if string is alphanumeric
+### ### Checks if a string ends with a given value
 
-
+<p><format style="italic">Performs a check indicating if $string ends with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L83">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L83">
                     View blame
                 </a>
             </def></deflist>
@@ -245,14 +275,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is alphanumeric, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+<code>non-empty-string></code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: isBlank {id="isblank()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if string ends with value, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: endsWithAny {id="endswithany()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isBlank():bool]]>
+    <![CDATA[public Strings::endsWithAny(string ...$values):bool]]>
 </code-block>
 
 
@@ -267,17 +305,17 @@
 
 
 
-### ### Checks if string is whitespace
+### ### Checks if a string ends with any of the given values
 
-
+<p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L65">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L99">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L65">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L99">
                     View blame
                 </a>
             </def></deflist>
@@ -287,14 +325,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is whitespace, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>variadic string <format style="bold">$values</format> - <format style="italic">
+<code>non-empty-string></code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: isNumeric {id="isnumeric()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if string ends with any of the given values, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: contains {id="contains()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isNumeric():bool]]>
+    <![CDATA[public Strings::contains(string $value):bool]]>
 </code-block>
 
 
@@ -309,17 +355,17 @@
 
 
 
-### ### Checks if string is numeric
+### ### Checks if string contains value
 
-
+<p><format style="italic">Performs a check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L73">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L115">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L73">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L115">
                     View blame
                 </a>
             </def></deflist>
@@ -329,14 +375,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is numeric, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+<code>non-empty-string</code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: isHexadecimal {id="ishexadecimal()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if a string contains value, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: containsAll {id="containsall()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::isHexadecimal():bool]]>
+    <![CDATA[public Strings::containsAll(string ...$values):bool]]>
 </code-block>
 
 
@@ -351,259 +405,7 @@
 
 
 
-### ### Checks if string is hexadecimal
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L81">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L81">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is hexadecimal, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isControl {id="iscontrol()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::isControl():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is control code
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L89">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L89">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is control code, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isPrintable {id="isprintable()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::isPrintable():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is printable
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L97">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L97">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is printable, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isGraphical {id="isgraphical()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::isGraphical():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is graphical
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L105">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L105">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is graphical, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isPunctuation {id="ispunctuation()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::isPunctuation():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is punctuation
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L113">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L113">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is punctuation, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: isASCII {id="isascii()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::isASCII():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string is ASCII
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L121">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L121">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string is ASCII, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: hasLower {id="haslower()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::hasLower():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has lowercase
+### ### Checks if string contains all values
 
 
 
@@ -623,14 +425,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has lowercase, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>variadic string <format style="bold">$values</format> - <format style="italic">
+<code>non-empty-string[]</code>
+The list of values to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: hasUpper {id="hasupper()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if a string contains all values, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: containsAny {id="containsany()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasUpper():bool]]>
+    <![CDATA[public Strings::containsAny(string ...$values):bool]]>
 </code-block>
 
 
@@ -645,17 +455,17 @@
 
 
 
-### ### Checks if string has uppercase
+### ### Checks if string contains any of the values
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L143">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L143">
                     View blame
                 </a>
             </def></deflist>
@@ -665,14 +475,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has uppercase, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>variadic string <format style="bold">$values</format> - <format style="italic">
+<code>non-empty-string[]</code>
+The list of values to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: hasAlphabetic {id="hasalphabetic()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if a string contains any of the values, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: equals {id="equals()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasAlphabetic():bool]]>
+    <![CDATA[public Strings::equals(string $value):bool]]>
 </code-block>
 
 
@@ -687,17 +505,17 @@
 
 
 
-### ### Checks if string has alphabetic
+### ### Checks if string equals value
 
-
+<p><format style="italic">Performs a case-sensitive check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L159">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L159">
                     View blame
                 </a>
             </def></deflist>
@@ -707,14 +525,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has alphabetic, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+<code>non-empty-string</code>
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: hasAlphanumeric {id="hasalphanumeric()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if a string equals value, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: equalsAny {id="equalsany()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasAlphanumeric():bool]]>
+    <![CDATA[public Strings::equalsAny(string ...$values):bool]]>
 </code-block>
 
 
@@ -729,17 +555,17 @@
 
 
 
-### ### Checks if string has alphanumeric
+### ### Checks if string equals to any of the values
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L173">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L173">
                     View blame
                 </a>
             </def></deflist>
@@ -749,14 +575,22 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has alphanumeric, false otherwise.</format></li></list>
+    <def title="This method has parameters:">
+        <list><li>variadic string <format style="bold">$values</format> - <format style="italic">
+<code>non-empty-string[]</code>
+The list of values to search for.
+</format></li></list>
     </def>
 </deflist>
-## method: hasBlank {id="hasblank()"}
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True if a string equals to any of the values, false otherwise.</format></li></list>
+    </def>
+</deflist>
+## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasBlank():bool]]>
+    <![CDATA[public Strings::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):$this|\FireHub\Core\Support\Enums\String\Encoding]]>
 </code-block>
 
 
@@ -771,17 +605,17 @@
 
 
 
-### ### Checks if string has whitespace
+### ### Get or change string encoding
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L161">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L188">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L161">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L188">
                     View blame
                 </a>
             </def></deflist>
@@ -791,14 +625,26 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has whitespace, false otherwise.</format></li></list>
+    <def title="This method uses:">
+        <list><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>
-## method: hasNumeric {id="hasnumeric()"}
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">
+String encoding.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">This character or current encoding.</format></li></list>
+    </def>
+</deflist>
+## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasNumeric():bool]]>
+    <![CDATA[public Strings::string(null|string $string = null):$this|string]]>
 </code-block>
 
 
@@ -813,175 +659,7 @@
 
 
 
-### ### Checks if string has numeric
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L169">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L169">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if a string has numeric, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: hasHexadecimal {id="hashexadecimal()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::hasHexadecimal():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has hexadecimal
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L177">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L177">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has hexadecimal, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: hasControl {id="hascontrol()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::hasControl():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has control code
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L185">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L185">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has control code, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: hasPrintable {id="hasprintable()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::hasPrintable():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has printable
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L193">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L193">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has printable, false otherwise.</format></li></list>
-    </def>
-</deflist>
-## method: hasGraphical {id="hasgraphical()"}
-
-<code-block lang="php">
-    <![CDATA[public Strings::hasGraphical():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Checks if string has graphical
+### ### Get or set string as raw string
 
 
 
@@ -1001,14 +679,26 @@
     </def>
 </deflist>
 <deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has graphical, false otherwise.</format></li></list>
+    <def title="This method is used by:">
+        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To get string raw string.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To get string raw string.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To get string raw string.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To get string raw string.</format></li></list>
     </def>
 </deflist>
-## method: hasPunctuation {id="haspunctuation()"}
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>null or string <format style="bold">$string</format> = null - <format style="italic">[optional] 
+String to set.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this or string - <format style="italic">String as raw string.</format></li></list>
+    </def>
+</deflist>
+## method: toLower {id="tolower()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::hasPunctuation():bool]]>
+    <![CDATA[public Strings::toLower():$this]]>
 </code-block>
 
 
@@ -1023,7 +713,7 @@
 
 
 
-### ### Checks if string has punctuation
+### ### Make a string lowercase
 
 
 
@@ -1044,13 +734,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string has punctuation, false otherwise.</format></li></list>
+        <list><li>$this - <format style="italic">This string.</format></li></list>
     </def>
 </deflist>
-## method: string {id="string()"}
+## method: toUpper {id="toupper()"}
 
 <code-block lang="php">
-    <![CDATA[public Strings::string():string]]>
+    <![CDATA[public Strings::toUpper():$this]]>
 </code-block>
 
 
@@ -1065,7 +755,7 @@
 
 
 
-### ### Get string as raw string
+### ### Make a string uppercase
 
 
 
@@ -1086,7 +776,362 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">String as raw string.</format></li></list>
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: toTitle {id="totitle()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::toTitle():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Make a string title-case
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L225">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L225">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: capitalize {id="capitalize()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::capitalize():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Make a first character of string uppercased
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L233">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L233">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: deCapitalize {id="decapitalize()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::deCapitalize():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Make a first character of string uppercased
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L241">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L241">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: addSlashes {id="addslashes()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::addSlashes():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Quote string with slashes
+
+<p><format style="italic">Backslashes are added before characters that need to be escaped:
+(single quote, double quote, backslash, NUL).</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L252">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L252">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: stripSlashes {id="stripslashes()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::stripSlashes():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Un-quotes a quoted string
+
+<p><format style="italic">Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash).</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L262">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L262">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: stripTags {id="striptags()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::stripTags(null|string|array $allowed_tags = null):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Strip HTML and PHP tags from a string
+
+<p><format style="italic">This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given string.
+It uses the same tag stripping state machine as the fgetss() function.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L282">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L282">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>null or string or array <format style="bold">$allowed_tags</format> = null - <format style="italic">
+<code><![CDATA[ null|string|array<int, string> ]]></code>
+You can use the optional second parameter to specify tags which should not be stripped.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: quoteMeta {id="quotemeta()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::quoteMeta():$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Quote meta characters
+
+<p><format style="italic">Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L292">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L292">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: slice {id="slice()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::slice(int $from, null|int $until = null):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Slice with part of the string
+
+<p><format style="italic">Slice with part of the string specified by the $from and $until parameters.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L313">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L313">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>int <format style="bold">$from</format> - <format style="italic">
+Returned string will start at the start position in string, counting from zero.
+</format></li><li>null or int <format style="bold">$until</format> = null - <format style="italic">[optional] 
+Returned string will end at the start position in string.
+If omitted or NULL is passed, extract all characters to the end of the string.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
     </def>
 </deflist>
 ## method: carry {id="carry()"}
@@ -1112,12 +1157,12 @@
 <p><format style="italic">Carry with part of the string specified by the $from and $length parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L238">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L336">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L238">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L336">
                     View blame
                 </a>
             </def></deflist>
@@ -1142,6 +1187,483 @@ If omitted or NULL is passed, extract all characters to the end of the string.
 <deflist>
     <def title="This method returns:">
         <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryFrom {id="carryfrom()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryFrom(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from part of the string
+
+<p><format style="italic">Returns part of $string starting from and including the first occurrence of $find to the end of $string.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L350">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L350">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryAfter {id="carryafter()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryAfter(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from part of the string
+
+<p><format style="italic">Returns part of $string starting from the first occurrence of $find to the end of $string.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L364">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L364">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryUntil {id="carryuntil()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryUntil(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry until part of the string
+
+<p><format style="italic">Returns part of $string starting from the beginning until the first occurrence of $find.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L378">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L378">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryFromLast {id="carryfromlast()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryFromLast(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from the last part of a string
+
+<p><format style="italic">This function returns the portion of $string which starts at the last occurrence of and including $find
+and goes until the end of $string.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L393">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L393">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryAfterLast {id="carryafterlast()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryAfterLast(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry from the last part of the string
+
+<p><format style="italic">Returns last part of $string starting from the first occurrence of $find to the end of $string.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L407">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L407">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: carryUntilLast {id="carryuntillast()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::carryUntilLast(string $find):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Carry until the last part of a string
+
+<p><format style="italic">Returns part of $string starting from the beginning until and goes until the last occurrence of $find.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L421">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L421">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+## method: asBoolean {id="asboolean()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::asBoolean():bool]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical string value
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L429">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L429">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True or false, based on boolean representation of the given logical string value.</format></li></list>
+    </def>
+</deflist>
+## method: length {id="length()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::length():int]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Get string length
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L438">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L438">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>int - <format style="italic">Length of the string.</format></li></list>
+    </def>
+</deflist>
+## method: indexOf {id="indexof()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::indexOf(string $find):int|false]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Find the position of the first occurrence of a substring
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L451">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L451">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>int or false - <format style="italic">Position of the first occurrence of a substring.</format></li></list>
+    </def>
+</deflist>
+## method: lastIndexOf {id="lastindexof()"}
+
+<code-block lang="php">
+    <![CDATA[public Strings::lastIndexOf(string $find):int|false]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Find the position of the last occurrence of a substring
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L464">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L464">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>int or false - <format style="italic">Position of the last occurrence of a substring.</format></li></list>
     </def>
 </deflist>
 ## method: __toString {id="__tostring()"}
