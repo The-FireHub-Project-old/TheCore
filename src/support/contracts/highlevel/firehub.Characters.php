@@ -50,6 +50,18 @@ interface Characters extends Stringable {
     public function encoding (?Encoding $encoding = null):self|Encoding;
 
     /**
+     * ### Boolean representation of the given logical character value
+     *
+     * True - positive-int
+     * False - non-positive-int
+     * For all other characters, the return value is a result of a boolean cast.
+     * @since 1.0.0
+     *
+     * @return bool True or false, based on boolean representation of the given logical character value.
+     */
+    public function asBoolean ():bool;
+
+    /**
      * ### Get character as raw string
      * @since 1.0.0
      *
@@ -81,17 +93,5 @@ interface Characters extends Stringable {
      * @return int Character as codepoint.
      */
     public function codepoint ():int;
-
-    /**
-     * ### Boolean representation of the given logical character value
-     *
-     * True - positive-int
-     * False - non-positive-int
-     * For all other characters, the return value is a result of a boolean cast.
-     * @since 1.0.0
-     *
-     * @return bool True or false, based on boolean representation of the given logical character value.
-     */
-    public function asBoolean ():bool;
 
 }

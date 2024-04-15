@@ -164,6 +164,28 @@ class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Yes')->asBoolean();
+     *
+     * // true
+     * ```
+     */
+    public function asBoolean ():bool {
+
+        return asBoolean($this->string);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::startsWith() To check if a string starts with a given value.
      *
      * @example
@@ -985,28 +1007,6 @@ class Str implements Strings {
         $this->string = StrMB::trim($this->string, $side, $characters);
 
         return $this;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('Yes')->asBoolean();
-     *
-     * // true
-     * ```
-     */
-    public function asBoolean ():bool {
-
-        return asBoolean($this->string);
 
     }
 

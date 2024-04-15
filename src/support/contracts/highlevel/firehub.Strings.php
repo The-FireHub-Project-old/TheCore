@@ -37,6 +37,18 @@ interface Strings extends Stringable {
     public function expression ():Expression;
 
     /**
+     *  ### Boolean representation of the given logical string value
+     *
+     * True - 'true', '1', 'on', 'yes', positive-int
+     * False - 'false', '0','off', 'no', only blanks, non-positive-int
+     * For all other strings, the return value is a result of a boolean cast.
+     * @since 1.0.0
+     *
+     * @return bool True or false, based on boolean representation of the given logical string value.
+     */
+    public function asBoolean ():bool;
+
+    /**
      * ### Checks if a string starts with a given value
      *
      * Performs a check indicating if $string begins with $value.
@@ -447,18 +459,6 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
-
-    /**
-     *  ### Boolean representation of the given logical string value
-     *
-     * True - 'true', '1', 'on', 'yes', positive-int
-     * False - 'false', '0','off', 'no', only blanks, non-positive-int
-     * For all other strings, the return value is a result of a boolean cast.
-     * @since 1.0.0
-     *
-     * @return bool True or false, based on boolean representation of the given logical string value.
-     */
-    public function asBoolean ():bool;
 
     /**
      * ### Get string length

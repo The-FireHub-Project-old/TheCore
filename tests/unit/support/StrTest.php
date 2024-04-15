@@ -311,6 +311,29 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testAsBoolean ():void {
+
+        $this->assertTrue(Str::from('True')->asBoolean());
+        $this->assertTrue(Str::from('1')->asBoolean());
+        $this->assertTrue(Str::from('On')->asBoolean());
+        $this->assertTrue(Str::from('Yes')->asBoolean());
+        $this->assertTrue(Str::from('56.5')->asBoolean());
+        $this->assertTrue(Str::from('test')->asBoolean());
+
+        $this->assertFalse(Str::from('False')->asBoolean());
+        $this->assertFalse(Str::from('0')->asBoolean());
+        $this->assertFalse(Str::from('Off')->asBoolean());
+        $this->assertFalse(Str::from('No')->asBoolean());
+        $this->assertFalse(Str::from(' ')->asBoolean());
+        $this->assertFalse(Str::from('-6')->asBoolean());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));
@@ -731,29 +754,6 @@ final class StrTest extends Base {
 
         $this->assertSame(7,  $this->string->length());
         $this->assertSame(27,  $this->mixed->length());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testAsBoolean ():void {
-
-        $this->assertTrue(Str::from('True')->asBoolean());
-        $this->assertTrue(Str::from('1')->asBoolean());
-        $this->assertTrue(Str::from('On')->asBoolean());
-        $this->assertTrue(Str::from('Yes')->asBoolean());
-        $this->assertTrue(Str::from('56.5')->asBoolean());
-        $this->assertTrue(Str::from('test')->asBoolean());
-
-        $this->assertFalse(Str::from('False')->asBoolean());
-        $this->assertFalse(Str::from('0')->asBoolean());
-        $this->assertFalse(Str::from('Off')->asBoolean());
-        $this->assertFalse(Str::from('No')->asBoolean());
-        $this->assertFalse(Str::from(' ')->asBoolean());
-        $this->assertFalse(Str::from('-6')->asBoolean());
 
     }
 

@@ -179,6 +179,28 @@ class Char implements Characters {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Char;
+     *
+     * Char::from('1')->asBoolean();
+     *
+     * // true
+     * ```
+     */
+    public function asBoolean ():bool {
+
+        return asBoolean($this->character);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::encoding() To get internal character encoding if default is not set.
      *
@@ -313,28 +335,6 @@ class Char implements Characters {
     public function codepoint ():int {
 
         return CharMB::ord($this->character, $this->encoding);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Char;
-     *
-     * Char::from('1')->asBoolean();
-     *
-     * // true
-     * ```
-     */
-    public function asBoolean ():bool {
-
-        return asBoolean($this->character);
 
     }
 
