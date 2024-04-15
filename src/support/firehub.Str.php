@@ -21,6 +21,7 @@ use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, NumInt, StrMB
 };
+use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding
 };
@@ -934,6 +935,54 @@ class Str implements Strings {
         $this->string = StrMB::lastPart(
             $find, $this->string, true, true, $this->encoding
         ) ?: '';
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from(" FireHub \n\r")->trim();
+     *
+     * // FireHub
+     * ```
+     * @example Trim only left side with first parameter.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from("FireHub \n\r")->trim(Side::LEFT);
+     *
+     * // FireHub \n\r
+     * ```
+     * @example Trim with a custom set of characters.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from("FireHub \n\r")->trim(Side::RIGHT, "\n\r ");
+     *
+     * // FireHub
+     * ```
+     *
+     * @note Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
+     * are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
+     * thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
+     * seemingly does not.
+     */
+    public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self {
+
+        $this->string = StrMB::trim($this->string, $side, $characters);
 
         return $this;
 

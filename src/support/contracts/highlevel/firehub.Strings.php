@@ -16,7 +16,9 @@ namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
 use FireHub\Core\Support\Strings\Expression;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\ {
+    Side, String\Encoding
+};
 
 /**
  * ### Strings contract
@@ -419,6 +421,32 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function carryUntilLast (string $find):self;
+
+    /**
+     * ### Strip whitespace (or other characters) from the beginning and end of a string
+     *
+     * This function returns a string with whitespace stripped from the beginning and end of string.
+     * Without the second parameter, [[StrSafe#trim()]] will strip these characters.
+     *
+     * - " " (ASCII 32 (0x20)), an ordinary space.
+     * - "\t" (ASCII 9 (0x09)), a tab.
+     * - "\n" (ASCII 10 (0x0A)), a new line (line feed).
+     * - "\r" (ASCII 13 (0x0D)), a carriage return.
+     * - "\0" (ASCII 0 (0x00)), the NUL-byte.
+     * - "\v" (ASCII 11 (0x0B)), a vertical tab.
+     * @since 1.0.0
+     *t
+     * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
+     * Side to trim string.
+     * </p>
+     * @param string $characters [optional] <p>
+     * The stripped characters can also be specified using the char-list parameter. List all characters that you want
+     * to be stripped. With '..', you can specify a range of characters.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
 
     /**
      *  ### Boolean representation of the given logical string value

@@ -190,6 +190,18 @@ final class CharTest extends Base {
      *
      * @return void
      */
+    public function testAsBoolean ():void {
+
+        $this->assertTrue($this->char_lower->asBoolean());
+        $this->assertFalse($this->space->asBoolean());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCodepoint ():void {
 
         $this->assertSame(

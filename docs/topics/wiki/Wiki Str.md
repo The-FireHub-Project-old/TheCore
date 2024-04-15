@@ -19,7 +19,7 @@ _Class allows you to manipulate strings in various ways._
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\Str**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L44)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L46)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/firehub.Str.php)**</sub>
 
@@ -59,6 +59,7 @@ _Class allows you to manipulate strings in various ways._
 |public|<a href="#carryfromlast()">carryFromLast</a>|### Carry from the last part of a string|
 |public|<a href="#carryafterlast()">carryAfterLast</a>|### Carry from the last part of the string|
 |public|<a href="#carryuntillast()">carryUntilLast</a>|### Carry until the last part of a string|
+|public|<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical string value|
 |public|<a href="#length()">length</a>|### Get string length|
 |public|<a href="#indexof()">indexOf</a>|### Find the position of the first occurrence of a substring|
@@ -86,8 +87,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L59)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L59)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L61)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L61)**</sub>
 #### Parameters
 
 * string **$string** - _String to use._
@@ -116,8 +117,8 @@ public static Str::from(string $string, null|\FireHub\Core\Support\Enums\String\
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L91)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L91)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L93)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L93)**</sub>
 #### Parameters
 
 * string **$string** - _String to use._
@@ -160,8 +161,8 @@ public static Str::fromList(array|\FireHub\Core\Support\Contracts\HighLevel\Coll
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L138)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L138)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L140)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L140)**</sub>
 #### Parameters
 
 * array or [\FireHub\Core\Support\Contracts\HighLevel\Collectable](./Wiki-Collectable) **$list** - _<code>array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str></code>
@@ -214,8 +215,8 @@ public Str::expression()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L154)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L154)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L156)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L156)**</sub>
 <h2><a name="startswith()"># method: startsWith</a></h2>
 
 ```php
@@ -236,8 +237,8 @@ public Str::startsWith(string $value)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L176)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L176)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L178)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L178)**</sub>
 #### Parameters
 
 * string **$value** - _<code>non-empty-string></code>
@@ -271,8 +272,8 @@ public Str::startsWithAny(string ...$values)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L198)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L198)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L200)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L200)**</sub>
 #### Parameters
 
 * variadic string **$values** - _<code>non-empty-string></code>
@@ -306,8 +307,8 @@ public Str::endsWith(string $value)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L223)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L223)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L225)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L225)**</sub>
 #### Parameters
 
 * string **$value** - _<code>non-empty-string></code>
@@ -341,8 +342,8 @@ public Str::endsWithAny(string ...$values)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L245)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L245)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L247)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L247)**</sub>
 #### Parameters
 
 * variadic string **$values** - _<code>non-empty-string></code>
@@ -376,8 +377,8 @@ public Str::contains(string $value)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L270)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L270)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L272)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L272)**</sub>
 #### Parameters
 
 * string **$value** - _<code>non-empty-string</code>
@@ -411,8 +412,8 @@ public Str::containsAll(string ...$values)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L292)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L292)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L294)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L294)**</sub>
 #### Parameters
 
 * variadic string **$values** - _<code>non-empty-string[]</code>
@@ -446,8 +447,8 @@ public Str::containsAny(string ...$values)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L317)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L317)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L319)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L319)**</sub>
 #### Parameters
 
 * variadic string **$values** - _<code>non-empty-string[]</code>
@@ -481,8 +482,8 @@ public Str::equals(string $value)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L340)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L340)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L342)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L342)**</sub>
 #### Parameters
 
 * string **$value** - _<code>non-empty-string</code>
@@ -516,8 +517,8 @@ public Str::equalsAny(string ...$values)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L362)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L362)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L364)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L364)**</sub>
 #### Parameters
 
 * variadic string **$values** - _<code>non-empty-string[]</code>
@@ -551,8 +552,8 @@ public Str::encoding(?\FireHub\Core\Support\Enums\String\Encoding $encoding = nu
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L390)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L390)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L392)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L392)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _String encoding._
@@ -588,8 +589,8 @@ public Str::string(string $string = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L428)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L428)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L430)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L430)**</sub>
 #### Parameters
 
 * string **$string** = null - _[optional] 
@@ -632,8 +633,8 @@ public Str::toLower()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L455)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L455)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L457)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L457)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -663,8 +664,8 @@ public Str::toUpper()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L480)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L480)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L482)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L482)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -694,8 +695,8 @@ public Str::toTitle()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L505)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L505)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L507)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L507)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -725,8 +726,8 @@ public Str::capitalize()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L531)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L531)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L533)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L533)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -756,8 +757,8 @@ public Str::deCapitalize()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L561)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L561)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L563)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L563)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -787,8 +788,8 @@ public Str::addSlashes()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L592)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L592)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L594)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L594)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -818,8 +819,8 @@ public Str::stripSlashes()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L621)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L621)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L623)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L623)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -849,8 +850,8 @@ public Str::stripTags(null|string|array $allowed_tags = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L665)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L665)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L667)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L667)**</sub>
 #### Parameters
 
 * null or string or array **$allowed_tags** = null - _<code>null|string|array<int, string></code>
@@ -900,8 +901,8 @@ public Str::quoteMeta()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L689)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L689)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L691)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L691)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -931,8 +932,8 @@ public Str::slice(int $from, ?int $until = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L730)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L730)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L732)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L732)**</sub>
 #### Parameters
 
 * int **$from** - _Returned string will start at the start position in string, counting from zero._
@@ -984,8 +985,8 @@ public Str::carry(int $from, ?int $length = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L777)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L777)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L779)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L779)**</sub>
 #### Parameters
 
 * int **$from** - _If start is non-negative, the returned string will start at the start position in string, counting from zero.
@@ -1040,8 +1041,8 @@ public Str::carryFrom(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L801)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L801)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L803)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L803)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1074,8 +1075,8 @@ public Str::carryAfter(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L829)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L829)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L831)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L831)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1108,8 +1109,8 @@ public Str::carryUntil(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L853)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L853)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L855)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L855)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1142,8 +1143,8 @@ public Str::carryFromLast(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L879)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L879)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L881)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L881)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1176,8 +1177,8 @@ public Str::carryAfterLast(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L907)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L909)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L909)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1210,8 +1211,8 @@ public Str::carryUntilLast(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L931)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L931)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L933)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L933)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1220,6 +1221,64 @@ public Str::carryUntilLast(string $find)
 use FireHub\Core\Support\Str;
 
 Str::from('FireHub Web App')->carryUntilLast('Web');
+
+// FireHub
+```
+
+<h2><a name="trim()"># method: trim</a></h2>
+
+```php
+public Str::trim(\FireHub\Core\Support\Enums\Side $side = Side::BOTH, string $characters = &quot; 
+	 &quot;)
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Strip whitespace (or other characters) from the beginning and end of a string
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L983)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L983)**</sub>
+#### Parameters
+
+* [\FireHub\Core\Support\Enums\Side](./Wiki-Side) **$side** = Side::BOTH - _[optional] 
+Side to trim string._
+* string **$characters** = " 
+	 " - _[optional] 
+The stripped characters can also be specified using the char-list parameter. List all characters that you want
+to be stripped. With '..', you can specify a range of characters._
+#### Examples
+```php
+use FireHub\Core\Support\Str;
+
+Str::from(" FireHub \n\r")->trim();
+
+// FireHub
+```
+Trim only left side with first parameter.
+```php
+use FireHub\Core\Support\Str;
+use FireHub\Core\Support\Enums\Side;
+
+Str::from("FireHub \n\r")->trim(Side::LEFT);
+
+// FireHub \n\r
+```
+Trim with a custom set of characters.
+```php
+use FireHub\Core\Support\Str;
+use FireHub\Core\Support\Enums\Side;
+
+Str::from("FireHub \n\r")->trim(Side::RIGHT, "\n\r ");
 
 // FireHub
 ```
@@ -1244,8 +1303,8 @@ public Str::asBoolean()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L957)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L957)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1007)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1007)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -1275,8 +1334,8 @@ public Str::length()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L979)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L979)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1029)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1029)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;
@@ -1306,8 +1365,8 @@ public Str::indexOf(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1001)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1001)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1051)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1051)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1340,8 +1399,8 @@ public Str::lastIndexOf(string $find)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1023)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1023)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1073)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1073)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -1374,8 +1433,8 @@ public Str::__toString()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1043)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1043)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L1093)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L1093)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Str;

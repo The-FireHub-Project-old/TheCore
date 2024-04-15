@@ -31,6 +31,7 @@ use FireHub\Core\Support\ {
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, DependsOnClass, RequiresOperatingSystemFamily
 };
+use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\Enums\String\Expression\Modifier;
 use Error;
@@ -705,6 +706,19 @@ final class StrTest extends Base {
 
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタ',  $this->mixed->carryUntilLast('カ')->string());
         $this->assertSame('Fire',  $this->insensitive_string->carryUntilLast('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTrim ():void {
+
+        $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());
+        $this->assertSame("FireHub\r\n",  Str::from("FireHub\r\n")->trim(Side::LEFT)->string());
+        $this->assertSame("\r\nFireHub",  Str::from("\r\nFireHub")->trim(Side::RIGHT)->string());
 
     }
 
