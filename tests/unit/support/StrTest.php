@@ -15,7 +15,9 @@
 namespace support;
 
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Strings\Expression;
+use FireHub\Core\Support\Strings\ {
+    Expression, Str as aStr
+};
 use FireHub\Core\Support\Strings\Expression\ {
     FunctionFamily, Check, Replace, Get, Pattern, Split
 };
@@ -40,6 +42,7 @@ use Error;
  * ### Test string high-level support class
  * @since 1.0.0
  */
+#[CoversClass(aStr::class)]
 #[CoversClass(Str::class)]
 #[CoversClass(IStr::class)]
 #[CoversClass(Expression::class)]
@@ -729,6 +732,41 @@ final class StrTest extends Base {
 
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタ',  $this->mixed->carryUntilLast('カ')->string());
         $this->assertSame('Fire',  $this->insensitive_string->carryUntilLast('h')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testReplace ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ čタčナ }{:;',  $this->mixed->replace('カ', 'č')->string());
+        $this->assertSame('FireHub',  $this->string->replace('h', 'č')->string());
+        $this->assertSame('Firečub',  $this->insensitive_string->replace('h', 'č')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testReplaceMultiple ():void {
+
+        $this->assertSame('YYXX',  Str::from('XXYY')->replaceMultiple(['X' => 'Y', 'Y' => 'X'])->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testReplaceRecursive ():void {
+
+        $this->assertSame('1111',  Str::from('1122')->replaceRecursive(['1' => '2', '2' => '1'])->string());
 
     }
 

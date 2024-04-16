@@ -435,6 +435,38 @@ interface Strings extends Stringable {
     public function carryUntilLast (string $find):self;
 
     /**
+     * ### Replace all occurrences of the search string with the replacement string
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * The replacement value that replaces found search values.
+     * </p>
+     * @param string $with <p>
+     * The string being searched and replaced on.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function replace (string $find, string $with):self;
+
+    /**
+     * ### Replace all occurrences recursively of search in a subject replaced with the given replacement value
+     * @since 1.0.0
+     *
+     * @param array $rules <p>
+     * <code><![CDATA[ array<non-empty-string, string> ]]></code>
+     * Find => Replace pattern rules.
+     * </p>
+     * @phpstan-param array<non-empty-string, string> $rules
+     *
+     * @return $this This string.
+     *
+     * @note Because method replaces left to right, it might replace a previously inserted value when doing
+     * multiple replacements.
+     */
+    public function replaceRecursive (array $rules):self;
+
+    /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
      * This function returns a string with whitespace stripped from the beginning and end of string.
