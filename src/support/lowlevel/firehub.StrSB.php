@@ -44,7 +44,6 @@ use function strrpos;
 use function strspn;
 use function strtolower;
 use function strtoupper;
-use function strtr;
 use function substr;
 use function substr_compare;
 use function substr_count;
@@ -60,7 +59,6 @@ use function wordwrap;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StrSB extends StrSafe {
@@ -400,28 +398,6 @@ final class StrSB extends StrSafe {
     public static function deCapitalize (string $string):string {
 
         return lcfirst($string);
-
-    }
-
-    /**
-     * ### Translate characters or replace substrings
-     * @since 1.0.0
-     *
-     * @param string $string <p>
-     * The string being translated to.
-     * </p>
-     * @param string $from <p>
-     * An array of key-value pairs for translation.
-     * </p>
-     * @param string $to <p>
-     * The string replaced from.
-     * </p>
-     *
-     * @return string The translated string.
-     */
-    public static function translate (string $string, string $from, string $to):string {
-
-        return strtr($string, $from, $to);
 
     }
 

@@ -32,6 +32,7 @@ use function str_starts_with;
 use function strcmp;
 use function strip_tags;
 use function stripslashes;
+use function strtr;
 use function trim;
 
 /**
@@ -360,6 +361,29 @@ abstract class StrSafe {
     public static function compare (string $string_1, string $string_2):int {
 
         return strcmp($string_1, $string_2) <=> 0;
+
+    }
+
+    /**
+     * ### Translate characters or replace substrings
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The string being translated to.
+     * </p>
+     * @param array $replace_pairs <p>
+     * <code><![CDATA[ array<non-empty-list, string> ]]></code>
+     * An array of key-value pairs for translation.
+     * </p>
+     * @phpstan-param array<non-empty-string, string> $replace_pairs
+     *
+     * @error\exeption E_WARNING If key for parameter $replace_pairs is empty.
+     *
+     * @return string The translated string.
+     */
+    public static function translate (string $string, array $replace_pairs):string {
+
+        return strtr($string, $replace_pairs);
 
     }
 

@@ -510,7 +510,7 @@ final class StrSBTest extends Base {
 
         $this->assertSame(
             'Hello World',
-            StrSB::translate('Hilla Warld', 'ia', 'eo')
+            StrSB::translate('Hillo Warld', ['il' => 'el', 'ar' => 'or'])
         );
 
     }
