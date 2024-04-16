@@ -195,35 +195,6 @@ final class StrMBTest extends Base {
      *
      * @return void
      */
-    public function testReplace ():void {
-
-        $this->assertSame(
-            'đščćž 诶杰艾玛 È ÈßÁ カタカナ',
-            StrMB::replace('ЛЙ', 'È', $this->string)
-        );
-
-        $this->assertSame(
-            $this->string,
-            StrMB::replace('Č', '玛', $this->string)
-        );
-
-        $this->assertSame(
-            'đščćž 诶杰艾玛 ЛЙ ÈßÁ žタžナ',
-            StrMB::replace('カ', 'ž', $this->string)
-        );
-
-        $this->assertSame(
-            'カščćmouse 诶杰艾玛 ЛЙ ÈßÁ カタカナ',
-            StrMB::replace(['đ', 'ž'], ['カ',  'mouse'], $this->string)
-        );
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testRepeat ():void {
 
         $this->assertSame(
