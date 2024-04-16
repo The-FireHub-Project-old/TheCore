@@ -267,9 +267,10 @@ final class StrSBTest extends Base {
      */
     public function testRepeatLessThenOne ():void {
 
-        $this->expectException(Error::class);
-
-        StrSB::repeat('fox', -1);
+        $this->assertSame(
+            'fox',
+            StrSB::repeat('fox', -1)
+        );
 
     }
 

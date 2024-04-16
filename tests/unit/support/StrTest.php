@@ -755,7 +755,7 @@ final class StrTest extends Base {
      */
     public function testReplaceMultiple ():void {
 
-        $this->assertSame('YYXX',  Str::from('XXYY')->replaceMultiple(['X' => 'Y', 'Y' => 'X'])->string());
+        $this->assertSame('YYXX', Str::from('XXYY')->replaceMultiple(['X' => 'Y', 'Y' => 'X'])->string());
 
     }
 
@@ -766,7 +766,19 @@ final class StrTest extends Base {
      */
     public function testReplaceRecursive ():void {
 
-        $this->assertSame('1111',  Str::from('1122')->replaceRecursive(['1' => '2', '2' => '1'])->string());
+        $this->assertSame('1111', Str::from('1122')->replaceRecursive(['1' => '2', '2' => '1'])->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRepeat ():void {
+
+        $this->assertSame('FireHub', $this->string->repeat(-5)->string());
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', $this->mixed->repeat(1)->string());
 
     }
 

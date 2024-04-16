@@ -198,13 +198,13 @@ abstract class StrSafe {
      * </p>
      * @phpstan-param non-negative-int $times
      *
-     * @throws Error If $times argument is not 0 or greater.
-     *
      * @return string Repeated string.
+     *
+     * @note If $times is less than 1, original string will be returned.
      */
     final public static function repeat (string $string, int $times, string $separator = ''):string {
 
-        return $times === 0 ? '' : str_repeat($string.$separator, $times - 1).$string;
+        return $times < 1 ? $string : str_repeat($string.$separator, $times - 1).$string;
 
     }
 

@@ -1015,6 +1015,40 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::repeat() To repeat a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->repeat(3);
+     *
+     * // FireHubFireHubFireHubFireHub
+     * ```
+     * @example With custom separator.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->repeat(3, '-');
+     *
+     * // FireHub-FireHub-FireHub-FireHub
+     * ```
+     *
+     * @note If $times is less than 1, original string will be returned.
+     */
+    public function repeat (int $times, string $separator = ''):self {
+
+        $this->string = StrMB::repeat($this->string, $times + 1, $separator);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
      *

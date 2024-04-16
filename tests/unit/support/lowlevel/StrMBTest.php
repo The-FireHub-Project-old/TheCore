@@ -211,9 +211,10 @@ final class StrMBTest extends Base {
      */
     public function testRepeatLessThenOne ():void {
 
-        $this->expectException(Error::class);
-
-        StrMB::repeat('カタ', -1);
+        $this->assertSame(
+            'カタ',
+            StrMB::repeat('カタ', -2)
+        );
 
     }
 

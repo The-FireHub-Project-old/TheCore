@@ -467,6 +467,23 @@ interface Strings extends Stringable {
     public function replaceRecursive (array $rules):self;
 
     /**
+     * ### Repeat a string
+     * @since 1.0.0`
+     *
+     * @param positive-int $times <p>
+     * Number of time the input string should be repeated.
+     * Multiplier has to be greater than or equal to 0. If the multiplier is set to 0,
+     * the function will return an empty string.
+     * </p>
+     * @param string $separator [optional] <p>
+     * Separator in between any repeated string.
+     * </p>
+     *
+     * @return $this This string repeated $times times.
+     */
+    public function repeat (int $times, string $separator = ''):self;
+
+    /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
      * This function returns a string with whitespace stripped from the beginning and end of string.
