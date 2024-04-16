@@ -21,7 +21,9 @@ use function addcslashes;
 use function chunk_split;
 use function count_chars;
 use function lcfirst;
+use function str_ireplace;
 use function str_pad;
+use function str_replace;
 use function str_shuffle;
 use function str_split;
 use function str_word_count;
@@ -58,6 +60,7 @@ use function wordwrap;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StrSB extends StrSafe {
@@ -154,6 +157,49 @@ final class StrSB extends StrSafe {
             Side::RIGHT => 1,
             Side::BOTH => 2
         }) : throw new Error('Pad cannot be empty.');
+
+    }
+
+    /**
+     * ### Replace all occurrences of the search string with the replacement string
+     *
+     * This function returns a string or an array with all occurrences of search in a subject replaced with the given replacement value.
+     * @since 1.0.0
+     *
+     * @param string|array $search <p>
+     * <code><![CDATA[ string|list<string> ]]></code>
+     * The replacement value that replaces found search values.
+     * An array may be used to designate multiple replacements.
+     * </p>
+     * @param string|array $replace <p>
+     * <code><![CDATA[ string|list<string> ]]></code>
+     * The string being searched and replaced on.
+     * </p>
+     * @param string $string <p>
+     * The value being searched for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Searched values are case-insensitive.
+     * </p>
+     * @param null|int &$count [optional] <p>
+     * If passed, this will hold the number of matched and replaced needles.
+     * </p>
+     * @phpstan-param string|list<string> $search
+     * @phpstan-param string|list<string> $replace
+     * @param-out int $count
+     *
+     * @return string String with the replaced values.
+     *
+     * @note Multibyte characters may not work as expected while $case_sensitive is on.
+     * @note Because method replaces left to right, it might replace a previously inserted value when doing
+     * multiple replacements.
+     * @tip To replace text based on a pattern rather than a fixed string, use preg_replace().
+     */
+    public static function replace (string|array $search, string|array $replace, string $string, bool $case_sensitive = true, int &$count = null):string {
+
+        if ($case_sensitive) return str_replace($search, $replace, $string, $count);
+
+        return str_ireplace($search, $replace, $string, $count);
 
     }
 
