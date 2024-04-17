@@ -1239,6 +1239,63 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\Side::RIGHT As parameter.
+     * @uses \FireHub\Core\Support\Enums\Side::LEFT As parameter.
+     * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
+     * @uses \FireHub\Core\Support\Str::length() To get string length.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::repeat() To repeat a string.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::floor() To round fractions down.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from('FireHub')->pad(10, '_');
+     *
+     * // ___FireHub
+     * ```
+     * @example With side argument.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Enums\Side;
+     *
+     * Str::from('FireHub')->pad(10, '-', Side::RIGHT);
+     *
+     * // FireHub---
+     * ```
+     *
+     * @throws Error If the pad is empty.
+     */
+    public function pad (int $length, string $pad = " ", Side $side = Side::BOTH):self {
+
+        $final_length = ($final_length = $length - $this->length()) > 0 ? $final_length : 0;
+
+        $half_length = ($half_length = $final_length / 2) > 0 ? $half_length : 0;
+
+        $this->string = match ($side) {
+            Side::LEFT =>
+                ($final_length > 0 ? StrMB::repeat($pad, $final_length) : '')
+                .$this->string,
+            Side::RIGHT =>
+                $this->string
+                .($final_length > 0 ? StrMB::repeat($pad, $final_length) : ''),
+            Side::BOTH =>
+                ($half_length > 0 ? StrMB::repeat($pad, NumInt::floor($half_length)) : '')
+                .$this->string
+                .($half_length > 0 ? StrMB::repeat($pad, NumInt::ceil($half_length)) : '')
+        };
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
      *

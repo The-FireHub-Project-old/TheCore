@@ -858,6 +858,18 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testPad ():void {
+
+        $this->assertSame('カカカFireHub', $this->string->pad(10, 'カ', Side::LEFT)->string());
+        $this->assertSame('カカカカカカđščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カカカカカカカ', $this->mixed->pad(40, 'カ')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTrim ():void {
 
         $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());

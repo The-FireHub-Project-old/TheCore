@@ -536,10 +536,9 @@ interface Strings extends Stringable {
      * ### Repeat a string
      * @since 1.0.0`
      *
-     * @param positive-int $times <p>
+     * @param int $times <p>
      * Number of time the input string should be repeated.
-     * Multiplier has to be greater than or equal to 0. If the multiplier is set to 0,
-     * the function will return an empty string.
+     * If the $times is set to 0 or less, the function will return a $string one time.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
@@ -548,6 +547,32 @@ interface Strings extends Stringable {
      * @return $this This string repeated $times times.
      */
     public function repeat (int $times, string $separator = ''):self;
+
+    /**
+     * ### Pad a string to a certain length with another string
+     *
+     * This method returns the $string padded on the left, the right, or both sides to the specified padding length.
+     * If the optional argument $pad is not supplied, the $string is padded with spaces; otherwise it is padded
+     * with characters from $pad up to the limit.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
+     *
+     * @param int $length <p>
+     * If the value of pad_length is negative, less than, or equal to the length of the input string,
+     * no padding takes place.
+     * </p>
+     * @param non-empty-string $pad [optional] <p>
+     * The pad may be truncated if the required number of padding characters can't be evenly divided by the pad's
+     * length.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
+     * Pad side.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function pad (int $length, string $pad = " ", Side $side = Side::BOTH):self;
 
     /**
      * ### Reverse order of characters
