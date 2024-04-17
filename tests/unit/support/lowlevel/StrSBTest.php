@@ -101,6 +101,17 @@ final class StrSBTest extends Base {
      *
      * @return void
      */
+    public function testShuffle ():void {
+
+        $this->assertIsString(StrSB::shuffle($this->string));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStripSlashes ():void {
 
         $this->assertSame("O'Reilly", StrSB::stripSlashes($this->string_single_quote_with_slash));
