@@ -306,52 +306,6 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Str::startsWith() To check if a string starts with a given value.
-     * @uses \FireHub\Core\Support\Str::prepend() To prepend the given string to the current string.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->ensureStartsWith('The ');
-     *
-     * // The FireHub
-     * ```
-     */
-    public function ensureStartsWith (string $prefix):self {
-
-        return $this->startsWith($prefix) ? $this : $this->prepend($prefix);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Str::endsWith() To check if a string ends with a given value.
-     * @uses \FireHub\Core\Support\Str::append() To append the given string to the current string.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->ensureEndsWith(' Framework');
-     *
-     * // FireHub Framework
-     * ```
-     */
-    public function ensureEndsWith (string $suffix):self {
-
-        return $this->endsWith($suffix) ? $this : $this->append($suffix);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains value.
      *
      * @example
@@ -1372,6 +1326,52 @@ abstract class Str implements Strings {
         $this->string = $this->string.$string;
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::startsWith() To check if a string starts with a given value.
+     * @uses \FireHub\Core\Support\Str::prepend() To prepend the given string to the current string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->ensureStartsWith('The ');
+     *
+     * // The FireHub
+     * ```
+     */
+    public function ensureStartsWith (string $prefix):self {
+
+        return $this->startsWith($prefix) ? $this : $this->prepend($prefix);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::endsWith() To check if a string ends with a given value.
+     * @uses \FireHub\Core\Support\Str::append() To append the given string to the current string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->ensureEndsWith(' Framework');
+     *
+     * // FireHub Framework
+     * ```
+     */
+    public function ensureEndsWith (string $suffix):self {
+
+        return $this->endsWith($suffix) ? $this : $this->append($suffix);
 
     }
 
