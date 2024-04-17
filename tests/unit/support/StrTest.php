@@ -837,7 +837,7 @@ final class StrTest extends Base {
      */
     public function testRepeat ():void {
 
-        $this->assertSame('FireHub', $this->string->repeat(-5)->string());
+        $this->assertSame('', $this->string->repeat(-5)->string());
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', $this->mixed->repeat(1)->string());
 
     }
@@ -862,6 +862,28 @@ final class StrTest extends Base {
 
         $this->assertSame('カカカFireHub', $this->string->pad(10, 'カ', Side::LEFT)->string());
         $this->assertSame('カカカカカカđščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カカカカカカカ', $this->mixed->pad(40, 'カ')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPrepend ():void {
+
+        $this->assertSame('カFireHub', $this->string->prepend('カ')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testAppend ():void {
+
+        $this->assertSame('FireHubカ', $this->string->append('カ')->string());
 
     }
 

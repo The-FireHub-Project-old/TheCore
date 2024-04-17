@@ -538,7 +538,7 @@ interface Strings extends Stringable {
      *
      * @param int $times <p>
      * Number of time the input string should be repeated.
-     * If the $times is set to 0 or less, the function will return a $string one time.
+     * If the $times is set to 0 or less, the function will return empty string.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
@@ -547,6 +547,14 @@ interface Strings extends Stringable {
      * @return $this This string repeated $times times.
      */
     public function repeat (int $times, string $separator = ''):self;
+
+    /**
+     * ### Reverse order of characters
+     * @since 1.0.0
+     *
+     * @return $this This reversed string.
+     */
+    public function reverse ():self;
 
     /**
      * ### Pad a string to a certain length with another string
@@ -575,12 +583,20 @@ interface Strings extends Stringable {
     public function pad (int $length, string $pad = " ", Side $side = Side::BOTH):self;
 
     /**
-     * ### Reverse order of characters
+     * ### Prepends the given string to the current string
      * @since 1.0.0
      *
-     * @return $this This reversed string.
+     * @return $this This string.
      */
-    public function reverse ():self;
+    public function prepend (string $string):self;
+
+    /**
+     * ### Appends the given string to the current string
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function append (string $string):self;
 
     /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string

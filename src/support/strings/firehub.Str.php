@@ -1275,17 +1275,55 @@ abstract class Str implements Strings {
         $half_length = ($half_length = $final_length / 2) > 0 ? $half_length : 0;
 
         $this->string = match ($side) {
-            Side::LEFT =>
-                ($final_length > 0 ? StrMB::repeat($pad, $final_length) : '')
-                .$this->string,
-            Side::RIGHT =>
-                $this->string
-                .($final_length > 0 ? StrMB::repeat($pad, $final_length) : ''),
-            Side::BOTH =>
-                ($half_length > 0 ? StrMB::repeat($pad, NumInt::floor($half_length)) : '')
-                .$this->string
-                .($half_length > 0 ? StrMB::repeat($pad, NumInt::ceil($half_length)) : '')
+            Side::LEFT => $this->prepend(StrMB::repeat($pad, $final_length))->string,
+            Side::RIGHT => $this->append(StrMB::repeat($pad, $final_length))->string,
+            Side::BOTH => $this->prepend(StrMB::repeat($pad, NumInt::floor($half_length)))
+                ->append(StrMB::repeat($pad, NumInt::ceil($half_length)))->string
         };
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->prepend('Text-');
+     *
+     * // Text-FireHub
+     * ```
+     */
+    public function prepend (string $string):self {
+
+        $this->string = $string.$this->string;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->append('-text');
+     *
+     * // FireHub-text
+     * ```
+     */
+    public function append (string $string):self {
+
+        $this->string = $this->string.$string;
 
         return $this;
 
