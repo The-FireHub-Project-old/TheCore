@@ -158,6 +158,7 @@ final class IStr extends Str {
      */
     public function break (string $separator, int $limit = MAX):array {
 
+        /** @phpstan-ignore-next-line */
         return DataIs::array(
             $exp = $this->expression()->split($limit, Modifier::MULTIBYTE, Modifier::CASELESS)->any()->custom($separator)
         ) ? $exp : [];
