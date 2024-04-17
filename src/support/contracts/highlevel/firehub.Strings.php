@@ -338,11 +338,11 @@ interface Strings extends Stringable {
      * </p>
      * @phpstan-param positive-int $length
      *
-     * @return array <code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
+     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
      * returned array will be broken down into chunks with each being $length in length, except the final chunk which
      * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
      * byte in size.
-     * @phpstan-return array<int, string>
+     * @phpstan-return list<string>
      */
     public function chop (int $length = 1):array;
 

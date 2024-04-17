@@ -829,6 +829,41 @@ abstract class Str implements Strings {
     }
 
     /**
+     * ### Group a string into chunks
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::chop() To chop a string to an array.
+     * @uses \FireHub\Core\Support\Str::length() To get string length.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up for division of length and number of groups.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->group(3);
+     *
+     * // ['Fir', 'eHu', 'b']
+     * ```
+     *
+     * @param positive-int $number_of_groups <p>
+     * The size of each chunk.
+     * </p>
+     *
+     * @throws Error If number of groups is less than one.
+     *
+     * @return list<string> Grouped string into chunks.
+     */
+    public function group (int $number_of_groups):array {
+
+        if ($number_of_groups < 1) throw new Error('Cannot have groups less then one.');
+
+        return $this->chop((
+            $size = NumInt::ceil($this->length() / $number_of_groups)) >= 1 ? $size : 1
+        );
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

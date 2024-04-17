@@ -681,6 +681,30 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testGroup ():void {
+
+        $this->assertSame(['Fir', 'eHu', 'b'],  $this->string->group(3));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testGroupLengthLessThenOne ():void {
+
+        $this->expectException(Error::class);
+
+        $this->string->group(0);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCarry ():void {
 
         $this->assertSame('ćž 诶杰艾',  $this->mixed->carry(3, 6)->string());
