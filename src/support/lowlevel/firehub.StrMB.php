@@ -209,11 +209,11 @@ final class StrMB extends StrSafe {
      *
      * @throws Error If length is less than 1.
      *
-     * @return array <code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
+     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
      * returned array will be broken down into chunks with each being $length in length, except the final chunk which
      * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
      * byte in size.
-     * @phpstan-return array<int, string>
+     * @phpstan-return list<string>
      */
     public static function split (string $string, int $length = 1, Encoding $encoding = null):array {
 
