@@ -337,6 +337,18 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testSwapCase ():void {
+
+        $this->assertSame('fIREhUB', $this->string->swapCase()->string());
+        $this->assertSame('ĐŠČĆŽ 诶杰艾玛 лй èSSá カタカナ }{:;', $this->mixed->swapCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));

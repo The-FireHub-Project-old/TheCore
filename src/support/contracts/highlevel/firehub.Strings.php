@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
+use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\Contracts\Stringable;
 use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\Enums\ {
@@ -37,6 +38,17 @@ interface Strings extends Stringable {
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
     public function expression ():Expression;
+
+    /**
+     * ### Break string into characters
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters[] List of characters.
+     * collection type.
+     *
+     * @todo Change from array to Collection
+     */
+    public function toChars ():array;
 
     /**
      *  ### Boolean representation of the given logical string value
@@ -257,6 +269,14 @@ interface Strings extends Stringable {
     public function deCapitalize ():self;
 
     /**
+     * ### Swap lower and upper cases on string
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function swapCase ():self;
+
+    /**
      * ### Quote string with slashes
      *
      * Backslashes are added before characters that need to be escaped:
@@ -342,7 +362,7 @@ interface Strings extends Stringable {
      * returned array will be broken down into chunks with each being $length in length, except the final chunk which
      * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
      * byte in size.
-     * @phpstan-return list<string>
+     * @phpstan-return list<non-empty-string>
      */
     public function chop (int $length = 1):array;
 

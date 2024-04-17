@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Strings;
 use FireHub\Core\Support\Contracts\HighLevel\ {
     Collectable, Strings
 };
+use FireHub\Core\Support\Char;
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, NumInt, StrMB
 };
@@ -40,6 +41,7 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 abstract class Str implements Strings {
 
@@ -154,6 +156,32 @@ abstract class Str implements Strings {
     public function expression ():Expression {
 
         return new Expression($this);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::chop() To chop a string to an array.
+     * @uses \FireHub\Core\Support\Char::from() To create a new character from raw string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->toChars();
+     * ```
+     */
+    public function toChars ():array {
+
+        $chars = [];
+
+        foreach ($this->chop() as $char)
+            $chars[] = Char::from($char);
+
+        return $chars;
 
     }
 
@@ -593,6 +621,40 @@ abstract class Str implements Strings {
     }
 
     /**
+     * ### Swap lower and upper cases on string
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::toChars() To break string into characters.
+     * @uses \FireHub\Core\Support\Char::toUpper() To make a character uppercase.
+     * @uses \FireHub\Core\Support\Char::toLower() To make a character lowercase.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->swapCase();
+     *
+     * // fIREhUB
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function swapCase ():self {
+
+        $string = '';
+        foreach ($this->toChars() as $char)
+            $string .= $char->expression()->check(Modifier::MULTIBYTE)->is()->lower()
+                ? $char->toUpper()
+                : $char->toLower();
+
+        $this->string = $string;
+
+        return $this;
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
@@ -608,7 +670,7 @@ abstract class Str implements Strings {
      * // Is your name O\'Reilly?
      * ```
      *
-     * @caution The [[StrSafe#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
+     * @caution The [[Str#addSlashes()]] is sometimes incorrectly used to try to prevent SQL Injection. Instead,
      * database-specific escaping functions and/or prepared statements should be used.
      */
     public function addSlashes ():self {
