@@ -190,7 +190,7 @@ abstract class StrSafe {
      * </p>
      * @param int $times <p>
      * Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
-     * If the $times is set to 0 or less, the function will return a $string one time.
+     * If the $times is set to 0 or less, the function will return empty string.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
@@ -202,7 +202,7 @@ abstract class StrSafe {
      */
     final public static function repeat (string $string, int $times, string $separator = ''):string {
 
-        return $times < 1 ? $string : str_repeat($string.$separator, $times - 1).$string;
+        return $times < 1 ? '' : str_repeat($string.$separator, $times - 1).$string;
 
     }
 
