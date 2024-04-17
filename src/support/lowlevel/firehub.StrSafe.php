@@ -189,14 +189,12 @@ abstract class StrSafe {
      * The string to be repeated.
      * </p>
      * @param int $times <p>
-     * <code>non-negative-int</code>
-     * Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0. If the
-     * multiplier is set to 0, the function will return an empty string.
+     * Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
+     * If the $times is set to 0 or less, the function will return a $string one time.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
      * </p>
-     * @phpstan-param non-negative-int $times
      *
      * @return string Repeated string.
      *
