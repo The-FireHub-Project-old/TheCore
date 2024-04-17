@@ -599,6 +599,18 @@ interface Strings extends Stringable {
     public function append (string $string):self;
 
     /**
+     * ### Randomly shuffles a string
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     *
+     * @caution This function does not generate cryptographically secure values,
+     * and must not be used for cryptographic purposes,
+     * or purposes that require returned values to be unguessable.
+     */
+    public function shuffle ():self;
+
+    /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
      * This function returns a string with whitespace stripped from the beginning and end of string.

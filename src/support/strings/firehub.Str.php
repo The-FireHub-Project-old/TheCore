@@ -1334,6 +1334,40 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::range() To create an array containing a range of elements.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::shuffle() To shuffle an array.
+     * @uses \FireHub\Core\Support\Str::length() To get string length.
+     * @uses \FireHub\Core\Support\Str::part() To get part of string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->shuffle();
+     *
+     * // rHiuebF
+     * ```
+     */
+    public function shuffle ():self {
+
+        $characters = Arr::range(0, $this->length() - 1);
+        Arr::shuffle($characters);
+
+        $string = '';
+        foreach ($characters as $character)
+            $string .= StrMB::part($this->string, $character, 1); // @phpstan-ignore-line $character is int at this point
+
+        $this->string = $string;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
      *

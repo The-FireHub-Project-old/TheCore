@@ -881,6 +881,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testShuffle ():void {
+
+        $this->assertIsString($this->string->shuffle()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAppend ():void {
 
         $this->assertSame('FireHubカ', $this->string->append('カ')->string());
