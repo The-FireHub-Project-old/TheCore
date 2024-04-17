@@ -213,10 +213,11 @@ final class StrMB extends StrSafe {
      * returned array will be broken down into chunks with each being $length in length, except the final chunk which
      * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
      * byte in size.
-     * @phpstan-return list<string>
+     * @phpstan-return list<non-empty-string>
      */
     public static function split (string $string, int $length = 1, Encoding $encoding = null):array {
 
+        /** @phpstan-ignore-next-line Since length is more than one, it must be non-empty-string */
         return !$length < 1
             ? mb_str_split($string, $length, $encoding?->value)
             : throw new Error('Length must be at least 1.');
