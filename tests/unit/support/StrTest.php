@@ -903,6 +903,29 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testEnsurePrefix ():void {
+
+        $this->assertSame('FireHub', $this->string->ensurePrefix('Fi')->string());
+        $this->assertSame('fiFireHub', $this->string->ensurePrefix('fi')->string());
+        $this->assertSame('FireHub', $this->insensitive_string->ensurePrefix('fi')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEnsureSuffix ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カ', $this->mixed->ensureSuffix('カ')->string());
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTrim ():void {
 
         $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());

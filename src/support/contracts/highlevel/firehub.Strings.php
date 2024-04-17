@@ -570,13 +570,15 @@ interface Strings extends Stringable {
      * If the value of pad_length is negative, less than, or equal to the length of the input string,
      * no padding takes place.
      * </p>
-     * @param non-empty-string $pad [optional] <p>
+     * @param string $pad [optional] <p>
+     * <code>non-empty-string</code>
      * The pad may be truncated if the required number of padding characters can't be evenly divided by the pad's
      * length.
      * </p>
      * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
      * Pad side.
      * </p>
+     * @phpstan-param non-empty-string $pad
      *
      * @return $this This string.
      */
@@ -597,6 +599,34 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function append (string $string):self;
+
+    /**
+     * ### Makes sure that the current string is prefixed with the given text
+     * @since 1.0.0
+     *
+     * @param string $prefix <p>
+     * <code>non-empty-string</code>
+     * The prefix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $prefix
+     *
+     * @return $this This string.
+     */
+    public function ensurePrefix (string $prefix):self;
+
+    /**
+     * ### Makes sure that the current string is suffixed with the given text
+     * @since 1.0.0
+     *
+     * @param string $suffix <p>
+     * <code>non-empty-string</code>
+     * The suffix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $suffix
+     *
+     * @return $this This string.
+     */
+    public function ensureSuffix (string $suffix):self;
 
     /**
      * ### Randomly shuffles a string
