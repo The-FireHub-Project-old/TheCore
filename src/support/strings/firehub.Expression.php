@@ -112,15 +112,19 @@ final class Expression {
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Split As return.
      *
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
+     * </p>
      * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
      * List of expression pattern modifiers.
      * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Split Regular expression split.
      */
-    public function split (Modifier ...$modifiers):Split {
+    public function split (int $limit = -1, Modifier ...$modifiers):Split {
 
-        return new Split($this->string, ...$modifiers);
+        return new Split($this->string, $limit, ...$modifiers);
 
     }
 

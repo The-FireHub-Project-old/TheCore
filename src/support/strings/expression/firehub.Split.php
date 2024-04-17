@@ -14,13 +14,48 @@
 
 namespace FireHub\Core\Support\Strings\Expression;
 
+use FireHub\Core\Support\Contracts\HighLevel\ {
+    Characters, Strings
+};
 use FireHub\Core\Support\LowLevel\Regex;
+use FireHub\Core\Support\Enums\String\Expression\Modifier;
 
 /**
  * ### Perform a regular expression split
  * @since 1.0.0
  */
 final class Split extends FunctionFamily {
+
+    /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As parameter.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Strings As parameter.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
+     *
+     * @param \FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string_or_character <p>
+     * Character or string to use.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
+     * </p>
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of expression pattern modifiers.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        protected Characters|Strings $string_or_character,
+        private readonly int $limit = -1,
+        Modifier ...$modifiers
+    ) {
+
+        parent::__construct($string_or_character, ...$modifiers);
+
+    }
 
     /**
      * @inheritDoc
@@ -37,7 +72,7 @@ final class Split extends FunctionFamily {
      */
     public function custom (string $pattern):array {
 
-        return Regex::split($this->patternBuilder($pattern), $this->string_or_character->string());
+        return Regex::split($this->patternBuilder($pattern), $this->string_or_character->string(), $this->limit);
 
     }
 

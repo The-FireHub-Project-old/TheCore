@@ -33,7 +33,6 @@ final class Replace extends FunctionFamily {
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As parameter.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Strings As parameter.
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
-     * @uses \FireHub\Core\Support\Strings\Expression\Pattern::get() To get pattern result.
      *
      * @param \FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string_or_character <p>
      * Character or string to use.
