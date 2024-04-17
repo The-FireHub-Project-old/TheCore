@@ -835,6 +835,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testReverse ():void {
+
+        $this->assertSame(';:{} ナカタカ ÁßÈ ЙЛ 玛艾杰诶 žćčšđ', $this->mixed->reverse()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTrim ():void {
 
         $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());

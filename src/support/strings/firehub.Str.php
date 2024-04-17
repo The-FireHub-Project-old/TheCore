@@ -18,7 +18,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
     Collectable, Strings
 };
 use FireHub\Core\Support\LowLevel\ {
-    DataIs, NumInt, StrMB
+    Arr, DataIs, NumInt, StrMB
 };
 use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\ {
@@ -1140,6 +1140,33 @@ abstract class Str implements Strings {
     public function repeat (int $times, string $separator = ''):self {
 
         $this->string = StrMB::repeat($this->string, $times + 1, $separator);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Reverse order of characters
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::chop() To chop a string to an array.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join string characters.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::reverse() To reverse string characters.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->reverse();
+     *
+     * // buHeriF
+     * ```
+     *
+     * @return $this This string.
+     */
+    final public function reverse ():self {
+
+        $this->string = StrMB::implode(Arr::reverse($this->chop()));
 
         return $this;
 

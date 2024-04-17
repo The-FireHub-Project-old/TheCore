@@ -530,6 +530,14 @@ interface Strings extends Stringable {
     public function repeat (int $times, string $separator = ''):self;
 
     /**
+     * ### Reverse order of characters
+     * @since 1.0.0
+     *
+     * @return $this This reversed string.
+     */
+    public function reverse ():self;
+
+    /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
      * This function returns a string with whitespace stripped from the beginning and end of string.
