@@ -407,6 +407,29 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testEnsureStartsWith ():void {
+
+        $this->assertSame('FireHub', $this->string->ensureStartsWith('Fi')->string());
+        $this->assertSame('fiFireHub', $this->string->ensureStartsWith('fi')->string());
+        $this->assertSame('FireHub', $this->insensitive_string->ensureStartsWith('fi')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEnsureEndsWith ():void {
+
+        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カ', $this->mixed->ensureEndsWith('カ')->string());
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testContains ():void {
 
         $this->assertFalse($this->control->contains('reHu'));
@@ -896,29 +919,6 @@ final class StrTest extends Base {
 
         $this->assertSame('FireHubカ', $this->string->append('カ')->string());
 
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testEnsurePrefix ():void {
-
-        $this->assertSame('FireHub', $this->string->ensurePrefix('Fi')->string());
-        $this->assertSame('fiFireHub', $this->string->ensurePrefix('fi')->string());
-        $this->assertSame('FireHub', $this->insensitive_string->ensurePrefix('fi')->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testEnsureSuffix ():void {
-
-        $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カ', $this->mixed->ensureSuffix('カ')->string());
     }
 
     /**

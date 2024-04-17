@@ -127,6 +127,34 @@ interface Strings extends Stringable {
     public function endsWithAny (string ...$values):bool;
 
     /**
+     * ### Makes sure that the current string starts with the given text
+     * @since 1.0.0
+     *
+     * @param string $prefix <p>
+     * <code>non-empty-string</code>
+     * The prefix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $prefix
+     *
+     * @return $this This string.
+     */
+    public function ensureStartsWith (string $prefix):self;
+
+    /**
+     * ### Makes sure that the current string ends with the given text
+     * @since 1.0.0
+     *
+     * @param string $suffix <p>
+     * <code>non-empty-string</code>
+     * The suffix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $suffix
+     *
+     * @return $this This string.
+     */
+    public function ensureEndsWith (string $suffix):self;
+
+    /**
      * ### Checks if string contains value
      *
      * Performs a check indicating if $string is contained in $string.
@@ -599,34 +627,6 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function append (string $string):self;
-
-    /**
-     * ### Makes sure that the current string is prefixed with the given text
-     * @since 1.0.0
-     *
-     * @param string $prefix <p>
-     * <code>non-empty-string</code>
-     * The prefix to make sure exists.
-     * </p>
-     * @phpstan-param non-empty-string $prefix
-     *
-     * @return $this This string.
-     */
-    public function ensurePrefix (string $prefix):self;
-
-    /**
-     * ### Makes sure that the current string is suffixed with the given text
-     * @since 1.0.0
-     *
-     * @param string $suffix <p>
-     * <code>non-empty-string</code>
-     * The suffix to make sure exists.
-     * </p>
-     * @phpstan-param non-empty-string $suffix
-     *
-     * @return $this This string.
-     */
-    public function ensureSuffix (string $suffix):self;
 
     /**
      * ### Randomly shuffles a string
