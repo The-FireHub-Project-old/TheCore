@@ -14,10 +14,14 @@
 
 namespace FireHub\Core\Support;
 
-use FireHub\Core\Support\LowLevel\StrMB;
+use FireHub\Core\Support\LowLevel\ {
+    DataIs, StrMB
+};
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Expression\Modifier
 };
+
+use const FireHub\Core\Support\Constants\Number\MAX;
 
 /**
  * ### Case-insensitive string high-level class
@@ -139,6 +143,24 @@ final class IStr extends Str {
 
         return StrMB::convert($value, CaseFolding::LOWER, $this->encoding)
             === StrMB::convert($string, CaseFolding::LOWER, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression return array.
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS To use caseless strings.
+     */
+    public function break (string $separator, int $limit = MAX):array {
+
+        return DataIs::array(
+            $exp = $this->expression()->split($limit, Modifier::MULTIBYTE, Modifier::CASELESS)->any()->custom($separator)
+        ) ? $exp : [];
 
     }
 

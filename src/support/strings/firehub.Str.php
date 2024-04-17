@@ -26,6 +26,8 @@ use FireHub\Core\Support\Enums\String\ {
 };
 use Error, ValueError, Stringable;
 
+use const FireHub\Core\Support\Constants\Number\MAX;
+
 use function FireHub\Core\Support\Helpers\String\asBoolean;
 
 /**
@@ -721,6 +723,7 @@ abstract class Str implements Strings {
      *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     * @uses \FireHub\Core\Support\Str::length() To get length of current string.
      *
      * @example
      * ```php
@@ -759,6 +762,69 @@ abstract class Str implements Strings {
         }, $this->encoding);
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::split() To return an array of string characters.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->chop();
+     *
+     * // ['F', 'i', 'r', 'e', 'H', 'u', 'b']
+     * ```
+     * @example Splitting string by custom length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->chop(3);
+     *
+     * // ['Fir', 'eHu', 'b']
+     * ```
+     *
+     * @throws Error If length is less than 1.
+     */
+    public function chop (int $length = 1):array {
+
+        return StrMB::split($this->string, $length,$this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::explode() To split a string by a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->break('H');
+     *
+     * // ['Fire' 'hb']
+     * ```
+     * @example Splitting string by custom length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHubFireHubFireHub')->break('H', 2);
+     *
+     * // ['Fire' 'hbFireHubFireHub']
+     * ```
+     */
+    public function break (string $separator, int $limit = MAX):array {
+
+        return StrMB::explode($this->string, $separator, $limit);
 
     }
 

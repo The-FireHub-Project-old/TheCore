@@ -657,6 +657,30 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testChop ():void {
+
+        $this->assertSame(['Fire', 'Hub'],  $this->string->chop(4));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testBreak ():void {
+
+        $this->assertSame(['Fire', 'ubFire', 'ubFireHub'],  Str::from('FireHubFireHubFireHub')->break('H', 3));
+        $this->assertSame(['FireHubFireHubFireHub'],  Str::from('FireHubFireHubFireHub')->break('h'));
+        $this->assertSame(['Fire', 'ubFire', 'ubFire', 'ub'],  IStr::from('FireHubFireHubFireHub')->break('h'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCarry ():void {
 
         $this->assertSame('ćž 诶杰艾',  $this->mixed->carry(3, 6)->string());
