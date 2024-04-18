@@ -40,6 +40,7 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
  * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -775,6 +776,72 @@ abstract class Str implements Strings {
         $this->string = StrMB::quoteMeta($this->string);
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To cary from part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To cary until the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHubFireHubFireHub')->between('F', 'H');
+     *
+     * // FireHubFireHubFire
+     */
+    public function between (string $start, string $end):self {
+
+        return $this->carryFrom($start)->carryUntilLast($end);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To cary from part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntil() To cary until the part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHubFireHubFireHub')->betweenFirst('F', 'H');
+     *
+     * // Fire
+     */
+    public function betweenFirst (string $start, string $end):self {
+
+        return $this->carryFrom($start)->carryUntil($end);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::carryFromLast() To cary from the last part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To cary until the last part of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Fire')->betweenLast('F', 'H');
+     *
+     * // Fire
+     */
+    public function betweenLast (string $start, string $end):self {
+
+        return $this->carryFromLast($start)->carryUntilLast($end);
 
     }
 

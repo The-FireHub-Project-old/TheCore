@@ -655,6 +655,19 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testBetween ():void {
+
+        $this->assertSame("FireHubFireHubFire", Str::from('FireHubFireHubFireHub')->between('F', 'H')->string());
+        $this->assertSame("Fire", Str::from('FireHubFireHubFireHub')->betweenFirst('F', 'H')->string());
+        $this->assertSame("Hu", Str::from('FireHubFireHubFireHub')->betweenLast('H', 'b')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame('ireHu',  $this->string->slice(1, -1)->string());

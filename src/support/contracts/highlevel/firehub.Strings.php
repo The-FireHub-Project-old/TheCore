@@ -316,6 +316,63 @@ interface Strings extends Stringable {
     public function quoteMeta ():self;
 
     /**
+     * ### Slice string after first start and until last end
+     * @since 1.0.0
+     *
+     * @param string $start <p>
+     * <code>non-empty-string</code>
+     * First character.
+     * </p>
+     * @param string $end <p>
+     * <code>non-empty-string</code>
+     * Last character.
+     * </p>
+     * @phpstan-param non-empty-string $start
+     * @phpstan-param non-empty-string $end
+     *
+     * @return $this This string.
+     */
+    public function between (string $start, string $end):self;
+
+    /**
+     * ### Slice string after first start and until first end
+     * @since 1.0.0
+     *
+     * @param string $start <p>
+     * <code>non-empty-string</code>
+     * First character.
+     * </p>
+     * @param string $end <p>
+     * <code>non-empty-string</code>
+     * Last character.
+     * </p>
+     * @phpstan-param non-empty-string $start
+     * @phpstan-param non-empty-string $end
+     *
+     * @return $this This string.
+     */
+    public function betweenFirst (string $start, string $end):self;
+
+    /**
+     * ### Slice string after last start and until last end
+     * @since 1.0.0
+     *
+     * @param string $start <p>
+     * <code>non-empty-string</code>
+     * First character.
+     * </p>
+     * @param string $end <p>
+     * <code>non-empty-string</code>
+     * Last character.
+     * </p>
+     * @phpstan-param non-empty-string $start
+     * @phpstan-param non-empty-string $end
+     *
+     * @return $this This string.
+     */
+    public function betweenLast (string $start, string $end):self;
+
+    /**
      * ### Slice with part of the string
      *
      * Slice with part of the string specified by the $from and $until parameters.
