@@ -784,7 +784,7 @@ abstract class Str implements Strings {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\NumInt::max() To turn negative $from to 0.
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     * @uses \FireHub\Core\Support\Strings\Str::carry() To carry with part of the string.
      * @uses \FireHub\Core\Support\Str::length() To get length of current string.
      *
      * @example
@@ -814,16 +814,14 @@ abstract class Str implements Strings {
      */
     public function slice (int $from, ?int $until = null):self {
 
-        $from = NumInt::max($from, 0);
-
-        $this->string = StrMB::part($this->string, $from, match (true) {
-            $until === null => $this->length(),
-            $until >= 0 && $until <= $from => 0,
-            $until < 0 => $this->length() + $until - $from,
-            default => $until - $from
-        }, $this->encoding);
-
-        return $this;
+        return $this->carry(
+            $from = NumInt::max($from, 0), match (true) {
+                $until === null => $this->length(),
+                $until >= 0 && $until <= $from => 0,
+                $until < 0 => $this->length() + $until - $from,
+                default => $until - $from
+            }
+        );
 
     }
 
