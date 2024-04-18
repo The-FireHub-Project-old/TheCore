@@ -16,10 +16,10 @@ namespace support;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Strings\ {
-    Expression, Str as aStr
+    Expression, InsertValue, Str as aStr
 };
 use FireHub\Core\Support\Strings\Expression\ {
-    FunctionFamily, Check, Replace, Get, Pattern, Split
+    FunctionFamily, Check, Replace, ReplaceFunc, Get, Pattern, Split
 };
 use FireHub\Core\Support\Strings\Expression\Pattern\ {
     Any, AtLeast, AtMost, Between, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
@@ -46,9 +46,11 @@ use Error;
 #[CoversClass(Str::class)]
 #[CoversClass(IStr::class)]
 #[CoversClass(Expression::class)]
+#[CoversClass(InsertValue::class)]
 #[CoversClass(FunctionFamily::class)]
 #[CoversClass(Check::class)]
 #[CoversClass(Replace::class)]
+#[CoversClass(ReplaceFunc::class)]
 #[CoversClass(Get::class)]
 #[CoversClass(Split::class)]
 #[CoversClass(Pattern::class)]
@@ -317,6 +319,18 @@ final class StrTest extends Base {
     public function testExpressionRemoveAny ():void {
 
         $this->assertSame('FireHub', $this->string_with_num->expression()->remove()->any()->digits()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testInsertValue ():void {
+
+        $this->assertSame('F*i*r*eH*u*b', $this->string->insertValue('*')->before()->any()->lower()->string());
+        $this->assertSame('FカireHカub123', $this->string_with_num->insertValue('カ')->after()->any()->upper()->string());
 
     }
 

@@ -15,7 +15,9 @@
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
-use FireHub\Core\Support\Strings\Expression;
+use FireHub\Core\Support\Strings\ {
+    Expression, InsertValue
+};
 use FireHub\Core\Support\Enums\ {
     Side, String\Encoding
 };
@@ -37,6 +39,20 @@ interface Strings extends Stringable {
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
     public function expression ():Expression;
+
+    /**
+     * ### value on string
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string</code>
+     * String to insert.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return \FireHub\Core\Support\Strings\InsertValue Inserts value.
+     */
+    public function insertValue (string $value):InsertValue;
 
     /**
      *  ### Boolean representation of the given logical string value

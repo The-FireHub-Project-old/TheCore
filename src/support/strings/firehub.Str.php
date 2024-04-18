@@ -165,6 +165,19 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\InsertValue As return.
+     */
+    public function insertValue (string $value):InsertValue {
+
+        return new InsertValue($this, $value);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Str::chop() To chop a string to an array.
      * @uses \FireHub\Core\Support\Char::from() To create a new character from raw string.
      *
