@@ -18,9 +18,10 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
     Characters, Strings
 };
 use FireHub\Core\Support\Strings\Expression\ {
-    Check, Get, Replace, Split
+    Check, Get, Replace, ReplaceFunc, Split
 };
 use FireHub\Core\Support\Enums\String\Expression\Modifier;
+use Closure;
 
 /**
  * ### Regular expression
@@ -97,11 +98,36 @@ final class Expression {
      * List of expression pattern modifiers.
      * </p>
      *
-     * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression check.
+     * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression search and replace.
      */
     public function replace (string $with, Modifier ...$modifiers):Replace {
 
         return new Replace($this->string, $with, ...$modifiers);
+
+    }
+
+    /**
+     * ### Perform a regular expression search and replace
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
+     * @uses \FireHub\Core\Support\Strings\Expression\Replace As return.
+     *
+     * @param Closure(array<array-key, string> $matches):string $callback <p>
+     * <code><![CDATA[ Closure(array<array-key, string> $matches):string ]]></code>
+     * A callback that will be called and passed an array of matched elements in the subject string.
+     * The callback should return the replacement string.
+     * This is the callback signature.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of expression pattern modifiers.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Strings\Expression\ReplaceFunc Regular expression search and replace using a callback.
+     */
+    public function replaceFunc (Closure $callback, Modifier ...$modifiers):ReplaceFunc {
+
+        return new ReplaceFunc($this->string, $callback, ...$modifiers);
 
     }
 
@@ -116,7 +142,7 @@ final class Expression {
      * List of expression pattern modifiers.
      * </p>
      *
-     * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression check.
+     * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression search and remove.
      */
     public function remove (Modifier ...$modifiers):Replace {
 
