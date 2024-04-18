@@ -106,6 +106,25 @@ final class Expression {
     }
 
     /**
+     * ### Perform a regular expression remove
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
+     * @uses \FireHub\Core\Support\Strings\Expression\Replace As return.
+     *
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of expression pattern modifiers.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression check.
+     */
+    public function remove (Modifier ...$modifiers):Replace {
+
+        return new Replace($this->string, '', ...$modifiers);
+
+    }
+
+    /**
      * ### Perform a regular expression split
      * @since 1.0.0
      *

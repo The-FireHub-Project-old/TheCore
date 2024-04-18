@@ -314,6 +314,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testExpressionRemoveAny ():void {
+
+        $this->assertSame('FireHub', $this->string_with_num->expression()->remove()->any()->digits()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAsBoolean ():void {
 
         $this->assertTrue(Str::from('True')->asBoolean());
