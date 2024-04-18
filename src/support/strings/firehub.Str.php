@@ -1526,6 +1526,26 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->containTimes('b');
+     *
+     * // 2
+     * ```
+     */
+    public function containTimes (string $value):int {
+
+        return StrMB::partCount($this->string, $value, $this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      *  @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get string length.
      *
      * @example

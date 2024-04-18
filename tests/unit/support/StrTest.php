@@ -976,6 +976,18 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testContainTimes ():void {
+
+        $this->assertSame(2,  $this->mixed->containTimes('カ'));
+        $this->assertSame(1,  $this->insensitive_string->containTimes('f'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLength ():void {
 
         $this->assertSame(7,  $this->string->length());

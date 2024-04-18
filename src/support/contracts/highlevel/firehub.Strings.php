@@ -717,6 +717,21 @@ interface Strings extends Stringable {
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
 
     /**
+     * ### Checks how mny times string contains value
+     * @since 1.0.0
+     *
+     * @param string $value <p>
+     * <code>non-empty-string</code>
+     * The value to search for.
+     * </p>
+     * @phpstan-param non-empty-string $value
+     *
+     * @return int Number of times the searched value occurs in the string.
+     * @phpstan-return non-negative-int
+     */
+    public function containTimes (string $value):int;
+
+    /**
      * ### Get string length
      * @since 1.0.0
      *

@@ -269,6 +269,26 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert the string.
+     * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase string.
+     */
+    public function containTimes (string $value):int {
+
+        $string = $this->string;
+
+        return StrMB::partCount(
+            StrMB::convert($string, CaseFolding::LOWER, $this->encoding),
+            $value,
+            $this->encoding
+        );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence of a substring in a string.
      *
      * @example
