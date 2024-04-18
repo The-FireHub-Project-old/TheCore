@@ -22,7 +22,7 @@ use FireHub\Core\Support\Strings\Expression\ {
     FunctionFamily, Check, Replace, ReplaceFunc, Get, Pattern, Split
 };
 use FireHub\Core\Support\Strings\Expression\Pattern\ {
-    Any, AtLeast, AtMost, Between, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
+    Any, AtLeast, AtMost, BeginsWith, Between, EndsWith, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
 };
 use FireHub\Core\Support\Strings\Expression\Pattern\Predefined\ {
     Chars, NotChars
@@ -65,6 +65,8 @@ use Error;
 #[CoversClass(ZeroOrOne::class)]
 #[CoversClass(Has::class)]
 #[CoversClass(Is::class)]
+#[CoversClass(BeginsWith::class)]
+#[CoversClass(EndsWith::class)]
 #[CoversClass(Chars::class)]
 #[CoversClass(NotChars::class)]
 final class StrTest extends Base {
@@ -123,6 +125,28 @@ final class StrTest extends Base {
 
         $this->assertFalse($this->string->expression()->check()->is()->custom('FIREHUB'));
         $this->assertTrue($this->string->expression()->check(Modifier::CASELESS)->is()->custom('FIREHUB'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionCheckBeginsWith ():void {
+
+        $this->assertTrue($this->string->expression()->check()->beginsWith()->upper());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpressionCheckEndsWith ():void {
+
+        $this->assertTrue($this->string->expression()->check()->endsWith()->lower());
 
     }
 

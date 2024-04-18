@@ -30,6 +30,8 @@ use Error;
  * @method Pattern any () ### Any string is from the beginning until the end
  * @method Pattern is () ### If string is from the beginning until the end
  * @method Pattern has () ### Has string from the beginning until the end
+ * @method Pattern beginsWith () ### If begins string is
+ * @method Pattern endsWith () ### If ends string is
  * @method Pattern oneOrMore () ### One or more occurrences
  * @method Pattern zeroOrMore () ### Zero or more occurrences
  * @method Pattern zeroOrOne () ### Zero or one occurrences
