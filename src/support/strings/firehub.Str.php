@@ -1299,9 +1299,9 @@ abstract class Str implements Strings {
      * // Text-FireHub
      * ```
      */
-    public function prepend (string $string):self {
+    public function prepend (string $prefix):self {
 
-        $this->string = $string.$this->string;
+        $this->string = $prefix.$this->string;
 
         return $this;
 
@@ -1321,9 +1321,9 @@ abstract class Str implements Strings {
      * // FireHub-text
      * ```
      */
-    public function append (string $string):self {
+    public function append (string $suffix):self {
 
-        $this->string = $this->string.$string;
+        $this->string = $this->string.$suffix;
 
         return $this;
 

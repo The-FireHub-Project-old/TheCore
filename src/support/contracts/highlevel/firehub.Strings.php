@@ -588,17 +588,25 @@ interface Strings extends Stringable {
      * ### Prepends the given string to the current string
      * @since 1.0.0
      *
+     * @param string $prefix <p>
+     * The prefix to prepend.
+     * </p>
+     *
      * @return $this This string.
      */
-    public function prepend (string $string):self;
+    public function prepend (string $prefix):self;
 
     /**
      * ### Appends the given string to the current string
      * @since 1.0.0
      *
+     * @param string $suffix <p>
+     * The suffix to append.
+     * </p>
+     *
      * @return $this This string.
      */
-    public function append (string $string):self;
+    public function append (string $suffix):self;
 
     /**
      * ### Makes sure that the current string starts with the given text
