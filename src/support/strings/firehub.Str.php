@@ -830,104 +830,6 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::split() To return an array of string characters.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->chop();
-     *
-     * // ['F', 'i', 'r', 'e', 'H', 'u', 'b']
-     * ```
-     * @example Splitting string by custom length.
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->chop(3);
-     *
-     * // ['Fir', 'eHu', 'b']
-     * ```
-     *
-     * @throws Error If length is less than 1.
-     */
-    public function chop (int $length = 1):array {
-
-        return StrMB::split($this->string, $length,$this->encoding);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::explode() To split a string by a string.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->break('H');
-     *
-     * // ['Fire' 'hb']
-     * ```
-     * @example Splitting string by custom length.
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHubFireHubFireHub')->break('H', 2);
-     *
-     * // ['Fire' 'hbFireHubFireHub']
-     * ```
-     */
-    public function break (string $separator, int $limit = MAX):array {
-
-        return StrMB::explode($this->string, $separator, $limit);
-
-    }
-
-    /**
-     * ### Group a string into chunks
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Str::chop() To chop a string to an array.
-     * @uses \FireHub\Core\Support\Str::length() To get string length.
-     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up for division of length and number of groups.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->group(3);
-     *
-     * // ['Fir', 'eHu', 'b']
-     * ```
-     *
-     * @param positive-int $number_of_groups <p>
-     * The size of each chunk.
-     * </p>
-     *
-     * @throws Error If number of groups is less than one.
-     *
-     * @return list<string> Grouped string into chunks.
-     */
-    public function group (int $number_of_groups):array {
-
-        if ($number_of_groups < 1) throw new Error('Cannot have groups less then one.');
-
-        return $this->chop((
-            $size = NumInt::ceil($this->length() / $number_of_groups)) >= 1 ? $size : 1
-        );
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
      *
      * @example
@@ -1518,6 +1420,99 @@ abstract class Str implements Strings {
         $this->string = StrMB::trim($this->string, $side, $characters);
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::split() To return an array of string characters.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->chop();
+     *
+     * // ['F', 'i', 'r', 'e', 'H', 'u', 'b']
+     * ```
+     * @example Splitting string by custom length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->chop(3);
+     *
+     * // ['Fir', 'eHu', 'b']
+     * ```
+     *
+     * @throws Error If length is less than 1.
+     */
+    public function chop (int $length = 1):array {
+
+        return StrMB::split($this->string, $length,$this->encoding);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::explode() To split a string by a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->break('H');
+     *
+     * // ['Fire' 'hb']
+     * ```
+     * @example Splitting string by custom length.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHubFireHubFireHub')->break('H', 2);
+     *
+     * // ['Fire' 'hbFireHubFireHub']
+     * ```
+     */
+    public function break (string $separator, int $limit = MAX):array {
+
+        return StrMB::explode($this->string, $separator, $limit);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::chop() To chop a string to an array.
+     * @uses \FireHub\Core\Support\Str::length() To get string length.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up for division of length and number of groups.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->group(3);
+     *
+     * // ['Fir', 'eHu', 'b']
+     * ```
+     *
+     * @throws Error If number of groups is less than one.
+     */
+    public function group (int $number_of_groups):array {
+
+        if ($number_of_groups < 1) throw new Error('Cannot have groups less then one.');
+
+        return $this->chop((
+            $size = NumInt::ceil($this->length() / $number_of_groups)) >= 1 ? $size : 1
+        );
 
     }
 

@@ -14,7 +14,6 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
-use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\Contracts\Stringable;
 use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\Enums\ {
@@ -38,17 +37,6 @@ interface Strings extends Stringable {
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
     public function expression ():Expression;
-
-    /**
-     * ### Break string into characters
-     * @since 1.0.0
-     *
-     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters[] List of characters.
-     * collection type.
-     *
-     * @todo Change from array to Collection
-     */
-    public function toChars ():array;
 
     /**
      *  ### Boolean representation of the given logical string value
@@ -347,50 +335,6 @@ interface Strings extends Stringable {
      * @tip If $end is negative, it is computed from the end of the string.
      */
     public function slice (int $from, ?int $until = null):self;
-
-    /**
-     * ### Chop a string to an array
-     * @since 1.0.0
-     *
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
-     * Maximum length of the chunk.
-     * </p>
-     * @phpstan-param positive-int $length
-     *
-     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
-     * @phpstan-return list<non-empty-string>
-     */
-    public function chop (int $length = 1):array;
-
-    /**
-     * ### Break string with a separator
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
-     *
-     * @param string $separator <p>
-     * <code>non-empty-string</code>
-     * The boundary string.
-     * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
-     * element containing the rest of the string. If the limit parameter is negative, all components except the last
-     * - limit are returned. If the limit parameter is zero, then this is treated as 1.
-     * </p>
-     * @phpstan-param non-empty-string $separator
-     * @phpstan-param int<min, max> $limit
-     *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-     * returned.
-     * @phpstan-return string[]
-     */
-    public function break (string $separator, int $limit = MAX):array;
 
     /**
      * ### Carry with part of the string
@@ -715,6 +659,80 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
+
+    /**
+     * ### Break string into characters
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters[] List of characters.
+     *
+     * @todo Change from array to Collection
+     */
+    public function toChars ():array;
+
+    /**
+     * ### Chop a string to an array
+     * @since 1.0.0
+     *
+     * @param int $length [optional] <p>
+     * <code>positive-int</code>
+     * Maximum length of the chunk.
+     * </p>
+     * @phpstan-param positive-int $length
+     *
+     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
+     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
+     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
+     * byte in size.
+     * @phpstan-return list<non-empty-string>
+     *
+     * @todo Change from array to Collection
+     */
+    public function chop (int $length = 1):array;
+
+    /**
+     * ### Break string with a separator
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     *
+     * @param string $separator <p>
+     * <code>non-empty-string</code>
+     * The boundary string.
+     * </p>
+     * @param int $limit [optional] <p>
+     * <code><![CDATA[ int<min, max> ]]></code>
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
+     * element containing the rest of the string. If the limit parameter is negative, all components except the last
+     * - limit are returned. If the limit parameter is zero, then this is treated as 1.
+     * </p>
+     * @phpstan-param non-empty-string $separator
+     * @phpstan-param int<min, max> $limit
+     *
+     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
+     * limit is used, then an empty array will be returned. For any other limit, an array containing string will be
+     * returned.
+     * @phpstan-return string[]
+     *
+     * @todo Change from array to Collection
+     */
+    public function break (string $separator, int $limit = MAX):array;
+
+    /**
+     * ### Group a string into chunks
+     * @since 1.0.0
+     *
+     * @param int $number_of_groups <p>
+     * <code>positive-int</code>
+     * The size of each chunk.
+     * </p>
+     * @phpstan-param positive-int $number_of_groups
+     *
+     * @return list<string> Grouped string into chunks.
+     *
+     * @todo Change from array to Collection
+     */
+    public function group (int $number_of_groups):array;
 
     /**
      * ### Checks how mny times string contains value

@@ -151,25 +151,6 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression return array.
-     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS To use caseless strings.
-     */
-    public function break (string $separator, int $limit = MAX):array {
-
-        /** @phpstan-ignore-next-line */
-        return DataIs::array(
-            $exp = $this->expression()->split($limit, Modifier::MULTIBYTE, Modifier::CASELESS)->any()->custom($separator)
-        ) ? $exp : [];
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPart() To get the first part of a string.
      */
     public function carryFrom (string $find):self {
@@ -261,6 +242,25 @@ final class IStr extends Str {
             ->any()
             ->custom($find)
         ) instanceof $this ? $exp : $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression return array.
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS To use caseless strings.
+     */
+    public function break (string $separator, int $limit = MAX):array {
+
+        /** @phpstan-ignore-next-line */
+        return DataIs::array(
+            $exp = $this->expression()->split($limit, Modifier::MULTIBYTE, Modifier::CASELESS)->any()->custom($separator)
+        ) ? $exp : [];
 
     }
 
