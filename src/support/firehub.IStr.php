@@ -256,14 +256,11 @@ final class IStr extends Str {
      */
     public function replace (string $find, string $with):self {
 
-        $this->string = (
-            $exp = $this->expression()
+        return ($exp = $this->expression()
             ->replace($with, Modifier::MULTIBYTE, Modifier::CASELESS)
             ->any()
             ->custom($find)
-        ) instanceof self ? $exp->string() : '';
-
-        return $this;
+        ) instanceof $this ? $exp : $this;
 
     }
 

@@ -930,6 +930,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testSurround ():void {
+
+        $this->assertSame('カカFireHubカカ', $this->string->surround('カカ')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testShuffle ():void {
 
         $this->assertIsString($this->string->shuffle()->string());

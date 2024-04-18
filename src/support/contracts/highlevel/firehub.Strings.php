@@ -665,6 +665,20 @@ interface Strings extends Stringable {
     public function removeSuffix (string $suffix):self;
 
     /**
+     * Surrounds string with the given substring
+     * @since 1.0.0
+     *
+     * @param string $with <p>
+     * <code>non-empty-string</code>
+     * The substring to add to both sides.
+     * </p>
+     * @phpstan-param non-empty-string $with
+     *
+     * @return $this This string.
+     */
+    public function surround (string $with):self;
+
+    /**
      * ### Randomly shuffles a string
      * @since 1.0.0
      *

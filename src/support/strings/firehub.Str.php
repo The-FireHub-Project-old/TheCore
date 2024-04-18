@@ -1011,9 +1011,7 @@ abstract class Str implements Strings {
      */
     public function carryAfter (string $find):self {
 
-        $this->string = $this->carry($this->indexOf($find) + StrMB::length($find, $this->encoding))->string;
-
-        return $this;
+        return $this->carry($this->indexOf($find) + StrMB::length($find, $this->encoding));
 
     }
 
@@ -1089,9 +1087,7 @@ abstract class Str implements Strings {
      */
     public function carryAfterLast (string $find):self {
 
-        $this->string = $this->carry($this->lastIndexOf($find) + StrMB::length($find, $this->encoding))->string;
-
-        return $this;
+        return $this->carry($this->lastIndexOf($find) + StrMB::length($find, $this->encoding));
 
     }
 
@@ -1139,14 +1135,11 @@ abstract class Str implements Strings {
      */
     public function replace (string $find, string $with):self {
 
-        $this->string = (
-        $exp = $this->expression()
+        return ($exp = $this->expression()
             ->replace($with, Modifier::MULTIBYTE)
             ->any()
             ->custom($find)
-        ) instanceof self ? $exp->string() : '';
-
-        return $this;
+        ) instanceof $this ? $exp : $this;
 
     }
 
@@ -1274,14 +1267,12 @@ abstract class Str implements Strings {
 
         $half_length = ($half_length = $final_length / 2) > 0 ? $half_length : 0;
 
-        $this->string = match ($side) {
-            Side::LEFT => $this->prepend(StrMB::repeat($pad, $final_length))->string,
-            Side::RIGHT => $this->append(StrMB::repeat($pad, $final_length))->string,
-            Side::BOTH => $this->prepend(StrMB::repeat($pad, NumInt::floor($half_length)))
-                ->append(StrMB::repeat($pad, NumInt::ceil($half_length)))->string
+        return match ($side) {
+            Side::LEFT => $this->prepend(StrMB::repeat($pad, $final_length)),
+            Side::RIGHT => $this->append(StrMB::repeat($pad, $final_length)),
+            default => $this->prepend(StrMB::repeat($pad, NumInt::floor($half_length)))
+                ->append(StrMB::repeat($pad, NumInt::ceil($half_length)))
         };
-
-        return $this;
 
     }
 
@@ -1395,10 +1386,9 @@ abstract class Str implements Strings {
      */
     public function removePrefix (string $prefix):self {
 
-        if ($this->startsWith($prefix))
-            $this->string = $this->carry(StrMB::length($prefix, $this->encoding))->string;
-
-        return $this;
+        return $this->startsWith($prefix)
+            ? $this->carry(StrMB::length($prefix, $this->encoding))
+            : $this;
 
     }
 
@@ -1422,10 +1412,32 @@ abstract class Str implements Strings {
      */
     public function removeSuffix (string $suffix):self {
 
-        if ($this->endsWith($suffix))
-            $this->string = $this->carry(0, $this->length() - StrMB::length($suffix, $this->encoding))->string;
+        return $this->endsWith($suffix)
+            ? $this->carry(0, $this->length() - StrMB::length($suffix, $this->encoding))
+            : $this;
 
-        return $this;
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append $with argument.
+     * @uses \FireHub\Core\Support\Strings\Str::prepend() To prepend $with argument.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->surround('-');
+     *
+     * // -FireHub-
+     * ```
+     */
+    public function surround (string $with):self {
+
+        return $this->append($with)->prepend($with);
 
     }
 
