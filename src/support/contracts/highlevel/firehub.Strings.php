@@ -620,7 +620,7 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      */
-    public function ensureStartsWith (string $prefix):self;
+    public function ensurePrefix (string $prefix):self;
 
     /**
      * ### Makes sure that the current string ends with the given text
@@ -634,7 +634,35 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      */
-    public function ensureEndsWith (string $suffix):self;
+    public function ensureSuffix (string $suffix):self;
+
+    /**
+     * ### Makes sure that the current string doesn't starts with the given text
+     * @since 1.0.0
+     *
+     * @param string $prefix <p>
+     * <code>non-empty-string</code>
+     * The prefix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $prefix
+     *
+     * @return $this This string.
+     */
+    public function removePrefix (string $prefix):self;
+
+    /**
+     * ### Makes sure that the current string doesn't ends with the given text
+     * @since 1.0.0
+     *
+     * @param string $suffix <p>
+     * <code>non-empty-string</code>
+     * The suffix to make sure exists.
+     * </p>
+     * @phpstan-param non-empty-string $suffix
+     *
+     * @return $this This string.
+     */
+    public function removeSuffix (string $suffix):self;
 
     /**
      * ### Randomly shuffles a string

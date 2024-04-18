@@ -1346,7 +1346,7 @@ abstract class Str implements Strings {
      * // The FireHub
      * ```
      */
-    public function ensureStartsWith (string $prefix):self {
+    public function ensurePrefix (string $prefix):self {
 
         return $this->startsWith($prefix) ? $this : $this->prepend($prefix);
 
@@ -1369,9 +1369,63 @@ abstract class Str implements Strings {
      * // FireHub Framework
      * ```
      */
-    public function ensureEndsWith (string $suffix):self {
+    public function ensureSuffix (string $suffix):self {
 
         return $this->endsWith($suffix) ? $this : $this->append($suffix);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::startsWith() To check if a string starts with a given $prefix.
+     * @uses \FireHub\Core\Support\Str::carry() To carry with part of the string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get $prefix length.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->removePrefix('Fire');
+     *
+     * // Hub
+     * ```
+     */
+    public function removePrefix (string $prefix):self {
+
+        if ($this->startsWith($prefix))
+            $this->string = $this->carry(StrMB::length($prefix, $this->encoding))->string;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::endsWith() To check if a string ends with a given $suffix.
+     * @uses \FireHub\Core\Support\Str::carry() To carry with part of the string.
+     * @uses \FireHub\Core\Support\Str::length() To get string length.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get $suffix length.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->removeSuffix('Hub');
+     *
+     * // Fire
+     */
+    public function removeSuffix (string $suffix):self {
+
+        if ($this->endsWith($suffix))
+            $this->string = $this->carry(0, $this->length() - StrMB::length($suffix, $this->encoding))->string;
+
+        return $this;
 
     }
 
