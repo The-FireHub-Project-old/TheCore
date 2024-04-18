@@ -1089,6 +1089,28 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->insert('=', 2);
+     *
+     * // Fi=reHub
+     * ```
+     */
+    public function insert (string $string, int $position):self {
+
+        $copy_string = (clone $this)->carry($position)->string;
+
+        return $this->carry(0, $position)->append($string)->append($copy_string);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses self::expression() As regular expression.
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
      *

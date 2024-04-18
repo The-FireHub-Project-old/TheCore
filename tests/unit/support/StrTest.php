@@ -824,6 +824,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testInsert ():void {
+
+        $this->assertSame('Fi=reHub',  $this->string->insert('=', 2)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testReplace ():void {
 
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ čタčナ }{:;',  $this->mixed->replace('カ', 'č')->string());

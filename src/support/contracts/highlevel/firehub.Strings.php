@@ -502,6 +502,25 @@ interface Strings extends Stringable {
     public function carryUntilLast (string $find):self;
 
     /**
+     * ### Inserts string at the position provided
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * <code>non-empty-string</code>
+     * String to insert.
+     * </p>
+     * @param int $position <p>
+     * Position where string will be inserted.
+     * </p>
+     * @phpstan-param non-empty-string $string
+     *
+     * @return $this This string.
+     *
+     * @tip If $end is negative, it is computed from the end of the string.
+     */
+    public function insert (string $string, int $position):self;
+
+    /**
      * ### Replace all occurrences of the search string with the replacement string
      * @since 1.0.0
      *
