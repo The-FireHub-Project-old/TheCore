@@ -69,7 +69,7 @@ use Error;
  * @method mixed format () ### Format
  * @method mixed notFormat () ### Not-format
  * @method mixed punctuation () ### Punctuation
- * @method mixed notPunctuation () ### Not-
+ * @method mixed notPunctuation () ### Not punctuation
  * @method mixed connectorPunctuation () ### Connector punctuation
  * @method mixed notConnectorPunctuation () ### Not-connector punctuation
  * @method mixed dashPunctuation () ### Dash punctuation
