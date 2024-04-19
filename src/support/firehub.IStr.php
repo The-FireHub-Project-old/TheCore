@@ -43,9 +43,9 @@ final class IStr extends Str {
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS As default modifier.
      * @uses \FireHub\Core\Support\Strings\Expression As return.
      */
-    public function expression ():Expression {
+    public function expression (Modifier ...$modifiers):Expression {
 
-        return new Expression($this, Modifier::MULTIBYTE, Modifier::CASELESS);
+        return new Expression($this, Modifier::MULTIBYTE, Modifier::CASELESS, ...$modifiers);
 
     }
 

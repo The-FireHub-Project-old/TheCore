@@ -169,9 +169,9 @@ class Char implements Characters {
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE As default modifier.
      * @uses \FireHub\Core\Support\Strings\Expression As return.
      */
-    public function expression ():Expression {
+    public function expression (Modifier ...$modifiers):Expression {
 
-        return new Expression($this, Modifier::MULTIBYTE);
+        return new Expression($this, Modifier::MULTIBYTE, ...$modifiers);
 
     }
 

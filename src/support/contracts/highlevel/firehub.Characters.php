@@ -16,7 +16,9 @@ namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
 use FireHub\Core\Support\Strings\Expression;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\ {
+    Encoding, Expression\Modifier
+};
 
 /**
  * ### Characters contract
@@ -30,9 +32,13 @@ interface Characters extends Stringable {
      * ### Regular expression
      * @since 1.0.0
      *
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of additional expression pattern modifiers.
+     * </p>
+     *
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
-    public function expression ():Expression;
+    public function expression (Modifier ...$modifiers):Expression;
 
     /**
      * ### Get or change character encoding

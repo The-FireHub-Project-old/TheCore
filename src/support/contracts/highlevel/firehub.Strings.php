@@ -19,7 +19,7 @@ use FireHub\Core\Support\Strings\ {
     Expression, InsertValue
 };
 use FireHub\Core\Support\Enums\ {
-    Side, String\Encoding
+    Side, String\Encoding, String\Expression\Modifier
 };
 
 use const FireHub\Core\Support\Constants\Number\MAX;
@@ -36,9 +36,13 @@ interface Strings extends Stringable {
      * ### Regular expression
      * @since 1.0.0
      *
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of additional expression pattern modifiers.
+     * </p>
+     *
      * @return \FireHub\Core\Support\Strings\Expression Regular expression.
      */
-    public function expression ():Expression;
+    public function expression (Modifier ...$modifiers):Expression;
 
     /**
      * ### value on string
