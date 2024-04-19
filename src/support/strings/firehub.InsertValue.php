@@ -16,7 +16,6 @@ namespace FireHub\Core\Support\Strings;
 
 use FireHub\Core\Support\Contracts\HighLevel\Strings;
 use FireHub\Core\Support\Strings\Expression\ReplaceFunc;
-use FireHub\Core\Support\Enums\String\Expression\Modifier;
 
 /**
  * ### Insert value on string
@@ -50,18 +49,13 @@ final class InsertValue {
      * ### Insert value before pattern
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Enums\String\Expression\ReplaceFunc As return.
-     *
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\ReplaceFunc Regular expression search and replace using a callback.
      */
-    public function before (Modifier ...$modifiers):ReplaceFunc {
+    public function before ():ReplaceFunc {
 
-        return $this->string->expression()->replaceFunc(fn(array $matches) => $this->value.$matches[0], ...$modifiers);
+        return $this->string->expression()->replaceFunc(fn(array $matches) => $this->value.$matches[0]);
 
     }
 
@@ -69,18 +63,13 @@ final class InsertValue {
      * ### Insert value before pattern
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Enums\String\Expression\ReplaceFunc As return.
-     *
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\ReplaceFunc Regular expression search and replace using a callback.
      */
-    public function after (Modifier ...$modifiers):ReplaceFunc {
+    public function after ():ReplaceFunc {
 
-        return $this->string->expression()->replaceFunc(fn(array $matches) => $matches[0].$this->value, ...$modifiers);
+        return $this->string->expression()->replaceFunc(fn(array $matches) => $matches[0].$this->value);
 
     }
 
