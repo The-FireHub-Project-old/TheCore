@@ -541,6 +541,28 @@ interface Strings extends Stringable {
     public function insert (string $string, int $position):self;
 
     /**
+     * ### Overwrite with part of the string
+     *
+     * Overwrite with part of the string specified by the $from and $until parameters.
+     * @since 1.0.0
+     *
+     * @param int $from <p>
+     * Returned string will start at the start position in string, counting from zero.
+     * </p>
+     * @param int $until <p>
+     * Returned string will end at the start position in string.
+     * </p>
+     * @param string $with <p>
+     * The string to insert.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $end is negative, it is computed from the end of the string.
+     */
+    public function overwrite (int $from, int $until, string $with):self;
+
+    /**
      * ### Replace all occurrences of the search string with the replacement string
      * @since 1.0.0
      *

@@ -870,6 +870,30 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testOverwrite ():void {
+
+        $this->assertSame('Fi=Hub',  $this->string->overwrite(2, 4, '=')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testOverwriteUntilLessThenFrom ():void {
+
+        $this->expectException(Error::class);
+
+        $this->string->overwrite(4, 2, '=');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testReplace ():void {
 
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ čタčナ }{:;',  $this->mixed->replace('カ', 'č')->string());

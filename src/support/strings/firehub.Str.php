@@ -1124,6 +1124,32 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->overwrite(2, 4, '=');
+     *
+     * // Fi=Hub
+     * ```
+     *
+     * @throws Error If $from is greater than $until.
+     */
+    public function overwrite (int $from, int $until, string $with):self {
+
+        if ($until < $from) throw new Error('Until cannot be less then from.');
+
+        $copy_string = (clone $this)->carry($until)->string;
+
+        return $this->carry(0, $from)->append($with)->append($copy_string);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses self::expression() As regular expression.
      *
      * @example
