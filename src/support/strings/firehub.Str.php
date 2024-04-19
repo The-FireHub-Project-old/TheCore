@@ -152,11 +152,12 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE As default modifier.
      * @uses \FireHub\Core\Support\Strings\Expression As return.
      */
     public function expression ():Expression {
 
-        return new Expression($this);
+        return new Expression($this, Modifier::MULTIBYTE);
 
     }
 
@@ -641,7 +642,6 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Str::toChars() To break string into characters.
      * @uses \FireHub\Core\Support\Char::toUpper() To make a character uppercase.
      * @uses \FireHub\Core\Support\Char::toLower() To make a character lowercase.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
      *
      * @example
      * ```php
@@ -658,7 +658,7 @@ abstract class Str implements Strings {
 
         $string = '';
         foreach ($this->toChars() as $char)
-            $string .= $char->expression()->check(Modifier::MULTIBYTE)->is()->lower()
+            $string .= $char->expression()->check()->is()->lower()
                 ? $char->toUpper()
                 : $char->toLower();
 
@@ -1125,7 +1125,6 @@ abstract class Str implements Strings {
      * @since 1.0.0
      *
      * @uses self::expression() As regular expression.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
      *
      * @example
      * ```php
@@ -1138,7 +1137,7 @@ abstract class Str implements Strings {
     public function replace (string $find, string $with):self {
 
         return ($exp = $this->expression()
-            ->replace($with, Modifier::MULTIBYTE)
+            ->replace($with)
             ->any()
             ->custom($find)
         ) instanceof $this ? $exp : $this;

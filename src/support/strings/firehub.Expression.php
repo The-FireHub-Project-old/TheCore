@@ -20,6 +20,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
 use FireHub\Core\Support\Strings\Expression\ {
     Check, Get, Replace, ReplaceFunc, Split
 };
+use FireHub\Core\Support\LowLevel\Arr;
 use FireHub\Core\Support\Enums\String\Expression\Modifier;
 use Closure;
 
@@ -28,6 +29,15 @@ use Closure;
  * @since 1.0.0
  */
 final class Expression {
+
+    /**
+     * ### List of expression pattern modifiers
+     * @since 1.0.0
+     *
+     * @var array
+     * @phpstan-var \FireHub\Core\Support\Enums\String\Expression\Modifier[]
+     */
+    protected array $modifiers = [];
 
     /**
      * ### Constructor
@@ -39,29 +49,35 @@ final class Expression {
      * @param \FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string <p>
      * Character or string to use.
      * </p>
+     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
+     * List of expression pattern modifiers.
+     * </p>
      *
      * @return void
      */
     public function __construct (
-        private readonly Characters|Strings $string
-    ) {}
+        private readonly Characters|Strings $string,
+        Modifier ...$modifiers
+    ) {
+
+        foreach ($modifiers as $modifier)
+            $this->modifiers[] = $modifier;
+
+        $this->modifiers = Arr::unique($this->modifiers);
+
+    }
 
     /**
      * ### Perform a regular expression check
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Check As return.
-     *
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Check Regular expression check.
      */
-    public function check (Modifier ...$modifiers):Check {
+    public function check ():Check {
 
-        return new Check($this->string, ...$modifiers);
+        return new Check($this->string, ...$this->modifiers);
 
     }
 
@@ -69,18 +85,13 @@ final class Expression {
      * ### Perform a regular expression check and get a result
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Part As return.
-     *
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Get Regular expression check and get a result.
      */
-    public function get (Modifier ...$modifiers):Get {
+    public function get ():Get {
 
-        return new Get($this->string, ...$modifiers);
+        return new Get($this->string, ...$this->modifiers);
 
     }
 
@@ -88,21 +99,17 @@ final class Expression {
      * ### Perform a regular expression search and replace
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Replace As return.
      *
      * @param string $with <p>
      * The string to replace.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression search and replace.
      */
-    public function replace (string $with, Modifier ...$modifiers):Replace {
+    public function replace (string $with):Replace {
 
-        return new Replace($this->string, $with, ...$modifiers);
+        return new Replace($this->string, $with, ...$this->modifiers);
 
     }
 
@@ -110,7 +117,6 @@ final class Expression {
      * ### Perform a regular expression search and replace
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Replace As return.
      *
      * @param Closure(array<array-key, string> $matches):string $callback <p>
@@ -119,15 +125,12 @@ final class Expression {
      * The callback should return the replacement string.
      * This is the callback signature.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\ReplaceFunc Regular expression search and replace using a callback.
      */
-    public function replaceFunc (Closure $callback, Modifier ...$modifiers):ReplaceFunc {
+    public function replaceFunc (Closure $callback):ReplaceFunc {
 
-        return new ReplaceFunc($this->string, $callback, ...$modifiers);
+        return new ReplaceFunc($this->string, $callback, ...$this->modifiers);
 
     }
 
@@ -135,18 +138,13 @@ final class Expression {
      * ### Perform a regular expression remove
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Replace As return.
-     *
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Replace Regular expression search and remove.
      */
-    public function remove (Modifier ...$modifiers):Replace {
+    public function remove ():Replace {
 
-        return new Replace($this->string, '', ...$modifiers);
+        return new Replace($this->string, '', ...$this->modifiers);
 
     }
 
@@ -154,22 +152,18 @@ final class Expression {
      * ### Perform a regular expression split
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier As parameter.
      * @uses \FireHub\Core\Support\Strings\Expression\Split As return.
      *
      * @param int $limit [optional] <p>
      * The maximum possible replacements for each pattern in each subject string.
      * Defaults to -1 (no limit).
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers <p>
-     * List of expression pattern modifiers.
-     * </p>
      *
      * @return \FireHub\Core\Support\Strings\Expression\Split Regular expression split.
      */
-    public function split (int $limit = -1, Modifier ...$modifiers):Split {
+    public function split (int $limit = -1):Split {
 
-        return new Split($this->string, $limit, ...$modifiers);
+        return new Split($this->string, $limit, ...$this->modifiers);
 
     }
 

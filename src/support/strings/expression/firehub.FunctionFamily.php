@@ -118,7 +118,7 @@ abstract class FunctionFamily {
     public function withDelimiter (Characters $character):static {
 
         if (
-            $character->expression()->check(Modifier::MULTIBYTE)->is()->lettersAndDigits()
+            $character->expression()->check()->is()->lettersAndDigits()
             || $character->expression()->check()->is()->whitespaces()
             || $character->expression()->check()->custom('\\\\')
         ) throw new Error('Delimiter must not be alphanumeric, backslash, or whitespace!');

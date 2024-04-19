@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support;
 
+use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, StrMB
 };
@@ -32,6 +33,20 @@ use const FireHub\Core\Support\Constants\Number\MAX;
  * @api
  */
 final class IStr extends Str {
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE As default modifier.
+     * @uses \FireHub\Core\Support\Strings\Expression As return.
+     */
+    public function expression ():Expression {
+
+        return new Expression($this, Modifier::MULTIBYTE, Modifier::CASELESS);
+
+    }
 
     /**
      * @inheritDoc
@@ -223,43 +238,14 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses self::expression() As regular expression.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS To use caseless strings.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub')->replace('H', 'X');
-     *
-     * // FireXub
-     */
-    public function replace (string $find, string $with):self {
-
-        return ($exp = $this->expression()
-            ->replace($with, Modifier::MULTIBYTE, Modifier::CASELESS)
-            ->any()
-            ->custom($find)
-        ) instanceof $this ? $exp : $this;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression return array.
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE To use multibyte strings.
-     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS To use caseless strings.
      */
     public function break (string $separator, int $limit = MAX):array {
 
         /** @phpstan-ignore-next-line */
         return DataIs::array(
-            $exp = $this->expression()->split($limit, Modifier::MULTIBYTE, Modifier::CASELESS)->any()->custom($separator)
+            $exp = $this->expression()->split($limit)->any()->custom($separator)
         ) ? $exp : [];
 
     }

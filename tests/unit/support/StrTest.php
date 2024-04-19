@@ -35,7 +35,6 @@ use PHPUnit\Framework\Attributes\ {
 };
 use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\Encoding;
-use FireHub\Core\Support\Enums\String\Expression\Modifier;
 use Error;
 
 /**
@@ -124,7 +123,7 @@ final class StrTest extends Base {
         $this->assertTrue($this->string->expression()->check()->withDelimiter(Char::from('#'))->is()->custom('FireHub'));
 
         $this->assertFalse($this->string->expression()->check()->is()->custom('FIREHUB'));
-        $this->assertTrue($this->string->expression()->check(Modifier::CASELESS)->is()->custom('FIREHUB'));
+        $this->assertTrue($this->insensitive_string->expression()->check()->is()->custom('FIREHUB'));
 
     }
 
@@ -303,8 +302,8 @@ final class StrTest extends Base {
      */
     public function testExpressionReplaceIs ():void {
 
-        $this->string->expression()->replace('x', Modifier::CASELESS)->is()->custom('FIREHUB');
-        $this->assertSame('x', $this->string->string());
+        $this->insensitive_string->expression()->replace('x')->is()->custom('FIREHUB');
+        $this->assertSame('x', $this->insensitive_string->string());
 
     }
 
@@ -315,9 +314,7 @@ final class StrTest extends Base {
      */
     public function testExpressionGetIs ():void {
 
-        $this->string->expression()->get(Modifier::CASELESS)->is()->custom('FIREHUB');
-
-        $this->assertSame('FireHub', $this->string->string());
+        $this->assertSame([], $this->string->expression()->get()->is()->custom('FIREHUB'));
 
     }
 
