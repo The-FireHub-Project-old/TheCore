@@ -779,6 +779,26 @@ interface Strings extends Stringable {
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
 
     /**
+     * ### Get first character of string
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null First character of string or null is string is empty.
+     */
+    public function first ():?Characters;
+
+    /**
+     * ### Get last character of string
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null Last character of string or null is string is empty.
+     */
+    public function last ():?Characters;
+
+    /**
      * ### Break string into characters
      * @since 1.0.0
      *

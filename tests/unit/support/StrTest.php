@@ -78,6 +78,7 @@ final class StrTest extends Base {
     public Str $string_upper;
     public Str $string_with_num;
     public Str $mixed;
+    public Str $empty;
 
     /**
      * @since 1.0.0
@@ -97,6 +98,7 @@ final class StrTest extends Base {
         $this->string_upper = Str::from('FIREHUB', Encoding::UTF_8);
         $this->string_with_num = Str::from('FireHub123', Encoding::UTF_8);
         $this->mixed = Str::from('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;', Encoding::UTF_8);
+        $this->empty = Str::from('', Encoding::UTF_8);
 
     }
 
@@ -1062,6 +1064,31 @@ final class StrTest extends Base {
         $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());
         $this->assertSame("FireHub\r\n",  Str::from("FireHub\r\n")->trim(Side::LEFT)->string());
         $this->assertSame("\r\nFireHub",  Str::from("\r\nFireHub")->trim(Side::RIGHT)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('F',  $this->string->first()->string());
+        $this->assertSame('đ',  $this->mixed->first()->string());
+        $this->assertSame(null, $this->empty->first());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('b',  $this->string->last()->string());
+        $this->assertSame(null,  $this->empty->last());
 
     }
 

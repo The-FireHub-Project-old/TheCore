@@ -15,7 +15,7 @@
 namespace FireHub\Core\Support\Strings;
 
 use FireHub\Core\Support\Contracts\HighLevel\ {
-    Collectable, Strings
+    Collectable, Strings, Characters
 };
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\LowLevel\ {
@@ -1547,6 +1547,44 @@ abstract class Str implements Strings {
         $this->string = StrMB::trim($this->string, $side, $characters);
 
         return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::toChars() To break string into characters.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get first key of string.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
+     *
+     * @todo Change when toChars() method refactors with Collection.
+     */
+    public function first ():?Characters {
+
+        return !empty($chars = $this->toChars())
+            ? $chars[Arr::firstKey($chars)]
+            : null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::toChars() To break string into characters.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get last key of string.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
+     *
+     * @todo Change when toChars() method refactors with Collection.
+     */
+    public function last ():?Characters {
+
+        return !empty($chars = $this->toChars())
+            ? $chars[Arr::lastKey($chars)]
+            : null;
 
     }
 
