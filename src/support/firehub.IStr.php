@@ -40,6 +40,7 @@ final class IStr extends Str {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE As default modifier.
+     * @uses \FireHub\Core\Support\Enums\String\Expression\Modifier::CASELESS As default modifier.
      * @uses \FireHub\Core\Support\Strings\Expression As return.
      */
     public function expression ():Expression {
