@@ -410,6 +410,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testHumanize ():void {
+
+        $this->assertSame('Firehub', Str::from(' firehub_id')->humanize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));

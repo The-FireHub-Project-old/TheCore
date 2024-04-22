@@ -685,13 +685,38 @@ abstract class Str implements Strings {
      *
      * // FireHub
      * ```
-     *
-     * @return $this This string.
      */
     public function streamline ():self {
 
         /** @phpstan-ignore-next-line */
         return $this->expression()->replace(' ')->oneOrMore()->whitespaces()->trim();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::replace() To replace underscore and forbidden words.
+     * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
+     * @uses \FireHub\Core\Support\Strings\Str::capitalize() As capitalize string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('firehub_id')->humanize();
+     *
+     * // Firehub
+     * ```
+     */
+    public function humanize (array $forbidden_words = ['_id']):self {
+
+        foreach ($forbidden_words as $word)
+            $this->replace($word, '');
+
+        return $this->replace('_', ' ')->streamline()->capitalize();
 
     }
 

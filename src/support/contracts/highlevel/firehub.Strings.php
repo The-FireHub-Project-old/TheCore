@@ -285,12 +285,30 @@ interface Strings extends Stringable {
     public function swapCase ():self;
 
     /**
-     * ### Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces
+     * ### Streamline string
+     *
+     * Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces
      * @since 1.0.0
      *
      * @return $this This string.
      */
     public function streamline ():self;
+
+    /**
+     * ### Humanize string
+     *
+     * Capitalizes the first word of the string, replaces underscores with spaces and removes forbidden words.
+     * @since 1.0.0
+     *
+     * @param array $forbidden_words [optional] <p>
+     * <code><![CDATA[ list<string> ]]></code>
+     * List of forbidden words to remove.
+     * </p>
+     * @phpstan-param list<string> $forbidden_words
+     *
+     * @return $this This string.
+     */
+    public function humanize (array $forbidden_words = ['id']):self;
 
     /**
      * ### Quote string with slashes
