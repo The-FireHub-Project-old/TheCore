@@ -239,7 +239,7 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression return array.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression returns an array.
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      */
     public function break (string $separator, int $limit = MAX):array {
@@ -276,7 +276,7 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence of a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position for the first occurrence of a substring in a string.
      *
      * @example
      * ```php
@@ -298,7 +298,7 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position of the last occurrence of a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position for the last occurrence of a substring in a string.
      *
      * @example
      * ```php
