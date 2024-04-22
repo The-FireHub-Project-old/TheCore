@@ -854,6 +854,7 @@ interface Strings extends Stringable {
      * @return $this This string.
      *
      * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
+     * @note If truncate is negative, string will be truncated from right to left.
      */
     public function safeTruncate (int $length, string $with):self;
 

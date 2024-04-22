@@ -1726,7 +1726,7 @@ abstract class Str implements Strings {
 
         $with_length = StrMB::length($with, $this->encoding);
 
-        if ($with_length >= $length)
+        if ($with_length > 0 && $with_length >= $length)
             return throw new Error('$with argument cannot be equal to or large than $length argument.');
 
         if ($length >= $this->length()) return $this;
