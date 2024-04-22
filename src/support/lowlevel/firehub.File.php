@@ -141,7 +141,7 @@ final class File extends FileSystem {
     public static function size (string $path):int {
 
         return ($size = filesize($path)) !== false
-            ? $size : throw new Error("Could not get file size for {$path}.");
+            ? $size : throw new Error("Could not get file size for $path.");
 
     }
 
@@ -152,7 +152,7 @@ final class File extends FileSystem {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Constants\Path\DS To separate folders.
-     * @uses \FireHub\Core\Support\LowLevel\File::basename() To get a base name component of $to path.
+     * @uses \FireHub\Core\Support\LowLevel\File::basename() To get a base name component of $to a path.
      *
      * @param string $path <p>
      * <code>non-empty-string</code>
@@ -175,7 +175,7 @@ final class File extends FileSystem {
     public static function copy (string $path, string $to):void {
 
         copy($path, $to.DS.self::basename($path))
-            ?: throw new Error("Could not copy file: {$path} to: {$to}.");
+            ?: throw new Error("Could not copy file: $path to: $to.");
 
     }
 
@@ -199,7 +199,7 @@ final class File extends FileSystem {
     public static function delete (string $path):void {
 
         unlink($path)
-            ?: throw new Error("Could not delete file: {$path}.");
+            ?: throw new Error("Could not delete file: $path.");
 
     }
 
@@ -228,7 +228,7 @@ final class File extends FileSystem {
     public static function link (string $path, string $link):void {
 
         link($path, $link)
-            ?: throw new Error("Could not create hard link for path: {$path}.");
+            ?: throw new Error("Could not create hard link for path: $path.");
 
     }
 
@@ -266,7 +266,7 @@ final class File extends FileSystem {
 
         return ($content = file_get_contents($path, false, null, $offset, $length)) !== false
             ? $content
-            : throw new Error("Cannot get content from path: {$path}.");
+            : throw new Error("Cannot get content from path: $path.");
 
     }
 
@@ -313,7 +313,7 @@ final class File extends FileSystem {
             $ignore_new_lines => FILE_IGNORE_NEW_LINES,
             default => 0
         })) !== false
-            ? $content : throw new Error("Cannot get content from path: {$path}.");
+            ? $content : throw new Error("Cannot get content from path: $path.");
 
     }
 
@@ -352,7 +352,7 @@ final class File extends FileSystem {
      */
     public static function putContent (string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int {
 
-        if (!$create_file && !self::isFile($path)) throw new Error("File {$path} doesn't exist.");
+        if (!$create_file && !self::isFile($path)) throw new Error("File $path doesn't exist.");
 
         return file_put_contents($path, $data, match (true) {
             $append && $lock => FILE_APPEND | LOCK_EX,
@@ -386,7 +386,7 @@ final class File extends FileSystem {
     public static function read (string $path):int {
 
         return readfile($path)
-            ?: throw new Error("Could not put read file on path: {$path}.");
+            ?: throw new Error("Could not put read file on path: $path.");
 
     }
 
@@ -422,7 +422,7 @@ final class File extends FileSystem {
     public static function moveUploaded (string $from, string $to):void {
 
         move_uploaded_file($from, $to)
-            ?: throw new Error("Could not move uploaded file: {$from}, to: {$to}.");
+            ?: throw new Error("Could not move uploaded file: $from, to: $to.");
 
     }
 

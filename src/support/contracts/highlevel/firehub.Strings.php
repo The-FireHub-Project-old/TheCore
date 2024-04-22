@@ -541,6 +541,28 @@ interface Strings extends Stringable {
     public function insert (string $string, int $position):self;
 
     /**
+     * ### Move part of the string
+     *
+     * Move part of the string specified by the $from and $until parameters.
+     * @since 1.0.0
+     *
+     * @param int $from <p>
+     * Start position of moving string, counting from zero.
+     * </p>
+     * @param int $length <p>
+     * Length of moving string, counting from $start.
+     * </p>
+     * @param int $to <p>
+     * Position where string will be moved, counting from zero.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @tip If $end is negative, it is computed from the end of the string.
+     */
+    public function move (int $from, int $length, int $to):self;
+
+    /**
      * ### Overwrite with part of the string
      *
      * Overwrite with part of the string specified by the $from and $until parameters.
@@ -676,7 +698,7 @@ interface Strings extends Stringable {
      *
      * @param string $prefix <p>
      * <code>non-empty-string</code>
-     * The prefix to make sure exists.
+     * The prefix to make sure it exists.
      * </p>
      * @phpstan-param non-empty-string $prefix
      *
@@ -690,7 +712,7 @@ interface Strings extends Stringable {
      *
      * @param string $suffix <p>
      * <code>non-empty-string</code>
-     * The suffix to make sure exists.
+     * The suffix to make sure it exists.
      * </p>
      * @phpstan-param non-empty-string $suffix
      *
@@ -784,7 +806,7 @@ interface Strings extends Stringable {
      *
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
      *
-     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null First character of string or null is string is empty.
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null The first character of string or null is string is empty.
      */
     public function first ():?Characters;
 
@@ -794,7 +816,7 @@ interface Strings extends Stringable {
      *
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
      *
-     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null Last character of string or null is string is empty.
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|null The last character of string or null is string is empty.
      */
     public function last ():?Characters;
 
@@ -904,7 +926,7 @@ interface Strings extends Stringable {
      * String to find.
      * </p>
      *
-     * @return int|false Position of the first occurrence of a substring.
+     * @return int|false Position of the first occurrence for a substring.
      * @phpstan-return non-negative-int|false
      */
     public function indexOf (string $find):int|false;
@@ -917,7 +939,7 @@ interface Strings extends Stringable {
      * String to find.
      * </p>
      *
-     * @return int|false Position of the last occurrence of a substring.
+     * @return int|false Position of the last occurrence for a substring.
      * @phpstan-return non-negative-int|false
      */
     public function lastIndexOf (string $find):int|false;

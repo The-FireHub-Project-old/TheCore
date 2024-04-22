@@ -27,13 +27,13 @@ enum Round {
     case HALF_UP;
 
     /**
-     * ### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1
+     * ### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1
      * @since 1.0.0
      */
     case HALF_DOWN;
 
     /**
-     * ### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
+     * ### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2
      * @since 1.0.0
      */
     case HALF_EVEN;

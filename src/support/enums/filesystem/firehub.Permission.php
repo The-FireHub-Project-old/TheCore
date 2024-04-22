@@ -33,7 +33,7 @@ enum Permission:int {
     case EXECUTE = 1;
 
     /**
-     * ### Grants the capability to modify, or remove the content of the file
+     * ### Grants the ability to modify, or remove the content of the file
      * @since 1.0.0
      */
     case WRITE = 2;
@@ -45,7 +45,7 @@ enum Permission:int {
     case WRITE_EXECUTE = 3;
 
     /**
-     * ### Grants the capability to read, i.e., view the contents of the file
+     * ### Grants the ability to read, i.e., view the contents of the file
      * @since 1.0.0
      */
     case READ = 4;

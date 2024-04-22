@@ -31,7 +31,7 @@ use function mb_split;
  * The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
  * delimiters, a forward slash (/), for example. Delimiters can be any non-alphanumeric, non-whitespace ASCII character
  * except the backslash (\) and the null byte. If the delimiter character has to be used in the expression itself,
- * it needs to be escaped by backslash. Perl-style (), {}, [], and <> matching delimiters may also be used.
+ * it needs to be escaped by backslash. Perl style (), {}, [], and <> matching delimiters may also be used.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
