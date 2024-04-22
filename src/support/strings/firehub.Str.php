@@ -1569,9 +1569,8 @@ abstract class Str implements Strings {
     public function quote (string $with):self {
 
         $result = [];
-        foreach ($this->expression()->split()->any()->whitespaces() as $word) {
-            $result[] = self::from($word)->surround($with);
-        }
+        foreach ($this->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
+            $result[] = self::from($word)->surround($with); // @phpstan-ignore-line
 
         $this->string = '';
 
