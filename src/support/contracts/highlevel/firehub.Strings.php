@@ -775,6 +775,20 @@ interface Strings extends Stringable {
     public function shuffle ():self;
 
     /**
+     * ### Wraps each word in the string with specified quote
+     * @since 1.0.0
+     *
+     * @param string $with <p>
+     * <code>non-empty-string</code>
+     * String to quote with.
+     * </p>
+     * @phpstan-param non-empty-string $with
+     *
+     * @return $this This string.
+     */
+    public function quote (string $with):self;
+
+    /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
      * This function returns a string with whitespace stripped from the beginning and end of string.
@@ -787,7 +801,7 @@ interface Strings extends Stringable {
      * - "\0" (ASCII 0 (0x00)), the NUL-byte.
      * - "\v" (ASCII 11 (0x0B)), a vertical tab.
      * @since 1.0.0
-     *t
+     *
      * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
      * Side to trim string.
      * </p>

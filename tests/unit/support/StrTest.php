@@ -1070,6 +1070,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testQuote ():void {
+
+        $this->assertSame('*đščćž* *诶杰艾玛* *ЛЙ* *ÈßÁ* *カタカナ* *}{:;*', $this->mixed->quote('*')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTrim ():void {
 
         $this->assertSame('FireHub',  Str::from("\r\nFireHub\r\n")->trim()->string());

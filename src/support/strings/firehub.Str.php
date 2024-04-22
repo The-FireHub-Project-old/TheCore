@@ -1551,6 +1551,39 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
+     * @uses \FireHub\Core\Support\Strings\Str::surround() To surround any word with $with argument.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
+     * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->quote(-);
+     *
+     * // -FireHub- -Web- -App-
+     * ```
+     */
+    public function quote (string $with):self {
+
+        $result = [];
+        foreach ($this->expression()->split()->any()->whitespaces() as $word) {
+            $result[] = self::from($word)->surround($with);
+        }
+
+        $this->string = '';
+
+        return $this->append(StrMB::implode($result, ' '));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\Side::BOTH As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::trim() To strip whitespace (or other characters) from the string.
      *
