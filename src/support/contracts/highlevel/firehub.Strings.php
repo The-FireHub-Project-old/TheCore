@@ -285,6 +285,14 @@ interface Strings extends Stringable {
     public function swapCase ():self;
 
     /**
+     * ### Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function streamline ():self;
+
+    /**
      * ### Quote string with slashes
      *
      * Backslashes are added before characters that need to be escaped:
@@ -821,15 +829,16 @@ interface Strings extends Stringable {
      * @param int $length <p>
      * Maximum string length, with $with argument included.
      * </p>
-     * @param string $with <p>
+     * @param string $with [optional] <p>
      * Truncates the string with.
      * </p>
      *
      * @return $this This string.
      *
      * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
+     * @note If truncate is negative, string will be truncated from right to left.
      */
-    public function truncate (int $length, string $with):self;
+    public function truncate (int $length, string $with = ''):self;
 
     /**
      * ### Truncates the string to a given length, while ensuring that it does not split words

@@ -397,6 +397,19 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testStreamline ():void {
+
+        $this->assertSame('Fi r eHub', Str::from('
+        Fi   r
+        eHub')->streamline()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));
@@ -1096,6 +1109,7 @@ final class StrTest extends Base {
      */
     public function testTruncate ():void {
 
+        $this->assertSame('FireHub Web',  Str::from('FireHub Web App')->truncate(-4)->string());
         $this->assertSame('FireHub...',  Str::from('FireHub Web App')->truncate(10, '...')->string());
 
     }

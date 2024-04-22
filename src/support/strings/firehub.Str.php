@@ -673,6 +673,33 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace (or other characters) from the beginning and end of a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from(' Fire
+     *  Hub ')->streamline();
+     *
+     * // FireHub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function streamline ():self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->expression()->replace(' ')->oneOrMore()->whitespaces()->trim();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
      *
      * @example
@@ -1640,7 +1667,16 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Strings\Str::carry() To get part of the current string.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append $with argument at the end of the current string.
      *
-     * @example
+     *  @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->truncate(10);
+     *
+     * // FireHub We
+     * ```
+     *
+     * @example Truncate with string at the end.
      * ```php
      * use FireHub\Core\Support\Str;
      *
@@ -1651,9 +1687,11 @@ abstract class Str implements Strings {
      *
      * @throws Error If $with argument is equal or larger than $length argument.
      */
-    public function truncate (int $length, string $with):self {
+    public function truncate (int $length, string $with = ''):self {
 
-        if (StrMB::length($with, $this->encoding) >= $length)
+        $with_length = StrMB::length($with, $this->encoding);
+
+        if ($with_length > 0 && $with_length >= $length)
             return throw new Error('$with argument cannot be equal to or large than $length argument.');
 
         if ($length >= $this->length()) return $this;
