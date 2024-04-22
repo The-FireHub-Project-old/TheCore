@@ -274,7 +274,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find the position of the first occurrence of a substring in a string
+     * ### Find the position of the first occurrence for a substring in a string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -307,7 +307,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find the position of the last occurrence of a substring in a string
+     * ### Find the position of the last occurrence for a substring in a string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.

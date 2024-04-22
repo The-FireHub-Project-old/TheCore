@@ -1146,15 +1146,15 @@ abstract class Str implements Strings {
 
         if ($to <= $length) return $this;
 
-        $part = StrMB::part($this->string, $from, $length);
+        $part = StrMB::part($this->string, $from, $length, $this->encoding);
 
-        $this->string = StrMB::part($this->string, 0, $to)
-            .$part.StrMB::part($this->string, $to);
+        $this->string = StrMB::part($this->string, 0, $to, $this->encoding)
+            .$part.StrMB::part($this->string, $to, encoding: $this->encoding);
 
-        $position = StrMB::firstPosition($part, $this->string) ?: 0;
+        $position = StrMB::firstPosition($part, $this->string, encoding: $this->encoding) ?: 0;
 
-        $this->string = StrMB::part($this->string, 0, $position)
-            .StrMB::part($this->string, $position + StrMB::length($part));
+        $this->string = StrMB::part($this->string, 0, $position, $this->encoding)
+            .StrMB::part($this->string, $position + StrMB::length($part), encoding: $this->encoding);
 
         return $this;
 
@@ -1538,7 +1538,7 @@ abstract class Str implements Strings {
 
         $string = '';
         foreach ($characters as $character)
-            $string .= StrMB::part($this->string, $character, 1); // @phpstan-ignore-line $character is int at this point
+            $string .= StrMB::part($this->string, $character, 1, $this->encoding); // @phpstan-ignore-line $character is int at this point
 
         $this->string = $string;
 
@@ -1565,8 +1565,12 @@ abstract class Str implements Strings {
      *
      * // -FireHub- -Web- -App-
      * ```
+     *
+     * @throws Error If $with argument is empty.
      */
     public function quote (string $with):self {
+
+        if (empty($with)) throw new Error('$with argument cannot be empty.');
 
         $result = [];
         foreach ($this->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
@@ -1621,6 +1625,84 @@ abstract class Str implements Strings {
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self {
 
         $this->string = StrMB::trim($this->string, $side, $characters);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length of $with argument.
+     * @uses \FireHub\Core\Support\Strings\Str::length() To get length of current string.
+     * @uses \FireHub\Core\Support\Strings\Str::carry() To get part of the current string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append $with argument at the end of the current string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->truncate(10, '...');
+     *
+     * // FireHub...
+     * ```
+     *
+     * @throws Error If $with argument is equal or larger than $length argument.
+     */
+    public function truncate (int $length, string $with):self {
+
+        if (StrMB::length($with, $this->encoding) >= $length)
+            return throw new Error('$with argument cannot be equal to or large than $length argument.');
+
+        if ($length >= $this->length()) return $this;
+
+        return $this->carry(0, $length - StrMB::length($with, $this->encoding))->append($with);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length of $with argument.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To part of the string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence for a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position of the last occurrence for a substring in a string.
+     * @uses \FireHub\Core\Support\Strings\Str::length() To get length of current string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web Application')->safeTruncate(17, '...');
+     *
+     * // FireHub Web...
+     * ```
+     *
+     * @throws Error If $with argument is equal or larger than $length argument.
+     */
+    public function safeTruncate (int $length, string $with):self {
+
+        $with_length = StrMB::length($with, $this->encoding);
+
+        if ($with_length >= $length)
+            return throw new Error('$with argument cannot be equal to or large than $length argument.');
+
+        if ($length >= $this->length()) return $this;
+
+        $length -= $with_length;
+
+        $truncated = StrMB::part($this->string, 0, $length, $this->encoding);
+        $last_position = StrMB::lastPosition(' ', $truncated, encoding: $this->encoding);
+
+        if (StrMB::firstPosition(' ', $this->string, offset: $length - 1, encoding: $this->encoding) !== $length)
+            if ($last_position !== false)
+                $truncated = StrMB::part($truncated, 0, $last_position, $this->encoding);
+
+        $this->string = $truncated.$with;
 
         return $this;
 

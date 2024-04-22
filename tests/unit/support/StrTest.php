@@ -1094,6 +1094,54 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testTruncate ():void {
+
+        $this->assertSame('FireHub...',  Str::from('FireHub Web App')->truncate(10, '...')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTruncateWithGreaterThanLength ():void {
+
+        $this->expectException(Error::class);
+
+        $this->string->truncate(2, '...');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSafeTruncate ():void {
+
+        $this->assertSame('FireHub Web...',  Str::from('FireHub Web Application')->safeTruncate(17, '...')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSafeTruncateWithGreaterThanLength ():void {
+
+        $this->expectException(Error::class);
+
+        $this->string->safeTruncate(2, '...');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFirst ():void {
 
         $this->assertSame('F',  $this->string->first()->string());

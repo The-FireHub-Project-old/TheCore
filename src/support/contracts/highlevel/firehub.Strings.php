@@ -815,6 +815,40 @@ interface Strings extends Stringable {
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self;
 
     /**
+     * ### Truncates the string to a given length
+     * @since 1.0.0
+     *
+     * @param int $length <p>
+     * Maximum string length, with $with argument included.
+     * </p>
+     * @param string $with <p>
+     * Truncates the string with.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
+     */
+    public function truncate (int $length, string $with):self;
+
+    /**
+     * ### Truncates the string to a given length, while ensuring that it does not split words
+     * @since 1.0.0
+     *
+     * @param int $length <p>
+     * Maximum string length, with $with argument included.
+     * </p>
+     * @param string $with <p>
+     * Truncates the string with.
+     * </p>
+     *
+     * @return $this This string.
+     *
+     * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
+     */
+    public function safeTruncate (int $length, string $with):self;
+
+    /**
      * ### Get first character of string
      * @since 1.0.0
      *
