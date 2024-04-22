@@ -872,6 +872,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testMove ():void {
+
+        $this->assertSame('reFiHub',  $this->string->move(0, 2, 4)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testOverwrite ():void {
 
         $this->assertSame('Fi=Hub',  $this->string->overwrite(2, 4, '=')->string());

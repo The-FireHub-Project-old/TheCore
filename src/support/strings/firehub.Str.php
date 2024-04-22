@@ -875,7 +875,7 @@ abstract class Str implements Strings {
      *
      * // Fir
      * ```
-     * @example Getting slice of string with passed $until argument.
+     * @example Getting a slice of string with passed $until argument.
      * ```php
      * use FireHub\Core\Support\Str;
      *
@@ -883,7 +883,7 @@ abstract class Str implements Strings {
      *
      * // eHu
      * ```
-     * @example Getting slice of string with negative $until argument.
+     * @example Getting a slice of string with negative $until argument.
      *  ```php
      *  use FireHub\Core\Support\Str;
      *
@@ -976,7 +976,7 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses static::carry() To get last part for string.
+     * @uses static::carry() To get the last part for string.
      * @uses static::indexOf() To get position of $find.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
      *
@@ -1052,7 +1052,7 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses static::carry() To get last part for string.
+     * @uses static::carry() To get the last part for string.
      * @uses static::lastIndexOf() To get lst position of $find.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
      *
@@ -1102,6 +1102,9 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::carry() To carry with part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append $string argument.
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Str;
@@ -1123,6 +1126,47 @@ abstract class Str implements Strings {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence for a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get string length.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->move(0, 2, 4);
+     *
+     * // reFiHub
+     * ```
+     *
+     * @throws Error If $from is greater than $until.
+     */
+    public function move (int $from, int $length, int $to):self {
+
+        if ($to <= $length) return $this;
+
+        $part = StrMB::part($this->string, $from, $length);
+
+        $this->string = StrMB::part($this->string, 0, $to)
+            .$part.StrMB::part($this->string, $to);
+
+        $position = StrMB::firstPosition($part, $this->string) ?: 0;
+
+        $this->string = StrMB::part($this->string, 0, $position)
+            .StrMB::part($this->string, $position + StrMB::length($part));
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::carry() To carry with part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append $string argument.
      *
      * @example
      * ```php
@@ -1217,7 +1261,7 @@ abstract class Str implements Strings {
      * // FireHub-FireHub-FireHub-FireHub
      * ```
      *
-     * @note If $times is less than 1, original string will be returned.
+     * @note If $times is less than 1, the original string will be returned.
      */
     public function repeat (int $times, string $separator = ''):self {
 
@@ -1556,7 +1600,7 @@ abstract class Str implements Strings {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Strings\Str::toChars() To break string into characters.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get first key of string.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get the first key of string.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
      *
      * @todo Change when toChars() method refactors with Collection.
@@ -1575,7 +1619,7 @@ abstract class Str implements Strings {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Strings\Str::toChars() To break string into characters.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get last key of string.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the last key of string.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
      *
      * @todo Change when toChars() method refactors with Collection.
@@ -1728,7 +1772,7 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence of a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence for a substring in a string.
      *
      * @example
      * ```php
@@ -1750,7 +1794,7 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position of the last occurrence of a substring in a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::lastPosition() To find the position of the last occurrence for a substring in a string.
      *
      * @example
      * ```php
