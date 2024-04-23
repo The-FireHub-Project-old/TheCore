@@ -14,7 +14,9 @@
 
 namespace FireHub\Core\Support\Strings;
 
-use FireHub\Core\Support\LowLevel\StrMB;
+use FireHub\Core\Support\LowLevel\ {
+    Arr, StrMB
+};
 
 /**
  * ### Sentence class
@@ -57,6 +59,7 @@ class Sentence extends Word {
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
      * @uses \FireHub\Core\Support\Strings\Str::capitalize() To capitalize each word.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
      *
      * @example
@@ -68,13 +71,20 @@ class Sentence extends Word {
      * // FireHub Web App
      * ```
      *
+     * @param array $ignore [optional] <p>
+     * List of words not to be capitalized.
+     * </p>
+     * @phpstan-param non-empty-string[] $ignore
+     *
      * @return $this This string.
      */
-    public function titleize ():self {
+    public function titleize (array $ignore = ['at', 'by', 'for', 'in', 'of', 'on', 'out', 'to', 'the']):self {
 
         $result = [];
         foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
-            $result[] = self::from($word)->capitalize(); // @phpstan-ignore-line
+            $result[] = Arr::inArray($word, $ignore)
+                ? self::from($word) // @phpstan-ignore-line
+                : self::from($word)->capitalize(); // @phpstan-ignore-line
 
         $this->string = '';
 

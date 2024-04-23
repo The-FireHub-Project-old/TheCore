@@ -58,6 +58,7 @@ final class SentenceTest extends Base {
     public function testTitleize ():void {
 
         $this->assertSame('FireHub Web App', Sentence::from('fireHub Web app')->titleize()->string());
+        $this->assertSame('FireHub at', Sentence::from('fireHub at')->titleize()->string());
 
     }
 
