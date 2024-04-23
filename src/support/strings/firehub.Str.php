@@ -673,50 +673,6 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Strings\Str::dasherize() To lowercase and trimmed string separated by dash.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub Web App')->kebabCase();
-     *
-     * // fire-hub-web-app
-     * ```
-     */
-    public function kebabCase ():self {
-
-        return $this->dasherize();
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Strings\Str::dasherize() To lowercase and trimmed string separated by dash.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub Web App')->snakeCase();
-     *
-     * // fire_hub_web_app
-     * ```
-     */
-    public function snakeCase ():self {
-
-        return $this->delimit('_');
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace (or other characters) from the beginning and end of a string.
      *
@@ -795,82 +751,6 @@ abstract class Str implements Strings {
             $this->replace($character, $replacement);
 
         return $this;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Str::expression() As regular expression.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub Web App')->spaceless();
-     *
-     * // FireHubWebApp
-     * ```
-     */
-    public function spaceless ():self {
-
-        /** @phpstan-ignore-next-line */
-        return $this->expression()->replace('')->any()->whitespaces();
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
-     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
-     * @uses \FireHub\Core\Support\Strings\Str::replace() To replace characters with delimiter.
-     * @uses \FireHub\Core\Support\Strings\Str::toLower() To lowercase string.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub Web App')->delimit('-');
-     *
-     * // fire-hub-web-app
-     * ```
-     */
-    public function delimit (string $delimiter):self {
-
-        /** @phpstan-ignore-next-line */
-        return $this->streamline()
-            ->expression()->replace('-\1')->custom('\B([A-Z])')
-            ->replace(' ', $delimiter)
-            ->replace('-', $delimiter)
-            ->replace('_', $delimiter)
-            ->toLower();
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Strings\Str::delimit() To lowercase and trimmed string separated by the given delimiter.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('FireHub Web App')->dasherize();
-     *
-     * // fire-hub-web-app
-     * ```
-     */
-    public function dasherize ():self {
-
-        return $this->delimit('-');
 
     }
 
@@ -1757,6 +1637,7 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
      * @uses \FireHub\Core\Support\Strings\Str::surround() To surround any word with $with argument.
@@ -1779,7 +1660,7 @@ abstract class Str implements Strings {
         if (empty($with)) throw new Error('$with argument cannot be empty.');
 
         $result = [];
-        foreach ($this->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
+        foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
             $result[] = self::from($word)->surround($with); // @phpstan-ignore-line
 
         $this->string = '';

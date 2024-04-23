@@ -396,28 +396,6 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testSnakeCase ():void {
-
-        $this->assertSame('fire_hub_web_app...', Str::from(' FireHub Web App...')->snakeCase()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testKebabCase ():void {
-
-        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->kebabCase()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testStreamline ():void {
 
         $this->assertSame('Fi r eHub', Str::from('
@@ -445,39 +423,6 @@ final class StrTest extends Base {
     public function testTidy ():void {
 
         $this->assertSame('"FireHub..."', Str::from('“FireHub…”')->tidy()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSpaceless ():void {
-
-        $this->assertSame('FireHubWebApp', Str::from('FireHub Web App')->spaceless()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testDelimit ():void {
-
-        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->delimit('-')->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testDasherize ():void {
-
-        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->dasherize()->string());
 
     }
 
