@@ -44,6 +44,18 @@ final class SentenceTest extends Base {
      *
      * @return void
      */
+    public function testDot ():void {
+
+        $this->assertSame('FireHub Web App.', $this->sentence->ensureDot()->string());
+        $this->assertSame('FireHub Web App', $this->sentence->removeDot()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSpaceless ():void {
 
         $this->assertSame('FireHubWebApp', $this->sentence->spaceless()->string());

@@ -27,6 +27,52 @@ use FireHub\Core\Support\LowLevel\ {
 class Sentence extends Word {
 
     /**
+     * ### Makes sure that the sentence string has dot at the end
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::ensureSuffix() To make sure that the current string is suffixed with the given text.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('The FireHub')->ensureDot();
+     *
+     * // The FireHub.
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function ensureDot ():self {
+
+        return $this->ensureSuffix('.');
+
+    }
+
+    /**
+     * ### Makes sure that the sentence string doesn't have a dot at the end
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::removeSuffix() To make sure that the current string doesn't end with the given text.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('The FireHub.')->ensureDot();
+     *
+     * // The FireHub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function removeDot ():self {
+
+        return $this->removeSuffix('.');
+
+    }
+
+    /**
      * ### Remove spaces
      * @since 1.0.0
      *

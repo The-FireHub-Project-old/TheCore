@@ -758,7 +758,7 @@ interface Strings extends Stringable {
     public function ensureSuffix (string $suffix):self;
 
     /**
-     * ### Makes sure that the current string doesn't starts with the given text
+     * ### Makes sure that the current string doesn't start with the given text
      * @since 1.0.0
      *
      * @param string $prefix <p>
@@ -772,7 +772,7 @@ interface Strings extends Stringable {
     public function removePrefix (string $prefix):self;
 
     /**
-     * ### Makes sure that the current string doesn't ends with the given text
+     * ### Makes sure that the current string doesn't end with the given text
      * @since 1.0.0
      *
      * @param string $suffix <p>
