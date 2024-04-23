@@ -62,4 +62,15 @@ final class SentenceTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPascalize ():void {
+
+        $this->assertSame('FireHubWebApp', Sentence::from('fireHub Web app')->pascalize()->string());
+
+    }
+
 }

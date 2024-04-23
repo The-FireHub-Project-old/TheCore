@@ -92,4 +92,29 @@ class Sentence extends Word {
 
     }
 
+    /**
+     * ### Makes a PascalCase version of the string
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Word::from() To create word from string.
+     * @uses \FireHub\Core\Support\Strings\Sentence::titleize() Ti title-case all words.
+     * @uses \FireHub\Core\Support\Strings\Sentence::spaceless() To remove spaces.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('FireHub web app')->pascalize();
+     *
+     * // FireHubWebApp
+     * ```
+     *
+     * @return \FireHub\Core\Support\Strings\Word Word from this string.
+     */
+    public function pascalize ():Word {
+
+        return Word::from($this->titleize([])->spaceless()->string);
+
+    }
+
 }
