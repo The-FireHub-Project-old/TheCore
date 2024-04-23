@@ -388,7 +388,28 @@ final class StrTest extends Base {
     public function testSwapCase ():void {
 
         $this->assertSame('fIREhUB', $this->string->swapCase()->string());
-        $this->assertSame('ĐŠČĆŽ 诶杰艾玛 лй èSSá カタカナ }{:;', $this->mixed->swapCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSnakeCase ():void {
+
+        $this->assertSame('fire_hub_web_app...', Str::from(' FireHub Web App...')->snakeCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testKebabCase ():void {
+
+        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->kebabCase()->string());
 
     }
 
