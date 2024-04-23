@@ -345,6 +345,17 @@ interface Strings extends Stringable {
     public function delimit (string $delimiter):self;
 
     /**
+     * ### Lowercased and trimmed string separated by dash
+     *
+     * Dash is inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
+     * Any characters that are not alphanumeric are removed.
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function dasherize ():self;
+
+    /**
      * ### Quote string with slashes
      *
      * Backslashes are added before characters that need to be escaped:

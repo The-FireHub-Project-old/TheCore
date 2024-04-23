@@ -454,6 +454,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testDasherize ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from(' FireHub Web App...')->dasherize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));

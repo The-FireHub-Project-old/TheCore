@@ -814,6 +814,28 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::delimit() To lowercase and trimmed string separated by the given delimiter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->dasherize();
+     *
+     * // fire-hub-web-app
+     * ```
+     */
+    public function dasherize ():self {
+
+        return $this->delimit('-');
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
      *
      * @example
