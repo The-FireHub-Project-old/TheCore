@@ -285,6 +285,22 @@ interface Strings extends Stringable {
     public function swapCase ():self;
 
     /**
+     * ### Format sting to kebab-case
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function kebabCase ():self;
+
+    /**
+     * ### Format sting to snake-case
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function snakeCase ():self;
+
+    /**
      * ### Streamline string
      *
      * Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces.
@@ -333,7 +349,6 @@ interface Strings extends Stringable {
      * ### Lowercased and trimmed string separated by the given delimiter
      *
      * Delimiters are inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
-     * Any characters that are not alphanumeric are removed.
      * @since 1.0.0
      *
      * @param string $delimiter [optional] <p>
@@ -348,7 +363,6 @@ interface Strings extends Stringable {
      * ### Lowercased and trimmed string separated by dash
      *
      * Dash is inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
-     * Any characters that are not alphanumeric are removed.
      * @since 1.0.0
      *
      * @return $this This string.

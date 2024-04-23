@@ -673,6 +673,50 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::dasherize() To lowercase and trimmed string separated by dash.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->kebabCase();
+     *
+     * // fire-hub-web-app
+     * ```
+     */
+    public function kebabCase ():self {
+
+        return $this->dasherize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::dasherize() To lowercase and trimmed string separated by dash.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->snakeCase();
+     *
+     * // fire_hub_web_app
+     * ```
+     */
+    public function snakeCase ():self {
+
+        return $this->delimit('_');
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace (or other characters) from the beginning and end of a string.
      *
@@ -800,7 +844,6 @@ abstract class Str implements Strings {
 
         /** @phpstan-ignore-next-line */
         return $this->streamline()
-            ->expression()->remove()->any()->notLettersNorDigits()
             ->expression()->replace('-\1')->custom('\B([A-Z])')
             ->replace(' ', $delimiter)
             ->replace('-', $delimiter)

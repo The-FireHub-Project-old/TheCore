@@ -445,7 +445,7 @@ final class StrTest extends Base {
      */
     public function testDelimit ():void {
 
-        $this->assertSame('fire-hub-web-app', Str::from(' FireHub Web App...')->delimit('-')->string());
+        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->delimit('-')->string());
 
     }
 
@@ -456,7 +456,7 @@ final class StrTest extends Base {
      */
     public function testDasherize ():void {
 
-        $this->assertSame('fire-hub-web-app', Str::from(' FireHub Web App...')->dasherize()->string());
+        $this->assertSame('fire-hub-web-app...', Str::from(' FireHub Web App...')->dasherize()->string());
 
     }
 
