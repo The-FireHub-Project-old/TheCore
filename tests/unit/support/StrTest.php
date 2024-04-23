@@ -421,6 +421,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testTidy ():void {
+
+        $this->assertSame('"FireHub..."', Str::from('“FireHub…”')->tidy()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));
@@ -1025,7 +1036,7 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testEnsureSuffux ():void {
+    public function testEnsureSuffix ():void {
 
         $this->assertSame('đščćž 诶杰艾玛 ЛЙ ÈßÁ カタカナ }{:;カ', $this->mixed->ensureSuffix('カ')->string());
 

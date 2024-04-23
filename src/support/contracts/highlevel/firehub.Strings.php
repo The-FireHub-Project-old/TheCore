@@ -287,7 +287,7 @@ interface Strings extends Stringable {
     /**
      * ### Streamline string
      *
-     * Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces
+     * Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces.
      * @since 1.0.0
      *
      * @return $this This string.
@@ -309,6 +309,17 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function humanize (array $forbidden_words = ['id']):self;
+
+    /**
+     * ### Tidy string
+     *
+     * Returns a string with smart quotes, ellipsis characters, and dashes from Windows-1252 (commonly used in Word documents)
+     * replaced by their ASCII equivalents.
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function tidy ():self;
 
     /**
      * ### Quote string with slashes

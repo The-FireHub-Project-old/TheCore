@@ -725,6 +725,40 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Strings\Str::replace() To replace all occurrences of the search string with the replacement string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('“FireHub…”')->tidy();
+     *
+     * // "FireHub..."
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function tidy ():self {
+
+        $replacements = [
+            '\x{2026}' => '...',
+            '[\x{201C}\x{201D}]' => '"',
+            '[\x{2018}\x{2019}]' => "'",
+            '[\x{2013}\x{2014}]' => '-'
+        ];
+
+        foreach ($replacements as $character => $replacement)
+            $this->replace($character, $replacement);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
      *
      * @example
