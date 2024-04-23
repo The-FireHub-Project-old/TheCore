@@ -104,6 +104,7 @@ class Sentence extends Word {
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
      * @uses \FireHub\Core\Support\Strings\Str::capitalize() To capitalize each word.
+     * @uses \FireHub\Core\Support\Strings\Str::deCapitalize() To deCapitalize each word.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
@@ -124,17 +125,20 @@ class Sentence extends Word {
      *
      * @return $this This string.
      */
-    public function titleize (array $ignore = ['at', 'by', 'for', 'in', 'of', 'on', 'out', 'to', 'the']):self {
+    public function titleize (array $ignore = ['and', 'as', 'but', 'for', 'if', 'nor', 'or', 'so', 'yet', 'a', 'an', 'the', 'at', 'by', 'for', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via']):self {
 
         $result = [];
-        foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) // @phpstan-ignore-line
+        foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) { // @phpstan-ignore-line
+
             $result[] = Arr::inArray($word, $ignore)
-                ? self::from($word) // @phpstan-ignore-line
+                ? self::from($word)->deCapitalize() // @phpstan-ignore-line
                 : self::from($word)->capitalize(); // @phpstan-ignore-line
+
+        }
 
         $this->string = '';
 
-        return $this->append(StrMB::implode($result, ' '));
+        return $this->append(StrMB::implode($result, ' '))->capitalize();
 
     }
 
