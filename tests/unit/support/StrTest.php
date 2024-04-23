@@ -432,6 +432,28 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testSpaceless ():void {
+
+        $this->assertSame('FireHubWebApp', Str::from('FireHub Web App')->spaceless()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDelimit ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from(' FireHub Web App...')->delimit('-')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testStartsWith ():void {
 
         $this->assertFalse($this->control->startsWith('fire'));

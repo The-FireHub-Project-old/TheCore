@@ -759,6 +759,61 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Str::expression() As regular expression.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->spaceless();
+     *
+     * // FireHubWebApp
+     * ```
+     */
+    public function spaceless ():self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->expression()->replace('')->any()->whitespaces();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Strings\Str::replace() To replace characters with delimiter.
+     * @uses \FireHub\Core\Support\Strings\Str::toLower() To lowercase string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->delimit('-');
+     *
+     * // fire-hub-web-app
+     * ```
+     */
+    public function delimit (string $delimiter):self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->streamline()
+            ->expression()->remove()->any()->notLettersNorDigits()
+            ->expression()->replace('-\1')->custom('\B([A-Z])')
+            ->replace(' ', $delimiter)
+            ->replace('-', $delimiter)
+            ->replace('_', $delimiter)
+            ->toLower();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::addSlashes() To quote string with slashes.
      *
      * @example
