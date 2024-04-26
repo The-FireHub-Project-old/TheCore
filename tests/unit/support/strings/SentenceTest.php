@@ -56,17 +56,6 @@ final class SentenceTest extends Base {
      *
      * @return void
      */
-    public function testSpaceless ():void {
-
-        $this->assertSame('FireHubWebApp', $this->sentence->spaceless()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testTitleize ():void {
 
         $this->assertSame('FireHub Web App', Sentence::from('fireHub Web app')->titleize()->string());
@@ -79,9 +68,9 @@ final class SentenceTest extends Base {
      *
      * @return void
      */
-    public function testPascalize ():void {
+    public function testSpaceless ():void {
 
-        $this->assertSame('FireHubWebApp', Sentence::from('fireHub Web app')->pascalize()->string());
+        $this->assertSame('FireHubWebApp', $this->sentence->spaceless()->string());
 
     }
 
@@ -126,6 +115,17 @@ final class SentenceTest extends Base {
     public function testDasherize ():void {
 
         $this->assertSame('fire-hub-web-app', $this->sentence->dasherize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPascalize ():void {
+
+        $this->assertSame('FireHubWebApp', Sentence::from('fireHub Web app')->pascalize()->string());
 
     }
 
