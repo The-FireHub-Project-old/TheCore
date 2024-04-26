@@ -27,7 +27,7 @@ use FireHub\Core\Support\LowLevel\ {
  * @since 1.0.0
  *
  * @uses \FireHub\Core\Support\LowLevel\DataIs::null() To check if $map matches any predefined values.
- * @uses \FireHub\Core\Support\LowLevel\DataIs::numeric() To check if $string is numeric value.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::numeric() To check if $string is a numeric value.
  * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To lowercase $string argument.
  * @uses \FireHub\Core\Support\LowLevel\Regex::replace() To replace spaces with empty value.
  *
