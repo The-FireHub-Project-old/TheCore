@@ -39,4 +39,27 @@ final class WordTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testAsBoolean ():void {
+
+        $this->assertTrue(Word::from('True')->asBoolean());
+        $this->assertTrue(Word::from('1')->asBoolean());
+        $this->assertTrue(Word::from('On')->asBoolean());
+        $this->assertTrue(Word::from('Yes')->asBoolean());
+        $this->assertTrue(Word::from('56.5')->asBoolean());
+        $this->assertTrue(Word::from('test')->asBoolean());
+
+        $this->assertFalse(Word::from('False')->asBoolean());
+        $this->assertFalse(Word::from('0')->asBoolean());
+        $this->assertFalse(Word::from('Off')->asBoolean());
+        $this->assertFalse(Word::from('No')->asBoolean());
+        $this->assertFalse(Word::from(' ')->asBoolean());
+        $this->assertFalse(Word::from('-6')->asBoolean());
+
+    }
+
 }

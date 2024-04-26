@@ -29,8 +29,6 @@ use Error, ValueError, Stringable;
 
 use const FireHub\Core\Support\Constants\Number\MAX;
 
-use function FireHub\Core\Support\Helpers\String\asBoolean;
-
 /**
  * ### String high-level abstract class
  *
@@ -197,28 +195,6 @@ abstract class Str implements Strings {
             $chars[] = Char::from($char);
 
         return $chars;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Str;
-     *
-     * Str::from('Yes')->asBoolean();
-     *
-     * // true
-     * ```
-     */
-    public function asBoolean ():bool {
-
-        return asBoolean($this->string);
 
     }
 

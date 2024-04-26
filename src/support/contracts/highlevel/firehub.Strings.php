@@ -59,18 +59,6 @@ interface Strings extends Stringable {
     public function insertValue (string $value):InsertValue;
 
     /**
-     *  ### Boolean representation of the given logical string value
-     *
-     * True - 'true', '1', 'on', 'yes', positive-int
-     * False - 'false', '0','off', 'no', only blanks, non-positive-int
-     * For all other strings, the return value is a result of a boolean cast.
-     * @since 1.0.0
-     *
-     * @return bool True or false, based on boolean representation of the given logical string value.
-     */
-    public function asBoolean ():bool;
-
-    /**
      * ### Checks if a string starts with a given value
      *
      * Performs a check indicating if $string begins with $value.
