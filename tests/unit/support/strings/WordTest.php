@@ -39,48 +39,4 @@ final class WordTest extends Base {
 
     }
 
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSnakeCase ():void {
-
-        $this->assertSame('fire_hub', $this->word->snakeCase()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testKebabCase ():void {
-
-        $this->assertSame('fire-hub', $this->word->kebabCase()->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testDelimit ():void {
-
-        $this->assertSame('fire-hub', $this->word->delimit('-')->string());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testDasherize ():void {
-
-        $this->assertSame('fire-hub', $this->word->dasherize()->string());
-
-    }
-
 }

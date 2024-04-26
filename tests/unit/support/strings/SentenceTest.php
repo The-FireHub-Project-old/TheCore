@@ -85,4 +85,48 @@ final class SentenceTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSnakeCase ():void {
+
+        $this->assertSame('fire_hub_web_app', $this->sentence->snakeCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testKebabCase ():void {
+
+        $this->assertSame('fire-hub-web-app', $this->sentence->kebabCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDelimit ():void {
+
+        $this->assertSame('fire-hub-web-app', $this->sentence->delimit('-')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDasherize ():void {
+
+        $this->assertSame('fire-hub-web-app', $this->sentence->dasherize()->string());
+
+    }
+
 }

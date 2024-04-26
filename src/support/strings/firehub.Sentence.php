@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Strings;
 
+use FireHub\Core\Support\Str;
 use FireHub\Core\Support\LowLevel\ {
     Arr, StrMB
 };
@@ -24,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
  * Class allows you to manipulate sentences in various ways.
  * @since 1.0.0
  */
-class Sentence extends Word {
+class Sentence extends Str {
 
     /**
      * ### Makes sure that the sentence string has dot at the end
@@ -164,6 +165,111 @@ class Sentence extends Word {
     public function pascalize ():Word {
 
         return Word::from($this->titleize([])->spaceless()->string);
+
+    }
+
+    /**
+     * ### Format sting to kebab-case
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::dasherize() To lowercase and trimmed string separated by dash.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('FireHub')->kebabCase();
+     *
+     * // fire-hub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function kebabCase ():self {
+
+        return $this->dasherize();
+
+    }
+
+    /**
+     * ### Format sting to snake-case
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::delimit() To lowercase and trimmed string separated by the given delimiter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('FireHub')->snakeCase();
+     *
+     * // fire_hub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function snakeCase ():self {
+
+        return $this->delimit('_');
+
+    }
+
+    /**
+     * ### Lowercased and trimmed string separated by the given delimiter
+     *
+     * Delimiters are inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::streamline() To streamline string.
+     * @uses \FireHub\Core\Support\Strings\Sentence::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Strings\Sentence::replace() To replace characters with delimiter.
+     * @uses \FireHub\Core\Support\Strings\Sentence::toLower() To lowercase string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('FireHub')->delimit('-');
+     *
+     * // fire-hub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function delimit (string $delimiter):self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->streamline()
+            ->expression()->replace('-\1')->custom('\B([A-Z])')
+            ->replace(' ', $delimiter)
+            ->replace('-', $delimiter)
+            ->replace('_', $delimiter)
+            ->toLower();
+
+    }
+
+    /**
+     * ### Lowercased and trimmed string separated by dash
+     *
+     * Dash is inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Sentence::delimit() To lowercase and trimmed string separated by the given delimiter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Sentence;
+     *
+     * Sentence::from('FireHub')->dasherize();
+     *
+     * // fire-hub
+     * ```
+     *
+     * @return $this This string.
+     */
+    public function dasherize ():self {
+
+        return $this->delimit('-');
 
     }
 
