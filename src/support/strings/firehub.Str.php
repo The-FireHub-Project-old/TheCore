@@ -47,6 +47,22 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
 abstract class Str implements Strings {
 
     /**
+     * String to use
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    protected string $string = '';
+
+    /**
+     * Character encoding
+     * @since 1.0.0
+     *
+     * @var null|\FireHub\Core\Support\Enums\String\Encoding
+     */
+    protected ?Encoding $encoding = null;
+
+    /**
      * ### Constructor
      * @since 1.0.0
      *
@@ -54,15 +70,16 @@ abstract class Str implements Strings {
      * String to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
-     * Character encoding. If it is null, the internal character encoding value will be used.
+     * Character encoding.
+     * If it is null, the internal character encoding value will be used.
      * </p>
      *
      * @return void
      */
-    final public function __construct (
-        protected string $string,
-        protected ?Encoding $encoding = null
-    ) {}
+    abstract public function __construct (
+        string $string,
+        ?Encoding $encoding = null
+    );
 
     /**
      * ### Create a new string from raw string

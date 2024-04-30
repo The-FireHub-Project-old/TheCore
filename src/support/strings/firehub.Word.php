@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Strings;
 
+use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\Str;
 
 /**
@@ -23,5 +24,19 @@ use FireHub\Core\Support\Str;
  * @since 1.0.0
  */
 final class Word extends Str {
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function __construct (
+        protected string $string,
+        protected ?Encoding $encoding = null
+    ) {
+
+        parent::__construct($string, $this->encoding);
+
+    }
 
 }

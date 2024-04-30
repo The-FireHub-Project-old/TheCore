@@ -16,6 +16,7 @@ namespace FireHub\Core\Support;
 
 use FireHub\Core\Support\Strings\Str as aStr;
 use FireHub\Core\Support\LowLevel\StrMB;
+use FireHub\Core\Support\Enums\String\Encoding;
 
 /**
  * ### Case-sensitive string high-level class
@@ -26,6 +27,16 @@ use FireHub\Core\Support\LowLevel\StrMB;
  * @api
  */
 class Str extends aStr {
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function __construct (
+        protected string $string,
+        protected ?Encoding $encoding = null
+    ) {}
 
     /**
      * ### Replace all occurrences of search in a subject replaced with the given replacement value
