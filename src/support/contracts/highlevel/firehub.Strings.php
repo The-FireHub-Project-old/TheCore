@@ -59,6 +59,18 @@ interface Strings extends Stringable {
     public function insertValue (string $value):InsertValue;
 
     /**
+     * ### Boolean representation of the given logical string value
+     *
+     * True - 'true', '1', 'on', 'yes', positive-int
+     * False - 'false', '0','off', 'no', only blanks, non-positive-int
+     * For all other strings, the return value is a result of a boolean cast.
+     * @since 1.0.0
+     *
+     * @return bool True or false, based on boolean representation of the given logical string value.
+     */
+    public function asBoolean ():bool;
+
+    /**
      * ### Checks if a string starts with a given value
      *
      * Performs a check indicating if $string begins with $value.
@@ -281,6 +293,71 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function streamline ():self;
+
+    /**
+     * ### Capitalize every word in string
+     * @since 1.0.0
+     *
+     * @param array $ignore [optional] <p>
+     * List of words not to be capitalized.
+     * </p>
+     * @phpstan-param non-empty-string[] $ignore
+     *
+     * @return $this This string.
+     */
+    public function titleize (array $ignore = ['and', 'as', 'but', 'for', 'if', 'nor', 'or', 'so', 'yet', 'a', 'an', 'the', 'at', 'by', 'for', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via']):self;
+
+    /**
+     * ### Remove spaces
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function spaceless ():self;
+
+    /**
+     * ### Format sting to kebab-case
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function kebabCase ():self;
+
+    /**
+     * ### Format sting to snake-case
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function snakeCase ():self;
+
+    /**
+     * ### Lowercased and trimmed string separated by the given delimiter
+     *
+     * Delimiters are inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function delimit (string $delimiter):self;
+
+    /**
+     * ### Lowercased and trimmed string separated by dash
+     *
+     * Dash is inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function dasherize ():self;
+
+    /**
+     * ### Makes a PascalCase version of the string
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function pascalize ():self;
 
     /**
      * ### Humanize string

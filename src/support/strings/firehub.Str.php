@@ -29,6 +29,8 @@ use Error, ValueError, Stringable;
 
 use const FireHub\Core\Support\Constants\Number\MAX;
 
+use function FireHub\Core\Support\Helpers\String\asBoolean;
+
 /**
  * ### String high-level abstract class
  *
@@ -195,6 +197,27 @@ abstract class Str implements Strings {
             $chars[] = Char::from($char);
 
         return $chars;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('Yes')->asBoolean();
+     *
+     * // true
+     */
+    public function asBoolean ():bool {
+
+        return asBoolean($this->string);
 
     }
 
@@ -666,6 +689,186 @@ abstract class Str implements Strings {
 
         /** @phpstan-ignore-next-line */
         return $this->expression()->replace(' ')->oneOrMore()->whitespaces()->trim();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
+     * @uses \FireHub\Core\Support\Strings\Str::capitalize() To capitalize each word.
+     * @uses \FireHub\Core\Support\Strings\Str::deCapitalize() To deCapitalize each word.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
+     * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub web app')->titleize();
+     *
+     * // FireHub Web App
+     * ```
+     */
+    public function titleize (array $ignore = ['and', 'as', 'but', 'for', 'if', 'nor', 'or', 'so', 'yet', 'a', 'an', 'the', 'at', 'by', 'for', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via']):self {
+
+        $result = [];
+        foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) { // @phpstan-ignore-line
+
+            $result[] = Arr::inArray($word, $ignore)
+                ? self::from($word)->deCapitalize() // @phpstan-ignore-line
+                : self::from($word)->capitalize(); // @phpstan-ignore-line
+
+        }
+
+        $this->string = '';
+
+        return $this->append(StrMB::implode($result, ' '))->capitalize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::expression() As regular expression.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->spaceless();
+     *
+     * // FireHubWebApp
+     * ```
+     */
+    public function spaceless ():self {
+
+        return $this->expression()->replace('')->any()->whitespaces(); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::dasherize() To lowercase and trimmed string separated by dash.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Str;
+     *
+     * Str::from('FireHub')->kebabCase();
+     *
+     * // fire-hub
+     * ```
+     */
+    public function kebabCase ():self {
+
+        return $this->dasherize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::delimit() To lowercase and trimmed string separated by the given delimiter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->snakeCase();
+     *
+     * // fire_hub
+     * ```
+     */
+    public function snakeCase ():self {
+
+        return $this->delimit('_');
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::streamline() To streamline string.
+     * @uses \FireHub\Core\Support\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\Str::replace() To replace characters with delimiter.
+     * @uses \FireHub\Core\Support\Str::toLower() To lowercase string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Strings\Str;
+     *
+     * Str::from('FireHub')->delimit('-');
+     *
+     * // fire-hub
+     * ```
+     */
+    public function delimit (string $delimiter):self {
+
+        return $this->streamline() // @phpstan-ignore-line
+            ->expression()->replace('-\1')->custom('\B([A-Z])')
+            ->replace(' ', $delimiter)
+            ->replace('-', $delimiter)
+            ->replace('_', $delimiter)
+            ->toLower();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::delimit() To lowercase and trimmed string separated by the given delimiter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub')->dasherize();
+     *
+     * // fire-hub
+     * ```
+     */
+    public function dasherize ():self {
+
+        return $this->delimit('-');
+
+    }
+
+    /**
+     * ### Makes a PascalCase version of the string
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::titleize() Ti title-case all words.
+     * @uses \FireHub\Core\Support\Str::spaceless() To remove spaces.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub web app')->pascalize();
+     *
+     * // FireHubWebApp
+     * ```
+     */
+    public function pascalize ():self {
+
+        return $this->titleize([])->spaceless();
 
     }
 

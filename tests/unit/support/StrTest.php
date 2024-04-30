@@ -107,6 +107,29 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testAsBoolean ():void {
+
+        $this->assertTrue(Str::from('True')->asBoolean());
+        $this->assertTrue(Str::from('1')->asBoolean());
+        $this->assertTrue(Str::from('On')->asBoolean());
+        $this->assertTrue(Str::from('Yes')->asBoolean());
+        $this->assertTrue(Str::from('56.5')->asBoolean());
+        $this->assertTrue(Str::from('test')->asBoolean());
+
+        $this->assertFalse(Str::from('False')->asBoolean());
+        $this->assertFalse(Str::from('0')->asBoolean());
+        $this->assertFalse(Str::from('Off')->asBoolean());
+        $this->assertFalse(Str::from('No')->asBoolean());
+        $this->assertFalse(Str::from(' ')->asBoolean());
+        $this->assertFalse(Str::from('-6')->asBoolean());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testChunkLengthLessThenZero ():void {
 
         $this->expectException(Error::class);
@@ -378,6 +401,84 @@ final class StrTest extends Base {
         $this->assertSame('Fi r eHub', Str::from('
         Fi   r
         eHub')->streamline()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTitleize ():void {
+
+        $this->assertSame('FireHub Web App', Str::from('fireHub Web app')->titleize()->string());
+        $this->assertSame('FireHub at', Str::from('fireHub at')->titleize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSpaceless ():void {
+
+        $this->assertSame('FireHubWebApp', Str::from('FireHub Web App')->spaceless()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSnakeCase ():void {
+
+        $this->assertSame('fire_hub_web_app', Str::from('FireHubWebApp')->snakeCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testKebabCase ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from('FireHubWebApp')->kebabCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDelimit ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from('FireHubWebApp')->delimit('-')->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDasherize ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from('FireHubWebApp')->dasherize()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPascalize ():void {
+
+        $this->assertSame('FireHubWebApp', Str::from('fireHub Web app')->pascalize()->string());
 
     }
 
