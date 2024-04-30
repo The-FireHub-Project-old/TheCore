@@ -33,8 +33,9 @@ use FireHub\Core\Support\ {
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Depends, DependsOnClass, RequiresOperatingSystemFamily
 };
-use FireHub\Core\Support\Enums\Side;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\ {
+    Side, String\Encoding, String\Words\Conjunction, String\Words\Preposition
+};
 use Error;
 
 /**
@@ -68,6 +69,8 @@ use Error;
 #[CoversClass(EndsWith::class)]
 #[CoversClass(Chars::class)]
 #[CoversClass(NotChars::class)]
+#[CoversClass(Conjunction::class)]
+#[CoversClass(Preposition::class)]
 final class StrTest extends Base {
 
     public Str $control;
@@ -413,6 +416,7 @@ final class StrTest extends Base {
 
         $this->assertSame('FireHub Web App', Str::from('fireHub Web app')->titleize()->string());
         $this->assertSame('FireHub at', Str::from('fireHub at')->titleize()->string());
+        $this->assertSame('FireHub X c', Str::from('fireHub x c')->titleize(['c'])->string());
 
     }
 

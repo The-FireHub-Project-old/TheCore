@@ -299,13 +299,13 @@ interface Strings extends Stringable {
      * @since 1.0.0
      *
      * @param array $ignore [optional] <p>
-     * List of words not to be capitalized.
+     * List of additional words not to be capitalized.
      * </p>
      * @phpstan-param non-empty-string[] $ignore
      *
      * @return $this This string.
      */
-    public function titleize (array $ignore = ['and', 'as', 'but', 'for', 'if', 'nor', 'or', 'so', 'yet', 'a', 'an', 'the', 'at', 'by', 'for', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via']):self;
+    public function titleize (array $ignore = []):self;
 
     /**
      * ### Remove spaces

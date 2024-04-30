@@ -23,7 +23,7 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\ {
-    CaseFolding, Encoding, Expression\Modifier
+    CaseFolding, Encoding, Expression\Modifier, Words\Conjunction, Words\Preposition
 };
 use Error, ValueError, Stringable;
 
@@ -714,6 +714,8 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\String\Words\Conjunction::shorts() To get a list of all short conjunctions.
+     * @uses \FireHub\Core\Support\Enums\String\Words\Preposition::shorts() To get a list of all short prepositions.
      * @uses \FireHub\Core\Support\Strings\Str::streamline() To streamline string.
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
@@ -722,6 +724,7 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all ignore cases.
      *
      * @example
      * ```php
@@ -732,7 +735,15 @@ abstract class Str implements Strings {
      * // FireHub Web App
      * ```
      */
-    public function titleize (array $ignore = ['and', 'as', 'but', 'for', 'if', 'nor', 'or', 'so', 'yet', 'a', 'an', 'the', 'at', 'by', 'for', 'in', 'of', 'off', 'on', 'per', 'to', 'up', 'via']):self {
+    public function titleize (array $ignore = []):self {
+
+        $short_conjunctions = [];
+        foreach (Conjunction::shorts() as $conjunction) $short_conjunctions[] = $conjunction->value;
+
+        $short_prepositions = [];
+        foreach (Preposition::shorts() as $preposition) $short_prepositions[] = $preposition->value;
+
+        $ignore = Arr::merge($ignore, $short_conjunctions, $short_prepositions);
 
         $result = [];
         foreach ($this->streamline()->expression()->split()->any()->whitespaces() as $word) { // @phpstan-ignore-line
