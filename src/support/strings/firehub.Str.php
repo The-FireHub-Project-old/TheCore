@@ -1352,7 +1352,7 @@ abstract class Str implements Strings {
      *
      * @return $this This string.
      */
-    final public function reverse ():self {
+    public function reverse ():self {
 
         $this->string = StrMB::implode(Arr::reverse($this->chop()));
 
