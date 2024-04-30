@@ -32,7 +32,6 @@ final class Word extends Str {
      * True - 'true', '1', 'on', 'yes', positive-int
      * False - 'false', '0','off', 'no', only blanks, non-positive-int
      * For all other strings, the return value is a result of a boolean cast.
-     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Helpers\String\asBoolean() To convert raw string to boolean.
