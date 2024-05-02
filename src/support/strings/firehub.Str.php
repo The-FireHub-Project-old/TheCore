@@ -724,7 +724,7 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all ignore cases.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all ignored cases.
      *
      * @example
      * ```php

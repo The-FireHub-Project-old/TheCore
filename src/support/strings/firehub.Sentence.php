@@ -16,6 +16,8 @@ namespace FireHub\Core\Support\Strings;
 
 use FireHub\Core\Support\Str;
 
+use FireHub\Core\Support\Enums\String\EndingPunctuation;
+
 /**
  * ### Sentence class
  *
@@ -28,22 +30,28 @@ final class Sentence extends Str {
      * ### Makes sure that the sentence string has dot at the end
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\String\EndingPunctuation As parameter.
      * @uses \FireHub\Core\Support\Strings\Sentence::ensureSuffix() To make sure that the current string is suffixed with the given text.
      *
      * @example
      * ```php
      * use FireHub\Core\Support\Strings\Sentence;
+     * use FireHub\Core\Support\Enums\String\EndingPunctuation;
      *
-     * Sentence::from('The FireHub')->ensureDot();
+     * Sentence::from('The FireHub')->ensureEndingPunctuation(EndingPunctuation::EXCLAMATION);
      *
-     * // The FireHub.
+     * // The FireHub!
      * ```
+     *
+     * @param \FireHub\Core\Support\Enums\String\EndingPunctuation $ending_punctuation [optional] <p>
+     * Choose ending punctuation to ensure.
+     * </p>
      *
      * @return $this This string.
      */
-    public function ensureDot ():self {
+    public function ensureEndingPunctuation (EndingPunctuation $ending_punctuation = EndingPunctuation::PERIOD):self {
 
-        return $this->ensureSuffix('.');
+        return $this->ensureSuffix($ending_punctuation->character()->string());
 
     }
 
@@ -56,17 +64,21 @@ final class Sentence extends Str {
      * @example
      * ```php
      * use FireHub\Core\Support\Strings\Sentence;
+     * use FireHub\Core\Support\Enums\String\EndingPunctuation;
      *
-     * Sentence::from('The FireHub.')->ensureDot();
+     * Sentence::from('The FireHub.')->removeEndingPunctuation();
      *
      * // The FireHub
      * ```
      *
      * @return $this This string.
      */
-    public function removeDot ():self {
+    public function removeEndingPunctuation ():self {
 
-        return $this->removeSuffix('.');
+        foreach (EndingPunctuation::cases() as $ending_punctuation)
+            $this->removeSuffix($ending_punctuation->character()->string());
+
+        return $this;
 
     }
 

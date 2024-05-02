@@ -17,13 +17,16 @@ namespace support\strings;
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Strings\Sentence;
 use PHPUnit\Framework\Attributes\CoversClass;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\String\ {
+    Encoding, EndingPunctuation
+};
 
 /**
  * ### Test Sentence string support class
  * @since 1.0.0
  */
 #[CoversClass(Sentence::class)]
+#[CoversClass(EndingPunctuation::class)]
 final class SentenceTest extends Base {
 
     public Sentence $sentence;
@@ -44,10 +47,10 @@ final class SentenceTest extends Base {
      *
      * @return void
      */
-    public function testDot ():void {
+    public function testEndingPunctuation ():void {
 
-        $this->assertSame('FireHub Web App.', $this->sentence->ensureDot()->string());
-        $this->assertSame('FireHub Web App', $this->sentence->removeDot()->string());
+        $this->assertSame('FireHub Web App.', $this->sentence->ensureEndingPunctuation()->string());
+        $this->assertSame('FireHub Web App', $this->sentence->removeEndingPunctuation()->string());
 
     }
 
