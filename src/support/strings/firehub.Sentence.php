@@ -15,7 +15,6 @@
 namespace FireHub\Core\Support\Strings;
 
 use FireHub\Core\Support\Str;
-
 use FireHub\Core\Support\Enums\String\EndingPunctuation;
 
 /**
