@@ -22,6 +22,8 @@ use function preg_replace;
 use function preg_replace_callback;
 use function preg_split;
 
+use const PREG_SPLIT_NO_EMPTY;
+
 /**
  * ### Regex low-level proxy class
  *
@@ -173,7 +175,7 @@ final class Regex {
      */
     public static function split (string $pattern, string $string, int $limit = -1):array {
 
-        return preg_split($pattern, $string, $limit)
+        return preg_split($pattern, $string, $limit, PREG_SPLIT_NO_EMPTY)
             ?: throw new Error("Error while performing a regular expression split.");
 
     }
