@@ -30,6 +30,7 @@ final class Word extends Str {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      * @uses \FireHub\Core\Support\Str::__construct() As parent constructor.
      * @uses \FireHub\Core\Support\Str::spaceless() To remove all spaces from string.
      */

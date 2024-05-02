@@ -66,6 +66,8 @@ abstract class Str implements Strings {
      * ### Constructor
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
+     *
      * @param string $string <p>
      * String to use.
      * </p>
