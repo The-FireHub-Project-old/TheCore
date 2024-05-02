@@ -242,11 +242,11 @@ final class IStr extends Str {
      * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression returns an array.
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      */
-    public function break (string $separator, int $limit = MAX):array {
+    public function break (string $with, int $limit = MAX):array {
 
         /** @phpstan-ignore-next-line */
         return DataIs::array(
-            $exp = $this->expression()->split($limit)->any()->custom($separator)
+            $exp = $this->expression()->split($limit)->any()->custom($with)
         ) ? $exp : [];
 
     }

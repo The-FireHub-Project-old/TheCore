@@ -2091,7 +2091,9 @@ abstract class Str implements Strings {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter out empty strings.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::explode() To split a string by a string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get substring length.
      *
      * @example
      * ```php
@@ -2110,9 +2112,43 @@ abstract class Str implements Strings {
      * // ['Fire' 'hbFireHubFireHub']
      * ```
      */
-    public function break (string $separator, int $limit = MAX):array {
+    public function break (string $with, int $limit = MAX):array {
 
-        return StrMB::explode($this->string, $separator, $limit);
+        return Arr::filter(
+            StrMB::explode($this->string, $with, $limit),
+            '\FireHub\Core\Support\LowLevel\StrMB::length' // @phpstan-ignore-line
+        );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the last separator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web Application')->breakWithAny(['e', 'p']);
+     *
+     * // ['Fir', 'Hub W', 'b A', 'lication']
+     * ```
+     */
+    public function breakWithAny (array $separators, int $limit = MAX):array {
+
+        $pattern = '';
+        foreach ($separators as $separator_key => $separator)
+            $separator_key === Arr::lastKey($separators)
+                ? $pattern .= $separator
+                : $pattern .= $separator.'|';
+
+        /** @phpstan-ignore-next-line */
+        return $this->expression()->split($limit)->any()->custom('('.$pattern.')');
 
     }
 

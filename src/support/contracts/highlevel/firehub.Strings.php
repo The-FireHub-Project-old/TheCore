@@ -1008,27 +1008,53 @@ interface Strings extends Stringable {
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      *
-     * @param string $separator <p>
+     * @param string $with <p>
      * <code>non-empty-string</code>
      * The boundary string.
      * </p>
      * @param int $limit [optional] <p>
      * <code><![CDATA[ int<min, max> ]]></code>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
-     * element containing the rest of the string. If the limit parameter is negative, all components except the last
-     * - limit are returned. If the limit parameter is zero, then this is treated as 1.
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit parameter is negative, all components except the last - limit are returned.
+     * If the limit parameter is zero, then this is treated as 1.
      * </p>
-     * @phpstan-param non-empty-string $separator
+     * @phpstan-param non-empty-string $with
      * @phpstan-param int<min, max> $limit
      *
      * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-     * returned.
+     * limit is used, then an empty array will be returned.
+     * For any other limit, an array containing string will be returned.
      * @phpstan-return string[]
      *
      * @todo Change from array to Collection
      */
-    public function break (string $separator, int $limit = MAX):array;
+    public function break (string $with, int $limit = MAX):array;
+
+    /**
+     * ### Break string with an array of separators
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     *
+     * @param array $separators <p>
+     * <code>non-empty-string[]</code>
+     * The boundary strings.
+     * </p>
+     * @param int $limit [optional] <p>
+     * <code><![CDATA[ int<min, max> ]]></code>
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit parameter is negative, all components except the last - limit are returned.
+     * If the limit parameter is zero, then this is treated as 1.
+     * </p>
+     * @phpstan-param non-empty-string[] $separators
+     * @phpstan-param int<min, max> $limit
+     *
+     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
+     * limit is used, then an empty array will be returned.
+     * For any other limit, an array containing string will be returned.
+     * @phpstan-return string[]
+     */
+    public function breakWithAny (array $separators, int $limit = MAX):array;
 
     /**
      * ### Group a string into chunks
