@@ -1147,7 +1147,10 @@ final class Arr {
      * If no callback is supplied, all empty and false entries of an array will be removed.
      * </p>
      * @param bool $pass_value [optional] <p>
-     * Pass value in addition to key as the argument to callback.
+     * Pass value as the argument to callback.
+     * </p>
+     * @param bool $pass_key [optional] <p>
+     * Pass key as the argument to callback.
      * </p>
      * @phpstan-param array<TKey, TValue> $array
      *
@@ -1157,14 +1160,15 @@ final class Arr {
      * @caution If the array is changed from the callback function (e.g., an element added, deleted or unset) then
      * behavior of this function is undefined.
      */
-    public static function filter (array $array, callable $callback = null, bool $pass_value = false):array {
+    public static function filter (array $array, callable $callback = null, bool $pass_value = false, bool $pass_key = false):array {
 
         if (DataIs::null($callback)) return array_filter($array);
 
-        return array_filter($array, $callback, $pass_value
-                ? ARRAY_FILTER_USE_BOTH
-                : ARRAY_FILTER_USE_KEY
-        );
+        return array_filter($array, $callback, match (true) {
+            $pass_value && $pass_key => ARRAY_FILTER_USE_BOTH,
+            $pass_key => ARRAY_FILTER_USE_KEY,
+            default => 0
+        });
 
     }
 
