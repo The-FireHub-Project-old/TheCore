@@ -29,6 +29,9 @@ final class Word extends Str {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Str::__construct() As parent constructor.
+     * @uses \FireHub\Core\Support\Str::spaceless() To remove all spaces from string.
      */
     public function __construct (
         protected string $string,
@@ -36,6 +39,8 @@ final class Word extends Str {
     ) {
 
         parent::__construct($string, $this->encoding);
+
+        $this->spaceless();
 
     }
 
