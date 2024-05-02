@@ -870,6 +870,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testBreakWithAny ():void {
+
+        $this->assertSame(['Fir', 'Hub W', 'b A', 'lication'],  Str::from('FireHub Web Application')->breakWithAny(['e', 'p']));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testGroup ():void {
 
         $this->assertSame(['Fir', 'eHu', 'b'],  $this->string->group(3));

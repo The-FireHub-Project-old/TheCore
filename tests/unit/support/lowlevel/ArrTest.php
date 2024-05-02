@@ -664,14 +664,14 @@ final class ArrTest extends Base {
             ['one' => 1, 'three' => 3],
             Arr::filter($this->assoc_arr, function ($key) {
                 return $key !== 'two';
-            })
+            }, false, true)
         );
 
         $this->assertSame(
             ['three' => 3],
             Arr::filter($this->assoc_arr, function ($value, $key) {
                 return $key !== 'one' && $value > 2;
-            }, true)
+            }, true, true)
         );
 
     }
