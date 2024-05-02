@@ -21,6 +21,6 @@ jobs:
       - name: Run PHPUnit and collect coverage
         run: phpunit --coverage-clover coverage.xml .
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4.3.0
+        uses: codecov/codecov-action@v4.3.1
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV }}
