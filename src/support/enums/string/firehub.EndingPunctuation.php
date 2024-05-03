@@ -20,39 +20,21 @@ use FireHub\Core\Support\Char;
  * ### End of sentence punctuation
  * @since 1.0.0
  */
-enum EndingPunctuation {
+enum EndingPunctuation:string {
 
     /**
      * @since 1.0.0
      */
-    case PERIOD;
+    case PERIOD = '.';
 
     /**
      * @since 1.0.0
      */
-    case QUESTION;
+    case QUESTION = '?';
 
     /**
      * @since 1.0.0
      */
-    case EXCLAMATION;
-
-    /**
-     * ### Get character from current ending punctuation
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Char::from() To create character from current ending punctuation.
-     *
-     * @return \FireHub\Core\Support\Char Character from ending punctuation.
-     */
-    public function character ():Char {
-
-        return match ($this) {
-            self::PERIOD => Char::from('.'),
-            self::QUESTION => Char::from('?'),
-            self::EXCLAMATION => Char::from('!')
-        };
-
-    }
+    case EXCLAMATION = '!';
 
 }

@@ -50,7 +50,7 @@ final class Sentence extends Str {
      */
     public function ensureEndingPunctuation (EndingPunctuation $ending_punctuation = EndingPunctuation::PERIOD):self {
 
-        return $this->ensureSuffix($ending_punctuation->character()->string());
+        return $this->ensureSuffix($ending_punctuation->value);
 
     }
 
@@ -75,7 +75,7 @@ final class Sentence extends Str {
     public function removeEndingPunctuation ():self {
 
         foreach (EndingPunctuation::cases() as $ending_punctuation)
-            $this->removeSuffix($ending_punctuation->character()->string());
+            $this->removeSuffix($ending_punctuation->value);
 
         return $this;
 
