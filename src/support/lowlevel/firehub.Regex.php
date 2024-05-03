@@ -164,6 +164,9 @@ final class Regex {
      * The maximum possible replacements for each pattern in each subject string.
      * Defaults to -1 (no limit).
      * </p>
+     * @param bool $remove_empty [optional] <p>
+     * If true, only non-empty pieces will be returned.
+     * </p>
      *
      * @throws Error If error while performing a regular expression split.
      * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
@@ -173,9 +176,9 @@ final class Regex {
      * by $pattern.
      * @phpstan-return string[]
      */
-    public static function split (string $pattern, string $string, int $limit = -1):array {
+    public static function split (string $pattern, string $string, int $limit = -1, bool $remove_empty = false):array {
 
-        return preg_split($pattern, $string, $limit, PREG_SPLIT_NO_EMPTY)
+        return preg_split($pattern, $string, $limit, $remove_empty ? PREG_SPLIT_NO_EMPTY: 0)
             ?: throw new Error("Error while performing a regular expression split.");
 
     }

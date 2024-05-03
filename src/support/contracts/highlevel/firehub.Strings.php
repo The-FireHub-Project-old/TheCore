@@ -1043,8 +1043,7 @@ interface Strings extends Stringable {
      * @param int $limit [optional] <p>
      * <code><![CDATA[ int<min, max> ]]></code>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
-     * If the limit parameter is negative, all components except the last - limit are returned.
-     * If the limit parameter is zero, then this is treated as 1.
+     * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
      * @phpstan-param non-empty-string[] $separators
      * @phpstan-param int<min, max> $limit

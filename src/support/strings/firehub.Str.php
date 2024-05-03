@@ -2114,10 +2114,7 @@ abstract class Str implements Strings {
      */
     public function break (string $with, int $limit = MAX):array {
 
-        return Arr::filter(
-            StrMB::explode($this->string, $with, $limit),
-            '\FireHub\Core\Support\LowLevel\StrMB::length' // @phpstan-ignore-line
-        );
+        return StrMB::explode($this->string, $with, $limit);
 
     }
 
