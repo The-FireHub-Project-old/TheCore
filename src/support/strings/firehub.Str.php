@@ -2141,12 +2141,12 @@ abstract class Str implements Strings {
      */
     public function breakWithAny (array $separators, int $limit = MAX):array {
 
-        $pattern = '';
-        foreach ($separators as $separator_key => $separator)
-            $pattern .= $separator.($separator_key === Arr::lastKey($separators) ? '' : '|');;
+        $chars = [];
+        foreach ($separators as $separator)
+            $chars[] = Char::from($separator);
 
         /** @phpstan-ignore-next-line */
-        return $this->expression()->split($limit)->any()->custom('('.$pattern.')');
+        return $this->expression()->split($limit)->any()->chars($chars);
 
     }
 
