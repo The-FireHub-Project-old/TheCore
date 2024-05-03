@@ -2143,9 +2143,7 @@ abstract class Str implements Strings {
 
         $pattern = '';
         foreach ($separators as $separator_key => $separator)
-            $separator_key === Arr::lastKey($separators)
-                ? $pattern .= $separator
-                : $pattern .= $separator.'|';
+            $pattern .= $separator.($separator_key === Arr::lastKey($separators) ? '' : '|');;
 
         /** @phpstan-ignore-next-line */
         return $this->expression()->split($limit)->any()->custom('('.$pattern.')');
