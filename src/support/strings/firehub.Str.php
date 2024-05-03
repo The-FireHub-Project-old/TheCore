@@ -2133,7 +2133,7 @@ abstract class Str implements Strings {
      *
      * Str::from('FireHub Web Application')->breakWithAny(['e', 'p']);
      *
-     * // ['Fir', 'Hub W', 'b A', 'lication']
+     * // ['Fir', 'Hub W', 'b A', '', 'lication']
      * ```
      */
     public function breakWithAny (array $separators, int $limit = MAX):array {
