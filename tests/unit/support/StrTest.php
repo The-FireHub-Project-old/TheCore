@@ -22,7 +22,7 @@ use FireHub\Core\Support\Strings\Expression\ {
     FunctionFamily, Check, Replace, ReplaceFunc, Get, Pattern, Split
 };
 use FireHub\Core\Support\Strings\Expression\Pattern\ {
-    Any, AtLeast, AtMost, BeginsWith, Between, EndsWith, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
+    After, Any, AtLeast, AtMost, Before, BeginsWith, Between, EndsWith, Exactly, Has, Is, Occurrences, OneOrMore, ZeroOrMore, ZeroOrOne
 };
 use FireHub\Core\Support\Strings\Expression\Pattern\Predefined\ {
     Chars, NotChars
@@ -69,6 +69,8 @@ use Error;
 #[CoversClass(EndsWith::class)]
 #[CoversClass(Chars::class)]
 #[CoversClass(NotChars::class)]
+#[CoversClass(After::class)]
+#[CoversClass(Before::class)]
 #[CoversClass(Conjunction::class)]
 #[CoversClass(Preposition::class)]
 final class StrTest extends Base {

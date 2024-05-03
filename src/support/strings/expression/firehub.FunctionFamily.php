@@ -39,6 +39,8 @@ use Error;
  * @method Pattern atLeast (int $number) ### At least occurrences
  * @method Pattern atMost (int $number) ### At most occurrences
  * @method Pattern between (int $from, int $to) ### Between occurrences
+ * @method Pattern before () ### Before occurrences
+ * @method Pattern after () ### After occurrences
  */
 abstract class FunctionFamily {
 
