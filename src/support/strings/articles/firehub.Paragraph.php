@@ -12,7 +12,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Strings;
+namespace FireHub\Core\Support\Strings\Articles;
 
 use FireHub\Core\Support\ {
     Char, Str
@@ -71,7 +71,7 @@ final class Paragraph extends Str {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\String\Paragraph;
+     * use FireHub\Core\Support\Strings\Articles\Paragraph;
      *
      * Paragraph::from('FireHub Web App')->title('The FireHub');
      * ```
@@ -103,19 +103,19 @@ final class Paragraph extends Str {
      * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter out empty sentences.
      * @uses \FireHub\Core\Support\LowLevel\Arr::walk() To convert every sentence to Str.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::null To check if the sentence is null.
-     * @uses \FireHub\Core\Support\Strings\Paragraph::splitAfterAny() To split the string into sentences after ending punctuations.
-     * @uses \FireHub\Core\Support\Strings\Paragraph::streamline() To streamline every sentence.
+     * @uses \FireHub\Core\Support\Strings\Articles\Paragraph::splitAfterAny() To split the string into sentences after ending punctuations.
+     * @uses \FireHub\Core\Support\Strings\Articles\Paragraph::streamline() To streamline every sentence.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\String\Paragraph;
+     * use FireHub\Core\Support\Strings\Articles\Paragraph;
      *
      * Paragraph::from('FireHub Web App. Best App.')->sentences();
      *
      * // ['FireHub Web App.', 'Best App.']
      * ```
      *
-     * @return \FireHub\Core\Support\Strings\Sentence[] List to sentences.
+     * @return \FireHub\Core\Support\Strings\Articles\Sentence[] List to sentences.
      */
     public function sentences ():array {
 

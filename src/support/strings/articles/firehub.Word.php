@@ -12,7 +12,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Strings;
+namespace FireHub\Core\Support\Strings\Articles;
 
 use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\Str;

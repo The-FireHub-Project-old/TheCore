@@ -12,24 +12,25 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace support\strings;
+namespace support\strings\articles;
 
+use FireHub\Core\Support\Str;
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Strings\Sentence;
+use FireHub\Core\Support\Strings\Articles\Paragraph;
 use PHPUnit\Framework\Attributes\CoversClass;
 use FireHub\Core\Support\Enums\String\ {
     Encoding, EndingPunctuation
 };
 
 /**
- * ### Test Sentence string support class
+ * ### Test Paragraph string support class
  * @since 1.0.0
  */
-#[CoversClass(Sentence::class)]
+#[CoversClass(Paragraph::class)]
 #[CoversClass(EndingPunctuation::class)]
-final class SentenceTest extends Base {
+final class ParagraphTest extends Base {
 
-    public Sentence $sentence;
+    public Paragraph $paragraph;
 
     /**
      * @since 1.0.0
@@ -38,7 +39,7 @@ final class SentenceTest extends Base {
      */
     public function setUp ():void {
 
-        $this->sentence = Sentence::from('FireHub Web App', Encoding::UTF_8);
+        $this->paragraph = Paragraph::from('FireHub Web App', Encoding::UTF_8)->title('The FireHub');
 
     }
 
@@ -47,10 +48,20 @@ final class SentenceTest extends Base {
      *
      * @return void
      */
-    public function testEndingPunctuation ():void {
+    public function testTitle ():void {
 
-        $this->assertSame('FireHub Web App.', $this->sentence->ensureEndingPunctuation()->string());
-        $this->assertSame('FireHub Web App', $this->sentence->removeEndingPunctuation()->string());
+        $this->assertSame('The FireHub', $this->paragraph->title()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSentences ():void {
+
+        $this->assertEquals([Str::from('FireHub Web App.'), Str::from('Best App.')], Paragraph::from('FireHub Web App. Best App.')->sentences());
 
     }
 

@@ -12,7 +12,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Strings;
+namespace FireHub\Core\Support\Strings\Articles;
 
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Enums\String\EndingPunctuation;
@@ -30,11 +30,11 @@ final class Sentence extends Str {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\EndingPunctuation As parameter.
-     * @uses \FireHub\Core\Support\Strings\Sentence::ensureSuffix() To make sure that the current string is suffixed with the given text.
+     * @uses \FireHub\Core\Support\Strings\Articles\Sentence::ensureSuffix() To make sure that the current string is suffixed with the given text.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\Sentence;
+     * use FireHub\Core\Support\Strings\Articles\Sentence;
      * use FireHub\Core\Support\Enums\String\EndingPunctuation;
      *
      * Sentence::from('The FireHub')->ensureEndingPunctuation(EndingPunctuation::EXCLAMATION);
@@ -58,11 +58,11 @@ final class Sentence extends Str {
      * ### Makes sure that the sentence string doesn't have a dot at the end
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Strings\Sentence::removeSuffix() To make sure that the current string doesn't end with the given text.
+     * @uses \FireHub\Core\Support\Strings\Articles\Sentence::removeSuffix() To make sure that the current string doesn't end with the given text.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Strings\Sentence;
+     * use FireHub\Core\Support\Strings\Articles\Sentence;
      * use FireHub\Core\Support\Enums\String\EndingPunctuation;
      *
      * Sentence::from('The FireHub.')->removeEndingPunctuation();
