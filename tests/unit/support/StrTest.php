@@ -360,6 +360,11 @@ final class StrTest extends Base {
             $this->string->expression()->split()->any()->custom('i')
         );
 
+        $this->assertSame(
+            ['ireHub'],
+            $this->string->expression()->splitWithoutEmpty()->any()->custom('F')
+        );
+
     }
 
     /**
@@ -875,6 +880,28 @@ final class StrTest extends Base {
     public function testBreakWithAny ():void {
 
         $this->assertSame(['Fir', 'Hub W', 'b A', '', 'lication'],  Str::from('FireHub Web Application')->breakWithAny(['e', 'p']));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSplit ():void {
+
+        $this->assertSame(['Fire', 'Hub'],  Str::from('FireHub')->split('H'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSplitWithAny ():void {
+
+        $this->assertSame(['FireHub ', 'Web ', 'Application'],  Str::from('FireHub Web Application')->splitWithAny(['W', 'A']));
 
     }
 

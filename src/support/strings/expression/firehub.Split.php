@@ -37,6 +37,9 @@ final class Split extends FunctionFamily {
      * @param \FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string_or_character <p>
      * Character or string to use.
      * </p>
+     * @param bool $remove_empty <p>
+     * If true, only non-empty pieces will be returned.
+     * </p>
      * @param int $limit [optional] <p>
      * The maximum possible replacements for each pattern in each subject string.
      * Defaults to -1 (no limit).
@@ -49,6 +52,7 @@ final class Split extends FunctionFamily {
      */
     public function __construct (
         protected Characters|Strings $string_or_character,
+        private readonly bool $remove_empty,
         private readonly int $limit = -1,
         Modifier ...$modifiers
     ) {
@@ -72,7 +76,7 @@ final class Split extends FunctionFamily {
      */
     public function custom (string $pattern):array {
 
-        return Regex::split($this->patternBuilder($pattern), $this->string_or_character->string(), $this->limit);
+        return Regex::split($this->patternBuilder($pattern), $this->string_or_character->string(), $this->limit, $this->remove_empty);
 
     }
 

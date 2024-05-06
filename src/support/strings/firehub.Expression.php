@@ -163,7 +163,26 @@ final class Expression {
      */
     public function split (int $limit = -1):Split {
 
-        return new Split($this->string, $limit, ...$this->modifiers);
+        return new Split($this->string, false, $limit, ...$this->modifiers);
+
+    }
+
+    /**
+     * ### Perform a regular expression split
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Strings\Expression\Split As return.
+     *
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.
+     * Defaults to -1 (no limit).
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Strings\Expression\Split Regular expression split.
+     */
+    public function splitWithoutEmpty (int $limit = -1):Split {
+
+        return new Split($this->string, true, $limit, ...$this->modifiers);
 
     }
 
