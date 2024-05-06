@@ -879,7 +879,7 @@ final class StrTest extends Base {
      */
     public function testBreakWithAny ():void {
 
-        $this->assertSame(['Fir', 'Hub W', 'b A', '', 'lication'],  Str::from('FireHub Web Application')->breakWithAny(['e', 'p']));
+        $this->assertSame(['Fir', 'Hub W', 'b A', '', 'lication'],  Str::from('FireHub Web Application')->breakWithAny([Char::from('e'), Char::from('p')]));
 
     }
 
@@ -901,7 +901,7 @@ final class StrTest extends Base {
      */
     public function testSplitWithAny ():void {
 
-        $this->assertSame(['FireHub ', 'Web ', 'Application'],  Str::from('FireHub Web Application')->splitWithAny(['W', 'A']));
+        $this->assertSame(['FireHub ', 'Web ', 'Application'],  Str::from('FireHub Web Application')->splitWithAny([Char::from('W'), Char::from('A')]));
 
     }
 

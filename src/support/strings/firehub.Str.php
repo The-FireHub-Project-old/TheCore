@@ -2125,25 +2125,21 @@ abstract class Str implements Strings {
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the last separator.
      *
      * @example
      * ```php
      * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Char;
      *
-     * Str::from('FireHub Web Application')->breakWithAny(['e', 'p']);
+     * Str::from('FireHub Web Application')->breakWithAny([Char::from('e'), Char::from('p')]);
      *
      * // ['Fir', 'Hub W', 'b A', '', 'lication']
      * ```
      */
-    public function breakWithAny (array $separators, int $limit = MAX):array {
-
-        $chars = [];
-        foreach ($separators as $separator)
-            $chars[] = Char::from($separator);
+    public function breakWithAny (array $characters, int $limit = MAX):array {
 
         /** @phpstan-ignore-next-line */
-        return $this->expression()->split($limit)->any()->chars($chars);
+        return $this->expression()->split($limit)->any()->chars($characters);
 
     }
 
@@ -2178,25 +2174,21 @@ abstract class Str implements Strings {
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the last separator.
      *
      * @example
      * ```php
      * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Char;
      *
-     * Str::from('FireHub Web Application')->splitWithAny(['W', 'A']);
+     * Str::from('FireHub Web Application')->splitWithAny([Char::from('W'), Char::from('A')]);
      *
      * // ['FireHub ', 'Web ', 'App']
      * ```
      */
-    public function splitWithAny (array $separators, int $limit = MAX):array {
-
-        $chars = [];
-        foreach ($separators as $separator)
-            $chars[] = Char::from($separator);
+    public function splitWithAny (array $characters, int $limit = MAX):array {
 
         /** @phpstan-ignore-next-line */
-        return $this->expression()->split($limit)->before()->chars($chars);
+        return $this->expression()->split($limit)->before()->chars($characters);
 
     }
 
