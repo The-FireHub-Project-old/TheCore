@@ -833,6 +833,29 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Str::delimit() To lowercase and trimmed string separated by space.
+     * @uses \FireHub\Core\Support\Str::titleize() To capitalize every word in string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web app')->headline();
+     *
+     * // Fire Hub Web App
+     * ```
+     */
+    public function headline ():self {
+
+        return $this->delimit(' ')->titleize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Str::streamline() To streamline string.
      * @uses \FireHub\Core\Support\Str::expression() As regular expression.
      * @uses \FireHub\Core\Support\Str::replace() To replace characters with delimiter.

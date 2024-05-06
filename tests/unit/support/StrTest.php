@@ -443,6 +443,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testKebabCase ():void {
+
+        $this->assertSame('fire-hub-web-app', Str::from('FireHubWebApp')->kebabCase()->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSnakeCase ():void {
 
         $this->assertSame('fire_hub_web_app', Str::from('FireHubWebApp')->snakeCase()->string());
@@ -454,9 +465,9 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testKebabCase ():void {
+    public function testHeadline ():void {
 
-        $this->assertSame('fire-hub-web-app', Str::from('FireHubWebApp')->kebabCase()->string());
+        $this->assertSame('Fire Hub Web App', Str::from('FireHub Web app')->headline()->string());
 
     }
 

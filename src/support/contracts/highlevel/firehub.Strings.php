@@ -333,6 +333,16 @@ interface Strings extends Stringable {
     public function snakeCase ():self;
 
     /**
+     * ### Format strings to headline
+     *
+     * Format strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first letter capitalized.
+     * @since 1.0.0
+     *
+     * @return $this This string.
+     */
+    public function headline ():self;
+
+    /**
      * ### Lowercased and trimmed string separated by the given delimiter
      *
      * Delimiters are inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.
