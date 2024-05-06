@@ -15,6 +15,7 @@
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Stringable;
+use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Strings\ {
     Expression, InsertValue
 };
@@ -1194,5 +1195,19 @@ interface Strings extends Stringable {
      * @phpstan-return non-negative-int|false
      */
     public function lastIndexOf (string $find):int|false;
+
+    /**
+     * ### Find the character at the provider position
+     * @since 1.0.0
+     *
+     * @param int $index <p>
+     * Position where character is located.
+     * If start is non-negative, the returned string will start at the start position in string, counting from zero.
+     * If the start is negative, the returned string will start at the start character from the end of the string.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Char Character at position.
+     */
+    public function charAt (int $index):Char;
 
 }

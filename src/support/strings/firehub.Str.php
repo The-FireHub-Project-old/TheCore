@@ -2342,6 +2342,30 @@ abstract class Str implements Strings {
      * ```php
      * use FireHub\Core\Support\Str;
      *
+     * Str::from('FireHub Web App')->charAt(4);
+     *
+     * // H
+     * ```
+     *
+     * @throws Error If character index is out of range.
+     */
+    public function charAt (int $index):Char {
+
+        return $this->length() - 1 >= $index
+            ? Char::from(StrMB::part($this->string, $index, 1, $this->encoding)) // @phpstan-ignore-line
+            : throw new Error ('Character index is out of range!');
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
      * echo Str::from('FireHub');
      *
      * // FireHub

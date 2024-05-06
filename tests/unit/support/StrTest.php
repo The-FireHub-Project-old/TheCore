@@ -1387,6 +1387,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testCharAt ():void {
+
+        $this->assertEquals(Char::from('H'),  $this->string->charAt(4));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     #[Depends('testString')]
     public function testPrint ():void {
 
