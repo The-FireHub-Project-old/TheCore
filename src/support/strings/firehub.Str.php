@@ -2180,15 +2180,40 @@ abstract class Str implements Strings {
      * use FireHub\Core\Support\Str;
      * use FireHub\Core\Support\Char;
      *
-     * Str::from('FireHub Web Application')->splitWithAny([Char::from('W'), Char::from('A')]);
+     * Str::from('FireHub Web Application')->splitBeforeAny([Char::from('W'), Char::from('A')]);
      *
      * // ['FireHub ', 'Web ', 'App']
      * ```
      */
-    public function splitWithAny (array $characters, int $limit = MAX):array {
+    public function splitBeforeAny (array $characters, int $limit = MAX):array {
 
         /** @phpstan-ignore-next-line */
         return $this->expression()->split($limit)->before()->chars($characters);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     * @uses \FireHub\Core\Support\Strings\Str::expression() As regular expression.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Char;
+     *
+     * Str::from('FireHub Web Application')->splitAfterAny([Char::from('W'), Char::from('A')]);
+     *
+     * // ['FireHub W', 'eb A', 'pplication']
+     * ```
+     */
+    public function splitAfterAny (array $characters, int $limit = MAX):array {
+
+        /** @phpstan-ignore-next-line */
+        return $this->expression()->split($limit)->after()->chars($characters);
 
     }
 

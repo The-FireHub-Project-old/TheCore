@@ -1031,7 +1031,7 @@ interface Strings extends Stringable {
     public function break (string $with, int $limit = MAX):array;
 
     /**
-     * ### Break string with an array of separators
+     * ### Break string with any of separators
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
@@ -1082,7 +1082,7 @@ interface Strings extends Stringable {
     public function split (string $with, int $limit = MAX):array;
 
     /**
-     * ### Split string with an array of separators
+     * ### Split string before any of separators
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
@@ -1103,7 +1103,31 @@ interface Strings extends Stringable {
      * For any other limit, an array containing string will be returned.
      * @phpstan-return string[]
      */
-    public function splitWithAny (array $characters, int $limit = MAX):array;
+    public function splitBeforeAny (array $characters, int $limit = MAX):array;
+
+    /**
+     * ### Split string after any of separators
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
+     *
+     * @param \FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters <p>
+     * <code>non-empty-string[]</code>
+     * The boundary characters.
+     * </p>
+     * @param int $limit [optional] <p>
+     * <code><![CDATA[ int<min, max> ]]></code>
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit parameter is zero or -1, then this is treated as 1.
+     * </p>
+     * @phpstan-param int<min, max> $limit
+     *
+     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
+     * limit is used, then an empty array will be returned.
+     * For any other limit, an array containing string will be returned.
+     * @phpstan-return string[]
+     */
+    public function splitAfterAny (array $characters, int $limit = MAX):array;
 
     /**
      * ### Group a string into chunks

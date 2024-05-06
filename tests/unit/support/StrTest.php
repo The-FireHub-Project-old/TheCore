@@ -899,9 +899,20 @@ final class StrTest extends Base {
      *
      * @return void
      */
-    public function testSplitWithAny ():void {
+    public function testSplitBeforeAny ():void {
 
-        $this->assertSame(['FireHub ', 'Web ', 'Application'],  Str::from('FireHub Web Application')->splitWithAny([Char::from('W'), Char::from('A')]));
+        $this->assertSame(['FireHub ', 'Web ', 'Application'],  Str::from('FireHub Web Application')->splitBeforeAny([Char::from('W'), Char::from('A')]));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSplitAfterAny ():void {
+
+        $this->assertSame(['FireHub W', 'eb A', 'pplication'],  Str::from('FireHub Web Application')->splitAfterAny([Char::from('W'), Char::from('A')]));
 
     }
 
