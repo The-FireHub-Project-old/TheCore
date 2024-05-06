@@ -178,7 +178,7 @@ final class Regex {
      */
     public static function split (string $pattern, string $string, int $limit = -1, bool $remove_empty = false):array {
 
-        return preg_split($pattern, $string, $limit, $remove_empty ? PREG_SPLIT_NO_EMPTY: 0)
+        return preg_split($pattern, $string, $limit, $remove_empty ? PREG_SPLIT_NO_EMPTY : 0)
             ?: throw new Error("Error while performing a regular expression split.");
 
     }
