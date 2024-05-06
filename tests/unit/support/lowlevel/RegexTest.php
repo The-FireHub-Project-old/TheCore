@@ -100,4 +100,15 @@ final class RegexTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testQuote ():void {
+
+        $this->assertSame('Fire\Hub', Regex::quote('FireHub', 'H'));
+
+    }
+
 }

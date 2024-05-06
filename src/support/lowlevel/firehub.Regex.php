@@ -21,6 +21,7 @@ use function preg_match_all;
 use function preg_replace;
 use function preg_replace_callback;
 use function preg_split;
+use function preg_quote;
 
 use const PREG_SPLIT_NO_EMPTY;
 
@@ -180,6 +181,30 @@ final class Regex {
 
         return preg_split($pattern, $string, $limit, $remove_empty ? PREG_SPLIT_NO_EMPTY : 0)
             ?: throw new Error("Error while performing a regular expression split.");
+
+    }
+
+    /**
+     * ### Quote regular expression characters
+     *
+     * Method takes string and puts a backslash in front of every character that is part of the regular expression syntax.
+     * This is useful if you have a run-time string that you need to match in some text and the string may contain special regex characters.
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The input string.
+     * </p>
+     * @param null|string $delimiter [optional] <p>
+     * If the optional delimiter is specified, it will also be escaped.
+     * This is useful for escaping the delimiter required by the PCRE functions.
+     * The / is the most commonly used delimiter.
+     * </p>
+     *
+     * @return string The quoted (escaped) string.
+     */
+    public static function quote (string $string, ?string $delimiter = null):string {
+
+        return preg_quote($string, $delimiter);
 
     }
 
