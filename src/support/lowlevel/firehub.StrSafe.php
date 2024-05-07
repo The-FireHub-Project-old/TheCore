@@ -198,7 +198,7 @@ abstract class StrSafe {
      *
      * @return string Repeated string.
      *
-     * @note If $times is less than 1, original string will be returned.
+     * @note If $times is less than 1, the original string will be returned.
      */
     final public static function repeat (string $string, int $times, string $separator = ''):string {
 
