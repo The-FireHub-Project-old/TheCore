@@ -17,7 +17,9 @@ namespace support;
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Number;
 use FireHub\Core\Support\Enums\Number\Round;
-use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\ {
+    CoversClass, Depends
+};
 
 /**
  * ### Test string high-level support class
@@ -129,6 +131,81 @@ final class NumberTest extends Base {
      *
      * @return void
      */
+    public function testToPositive ():void {
+
+        $this->assertSame(12.0, $this->integer->toPositive()->asFloat());
+        $this->assertSame(10.0, $this->negative_integer->toPositive()->asFloat());
+        $this->assertSame(0.0, $this->zero->toPositive()->asFloat());
+        $this->assertSame(0.981, $this->float->toPositive()->asFloat());
+        $this->assertSame(23.4532, $this->negative_float->toPositive()->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testToNegative ():void {
+
+        $this->assertSame(-12.0, $this->integer->toNegative()->asFloat());
+        $this->assertSame(-10.0, $this->negative_integer->toNegative()->asFloat());
+        $this->assertSame(0.0, $this->zero->toNegative()->asFloat());
+        $this->assertSame(-0.981, $this->float->toNegative()->asFloat());
+        $this->assertSame(-23.4532, $this->negative_float->toNegative()->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testAbsolute ():void {
+
+        $this->assertSame(12.0, $this->integer->absolute()->asFloat());
+        $this->assertSame(10.0, $this->negative_integer->absolute()->asFloat());
+        $this->assertSame(0.0, $this->zero->absolute()->asFloat());
+        $this->assertSame(0.981, $this->float->absolute()->asFloat());
+        $this->assertSame(23.4532, $this->negative_float->absolute()->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCeil ():void {
+
+        $this->assertSame(12.0, $this->integer->ceil()->asFloat());
+        $this->assertSame(-10.0, $this->negative_integer->ceil()->asFloat());
+        $this->assertSame(0.0, $this->zero->ceil()->asFloat());
+        $this->assertSame(1.0, $this->float->ceil()->asFloat());
+        $this->assertSame(-23.0, $this->negative_float->ceil()->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFloor ():void {
+
+        $this->assertSame(12.0, $this->integer->floor()->asFloat());
+        $this->assertSame(-10.0, $this->negative_integer->floor()->asFloat());
+        $this->assertSame(0.0, $this->zero->floor()->asFloat());
+        $this->assertSame(0.0, $this->float->floor()->asFloat());
+        $this->assertSame(-24.0, $this->negative_float->floor()->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testRound ():void {
 
         $this->assertSame(0.34, Number::from(0.335)->round(2)->asFloat());
@@ -164,6 +241,37 @@ final class NumberTest extends Base {
         $this->assertSame(0.0, $this->zero->asFloat());
         $this->assertSame(0.981, $this->float->asFloat());
         $this->assertSame(-23.4532, $this->negative_float->asFloat());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testParse ():void {
+
+        $this->assertSame('12', $this->integer->parse());
+        $this->assertSame('-10', $this->negative_integer->parse());
+        $this->assertSame('0', $this->zero->parse());
+        $this->assertSame('0.9810000000', $this->float->parse(10));
+        $this->assertSame('-23.45', $this->negative_float->parse(2));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[Depends('testAsFloat')]
+    public function testPrint ():void {
+
+        $this->assertSame('12', $this->integer->__toString());
+        $this->assertSame('-10', $this->negative_integer->__toString());
+        $this->assertSame('0', $this->zero->__toString());
+        $this->assertSame('0.981', $this->float->__toString());
+        $this->assertSame('-23.4532', $this->negative_float->__toString());
 
     }
 

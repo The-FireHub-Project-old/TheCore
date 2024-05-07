@@ -71,6 +71,50 @@ interface Numbers extends Stringable {
     public function isNan ():bool;
 
     /**
+     * ### Make sure the number is positive
+     * @since 1.0.0
+     *
+     * @return $this This number.
+     */
+    public function toPositive ():self;
+
+    /**
+     * ### Make sure the number is negative
+     * @since 1.0.0
+     *
+     * @return $this This number.
+     */
+    public function toNegative ():self;
+
+    /**
+     * ### Absolute value
+     * @since 1.0.0
+     *
+     * @return $this This number.
+     */
+    public function absolute ():self;
+
+    /**
+     * ### Round fractions up
+     *
+     * Returns the next highest integer value by rounding up $number if necessary.
+     * @since 1.0.0
+     *
+     * @return $this This number.
+     */
+    public function ceil ():self;
+
+    /**
+     * ### Round fractions down
+     *
+     * Returns the next lowest integer value (as float) by rounding down $number if necessary.
+     * @since 1.0.0
+     *
+     * @return $this This number.
+     */
+    public function floor ():self;
+
+    /**
      * ### Rounds number
      * @since 1.0.0
      *
@@ -111,5 +155,28 @@ interface Numbers extends Stringable {
      * @return float Number as raw float.
      */
     public function asFloat ():float;
+
+    /**
+     * ### Parse number
+     *
+     * Parse a number with grouped thousands and optionally decimal digits using the rounding half up rule.
+     * @since 1.0.0
+     *
+     * @param int $decimals <p>
+     * <code>non-negative-int</code>
+     * Sets the number of decimal digits.
+     * If 0, the decimal_separator is omitted from the return value.
+     * </p>
+     * @param string $decimal_separator <p>
+     * Sets the separator for the decimal point.
+     * </p>
+     * @param string $thousands_separator <p>
+     * Sets the separator for thousands.
+     * </p>
+     * @phpstan-param non-negative-int $decimals
+     *
+     * @return string A formatted version of number.
+     */
+    public function parse (int $decimals = 0, string $decimal_separator = '.', string $thousands_separator = ','):string;
 
 }

@@ -182,6 +182,126 @@ class Number implements Numbers {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Number::isNegative() To check if the number is negative.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(-12)->toPositive();
+     *
+     * // 12
+     * ```
+     */
+    public function toPositive ():self {
+
+        $this->number = $this->isNegative() ? -$this->number : $this->number;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Number::isPositive() To check if the number is positive.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(12)->toNegative();
+     *
+     * // -12
+     * ```
+     */
+    public function toNegative ():self {
+
+        $this->number = $this->isPositive() ? -$this->number : $this->number;
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumFloat::absolute() To get absolute value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(-12)->absolute();
+     *
+     * // 12
+     * ```
+     */
+    public function absolute ():self {
+
+        $this->number = NumFloat::absolute($this->number);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumFloat::ceil() To round fractions up.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(12.5)->ceil();
+     *
+     * // 12
+     * ```
+     */
+    public function ceil ():self {
+
+        $this->number = NumFloat::ceil($this->number);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumFloat::floor() To round fractions down.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(12.5)->floor();
+     *
+     * // 12
+     * ```
+     */
+    public function floor ():self {
+
+        $this->number = NumFloat::floor($this->number);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\Number\Round::HALF_UP As default rounding.
      * @uses \FireHub\Core\Support\LowLevel\NumFloat::round() To round the number.
      *
@@ -270,6 +390,31 @@ class Number implements Numbers {
     public function asFloat ():float {
 
         return $this->number;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Number;
+     *
+     * $number = Number::from(1000.54)->parse();
+     *
+     * // 1,000.54
+     * ```
+     */
+    public function parse (int $decimals = 0, string $decimal_separator = '.', string $thousands_separator = ','):string {
+
+        return NumFloat::format(
+            $this->number,
+            $decimals,
+            $decimal_separator,
+            $thousands_separator
+        );
 
     }
 

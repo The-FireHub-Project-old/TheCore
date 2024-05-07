@@ -6,6 +6,7 @@
 - Create Char high-level class and tests ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [543c366](https://github.com/The-FireHub-Project/Core/pull/7/commits/543c366))
 - Create contracts for high-level classes ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [2198382](https://github.com/The-FireHub-Project/Core/pull/7/commits/2198382))
 - Create String high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [8eb4fef](https://github.com/The-FireHub-Project/Core/pull/7/commits/8eb4fef))
+- Create Number high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [3c1c472](https://github.com/The-FireHub-Project/Core/pull/7/commits/3c1c472))
 
 ### Changed
 - CharMB methods chr and ord have their descriptions changed ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [f3aca75](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3aca75))
