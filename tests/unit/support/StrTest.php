@@ -1166,6 +1166,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testMask ():void {
+
+        $this->assertSame('FireH***Web App', Str::from('FireHub Web App')->mask(Char::from('*'), 5, 3)->string());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testPrepend ():void {
 
         $this->assertSame('カFireHub', $this->string->prepend('カ')->string());
