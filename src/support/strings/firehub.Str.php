@@ -1726,7 +1726,7 @@ abstract class Str implements Strings {
         $end = StrMB::part($this->string, $from + $segment_length);
 
         return $this
-            ->overwrite(0, $this->length(), '')
+            ->string('')
             ->pad($segment_length, $with->string())
             ->prepend($start)
             ->append($end);
