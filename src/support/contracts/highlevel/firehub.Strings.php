@@ -14,7 +14,9 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
-use FireHub\Core\Support\Contracts\Stringable;
+use FireHub\Core\Support\Contracts\ {
+    Stringable, HighLevel\Characters
+};
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Strings\ {
     Expression, InsertValue
@@ -792,6 +794,28 @@ interface Strings extends Stringable {
      * @return $this This string.
      */
     public function pad (int $length, string $pad = " ", Side $side = Side::BOTH):self;
+
+    /**
+     * ### Mask a portion of a string
+     *
+     * Masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings
+     * such as email addresses and phone numbers,
+     * @since 1.0.0
+     *
+     * @param \FireHub\Core\Support\Contracts\HighLevel\Characters $with <p>
+     * Character to mask with.
+     * </p>
+     * @param int $from <p>
+     * If start is non-negative, masking will start at the start position in string, counting from zero.
+     * If the start is negative, masking will start at the start character from the end of the string.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * Maximum number of characters to use for masking.
+     * </p>
+     *
+     * @return $this This string.
+     */
+    public function mask (Characters $with, int $from, ?int $length = null):self;
 
     /**
      * ### Prepends the given string to the current string

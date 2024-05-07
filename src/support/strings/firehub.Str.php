@@ -1694,6 +1694,50 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get string segment to mask.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get masked string length.
+     * @uses \FireHub\Core\Support\Strings\Str::length() To get current string length.
+     * @uses \FireHub\Core\Support\Strings\Str::overwrite() To remove current string.
+     * @uses \FireHub\Core\Support\Strings\Str::pad() To add masked string.
+     * @uses \FireHub\Core\Support\Strings\Str::prepend() To add the first part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To add the last part the string.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To add character to pad.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     * use FireHub\Core\Support\Char;
+     *
+     * Str::from('FireHub Web App')->mask(Char::from('*'), 5, 3);
+     *
+     * // FireH***Web App
+     * ```
+     */
+    public function mask (Characters $with, int $from, ?int $length = null):self {
+
+        $segment = StrMB::part($this->string, $from, $length, $this->encoding);
+
+        if ($segment === '') return $this;
+
+        if ($from < 0) $from = $from < -$this->length() ? 0 : $this->length() + $from;
+
+        $start = StrMB::part($this->string, 0, $from, $this->encoding);
+        $segment_length = StrMB::length($segment, $this->encoding);
+        $end = StrMB::part($this->string, $from + $segment_length);
+
+        return $this
+            ->overwrite(0, $this->length(), '')
+            ->pad($segment_length, $with->string())
+            ->prepend($start)
+            ->append($end);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Str;
