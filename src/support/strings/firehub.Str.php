@@ -47,7 +47,7 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
 abstract class Str implements Strings {
 
     /**
-     * String to use
+     * ### String to use
      * @since 1.0.0
      *
      * @var string
