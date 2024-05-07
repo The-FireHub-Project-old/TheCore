@@ -210,6 +210,18 @@ interface Strings extends Stringable {
     public function equalsAny (string ...$values):bool;
 
     /**
+     * ### Checks if string matches a given pattern
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The pattern to match against.
+     * </p>
+     *
+     * @return bool True if a string matches a pattern, false otherwise.
+     */
+    public function match (string $pattern):bool;
+
+    /**
      * ### Get or change string encoding
      * @since 1.0.0
      *

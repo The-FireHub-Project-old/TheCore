@@ -19,7 +19,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
 };
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\LowLevel\ {
-    Arr, DataIs, NumInt, StrMB
+    Arr, DataIs, NumInt, Regex, StrSB, StrMB
 };
 use FireHub\Core\Support\Enums\Side;
 use FireHub\Core\Support\Enums\String\ {
@@ -456,6 +456,30 @@ abstract class Str implements Strings {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::from('FireHub Web App')->match('Fire*b*A*');
+     *
+     * // true
+     * ```
+     */
+    public function match (string $pattern):bool {
+
+        if ($pattern === $this->string) return true;
+
+        return $this->expression()->check()->custom(
+            '^'.StrSb::replace('\*', '.*', Regex::quote($pattern, '#')).'\z'
+        );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::encoding() To get internal character encoding if default is not set.
      *
@@ -725,7 +749,7 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Strings\Str::deCapitalize() To deCapitalize each word.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as new string.
      * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all ignored cases.
      *
      * @example
@@ -1874,7 +1898,7 @@ abstract class Str implements Strings {
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
      * @uses \FireHub\Core\Support\Strings\Str::surround() To surround any word with $with argument.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join words with $with argument as new string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as new string.
      *
      * @example
      * ```php

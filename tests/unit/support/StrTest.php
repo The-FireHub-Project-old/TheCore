@@ -662,6 +662,17 @@ final class StrTest extends Base {
      *
      * @return void
      */
+    public function testMatch ():void {
+
+        $this->assertTrue(Str::from('FireHub Web App')->match('Fire*b*A*'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     #[Depends('testString')]
     public function testEncoding ():void {
 
