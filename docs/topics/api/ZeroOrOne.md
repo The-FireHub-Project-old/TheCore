@@ -352,7 +352,7 @@ The regular expression pattern.
 ## method: __call {id="__call()"}
 
 <code-block lang="php">
-    <![CDATA[public Pattern::__call(string $method, array $arguments):mixed]]>
+    <![CDATA[public Pattern::__call(non-empty-string $method, array<array-key,mixed> $arguments):mixed]]>
 </code-block>
 
 
@@ -372,12 +372,12 @@ The regular expression pattern.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190">
                     View blame
                 </a>
             </def></deflist>
@@ -393,11 +393,9 @@ The regular expression pattern.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$method</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$method</format> - <format style="italic">
 Method name.
-</format></li><li>array <format style="bold">$arguments</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$arguments</format> - <format style="italic">
 List of arguments.
 </format></li></list>
     </def>
@@ -2097,7 +2095,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-</format></p>
+<p><format style="italic">() ### Not punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">

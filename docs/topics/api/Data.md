@@ -171,7 +171,7 @@ The variable being type checked.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To set microtime to another type.</format></li></list>
+        <list><li><a href="Number.md#asint()">\FireHub\Core\Support\Number::asInt()</a>  - <format style="italic">To set a data type.</format></li><li><a href="DateAndTime.md#microtime()">\FireHub\Core\Support\LowLevel\DateAndTime::microtime()</a>  - <format style="italic">To set microtime to another type.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -196,7 +196,7 @@ Type to convert variable to.
 ## method: serializeValue {id="serializevalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Data::serializeValue(string|int|float|bool|array|object|null $value):string]]>
+    <![CDATA[public static Data::serializeValue(scalar|array<array-key,mixed>|object|null $value):string]]>
 </code-block>
 
 
@@ -218,12 +218,12 @@ This is useful for storing or passing PHP values around without losing their typ
 To make the serialized string into a PHP value again, use unserialize().</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173">
                     View blame
                 </a>
             </def></deflist>
@@ -234,8 +234,7 @@ To make the serialized string into a PHP value again, use unserialize().</format
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or int or float or bool or array or object or null <format style="bold">$value</format> - <format style="italic">
-<code><![CDATA[ scalar|array<array-key, mixed>|object|null ]]></code>
+        <list><li>scalar or array&lt;array-key,mixed&gt; or object or null <format style="bold">$value</format> - <format style="italic">
 The value to be serialized.
 </format></li></list>
     </def>
@@ -253,7 +252,7 @@ The value to be serialized.
 ## method: unserializeValue {id="unserializevalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Data::unserializeValue(string $data, bool|array $allowed_classes = false, int $max_depth = 4096):mixed]]>
+    <![CDATA[public static Data::unserializeValue(non-empty-string $data, bool|class-string[] $allowed_classes = false, int $max_depth = 4096):mixed]]>
 </code-block>
 
 
@@ -273,12 +272,12 @@ The value to be serialized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207">
                     View blame
                 </a>
             </def></deflist>
@@ -289,11 +288,9 @@ The value to be serialized.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$data</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$data</format> - <format style="italic">
 The serialized string.
-</format></li><li>bool or array <format style="bold">$allowed_classes</format> = false - <format style="italic">[optional] 
-<code><![CDATA[ bool|array<class-string> ]]></code>
+</format></li><li>bool or class-string[] <format style="bold">$allowed_classes</format> = false - <format style="italic">[optional] 
 Either an array of class names which should be accepted, false to accept no classes,
 or true to accept all classes.
 </format></li><li>int <format style="bold">$max_depth</format> = 4096 - <format style="italic">[optional] 

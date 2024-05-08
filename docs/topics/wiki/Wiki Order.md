@@ -33,7 +33,7 @@ enum Order
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#reverse()">reverse</a>|Get the reverse order.|
+|public|<a href="#reverse()">reverse</a>|### Get the reverse order|
 
 <h2><a name="reverse()"># method: reverse</a></h2>
 
@@ -51,7 +51,7 @@ public Order::reverse():\FireHub\Core\Support\Enums\Order
 
 
 
-### Get the reverse order.
+### ### Get the reverse order
 
 
 

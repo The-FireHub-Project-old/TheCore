@@ -138,9 +138,8 @@ final class SplAutoload {
      * ### Get all registered autoload functions
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+     * @return array<array-key, mixed> An array of all registered autoload functions.
      * If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array.
-     * @phpstan-return array<array-key, mixed>
      */
     public static function functions ():array {
 

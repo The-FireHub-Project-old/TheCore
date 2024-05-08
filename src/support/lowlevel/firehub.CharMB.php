@@ -66,14 +66,12 @@ final class CharMB {
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      *
-     * @param string $character <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $character <p>
      * A character.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param non-empty-string $character
      *
      * @throws Error If character could not be converted to codepoint.
      * @throws ValueError If empty string is provided.

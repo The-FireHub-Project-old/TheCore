@@ -28,9 +28,18 @@ classes, interfaces, traits, and enumerations._
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|privatestatic |<a href="#$loaders">loaders</a>|### List of active loader implementations for autoloader||
+|readonly private|<a href="#$alias">alias</a>|||
+|readonly private|<a href="#$callback">callback</a>|||
+|readonly private|<a href="#$prepend">prepend</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
+|private|<a href="#__construct()">__construct</a>|### Constructor|
 |public static |<a href="#include()">include</a>|### Manually include a list of classes|
 |public static |<a href="#append()">append</a>|### Register new autoload implementation at the end of the queue|
 |public static |<a href="#register()">register</a>|### This method is alias for [[Autoload#append()]]|
@@ -38,11 +47,126 @@ classes, interfaces, traits, and enumerations._
 |public static |<a href="#unregister()">unregister</a>|### Unregister autoload implementation|
 |public static |<a href="#implementations()">implementations</a>|### Get all registered autoloader implementations|
 |public static |<a href="#load()">load</a>|### Try all registered autoload functions to load the requested lass|
+|private static |<a href="#callback()">callback</a>|### Invoke autoload function|
 
+<h2><a name="$loaders"># property: loaders</a></h2>
+
+```php
+private static \FireHub\Core\Initializers\Autoload\Loaders $loaders
+```
+
+
+
+
+
+
+
+
+
+### ### List of active loader implementations for autoloader
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L42)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L42)**</sub>
+<h2><a name="$alias"># property: alias</a></h2>
+
+```php
+readonly private string $alias
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L68)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L68)**</sub>
+<h2><a name="$callback"># property: callback</a></h2>
+
+```php
+readonly private \FireHub\Core\Initializers\Autoload\Callback $callback
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69)**</sub>
+<h2><a name="$prepend"># property: prepend</a></h2>
+
+```php
+readonly private bool $prepend
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70)**</sub>
+<h2><a name="__construct()"># method: __construct</a></h2>
+
+```php
+private Autoload::__construct(non-empty-string $alias, \FireHub\Core\Initializers\Autoload\Callback $callback, bool $prepend):void
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Constructor
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L67)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L67)**</sub>
+#### Parameters
+
+* non-empty-string **$alias** - _$alias 
+Autoloader implementation name._
+* [\FireHub\Core\Initializers\Autoload\Callback](./Wiki-Callback) **$callback** - _The autoload function being registered._
+* bool **$prepend** - _If true, autoloader will be prepended queue instead of appending it._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If failed to register autoloader._
+#### Returns
+
+* void
 <h2><a name="include()"># method: include</a></h2>
 
 ```php
-public static Autoload::include(array $classes, callable $callback):void
+public static Autoload::include(class-string[] $classes, callable $callback):void
 ```
 
 
@@ -60,12 +184,11 @@ public static Autoload::include(array $classes, callable $callback):void
 _This list can be filled with classes that need to be loaded manually. This is useful if autoload itself has
 classes that need to be loader fist._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L123)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L123)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L119)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L119)**</sub>
 #### Parameters
 
-* array **$classes** - _<code>class-string[]</code>
-List of classes to be preloaders. These preloaders will be called in order as they are in the list._
+* class-string[] **$classes** - _List of classes to be preloaders. These preloaders will be called in order as they are in the list._
 * callable **$callback** - _<code>callable(string $class):string</code>
 Get a class path for including._
 #### Throws
@@ -87,7 +210,7 @@ Autoload::load([
 <h2><a name="append()"># method: append</a></h2>
 
 ```php
-public static Autoload::append(string $alias, callable|string $path):self
+public static Autoload::append(non-empty-string $alias, callable|non-empty-string $path):self
 ```
 
 
@@ -104,13 +227,12 @@ public static Autoload::append(string $alias, callable|string $path):self
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L182)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L182)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L175)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L175)**</sub>
 #### Parameters
 
-* string **$alias** - _<code>non-empty-string</code>
-Autoloader implementation name._
-* callable or string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
+* non-empty-string **$alias** - _Autoloader implementation name._
+* callable or non-empty-string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path._
 #### Throws
@@ -152,7 +274,7 @@ Autoload::append('MyApp', function (string $namespace, string $classname):string
 <h2><a name="register()"># method: register</a></h2>
 
 ```php
-public static Autoload::register(string $alias, callable|string $path):self
+public static Autoload::register(non-empty-string $alias, callable|non-empty-string $path):self
 ```
 
 
@@ -169,13 +291,12 @@ public static Autoload::register(string $alias, callable|string $path):self
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L212)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L212)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L202)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L202)**</sub>
 #### Parameters
 
-* string **$alias** - _<code>non-empty-string</code>
-Autoloader implementation name._
-* callable or string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
+* non-empty-string **$alias** - _Autoloader implementation name._
+* callable or non-empty-string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path._
 #### Throws
@@ -187,7 +308,7 @@ inside a root path._
 <h2><a name="prepend()"># method: prepend</a></h2>
 
 ```php
-public static Autoload::prepend(string $alias, callable|string $path):self
+public static Autoload::prepend(non-empty-string $alias, callable|non-empty-string $path):self
 ```
 
 
@@ -204,13 +325,12 @@ public static Autoload::prepend(string $alias, callable|string $path):self
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L247)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L247)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L234)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L234)**</sub>
 #### Parameters
 
-* string **$alias** - _<code>non-empty-string</code>
-Autoloader implementation name._
-* callable or string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
+* non-empty-string **$alias** - _Autoloader implementation name._
+* callable or non-empty-string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path._
 #### Throws
@@ -229,7 +349,7 @@ Autoload::prepend('MyApp', 'path_to_my_app/');
 <h2><a name="unregister()"># method: unregister</a></h2>
 
 ```php
-public static Autoload::unregister(string $alias):true
+public static Autoload::unregister(non-empty-string $alias):true
 ```
 
 
@@ -248,12 +368,11 @@ _Removes a function from the autoloaded queue. If the queue is activated and emp
 function, then it will be deactivated. When this function results in the queue being deactivated, any autoload
 function that previously existed will not be reactivated._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L282)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L282)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L267)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L267)**</sub>
 #### Parameters
 
-* string **$alias** - _<code>non-empty-string</code>
-Autoloader implementation name._
+* non-empty-string **$alias** - _Autoloader implementation name._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If failed to unregister the autoloader._
@@ -287,8 +406,8 @@ public static Autoload::implementations():\FireHub\Core\Initializers\Autoload\Lo
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L315)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L315)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L300)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L300)**</sub>
 #### Returns
 
 * [\FireHub\Core\Initializers\Autoload\Loaders](./Wiki-Loaders) - _List of autoloader implementations._
@@ -304,7 +423,7 @@ Autoload::implementations();
 <h2><a name="load()"># method: load</a></h2>
 
 ```php
-public static Autoload::load(string $class):void
+public static Autoload::load(class-string $class):void
 ```
 
 
@@ -321,12 +440,11 @@ public static Autoload::load(string $class):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L343)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L343)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L326)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L326)**</sub>
 #### Parameters
 
-* string **$class** - _<code>class-string</code>
-Fully qualified class name that is being called._
+* class-string **$class** - _Fully qualified class name that is being called._
 #### Returns
 
 * void
@@ -336,3 +454,34 @@ use FireHub\Core\Initializers\Autoload;
 
 Autoload::load('\MyApp\MyClass');
 ```
+
+<h2><a name="callback()"># method: callback</a></h2>
+
+```php
+private static Autoload::callback(callable|non-empty-string $path):\FireHub\Core\Initializers\Autoload\Callback
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Invoke autoload function
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L346)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L346)**</sub>
+#### Parameters
+
+* callable or non-empty-string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
+Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
+inside a root path._
+#### Returns
+
+* [\FireHub\Core\Initializers\Autoload\Callback](./Wiki-Callback) - _New autoload function._

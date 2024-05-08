@@ -97,13 +97,12 @@ final class StrSB extends StrSafe {
      * @param string $string <p>
      * The string to be chunked.
      * </p>
-     * @param int $length [optional] <p>
+     * @param positive-int $length [optional] <p>
      * The chunk length.
      * </p>
      * @param string $separator [optional] <p>
      * The line-ending sequence.
      * </p>
-     * @phpstan-param positive-int $length
      *
      * @throws ValueError If length is less than 1.
      *
@@ -134,15 +133,13 @@ final class StrSB extends StrSafe {
      * If the value of $length is negative, less than, or equal to the length of the input string, no padding takes
      * place.
      * </p>
-     * @param string $pad [optional] <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $pad [optional] <p>
      * The pad may be truncated if the required number of padding characters can't be evenly divided by the pad's
      * length.
      * </p>
      * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
      * Pad side.
      * </p>
-     * @phpstan-param non-empty-string $pad
      *
      * @throws Error If the pad is empty.
      *
@@ -164,13 +161,11 @@ final class StrSB extends StrSafe {
      * This function returns a string or an array with all occurrences of search in a subject replaced with the given replacement value.
      * @since 1.0.0
      *
-     * @param string|array $search <p>
-     * <code><![CDATA[ string|list<string> ]]></code>
+     * @param string|list<string> $search <p>
      * The replacement value that replaces found search values.
      * An array may be used to designate multiple replacements.
      * </p>
-     * @param string|array $replace <p>
-     * <code><![CDATA[ string|list<string> ]]></code>
+     * @param string|list<string> $replace <p>
      * The string being searched and replaced on.
      * </p>
      * @param string $string <p>
@@ -182,8 +177,6 @@ final class StrSB extends StrSafe {
      * @param null|int &$count [optional] <p>
      * If passed, this will hold the number of matched and replaced needles.
      * </p>
-     * @phpstan-param string|list<string> $search
-     * @phpstan-param string|list<string> $replace
      * @param-out int $count
      *
      * @return string String with the replaced values.
@@ -506,9 +499,7 @@ final class StrSB extends StrSafe {
      * The examined string.
      * </p>
      *
-     * @return array <code><![CDATA[ array<int, int> ]]></code> An array with the byte-value as a key with a frequency
-     * greater than zero are listed.
-     * @phpstan-return array<int, int>
+     * @return array<int, int> An array with the byte-value as a key with a frequency greater than zero are listed.
      */
     public static function countByChar (string $string):array {
 
@@ -524,19 +515,16 @@ final class StrSB extends StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $length [optional] <p>
      * Maximum length of the chunk.
      * </p>
-     * @phpstan-param positive-int $length
      *
      * @throws Error If length is less than 1.
      *
-     * @return array <code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
-     * @phpstan-return array<int, string>
+     * @return array<int, string> If the optional $length parameter is specified, the returned array will be broken down
+     * into chunks with each being $length in length, except the final chunk which may be shorter if the string does not
+     * divide evenly.
+     * The default $length is 1, meaning every chunk will be one byte in size.
      */
     public static function split (string $string, int $length = 1):array {
 
@@ -561,20 +549,17 @@ final class StrSB extends StrSafe {
      * @param null|string $characters [optional] <p>
      * A list of additional characters which will be considered as 'word'.
      * </p>
-     * @param int $format [optional] <p>
-     * <code><![CDATA[ 0|1|2 ]]></code>
+     * @param 0|1|2 $format [optional] <p>
      * A string to search words.
      * 0 - returns the number of words found.
      * 1 - returns an array containing all the words found inside the string.
      * 2 - returns an associative array, where the key is the numeric position of the word inside the string and the
      * value is the actual word itself.
      * </p>
-     * @phpstan-param 0|1|2 $format
      *
      * @throws Error If failed to count words for string.
      *
-     * @return int|array <code><![CDATA[ int|array<int, string> ]]></code> Number of words found or list of words.
-     * @phpstan-return int|array<int, string>
+     * @return int|array<int, string> Number of words found or list of words.
      */
     public static function countWords (string $string, string $characters = null, int $format = 0):int|array {
 
@@ -604,8 +589,7 @@ final class StrSB extends StrSafe {
      * plus the length is greater than the $string length. A negative length counts from the end of $string.
      * </p>
      *
-     * @return int <code>non-negative-int</code> Number of times the searched substring occurs in the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of times the searched substring occurs in the string.
      *
      * @note This method doesn't count overlapped substring.
      */
@@ -696,8 +680,7 @@ final class StrSB extends StrSafe {
      * The string being measured for length.
      * </p>
      *
-     * @return int <code>non-negative-int</code> String length.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int String length.
      *
      * @note The function returns the number of bytes rather than the number of characters in a string.
      */

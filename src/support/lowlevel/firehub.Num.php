@@ -52,8 +52,7 @@ abstract class Num {
      * The numeric value to process.
      * </p>
      *
-     * @return int|float <code>($number is int ? int : float)</code> The absolute value of number.
-     * @phpstan-return ($number is int ? int : float)
+     * @return ($number is int ? int : float) The absolute value of number.
      */
     final public static function absolute (float|int $number):float|int {
 
@@ -126,8 +125,7 @@ abstract class Num {
      * Specify the mode in which rounding occurs.
      * </p>
      *
-     * @return float|int <code>($precision is positive-int ? float : int)</code> Rounded number float.
-     * @phpstan-return ($precision is positive-int ? float : int)
+     * @return ($precision is positive-int ? float : int) Rounded number float.
      */
     final public static function round (float|int $number, int $precision = 0, Round $round = Round::HALF_UP):float|int {
 
@@ -211,8 +209,7 @@ abstract class Num {
      * Any comparable values.
      * </p>
      *
-     * @return int|float <code>TInt</code> Value considered "highest" according to standard comparisons.
-     * @phpstan-return TInt
+     * @return TInt Value considered "highest" according to standard comparisons.
      */
     final public static function max (float|int $value, float|int ...$values):float|int {
 
@@ -235,8 +232,7 @@ abstract class Num {
      * Any comparable values.
      * </p>
      *
-     * @return int|float <code>TInt</code> Value considered "lowest" according to standard comparisons.
-     * @phpstan-return TInt
+     * @return TInt Value considered "lowest" according to standard comparisons.
      */
     final public static function min (float|int $value, float|int ...$values):float|int {
 
@@ -276,8 +272,7 @@ abstract class Num {
      * @param int|float $number <p>
      * The number being formatted.
      * </p>
-     * @param int $decimals <p>
-     * <code>non-negative-int</code>
+     * @param non-negative-int $decimals <p>
      * Sets the number of decimal digits. If 0, the decimal_separator is omitted from the return value.
      * </p>
      * @param string $decimal_separator <p>
@@ -286,7 +281,6 @@ abstract class Num {
      * @param string $thousands_separator <p>
      * Sets the separator for thousands.
      * </p>
-     * @phpstan-param non-negative-int $decimals
      *
      * @return string A formatted version of number.
      */

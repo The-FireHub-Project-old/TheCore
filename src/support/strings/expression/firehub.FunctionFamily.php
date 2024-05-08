@@ -48,8 +48,7 @@ abstract class FunctionFamily {
      * ### Pattern enclosure
      * @since 1.0.0
      *
-     * @var string
-     * @phpstan-var non-empty-string
+     * @var non-empty-string
      */
     protected string $delimiter = '/';
 
@@ -57,8 +56,7 @@ abstract class FunctionFamily {
      * ### List of expression pattern modifiers
      * @since 1.0.0
      *
-     * @var array
-     * @phpstan-var \FireHub\Core\Support\Enums\String\Expression\Modifier[]
+     * @var \FireHub\Core\Support\Enums\String\Expression\Modifier[]
      */
     protected array $modifiers = [];
 
@@ -158,16 +156,12 @@ abstract class FunctionFamily {
      * @uses \FireHub\Core\Support\LowLevel\StrSB::capitalize() To capitalize method argument name.
      * @uses \FireHub\Core\Support\Strings\Expression\Pattern As return.
      *
-     * @param string $method <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $method <p>
      * Method name.
      * </p>
-     * @param array $arguments <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $arguments <p>
      * List of arguments.
      * </p>
-     * @phpstan-param non-empty-string $method
-     * @phpstan-param array<array-key, mixed> $arguments
      *
      * @throws Error If method doesn't exist.
      *

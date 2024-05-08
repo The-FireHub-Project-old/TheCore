@@ -39,8 +39,7 @@ final class Path {
      *
      * @throws Error If a system could not load your project phar.
      *
-     * @return string <code>non-empty-string</code> FireHub project path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string FireHub project path.
      */
     public static function project ():string {
 
@@ -62,8 +61,7 @@ final class Path {
      *
      * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
      *
-     * @return string <code>non-empty-string</code> FireHub Core path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string FireHub Core path.
      */
     public static function core ():string {
 
@@ -81,8 +79,7 @@ final class Path {
      *
      * @throws Error If a system could not get a current phar path.
      *
-     * @return string <code>non-empty-string</code> Current phar path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string Current phar path.
      */
     private static function phar (bool $return_phar):string {
 

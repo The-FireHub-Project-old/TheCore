@@ -48,21 +48,15 @@ final class DateAndTime {
      * properly defined.
      * @since 1.0.0
      *
-     * @param int $year <p>
-     * <code>int<1, 32767></code>
+     * @param int<1, 32767> $year <p>
      * The year is between 1 and 32767 inclusive
      * </p>
-     * @param int $month <p>
-     * <code>int<1, 12></code>
+     * @param int<1, 12> $month <p>
      * The month is between 1 and 12 inclusive.
      * </p>
-     * @param int $day <p>
-     * <code>int<1, 31></code>
+     * @param int<1, 31> $day <p>
      * The day is within the allowed number of days for the given month. Leap years are taken into consideration.
      * </p>
-     * @phpstan-param int<1, 32767> $year
-     * @phpstan-param int<1, 12> $month
-     * @phpstan-param int<1, 31> $day
      *
      * @return bool True, if the date given is valid, otherwise returns false.
      */
@@ -78,15 +72,11 @@ final class DateAndTime {
      * Method parses the given datetime string according to the same rules as [[DateAndTime#stringToTimestamp()]].
      * @since 1.0.0
      *
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * String representing the date/time.
      * </p>
-     * @phpstan-param non-empty-string $datetime
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> Associative array with detailed info about given
-     * date/time.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> Associative array with detailed info about given date/time.
      *
      * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
@@ -101,22 +91,16 @@ final class DateAndTime {
      * ### Get info about given date formatted according to the specified format
      * @since 1.0.0
      *
-     * @param string $format <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $format <p>
      * Format accepted by date with some extras.
      * </p>
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * String representing the date/time.
      * </p>
-     * @phpstan-param non-empty-string $format
-     * @phpstan-param non-empty-string $datetime
      *
      * @throws ValueError If $datetime contains NULL-bytes.
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> Associative array with detailed info about a
-     * given date/time.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> Associative array with detailed info about a given date/time.
      *
      * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
@@ -286,14 +270,12 @@ final class DateAndTime {
      * given in baseTimestamp, or the current time if baseTimestamp is not supplied.
      * @since 1.0.0
      *
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * A date/time string.
      * </p>
      * @param null|int $timestamp [optional] <p>
      * The timestamp which is used as a base for the calculation of relative dates.
      * </p>
-     * @phpstan-param non-empty-string $datetime
      *
      * @throws Error If we could not convert string to timestamp.
      * @error\exeption E_WARNING if the time zone is not valid.

@@ -54,7 +54,7 @@
 ### Used by
 <deflist>
     <def title="This enum is used by:">
-        <list><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Expression.md#check()">\FireHub\Core\Support\Strings\Expression::check()</a>  - <format style="italic">As parameter.</format></li><li><a href="Expression.md#get()">\FireHub\Core\Support\Strings\Expression::get()</a>  - <format style="italic">As parameter.</format></li><li><a href="Expression.md#replace()">\FireHub\Core\Support\Strings\Expression::replace()</a>  - <format style="italic">As parameter.</format></li><li><a href="Expression.md#split()">\FireHub\Core\Support\Strings\Expression::split()</a>  - <format style="italic">As parameter.</format></li></list>
+        <list><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="ReplaceFunc.md#__construct()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Split.md#__construct()">\FireHub\Core\Support\Strings\Expression\Split::__construct()</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>
 ### Cases
@@ -103,6 +103,11 @@
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This case is used by:">
+        <list><li><a href="IStr.md#expression()">\FireHub\Core\Support\IStr::expression()</a>  - <format style="italic">As default modifier.</format></li></list>
     </def>
 </deflist>
 ## case: MULTILINE {id="multiline"}
@@ -458,6 +463,11 @@ pattern will trigger an error of level E_WARNING. Five and six octet UTF-8 seque
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This case is used by:">
+        <list><li><a href="Char.md#expression()">\FireHub\Core\Support\Char::expression()</a>  - <format style="italic">As default modifier.</format></li><li><a href="IStr.md#expression()">\FireHub\Core\Support\IStr::expression()</a>  - <format style="italic">As default modifier.</format></li><li><a href="Str.md#expression()">\FireHub\Core\Support\Strings\Str::expression()</a>  - <format style="italic">As default modifier.</format></li></list>
     </def>
 </deflist>
 ## case: NO_AUTO_CAPTURE {id="no_auto_capture"}

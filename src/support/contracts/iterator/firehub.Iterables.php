@@ -44,8 +44,7 @@ interface Iterables extends Traversable, Iterator {
      * ### Return the current element
      * @since 1.0.0
      *
-     * @return mixed <code>TValue</code> Current element.
-     * @phpstan-return TValue
+     * @return TValue Current element.
      */
     public function current ():mixed;
 
@@ -53,8 +52,7 @@ interface Iterables extends Traversable, Iterator {
      * ### Return the key of the current element
      * @since 1.0.0
      *
-     * @return mixed <code>null|TKey</code> Key of the current element.
-     * @phpstan-return null|TKey
+     * @return null|TKey Key of the current element.
      */
     public function key ():mixed;
 

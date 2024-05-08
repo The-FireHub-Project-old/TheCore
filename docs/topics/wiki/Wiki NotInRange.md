@@ -25,12 +25,58 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|readonly private|<a href="#$from">from</a>|||
+|readonly private|<a href="#$until">until</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public|<a href="#regex()">regex</a>|### Get regex predefined pattern|
 
+<h2><a name="$from"># property: from</a></h2>
+
+```php
+readonly private \FireHub\Core\Support\Contracts\HighLevel\Characters $from
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L41)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L41)**</sub>
+<h2><a name="$until"># property: until</a></h2>
+
+```php
+readonly private \FireHub\Core\Support\Contracts\HighLevel\Characters $until
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L42)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L42)**</sub>
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php

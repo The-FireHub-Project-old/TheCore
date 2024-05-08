@@ -68,8 +68,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string <code>$string is non-empty-string ? non-empty-string : string</code> Converted string.
-     * @phpstan-return ($string is non-empty-string ? non-empty-string : string)
+     * @return ($string is non-empty-string ? non-empty-string : string) Converted string.
      */
     public static function convert (string $string, CaseFolding $caseFolding, Encoding $encoding = null):string {
 
@@ -198,22 +197,18 @@ final class StrMB extends StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $length [optional] <p>
      * Maximum length of the chunk.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param positive-int $length
      *
      * @throws Error If length is less than 1.
      *
-     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
-     * @phpstan-return list<non-empty-string>
+     * @return list<non-empty-string> If the optional $length parameter is specified, the returned array will be broken down into chunks with each being
+     * $length in length, except the final chunk which may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk
+     * will be one byte in size.
      */
     public static function split (string $string, int $length = 1, Encoding $encoding = null):array {
 
@@ -240,8 +235,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return int <code>non-negative-int</code> Number of times the searched substring occurs in the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of times the searched substring occurs in the string.
      */
     public static function partCount (string $string, string $search, Encoding $encoding = null):int {
 
@@ -264,8 +258,7 @@ final class StrMB extends StrSafe {
      *
      * @error\exeption E_WARNING If the encoding is unknown.
      *
-     * @return int <code>non-negative-int</code> String length.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int String length.
      */
     public static function length (string $string, Encoding $encoding = null):int {
 
@@ -295,8 +288,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return false|int Numeric position of the first occurrence or false if none exist.
-     * @phpstan-return non-negative-int|false
+     * @return false|non-negative-int Numeric position of the first occurrence or false if none exist.
      */
     public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
 
@@ -328,8 +320,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return false|int Numeric position of the last occurrence or false if none exist.
-     * @phpstan-return non-negative-int|false
+     * @return false|non-negative-int Numeric position of the last occurrence or false if none exist.
      */
     public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
 
@@ -354,10 +345,8 @@ final class StrMB extends StrSafe {
      * @throws ValueError If the value of encoding is an invalid encoding.
      * @throws Error If we could not get current encoding.
      *
-     * @return true|\FireHub\Core\Support\Enums\String\Encoding If encoding is set, then returns true. In this case, the
-     * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
-     * encoding name is returned.
-     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true)
+     * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true) If encoding is set, then returns true. In this case, the
+     * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned.
      */
     public static function encoding (Encoding $encoding = null):true|Encoding {
 

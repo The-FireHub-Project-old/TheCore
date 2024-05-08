@@ -31,12 +31,11 @@ final class Callback {
      * ### Constructor
      * @since 1.0.0
      *
-     * @param Closure(string $namespace, string $classname):(false|string)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @return void
      */
@@ -61,8 +60,7 @@ final class Callback {
      *
      * @throws Error If a system could not get class components.
      *
-     * @return array <code>array{namespace: string, classname: string}</code> Class components.
-     * @phpstan-return array{namespace: string, classname: string}
+     * @return array{namespace: string, classname: string} Class components.
      */
     private function classComponents (string $class):array {
 

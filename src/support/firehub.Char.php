@@ -42,14 +42,12 @@ class Char implements Characters {
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To check the length of the provided character.
      *
-     * @param string $character <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $character <p>
      * Character to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param non-empty-string $character
      *
      * @throws Error If char is not a single character.
      *
@@ -85,14 +83,12 @@ class Char implements Characters {
      * Char::from('F', Encoding::UTF_8);
      * ```
      *
-     * @param string $character <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $character <p>
      * Character to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param non-empty-string $character
      *
      * @throws Error If character si empty.
      *

@@ -301,7 +301,7 @@ The autoload function that will be unregistered.
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-    <![CDATA[public static SplAutoload::functions():array]]>
+    <![CDATA[public static SplAutoload::functions():array<array-key,mixed>]]>
 </code-block>
 
 
@@ -321,12 +321,12 @@ The autoload function that will be unregistered.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144">
                     View blame
                 </a>
             </def></deflist>
@@ -337,7 +337,7 @@ The autoload function that will be unregistered.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<array-key, mixed> ]]></code> An array of all registered autoload functions.
+        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">An array of all registered autoload functions.
 If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array.</format></li></list>
     </def>
 </deflist>
@@ -364,12 +364,12 @@ If no function is registered, or autoloaded queue is not activated, then the ret
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163">
                     View blame
                 </a>
             </def></deflist>

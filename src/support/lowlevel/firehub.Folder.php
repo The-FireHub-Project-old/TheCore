@@ -42,8 +42,7 @@ final class Folder extends FileSystem {
      * @uses \FireHub\Core\Support\Enums\FileSystem\Permission As parameter.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::int() To find whether octdec() returns an integer.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to folder ot disk partition.
      * </p>
      * @param \FireHub\Core\Support\Enums\FileSystem\Permission $owner <p>
@@ -58,7 +57,6 @@ final class Folder extends FileSystem {
      * @param bool $recursive [optional] <p>
      * If true, then any parent folders to the $path specified will also be created, with the same permissions.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not create a folder.
      * @error\exeption E_WARNING if the folder already exists or if the relevant permissions prevent creating folder.
@@ -81,11 +79,9 @@ final class Folder extends FileSystem {
      * Attempts to remove the folder named by $path.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not delete the folder.
      * @error\exeption E_WARNING if the folder is not empty, or relevant permissions mustn't permit this.
@@ -103,13 +99,11 @@ final class Folder extends FileSystem {
      * ### Tells whether the filename is a regular folder
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the folder. If filename is a relative filename, it will be checked relative to the current working
      * folder. If filename is a symbolic or hard link, then the link will be resolved and checked. If you have
      * enabled open_basedir, further restrictions may apply.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -127,11 +121,9 @@ final class Folder extends FileSystem {
      * ### Gets total size of a filesystem or disk partition
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to folder ot disk partition.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get disk space for a path.
      * @error\exeption E_WARNING if we could not get disk space for a path.
@@ -154,11 +146,9 @@ final class Folder extends FileSystem {
      * ### Gets free space of a filesystem or disk partition
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to folder ot disk partition.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get disk space for a path.
      * @error\exeption E_WARNING if we could not get disk space for a path.

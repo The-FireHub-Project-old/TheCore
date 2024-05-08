@@ -28,8 +28,8 @@ enum Round
 | Name | Title | Value |
 |:-----|:------|:------|
 |<a href="#half_up">HALF_UP</a>|### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2||
-|<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1||
-|<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2||
+|<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1||
+|<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2||
 |<a href="#half_odd">HALF_ODD</a>|### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3||
 
 <h2><a name="half_up"># case: HALF_UP</a></h2>
@@ -58,7 +58,7 @@ HALF_DOWN
 
 
 
-### ### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1
+### ### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1
 
 
 
@@ -74,7 +74,7 @@ HALF_EVEN
 
 
 
-### ### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
+### ### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2
 
 
 

@@ -176,16 +176,12 @@ abstract class Pattern {
      * @uses \FireHub\Core\Support\LowLevel\StrSB::capitalize() To capitalize method argument name.
      * @uses \FireHub\Core\Support\Strings\Expression\Pattern\Predefined::regex() To get regex predefined pattern.
      *
-     * @param string $method <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $method <p>
      * Method name.
      * </p>
-     * @param array $arguments <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $arguments <p>
      * List of arguments.
      * </p>
-     * @phpstan-param non-empty-string $method
-     * @phpstan-param array<array-key, mixed> $arguments
      *
      * @throws Error If method doesn't exist.
      *

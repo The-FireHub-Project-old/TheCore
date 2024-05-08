@@ -55,8 +55,8 @@
 | Name | Title | Value |
 |:-----|:------|:------|
 |<a href="#half_up">HALF_UP</a>|### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2||
-|<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1||
-|<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2||
+|<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1||
+|<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2||
 |<a href="#half_odd">HALF_ODD</a>|### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3||
 
 ## case: HALF_UP {id="half_up"}
@@ -93,7 +93,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Num.md#round()">\FireHub\Core\Support\LowLevel\Num::round()</a>  - <format style="italic">Round number enum.</format></li></list>
+        <list><li><a href="Numbers.md#round()">\FireHub\Core\Support\Contracts\HighLevel\Numbers::round()</a>  - <format style="italic">As default rounding.</format></li><li><a href="Numbers.md#asint()">\FireHub\Core\Support\Contracts\HighLevel\Numbers::asInt()</a>  - <format style="italic">As default rounding.</format></li><li><a href="Number.md#round()">\FireHub\Core\Support\Number::round()</a>  - <format style="italic">As default rounding.</format></li><li><a href="Number.md#asint()">\FireHub\Core\Support\Number::asInt()</a>  - <format style="italic">As default rounding.</format></li><li><a href="Num.md#round()">\FireHub\Core\Support\LowLevel\Num::round()</a>  - <format style="italic">Round number enum.</format></li></list>
     </def>
 </deflist>
 ## case: HALF_DOWN {id="half_down"}
@@ -109,7 +109,7 @@
 
 
 
-### ### Rounds number towards zero when it is half way there, making 1.5 into 1 and -1.5 into -1
+### ### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-### ### Rounds towards the nearest even value when it is half way there, making both 1.5 and 2.5 into 2
+### ### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2
 
 
 

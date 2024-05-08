@@ -72,14 +72,12 @@ abstract class StrSafe {
      * Performs a case-sensitive check indicating if $string begins with $value.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
      * @param string $string <p>
      * The string to search in.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return bool True if string starts with value, false otherwise.
      */
@@ -95,15 +93,12 @@ abstract class StrSafe {
      * Performs a case-sensitive check indicating if $string ends with $value.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
      * @param string $string <p>
      * The string to search in.
      * </p>
-     * @phpstan-param non-empty-string $value
-     *
      *
      * @return bool True if string ends with value, false otherwise.
      */
@@ -141,14 +136,12 @@ abstract class StrSafe {
      * Join array elements with a $separator string.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, null|scalar|Stringable> ]]></code>
+     * @param array<array-key, null|scalar|Stringable> $array <p>
      * The array of strings to implode.
      * </p>
      * @param string $separator [optional] <p>
      * The boundary string.
      * </p>
-     * @phpstan-param array<array-key, null|scalar|Stringable> $array
      *
      * @throws Error If array item could not be converted to string.
      *
@@ -216,10 +209,8 @@ abstract class StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param null|string|array $allowed_tags <p>
-     * <code><![CDATA[ null|string|array<int, string> ]]></code>
+     * @param null|string|array<int, string> $allowed_tags <p>
      * You can use the optional second parameter to specify tags which should not be stripped.
-     * @phpstan-param null|string|array<int, string> $allowed_tags
      *
      * @return string the Stripped string.
      *
@@ -314,25 +305,19 @@ abstract class StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param string $separator <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $separator <p>
      * The boundary string.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
      * element containing the rest of the string. If the limit parameter is negative, all components except the last
      * - limit are returned. If the limit parameter is zero, then this is treated as 1.
      * </p>
-     * @phpstan-param non-empty-string $separator
-     * @phpstan-param int<min, max> $limit
      *
      * @throws ValueError If separator is an empty string.
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-     * returned.
-     * @phpstan-return string[]
+     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+     * For any other limit, an array containing string will be returned.
      */
     final public static function explode (string $string, string $separator, int $limit = MAX):array {
 
@@ -369,13 +354,11 @@ abstract class StrSafe {
      * @param string $string <p>
      * The string being translated to.
      * </p>
-     * @param array $replace_pairs <p>
-     * <code><![CDATA[ array<non-empty-list, string> ]]></code>
+     * @param array<non-empty-string, string> $replace_pairs <p>
      * An array of key-value pairs for translation.
      * </p>
-     * @phpstan-param array<non-empty-string, string> $replace_pairs
      *
-     * @error\exeption E_WARNING If key for parameter $replace_pairs is empty.
+     * @error\exeption E_WARNING If the key for parameter $replace_pairs is empty.
      *
      * @return string The translated string.
      */

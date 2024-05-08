@@ -39,7 +39,7 @@ This class is marked as **final**.
 <h2><a name="count()"># method: count</a></h2>
 
 ```php
-public static Iterables::count(array|\Countable $array, bool $multidimensional = false):int
+public static Iterables::count(array<array-key,mixed>|\Countable $array, bool $multidimensional = false)
 ```
 
 
@@ -56,21 +56,20 @@ public static Iterables::count(array|\Countable $array, bool $multidimensional =
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L56)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L56)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L53)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L53)**</sub>
 #### Parameters
 
-* array or [\Countable](./Wiki-Countable) **$array** - _<code>array<array-key, mixed>|Countable</code>
-Array to count._
+* array&lt;array-key,mixed&gt; or [\Countable](./Wiki-Countable) **$array** - _Array to count._
 * bool **$multidimensional** = false - _[optional] 
 Count multidimensional items._
 #### Returns
 
-* int - _<code>non-negative-int</code> Number of elements in an array._
+*  - _non-negative-int Number of elements in an array._
 <h2><a name="current()"># method: current</a></h2>
 
 ```php
-public static Iterables::current(array $array):mixed
+public static Iterables::current(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):\FireHub\Core\Support\LowLevel\TValue|false
 ```
 
 
@@ -88,25 +87,24 @@ public static Iterables::current(array $array):mixed
 _Every array has an internal pointer to its "current" element, which is initialized to the first element
 inserted into the array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L92)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L92)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L87)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L87)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array._
 #### Returns
 
-* mixed - _<code>TValue|false</code> The current() function simply returns the value of the array element that is being pointed
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or false - _The current() function simply returns the value of the array element that is being pointed
 to with the internal pointer. It does not move the pointer in any way. If the internal pointer points beyond
 the end of the elements list or the array is empty, current() returns false._
 <h2><a name="key()"># method: key</a></h2>
 
 ```php
-public static Iterables::key(array $array):null|int|string
+public static Iterables::key(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):null|\FireHub\Core\Support\LowLevel\TKey
 ```
 
 
@@ -123,25 +121,24 @@ public static Iterables::key(array $array):null|int|string
 
 _Key returns the index element of the current array position._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L118)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L118)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L111)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L111)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array._
 #### Returns
 
-* null or int or string - _<code>TKey|null</code> The key() function simply returns the key of the array element
-that's currently being pointed to by the internal pointer. It does not move the pointer in any way. If the
-internal pointer points beyond the end of the elements list or the array is empty, key() returns null._
+* null or [\FireHub\Core\Support\LowLevel\TKey](./Wiki-TKey) - _The key() function simply returns the key of the array element that's currently being pointed to by the internal pointer.
+It does not move the pointer in any way.
+If the internal pointer points beyond the end of the elements list or the array is empty, key() returns null._
 <h2><a name="prev()"># method: prev</a></h2>
 
 ```php
-public static Iterables::prev(array &$array):mixed
+public static Iterables::prev(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|false
 ```
 
 
@@ -159,24 +156,23 @@ public static Iterables::prev(array &$array):mixed
 _Method prev() behaves just like next(), except it rewinds the internal array pointer one place instead of
 advancing it._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L151)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L151)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L142)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L142)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>&array<TKey, TValue></code>
-The input array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 #### Returns
 
-* mixed - _<code>TValue|false</code> Returns the array value in the previous place that's
-pointed to by the internal array pointer, or false if there are no more elements._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or false - _Returns the array value in the previous place that's pointed to by the internal array pointer,
+or false if there are no more elements._
 <h2><a name="next()"># method: next</a></h2>
 
 ```php
-public static Iterables::next(array &$array):mixed
+public static Iterables::next(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|false
 ```
 
 
@@ -195,24 +191,23 @@ _Method next() behaves like current(), with one difference.
 It advances the internal array pointer one place forward before returning the element value.
 That means it returns the next array value and advances the internal array pointer by one._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L186)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L186)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L175)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L175)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>&array<TKey, TValue></code>
-The array being affected._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array being affected._
 #### Returns
 
-* mixed - _<code>TValue|false</code> Returns the array value in the next place that's pointed to by the internal array
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or false - _Returns the array value in the next place that's pointed to by the internal array
 pointer, or false if there are no more elements._
 <h2><a name="reset()"># method: reset</a></h2>
 
 ```php
-public static Iterables::reset(array &$array):mixed
+public static Iterables::reset(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|false
 ```
 
 
@@ -230,24 +225,22 @@ public static Iterables::reset(array &$array):mixed
 _Method reset() rewinds array's internal pointer to the first element and returns the value of the first array
 element._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L220)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L220)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L206)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L206)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>&array<TKey, TValue></code>
-The input array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 #### Returns
 
-* mixed - _<code>TValue|false</code> Returns the value of the first array element, or false if the array is
-empty._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or false - _Returns the value of the first array element, or false if the array is empty._
 <h2><a name="end()"># method: end</a></h2>
 
 ```php
-public static Iterables::end(array &$array):mixed
+public static Iterables::end(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|false
 ```
 
 
@@ -264,16 +257,15 @@ public static Iterables::end(array &$array):mixed
 
 _Method end() advances array's internal pointer to the last element, and returns its value._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L249)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L249)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L233)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterables.php#L233)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>&array<TKey, TValue></code>
-The input array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 #### Returns
 
-* mixed - _<code>TValue|false</code> Returns the value of the last element or false for an empty array._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or false - _Returns the value of the last element or false for an empty array._

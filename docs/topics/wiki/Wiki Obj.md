@@ -106,7 +106,7 @@ may be reused for other objects._
 <h2><a name="classname()"># method: className</a></h2>
 
 ```php
-public static Obj::className(object $object):string
+public static Obj::className(object $object):class-string
 ```
 
 
@@ -123,18 +123,18 @@ public static Obj::className(object $object):string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L88)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L88)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L87)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L87)**</sub>
 #### Parameters
 
 * object **$object** - _The tested object._
 #### Returns
 
-* string - _<code>class-string</code> The name of the class of which object is an instance._
+* class-string - _The name of the class of which object is an instance._
 <h2><a name="properties()"># method: properties</a></h2>
 
 ```php
-public static Obj::properties(object $object):array
+public static Obj::properties(object $object):array<string,mixed>
 ```
 
 
@@ -151,19 +151,18 @@ public static Obj::properties(object $object):array
 
 _Gets the accessible non-static properties of the given object according to scope._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L110)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L110)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L107)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L107)**</sub>
 #### Parameters
 
 * object **$object** - _An object instance._
 #### Returns
 
-* array - _<code>array<string, mixed></code> An associative array of defined object-accessible
-non-static properties for a specified object in scope._
+* array&lt;string,mixed&gt; - _An associative array of defined object-accessible non-static properties for a specified object in scope._
 <h2><a name="mangledproperties()"># method: mangledProperties</a></h2>
 
 ```php
-public static Obj::mangledProperties(object $object):array
+public static Obj::mangledProperties(object $object):array<array-key,mixed>
 ```
 
 
@@ -183,19 +182,18 @@ few notable exceptions: private variables have the class name prepended to the v
 variables have a * prepended to the variable name. These prepended values have NUL bytes on either side.
 Uninitialized typed properties are silently discarded._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L133)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L133)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L128)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Obj.php#L128)**</sub>
 #### Parameters
 
 * object **$object** - _An object instance._
 #### Returns
 
-* array - _<code>array-key, mixed></code> An array containing all properties, regardless
-of visibility, of an object._
+* array&lt;array-key,mixed&gt; - _An array containing all properties, regardless of visibility, of an object._
 <h2><a name="methodexist()"># method: methodExist</a></h2>
 
 ```php
-public static ClsObj::methodExist(string|object $object_or_class, string $method):bool
+public static ClsObj::methodExist(class-string|object $object_or_class, non-empty-string $method):bool
 ```
 
 
@@ -212,21 +210,19 @@ public static ClsObj::methodExist(string|object $object_or_class, string $method
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L58)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L58)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L54)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L54)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-An object instance or a class name._
-* string **$method** - _<code>non-empty-string</code>
-The method name._
+* class-string or object **$object_or_class** - _An object instance or a class name._
+* non-empty-string **$method** - _The method name._
 #### Returns
 
 * bool - _True if the method given by method has been defined for the given object_or_class, false otherwise._
 <h2><a name="propertyexist()"># method: propertyExist</a></h2>
 
 ```php
-final public static ClsObj::propertyExist(string|object $object_or_class, string $property):bool
+final public static ClsObj::propertyExist(class-string|object $object_or_class, non-empty-string $property):bool
 ```
 
 
@@ -244,14 +240,12 @@ This method is marked as **final**.
 
 _This method checks if the given property exists in the specified class._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L87)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L87)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L79)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L79)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-The class name or an object of the class to test for._
-* string **$property** - _<code>non-empty-string</code>
-The name of the property._
+* class-string or object **$object_or_class** - _The class name or an object of the class to test for._
+* non-empty-string **$property** - _The name of the property._
 #### Returns
 
 * bool - _True if the property exists, false if it doesn't exist._
@@ -275,8 +269,8 @@ public static ClsObj::ofClass(string|object $object_or_class, string $class, boo
 
 _Checks if the given $object_or_class is of this object type or has this object type as one of its supertypes._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L104)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L104)**</sub>
 #### Parameters
 
 * string or object **$object_or_class** - _A class name or an object instance._
@@ -290,7 +284,7 @@ false otherwise._
 <h2><a name="subclassof()"># method: subClassOf</a></h2>
 
 ```php
-public static ClsObj::subClassOf(string|object $object_or_class, string $class, bool $autoload = true):bool
+public static ClsObj::subClassOf(class-string|object $object_or_class, class-string $class, bool $autoload = true):bool
 ```
 
 
@@ -307,13 +301,12 @@ public static ClsObj::subClassOf(string|object $object_or_class, string $class, 
 
 _Checks if the given object_or_class has the class $class as one of its parents or implements it._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L140)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L140)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L129)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L129)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-The tested class. No error is generated if the class does not exist._
-* string **$class** - _The class or interface name._
+* class-string or object **$object_or_class** - _The tested class. No error is generated if the class does not exist._
+* class-string **$class** - _The class or interface name._
 * bool **$autoload** = true - _[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method._
 #### Returns
@@ -323,7 +316,7 @@ false otherwise._
 <h2><a name="methods()"># method: methods</a></h2>
 
 ```php
-final public static ClsObj::methods(string|object $object_or_class):array
+final public static ClsObj::methods(class-string|object $object_or_class):string[]
 ```
 
 
@@ -341,22 +334,21 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L165)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L165)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-The class name or an object instance._
+* class-string or object **$object_or_class** - _The class name or an object instance._
 #### Throws
 
 * [\TypeError](./Wiki-TypeError) - _If $object_or_class is not an object or a valid class name._
 #### Returns
 
-* array - _<code>array<string></code> Returns an array of method names defined for the class._
+* string[] - _Returns an array of method names defined for the class._
 <h2><a name="parentclass()"># method: parentClass</a></h2>
 
 ```php
-final public static ClsObj::parentClass(string|object $object_or_class):string|false
+final public static ClsObj::parentClass(class-string|object $object_or_class):class-string|false
 ```
 
 
@@ -374,20 +366,19 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L185)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L185)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L168)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L168)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-The tested object or class name. This parameter is optional if called from the object's method._
+* class-string or object **$object_or_class** - _The tested object or class name. This parameter is optional if called from the object's method._
 #### Returns
 
-* string or false - _<code>class-string|false</code> The name of the parent class for the class that
-$object_or_class is an instance or the name, or false if object_or_class doesn't have a parent._
+* class-string or false - _The name of the parent class for the class that $object_or_class is an instance or the name, or false if object_or_class
+doesn't have a parent._
 <h2><a name="parents()"># method: parents</a></h2>
 
 ```php
-final public static ClsObj::parents(string|object $object_or_class, bool $autoload = true):array
+final public static ClsObj::parents(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>
 ```
 
 
@@ -405,12 +396,11 @@ This method is marked as **final**.
 
 _This function returns an array with the name of the parent classes of the given object_or_class._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L212)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L212)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L192)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L192)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-An object (class instance) or a string (class or interface name)._
+* class-string or object **$object_or_class** - _An object (class instance) or a string (class or interface name)._
 * bool **$autoload** = true - _[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method._
 #### Throws
@@ -418,11 +408,11 @@ Whether to allow this function to load the class automatically through the __aut
 * [\Error](./Wiki-Error) - _If $object_or_class does not exist and could not be loaded._
 #### Returns
 
-* array - _<code>array<string, class-string></code> An array on success._
+* array&lt;string,class-string&gt; - _An array on success._
 <h2><a name="implements()"># method: implements</a></h2>
 
 ```php
-final public static ClsObj::implements(string|object $object_or_class, bool $autoload = true):array
+final public static ClsObj::implements(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>
 ```
 
 
@@ -441,12 +431,11 @@ This method is marked as **final**.
 _This function returns an array with the names of the interfaces that the given object_or_class
 and its parents implement._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L241)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L241)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L218)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L218)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-An object (class instance) or a string (class or interface name)._
+* class-string or object **$object_or_class** - _An object (class instance) or a string (class or interface name)._
 * bool **$autoload** = true - _[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method._
 #### Throws
@@ -454,11 +443,11 @@ Whether to allow this function to load the class automatically through the __aut
 * [\Error](./Wiki-Error) - _If $object_or_class does not exist and could not be loaded._
 #### Returns
 
-* array - _<code>array<string, class-string></code> An array._
+* array&lt;string,class-string&gt; - _An array._
 <h2><a name="uses()"># method: uses</a></h2>
 
 ```php
-final public static ClsObj::uses(string|object $object_or_class, bool $autoload = true):array
+final public static ClsObj::uses(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>
 ```
 
 
@@ -477,12 +466,11 @@ This method is marked as **final**.
 _This function returns an array with the names of the traits that the given object_or_class uses.
 This does, however, not include any traits used by a parent class._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L270)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L270)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L244)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L244)**</sub>
 #### Parameters
 
-* string or object **$object_or_class** - _<code>class-string|object</code>
-An object (class instance) or a string (class or interface name)._
+* class-string or object **$object_or_class** - _An object (class instance) or a string (class or interface name)._
 * bool **$autoload** = true - _[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method._
 #### Throws
@@ -490,4 +478,4 @@ Whether to allow this function to load the class automatically through the __aut
 * [\Error](./Wiki-Error) - _If $object_or_class does not exist and could not be loaded._
 #### Returns
 
-* array - _<code>array<string, class-string></code> An array._
+* array&lt;string,class-string&gt; - _An array._

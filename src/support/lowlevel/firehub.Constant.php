@@ -34,16 +34,12 @@ final class Constant {
      * Defines a named constant at runtime.
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * The name of the constant.
      * </p>
-     * @param null|array|bool|float|int|string $value <p>
-     * <code><![CDATA[ null|array<array-key, mixed>|scalar ]]></code>
+     * @param null|array<array-key, mixed>|scalar $value <p>
      * The value of the constant.
      * </p>
-     * @phpstan-param non-empty-string $name
-     * @phpstan-param null|array<array-key, mixed>|scalar $value
      *
      * @Error If failed to define constant.
      *
@@ -62,11 +58,9 @@ final class Constant {
      * This function works also with class constants and enum cases.
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * The constant name.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @return bool True if the named constant given by name parameter has been defined, false otherwise.
      *
@@ -85,11 +79,9 @@ final class Constant {
      * I.e., it is stored in a variable or returned by a function.
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * The constant name.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @throws Error If the constant is not defined.
      *

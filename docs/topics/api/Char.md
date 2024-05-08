@@ -31,7 +31,7 @@
     </def><def title="Implements:">
         <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L35">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L37">
             View source code
         </a>
     </def>
@@ -66,12 +66,12 @@
 |public static |<a href="#from()">from</a>|### Create a new character from raw string|
 |public static |<a href="#fromcodepoint()">fromCodepoint</a>|### Create a new character from raw string|
 |public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#encoding()">encoding</a>|### Get or change character encoding|
 |public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a character lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a character uppercase|
 |public|<a href="#codepoint()">codepoint</a>|### Get character as codepoint|
-|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#__tostring()">__toString</a>||
 
 ## property: character {id="$character"}
@@ -137,7 +137,7 @@
 ## method: __construct {id="__construct()"}
 
 <code-block lang="php">
-    <![CDATA[public Char::__construct(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void]]>
+    <![CDATA[public Char::__construct(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void]]>
 </code-block>
 
 
@@ -178,8 +178,7 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$character</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$character</format> - <format style="italic">
 Character to use.
 </format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.
@@ -204,7 +203,7 @@ Character encoding. If it is null, the internal character encoding value will be
 ## method: from {id="from()"}
 
 <code-block lang="php">
-    <![CDATA[public static Char::from(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self]]>
+    <![CDATA[public static Char::from(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self]]>
 </code-block>
 
 
@@ -224,12 +223,12 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L97">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L97">
                     View blame
                 </a>
             </def></deflist>
@@ -239,9 +238,13 @@ Character encoding. If it is null, the internal character encoding value will be
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#tochars()">\FireHub\Core\Support\Strings\Str::toChars()</a>  - <format style="italic">To create a new character from raw string.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$character</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$character</format> - <format style="italic">
 Character to use.
 </format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.
@@ -294,12 +297,12 @@ Char::from('F', Encoding::UTF_8);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L149">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L149">
                     View blame
                 </a>
             </def></deflist>
@@ -363,7 +366,7 @@ echo $char->string();
 ## method: expression {id="expression()"}
 
 <code-block lang="php">
-    <![CDATA[public Char::expression()]]>
+    <![CDATA[public Char::expression(\FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers)]]>
 </code-block>
 
 
@@ -383,12 +386,12 @@ echo $char->string();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L169">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L168">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L169">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L168">
                     View blame
                 </a>
             </def></deflist>
@@ -399,9 +402,66 @@ echo $char->string();
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Expression.md">\FireHub\Core\Support\Strings\Expression</a>  - <format style="italic">As return.</format></li></list>
+        <list><li><a href="Modifier.md#multibyte">\FireHub\Core\Support\Enums\String\Expression\Modifier::MULTIBYTE</a>  - <format style="italic">As default modifier.</format></li><li><a href="Expression.md">\FireHub\Core\Support\Strings\Expression</a>  - <format style="italic">As return.</format></li></list>
     </def>
 </deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format> - <format style="italic">
+List of additional expression pattern modifiers.
+</format></li></list>
+    </def>
+</deflist>
+## method: asBoolean {id="asboolean()"}
+
+<code-block lang="php">
+    <![CDATA[public Char::asBoolean()]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical character value
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L190">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L190">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="asBoolean.md">\FireHub\Core\Support\Helpers\String\asBoolean()</a>  - <format style="italic">To convert raw string to boolean.</format></li></list>
+    </def>
+</deflist>
+```php
+use FireHub\Core\Support\Char;
+
+Char::from('1')->asBoolean();
+
+// true
+```
+
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
@@ -425,12 +485,12 @@ echo $char->string();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L194">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L215">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L194">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L215">
                     View blame
                 </a>
             </def></deflist>
@@ -486,12 +546,12 @@ Char::from('F')->encoding(Encoding::UTF_8);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L233">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L254">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L233">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L254">
                     View blame
                 </a>
             </def></deflist>
@@ -549,12 +609,12 @@ Char::from('F')->string('X');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L258">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L279">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L258">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L279">
                     View blame
                 </a>
             </def></deflist>
@@ -566,6 +626,11 @@ Char::from('F')->string('X');
 <deflist>
     <def title="This method uses:">
         <list><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert character.</format></li><li><a href="CaseFolding.md#lower">\FireHub\Core\Support\Enums\String\CaseFolding::LOWER</a>  - <format style="italic">To lowercase character.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#swapcase()">\FireHub\Core\Support\Strings\Str::swapCase()</a>  - <format style="italic">To make a character lowercase.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -599,12 +664,12 @@ Char::fromString('F')->toLower();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L283">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L304">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L283">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L304">
                     View blame
                 </a>
             </def></deflist>
@@ -616,6 +681,11 @@ Char::fromString('F')->toLower();
 <deflist>
     <def title="This method uses:">
         <list><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert character.</format></li><li><a href="CaseFolding.md#upper">\FireHub\Core\Support\Enums\String\CaseFolding::UPPER</a>  - <format style="italic">To uppercase character.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#swapcase()">\FireHub\Core\Support\Strings\Str::swapCase()</a>  - <format style="italic">To make a character uppercase.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -649,12 +719,12 @@ Char::fromString('f')->toUpper();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L311">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L332">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L311">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L332">
                     View blame
                 </a>
             </def></deflist>
@@ -683,51 +753,6 @@ echo $char->codepoint();
 // 70
 ```
 
-## method: asBoolean {id="asboolean()"}
-
-<code-block lang="php">
-    <![CDATA[public Char::asBoolean()]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Boolean representation of the given logical character value
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L331">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L331">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('Yes')->asBoolean();
-
-// true
-```
-
 ## method: __toString {id="__tostring()"}
 
 <code-block lang="php">
@@ -751,12 +776,12 @@ Str::from('Yes')->asBoolean();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L349">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L352">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L349">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L352">
                     View blame
                 </a>
             </def></deflist>

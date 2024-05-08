@@ -92,7 +92,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on the left side.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string to the left.</format></li></list>
+        <list><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on the left side.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string to the left.</format></li><li><a href="Str.md#pad()">\FireHub\Core\Support\Strings\Str::pad()</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>
 ## case: RIGHT {id="right"}
@@ -129,7 +129,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on the right side.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string to the right.</format></li></list>
+        <list><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on the right side.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string to the right.</format></li><li><a href="Str.md#pad()">\FireHub\Core\Support\Strings\Str::pad()</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>
 ## case: BOTH {id="both"}
@@ -166,6 +166,6 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on both sides.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string on both sides.</format></li></list>
+        <list><li><a href="Strings.md#pad()">\FireHub\Core\Support\Contracts\HighLevel\Strings::pad()</a>  - <format style="italic">As parameter.</format></li><li><a href="StrSafe.md#trim()">\FireHub\Core\Support\LowLevel\StrSafe::trim()</a>  - <format style="italic">If trimming string on both sides.</format></li><li><a href="StrSB.md#pad()">\FireHub\Core\Support\LowLevel\StrSB::pad()</a>  - <format style="italic">If padding string on both sides.</format></li><li><a href="Str.md#pad()">\FireHub\Core\Support\Strings\Str::pad()</a>  - <format style="italic">As parameter.</format></li><li><a href="Str.md#trim()">\FireHub\Core\Support\Strings\Str::trim()</a>  - <format style="italic">As parameter.</format></li></list>
     </def>
 </deflist>

@@ -65,7 +65,7 @@
 ## method: project {id="project()"}
 
 <code-block lang="php">
-    <![CDATA[public static Path::project():string]]>
+    <![CDATA[public static Path::project():non-empty-string]]>
 </code-block>
 
 
@@ -85,12 +85,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L44">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L44">
                     View blame
                 </a>
             </def></deflist>
@@ -111,13 +111,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic"><code>non-empty-string</code> FireHub project path.</format></li></list>
+        <list><li>non-empty-string - <format style="italic">FireHub project path.</format></li></list>
     </def>
 </deflist>
 ## method: core {id="core()"}
 
 <code-block lang="php">
-    <![CDATA[public static Path::core():string]]>
+    <![CDATA[public static Path::core():non-empty-string]]>
 </code-block>
 
 
@@ -137,12 +137,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L68">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L66">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L68">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L66">
                     View blame
                 </a>
             </def></deflist>
@@ -163,13 +163,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic"><code>non-empty-string</code> FireHub Core path.</format></li></list>
+        <list><li>non-empty-string - <format style="italic">FireHub Core path.</format></li></list>
     </def>
 </deflist>
 ## method: phar {id="phar()"}
 
 <code-block lang="php">
-    <![CDATA[private static Path::phar(bool $return_phar):string]]>
+    <![CDATA[private static Path::phar(bool $return_phar):non-empty-string]]>
 </code-block>
 
 
@@ -189,12 +189,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L87">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L84">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L87">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L84">
                     View blame
                 </a>
             </def></deflist>
@@ -222,6 +222,6 @@ If true, a full phar URL is returned; otherwise the full path on disk to the pha
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic"><code>non-empty-string</code> Current phar path.</format></li></list>
+        <list><li>non-empty-string - <format style="italic">Current phar path.</format></li></list>
     </def>
 </deflist>

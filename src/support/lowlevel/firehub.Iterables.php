@@ -39,19 +39,16 @@ final class Iterables {
      * ### Counts all elements in the array
      * @since 1.0.0
      *
-     * @param array|Countable $array <p>
-     * <code><![CDATA[ array<array-key, mixed>|Countable ]]></code>
+     * @param array<array-key, mixed>|Countable $array <p>
      * Array to count.
      * </p>
      * @param bool $multidimensional [optional] <p>
      * Count multidimensional items.
      * </p>
-     * @phpstan-param array<array-key, mixed>|Countable $array
      *
      * @error\exeption E_WARNING if multidimensional is on and method detect recursion to avoid an infinite loop.
      *
-     * @return int <code>non-negative-int</code> Number of elements in an array.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of elements in an array.
      */
     public static function count (array|Countable $array, bool $multidimensional = false):int {
 
@@ -69,16 +66,14 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array.
      * </p>
      * @phpstan-param array<TKey, TValue> $array
      *
-     * @return mixed <code>TValue|false</code> The current() function simply returns the value of the array element that is being pointed
+     * @return TValue|false The current() function simply returns the value of the array element that is being pointed
      * to with the internal pointer. It does not move the pointer in any way. If the internal pointer points beyond
      * the end of the elements list or the array is empty, current() returns false.
-     * @phpstan-return TValue|false
      *
      * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
@@ -104,16 +99,14 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array.
      * </p>
      * @phpstan-param array<TKey, TValue> $array
      *
-     * @return null|int|string <code>TKey|null</code> The key() function simply returns the key of the array element
-     * that's currently being pointed to by the internal pointer. It does not move the pointer in any way. If the
-     * internal pointer points beyond the end of the elements list or the array is empty, key() returns null.
-     * @phpstan-return TKey|null
+     * @return null|TKey The key() function simply returns the key of the array element that's currently being pointed to by the internal pointer.
+     * It does not move the pointer in any way.
+     * If the internal pointer points beyond the end of the elements list or the array is empty, key() returns null.
      */
     public static function key (array $array):null|int|string {
 
@@ -131,16 +124,14 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
-     * @return mixed <code>TValue|false</code> Returns the array value in the previous place that's
-     * pointed to by the internal array pointer, or false if there are no more elements.
-     * @phpstan-return TValue|false
+     * @return TValue|false Returns the array value in the previous place that's pointed to by the internal array pointer,
+     * or false if there are no more elements.
      *
      * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
@@ -165,16 +156,14 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The array being affected.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
-     * @return mixed <code>TValue|false</code> Returns the array value in the next place that's pointed to by the internal array
+     * @return TValue|false Returns the array value in the next place that's pointed to by the internal array
      * pointer, or false if there are no more elements.
-     * @phpstan-return TValue|false
      *
      * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
@@ -199,16 +188,13 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
-     * @return mixed <code>TValue|false</code> Returns the value of the first array element, or false if the array is
-     * empty.
-     * @phpstan-return TValue|false
+     * @return TValue|false Returns the value of the first array element, or false if the array is empty.
      *
      * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
@@ -232,15 +218,13 @@ final class Iterables {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ &array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The input array.
      * </p>
      * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
-     * @return mixed <code>TValue|false</code> Returns the value of the last element or false for an empty array.
-     * @phpstan-return TValue|false
+     * @return TValue|false Returns the value of the last element or false for an empty array.
      *
      * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return

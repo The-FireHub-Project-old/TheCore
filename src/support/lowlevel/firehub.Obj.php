@@ -82,8 +82,7 @@ final class Obj extends ClsObj {
      * The tested object.
      * </p>
      *
-     * @return string <code>class-string</code> The name of the class of which object is an instance.
-     * @phpstan-return class-string
+     * @return class-string The name of the class of which object is an instance.
      */
     public static function className (object $object):string {
 
@@ -101,9 +100,7 @@ final class Obj extends ClsObj {
      * An object instance.
      * </p>
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> An associative array of defined object-accessible
-     * non-static properties for a specified object in scope.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> An associative array of defined object-accessible non-static properties for a specified object in scope.
      *
      * @note Uninitialized properties are considered inaccessible, and thus will not be included in the array.
      */
@@ -126,9 +123,7 @@ final class Obj extends ClsObj {
      * An object instance.
      * </p>
      *
-     * @return array <code><![CDATA[ array-key, mixed> ]]></code> An array containing all properties, regardless
-     * of visibility, of an object.
-     * @phpstan-return array<array-key, mixed>
+     * @return array<array-key, mixed> An array containing all properties, regardless of visibility, of an object.
      */
     public static function mangledProperties (object $object):array {
 

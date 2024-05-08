@@ -57,11 +57,9 @@ final class Regex {
      * @param bool $all [optional] <p>
      * If true, search subject for a match to the regular expression given in a pattern.
      * </p>
-     * @param null|array &$result [optional] <p>
-     * <code>null|string[]</code>
+     * @param null|string[] &$result [optional] <p>
      * Regular expression match result.
      * </p>
-     * @phpstan-param null|string[] &$result
      * @param-out array $result
      *
      * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
@@ -173,9 +171,7 @@ final class Regex {
      * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
      * regex.
      *
-     * @return array <code>string[]</code> Array containing substrings of $string split along boundaries matched
-     * by $pattern.
-     * @phpstan-return string[]
+     * @return string[] Array containing substrings of $string split along boundaries matched by $pattern.
      */
     public static function split (string $pattern, string $string, int $limit = -1, bool $remove_empty = false):array {
 

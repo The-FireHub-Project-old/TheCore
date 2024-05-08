@@ -25,7 +25,7 @@
 <p><format style="italic">The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
 delimiters, a forward slash (/), for example. Delimiters can be any non-alphanumeric, non-whitespace ASCII character
 except the backslash (\) and the null byte. If the delimiter character has to be used in the expression itself,
-it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delimiters may also be used.</format></p>
+it needs to be escaped by backslash. Perl style (), }, [], and <> matching delimiters may also be used.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -36,7 +36,7 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Regex
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L36">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L39">
             View source code
         </a>
     </def>
@@ -65,11 +65,12 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 |public static |<a href="#replace()">replace</a>|### Perform a regular expression search and replace|
 |public static |<a href="#replacefunc()">replaceFunc</a>|### Perform a regular expression search and replace using a callback|
 |public static |<a href="#split()">split</a>|### Split string by a regular expression|
+|public static |<a href="#quote()">quote</a>|### Quote regular expression characters|
 
 ## method: match {id="match()"}
 
 <code-block lang="php">
-    <![CDATA[public static Regex::match(string $pattern, string $string, int $offset, bool $all = false, null|array &$result = null):bool]]>
+    <![CDATA[public static Regex::match(string $pattern, string $string, int $offset, bool $all = false, null|string[] &$result = null):bool]]>
 </code-block>
 
 
@@ -89,12 +90,12 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 <p><format style="italic">Searches subject for a match to the regular expression given in a pattern.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L73">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L73">
                     View blame
                 </a>
             </def></deflist>
@@ -119,8 +120,7 @@ Normally, the search starts from the beginning of the subject string. The option
 to specify the alternate place from which to start the search (in bytes).
 </format></li><li>bool <format style="bold">$all</format> = false - <format style="italic">[optional] 
 If true, search subject for a match to the regular expression given in a pattern.
-</format></li><li>by reference null or array <format style="bold">$result</format> = null - <format style="italic">[optional] 
-<code>null|string[]</code>
+</format></li><li>by reference null or string[] <format style="bold">$result</format> = null - <format style="italic">[optional] 
 Regular expression match result.
 </format></li></list>
     </def>
@@ -153,12 +153,12 @@ Regular expression match result.
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L107">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L107">
                     View blame
                 </a>
             </def></deflist>
@@ -169,7 +169,7 @@ Regular expression match result.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To perform a regular expression search and replace.</format></li></list>
+        <list><li><a href="asBoolean.md">\FireHub\Core\Support\Helpers\String\asBoolean()</a>  - <format style="italic">To replace spaces with empty value.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To perform a regular expression search and replace.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -219,18 +219,23 @@ Defaults to -1 (no limit).
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L142">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L143">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L142">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L143">
                     View blame
                 </a>
             </def></deflist>
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="ReplaceFunc.md#custom()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::custom()</a>  - <format style="italic">To perform a regular expression search and replace using a callback.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -263,7 +268,7 @@ Defaults to -1 (no limit).
 ## method: split {id="split()"}
 
 <code-block lang="php">
-    <![CDATA[public static Regex::split(string $pattern, string $string, int $limit = -1):array]]>
+    <![CDATA[public static Regex::split(string $pattern, string $string, int $limit = -1, bool $remove_empty = false):string[]]]>
 </code-block>
 
 
@@ -283,12 +288,12 @@ Defaults to -1 (no limit).
 <p><format style="italic">Split the given string by a regular expression.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L174">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L176">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L174">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L176">
                     View blame
                 </a>
             </def></deflist>
@@ -311,6 +316,8 @@ The input string.
 </format></li><li>int <format style="bold">$limit</format> = -1 - <format style="italic">[optional] 
 The maximum possible replacements for each pattern in each subject string.
 Defaults to -1 (no limit).
+</format></li><li>bool <format style="bold">$remove_empty</format> = false - <format style="italic">[optional] 
+If true, only non-empty pieces will be returned.
 </format></li></list>
     </def>
 </deflist>
@@ -321,7 +328,60 @@ Defaults to -1 (no limit).
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> Array containing substrings of $string split along boundaries matched
-by $pattern.</format></li></list>
+        <list><li>string[] - <format style="italic">Array containing substrings of $string split along boundaries matched by $pattern.</format></li></list>
+    </def>
+</deflist>
+## method: quote {id="quote()"}
+
+<code-block lang="php">
+    <![CDATA[public static Regex::quote(string $string, null|string $delimiter = null):string]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Quote regular expression characters
+
+<p><format style="italic">Method takes string and puts a backslash in front of every character that is part of the regular expression syntax.
+This is useful if you have a run-time string that you need to match in some text and the string may contain special regex characters.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L201">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L201">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$string</format> - <format style="italic">
+The input string.
+</format></li><li>null or string <format style="bold">$delimiter</format> = null - <format style="italic">[optional] 
+If the optional delimiter is specified, it will also be escaped.
+This is useful for escaping the delimiter required by the PCRE functions.
+The / is the most commonly used delimiter.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>string - <format style="italic">The quoted (escaped) string.</format></li></list>
     </def>
 </deflist>

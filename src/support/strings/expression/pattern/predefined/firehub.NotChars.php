@@ -28,11 +28,9 @@ final class NotChars implements Predefined {
      * ### Constructor
      * @since 1.0.0
      *
-     * @param array $characters <p>
-     * <code>\FireHub\Core\Support\Contracts\HighLevel\Characters[]</code>
+     * @param \FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters <p>
      * List of characters.
      * </p>
-     * @phpstan-param \FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters
      *
      * @return void
      */

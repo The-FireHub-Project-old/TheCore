@@ -89,19 +89,19 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L38">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L38">
                     View blame
                 </a>
             </def></deflist>
 ## method: __construct {id="__construct()"}
 
 <code-block lang="php">
-    <![CDATA[public Chars::__construct(array $characters):void]]>
+    <![CDATA[public Chars::__construct(\FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters):void]]>
 </code-block>
 
 
@@ -121,12 +121,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -137,8 +137,7 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$characters</format> - <format style="italic">
-<code>\FireHub\Core\Support\Contracts\HighLevel\Characters[]</code>
+        <list><li><a href="Characters[].md">\FireHub\Core\Support\Contracts\HighLevel\Characters[]</a> <format style="bold">$characters</format> - <format style="italic">
 List of characters.
 </format></li></list>
     </def>
@@ -171,12 +170,12 @@ List of characters.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L53">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L51">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L53">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.Chars.php#L51">
                     View blame
                 </a>
             </def></deflist>

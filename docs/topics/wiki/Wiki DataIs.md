@@ -45,7 +45,7 @@ This class is marked as **final**.
 <h2><a name="array()"># method: array</a></h2>
 
 ```php
-public static DataIs::array(mixed $value):bool
+public static DataIs::array(mixed $value):mixed
 ```
 
 
@@ -62,18 +62,18 @@ public static DataIs::array(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L52)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L52)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is array ? true : false)</code> True if value is array, false otherwise._
+* mixed - _True if value is array, false otherwise._
 <h2><a name="bool()"># method: bool</a></h2>
 
 ```php
-public static DataIs::bool(mixed $value):bool
+public static DataIs::bool(mixed $value):mixed
 ```
 
 
@@ -90,18 +90,18 @@ public static DataIs::bool(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L69)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L69)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is bool ? true : false)</code> True if value is boolean, false otherwise._
+* mixed - _True if value is boolean, false otherwise._
 <h2><a name="callable()"># method: callable</a></h2>
 
 ```php
-public static DataIs::callable(mixed $value):bool
+public static DataIs::callable(mixed $value):mixed
 ```
 
 
@@ -118,18 +118,18 @@ public static DataIs::callable(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L86)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L86)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is callable ? true : false)</code> True if value is callable, false otherwise._
+* mixed - _True if value is callable, false otherwise._
 <h2><a name="countable()"># method: countable</a></h2>
 
 ```php
-public static DataIs::countable(mixed $value):bool
+public static DataIs::countable(mixed $value):mixed
 ```
 
 
@@ -146,18 +146,18 @@ public static DataIs::countable(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L103)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L103)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is array|Countable ? true : false)</code> True if value is countable, false otherwise._
+* mixed - _True if value is countable, false otherwise._
 <h2><a name="float()"># method: float</a></h2>
 
 ```php
-public static DataIs::float(mixed $value):bool
+public static DataIs::float(mixed $value):mixed
 ```
 
 
@@ -174,18 +174,18 @@ public static DataIs::float(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L120)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L120)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is float ? true : false)</code> True if value is float, false otherwise._
+* mixed - _True if value is float, false otherwise._
 <h2><a name="int()"># method: int</a></h2>
 
 ```php
-public static DataIs::int(mixed $value):bool
+public static DataIs::int(mixed $value):mixed
 ```
 
 
@@ -202,18 +202,18 @@ public static DataIs::int(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L137)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L137)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is int ? true : false)</code> True if value is integer, false otherwise._
+* mixed - _True if value is integer, false otherwise._
 <h2><a name="iterable()"># method: iterable</a></h2>
 
 ```php
-public static DataIs::iterable(mixed $value):bool
+public static DataIs::iterable(mixed $value):mixed
 ```
 
 
@@ -230,18 +230,18 @@ public static DataIs::iterable(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L154)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L154)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is iterable ? true : false)</code> True if value is iterable, false otherwise._
+* mixed - _True if value is iterable, false otherwise._
 <h2><a name="null()"># method: null</a></h2>
 
 ```php
-public static DataIs::null(mixed $value):bool
+public static DataIs::null(mixed $value):mixed
 ```
 
 
@@ -258,18 +258,18 @@ public static DataIs::null(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L171)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L171)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is null ? true : false)</code> True if value is null, false otherwise._
+* mixed - _True if value is null, false otherwise._
 <h2><a name="numeric()"># method: numeric</a></h2>
 
 ```php
-public static DataIs::numeric(mixed $value):bool
+public static DataIs::numeric(mixed $value):mixed
 ```
 
 
@@ -286,18 +286,18 @@ public static DataIs::numeric(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is numeric ? true : false)</code> True if value is numeric, false otherwise._
+* mixed - _True if value is numeric, false otherwise._
 <h2><a name="object()"># method: object</a></h2>
 
 ```php
-public static DataIs::object(mixed $value):bool
+public static DataIs::object(mixed $value):mixed
 ```
 
 
@@ -314,18 +314,18 @@ public static DataIs::object(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L205)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L205)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is object ? true : false)</code> True if value is object, false otherwise._
+* mixed - _True if value is object, false otherwise._
 <h2><a name="resource()"># method: resource</a></h2>
 
 ```php
-public static DataIs::resource(mixed $value):bool
+public static DataIs::resource(mixed $value):mixed
 ```
 
 
@@ -342,18 +342,18 @@ public static DataIs::resource(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L222)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L222)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is resource ? true : false)</code> True if value is resource, false otherwise or if resource is closed._
+* mixed - _True if value is resource, false otherwise or if resource is closed._
 <h2><a name="scalar()"># method: scalar</a></h2>
 
 ```php
-public static DataIs::scalar(mixed $value):bool
+public static DataIs::scalar(mixed $value):mixed
 ```
 
 
@@ -370,18 +370,18 @@ public static DataIs::scalar(mixed $value):bool
 
 _Scalar values include: string, int, float and bool._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L241)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L241)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is scalar ? true : false)</code> True if value is scalar, false otherwise._
+* mixed - _True if value is scalar, false otherwise._
 <h2><a name="string()"># method: string</a></h2>
 
 ```php
-public static DataIs::string(mixed $value):bool
+public static DataIs::string(mixed $value):mixed
 ```
 
 
@@ -398,11 +398,11 @@ public static DataIs::string(mixed $value):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L258)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L258)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245)**</sub>
 #### Parameters
 
 * mixed **$value** - _Value to check._
 #### Returns
 
-* bool - _<code>($value is string ? true : false)</code> True if value is string, false otherwise._
+* mixed - _True if value is string, false otherwise._

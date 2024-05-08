@@ -36,11 +36,9 @@ final class NumInt extends Num {
      * @param int $dividend <p>
      * Number to be divided.
      * </p>
-     * @param int $divisor <p>
-     * <code>non-zero-int</code>
+     * @param non-zero-int $divisor <p>
      * Number which divides the $dividend.
      * </p>
-     * @phpstan-param non-zero-int $divisor
      *
      * @throws ArithmeticError If the $dividend is PHP_INT_MIN and the $divisor is -1.
      * @throws DivisionByZeroError If $divisor is 0.

@@ -52,11 +52,9 @@ class Str extends aStr {
      *
      * // MireXub
      *
-     * @param array $rules <p>
-     * <code><![CDATA[ array<non-empty-string, string> ]]></code>
+     * @param array<non-empty-string, string> $rules <p>
      * Find => Replace pattern rules.
      * </p>
-     * @phpstan-param array<non-empty-string, string> $rules
      *
      * @return $this This string.
      */

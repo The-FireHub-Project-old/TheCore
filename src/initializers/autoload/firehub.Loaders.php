@@ -29,8 +29,7 @@ final class Loaders {
      * ### List of loaders
      * @since 1.0.0
      *
-     * @var array
-     * @phpstan-var array<non-empty-string, callable(string):void>
+     * @var array<non-empty-string, callable(string):void>
      */
     private array $list = [];
 
@@ -38,16 +37,13 @@ final class Loaders {
      * ### Get loader callback
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * Loader name.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @throws Error If loader doesn't exist.
      *
-     * @return callable <code>callable(string):void</code> Loader callback.
-     * @phpstan-return callable(string):void
+     * @return callable(string $name):void Loader callback.
      */
     public function get (string $name):callable {
 
@@ -62,15 +58,13 @@ final class Loaders {
      * ### Adds a new loader
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * Loader name.
      * </p>
      * @param callable(string):void $callback <p>
      * <code>callable(string):void</code>
      * The autoload function being registered.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @throws Error If loader is empty, or loader already exists.
      *
@@ -93,11 +87,9 @@ final class Loaders {
      * ### Removes loader
      * @since 1.0.0
      *
-     * @param string $name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $name <p>
      * Loader name.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @throws Error If loader doesn't exist.
      *
@@ -118,9 +110,8 @@ final class Loaders {
      * ### Get list of autoloader implementations
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<non-empty-string, callable(string):void> ]]></code> List of autoloader
+     * @return array<non-empty-string, callable(string):void> <code><![CDATA[ array<non-empty-string, callable(string):void> ]]></code> List of autoloader
      * implementations.
-     * @phpstan-return array<non-empty-string, callable(string):void>
      */
     public function list ():array {
 

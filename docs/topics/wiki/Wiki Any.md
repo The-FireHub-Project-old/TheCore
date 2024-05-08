@@ -25,6 +25,11 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Any.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|inherited protected|<a href="#$function_family">function_family</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -126,6 +131,26 @@ This class is marked as **final**.
 |inherited magic public|<a href="#inrange()">inRange</a>||
 |inherited magic public|<a href="#notinrange()">notInRange</a>||
 
+<h2><a name="$function_family"># property: function_family</a></h2>
+
+```php
+protected \FireHub\Core\Support\Strings\Expression\FunctionFamily $function_family
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L136)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L136)**</sub>
 <h2><a name="regex()"># method: regex</a></h2>
 
 ```php
@@ -211,7 +236,7 @@ This method is marked as **final**.
 <h2><a name="__call()"># method: __call</a></h2>
 
 ```php
-public Pattern::__call(string $method, array $arguments):mixed
+public Pattern::__call(non-empty-string $method, array<array-key,mixed> $arguments):mixed
 ```
 
 
@@ -228,14 +253,12 @@ public Pattern::__call(string $method, array $arguments):mixed
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190)**</sub>
 #### Parameters
 
-* string **$method** - _<code>non-empty-string</code>
-Method name._
-* array **$arguments** - _<code>array<array-key, mixed></code>
-List of arguments._
+* non-empty-string **$method** - _Method name._
+* array&lt;array-key,mixed&gt; **$arguments** - _List of arguments._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If method doesn&#039;t exist._
@@ -1385,7 +1408,7 @@ public Pattern::notPunctuation():mixed
 
 
 
-_() ### Not-_
+_() ### Not punctuation_
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0)**</sub>

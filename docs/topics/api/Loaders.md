@@ -71,7 +71,7 @@
 ## property: list {id="$list"}
 
 <code-block lang="php">
-    <![CDATA[private array $list = []]]>
+    <![CDATA[private array<non-empty-string,callable> $list = []]]>
 </code-block>
 
 
@@ -89,12 +89,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L34">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L34">
                     View blame
                 </a>
             </def></deflist>
@@ -106,7 +106,7 @@
 ## method: get {id="get()"}
 
 <code-block lang="php">
-    <![CDATA[public Loaders::get(string $name):callable]]>
+    <![CDATA[public Loaders::get(non-empty-string $name):callable]]>
 </code-block>
 
 
@@ -126,12 +126,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L48">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L48">
                     View blame
                 </a>
             </def></deflist>
@@ -147,8 +147,7 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 Loader name.
 </format></li></list>
     </def>
@@ -160,13 +159,13 @@ Loader name.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>callable - <format style="italic"><code>callable(string):void</code> Loader callback.</format></li></list>
+        <list><li>callable - <format style="italic">Loader callback.</format></li></list>
     </def>
 </deflist>
 ## method: add {id="add()"}
 
 <code-block lang="php">
-    <![CDATA[public Loaders::add(string $name, callable $callback):true]]>
+    <![CDATA[public Loaders::add(non-empty-string $name, callable $callback):true]]>
 </code-block>
 
 
@@ -186,12 +185,12 @@ Loader name.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L79">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L73">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L79">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L73">
                     View blame
                 </a>
             </def></deflist>
@@ -207,8 +206,7 @@ Loader name.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 Loader name.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable(string):void</code>
@@ -229,7 +227,7 @@ The autoload function being registered.
 ## method: remove {id="remove()"}
 
 <code-block lang="php">
-    <![CDATA[public Loaders::remove(string $name):true]]>
+    <![CDATA[public Loaders::remove(non-empty-string $name):true]]>
 </code-block>
 
 
@@ -249,12 +247,12 @@ The autoload function being registered.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L98">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L98">
                     View blame
                 </a>
             </def></deflist>
@@ -270,8 +268,7 @@ The autoload function being registered.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 Loader name.
 </format></li></list>
     </def>
@@ -289,7 +286,7 @@ Loader name.
 ## method: list {id="list()"}
 
 <code-block lang="php">
-    <![CDATA[public Loaders::list():array]]>
+    <![CDATA[public Loaders::list():array<non-empty-string,callable>]]>
 </code-block>
 
 
@@ -309,12 +306,12 @@ Loader name.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L125">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L116">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L125">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L116">
                     View blame
                 </a>
             </def></deflist>
@@ -325,7 +322,7 @@ Loader name.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<non-empty-string, callable(string):void> ]]></code> List of autoloader
+        <list><li>array&lt;non-empty-string,callable&gt; - <format style="italic"><code><![CDATA[ array<non-empty-string, callable(string):void> ]]></code> List of autoloader
 implementations.</format></li></list>
     </def>
 </deflist>

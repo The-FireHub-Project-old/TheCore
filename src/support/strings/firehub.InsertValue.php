@@ -32,11 +32,9 @@ final class InsertValue {
      * @param \FireHub\Core\Support\Contracts\HighLevel\Strings $string <p>
      * String to use.
      * </p>
-     * @param string $value <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $value <p>
      * String to insert.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return void
      */

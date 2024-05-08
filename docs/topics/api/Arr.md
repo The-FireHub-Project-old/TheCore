@@ -122,7 +122,7 @@
 ## method: keyExist {id="keyexist()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::keyExist(array-key $key, array $array):bool]]>
+    <![CDATA[public static Arr::keyExist(array-key $key, array<array-key,mixed> $array):bool]]>
 </code-block>
 
 
@@ -142,12 +142,12 @@
 <p><format style="italic">Returns true if the given key is set in the array. Key can be any value possible for an array index.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L126">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L124">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L126">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L124">
                     View blame
                 </a>
             </def></deflist>
@@ -160,8 +160,7 @@
     <def title="This method has parameters:">
         <list><li>array-key <format style="bold">$key</format> - <format style="italic">
 Key to check.
-</format></li><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 An array with keys to check.
 </format></li></list>
     </def>
@@ -174,7 +173,7 @@ An array with keys to check.
 ## method: inArray {id="inarray()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::inArray(mixed $value, array $array):bool]]>
+    <![CDATA[public static Arr::inArray(mixed $value, array<array-key,mixed> $array):bool]]>
 </code-block>
 
 
@@ -194,12 +193,12 @@ An array with keys to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L148">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L144">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L148">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L144">
                     View blame
                 </a>
             </def></deflist>
@@ -209,12 +208,16 @@ An array with keys to check.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#titleize()">\FireHub\Core\Support\Strings\Str::titleize()</a>  - <format style="italic">Check if word is inside an ignore list.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 The searched value.
 note: If a needle is a string, the comparison is done in a case-sensitive manner.
-</format></li><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The array.
 </format></li></list>
     </def>
@@ -227,7 +230,7 @@ The array.
 ## method: isList {id="islist()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::isList(array $array):bool]]>
+    <![CDATA[public static Arr::isList(array<array-key,mixed> $array):mixed]]>
 </code-block>
 
 
@@ -248,12 +251,12 @@ The array.
 numbers from 0 to count($array)-1.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L172">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L165">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L172">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L165">
                     View blame
                 </a>
             </def></deflist>
@@ -264,21 +267,20 @@ numbers from 0 to count($array)-1.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The array being evaluated.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($array is list ? true: false)</code> True if an array is a list, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if an array is a list, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: multiSort {id="multisort()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::multiSort(array $array):bool]]>
+    <![CDATA[public static Arr::multiSort(array<array-key,array<array-key,mixed>> $array):bool]]>
 </code-block>
 
 
@@ -298,12 +300,12 @@ The array being evaluated.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L189">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L189">
                     View blame
                 </a>
             </def></deflist>
@@ -314,8 +316,7 @@ The array being evaluated.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, array<array-key, mixed>> ]]></code>
+        <list><li>array&lt;array-key,array&lt;array-key,mixed&gt;&gt; <format style="bold">$array</format> - <format style="italic">
 A multidimensional array being sorted.
 </format></li></list>
     </def>
@@ -333,7 +334,7 @@ A multidimensional array being sorted.
 ## method: walk {id="walk()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::walk(array &$array, callable $callback):true]]>
+    <![CDATA[public static Arr::walk(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true]]>
 </code-block>
 
 
@@ -354,12 +355,12 @@ A multidimensional array being sorted.
 internal array pointer of an array. Method will walk through the entire array regardless of pointer position.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L234">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L224">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L234">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L224">
                     View blame
                 </a>
             </def></deflist>
@@ -375,8 +376,7 @@ internal array pointer of an array. Method will walk through the entire array re
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to apply a user function.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (TValue $value, TKey $key):mixed</code>
@@ -401,7 +401,7 @@ elements, unset elements, etc.
 ## method: walkRecursive {id="walkrecursive()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::walkRecursive(array &$array, callable $callback):true]]>
+    <![CDATA[public static Arr::walkRecursive(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true]]>
 </code-block>
 
 
@@ -422,12 +422,12 @@ elements, unset elements, etc.
 deeper arrays.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L269">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L258">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L269">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L258">
                     View blame
                 </a>
             </def></deflist>
@@ -443,8 +443,7 @@ deeper arrays.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to apply a user function.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (TValue $value, TKey $key):mixed</code>
@@ -469,7 +468,7 @@ elements, unset elements, etc.
 ## method: countValues {id="countvalues()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::countValues(array $array):array]]>
+    <![CDATA[public static Arr::countValues(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):array<array-key,positive-int>]]>
 </code-block>
 
 
@@ -490,12 +489,12 @@ elements, unset elements, etc.
 $array as values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L296">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L281">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L296">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L281">
                     View blame
                 </a>
             </def></deflist>
@@ -511,22 +510,20 @@ $array as values.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array of values to count.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<array-key, positive-int> ]]></code> An associative array of values from
-input as keys and their count as value.</format></li></list>
+        <list><li>array&lt;array-key,positive-int&gt; - <format style="italic">An associative array of values from input as keys and their count as value.</format></li></list>
     </def>
 </deflist>
 ## method: fill {id="fill()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::fill(mixed $value, int $start_index, int $length):array]]>
+    <![CDATA[public static Arr::fill(\FireHub\Core\Support\LowLevel\TValue $value, int $start_index, int $length):array<int,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -547,12 +544,12 @@ input as keys and their count as value.</format></li></list>
 parameter.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L328">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L310">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L328">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L310">
                     View blame
                 </a>
             </def></deflist>
@@ -568,8 +565,7 @@ parameter.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>mixed <format style="bold">$value</format> - <format style="italic">
-<code>TValue</code>
+        <list><li><a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> <format style="bold">$value</format> - <format style="italic">
 Value to use for filling.
 </format></li><li>int <format style="bold">$start_index</format> - <format style="italic">
 The first index of the returned array.
@@ -583,13 +579,13 @@ The first index of the returned array.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<int, TValue> ]]></code> Filled array.</format></li></list>
+        <list><li>array&lt;int,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Filled array.</format></li></list>
     </def>
 </deflist>
 ## method: fillKeys {id="fillkeys()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::fillKeys(array $keys, mixed $value):array]]>
+    <![CDATA[public static Arr::fillKeys(array<array-key,array-key> $keys, \FireHub\Core\Support\LowLevel\TValue $value):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -609,12 +605,12 @@ The first index of the returned array.
 <p><format style="italic">Fills an array with the value of the $value parameter, using the values of the $keys array as keys.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L360">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L339">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L360">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L339">
                     View blame
                 </a>
             </def></deflist>
@@ -630,12 +626,10 @@ The first index of the returned array.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$keys</format> - <format style="italic">
-<code><![CDATA[ array<array-key, array-key> ]]></code>
+        <list><li>array&lt;array-key,array-key&gt; <format style="bold">$keys</format> - <format style="italic">
 Array of values that will be used as keys.
 Illegal values for a key will be converted to string.
-</format></li><li>mixed <format style="bold">$value</format> - <format style="italic">
-<code>TValue</code>
+</format></li><li><a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> <format style="bold">$value</format> - <format style="italic">
 Value to use for filling.
 </format></li></list>
     </def>
@@ -647,13 +641,13 @@ Value to use for filling.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The filled array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The filled array.</format></li></list>
     </def>
 </deflist>
 ## method: foldKeys {id="foldkeys()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::foldKeys(array $array, \FireHub\Core\Support\Enums\String\CaseFolding $case = CaseFolding::LOWER):array]]>
+    <![CDATA[public static Arr::foldKeys(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, \FireHub\Core\Support\Enums\String\CaseFolding $case = CaseFolding::LOWER):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -673,12 +667,12 @@ Value to use for filling.
 <p><format style="italic">Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L395">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L373">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L395">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L373">
                     View blame
                 </a>
             </def></deflist>
@@ -699,8 +693,7 @@ Value to use for filling.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to work on.
 </format></li><li><a href="CaseFolding.md">\FireHub\Core\Support\Enums\String\CaseFolding</a> <format style="bold">$case</format> = CaseFolding::LOWER - <format style="italic">[optional] 
 <code>\FireHub\Core\Support\Enums\String\CaseFolding::LOWER|\FireHub\Core\Support\Enums\String\CaseFolding::UPPER</code>
@@ -710,13 +703,13 @@ Either LOWER or UPPER case folding.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array with its keys lower or uppercased.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array with its keys lower or uppercased.</format></li></list>
     </def>
 </deflist>
 ## method: chunk {id="chunk()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::chunk(array $array, positive-int $length, bool $preserve_keys = false):array]]>
+    <![CDATA[public static Arr::chunk(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, positive-int $length, bool $preserve_keys = false):mixed]]>
 </code-block>
 
 
@@ -736,12 +729,12 @@ Either LOWER or UPPER case folding.
 <p><format style="italic">Chunks an array into arrays with $length elements. The last chunk may contain less than $length elements.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L430">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L406">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L430">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L406">
                     View blame
                 </a>
             </def></deflist>
@@ -757,8 +750,7 @@ Either LOWER or UPPER case folding.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array.
 </format></li><li>positive-int <format style="bold">$length</format> - <format style="italic">
 The size of each chunk.
@@ -776,14 +768,14 @@ Default is false that will reindex the chunk numerically.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ ($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>) ]]></code>
-Multidimensional numerically indexed array, starting with zero, with each dimension containing $length elements.</format></li></list>
+        <list><li>mixed - <format style="italic">Multidimensional numerically indexed array, starting with zero,
+with each dimension containing $length elements.</format></li></list>
     </def>
 </deflist>
 ## method: column {id="column()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::column(array $array, int|string $key, null|int|string $index = null):array]]>
+    <![CDATA[public static Arr::column(array<array-key,array<array-key,\FireHub\Core\Support\LowLevel\TValue>> $array, \FireHub\Core\Support\LowLevel\TKey $key, null|\FireHub\Core\Support\LowLevel\TKey $index = null):mixed]]>
 </code-block>
 
 
@@ -805,12 +797,12 @@ be provided to $index the values in the returned array by the values from the in
 input array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L472">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L442">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L472">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L442">
                     View blame
                 </a>
             </def></deflist>
@@ -826,17 +818,15 @@ input array.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, array<TKey, TValue>> ]]></code>
+        <list><li>array&lt;array-key,array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt;&gt; <format style="bold">$array</format> - <format style="italic">
 A multidimensional array (record set) from which to pull a column of values. If an array of objects is provided,
 then public properties can be directly pulled. In order for protected or private properties to be pulled,
 the class must implement both the __get() and __isset() magic methods.
-</format></li><li>int or string <format style="bold">$key</format> - <format style="italic">
-<code>TKey</code>
+</format></li><li><a href="TKey.md">\FireHub\Core\Support\LowLevel\TKey</a> <format style="bold">$key</format> - <format style="italic">
 The column of values to return. This value may be an integer key of the column you wish to retrieve, or it may
 be a string key name for an associative array or property name. It may also be null to return complete arrays or
 objects (this is useful together with $index to reindex the array).
-</format></li><li>null or int or string <format style="bold">$index</format> = null - <format style="italic">[optional] 
+</format></li><li>null or <a href="TKey.md">\FireHub\Core\Support\LowLevel\TKey</a> <format style="bold">$index</format> = null - <format style="italic">[optional] 
 <code>null|TKey</code>
 The column to use as the index/keys for the returned array. This value may be the integer key of the column,
 or it may be the string key name. The value is cast as usual for array keys.
@@ -845,14 +835,13 @@ or it may be the string key name. The value is cast as usual for array keys.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ ($index is null ? array<TValue> : array<TValue, TValue>) ]]></code> Array of values
-representing a single column from the input array.</format></li></list>
+        <list><li>mixed - <format style="italic">Array of values representing a single column from the input array.</format></li></list>
     </def>
 </deflist>
 ## method: combine {id="combine()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::combine(array $keys, array $values):array]]>
+    <![CDATA[public static Arr::combine(array<array-key,array-key> $keys, array<array-key,\FireHub\Core\Support\LowLevel\TValue> $values):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -873,12 +862,12 @@ representing a single column from the input array.</format></li></list>
 corresponding values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L505">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L471">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L505">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L471">
                     View blame
                 </a>
             </def></deflist>
@@ -894,12 +883,10 @@ corresponding values.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$keys</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TKey> ]]></code>
+        <list><li>array&lt;array-key,array-key&gt; <format style="bold">$keys</format> - <format style="italic">
 Array of values to be used as keys.
 Illegal values for a key will be converted to string.
-</format></li><li>array <format style="bold">$values</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+</format></li><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$values</format> - <format style="italic">
 Array of values to be used as values on a combined array.
 </format></li></list>
     </def>
@@ -911,13 +898,13 @@ Array of values to be used as values on a combined array.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The combined array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The combined array.</format></li></list>
     </def>
 </deflist>
 ## method: difference {id="difference()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::difference(array $array, array ...$excludes):array]]>
+    <![CDATA[public static Arr::difference(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -936,6 +923,63 @@ Array of values to be used as values on a combined array.
 
 <p><format style="italic">Compares an array against one or more other arrays and returns the values in array that are not present in any of
 the other arrays.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has templates:">
+        <list><li>TKey of array-key</li><li>TValue</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
+The array to compare from.
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">[optional] 
+An array to compare against.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
+    </def>
+</deflist>
+## method: differenceFunc {id="differencefunc()"}
+
+<code-block lang="php">
+    <![CDATA[public static Arr::differenceFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Computes the difference of arrays using values for comparison by using a callback for comparison
+
+<p><format style="italic">Computes the difference of arrays by using a callback function for data comparison. This is unlike
+[[Arr#difference()]] which uses an internal function for comparing the data.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L539">
@@ -959,71 +1003,9 @@ the other arrays.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>variadic array <format style="bold">$excludes</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
-An array to compare against.
-</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from
-$array that are not present in any of the other arrays.</format></li></list>
-    </def>
-</deflist>
-## method: differenceFunc {id="differencefunc()"}
-
-<code-block lang="php">
-    <![CDATA[public static Arr::differenceFunc(array $array, array $excludes, callable $callback):array]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Computes the difference of arrays using values for comparison by using a callback for comparison
-
-<p><format style="italic">Computes the difference of arrays by using a callback function for data comparison. This is unlike
-[[Arr#difference()]] which uses an internal function for comparing the data.</format></p>
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L581">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L581">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has templates:">
-        <list><li>TKey of array-key</li><li>TValue</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
-The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1034,14 +1016,13 @@ is considered to be respectively less than, equal to, or greater than the second
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceKey {id="differencekey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceKey(array $array, array ...$excludes):array]]>
+    <![CDATA[public static Arr::differenceKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1062,12 +1043,12 @@ that are not present in any of the other arrays.</format></li></list>
 [[Arr#difference()]] except the comparison is done on the keys instead of the values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L615">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L569">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L615">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L569">
                     View blame
                 </a>
             </def></deflist>
@@ -1083,25 +1064,22 @@ that are not present in any of the other arrays.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>variadic array <format style="bold">$excludes</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">[optional] 
 An array to compare against.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> Returns an array containing all the entries from
-array whose keys are absent from all the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Returns an array containing all the entries from array whose keys are absent from all the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceKeyFunc {id="differencekeyfunc()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceKeyFunc(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::differenceKeyFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1122,12 +1100,12 @@ array whose keys are absent from all the other arrays.</format></li></list>
 [[Arr#difference()]] except the comparison is done on the keys instead of the values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L656">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L606">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L656">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L606">
                     View blame
                 </a>
             </def></deflist>
@@ -1143,11 +1121,9 @@ array whose keys are absent from all the other arrays.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1157,14 +1133,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceAssoc {id="differenceassoc()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceAssoc(array $array, array ...$excludes):array]]>
+    <![CDATA[public static Arr::differenceAssoc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1185,12 +1160,12 @@ that are not present in any of the other arrays.</format></li></list>
 also used in the comparison.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L692">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L638">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L692">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L638">
                     View blame
                 </a>
             </def></deflist>
@@ -1206,25 +1181,22 @@ also used in the comparison.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>variadic array <format style="bold">$excludes</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">[optional] 
 An array to compare against.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceAssocFuncValue {id="differenceassocfuncvalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceAssocFuncValue(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::differenceAssocFuncValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1244,12 +1216,12 @@ that are not present in any of the other arrays.</format></li></list>
 <p><format style="italic">Computes the difference of arrays with additional index check, compares data by a callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L733">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L675">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L733">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L675">
                     View blame
                 </a>
             </def></deflist>
@@ -1265,11 +1237,9 @@ that are not present in any of the other arrays.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1279,14 +1249,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceAssocFuncKey {id="differenceassocfunckey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceAssocFuncKey(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::differenceAssocFuncKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1308,12 +1277,12 @@ used in the comparison. Unlike [[Arr#differenceAssoc()]], a user-supplied callba
 indices comparison, not internal function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L775">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L713">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L775">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L713">
                     View blame
                 </a>
             </def></deflist>
@@ -1329,11 +1298,9 @@ indices comparison, not internal function.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1343,14 +1310,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> Returns an array containing all the entries from
-$array that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Returns an array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: differenceAssocFuncKeyValue {id="differenceassocfunckeyvalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::differenceAssocFuncKeyValue(array $array, array $excludes, callable $callback_value, callable $callback_key):array]]>
+    <![CDATA[public static Arr::differenceAssocFuncKeyValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback_value, callable $callback_key):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1371,12 +1337,12 @@ $array that are not present in any of the other arrays.</format></li></list>
 Note that the keys are used in the comparison unlike [[Arr#difference()]] and [[Arr#differenceFunc()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L755">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L755">
                     View blame
                 </a>
             </def></deflist>
@@ -1392,11 +1358,9 @@ Note that the keys are used in the comparison unlike [[Arr#difference()]] and [[
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback_value</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1409,14 +1373,13 @@ The comparison function for key.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-that are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: intersect {id="intersect()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersect(array $array, array ...$arrays):array]]>
+    <![CDATA[public static Arr::intersect(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1437,12 +1400,12 @@ that are not present in any of the other arrays.</format></li></list>
 preserved.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L854">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L785">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L854">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L785">
                     View blame
                 </a>
             </def></deflist>
@@ -1458,24 +1421,22 @@ preserved.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array with main values to check.
-</format></li><li>variadic array <format style="bold">$arrays</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$arrays</format> - <format style="italic">[optional] 
 An array to compare values against.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The filtered array.</format></li></list>
     </def>
 </deflist>
 ## method: intersectFunc {id="intersectfunc()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectFunc(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::intersectFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1495,12 +1456,12 @@ An array to compare values against.
 <p><format style="italic">Computes the intersection of arrays, compares data by a callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L894">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L894">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821">
                     View blame
                 </a>
             </def></deflist>
@@ -1516,11 +1477,9 @@ An array to compare values against.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1530,14 +1489,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> Arrays containing all the entries from $array that
-are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Arrays containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: intersectKey {id="intersectkey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectKey(array $array, array ...$arrays):array]]>
+    <![CDATA[public static Arr::intersectKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1557,12 +1515,12 @@ are not present in any of the other arrays.</format></li></list>
 <p><format style="italic">Returns an array containing all the entries of array which have keys that are present in all the arguments.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L923">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L847">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L923">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L847">
                     View blame
                 </a>
             </def></deflist>
@@ -1578,24 +1536,22 @@ are not present in any of the other arrays.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array with main values to check.
-</format></li><li>variadic array <format style="bold">$arrays</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$arrays</format> - <format style="italic">[optional] 
 An array to compare values against.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The filtered array.</format></li></list>
     </def>
 </deflist>
 ## method: intersectKeyFunc {id="intersectkeyfunc()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectKeyFunc(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::intersectKeyFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1616,12 +1572,12 @@ An array to compare values against.
 arguments.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L962">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L882">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L962">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L882">
                     View blame
                 </a>
             </def></deflist>
@@ -1637,11 +1593,9 @@ arguments.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1651,14 +1605,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: intersectAssoc {id="intersectassoc()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectAssoc(array $array, array ...$arrays):array]]>
+    <![CDATA[public static Arr::intersectAssoc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1679,12 +1632,12 @@ are not present in any of the other arrays.</format></li></list>
 are also used in the comparison unlike in [[Arr#intersect()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L995">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L912">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L995">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L912">
                     View blame
                 </a>
             </def></deflist>
@@ -1700,24 +1653,22 @@ are also used in the comparison unlike in [[Arr#intersect()]].</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array with main values to check.
-</format></li><li>variadic array <format style="bold">$arrays</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$arrays</format> - <format style="italic">[optional] 
 An array to compare values against.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The filtered array.</format></li></list>
     </def>
 </deflist>
 ## method: intersectAssocFuncValue {id="intersectassocfuncvalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectAssocFuncValue(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::intersectAssocFuncValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1739,12 +1690,12 @@ that the keys are used in the comparison unlike in [[Arr#intersectFunc()]]. The 
 callback function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1035">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L948">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1035">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L948">
                     View blame
                 </a>
             </def></deflist>
@@ -1760,11 +1711,9 @@ callback function.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">$callback 
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1774,14 +1723,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: intersectAssocFuncKey {id="intersectassocfunckey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectAssocFuncKey(array $array, array $excludes, callable $callback):array]]>
+    <![CDATA[public static Arr::intersectAssocFuncKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1802,12 +1750,12 @@ are not present in any of the other arrays.</format></li></list>
 callback functions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1076">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L985">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1076">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L985">
                     View blame
                 </a>
             </def></deflist>
@@ -1823,11 +1771,9 @@ callback functions.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1837,14 +1783,13 @@ The comparison function.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: intersectAssocFuncKeyValue {id="intersectassocfunckeyvalue()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::intersectAssocFuncKeyValue(array $array, array $excludes, callable $callback_value, callable $callback_key):array]]>
+    <![CDATA[public static Arr::intersectAssocFuncKeyValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback_value, callable $callback_key):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1865,12 +1810,12 @@ are not present in any of the other arrays.</format></li></list>
 callback functions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1121">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1026">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1121">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1026">
                     View blame
                 </a>
             </def></deflist>
@@ -1886,11 +1831,9 @@ callback functions.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to compare from.
-</format></li><li>array <format style="bold">$excludes</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$excludes</format> - <format style="italic">
 An array to compare against.
 </format></li><li>callable <format style="bold">$callback_value</format> - <format style="italic">
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
@@ -1903,14 +1846,13 @@ The comparison function for key.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-are not present in any of the other arrays.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">An array containing all the entries from $array that are not present in any of the other arrays.</format></li></list>
     </def>
 </deflist>
 ## method: filter {id="filter()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::filter(array $array, null|callable $callback = null, bool $pass_value = false):array]]>
+    <![CDATA[public static Arr::filter(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, null|callable $callback = null, bool $pass_value = false, bool $pass_key = false):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -1932,12 +1874,12 @@ returns true, the current value from an $array is returned into the result array
 may result in gaps if the $array was indexed. The result array can be re-indexed using the values() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1160">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1067">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1160">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1067">
                     View blame
                 </a>
             </def></deflist>
@@ -1953,7 +1895,7 @@ may result in gaps if the $array was indexed. The result array can be re-indexed
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To filter string keys in statistics.</format></li></list>
+        <list><li><a href="FileSystem.md#statistics()">\FireHub\Core\Support\LowLevel\FileSystem::statistics()</a>  - <format style="italic">To filter string keys in statistics.</format></li><li><a href="Str.md#break()">\FireHub\Core\Support\Strings\Str::break()</a>  - <format style="italic">To filter out empty strings.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1963,27 +1905,28 @@ may result in gaps if the $array was indexed. The result array can be re-indexed
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to iterate over.
 </format></li><li>null or callable <format style="bold">$callback</format> = null - <format style="italic">[optional] 
 <code>null|callable (TValue, TKey=):bool</code>
 The callback function to use.
 If no callback is supplied, all empty and false entries of an array will be removed.
 </format></li><li>bool <format style="bold">$pass_value</format> = false - <format style="italic">[optional] 
-Pass value in addition to key as the argument to callback.
+Pass value as the argument to callback.
+</format></li><li>bool <format style="bold">$pass_key</format> = false - <format style="italic">[optional] 
+Pass key as the argument to callback.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> Filtered array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Filtered array.</format></li></list>
     </def>
 </deflist>
 ## method: flip {id="flip()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::flip(array $array):array]]>
+    <![CDATA[public static Arr::flip(array<array-key,array-key> $array):array<array-key,array-key>]]>
 </code-block>
 
 
@@ -2007,12 +1950,12 @@ result. If a value has several occurrences, the latest key will be used as its v
 lost.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1195">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1102">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1195">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1102">
                     View blame
                 </a>
             </def></deflist>
@@ -2028,21 +1971,20 @@ lost.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,array-key&gt; <format style="bold">$array</format> - <format style="italic">
 The array to flip.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The flipped array.</format></li></list>
+        <list><li>array&lt;array-key,array-key&gt; - <format style="italic">The flipped array.</format></li></list>
     </def>
 </deflist>
 ## method: keys {id="keys()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::keys(array $array, mixed $filter = null):array]]>
+    <![CDATA[public static Arr::keys(array<array-key,mixed> $array, mixed $filter = null):list]]>
 </code-block>
 
 
@@ -2063,12 +2005,12 @@ The array to flip.
 value are returned. Otherwise, all the keys from the array are returned.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1220">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1124">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1220">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1124">
                     View blame
                 </a>
             </def></deflist>
@@ -2079,8 +2021,7 @@ value are returned. Otherwise, all the keys from the array are returned.</format
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 An array containing keys to return.
 </format></li><li>mixed <format style="bold">$filter</format> = null - <format style="italic">[optional] 
 If specified, then only keys containing these values are returned.
@@ -2089,13 +2030,13 @@ If specified, then only keys containing these values are returned.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ list<mixed> ]]></code> An array of all the keys in input.</format></li></list>
+        <list><li>list - <format style="italic">An array of all the keys in input.</format></li></list>
     </def>
 </deflist>
 ## method: values {id="values()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::values(array $array):array]]>
+    <![CDATA[public static Arr::values(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):\FireHub\Core\Support\LowLevel\TValue[]]]>
 </code-block>
 
 
@@ -2115,12 +2056,12 @@ If specified, then only keys containing these values are returned.
 <p><format style="italic">Returns all the values from the array and indexes the array numerically.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1245">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1146">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1245">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1146">
                     View blame
                 </a>
             </def></deflist>
@@ -2136,21 +2077,20 @@ If specified, then only keys containing these values are returned.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TValue> ]]></code> An indexed array of values.</format></li></list>
+        <list><li><a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> - <format style="italic">An indexed array of values.</format></li></list>
     </def>
 </deflist>
 ## method: map {id="map()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::map(array $array, callable $callback):array]]>
+    <![CDATA[public static Arr::map(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, callable $callback):array<array-key,mixed>]]>
 </code-block>
 
 
@@ -2173,12 +2113,12 @@ number of arrays passed to map(). Excess input arrays are ignored. An ArgumentCo
 insufficient number of arguments is provided.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1279">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1279">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1178">
                     View blame
                 </a>
             </def></deflist>
@@ -2194,8 +2134,7 @@ insufficient number of arguments is provided.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to run through the callback function.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>null|callable (TValue $value):mixed</code>
@@ -2207,14 +2146,13 @@ If only an array is provided, map() will return the input array.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, mixed> ]]></code> Array containing all the elements of arr1 after
-applying the callback function.</format></li></list>
+        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">Array containing all the elements of arr1 after applying the callback function.</format></li></list>
     </def>
 </deflist>
 ## method: merge {id="merge()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::merge(array ...$arrays):array]]>
+    <![CDATA[public static Arr::merge(array<array-key,\FireHub\Core\Support\LowLevel\TValue> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -2238,12 +2176,12 @@ value will not overwrite the original value, but will be appended. Values in the
 keys will be renumbered with incrementing keys starting from zero in the result array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1312">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1210">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1312">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1210">
                     View blame
                 </a>
             </def></deflist>
@@ -2253,27 +2191,31 @@ keys will be renumbered with incrementing keys starting from zero in the result 
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#titleize()">\FireHub\Core\Support\Strings\Str::titleize()</a>  - <format style="italic">To merge all ignored cases.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has templates:">
         <list><li>TKey of array-key</li><li>TValue</li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>variadic array <format style="bold">$arrays</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>variadic array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$arrays</format> - <format style="italic">[optional] 
 Variable list of arrays to merge.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The resulting array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The resulting array.</format></li></list>
     </def>
 </deflist>
 ## method: mergeRecursive {id="mergerecursive()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::mergeRecursive(array ...$arrays):array]]>
+    <![CDATA[public static Arr::mergeRecursive(array<array-key,mixed> ...$arrays):array<array-key,mixed>]]>
 </code-block>
 
 
@@ -2297,12 +2239,12 @@ itself, the function will merge it with a corresponding entry in another array t
 have the same numeric key, the later value will not overwrite the original value, but will be appended.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1337">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1232">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1337">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1232">
                     View blame
                 </a>
             </def></deflist>
@@ -2313,21 +2255,20 @@ have the same numeric key, the later value will not overwrite the original value
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>variadic array <format style="bold">$arrays</format> - <format style="italic">[optional] 
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>variadic array&lt;array-key,mixed&gt; <format style="bold">$arrays</format> - <format style="italic">[optional] 
 Variable list of arrays to recursively merge.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<array-key, mixed> ]]></code> The resulting array.</format></li></list>
+        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">The resulting array.</format></li></list>
     </def>
 </deflist>
 ## method: pad {id="pad()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::pad(array $array, int $length, mixed $value):array]]>
+    <![CDATA[public static Arr::pad(array<array-key,mixed> $array, int $length, mixed $value):array<array-key,mixed>]]>
 </code-block>
 
 
@@ -2350,12 +2291,12 @@ less than or equal to the length of the array, then no padding takes place. It i
 1048576 elements at a time.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1371">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1263">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1371">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1263">
                     View blame
                 </a>
             </def></deflist>
@@ -2366,8 +2307,7 @@ less than or equal to the length of the array, then no padding takes place. It i
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 Initial array of values to pad.
 </format></li><li>int <format style="bold">$length</format> - <format style="italic">
 New size of the array.
@@ -2380,13 +2320,13 @@ Value to pad if input is less than length.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<array-key, mixed> ]]></code> A copy of the input padded to size specified by $length with value $value.</format></li></list>
+        <list><li>array&lt;array-key,mixed&gt; - <format style="italic">A copy of the input padded to size specified by $length with value $value.</format></li></list>
     </def>
 </deflist>
 ## method: replace {id="replace()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::replace(array $array, array ...$replacements):array]]>
+    <![CDATA[public static Arr::replace(\FireHub\Core\Support\LowLevel\TValue[] $array, array ...$replacements):\FireHub\Core\Support\LowLevel\TValue[]]]>
 </code-block>
 
 
@@ -2411,12 +2351,12 @@ processed in order, the later arrays overwriting the previous values. Method is 
 values in the first array by whatever type is in the second array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1404">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1291">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1404">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1291">
                     View blame
                 </a>
             </def></deflist>
@@ -2432,21 +2372,20 @@ values in the first array by whatever type is in the second array.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TValue> ]]></code>
+        <list><li><a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> <format style="bold">$array</format> - <format style="italic">
 The array in which elements are replaced.
 </format></li><li>variadic array <format style="bold">$replacements</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TValue> ]]></code> The resulting array.</format></li></list>
+        <list><li><a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> - <format style="italic">The resulting array.</format></li></list>
     </def>
 </deflist>
 ## method: replaceRecursive {id="replacerecursive()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::replaceRecursive(array $array, array ...$replacements):array]]>
+    <![CDATA[public static Arr::replaceRecursive(\FireHub\Core\Support\LowLevel\TValue[] $array, array ...$replacements):\FireHub\Core\Support\LowLevel\TValue[]]]>
 </code-block>
 
 
@@ -2472,12 +2411,12 @@ will be replaced by the value in the second array, may it be scalar or array. Wh
 array and the second array are both arrays, replaceRecursive() will replace their respective values recursively.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1438">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1320">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1438">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1320">
                     View blame
                 </a>
             </def></deflist>
@@ -2493,21 +2432,20 @@ array and the second array are both arrays, replaceRecursive() will replace thei
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TValue> ]]></code>
+        <list><li><a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> <format style="bold">$array</format> - <format style="italic">
 The array in which elements are replaced.
 </format></li><li>variadic array <format style="bold">$replacements</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TValue> ]]></code> The resulting array.</format></li></list>
+        <list><li><a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> - <format style="italic">The resulting array.</format></li></list>
     </def>
 </deflist>
 ## method: reverse {id="reverse()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::reverse(array $array, bool $preserve_keys = false):array]]>
+    <![CDATA[public static Arr::reverse(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, bool $preserve_keys = false):mixed]]>
 </code-block>
 
 
@@ -2527,12 +2465,12 @@ The array in which elements are replaced.
 <p><format style="italic">Takes an input array and returns a new array with the order of the elements reversed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1466">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1346">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1466">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1346">
                     View blame
                 </a>
             </def></deflist>
@@ -2542,14 +2480,18 @@ The array in which elements are replaced.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#reverse()">\FireHub\Core\Support\Strings\Str::reverse()</a>  - <format style="italic">To reverse string characters.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has templates:">
         <list><li>TKey of array-key</li><li>TValue</li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to reverse.
 </format></li><li>bool <format style="bold">$preserve_keys</format> = false - <format style="italic">[optional] 
 Whether you want to preserve keys from an original array or not.
@@ -2559,13 +2501,13 @@ Non-numeric keys are not affected by this setting and will always be preserved.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) ]]></code> The reversed array.</format></li></list>
+        <list><li>mixed - <format style="italic">The reversed array.</format></li></list>
     </def>
 </deflist>
 ## method: slice {id="slice()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::slice(array $array, int $offset, null|int $length = null, bool $preserve_keys = false):array]]>
+    <![CDATA[public static Arr::slice(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, int $offset, null|int $length = null, bool $preserve_keys = false):mixed]]>
 </code-block>
 
 
@@ -2585,12 +2527,12 @@ Non-numeric keys are not affected by this setting and will always be preserved.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1503">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1381">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1503">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1381">
                     View blame
                 </a>
             </def></deflist>
@@ -2606,8 +2548,7 @@ Non-numeric keys are not affected by this setting and will always be preserved.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
 </format></li><li>int <format style="bold">$offset</format> - <format style="italic">
 If the offset is non-negative, the sequence will start at that offset in the array.
@@ -2624,13 +2565,13 @@ You can change this behavior by setting preserve_keys to true.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ ($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>) ]]></code> Sliced array.</format></li></list>
+        <list><li>mixed - <format style="italic">Sliced array.</format></li></list>
     </def>
 </deflist>
 ## method: splice {id="splice()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::splice(array &$array, int $offset, null|int $length = null, mixed $replacement = []):array]]>
+    <![CDATA[public static Arr::splice(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, int $offset, null|int $length = null, mixed $replacement = []):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -2651,12 +2592,12 @@ You can change this behavior by setting preserve_keys to true.
 of the replacement array, if supplied.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1550">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1427">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1550">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1427">
                     View blame
                 </a>
             </def></deflist>
@@ -2672,8 +2613,7 @@ of the replacement array, if supplied.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to splice.
 </format></li><li>int <format style="bold">$offset</format> - <format style="italic">
 If the offset is positive, then the start of the removed portion is at that offset from the beginning of the
@@ -2694,13 +2634,13 @@ Keys in a replacement array are not preserved.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey|int, TValue> ]]></code> Spliced array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">Spliced array.</format></li></list>
     </def>
 </deflist>
 ## method: unique {id="unique()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::unique(array $array):array]]>
+    <![CDATA[public static Arr::unique(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):array<array-key,\FireHub\Core\Support\LowLevel\TValue>]]>
 </code-block>
 
 
@@ -2720,12 +2660,12 @@ Keys in a replacement array are not preserved.
 <p><format style="italic">Takes an input array and returns a new array without duplicate values.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1577">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1453">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1577">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1453">
                     View blame
                 </a>
             </def></deflist>
@@ -2741,21 +2681,20 @@ Keys in a replacement array are not preserved.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to remove duplicates.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.</format></li></list>
+        <list><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - <format style="italic">The filtered array.</format></li></list>
     </def>
 </deflist>
 ## method: range {id="range()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::range(int|float|string $start, int|float|string $end, int|float $step = 1):array]]>
+    <![CDATA[public static Arr::range(int|float|string $start, int|float|string $end, positive-int|float $step = 1):array<int,int|float|string>]]>
 </code-block>
 
 
@@ -2775,12 +2714,12 @@ The array to remove duplicates.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1613">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1486">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1613">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1486">
                     View blame
                 </a>
             </def></deflist>
@@ -2790,12 +2729,17 @@ The array to remove duplicates.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#shuffle()">\FireHub\Core\Support\Strings\Str::shuffle()</a>  - <format style="italic">To create an array containing a range of elements.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>int or float or string <format style="bold">$start</format> - <format style="italic">
 First value of the sequence.
 </format></li><li>int or float or string <format style="bold">$end</format> - <format style="italic">
 The sequence is ended upon reaching the end value.
-</format></li><li>int or float <format style="bold">$step</format> = 1 - <format style="italic">[optional] 
+</format></li><li>positive-int or float <format style="bold">$step</format> = 1 - <format style="italic">[optional] 
 If a step value is given, it will be used as the increment between elements in the sequence. Step should be
 given as a positive number. If not specified, a step will default to 1.
 </format></li></list>
@@ -2810,14 +2754,13 @@ string.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<int, int|float|string> ]]></code> An array of elements from start to end,
-inclusive, false otherwise.</format></li></list>
+        <list><li>array&lt;int,int or float or string&gt; - <format style="italic">An array of elements from start to end, inclusive, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: random {id="random()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::random(array $array, int $number = 1):array|int|string]]>
+    <![CDATA[public static Arr::random(array<array-key,mixed> $array, positive-int $number = 1):array<int,array-key>|int|string]]>
 </code-block>
 
 
@@ -2837,12 +2780,12 @@ inclusive, false otherwise.</format></li></list>
 <p><format style="italic">Picks one or more random entries out of an array, and returns the key (or keys) of the random entries.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1644">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1513">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1644">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1513">
                     View blame
                 </a>
             </def></deflist>
@@ -2853,10 +2796,9 @@ inclusive, false otherwise.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
-</format></li><li>int <format style="bold">$number</format> = 1 - <format style="italic">[optional] 
+</format></li><li>positive-int <format style="bold">$number</format> = 1 - <format style="italic">[optional] 
 Specifies how many entries should be picked.
 </format></li></list>
     </def>
@@ -2868,14 +2810,14 @@ Specifies how many entries should be picked.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array or int or string - <format style="italic"><code><![CDATA[ array<int, array-key>|int|string ]]></code> When picking only one entry,
-array_rand() returns the key for a random entry. Otherwise, an array of keys for the random entries is returned.</format></li></list>
+        <list><li>array&lt;int,array-key&gt; or int or string - <format style="italic">When picking only one entry, array_rand() returns the key for a random entry.
+Otherwise, an array of keys for the random entries is returned.</format></li></list>
     </def>
 </deflist>
 ## method: reduce {id="reduce()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::reduce(array $array, callable $callback, mixed $initial = null):mixed]]>
+    <![CDATA[public static Arr::reduce(array<array-key,mixed> $array, callable $callback, mixed $initial = null):mixed]]>
 </code-block>
 
 
@@ -2895,12 +2837,12 @@ array_rand() returns the key for a random entry. Otherwise, an array of keys for
 <p><format style="italic">Iteratively applies the $callback function to the elements of the $array, to reduce the array to a single value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1672">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1539">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1672">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1539">
                     View blame
                 </a>
             </def></deflist>
@@ -2911,8 +2853,7 @@ array_rand() returns the key for a random entry. Otherwise, an array of keys for
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (mixed $carry, mixed $item):mixed</code>
@@ -2931,7 +2872,7 @@ or as a final result in case the array is empty.
 ## method: pop {id="pop()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::pop(array &$array):mixed]]>
+    <![CDATA[public static Arr::pop(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|null]]>
 </code-block>
 
 
@@ -2951,12 +2892,12 @@ or as a final result in case the array is empty.
 <p><format style="italic">Pops and returns the last element value of th $array, shortening the $array by one element.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1698">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1562">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1698">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1562">
                     View blame
                 </a>
             </def></deflist>
@@ -2977,21 +2918,20 @@ or as a final result in case the array is empty.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array to get the value from.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic"><code>TValue|null</code> The last value of an array. If an array is empty (or is not an array), null will be returned.</format></li></list>
+        <list><li><a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> or null - <format style="italic">The last value of an array. If an array is empty (or is not an array), null will be returned.</format></li></list>
     </def>
 </deflist>
 ## method: push {id="push()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::push(array &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int]]>
+    <![CDATA[public static Arr::push(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int]]>
 </code-block>
 
 
@@ -3012,12 +2952,12 @@ The array to get the value from.
 increases by the number of variables pushed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1728">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1590">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1728">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1590">
                     View blame
                 </a>
             </def></deflist>
@@ -3033,8 +2973,7 @@ increases by the number of variables pushed.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
 </format></li><li>variadic <a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> <format style="bold">$values</format> - <format style="italic">[optional] 
 The values to push onto the end of the array.
@@ -3049,7 +2988,7 @@ The values to push onto the end of the array.
 ## method: shift {id="shift()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::shift(array &$array):mixed]]>
+    <![CDATA[public static Arr::shift(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|null]]>
 </code-block>
 
 
@@ -3071,12 +3010,12 @@ everything down. All numerical array keys will be modified to start counting fro
 be affected.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1756">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1615">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1756">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1615">
                     View blame
                 </a>
             </def></deflist>
@@ -3097,21 +3036,20 @@ be affected.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to shift.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic"><code>TValue|null</code> The shifted value, or null if an array is empty or is not an array.</format></li></list>
+        <list><li><a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> or null - <format style="italic">The shifted value, or null if an array is empty or is not an array.</format></li></list>
     </def>
 </deflist>
 ## method: unshift {id="unshift()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::unshift(array &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int]]>
+    <![CDATA[public static Arr::unshift(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int]]>
 </code-block>
 
 
@@ -3133,12 +3071,12 @@ Note that the list of elements is prepended as a whole, so that the prepended el
 All numerical array keys will be modified to start counting from zero while literal keys won't be changed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1786">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1643">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1786">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1643">
                     View blame
                 </a>
             </def></deflist>
@@ -3154,8 +3092,7 @@ All numerical array keys will be modified to start counting from zero while lite
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
 </format></li><li>variadic <a href="TValue.md">\FireHub\Core\Support\LowLevel\TValue</a> <format style="bold">$values</format> - <format style="italic">[optional] 
 The values to prepend.
@@ -3170,7 +3107,7 @@ The values to prepend.
 ## method: firstKey {id="firstkey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::firstKey(array $array):null|int|string]]>
+    <![CDATA[public static Arr::firstKey(array<array-key,mixed> $array):null|int|string]]>
 </code-block>
 
 
@@ -3190,12 +3127,12 @@ The values to prepend.
 <p><format style="italic">Get the first key of the given $array without affecting the internal array pointer.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1806">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1661">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1806">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1661">
                     View blame
                 </a>
             </def></deflist>
@@ -3206,13 +3143,12 @@ The values to prepend.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="FireHub.md#autoload()">\FireHub\Core\FireHub::autoload()</a>  - <format style="italic">To check if the first key is firehub and core.</format></li></list>
+        <list><li><a href="FireHub.md#autoload()">\FireHub\Core\FireHub::autoload()</a>  - <format style="italic">To check if the first key is firehub and core.</format></li><li><a href="Str.md#first()">\FireHub\Core\Support\Strings\Str::first()</a>  - <format style="italic">To get the first key of string.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 An array.
 </format></li></list>
     </def>
@@ -3225,7 +3161,7 @@ An array.
 ## method: lastKey {id="lastkey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::lastKey(array $array):null|int|string]]>
+    <![CDATA[public static Arr::lastKey(array<array-key,mixed> $array):null|int|string]]>
 </code-block>
 
 
@@ -3245,12 +3181,12 @@ An array.
 <p><format style="italic">Get the last key of the given $array without affecting the internal array pointer.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1826">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1679">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1826">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1679">
                     View blame
                 </a>
             </def></deflist>
@@ -3261,13 +3197,12 @@ An array.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get classname.</format></li></list>
+        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get classname.</format></li><li><a href="Str.md#last()">\FireHub\Core\Support\Strings\Str::last()</a>  - <format style="italic">To get the last key of string.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 An array.
 </format></li></list>
     </def>
@@ -3280,7 +3215,7 @@ An array.
 ## method: product {id="product()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::product(array $array):int|float]]>
+    <![CDATA[public static Arr::product(array<array-key,mixed> $array):int|float]]>
 </code-block>
 
 
@@ -3300,12 +3235,12 @@ An array.
 <p><format style="italic">Returns the product of values in an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1848">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1699">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1848">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1699">
                     View blame
                 </a>
             </def></deflist>
@@ -3316,8 +3251,7 @@ An array.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The array.
 </format></li></list>
     </def>
@@ -3330,7 +3264,7 @@ The array.
 ## method: sum {id="sum()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sum(array $array):int|float]]>
+    <![CDATA[public static Arr::sum(array<array-key,mixed> $array):int|float]]>
 </code-block>
 
 
@@ -3350,12 +3284,12 @@ The array.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1868">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1717">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1868">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1717">
                     View blame
                 </a>
             </def></deflist>
@@ -3366,8 +3300,7 @@ The array.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,mixed&gt; <format style="bold">$array</format> - <format style="italic">
 The input array.
 </format></li></list>
     </def>
@@ -3380,7 +3313,7 @@ The input array.
 ## method: search {id="search()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::search(mixed $value, array $array):int|string|false]]>
+    <![CDATA[public static Arr::search(mixed $value, array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):int|string|false]]>
 </code-block>
 
 
@@ -3400,12 +3333,12 @@ The input array.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1898">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1898">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746">
                     View blame
                 </a>
             </def></deflist>
@@ -3424,8 +3357,7 @@ The input array.
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
 The searched value.
 If $value is a string, the comparison is done in a case-sensitive manner.
-</format></li><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to search.
 </format></li></list>
     </def>
@@ -3438,7 +3370,7 @@ Array to search.
 ## method: shuffle {id="shuffle()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::shuffle(array &$array):true]]>
+    <![CDATA[public static Arr::shuffle(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):true]]>
 </code-block>
 
 
@@ -3458,12 +3390,12 @@ Array to search.
 <p><format style="italic">This function shuffles (randomizes the order of the elements in) an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1927">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1927">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773">
                     View blame
                 </a>
             </def></deflist>
@@ -3473,14 +3405,18 @@ Array to search.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#shuffle()">\FireHub\Core\Support\Strings\Str::shuffle()</a>  - <format style="italic">To shuffle an array.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has templates:">
         <list><li>TValue</li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 The array.
 </format></li></list>
     </def>
@@ -3493,7 +3429,7 @@ The array.
 ## method: sort {id="sort()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true]]>
+    <![CDATA[public static Arr::sort(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true]]>
 </code-block>
 
 
@@ -3516,12 +3452,12 @@ The array.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1965">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1810">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1965">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1810">
                     View blame
                 </a>
             </def></deflist>
@@ -3542,8 +3478,7 @@ The array.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to sort.
 </format></li><li><a href="Order.md">\FireHub\Core\Support\Enums\Order</a> <format style="bold">$order</format> = Order::ASC - <format style="italic">[optional] 
 Order type.
@@ -3562,7 +3497,7 @@ Whether you want to preserve keys from an original array or not.
 ## method: sortByKey {id="sortbykey()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true]]>
+    <![CDATA[public static Arr::sortByKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true]]>
 </code-block>
 
 
@@ -3582,12 +3517,12 @@ Whether you want to preserve keys from an original array or not.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2005">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1849">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2005">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1849">
                     View blame
                 </a>
             </def></deflist>
@@ -3608,8 +3543,7 @@ Whether you want to preserve keys from an original array or not.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array&lt;int or string,mixed&gt; <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">&$array 
 Array to sort.
 </format></li><li><a href="Order.md">\FireHub\Core\Support\Enums\Order</a> <format style="bold">$order</format> = Order::ASC - <format style="italic">[optional] 
 Order type.
@@ -3626,7 +3560,7 @@ Sort flag.
 ## method: sortBy {id="sortby()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sortBy(array &$array, callable $callback, bool $preserve_keys = false):true]]>
+    <![CDATA[public static Arr::sortBy(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback, bool $preserve_keys = false):true]]>
 </code-block>
 
 
@@ -3646,12 +3580,12 @@ Sort flag.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2039">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1882">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2039">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1882">
                     View blame
                 </a>
             </def></deflist>
@@ -3667,7 +3601,9 @@ Sort flag.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
+Array to sort.
+</format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code><![CDATA[ callable (TValue $a, TValue $b):int<-1, 1> ]]></code>
 The comparison function must return an integer less than, equal to, or greater than zero if the first argument
 is considered to be respectively less than, equal to, or greater than the second.
@@ -3684,7 +3620,7 @@ Whether you want to preserve keys from an original array or not.
 ## method: sortKeyBy {id="sortkeyby()"}
 
 <code-block lang="php">
-    <![CDATA[public static Arr::sortKeyBy(array &$array, callable $callback):true]]>
+    <![CDATA[public static Arr::sortKeyBy(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true]]>
 </code-block>
 
 
@@ -3704,12 +3640,12 @@ Whether you want to preserve keys from an original array or not.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2071">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1913">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2071">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1913">
                     View blame
                 </a>
             </def></deflist>
@@ -3725,8 +3661,7 @@ Whether you want to preserve keys from an original array or not.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>by reference array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<TKey, TValue> ]]></code>
+        <list><li>by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; <format style="bold">$array</format> - <format style="italic">
 Array to sort.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code><![CDATA[ callable (TKey $a, TKey $b):int<-1, 1> ]]></code>

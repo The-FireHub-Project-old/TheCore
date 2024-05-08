@@ -97,7 +97,7 @@
 ## method: create {id="create()"}
 
 <code-block lang="php">
-    <![CDATA[public static Folder::create(string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global, bool $recursive = false):void]]>
+    <![CDATA[public static Folder::create(non-empty-string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global, bool $recursive = false):void]]>
 </code-block>
 
 
@@ -120,12 +120,12 @@
 <p><format style="italic">Attempts to create the folder specified by $path.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L68">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L68">
                     View blame
                 </a>
             </def></deflist>
@@ -141,8 +141,7 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to folder ot disk partition.
 </format></li><li><a href="Permission.md">\FireHub\Core\Support\Enums\FileSystem\Permission</a> <format style="bold">$owner</format> - <format style="italic">
 File owner permission.
@@ -168,7 +167,7 @@ If true, then any parent folders to the $path specified will also be created, wi
 ## method: delete {id="delete()"}
 
 <code-block lang="php">
-    <![CDATA[public static Folder::delete(string $path):void]]>
+    <![CDATA[public static Folder::delete(non-empty-string $path):void]]>
 </code-block>
 
 
@@ -188,12 +187,12 @@ If true, then any parent folders to the $path specified will also be created, wi
 <p><format style="italic">Attempts to remove the folder named by $path.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L95">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L91">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L95">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L91">
                     View blame
                 </a>
             </def></deflist>
@@ -204,8 +203,7 @@ If true, then any parent folders to the $path specified will also be created, wi
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to folder.
 </format></li></list>
     </def>
@@ -223,7 +221,7 @@ Path to folder.
 ## method: isFolder {id="isfolder()"}
 
 <code-block lang="php">
-    <![CDATA[public static Folder::isFolder(string $path):bool]]>
+    <![CDATA[public static Folder::isFolder(non-empty-string $path):bool]]>
 </code-block>
 
 
@@ -243,12 +241,12 @@ Path to folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L120">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L114">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L120">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L114">
                     View blame
                 </a>
             </def></deflist>
@@ -259,8 +257,7 @@ Path to folder.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the folder. If filename is a relative filename, it will be checked relative to the current working
 folder. If filename is a symbolic or hard link, then the link will be resolved and checked. If you have
 enabled open_basedir, further restrictions may apply.
@@ -275,7 +272,7 @@ enabled open_basedir, further restrictions may apply.
 ## method: totalSpace {id="totalspace()"}
 
 <code-block lang="php">
-    <![CDATA[public static Folder::totalSpace(string $path):float]]>
+    <![CDATA[public static Folder::totalSpace(non-empty-string $path):float]]>
 </code-block>
 
 
@@ -295,12 +292,12 @@ enabled open_basedir, further restrictions may apply.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L146">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L138">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L146">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L138">
                     View blame
                 </a>
             </def></deflist>
@@ -311,8 +308,7 @@ enabled open_basedir, further restrictions may apply.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to folder ot disk partition.
 </format></li></list>
     </def>
@@ -330,7 +326,7 @@ Path to folder ot disk partition.
 ## method: freeSpace {id="freespace()"}
 
 <code-block lang="php">
-    <![CDATA[public static Folder::freeSpace(string $path):float]]>
+    <![CDATA[public static Folder::freeSpace(non-empty-string $path):float]]>
 </code-block>
 
 
@@ -350,12 +346,12 @@ Path to folder ot disk partition.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L173">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L163">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L173">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L163">
                     View blame
                 </a>
             </def></deflist>
@@ -366,8 +362,7 @@ Path to folder ot disk partition.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to folder ot disk partition.
 </format></li></list>
     </def>
@@ -385,7 +380,7 @@ Path to folder ot disk partition.
 ## method: exist {id="exist()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::exist(string $path):bool]]>
+    <![CDATA[final public static FileSystem::exist(non-empty-string $path):bool]]>
 </code-block>
 
 
@@ -409,12 +404,12 @@ Path to folder ot disk partition.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L90">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L90">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88">
                     View blame
                 </a>
             </def></deflist>
@@ -425,8 +420,7 @@ Path to folder ot disk partition.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file or folder.
 </format></li></list>
     </def>
@@ -439,7 +433,7 @@ Path to the file or folder.
 ## method: isReadable {id="isreadable()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::isReadable(string $path):bool]]>
+    <![CDATA[final public static FileSystem::isReadable(non-empty-string $path):bool]]>
 </code-block>
 
 
@@ -463,12 +457,12 @@ Path to the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109">
                     View blame
                 </a>
             </def></deflist>
@@ -479,8 +473,7 @@ Path to the file or folder.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file or folder.
 </format></li></list>
     </def>
@@ -493,7 +486,7 @@ Path to the file or folder.
 ## method: isWritable {id="iswritable()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::isWritable(string $path):bool]]>
+    <![CDATA[final public static FileSystem::isWritable(non-empty-string $path):bool]]>
 </code-block>
 
 
@@ -517,12 +510,12 @@ Path to the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129">
                     View blame
                 </a>
             </def></deflist>
@@ -533,8 +526,7 @@ Path to the file or folder.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file.
 </format></li></list>
     </def>
@@ -547,7 +539,7 @@ Path to the file.
 ## method: isSymbolicLink {id="issymboliclink()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::isSymbolicLink(string $path):bool]]>
+    <![CDATA[final public static FileSystem::isSymbolicLink(non-empty-string $path):bool]]>
 </code-block>
 
 
@@ -571,12 +563,12 @@ Path to the file.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L157">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L157">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149">
                     View blame
                 </a>
             </def></deflist>
@@ -587,8 +579,7 @@ Path to the file.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file.
 </format></li></list>
     </def>
@@ -601,7 +592,7 @@ Path to the file.
 ## method: rename {id="rename()"}
 
 <code-block lang="php">
-    <![CDATA[public static FileSystem::rename(string $path, string $new_name):void]]>
+    <![CDATA[public static FileSystem::rename(non-empty-string $path, non-empty-string $new_name):void]]>
 </code-block>
 
 
@@ -623,12 +614,12 @@ $new_name exists, it will be overwritten. If renaming a directory and $new_name 
 emit a warning.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L193">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L193">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181">
                     View blame
                 </a>
             </def></deflist>
@@ -644,11 +635,9 @@ emit a warning.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 The old name path.
-</format></li><li>string <format style="bold">$new_name</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$new_name</format> - <format style="italic">
 The new name.
 </format></li></list>
     </def>
@@ -666,7 +655,7 @@ The new name.
 ## method: basename {id="basename()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::basename(string $path, string $suffix = &#039;&#039;):string]]>
+    <![CDATA[final public static FileSystem::basename(non-empty-string $path, string $suffix = &#039;&#039;):string]]>
 </code-block>
 
 
@@ -690,12 +679,12 @@ The new name.
 <p><format style="italic">Given a string containing the path to a file or directory, this function will return the trailing name component.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L224">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L224">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210">
                     View blame
                 </a>
             </def></deflist>
@@ -706,8 +695,7 @@ The new name.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 A path. On Windows, both slash (/) and backslash (\) are used as directory separator character. In other
 environments, it is the forward slash (/).
 </format></li><li>string <format style="bold">$suffix</format> = '' - <format style="italic">[optional] 
@@ -747,12 +735,12 @@ If the name component ends in suffix, this will also be cut off.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240">
                     View blame
                 </a>
             </def></deflist>
@@ -802,12 +790,12 @@ The path to be parsed.
 returns the canonical absolute pathname. Trailing delimiters, such as \ and /, are also removed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L294">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L294">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280">
                     View blame
                 </a>
             </def></deflist>
@@ -837,7 +825,7 @@ executable permissions.</format></li></list>
 ## method: parent {id="parent()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::parent(string $path, int $levels = 1):string]]>
+    <![CDATA[final public static FileSystem::parent(non-empty-string $path, positive-int $levels = 1):string]]>
 </code-block>
 
 
@@ -862,12 +850,12 @@ executable permissions.</format></li></list>
 that is levels up from the current folder.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L327">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L327">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309">
                     View blame
                 </a>
             </def></deflist>
@@ -883,11 +871,9 @@ that is levels up from the current folder.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 A path.
-</format></li><li>int <format style="bold">$levels</format> = 1 - <format style="italic">[optional] 
-<code>positive-int</code>
+</format></li><li>positive-int <format style="bold">$levels</format> = 1 - <format style="italic">[optional] 
 The number of parent folders to go up. This must be an integer greater than 0.
 </format></li></list>
     </def>
@@ -906,7 +892,7 @@ returned, indicating the current folder.</format></li></list>
 ## method: getGroup {id="getgroup()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::getGroup(string $path):int]]>
+    <![CDATA[final public static FileSystem::getGroup(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -930,12 +916,12 @@ returned, indicating the current folder.</format></li></list>
 <p><format style="italic">Gets the file or folder group. The group ID is returned in numerical format.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L354">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L354">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334">
                     View blame
                 </a>
             </def></deflist>
@@ -946,8 +932,7 @@ returned, indicating the current folder.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path of the file or folder.
 </format></li></list>
     </def>
@@ -965,7 +950,7 @@ Path of the file or folder.
 ## method: setGroup {id="setgroup()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::setGroup(string $path, string|int $group):void]]>
+    <![CDATA[final public static FileSystem::setGroup(non-empty-string $path, non-empty-string|int $group):void]]>
 </code-block>
 
 
@@ -990,12 +975,12 @@ Path of the file or folder.
 files arbitrarily; other users may change the group of files to any group of which that user is a member.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362">
                     View blame
                 </a>
             </def></deflist>
@@ -1006,11 +991,9 @@ files arbitrarily; other users may change the group of files to any group of whi
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path of the file or folder.
-</format></li><li>string or int <format style="bold">$group</format> - <format style="italic">
-<code>non-empty-string|int</code>
+</format></li><li>non-empty-string or int <format style="bold">$group</format> - <format style="italic">
 A group name or number.
 </format></li></list>
     </def>
@@ -1028,7 +1011,7 @@ A group name or number.
 ## method: getOwner {id="getowner()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::getOwner(string $path):int]]>
+    <![CDATA[final public static FileSystem::getOwner(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -1052,12 +1035,12 @@ A group name or number.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L412">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L412">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
                     View blame
                 </a>
             </def></deflist>
@@ -1068,8 +1051,7 @@ A group name or number.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path of the file or folder.
 </format></li></list>
     </def>
@@ -1087,7 +1069,7 @@ Path of the file or folder.
 ## method: setOwner {id="setowner()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::setOwner(string $path, string|int $user):void]]>
+    <![CDATA[final public static FileSystem::setOwner(non-empty-string $path, non-empty-string|int $user):void]]>
 </code-block>
 
 
@@ -1111,12 +1093,12 @@ Path of the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L443">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L443">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413">
                     View blame
                 </a>
             </def></deflist>
@@ -1127,11 +1109,9 @@ Path of the file or folder.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Pth of the file or folder.
-</format></li><li>string or int <format style="bold">$user</format> - <format style="italic">
-<code>non-empty-string|int</code>
+</format></li><li>non-empty-string or int <format style="bold">$user</format> - <format style="italic">
 A username or number.
 </format></li></list>
     </def>
@@ -1149,7 +1129,7 @@ A username or number.
 ## method: getPermissions {id="getpermissions()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::getPermissions(string $path):string]]>
+    <![CDATA[final public static FileSystem::getPermissions(non-empty-string $path):string]]>
 </code-block>
 
 
@@ -1176,12 +1156,12 @@ A username or number.
 <p><format style="italic">Gets permissions for the given path.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L473">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L473">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441">
                     View blame
                 </a>
             </def></deflist>
@@ -1197,8 +1177,7 @@ A username or number.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 The path.
 </format></li></list>
     </def>
@@ -1216,7 +1195,7 @@ The path.
 ## method: setPermissions {id="setpermissions()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::setPermissions(string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global):void]]>
+    <![CDATA[final public static FileSystem::setPermissions(non-empty-string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global):void]]>
 </code-block>
 
 
@@ -1243,12 +1222,12 @@ The path.
 <p><format style="italic">Attempts to change the mode of the specified path to that given in permissions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L517">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L517">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483">
                     View blame
                 </a>
             </def></deflist>
@@ -1264,8 +1243,7 @@ The path.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 The path.
 </format></li><li><a href="Permission.md">\FireHub\Core\Support\Enums\FileSystem\Permission</a> <format style="bold">$owner</format> - <format style="italic">
 File owner permission.
@@ -1289,7 +1267,7 @@ Everyone's permission,
 ## method: lastAccessed {id="lastaccessed()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::lastAccessed(string $path):int]]>
+    <![CDATA[final public static FileSystem::lastAccessed(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -1313,12 +1291,12 @@ Everyone's permission,
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L547">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L547">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511">
                     View blame
                 </a>
             </def></deflist>
@@ -1329,8 +1307,7 @@ Everyone's permission,
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to file or folder.
 </format></li></list>
     </def>
@@ -1348,7 +1325,7 @@ Path to file or folder.
 ## method: lastModified {id="lastmodified()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::lastModified(string $path):int]]>
+    <![CDATA[final public static FileSystem::lastModified(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -1373,12 +1350,12 @@ Path to file or folder.
 owner group.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L575">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L575">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537">
                     View blame
                 </a>
             </def></deflist>
@@ -1389,8 +1366,7 @@ owner group.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to file or folder.
 </format></li></list>
     </def>
@@ -1408,7 +1384,7 @@ Path to file or folder.
 ## method: lastChanged {id="lastchanged()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::lastChanged(string $path):int]]>
+    <![CDATA[final public static FileSystem::lastChanged(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -1433,12 +1409,12 @@ Path to file or folder.
 ownership or group.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L608">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L608">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568">
                     View blame
                 </a>
             </def></deflist>
@@ -1449,8 +1425,7 @@ ownership or group.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to file or folder.
 </format></li></list>
     </def>
@@ -1468,7 +1443,7 @@ Path to file or folder.
 ## method: setLastAccessedAndModification {id="setlastaccessedandmodification()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::setLastAccessedAndModification(string $path, null|int $last_accessed = null, null|int $last_modified = null):true]]>
+    <![CDATA[final public static FileSystem::setLastAccessedAndModification(non-empty-string $path, null|int $last_accessed = null, null|int $last_modified = null):true]]>
 </code-block>
 
 
@@ -1493,12 +1468,12 @@ Path to file or folder.
 given in mtime. Note that the access time is always modified, regardless of the number of parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L642">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L642">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600">
                     View blame
                 </a>
             </def></deflist>
@@ -1509,8 +1484,7 @@ given in mtime. Note that the access time is always modified, regardless of the 
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to file or folder.
 </format></li><li>null or int <format style="bold">$last_accessed</format> = null - <format style="italic">[optional] 
 The touch time. If mtime is null, the current system time() is used.
@@ -1533,7 +1507,7 @@ value passed to the mtime parameter. If both are null, the current system time i
 ## method: inode {id="inode()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::inode(string $path):int]]>
+    <![CDATA[final public static FileSystem::inode(non-empty-string $path):int]]>
 </code-block>
 
 
@@ -1557,12 +1531,12 @@ value passed to the mtime parameter. If both are null, the current system time i
 <p><format style="italic">Inode are special disk blocks they are created when the file system is created.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L668">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L668">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624">
                     View blame
                 </a>
             </def></deflist>
@@ -1573,8 +1547,7 @@ value passed to the mtime parameter. If both are null, the current system time i
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to file or folder.
 </format></li></list>
     </def>
@@ -1592,7 +1565,7 @@ Path to file or folder.
 ## method: list {id="list()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::list(string $folder, null|\FireHub\Core\Support\Enums\Order $order = null):array]]>
+    <![CDATA[final public static FileSystem::list(non-empty-string $folder, null|\FireHub\Core\Support\Enums\Order $order = null):string[]]]>
 </code-block>
 
 
@@ -1616,12 +1589,12 @@ Path to file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650">
                     View blame
                 </a>
             </def></deflist>
@@ -1637,8 +1610,7 @@ Path to file or folder.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$folder</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$folder</format> - <format style="italic">
 The folder that will be scanned.
 </format></li><li>null or <a href="Order.md">\FireHub\Core\Support\Enums\Order</a> <format style="bold">$order</format> = null - <format style="italic">[optional] 
 Result order.
@@ -1652,13 +1624,13 @@ Result order.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> An array of filenames.</format></li></list>
+        <list><li>string[] - <format style="italic">An array of filenames.</format></li></list>
     </def>
 </deflist>
 ## method: search {id="search()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::search(string $pattern, bool $only_folders = false):array]]>
+    <![CDATA[final public static FileSystem::search(non-empty-string $pattern, bool $only_folders = false):string[]]]>
 </code-block>
 
 
@@ -1683,12 +1655,12 @@ Result order.
 function, which is similar to the rules used by common shells.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L739">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L739">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688">
                     View blame
                 </a>
             </def></deflist>
@@ -1699,8 +1671,7 @@ function, which is similar to the rules used by common shells.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$pattern</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$pattern</format> - <format style="italic">
 The pattern. No tilde expansion or parameter substitution is done.
 - * - Matches zero or more characters.
 - ? - Matches exactly one character (any character).
@@ -1719,14 +1690,13 @@ Return only directory entries which match the pattern.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> An array containing the matched files/folders, an empty array if no file
-matched.</format></li></list>
+        <list><li>string[] - <format style="italic">An array containing the matched files/folders, an empty array if no file matched.</format></li></list>
     </def>
 </deflist>
 ## method: symlink {id="symlink()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::symlink(string $path, string $link):void]]>
+    <![CDATA[final public static FileSystem::symlink(non-empty-string $path, non-empty-string $link):void]]>
 </code-block>
 
 
@@ -1750,12 +1720,12 @@ matched.</format></li></list>
 <p><format style="italic">Creates a symbolic link to the existing $path with the specified name $link.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L768">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L768">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713">
                     View blame
                 </a>
             </def></deflist>
@@ -1766,11 +1736,9 @@ matched.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the symlink.
-</format></li><li>string <format style="bold">$link</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$link</format> - <format style="italic">
 The link name.
 </format></li></list>
     </def>
@@ -1788,7 +1756,7 @@ The link name.
 ## method: symlinkTarget {id="symlinktarget()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::symlinkTarget(string $path):string]]>
+    <![CDATA[final public static FileSystem::symlinkTarget(non-empty-string $path):string]]>
 </code-block>
 
 
@@ -1812,12 +1780,12 @@ The link name.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L789">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L789">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732">
                     View blame
                 </a>
             </def></deflist>
@@ -1828,8 +1796,7 @@ The link name.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the symlink.
 </format></li></list>
     </def>
@@ -1847,7 +1814,7 @@ Path to the symlink.
 ## method: symlinkGroup {id="symlinkgroup()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::symlinkGroup(string $path, string|int $group):void]]>
+    <![CDATA[final public static FileSystem::symlinkGroup(non-empty-string $path, non-empty-string|int $group):void]]>
 </code-block>
 
 
@@ -1872,12 +1839,12 @@ Path to the symlink.
 symlink arbitrarily. Other users may change the group of a symlink to any group of which that user is a member.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L823">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L823">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762">
                     View blame
                 </a>
             </def></deflist>
@@ -1888,11 +1855,9 @@ symlink arbitrarily. Other users may change the group of a symlink to any group 
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the symlink.
-</format></li><li>string or int <format style="bold">$group</format> - <format style="italic">
-<code>non-empty-string|int</code>
+</format></li><li>non-empty-string or int <format style="bold">$group</format> - <format style="italic">
 The group specified by name or number.
 </format></li></list>
     </def>
@@ -1910,7 +1875,7 @@ The group specified by name or number.
 ## method: symlinkOwner {id="symlinkowner()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::symlinkOwner(string $path, string|int $user):void]]>
+    <![CDATA[final public static FileSystem::symlinkOwner(non-empty-string $path, non-empty-string|int $user):void]]>
 </code-block>
 
 
@@ -1935,12 +1900,12 @@ The group specified by name or number.
 symlink.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L857">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L857">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793">
                     View blame
                 </a>
             </def></deflist>
@@ -1951,11 +1916,10 @@ symlink.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the symlink.
-</format></li><li>string or int <format style="bold">$user</format> - <format style="italic">
-<code>non-empty-string|int</code>
+</format></li><li>non-empty-string or int <format style="bold">$user</format> - <format style="italic">
+
 Username or number.
 </format></li></list>
     </def>
@@ -1973,7 +1937,7 @@ Username or number.
 ## method: statistics {id="statistics()"}
 
 <code-block lang="php">
-    <![CDATA[final public static FileSystem::statistics(string $path, bool $symlink = false):array]]>
+    <![CDATA[final public static FileSystem::statistics(non-empty-string $path, bool $symlink = false):array]]>
 </code-block>
 
 
@@ -1998,12 +1962,12 @@ Username or number.
 file itself, not the symlink - use $symlink argument to change that behavior.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L891">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L891">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825">
                     View blame
                 </a>
             </def></deflist>
@@ -2019,8 +1983,7 @@ file itself, not the symlink - use $symlink argument to change that behavior.</f
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$path</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file or folder.
 </format></li><li>bool <format style="bold">$symlink</format> = false - <format style="italic">[optional] 
 If true, the method gives information about a file or symbolic link.
@@ -2073,12 +2036,12 @@ will return false until you create the file. If you create the file, it will ret
 delete the file. However, [[File#delete()]] clears the cache automatically.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L930">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L930">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864">
                     View blame
                 </a>
             </def></deflist>

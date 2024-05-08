@@ -33,8 +33,7 @@ interface Collectable extends IterablesAggregate {
      * ### Get collection as an array
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Collection items as an array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<array-key, mixed> Collection items as an array.
      */
     public function all ():array;
 

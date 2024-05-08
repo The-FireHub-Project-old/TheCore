@@ -30,11 +30,12 @@ _Give info about various paths inside the FireHub framework._
 |:-----|:-----|:------|
 |public static |<a href="#project()">project</a>|### Get FireHub project path|
 |public static |<a href="#core()">core</a>|### Get FireHub Core path|
+|private static |<a href="#phar()">phar</a>|### Get current phar path|
 
 <h2><a name="project()"># method: project</a></h2>
 
 ```php
-public static Path::project():string
+public static Path::project():non-empty-string
 ```
 
 
@@ -51,18 +52,18 @@ public static Path::project():string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L45)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L45)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L44)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L44)**</sub>
 #### Throws
 
 * [\Error](./Wiki-Error) - _If a system could not load your project phar._
 #### Returns
 
-* string - _<code>non-empty-string</code> FireHub project path._
+* non-empty-string - _FireHub project path._
 <h2><a name="core()"># method: core</a></h2>
 
 ```php
-public static Path::core():string
+public static Path::core():non-empty-string
 ```
 
 
@@ -79,8 +80,39 @@ public static Path::core():string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L68)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L68)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L66)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L66)**</sub>
 #### Returns
 
-* string - _<code>non-empty-string</code> FireHub Core path._
+* non-empty-string - _FireHub Core path._
+<h2><a name="phar()"># method: phar</a></h2>
+
+```php
+private static Path::phar(bool $return_phar):non-empty-string
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get current phar path
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Path.php#L84)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Path.php#L84)**</sub>
+#### Parameters
+
+* bool **$return_phar** - _If true, a full phar URL is returned; otherwise the full path on disk to the phar archive is returned._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If a system could not get a current phar path._
+#### Returns
+
+* non-empty-string - _Current phar path._

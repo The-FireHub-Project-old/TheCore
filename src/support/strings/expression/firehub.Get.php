@@ -35,8 +35,7 @@ final class Get extends FunctionFamily {
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To get character raw string.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Strings::string() To get string raw string.
      *
-     * @return array Found result.
-     * @phpstan-return string[]
+     * @return string[] Found result.
      *
      * @SuppressWarnings(PHPMD.UndefinedVariable) $result by reference.
      *

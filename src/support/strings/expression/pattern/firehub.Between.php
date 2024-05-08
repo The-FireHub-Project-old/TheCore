@@ -29,14 +29,12 @@ final class Between extends Occurrences {
      * @param \FireHub\Core\Support\Strings\Expression\FunctionFamily $function_family <p>
      * Function to use.
      * </p>
-     * @param int $from <p>
+     * @param non-negative-int $from <p>
      * Number of occurrences.
      * </p>
-     * @param int $to <p>
+     * @param non-negative-int $to <p>
      * Second number.
      * </p>
-     * @phpstan-param non-negative-int $from
-     * @phpstan-param non-negative-int $to
      *
      * @return void
      */

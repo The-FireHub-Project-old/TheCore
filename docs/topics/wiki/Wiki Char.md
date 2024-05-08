@@ -24,6 +24,12 @@ _Class allows you to manipulate characters in various ways._
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/firehub.Char.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|private|<a href="#$character">character</a>|||
+|private|<a href="#$encoding">encoding</a>||null|
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -31,18 +37,58 @@ _Class allows you to manipulate characters in various ways._
 |public static |<a href="#from()">from</a>|### Create a new character from raw string|
 |public static |<a href="#fromcodepoint()">fromCodepoint</a>|### Create a new character from raw string|
 |public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#encoding()">encoding</a>|### Get or change character encoding|
 |public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a character lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a character uppercase|
 |public|<a href="#codepoint()">codepoint</a>|### Get character as codepoint|
-|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#__tostring()">__toString</a>||
 
+<h2><a name="$character"># property: character</a></h2>
+
+```php
+private string $character
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L59)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L59)**</sub>
+<h2><a name="$encoding"># property: encoding</a></h2>
+
+```php
+private ?\FireHub\Core\Support\Enums\String\Encoding $encoding = null
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub>
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php
-public Char::__construct(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void
+public Char::__construct(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void
 ```
 
 
@@ -59,12 +105,11 @@ public Char::__construct(string $character, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L60)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L58)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L58)**</sub>
 #### Parameters
 
-* string **$character** - _<code>non-empty-string</code>
-Character to use._
+* non-empty-string **$character** - _Character to use._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Throws
@@ -79,7 +124,7 @@ Character encoding. If it is null, the internal character encoding value will be
 <h2><a name="from()"># method: from</a></h2>
 
 ```php
-public static Char::from(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self
+public static Char::from(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):self
 ```
 
 
@@ -96,12 +141,11 @@ public static Char::from(string $character, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L101)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L101)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L97)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L97)**</sub>
 #### Parameters
 
-* string **$character** - _<code>non-empty-string</code>
-Character to use._
+* non-empty-string **$character** - _Character to use._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Throws
@@ -144,8 +188,8 @@ public static Char::fromCodepoint(int $codepoint, null|\FireHub\Core\Support\Enu
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L153)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L153)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L149)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L149)**</sub>
 #### Parameters
 
 * int **$codepoint** - _Codepoint to use._
@@ -189,7 +233,7 @@ echo $char->string();
 <h2><a name="expression()"># method: expression</a></h2>
 
 ```php
-public Char::expression()
+public Char::expression(\FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers)
 ```
 
 
@@ -206,8 +250,42 @@ public Char::expression()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L171)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L171)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L168)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L168)**</sub>
+#### Parameters
+
+* variadic [\FireHub\Core\Support\Enums\String\Expression\Modifier](./Wiki-Modifier) **$modifiers** - _List of additional expression pattern modifiers._
+<h2><a name="asboolean()"># method: asBoolean</a></h2>
+
+```php
+public Char::asBoolean()
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical character value
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L190)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L190)**</sub>
+#### Examples
+```php
+use FireHub\Core\Support\Char;
+
+Char::from('1')->asBoolean();
+
+// true
+```
+
 <h2><a name="encoding()"># method: encoding</a></h2>
 
 ```php
@@ -228,8 +306,8 @@ public Char::encoding(?\FireHub\Core\Support\Enums\String\Encoding $encoding = n
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L196)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L196)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L215)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L215)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _Character encoding._
@@ -265,8 +343,8 @@ public Char::string(string $string = null)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L235)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L235)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L254)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L254)**</sub>
 #### Parameters
 
 * string **$string** = null
@@ -307,8 +385,8 @@ public Char::toLower()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L260)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L260)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L279)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L279)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;
@@ -338,8 +416,8 @@ public Char::toUpper()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L285)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L285)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L304)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L304)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;
@@ -369,8 +447,8 @@ public Char::codepoint()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L313)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L313)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L332)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L332)**</sub>
 #### Throws
 
 * [\Error](./Wiki-Error) - _If character could not be converted to codepoint._
@@ -383,37 +461,6 @@ $char = Char::fromString('F');
 echo $char->codepoint();
 
 // 70
-```
-
-<h2><a name="asboolean()"># method: asBoolean</a></h2>
-
-```php
-public Char::asBoolean()
-```
-
-
-
-
-
-
-
-
-
-
-
-### ### Boolean representation of the given logical character value
-
-
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L335)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L335)**</sub>
-#### Examples
-```php
-use FireHub\Core\Support\Char;
-
-Char::from('1')->asBoolean();
-
-// true
 ```
 
 <h2><a name="__tostring()"># method: __toString</a></h2>
@@ -436,8 +483,8 @@ public Char::__toString()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L355)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L355)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Char.php#L352)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Char.php#L352)**</sub>
 #### Examples
 ```php
 use FireHub\Core\Support\Char;

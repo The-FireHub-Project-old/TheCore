@@ -65,7 +65,7 @@
 ## method: define {id="define()"}
 
 <code-block lang="php">
-    <![CDATA[public static Constant::define(string $name, null|array|bool|float|int|string $value):true]]>
+    <![CDATA[public static Constant::define(non-empty-string $name, null|array<array-key,mixed>|scalar $value):true]]>
 </code-block>
 
 
@@ -85,12 +85,12 @@
 <p><format style="italic">Defines a named constant at runtime.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L48">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L48">
                     View blame
                 </a>
             </def></deflist>
@@ -101,11 +101,9 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 The name of the constant.
-</format></li><li>null or array or bool or float or int or string <format style="bold">$value</format> - <format style="italic">
-<code><![CDATA[ null|array<array-key, mixed>|scalar ]]></code>
+</format></li><li>null or array&lt;array-key,mixed&gt; or scalar <format style="bold">$value</format> - <format style="italic">
 The value of the constant.
 </format></li></list>
     </def>
@@ -118,7 +116,7 @@ The value of the constant.
 ## method: defined {id="defined()"}
 
 <code-block lang="php">
-    <![CDATA[public static Constant::defined(string $name):bool]]>
+    <![CDATA[public static Constant::defined(non-empty-string $name):bool]]>
 </code-block>
 
 
@@ -138,12 +136,12 @@ The value of the constant.
 <p><format style="italic">This function works also with class constants and enum cases.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L69">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L69">
                     View blame
                 </a>
             </def></deflist>
@@ -154,8 +152,7 @@ The value of the constant.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 The constant name.
 </format></li></list>
     </def>
@@ -168,7 +165,7 @@ The constant name.
 ## method: value {id="value()"}
 
 <code-block lang="php">
-    <![CDATA[public static Constant::value(string $name):mixed]]>
+    <![CDATA[public static Constant::value(non-empty-string $name):mixed]]>
 </code-block>
 
 
@@ -189,12 +186,12 @@ The constant name.
 I.e., it is stored in a variable or returned by a function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L92">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L100">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L92">
                     View blame
                 </a>
             </def></deflist>
@@ -205,8 +202,7 @@ I.e., it is stored in a variable or returned by a function.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$name</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$name</format> - <format style="italic">
 The constant name.
 </format></li></list>
     </def>

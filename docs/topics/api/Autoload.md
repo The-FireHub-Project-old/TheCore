@@ -135,12 +135,12 @@ classes, interfaces, traits, and enumerations.</format></p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L68">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L68">
                     View blame
                 </a>
             </def></deflist>
@@ -165,12 +165,12 @@ classes, interfaces, traits, and enumerations.</format></p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L71">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L71">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69">
                     View blame
                 </a>
             </def></deflist>
@@ -200,19 +200,19 @@ classes, interfaces, traits, and enumerations.</format></p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L70">
                     View blame
                 </a>
             </def></deflist>
 ## method: __construct {id="__construct()"}
 
 <code-block lang="php">
-    <![CDATA[private Autoload::__construct(string $alias, \FireHub\Core\Initializers\Autoload\Callback $callback, bool $prepend):void]]>
+    <![CDATA[private Autoload::__construct(non-empty-string $alias, \FireHub\Core\Initializers\Autoload\Callback $callback, bool $prepend):void]]>
 </code-block>
 
 
@@ -232,12 +232,12 @@ classes, interfaces, traits, and enumerations.</format></p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -253,8 +253,7 @@ classes, interfaces, traits, and enumerations.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$alias</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$alias</format> - <format style="italic">$alias 
 Autoloader implementation name.
 </format></li><li><a href="Callback.md">\FireHub\Core\Initializers\Autoload\Callback</a> <format style="bold">$callback</format> - <format style="italic">
 The autoload function being registered.
@@ -276,7 +275,7 @@ If true, autoloader will be prepended queue instead of appending it.
 ## method: include {id="include()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::include(array $classes, callable $callback):void]]>
+    <![CDATA[public static Autoload::include(class-string[] $classes, callable $callback):void]]>
 </code-block>
 
 
@@ -297,12 +296,12 @@ If true, autoloader will be prepended queue instead of appending it.
 classes that need to be loader fist.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L119">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L119">
                     View blame
                 </a>
             </def></deflist>
@@ -318,8 +317,7 @@ classes that need to be loader fist.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$classes</format> - <format style="italic">
-<code>class-string[]</code>
+        <list><li>class-string[] <format style="bold">$classes</format> - <format style="italic">
 List of classes to be preloaders. These preloaders will be called in order as they are in the list.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable(string $class):string</code>
@@ -349,7 +347,7 @@ Autoload::load([
 ## method: append {id="append()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::append(string $alias, callable|string $path):self]]>
+    <![CDATA[public static Autoload::append(non-empty-string $alias, callable|non-empty-string $path):self]]>
 </code-block>
 
 
@@ -369,12 +367,12 @@ Autoload::load([
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L175">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L175">
                     View blame
                 </a>
             </def></deflist>
@@ -396,10 +394,9 @@ the queue.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$alias</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$alias</format> - <format style="italic">
 Autoloader implementation name.
-</format></li><li>callable or string <format style="bold">$path</format> - <format style="italic">
+</format></li><li>callable or non-empty-string <format style="bold">$path</format> - <format style="italic">
 <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path.
@@ -448,7 +445,7 @@ Autoload::append('MyApp', function (string $namespace, string $classname):string
 ## method: register {id="register()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::register(string $alias, callable|string $path):self]]>
+    <![CDATA[public static Autoload::register(non-empty-string $alias, callable|non-empty-string $path):self]]>
 </code-block>
 
 
@@ -468,12 +465,12 @@ Autoload::append('MyApp', function (string $namespace, string $classname):string
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L212">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L202">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L212">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L202">
                     View blame
                 </a>
             </def></deflist>
@@ -490,10 +487,9 @@ the queue.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$alias</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$alias</format> - <format style="italic">
 Autoloader implementation name.
-</format></li><li>callable or string <format style="bold">$path</format> - <format style="italic">
+</format></li><li>callable or non-empty-string <format style="bold">$path</format> - <format style="italic">
 <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path.
@@ -513,7 +509,7 @@ inside a root path.
 ## method: prepend {id="prepend()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::prepend(string $alias, callable|string $path):self]]>
+    <![CDATA[public static Autoload::prepend(non-empty-string $alias, callable|non-empty-string $path):self]]>
 </code-block>
 
 
@@ -533,12 +529,12 @@ inside a root path.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L247">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L234">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L247">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L234">
                     View blame
                 </a>
             </def></deflist>
@@ -554,10 +550,9 @@ inside a root path.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$alias</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$alias</format> - <format style="italic">
 Autoloader implementation name.
-</format></li><li>callable or string <format style="bold">$path</format> - <format style="italic">
+</format></li><li>callable or non-empty-string <format style="bold">$path</format> - <format style="italic">
 <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path.
@@ -583,7 +578,7 @@ Autoload::prepend('MyApp', 'path_to_my_app/');
 ## method: unregister {id="unregister()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::unregister(string $alias):true]]>
+    <![CDATA[public static Autoload::unregister(non-empty-string $alias):true]]>
 </code-block>
 
 
@@ -605,12 +600,12 @@ function, then it will be deactivated. When this function results in the queue b
 function that previously existed will not be reactivated.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L282">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L267">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L282">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L267">
                     View blame
                 </a>
             </def></deflist>
@@ -626,8 +621,7 @@ function that previously existed will not be reactivated.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$alias</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$alias</format> - <format style="italic">
 Autoloader implementation name.
 </format></li></list>
     </def>
@@ -671,12 +665,12 @@ Autoload::unregister('MyApp');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L315">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L300">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L315">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L300">
                     View blame
                 </a>
             </def></deflist>
@@ -701,7 +695,7 @@ Autoload::implementations();
 ## method: load {id="load()"}
 
 <code-block lang="php">
-    <![CDATA[public static Autoload::load(string $class):void]]>
+    <![CDATA[public static Autoload::load(class-string $class):void]]>
 </code-block>
 
 
@@ -721,12 +715,12 @@ Autoload::implementations();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L343">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L326">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L343">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L326">
                     View blame
                 </a>
             </def></deflist>
@@ -743,8 +737,7 @@ the requested class.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$class</format> - <format style="italic">
-<code>class-string</code>
+        <list><li>class-string <format style="bold">$class</format> - <format style="italic">
 Fully qualified class name that is being called.
 </format></li></list>
     </def>
@@ -763,7 +756,7 @@ Autoload::load('\MyApp\MyClass');
 ## method: callback {id="callback()"}
 
 <code-block lang="php">
-    <![CDATA[private static Autoload::callback(callable|string $path):\FireHub\Core\Initializers\Autoload\Callback]]>
+    <![CDATA[private static Autoload::callback(callable|non-empty-string $path):\FireHub\Core\Initializers\Autoload\Callback]]>
 </code-block>
 
 
@@ -783,12 +776,12 @@ Autoload::load('\MyApp\MyClass');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L364">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L346">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L364">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/firehub.Autoload.php#L346">
                     View blame
                 </a>
             </def></deflist>
@@ -804,7 +797,7 @@ Autoload::load('\MyApp\MyClass');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>callable or string <format style="bold">$path</format> - <format style="italic">
+        <list><li>callable or non-empty-string <format style="bold">$path</format> - <format style="italic">
 <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path.

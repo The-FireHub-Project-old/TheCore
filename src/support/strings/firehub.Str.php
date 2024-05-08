@@ -140,8 +140,7 @@ abstract class Str implements Strings {
      * // F-i-r-e-H-u-b
      * ```
      *
-     * @param array|Collectable $list <p>
-     * <code><![CDATA[ array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str> ]]></code>
+     * @param array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str> $list <p>
      * The array of strings to implode.
      * </p>
      * @param string $glue [optional] <p>
@@ -150,17 +149,18 @@ abstract class Str implements Strings {
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str> $list
      *
      * @throws Error If array item could not be converted to string.
      *
      * @return static New string containing a string representation of all the array elements in the same order,
      * with the separator string between each element.
+     *
+     * @todo After Collection check if string.
      */
     public static function fromList (array|Collectable $list, string $glue = '', ?Encoding $encoding = null):static {
 
         return new static(
-            StrMB::implode($list instanceof Collectable ? $list->all() : $list, $glue),
+            StrMB::implode($list instanceof Collectable ? $list->all() : $list, $glue), // @phpstan-ignore-line
             $encoding
         );
 

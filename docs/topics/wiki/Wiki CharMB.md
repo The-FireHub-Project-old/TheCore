@@ -71,7 +71,7 @@ Character encoding. If it is null, the internal character encoding value will be
 <h2><a name="ord()"># method: ord</a></h2>
 
 ```php
-public static CharMB::ord(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int
+public static CharMB::ord(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int
 ```
 
 
@@ -88,12 +88,11 @@ public static CharMB::ord(string $character, null|\FireHub\Core\Support\Enums\St
 
 _Returns the Unicode code point value of the given character. This function complements [[CharMB#chr()]]._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L83)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L83)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81)**</sub>
 #### Parameters
 
-* string **$character** - _<code>non-empty-string</code>
-A character._
+* non-empty-string **$character** - _A character._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Throws

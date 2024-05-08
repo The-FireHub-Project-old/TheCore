@@ -25,6 +25,14 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|protected|<a href="#$function_family">function_family</a>|||
+|readonly protected|<a href="#$from">from</a>|||
+|readonly protected|<a href="#$to">to</a>|||
+|inherited readonly protected|<a href="#$number">number</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -126,6 +134,86 @@ This class is marked as **final**.
 |inherited magic public|<a href="#inrange()">inRange</a>||
 |inherited magic public|<a href="#notinrange()">notInRange</a>||
 
+<h2><a name="$function_family"># property: function_family</a></h2>
+
+```php
+protected \FireHub\Core\Support\Strings\Expression\FunctionFamily $function_family
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L42)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L42)**</sub>
+<h2><a name="$from"># property: from</a></h2>
+
+```php
+readonly protected int $from
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L43)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L43)**</sub>
+<h2><a name="$to"># property: to</a></h2>
+
+```php
+readonly protected int $to
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L44)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L44)**</sub>
+<h2><a name="$number"># property: number</a></h2>
+
+```php
+readonly protected int $number
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Occurrences.php#L41)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Occurrences.php#L41)**</sub>
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php
@@ -146,13 +234,13 @@ public Between::__construct(\FireHub\Core\Support\Strings\Expression\FunctionFam
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L43)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L43)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L41)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L41)**</sub>
 #### Parameters
 
 * [\FireHub\Core\Support\Strings\Expression\FunctionFamily](./Wiki-FunctionFamily) **$function_family** - _Function to use._
-* int **$from** - _Number of occurrences._
-* int **$to** - _Second number._
+* int **$from**
+* int **$to**
 #### Returns
 
 * void
@@ -176,8 +264,8 @@ public Between::regex(string $pattern)
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L58)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L58)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L56)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/firehub.Between.php#L56)**</sub>
 #### Parameters
 
 * string **$pattern**
@@ -213,7 +301,7 @@ This method is marked as **final**.
 <h2><a name="__call()"># method: __call</a></h2>
 
 ```php
-public Pattern::__call(string $method, array $arguments):mixed
+public Pattern::__call(non-empty-string $method, array<array-key,mixed> $arguments):mixed
 ```
 
 
@@ -230,14 +318,12 @@ public Pattern::__call(string $method, array $arguments):mixed
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L194)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190)**</sub>
 #### Parameters
 
-* string **$method** - _<code>non-empty-string</code>
-Method name._
-* array **$arguments** - _<code>array<array-key, mixed></code>
-List of arguments._
+* non-empty-string **$method** - _Method name._
+* array&lt;array-key,mixed&gt; **$arguments** - _List of arguments._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If method doesn&#039;t exist._
@@ -1387,7 +1473,7 @@ public Pattern::notPunctuation():mixed
 
 
 
-_() ### Not-_
+_() ### Not punctuation_
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0)**</sub>

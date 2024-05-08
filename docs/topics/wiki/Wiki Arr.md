@@ -92,7 +92,7 @@ This class is marked as **final**.
 <h2><a name="keyexist()"># method: keyExist</a></h2>
 
 ```php
-public static Arr::keyExist(array-key $key, array $array):bool
+public static Arr::keyExist(array-key $key, array<array-key,mixed> $array):bool
 ```
 
 
@@ -109,20 +109,19 @@ public static Arr::keyExist(array-key $key, array $array):bool
 
 _Returns true if the given key is set in the array. Key can be any value possible for an array index._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L126)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L126)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L124)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L124)**</sub>
 #### Parameters
 
 * array-key **$key** - _Key to check._
-* array **$array** - _<code>array<array-key, mixed></code>
-An array with keys to check._
+* array&lt;array-key,mixed&gt; **$array** - _An array with keys to check._
 #### Returns
 
 * bool - _True if key exists in an array, false otherwise._
 <h2><a name="inarray()"># method: inArray</a></h2>
 
 ```php
-public static Arr::inArray(mixed $value, array $array):bool
+public static Arr::inArray(mixed $value, array<array-key,mixed> $array):bool
 ```
 
 
@@ -139,21 +138,20 @@ public static Arr::inArray(mixed $value, array $array):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L148)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L148)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L144)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L144)**</sub>
 #### Parameters
 
 * mixed **$value** - _The searched value.
 note: If a needle is a string, the comparison is done in a case-sensitive manner._
-* array **$array** - _<code>array<array-key, mixed></code>
-The array._
+* array&lt;array-key,mixed&gt; **$array** - _The array._
 #### Returns
 
 * bool - _True if value is found in the array, false otherwise._
 <h2><a name="islist()"># method: isList</a></h2>
 
 ```php
-public static Arr::isList(array $array):bool
+public static Arr::isList(array<array-key,mixed> $array):mixed
 ```
 
 
@@ -171,19 +169,18 @@ public static Arr::isList(array $array):bool
 _Determines if the given array is a list. An array is considered a list if its keys consist of consecutive
 numbers from 0 to count($array)-1._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L172)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L172)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L165)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L165)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, TValue></code>
-The array being evaluated._
+* array&lt;array-key,mixed&gt; **$array** - _The array being evaluated._
 #### Returns
 
-* bool - _<code>($array is list ? true: false)</code> True if an array is a list, false otherwise._
+* mixed - _True if an array is a list, false otherwise._
 <h2><a name="multisort()"># method: multiSort</a></h2>
 
 ```php
-public static Arr::multiSort(array $array):bool
+public static Arr::multiSort(array<array-key,array<array-key,mixed>> $array):bool
 ```
 
 
@@ -200,12 +197,11 @@ public static Arr::multiSort(array $array):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L198)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L189)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L189)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, array<array-key, mixed>></code>
-A multidimensional array being sorted._
+* array&lt;array-key,array&lt;array-key,mixed&gt;&gt; **$array** - _A multidimensional array being sorted._
 #### Throws
 
 * [\Error](./Wiki-Error) - _Failed to sort a multi-sort array._
@@ -216,7 +212,7 @@ A multidimensional array being sorted._
 <h2><a name="walk()"># method: walk</a></h2>
 
 ```php
-public static Arr::walk(array &$array, callable $callback):true
+public static Arr::walk(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true
 ```
 
 
@@ -234,16 +230,15 @@ public static Arr::walk(array &$array, callable $callback):true
 _Applies the user-defined callback function to each element of the array $array. Method is not affected by the
 internal array pointer of an array. Method will walk through the entire array regardless of pointer position._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L234)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L234)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L224)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L224)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
-The array to apply a user function._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to apply a user function._
 * callable **$callback** - _<code>callable (TValue $value, TKey $key):mixed</code>
 Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
 second. If a function name needs to be working with the actual values of the array, specify the first
@@ -259,7 +254,7 @@ elements, unset elements, etc._
 <h2><a name="walkrecursive()"># method: walkRecursive</a></h2>
 
 ```php
-public static Arr::walkRecursive(array &$array, callable $callback):true
+public static Arr::walkRecursive(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true
 ```
 
 
@@ -277,16 +272,15 @@ public static Arr::walkRecursive(array &$array, callable $callback):true
 _Applies the user-defined callback function to each element of the array. This function will recurse into
 deeper arrays._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L269)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L269)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L258)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L258)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
-The array to apply a user function._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to apply a user function._
 * callable **$callback** - _<code>callable (TValue $value, TKey $key):mixed</code>
 Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
 second. If a function name needs to be working with the actual values of the array, specify the first
@@ -302,7 +296,7 @@ elements, unset elements, etc._
 <h2><a name="countvalues()"># method: countValues</a></h2>
 
 ```php
-public static Arr::countValues(array $array):array
+public static Arr::countValues(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):array<array-key,positive-int>
 ```
 
 
@@ -320,23 +314,21 @@ public static Arr::countValues(array $array):array
 _Returns an array using the values of $array (which must be int-s or strings) as keys and their frequency in an
 $array as values._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L296)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L296)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L281)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L281)**</sub>
 #### Templates
 
 * TValue of array-key
 #### Parameters
 
-* array **$array** - _<code>array<array-key, TValue></code>
-The array of values to count._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array of values to count._
 #### Returns
 
-* array - _<code>array<array-key, positive-int></code> An associative array of values from
-input as keys and their count as value._
+* array&lt;array-key,positive-int&gt; - _An associative array of values from input as keys and their count as value._
 <h2><a name="fill()"># method: fill</a></h2>
 
 ```php
-public static Arr::fill(mixed $value, int $start_index, int $length):array
+public static Arr::fill(\FireHub\Core\Support\LowLevel\TValue $value, int $start_index, int $length):array<int,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -354,15 +346,14 @@ public static Arr::fill(mixed $value, int $start_index, int $length):array
 _Fills an array with $length entries of the value of the $value parameter, keys starting at the $start_index
 parameter._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L328)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L328)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L310)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L310)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* mixed **$value** - _<code>TValue</code>
-Value to use for filling._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) **$value** - _Value to use for filling._
 * int **$start_index** - _The first index of the returned array._
 * int **$length**
 #### Throws
@@ -370,11 +361,11 @@ Value to use for filling._
 * [\ValueError](./Wiki-ValueError) - _If $length is out of range._
 #### Returns
 
-* array - _<code>array<int, TValue></code> Filled array._
+* array&lt;int,\FireHub\Core\Support\LowLevel\TValue&gt; - _Filled array._
 <h2><a name="fillkeys()"># method: fillKeys</a></h2>
 
 ```php
-public static Arr::fillKeys(array $keys, mixed $value):array
+public static Arr::fillKeys(array<array-key,array-key> $keys, \FireHub\Core\Support\LowLevel\TValue $value):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -391,29 +382,27 @@ public static Arr::fillKeys(array $keys, mixed $value):array
 
 _Fills an array with the value of the $value parameter, using the values of the $keys array as keys._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L360)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L360)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L339)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L339)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$keys** - _<code>array<array-key, array-key></code>
-Array of values that will be used as keys.
+* array&lt;array-key,array-key&gt; **$keys** - _Array of values that will be used as keys.
 Illegal values for a key will be converted to string._
-* mixed **$value** - _<code>TValue</code>
-Value to use for filling._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) **$value** - _Value to use for filling._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If key could not be converted to string._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The filled array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The filled array._
 <h2><a name="foldkeys()"># method: foldKeys</a></h2>
 
 ```php
-public static Arr::foldKeys(array $array, \FireHub\Core\Support\Enums\String\CaseFolding $case = CaseFolding::LOWER):array
+public static Arr::foldKeys(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, \FireHub\Core\Support\Enums\String\CaseFolding $case = CaseFolding::LOWER):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -430,26 +419,25 @@ public static Arr::foldKeys(array $array, \FireHub\Core\Support\Enums\String\Cas
 
 _Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L395)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L395)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L373)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L373)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to work on._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to work on._
 * [\FireHub\Core\Support\Enums\String\CaseFolding](./Wiki-CaseFolding) **$case** = CaseFolding::LOWER - _[optional] 
 <code>\FireHub\Core\Support\Enums\String\CaseFolding::LOWER|\FireHub\Core\Support\Enums\String\CaseFolding::UPPER</code>
 Either LOWER or UPPER case folding._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array with its keys lower or uppercased._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array with its keys lower or uppercased._
 <h2><a name="chunk()"># method: chunk</a></h2>
 
 ```php
-public static Arr::chunk(array $array, positive-int $length, bool $preserve_keys = false):array
+public static Arr::chunk(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, positive-int $length, bool $preserve_keys = false):mixed
 ```
 
 
@@ -466,16 +454,15 @@ public static Arr::chunk(array $array, positive-int $length, bool $preserve_keys
 
 _Chunks an array into arrays with $length elements. The last chunk may contain less than $length elements._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L430)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L430)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L406)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L406)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array._
 * positive-int **$length** - _The size of each chunk.
 If the length is less than 1, it will default to 1._
 * bool **$preserve_keys** = false - _[optional] 
@@ -486,12 +473,12 @@ Default is false that will reindex the chunk numerically._
 * [\ValueError](./Wiki-ValueError) - _If length is less than 1._
 #### Returns
 
-* array - _<code>($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>)</code>
-Multidimensional numerically indexed array, starting with zero, with each dimension containing $length elements._
+* mixed - _Multidimensional numerically indexed array, starting with zero,
+with each dimension containing $length elements._
 <h2><a name="column()"># method: column</a></h2>
 
 ```php
-public static Arr::column(array $array, int|string $key, null|int|string $index = null):array
+public static Arr::column(array<array-key,array<array-key,\FireHub\Core\Support\LowLevel\TValue>> $array, \FireHub\Core\Support\LowLevel\TKey $key, null|\FireHub\Core\Support\LowLevel\TKey $index = null):mixed
 ```
 
 
@@ -510,34 +497,31 @@ _Returns the values from a single column of the $array, identified by the $key. 
 be provided to $index the values in the returned array by the values from the index argument column of the
 input array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L472)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L472)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L442)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L442)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<array-key, array<TKey, TValue>></code>
-A multidimensional array (record set) from which to pull a column of values. If an array of objects is provided,
+* array&lt;array-key,array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt;&gt; **$array** - _A multidimensional array (record set) from which to pull a column of values. If an array of objects is provided,
 then public properties can be directly pulled. In order for protected or private properties to be pulled,
 the class must implement both the __get() and __isset() magic methods._
-* int or string **$key** - _<code>TKey</code>
-The column of values to return. This value may be an integer key of the column you wish to retrieve, or it may
+* [\FireHub\Core\Support\LowLevel\TKey](./Wiki-TKey) **$key** - _The column of values to return. This value may be an integer key of the column you wish to retrieve, or it may
 be a string key name for an associative array or property name. It may also be null to return complete arrays or
 objects (this is useful together with $index to reindex the array)._
-* null or int or string **$index** = null - _[optional] 
+* null or [\FireHub\Core\Support\LowLevel\TKey](./Wiki-TKey) **$index** = null - _[optional] 
 <code>null|TKey</code>
 The column to use as the index/keys for the returned array. This value may be the integer key of the column,
 or it may be the string key name. The value is cast as usual for array keys._
 #### Returns
 
-* array - _<code>($index is null ? array<TValue> : array<TValue, TValue>)</code> Array of values
-representing a single column from the input array._
+* mixed - _Array of values representing a single column from the input array._
 <h2><a name="combine()"># method: combine</a></h2>
 
 ```php
-public static Arr::combine(array $keys, array $values):array
+public static Arr::combine(array<array-key,array-key> $keys, array<array-key,\FireHub\Core\Support\LowLevel\TValue> $values):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -555,29 +539,27 @@ public static Arr::combine(array $keys, array $values):array
 _Creates an array by using the values from the $keys array as keys and the values from the $values array as the
 corresponding values._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L505)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L505)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L471)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L471)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$keys** - _<code>array<array-key, TKey></code>
-Array of values to be used as keys.
+* array&lt;array-key,array-key&gt; **$keys** - _Array of values to be used as keys.
 Illegal values for a key will be converted to string._
-* array **$values** - _<code>array<array-key, TValue></code>
-Array of values to be used as values on a combined array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$values** - _Array of values to be used as values on a combined array._
 #### Throws
 
 * [\ValueError](./Wiki-ValueError) - _If arguments $keys and $values don&#039;t have the same number of elements._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The combined array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The combined array._
 <h2><a name="difference()"># method: difference</a></h2>
 
 ```php
-public static Arr::difference(array $array, array ...$excludes):array
+public static Arr::difference(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -595,27 +577,24 @@ public static Arr::difference(array $array, array ...$excludes):array
 _Compares an array against one or more other arrays and returns the values in array that are not present in any of
 the other arrays._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L539)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L539)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L501)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<array-key, TValue></code>
-The array to compare from._
-* variadic array **$excludes** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* variadic array&lt;array-key,mixed&gt; **$excludes** - _[optional] 
 An array to compare against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from
-$array that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differencefunc()"># method: differenceFunc</a></h2>
 
 ```php
-public static Arr::differenceFunc(array $array, array $excludes, callable $callback):array
+public static Arr::differenceFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -633,29 +612,26 @@ public static Arr::differenceFunc(array $array, array $excludes, callable $callb
 _Computes the difference of arrays by using a callback function for data comparison. This is unlike
 [[Arr#difference()]] which uses an internal function for comparing the data._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L581)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L581)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L539)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L539)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function must return an integer less than, equal to, or greater than zero if the first argument
 is considered to be respectively less than, equal to, or greater than the second._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array
-that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differencekey()"># method: differenceKey</a></h2>
 
 ```php
-public static Arr::differenceKey(array $array, array ...$excludes):array
+public static Arr::differenceKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -673,27 +649,24 @@ public static Arr::differenceKey(array $array, array ...$excludes):array
 _Compares the keys from array against the keys from arrays and returns the difference. This function is like
 [[Arr#difference()]] except the comparison is done on the keys instead of the values._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L615)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L615)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L569)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L569)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* variadic array **$excludes** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* variadic array&lt;array-key,mixed&gt; **$excludes** - _[optional] 
 An array to compare against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> Returns an array containing all the entries from
-array whose keys are absent from all the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _Returns an array containing all the entries from array whose keys are absent from all the other arrays._
 <h2><a name="differencekeyfunc()"># method: differenceKeyFunc</a></h2>
 
 ```php
-public static Arr::differenceKeyFunc(array $array, array $excludes, callable $callback):array
+public static Arr::differenceKeyFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -711,28 +684,25 @@ public static Arr::differenceKeyFunc(array $array, array $excludes, callable $ca
 _Compares the keys from array against the keys from arrays and returns the difference. This function is like
 [[Arr#difference()]] except the comparison is done on the keys instead of the values._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L656)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L656)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L606)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L606)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array
-that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differenceassoc()"># method: differenceAssoc</a></h2>
 
 ```php
-public static Arr::differenceAssoc(array $array, array ...$excludes):array
+public static Arr::differenceAssoc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$excludes):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -750,27 +720,24 @@ public static Arr::differenceAssoc(array $array, array ...$excludes):array
 _Compares an array against arrays and returns the difference. Unlike [[Arr#difference()]], the array keys are
 also used in the comparison._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L692)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L692)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L638)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L638)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* variadic array **$excludes** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* variadic array&lt;array-key,mixed&gt; **$excludes** - _[optional] 
 An array to compare against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array
-that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differenceassocfuncvalue()"># method: differenceAssocFuncValue</a></h2>
 
 ```php
-public static Arr::differenceAssocFuncValue(array $array, array $excludes, callable $callback):array
+public static Arr::differenceAssocFuncValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -787,28 +754,25 @@ public static Arr::differenceAssocFuncValue(array $array, array $excludes, calla
 
 _Computes the difference of arrays with additional index check, compares data by a callback function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L733)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L733)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L675)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L675)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array
-that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differenceassocfunckey()"># method: differenceAssocFuncKey</a></h2>
 
 ```php
-public static Arr::differenceAssocFuncKey(array $array, array $excludes, callable $callback):array
+public static Arr::differenceAssocFuncKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -827,28 +791,25 @@ _Compares an array against arrays and returns the difference. Unlike [[Arr#diffe
 used in the comparison. Unlike [[Arr#differenceAssoc()]], a user-supplied callback function is used for the
 indices comparison, not internal function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L775)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L775)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L713)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L713)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> Returns an array containing all the entries from
-$array that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _Returns an array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="differenceassocfunckeyvalue()"># method: differenceAssocFuncKeyValue</a></h2>
 
 ```php
-public static Arr::differenceAssocFuncKeyValue(array $array, array $excludes, callable $callback_value, callable $callback_key):array
+public static Arr::differenceAssocFuncKeyValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback_value, callable $callback_key):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -866,30 +827,27 @@ public static Arr::differenceAssocFuncKeyValue(array $array, array $excludes, ca
 _Computes the difference of arrays with additional index check, compares data and indexes by a callback function.
 Note that the keys are used in the comparison unlike [[Arr#difference()]] and [[Arr#differenceFunc()]]._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L755)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L755)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback_value** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function for value._
 * callable **$callback_key** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function for key._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array
-that are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="intersect()"># method: intersect</a></h2>
 
 ```php
-public static Arr::intersect(array $array, array ...$arrays):array
+public static Arr::intersect(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -907,26 +865,24 @@ public static Arr::intersect(array $array, array ...$arrays):array
 _Returns an array containing all the values of array that are present in all the arguments. Note that keys are
 preserved._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L854)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L854)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L785)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L785)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array with main values to check._
-* variadic array **$arrays** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array with main values to check._
+* variadic array&lt;array-key,mixed&gt; **$arrays** - _[optional] 
 An array to compare values against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The filtered array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The filtered array._
 <h2><a name="intersectfunc()"># method: intersectFunc</a></h2>
 
 ```php
-public static Arr::intersectFunc(array $array, array $excludes, callable $callback):array
+public static Arr::intersectFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -943,28 +899,25 @@ public static Arr::intersectFunc(array $array, array $excludes, callable $callba
 
 _Computes the intersection of arrays, compares data by a callback function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L894)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L894)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L821)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> Arrays containing all the entries from $array that
-are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _Arrays containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="intersectkey()"># method: intersectKey</a></h2>
 
 ```php
-public static Arr::intersectKey(array $array, array ...$arrays):array
+public static Arr::intersectKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -981,26 +934,24 @@ public static Arr::intersectKey(array $array, array ...$arrays):array
 
 _Returns an array containing all the entries of array which have keys that are present in all the arguments._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L923)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L923)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L847)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L847)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array with main values to check._
-* variadic array **$arrays** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array with main values to check._
+* variadic array&lt;array-key,mixed&gt; **$arrays** - _[optional] 
 An array to compare values against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The filtered array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The filtered array._
 <h2><a name="intersectkeyfunc()"># method: intersectKeyFunc</a></h2>
 
 ```php
-public static Arr::intersectKeyFunc(array $array, array $excludes, callable $callback):array
+public static Arr::intersectKeyFunc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1018,28 +969,25 @@ public static Arr::intersectKeyFunc(array $array, array $excludes, callable $cal
 _Returns an array containing all the values of array which have matching keys that are present in all the
 arguments._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L962)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L962)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L882)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L882)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array that
-are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="intersectassoc()"># method: intersectAssoc</a></h2>
 
 ```php
-public static Arr::intersectAssoc(array $array, array ...$arrays):array
+public static Arr::intersectAssoc(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1057,26 +1005,24 @@ public static Arr::intersectAssoc(array $array, array ...$arrays):array
 _Returns an array containing all the values of array that are present in all the arguments. Note that the keys
 are also used in the comparison unlike in [[Arr#intersect()]]._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L995)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L995)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L912)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L912)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array with main values to check._
-* variadic array **$arrays** - _[optional] 
-<code>array<array-key, mixed></code>
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array with main values to check._
+* variadic array&lt;array-key,mixed&gt; **$arrays** - _[optional] 
 An array to compare values against._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The filtered array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The filtered array._
 <h2><a name="intersectassocfuncvalue()"># method: intersectAssocFuncValue</a></h2>
 
 ```php
-public static Arr::intersectAssocFuncValue(array $array, array $excludes, callable $callback):array
+public static Arr::intersectAssocFuncValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1095,29 +1041,26 @@ _Computes the intersection of arrays with additional index check, compares data 
 that the keys are used in the comparison unlike in [[Arr#intersectFunc()]]. The data is compared by using a
 callback function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1035)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1035)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L948)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L948)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _$callback 
 <code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array that
-are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="intersectassocfunckey()"># method: intersectAssocFuncKey</a></h2>
 
 ```php
-public static Arr::intersectAssocFuncKey(array $array, array $excludes, callable $callback):array
+public static Arr::intersectAssocFuncKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1135,28 +1078,25 @@ public static Arr::intersectAssocFuncKey(array $array, array $excludes, callable
 _Computes the intersection of arrays with additional index check, compares data and indexes by separate
 callback functions._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1076)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1076)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L985)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L985)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array that
-are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="intersectassocfunckeyvalue()"># method: intersectAssocFuncKeyValue</a></h2>
 
 ```php
-public static Arr::intersectAssocFuncKeyValue(array $array, array $excludes, callable $callback_value, callable $callback_key):array
+public static Arr::intersectAssocFuncKeyValue(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, array<array-key,mixed> $excludes, callable $callback_value, callable $callback_key):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1174,30 +1114,27 @@ public static Arr::intersectAssocFuncKeyValue(array $array, array $excludes, cal
 _Computes the intersection of arrays with additional index check, compares data and indexes by separate
 callback functions._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1121)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1121)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1026)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1026)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to compare from._
-* array **$excludes** - _<code>array<array-key, mixed></code>
-An array to compare against._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to compare from._
+* array&lt;array-key,mixed&gt; **$excludes** - _An array to compare against._
 * callable **$callback_value** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function for value._
 * callable **$callback_key** - _<code>callable (mixed $a, mixed $b):int<-1, 1></code>
 The comparison function for key._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> An array containing all the entries from $array that
-are not present in any of the other arrays._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _An array containing all the entries from $array that are not present in any of the other arrays._
 <h2><a name="filter()"># method: filter</a></h2>
 
 ```php
-public static Arr::filter(array $array, null|callable $callback = null, bool $pass_value = false):array
+public static Arr::filter(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, null|callable $callback = null, bool $pass_value = false, bool $pass_key = false):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1216,29 +1153,30 @@ _Iterates over each value in the $array passing them to the $callback function. 
 returns true, the current value from an $array is returned into the result array. Array keys are preserved, and
 may result in gaps if the $array was indexed. The result array can be re-indexed using the values() function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1160)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1160)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1067)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1067)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to iterate over._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to iterate over._
 * null or callable **$callback** = null - _[optional] 
 <code>null|callable (TValue, TKey=):bool</code>
 The callback function to use.
 If no callback is supplied, all empty and false entries of an array will be removed._
 * bool **$pass_value** = false - _[optional] 
-Pass value in addition to key as the argument to callback._
+Pass value as the argument to callback._
+* bool **$pass_key** = false - _[optional] 
+Pass key as the argument to callback._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> Filtered array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _Filtered array._
 <h2><a name="flip()"># method: flip</a></h2>
 
 ```php
-public static Arr::flip(array $array):array
+public static Arr::flip(array<array-key,array-key> $array):array<array-key,array-key>
 ```
 
 
@@ -1259,23 +1197,22 @@ will be emitted if a value has the wrong type, and the key/value pair in questio
 result. If a value has several occurrences, the latest key will be used as its value, and all others will be
 lost._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1195)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1195)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1102)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1102)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue of array-key
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to flip._
+* array&lt;array-key,array-key&gt; **$array** - _The array to flip._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The flipped array._
+* array&lt;array-key,array-key&gt; - _The flipped array._
 <h2><a name="keys()"># method: keys</a></h2>
 
 ```php
-public static Arr::keys(array $array, mixed $filter = null):array
+public static Arr::keys(array<array-key,mixed> $array, mixed $filter = null):list
 ```
 
 
@@ -1293,21 +1230,20 @@ public static Arr::keys(array $array, mixed $filter = null):array
 _Returns the keys, numeric and string, from the $array. If a $filter is specified, then only the keys for that
 value are returned. Otherwise, all the keys from the array are returned._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1220)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1220)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1124)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1124)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-An array containing keys to return._
+* array&lt;array-key,mixed&gt; **$array** - _An array containing keys to return._
 * mixed **$filter** = null - _[optional] 
 If specified, then only keys containing these values are returned._
 #### Returns
 
-* array - _<code>list<mixed></code> An array of all the keys in input._
+* list - _An array of all the keys in input._
 <h2><a name="values()"># method: values</a></h2>
 
 ```php
-public static Arr::values(array $array):array
+public static Arr::values(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):\FireHub\Core\Support\LowLevel\TValue[]
 ```
 
 
@@ -1324,22 +1260,21 @@ public static Arr::values(array $array):array
 
 _Returns all the values from the array and indexes the array numerically._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1245)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1245)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1146)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1146)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<array-key, TValue></code>
-The array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array._
 #### Returns
 
-* array - _<code>array<TValue></code> An indexed array of values._
+* [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) - _An indexed array of values._
 <h2><a name="map()"># method: map</a></h2>
 
 ```php
-public static Arr::map(array $array, callable $callback):array
+public static Arr::map(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, callable $callback):array<array-key,mixed>
 ```
 
 
@@ -1359,28 +1294,26 @@ arguments for the callback. The number of parameters that the $callback function
 number of arrays passed to map(). Excess input arrays are ignored. An ArgumentCountError is thrown if an
 insufficient number of arguments is provided._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1279)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1279)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1178)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1178)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-Array to run through the callback function._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to run through the callback function._
 * callable **$callback** - _<code>null|callable (TValue $value):mixed</code>
 Callback function to run for each element in each array.
 Null can be passed as a value to $callback to perform a zip operation on multiple arrays.
 If only an array is provided, map() will return the input array._
 #### Returns
 
-* array - _<code>array<TKey, mixed></code> Array containing all the elements of arr1 after
-applying the callback function._
+* array&lt;array-key,mixed&gt; - _Array containing all the elements of arr1 after applying the callback function._
 <h2><a name="merge()"># method: merge</a></h2>
 
 ```php
-public static Arr::merge(array ...$arrays):array
+public static Arr::merge(array<array-key,\FireHub\Core\Support\LowLevel\TValue> ...$arrays):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1401,24 +1334,23 @@ value for that key will overwrite the previous one. If, however, the arrays cont
 value will not overwrite the original value, but will be appended. Values in the input arrays with numeric
 keys will be renumbered with incrementing keys starting from zero in the result array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1312)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1312)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1210)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1210)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* variadic array **$arrays** - _[optional] 
-<code>array<TKey, TValue></code>
+* variadic array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$arrays** - _[optional] 
 Variable list of arrays to merge._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The resulting array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The resulting array._
 <h2><a name="mergerecursive()"># method: mergeRecursive</a></h2>
 
 ```php
-public static Arr::mergeRecursive(array ...$arrays):array
+public static Arr::mergeRecursive(array<array-key,mixed> ...$arrays):array<array-key,mixed>
 ```
 
 
@@ -1439,20 +1371,19 @@ for these keys are merged into an array. This is done recursively, so that if on
 itself, the function will merge it with a corresponding entry in another array too. If, however, the arrays
 have the same numeric key, the later value will not overwrite the original value, but will be appended._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1337)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1337)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1232)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1232)**</sub>
 #### Parameters
 
-* variadic array **$arrays** - _[optional] 
-<code>array<array-key, mixed></code>
+* variadic array&lt;array-key,mixed&gt; **$arrays** - _[optional] 
 Variable list of arrays to recursively merge._
 #### Returns
 
-* array - _<code>array<array-key, mixed></code> The resulting array._
+* array&lt;array-key,mixed&gt; - _The resulting array._
 <h2><a name="pad()"># method: pad</a></h2>
 
 ```php
-public static Arr::pad(array $array, int $length, mixed $value):array
+public static Arr::pad(array<array-key,mixed> $array, int $length, mixed $value):array<array-key,mixed>
 ```
 
 
@@ -1472,23 +1403,22 @@ then the array is padded on the right if it's negative then on the left. If the 
 less than or equal to the length of the array, then no padding takes place. It is possible to add at most
 1048576 elements at a time._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1371)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1371)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1263)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1263)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-Initial array of values to pad._
+* array&lt;array-key,mixed&gt; **$array** - _Initial array of values to pad._
 * int **$length** - _New size of the array.
 If the length is positive, then the array is padded on the right if it's negative then on the left.
 If the absolute value of length is less than or equal to the length of the array, then no padding takes place._
 * mixed **$value** - _Value to pad if input is less than length._
 #### Returns
 
-* array - _<code>array<array-key, mixed></code> A copy of the input padded to size specified by $length with value $value._
+* array&lt;array-key,mixed&gt; - _A copy of the input padded to size specified by $length with value $value._
 <h2><a name="replace()"># method: replace</a></h2>
 
 ```php
-public static Arr::replace(array $array, array ...$replacements):array
+public static Arr::replace(\FireHub\Core\Support\LowLevel\TValue[] $array, array ...$replacements):\FireHub\Core\Support\LowLevel\TValue[]
 ```
 
 
@@ -1510,23 +1440,22 @@ exists in the first array, it will be left as is. If several arrays are passed f
 processed in order, the later arrays overwriting the previous values. Method is not recursive, it will replace
 values in the first array by whatever type is in the second array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1404)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1404)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1291)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1291)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TValue></code>
-The array in which elements are replaced._
+* [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) **$array** - _The array in which elements are replaced._
 * variadic array **$replacements**
 #### Returns
 
-* array - _<code>array<TValue></code> The resulting array._
+* [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) - _The resulting array._
 <h2><a name="replacerecursive()"># method: replaceRecursive</a></h2>
 
 ```php
-public static Arr::replaceRecursive(array $array, array ...$replacements):array
+public static Arr::replaceRecursive(\FireHub\Core\Support\LowLevel\TValue[] $array, array ...$replacements):\FireHub\Core\Support\LowLevel\TValue[]
 ```
 
 
@@ -1549,23 +1478,22 @@ in order, the later array overwriting the previous values. When the value in the
 will be replaced by the value in the second array, may it be scalar or array. When the value in the first
 array and the second array are both arrays, replaceRecursive() will replace their respective values recursively._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1438)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1438)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1320)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1320)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TValue></code>
-The array in which elements are replaced._
+* [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) **$array** - _The array in which elements are replaced._
 * variadic array **$replacements**
 #### Returns
 
-* array - _<code>array<TValue></code> The resulting array._
+* [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) - _The resulting array._
 <h2><a name="reverse()"># method: reverse</a></h2>
 
 ```php
-public static Arr::reverse(array $array, bool $preserve_keys = false):array
+public static Arr::reverse(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, bool $preserve_keys = false):mixed
 ```
 
 
@@ -1582,26 +1510,25 @@ public static Arr::reverse(array $array, bool $preserve_keys = false):array
 
 _Takes an input array and returns a new array with the order of the elements reversed._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1466)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1466)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1346)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1346)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-Array to reverse._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to reverse._
 * bool **$preserve_keys** = false - _[optional] 
 Whether you want to preserve keys from an original array or not.
 Non-numeric keys are not affected by this setting and will always be preserved._
 #### Returns
 
-* array - _<code>($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)</code> The reversed array._
+* mixed - _The reversed array._
 <h2><a name="slice()"># method: slice</a></h2>
 
 ```php
-public static Arr::slice(array $array, int $offset, null|int $length = null, bool $preserve_keys = false):array
+public static Arr::slice(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array, int $offset, null|int $length = null, bool $preserve_keys = false):mixed
 ```
 
 
@@ -1618,16 +1545,15 @@ public static Arr::slice(array $array, int $offset, null|int $length = null, boo
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1503)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1503)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1381)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1381)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The input array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 * int **$offset** - _If the offset is non-negative, the sequence will start at that offset in the array.
 If the offset is negative, the sequence will start that far from the end of the array._
 * null or int **$length** = null - _[optional] 
@@ -1639,11 +1565,11 @@ Note that array_slice will reorder and reset the array indices by default.
 You can change this behavior by setting preserve_keys to true._
 #### Returns
 
-* array - _<code>($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>)</code> Sliced array._
+* mixed - _Sliced array._
 <h2><a name="splice()"># method: splice</a></h2>
 
 ```php
-public static Arr::splice(array &$array, int $offset, null|int $length = null, mixed $replacement = []):array
+public static Arr::splice(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, int $offset, null|int $length = null, mixed $replacement = []):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1661,16 +1587,15 @@ public static Arr::splice(array &$array, int $offset, null|int $length = null, m
 _Removes the elements designated by offset and length from the array $array, and replaces them with the elements
 of the replacement array, if supplied._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1550)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1550)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1427)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1427)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
-Array to splice._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to splice._
 * int **$offset** - _If the offset is positive, then the start of the removed portion is at that offset from the beginning of the
 input array.
 If the offset is negative, then it starts that far from the end of the input array._
@@ -1686,11 +1611,11 @@ are inserted in the place specified by the offset.
 Keys in a replacement array are not preserved._
 #### Returns
 
-* array - _<code>array<TKey|int, TValue></code> Spliced array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _Spliced array._
 <h2><a name="unique()"># method: unique</a></h2>
 
 ```php
-public static Arr::unique(array $array):array
+public static Arr::unique(array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):array<array-key,\FireHub\Core\Support\LowLevel\TValue>
 ```
 
 
@@ -1707,23 +1632,22 @@ public static Arr::unique(array $array):array
 
 _Takes an input array and returns a new array without duplicate values._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1577)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1577)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1453)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1453)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* array **$array** - _<code>array<TKey, TValue></code>
-The array to remove duplicates._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to remove duplicates._
 #### Returns
 
-* array - _<code>array<TKey, TValue></code> The filtered array._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; - _The filtered array._
 <h2><a name="range()"># method: range</a></h2>
 
 ```php
-public static Arr::range(int|float|string $start, int|float|string $end, int|float $step = 1):array
+public static Arr::range(int|float|string $start, int|float|string $end, positive-int|float $step = 1):array<int,int|float|string>
 ```
 
 
@@ -1740,13 +1664,13 @@ public static Arr::range(int|float|string $start, int|float|string $end, int|flo
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1613)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1613)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1486)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1486)**</sub>
 #### Parameters
 
 * int or float or string **$start** - _First value of the sequence._
 * int or float or string **$end** - _The sequence is ended upon reaching the end value._
-* int or float **$step** = 1 - _[optional] 
+* positive-int or float **$step** = 1 - _[optional] 
 If a step value is given, it will be used as the increment between elements in the sequence. Step should be
 given as a positive number. If not specified, a step will default to 1._
 #### Throws
@@ -1756,12 +1680,11 @@ is a number, $start or $end is a non-numeric string with more than one byte or &
 string._
 #### Returns
 
-* array - _<code>array<int, int|float|string></code> An array of elements from start to end,
-inclusive, false otherwise._
+* array&lt;int,int or float or string&gt; - _An array of elements from start to end, inclusive, false otherwise._
 <h2><a name="random()"># method: random</a></h2>
 
 ```php
-public static Arr::random(array $array, int $number = 1):array|int|string
+public static Arr::random(array<array-key,mixed> $array, positive-int $number = 1):array<int,array-key>|int|string
 ```
 
 
@@ -1778,25 +1701,24 @@ public static Arr::random(array $array, int $number = 1):array|int|string
 
 _Picks one or more random entries out of an array, and returns the key (or keys) of the random entries._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1644)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1644)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1513)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1513)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-The input array._
-* int **$number** = 1 - _[optional] 
+* array&lt;array-key,mixed&gt; **$array** - _The input array._
+* positive-int **$number** = 1 - _[optional] 
 Specifies how many entries should be picked._
 #### Throws
 
 * [\ValueError](./Wiki-ValueError) - _If $number is not between one and the number of elements in argument._
 #### Returns
 
-* array or int or string - _<code>array<int, array-key>|int|string</code> When picking only one entry,
-array_rand() returns the key for a random entry. Otherwise, an array of keys for the random entries is returned._
+* array&lt;int,array-key&gt; or int or string - _When picking only one entry, array_rand() returns the key for a random entry.
+Otherwise, an array of keys for the random entries is returned._
 <h2><a name="reduce()"># method: reduce</a></h2>
 
 ```php
-public static Arr::reduce(array $array, callable $callback, mixed $initial = null):mixed
+public static Arr::reduce(array<array-key,mixed> $array, callable $callback, mixed $initial = null):mixed
 ```
 
 
@@ -1813,12 +1735,11 @@ public static Arr::reduce(array $array, callable $callback, mixed $initial = nul
 
 _Iteratively applies the $callback function to the elements of the $array, to reduce the array to a single value._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1672)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1672)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1539)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1539)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-The input array._
+* array&lt;array-key,mixed&gt; **$array** - _The input array._
 * callable **$callback** - _<code>callable (mixed $carry, mixed $item):mixed</code>
 The callable function._
 * mixed **$initial** = null - _[optional] 
@@ -1830,7 +1751,7 @@ or as a final result in case the array is empty._
 <h2><a name="pop()"># method: pop</a></h2>
 
 ```php
-public static Arr::pop(array &$array):mixed
+public static Arr::pop(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|null
 ```
 
 
@@ -1847,22 +1768,21 @@ public static Arr::pop(array &$array):mixed
 
 _Pops and returns the last element value of th $array, shortening the $array by one element._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1698)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1698)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1562)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1562)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<array-key, TValue></code>
-The array to get the value from._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array to get the value from._
 #### Returns
 
-* mixed - _<code>TValue|null</code> The last value of an array. If an array is empty (or is not an array), null will be returned._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or null - _The last value of an array. If an array is empty (or is not an array), null will be returned._
 <h2><a name="push()"># method: push</a></h2>
 
 ```php
-public static Arr::push(array &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int
+public static Arr::push(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int
 ```
 
 
@@ -1880,15 +1800,14 @@ public static Arr::push(array &$array, \FireHub\Core\Support\LowLevel\TValue ...
 _Method treats an array as a stack, and pushes the passed variables onto the end of array. The length of array
 increases by the number of variables pushed._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1728)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1728)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1590)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1590)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<array-key, TValue></code>
-The input array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 * variadic [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) **$values** - _[optional] 
 The values to push onto the end of the array._
 #### Returns
@@ -1897,7 +1816,7 @@ The values to push onto the end of the array._
 <h2><a name="shift()"># method: shift</a></h2>
 
 ```php
-public static Arr::shift(array &$array):mixed
+public static Arr::shift(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):\FireHub\Core\Support\LowLevel\TValue|null
 ```
 
 
@@ -1916,22 +1835,21 @@ _Shifts the first value of the array off and returns it, shortening the array by
 everything down. All numerical array keys will be modified to start counting from zero while literal keys won't
 be affected._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1756)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1756)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1615)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1615)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<array-key, TValue></code>
-Array to shift._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to shift._
 #### Returns
 
-* mixed - _<code>TValue|null</code> The shifted value, or null if an array is empty or is not an array._
+* [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) or null - _The shifted value, or null if an array is empty or is not an array._
 <h2><a name="unshift()"># method: unshift</a></h2>
 
 ```php
-public static Arr::unshift(array &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int
+public static Arr::unshift(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\LowLevel\TValue ...$values):int
 ```
 
 
@@ -1950,15 +1868,14 @@ _Method prepends passed elements to the front of the array.
 Note that the list of elements is prepended as a whole, so that the prepended elements stay in the same order.
 All numerical array keys will be modified to start counting from zero while literal keys won't be changed._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1786)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1786)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1643)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1643)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<array-key, TValue></code>
-The input array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The input array._
 * variadic [\FireHub\Core\Support\LowLevel\TValue](./Wiki-TValue) **$values** - _[optional] 
 The values to prepend._
 #### Returns
@@ -1967,7 +1884,7 @@ The values to prepend._
 <h2><a name="firstkey()"># method: firstKey</a></h2>
 
 ```php
-public static Arr::firstKey(array $array):null|int|string
+public static Arr::firstKey(array<array-key,mixed> $array):null|int|string
 ```
 
 
@@ -1984,19 +1901,18 @@ public static Arr::firstKey(array $array):null|int|string
 
 _Get the first key of the given $array without affecting the internal array pointer._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1806)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1806)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1661)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1661)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-An array._
+* array&lt;array-key,mixed&gt; **$array** - _An array._
 #### Returns
 
 * null or int or string - _First key from $array or null if an array is empty._
 <h2><a name="lastkey()"># method: lastKey</a></h2>
 
 ```php
-public static Arr::lastKey(array $array):null|int|string
+public static Arr::lastKey(array<array-key,mixed> $array):null|int|string
 ```
 
 
@@ -2013,19 +1929,18 @@ public static Arr::lastKey(array $array):null|int|string
 
 _Get the last key of the given $array without affecting the internal array pointer._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1826)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1826)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1679)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1679)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-An array._
+* array&lt;array-key,mixed&gt; **$array** - _An array._
 #### Returns
 
 * null or int or string - _Last key from $array or null if an array is empty._
 <h2><a name="product()"># method: product</a></h2>
 
 ```php
-public static Arr::product(array $array):int|float
+public static Arr::product(array<array-key,mixed> $array):int|float
 ```
 
 
@@ -2042,19 +1957,18 @@ public static Arr::product(array $array):int|float
 
 _Returns the product of values in an array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1848)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1848)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1699)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1699)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-The array._
+* array&lt;array-key,mixed&gt; **$array** - _The array._
 #### Returns
 
 * int or float - _The product as an integer or float._
 <h2><a name="sum()"># method: sum</a></h2>
 
 ```php
-public static Arr::sum(array $array):int|float
+public static Arr::sum(array<array-key,mixed> $array):int|float
 ```
 
 
@@ -2071,19 +1985,18 @@ public static Arr::sum(array $array):int|float
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1868)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1868)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1717)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1717)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-The input array._
+* array&lt;array-key,mixed&gt; **$array** - _The input array._
 #### Returns
 
 * int or float - _The sum of values as an integer or float; 0 if the array is empty._
 <h2><a name="search()"># method: search</a></h2>
 
 ```php
-public static Arr::search(mixed $value, array $array):int|string|false
+public static Arr::search(mixed $value, array<array-key,\FireHub\Core\Support\LowLevel\TValue> $array):int|string|false
 ```
 
 
@@ -2100,8 +2013,8 @@ public static Arr::search(mixed $value, array $array):int|string|false
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1898)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1898)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1746)**</sub>
 #### Templates
 
 * TKey of array-key
@@ -2110,15 +2023,14 @@ public static Arr::search(mixed $value, array $array):int|string|false
 
 * mixed **$value** - _The searched value.
 If $value is a string, the comparison is done in a case-sensitive manner._
-* array **$array** - _<code>array<array-key, mixed></code>
-Array to search._
+* array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to search._
 #### Returns
 
 * int or string or false - _<code>TKey|false</code> The key for value if it is found in the array, false otherwise._
 <h2><a name="shuffle()"># method: shuffle</a></h2>
 
 ```php
-public static Arr::shuffle(array &$array):true
+public static Arr::shuffle(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array):true
 ```
 
 
@@ -2135,22 +2047,21 @@ public static Arr::shuffle(array &$array):true
 
 _This function shuffles (randomizes the order of the elements in) an array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1927)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1927)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1773)**</sub>
 #### Templates
 
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<array-key, TValue></code>
-The array._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _The array._
 #### Returns
 
 * true - _Always returns true._
 <h2><a name="sort()"># method: sort</a></h2>
 
 ```php
-public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true
+public static Arr::sort(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true
 ```
 
 
@@ -2167,16 +2078,15 @@ public static Arr::sort(array &$array, \FireHub\Core\Support\Enums\Order $order 
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1965)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1965)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1810)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1810)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
-Array to sort._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to sort._
 * [\FireHub\Core\Support\Enums\Order](./Wiki-Order) **$order** = Order::ASC - _[optional] 
 Order type._
 * [\FireHub\Core\Support\Enums\Sort](./Wiki-Sort) **$flag** = Sort::BY_REGULAR - _[optional] 
@@ -2189,7 +2099,7 @@ Whether you want to preserve keys from an original array or not._
 <h2><a name="sortbykey()"># method: sortByKey</a></h2>
 
 ```php
-public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true
+public static Arr::sortByKey(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, \FireHub\Core\Support\Enums\Order $order = Order::ASC, \FireHub\Core\Support\Enums\Sort $flag = Sort::BY_REGULAR):true
 ```
 
 
@@ -2206,15 +2116,15 @@ public static Arr::sortByKey(array<int|string,mixed> &$array, \FireHub\Core\Supp
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2005)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2005)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1849)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1849)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array&lt;int or string,mixed&gt; **$array** - _<code>array<TKey, TValue></code>
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _&$array 
 Array to sort._
 * [\FireHub\Core\Support\Enums\Order](./Wiki-Order) **$order** = Order::ASC - _[optional] 
 Order type._
@@ -2226,7 +2136,7 @@ Sort flag._
 <h2><a name="sortby()"># method: sortBy</a></h2>
 
 ```php
-public static Arr::sortBy(array &$array, callable $callback, bool $preserve_keys = false):true
+public static Arr::sortBy(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback, bool $preserve_keys = false):true
 ```
 
 
@@ -2243,15 +2153,15 @@ public static Arr::sortBy(array &$array, callable $callback, bool $preserve_keys
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2039)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2039)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1882)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1882)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array**
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to sort._
 * callable **$callback** - _<code>callable (TValue $a, TValue $b):int<-1, 1></code>
 The comparison function must return an integer less than, equal to, or greater than zero if the first argument
 is considered to be respectively less than, equal to, or greater than the second._
@@ -2263,7 +2173,7 @@ Whether you want to preserve keys from an original array or not._
 <h2><a name="sortkeyby()"># method: sortKeyBy</a></h2>
 
 ```php
-public static Arr::sortKeyBy(array &$array, callable $callback):true
+public static Arr::sortKeyBy(array<array-key,\FireHub\Core\Support\LowLevel\TValue> &$array, callable $callback):true
 ```
 
 
@@ -2280,16 +2190,15 @@ public static Arr::sortKeyBy(array &$array, callable $callback):true
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2071)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L2071)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1913)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Arr.php#L1913)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* by reference array **$array** - _<code>array<TKey, TValue></code>
-Array to sort._
+* by reference array&lt;array-key,\FireHub\Core\Support\LowLevel\TValue&gt; **$array** - _Array to sort._
 * callable **$callback** - _<code>callable (TKey $a, TKey $b):int<-1, 1></code>
 The callback comparison function. Function cmp_function should accept two parameters which will be filled
 by pairs of array keys. The comparison function must return an integer less than, equal to, or greater than

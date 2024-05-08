@@ -34,8 +34,7 @@ final class Expression {
      * ### List of expression pattern modifiers
      * @since 1.0.0
      *
-     * @var array
-     * @phpstan-var \FireHub\Core\Support\Enums\String\Expression\Modifier[]
+     * @var \FireHub\Core\Support\Enums\String\Expression\Modifier[]
      */
     protected array $modifiers = [];
 

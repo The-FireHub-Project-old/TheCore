@@ -55,11 +55,9 @@ final class RegexMB {
      * @param bool $case_sensitive [optional] <p>
      * Case-sensitive match.
      * </p>
-     * @param null|array &$result [optional] <p>
-     * <code>null|string[]</code>
+     * @param null|string[] &$result [optional] <p>
      * Case-sensitive match.
      * </p>
-     * @phpstan-param null|string[] &$result
      * @param-out string[] $result
      *
      * @error\exeption E_WARNING if an invalid POSIX bracket type.
@@ -164,9 +162,7 @@ final class RegexMB {
      * @error\exeption E_WARNING if an invalid POSIX bracket type.
      * @throws Error If error while performing a regular expression split.
      *
-     * @return array <code>string[]</code> Array containing substrings of $string split along boundaries matched
-     * by $pattern.
-     * @phpstan-return string[]
+     * @return string[] Array containing substrings of $string split along boundaries matched by $pattern.
      */
     public static function split (string $pattern, string $string, int $limit = -1):array {
 
@@ -187,9 +183,9 @@ final class RegexMB {
      *
      * @throws Error If encoding is invalid or failed to get regex encoding.
      *
-     * @return true|Encoding If encoding is set, then returns true. In this case, the internal character encoding is
-     * NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned.
-     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true)
+     * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true) If encoding is set, then returns true.
+     * In this case, the internal character encoding is NOT changed.
+     * If encoding is omitted, then the current character encoding name for a multibyte regex is returned.
      *
      * @SuppressWarnings(PHPMD)
      *

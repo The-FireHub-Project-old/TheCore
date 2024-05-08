@@ -55,6 +55,12 @@
 </deflist>
 
 
+### Used by
+<deflist>
+    <def title="This class is used by:">
+        <list><li><a href="IStr.md#break()">\FireHub\Core\Support\IStr::break()</a>  - <format style="italic">To check if expression returns an array.</format></li></list>
+    </def>
+</deflist>
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -75,7 +81,7 @@
 ## method: array {id="array()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::array(mixed $value):bool]]>
+    <![CDATA[public static DataIs::array(mixed $value):mixed]]>
 </code-block>
 
 
@@ -95,12 +101,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L52">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51">
                     View blame
                 </a>
             </def></deflist>
@@ -118,13 +124,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is array ? true : false)</code> True if value is array, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is array, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: bool {id="bool()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::bool(mixed $value):bool]]>
+    <![CDATA[public static DataIs::bool(mixed $value):mixed]]>
 </code-block>
 
 
@@ -144,12 +150,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -167,13 +173,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is bool ? true : false)</code> True if value is boolean, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is boolean, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: callable {id="callable()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::callable(mixed $value):bool]]>
+    <![CDATA[public static DataIs::callable(mixed $value):mixed]]>
 </code-block>
 
 
@@ -193,12 +199,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83">
                     View blame
                 </a>
             </def></deflist>
@@ -221,13 +227,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is callable ? true : false)</code> True if value is callable, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is callable, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: countable {id="countable()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::countable(mixed $value):bool]]>
+    <![CDATA[public static DataIs::countable(mixed $value):mixed]]>
 </code-block>
 
 
@@ -247,12 +253,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L103">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L103">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99">
                     View blame
                 </a>
             </def></deflist>
@@ -270,13 +276,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is array|Countable ? true : false)</code> True if value is countable, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is countable, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: float {id="float()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::float(mixed $value):bool]]>
+    <![CDATA[public static DataIs::float(mixed $value):mixed]]>
 </code-block>
 
 
@@ -296,12 +302,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L120">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L120">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115">
                     View blame
                 </a>
             </def></deflist>
@@ -319,13 +325,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is float ? true : false)</code> True if value is float, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is float, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: int {id="int()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::int(mixed $value):bool]]>
+    <![CDATA[public static DataIs::int(mixed $value):mixed]]>
 </code-block>
 
 
@@ -345,12 +351,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L137">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131">
                     View blame
                 </a>
             </def></deflist>
@@ -373,13 +379,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is int ? true : false)</code> True if value is integer, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is integer, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: iterable {id="iterable()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::iterable(mixed $value):bool]]>
+    <![CDATA[public static DataIs::iterable(mixed $value):mixed]]>
 </code-block>
 
 
@@ -399,12 +405,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147">
                     View blame
                 </a>
             </def></deflist>
@@ -422,13 +428,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is iterable ? true : false)</code> True if value is iterable, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is iterable, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: null {id="null()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::null(mixed $value):bool]]>
+    <![CDATA[public static DataIs::null(mixed $value):mixed]]>
 </code-block>
 
 
@@ -448,12 +454,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L171">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L171">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163">
                     View blame
                 </a>
             </def></deflist>
@@ -464,7 +470,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Char.md#string()">\FireHub\Core\Support\Char::string()</a>  - <format style="italic">To check if $string is null or not.</format></li></list>
+        <list><li><a href="Char.md#string()">\FireHub\Core\Support\Char::string()</a>  - <format style="italic">To check if $string is null or not.</format></li><li><a href="asBoolean.md">\FireHub\Core\Support\Helpers\String\asBoolean()</a>  - <format style="italic">To check if $map matches any predefined values.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -476,13 +482,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is null ? true : false)</code> True if value is null, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is null, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: numeric {id="numeric()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::numeric(mixed $value):bool]]>
+    <![CDATA[public static DataIs::numeric(mixed $value):mixed]]>
 </code-block>
 
 
@@ -502,18 +508,23 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179">
                     View blame
                 </a>
             </def></deflist>
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="asBoolean.md">\FireHub\Core\Support\Helpers\String\asBoolean()</a>  - <format style="italic">To check if $string is a numeric value.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -525,13 +536,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is numeric ? true : false)</code> True if value is numeric, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is numeric, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: object {id="object()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::object(mixed $value):bool]]>
+    <![CDATA[public static DataIs::object(mixed $value):mixed]]>
 </code-block>
 
 
@@ -551,12 +562,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L205">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L205">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195">
                     View blame
                 </a>
             </def></deflist>
@@ -574,13 +585,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is object ? true : false)</code> True if value is object, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is object, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: resource {id="resource()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::resource(mixed $value):bool]]>
+    <![CDATA[public static DataIs::resource(mixed $value):mixed]]>
 </code-block>
 
 
@@ -600,12 +611,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L222">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L222">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211">
                     View blame
                 </a>
             </def></deflist>
@@ -623,13 +634,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is resource ? true : false)</code> True if value is resource, false otherwise or if resource is closed.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is resource, false otherwise or if resource is closed.</format></li></list>
     </def>
 </deflist>
 ## method: scalar {id="scalar()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::scalar(mixed $value):bool]]>
+    <![CDATA[public static DataIs::scalar(mixed $value):mixed]]>
 </code-block>
 
 
@@ -649,12 +660,12 @@ Value to check.
 <p><format style="italic">Scalar values include: string, int, float and bool.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L241">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L241">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229">
                     View blame
                 </a>
             </def></deflist>
@@ -672,13 +683,13 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is scalar ? true : false)</code> True if value is scalar, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is scalar, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public static DataIs::string(mixed $value):bool]]>
+    <![CDATA[public static DataIs::string(mixed $value):mixed]]>
 </code-block>
 
 
@@ -698,12 +709,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L258">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L258">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245">
                     View blame
                 </a>
             </def></deflist>
@@ -726,6 +737,6 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic"><code>($value is string ? true : false)</code> True if value is string, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is string, false otherwise.</format></li></list>
     </def>
 </deflist>

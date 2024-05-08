@@ -37,8 +37,7 @@ final class Iterator {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param Traversable $iterator <p>
-     * <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
+     * @param Traversable<TKey, TValue> $iterator <p>
      * The iterator being copied.
      * </p>
      * @param bool $preserve_keys [optional] <p>
@@ -47,11 +46,8 @@ final class Iterator {
      * float keys will be truncated to their int counterpart, resource keys will generate a warning and be converted
      * to their resource ID, and bool keys will be converted to integers.
      * </p>
-     * @phpstan-param Traversable<TKey, TValue> $iterator
      *
-     * @return array <code>($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)</code> An array
-     * containing items of the iterator.
-     * @phpstan-return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)
+     * @return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) An array containing items of the iterator.
      *
      * @note If this parameter $preserve_keys is not set or set to true, duplicate keys will be overwritten. The last
      * value with a given key will be in the returned array. Set this parameter as false to get all the values in any
@@ -69,14 +65,11 @@ final class Iterator {
      * Count the elements in an iterator. Method is not guaranteed to retain the current position of the iterator.
      * @since 1.0.0
      *
-     * @param Traversable $iterator <p>
-     * <code><![CDATA[ Traversable<mixed, mixed> ]]></code>
+     * @param Traversable<mixed, mixed> $iterator <p>
      * The iterator being counted.
      * </p>
-     * @phpstan-param Traversable<mixed, mixed> $iterator
      *
-     * @return int <code>non-negative-int</code> Number of elements in iterator.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of elements in iterator.
      */
     public static function count (iterable $iterator):int {
 
@@ -91,8 +84,7 @@ final class Iterator {
      * @template TKey
      * @template TValue
      *
-     * @param Traversable $iterator <p>
-     * <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
+     * @param Traversable<TKey, TValue> $iterator <p>
      * The iterator objects to iterate over.
      * </p>
      * @param callable(TValue $value=):bool $callback <p>
@@ -100,12 +92,9 @@ final class Iterator {
      * The callback function to call on every element The function must return true to continue iterating over the
      * iterator.
      * </p>
-     * @param null|array $arguments <p>
-     * <code><![CDATA[ array<TValue> ]]></code>
+     * @param null|array<TValue> $arguments <p>
      * An array of arguments; each element of args is passed to the callback as separate argument.
      * </p>
-     * @phpstan-param Traversable<TKey, TValue> $iterator
-     * @phpstan-param null|array<TValue> $arguments
      *
      * @return int Iteration count.
      */

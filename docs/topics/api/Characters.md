@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Interface Name:">
         \FireHub\Core\Support\Contracts\HighLevel\Characters
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L27">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L29">
             View source code
         </a>
     </def>
@@ -54,7 +54,7 @@
 ### Used by
 <deflist>
     <def title="This interface is used by:">
-        <list><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li></list>
+        <list><li><a href="Strings.md#first()">\FireHub\Core\Support\Contracts\HighLevel\Strings::first()</a>  - <format style="italic">As return.</format></li><li><a href="Strings.md#last()">\FireHub\Core\Support\Contracts\HighLevel\Strings::last()</a>  - <format style="italic">As return.</format></li><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="ReplaceFunc.md#__construct()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Split.md#__construct()">\FireHub\Core\Support\Strings\Expression\Split::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Str.md#first()">\FireHub\Core\Support\Strings\Str::first()</a>  - <format style="italic">As return.</format></li><li><a href="Str.md#last()">\FireHub\Core\Support\Strings\Str::last()</a>  - <format style="italic">As return.</format></li></list>
     </def>
 </deflist>
 ### Methods
@@ -62,17 +62,17 @@
 |:-----|:-----|:------|
 |public|<a href="#expression()">expression</a>|### Regular expression|
 |public|<a href="#encoding()">encoding</a>|### Get or change character encoding|
+|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |public|<a href="#string()">string</a>|### Get character as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a character lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a character uppercase|
 |public|<a href="#codepoint()">codepoint</a>|### Get character as codepoint|
-|public|<a href="#asboolean()">asBoolean</a>|### Boolean representation of the given logical character value|
 |inherited public|<a href="#__tostring()">__toString</a>|### Gets a string representation of the object|
 
 ## method: expression {id="expression()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::expression():\FireHub\Core\Support\Strings\Expression]]>
+    <![CDATA[public Characters::expression(\FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers):\FireHub\Core\Support\Strings\Expression]]>
 </code-block>
 
 
@@ -92,12 +92,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L41">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L41">
                     View blame
                 </a>
             </def></deflist>
@@ -112,6 +112,13 @@
     </def>
 </deflist>
 <deflist>
+    <def title="This method has parameters:">
+        <list><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format> - <format style="italic">
+List of additional expression pattern modifiers.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
         <list><li><a href="Expression.md">\FireHub\Core\Support\Strings\Expression</a> - <format style="italic">Regular expression.</format></li></list>
     </def>
@@ -119,7 +126,7 @@
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):$this|\FireHub\Core\Support\Enums\String\Encoding]]>
+    <![CDATA[public Characters::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed]]>
 </code-block>
 
 
@@ -139,12 +146,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L55">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L55">
                     View blame
                 </a>
             </def></deflist>
@@ -167,13 +174,57 @@ Character encoding.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>$this or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">This character or current encoding.</format></li></list>
+        <list><li>mixed - <format style="italic">This character or current encoding.</format></li></list>
+    </def>
+</deflist>
+## method: asBoolean {id="asboolean()"}
+
+<code-block lang="php">
+    <![CDATA[public Characters::asBoolean():bool]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Boolean representation of the given logical character value
+
+<p><format style="italic">True - positive-int
+False - non-positive-int
+For all other characters, the return value is a result of a boolean cast.</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>bool - <format style="italic">True or false, based on boolean representation of the given logical character value.</format></li></list>
     </def>
 </deflist>
 ## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::string(string $string = null):\FireHub\Core\Support\Contracts\HighLevel\Characters|string]]>
+    <![CDATA[public Characters::string(string $string = null):mixed]]>
 </code-block>
 
 
@@ -193,12 +244,12 @@ Character encoding.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L59">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L59">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
                     View blame
                 </a>
             </def></deflist>
@@ -209,7 +260,7 @@ Character encoding.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="FunctionFamily.md#withdelimiter()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::withDelimiter()</a>  - <format style="italic">To get raw value from character.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li></list>
+        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="FunctionFamily.md#withdelimiter()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::withDelimiter()</a>  - <format style="italic">To get raw value from character.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="ReplaceFunc.md#custom()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To get character raw string.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To get a raw string from character.</format></li><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To add character to pad.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -219,7 +270,7 @@ Character encoding.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> or string - <format style="italic"><code>$this|non-empty-string</code> Character as string.</format></li></list>
+        <list><li>mixed - <format style="italic">Character as string.</format></li></list>
     </def>
 </deflist>
 ## method: toLower {id="tolower()"}
@@ -245,12 +296,12 @@ Character encoding.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
                     View blame
                 </a>
             </def></deflist>
@@ -287,12 +338,12 @@ Character encoding.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
                     View blame
                 </a>
             </def></deflist>
@@ -329,12 +380,12 @@ Character encoding.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L99">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L99">
                     View blame
                 </a>
             </def></deflist>
@@ -346,48 +397,6 @@ Character encoding.
 <deflist>
     <def title="This method returns:">
         <list><li>int - <format style="italic">Character as codepoint.</format></li></list>
-    </def>
-</deflist>
-## method: asBoolean {id="asboolean()"}
-
-<code-block lang="php">
-    <![CDATA[public Characters::asBoolean():bool]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Boolean representation of the given logical character value
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>bool - <format style="italic">True or false, based on boolean representation of the given logical character value.</format></li></list>
     </def>
 </deflist>
 ## method: __toString {id="__tostring()"}

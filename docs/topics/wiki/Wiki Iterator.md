@@ -35,7 +35,7 @@ This class is marked as **final**.
 <h2><a name="toarray()"># method: toArray</a></h2>
 
 ```php
-public static Iterator::toArray(\Traversable $iterator, bool $preserve_keys = true):array
+public static Iterator::toArray(\Traversable<\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue> $iterator, bool $preserve_keys = true):mixed
 ```
 
 
@@ -52,16 +52,15 @@ public static Iterator::toArray(\Traversable $iterator, bool $preserve_keys = tr
 
 _Copy the elements of an iterator into an array._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L60)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L60)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56)**</sub>
 #### Templates
 
 * TKey of array-key
 * TValue
 #### Parameters
 
-* [\Traversable](./Wiki-Traversable) **$iterator** - _<code>Traversable<TKey, TValue></code>
-The iterator being copied._
+* [\Traversable&lt;\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue&gt;](./Wiki-TValue&gt;) **$iterator** - _The iterator being copied._
 * bool **$preserve_keys** = true - _[optional] 
 Whether to use the iterator element keys as index.
 If a key is an array or object, a warning will be generated. Null keys will be converted to an empty string,
@@ -69,12 +68,11 @@ float keys will be truncated to their int counterpart, resource keys will genera
 to their resource ID, and bool keys will be converted to integers._
 #### Returns
 
-* array - _<code>($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)</code> An array
-containing items of the iterator._
+* mixed - _An array containing items of the iterator._
 <h2><a name="count()"># method: count</a></h2>
 
 ```php
-public static Iterator::count(\Traversable $iterator):int
+public static Iterator::count(\Traversable<mixed,mixed> $iterator)
 ```
 
 
@@ -91,19 +89,18 @@ public static Iterator::count(\Traversable $iterator):int
 
 _Count the elements in an iterator. Method is not guaranteed to retain the current position of the iterator._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L81)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L81)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74)**</sub>
 #### Parameters
 
-* [\Traversable](./Wiki-Traversable) **$iterator** - _<code>Traversable<mixed, mixed></code>
-The iterator being counted._
+* [\Traversable&lt;mixed,mixed&gt;](./Wiki-Traversable&lt;mixed,mixed&gt;) **$iterator** - _The iterator being counted._
 #### Returns
 
-* int - _<code>non-negative-int</code> Number of elements in iterator._
+*  - _non-negative-int Number of elements in iterator._
 <h2><a name="apply()"># method: apply</a></h2>
 
 ```php
-public static Iterator::apply(\Traversable $iterator, callable $callback, null|array $arguments = null):int
+public static Iterator::apply(\Traversable<\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue> $iterator, callable $callback, null|\FireHub\Core\Support\LowLevel\TValue[] $arguments = null):int
 ```
 
 
@@ -120,21 +117,19 @@ public static Iterator::apply(\Traversable $iterator, callable $callback, null|a
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101)**</sub>
 #### Templates
 
 * TKey
 * TValue
 #### Parameters
 
-* [\Traversable](./Wiki-Traversable) **$iterator** - _<code>Traversable<TKey, TValue></code>
-The iterator objects to iterate over._
+* [\Traversable&lt;\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue&gt;](./Wiki-TValue&gt;) **$iterator** - _The iterator objects to iterate over._
 * callable **$callback** - _<code>callable (TValue $value=):bool</code>
 The callback function to call on every element The function must return true to continue iterating over the
 iterator._
-* null or array **$arguments** = null - _<code>array<TValue></code>
-An array of arguments; each element of args is passed to the callback as separate argument._
+* null or [\FireHub\Core\Support\LowLevel\TValue[]](./Wiki-TValue[]) **$arguments** = null - _An array of arguments; each element of args is passed to the callback as separate argument._
 #### Returns
 
 * int - _Iteration count._

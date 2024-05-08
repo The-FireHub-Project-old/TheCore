@@ -46,8 +46,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is array ? true : false)</code> True if value is array, false otherwise.
-     * @phpstan-return ($value is array ? true : false)
+     * @return ($value is array ? true : false) True if value is array, false otherwise.
      */
     public static function array (mixed $value):bool {
 
@@ -63,8 +62,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is bool ? true : false)</code> True if value is boolean, false otherwise.
-     * @phpstan-return ($value is bool ? true : false)
+     * @return ($value is bool ? true : false) True if value is boolean, false otherwise.
      */
     public static function bool (mixed $value):bool {
 
@@ -80,8 +78,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is callable ? true : false)</code> True if value is callable, false otherwise.
-     * @phpstan-return ($value is callable ? true : false)
+     * @return ($value is callable ? true : false) True if value is callable, false otherwise.
      */
     public static function callable (mixed $value):bool {
 
@@ -97,8 +94,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is array|Countable ? true : false)</code> True if value is countable, false otherwise.
-     * @phpstan-return ($value is array|Countable ? true : false)
+     * @return ($value is array|Countable ? true : false) True if value is countable, false otherwise.
      */
     public static function countable (mixed $value):bool {
 
@@ -114,8 +110,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is float ? true : false)</code> True if value is float, false otherwise.
-     * @phpstan-return ($value is float ? true : false)
+     * @return ($value is float ? true : false) True if value is float, false otherwise.
      */
     public static function float (mixed $value):bool {
 
@@ -131,8 +126,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is int ? true : false)</code> True if value is integer, false otherwise.
-     * @phpstan-return ($value is int ? true : false)
+     * @return ($value is int ? true : false) True if value is integer, false otherwise.
      */
     public static function int (mixed $value):bool {
 
@@ -148,8 +142,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is iterable ? true : false)</code> True if value is iterable, false otherwise.
-     * @phpstan-return ($value is iterable ? true : false)
+     * @return ($value is iterable ? true : false) True if value is iterable, false otherwise.
      */
     public static function iterable (mixed $value):bool {
 
@@ -165,8 +158,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is null ? true : false)</code> True if value is null, false otherwise.
-     * @phpstan-return ($value is null ? true : false)
+     * @return ($value is null ? true : false) True if value is null, false otherwise.
      */
     public static function null (mixed $value):bool {
 
@@ -182,8 +174,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is numeric ? true : false)</code> True if value is numeric, false otherwise.
-     * @phpstan-return ($value is numeric ? true : false)
+     * @return ($value is numeric ? true : false) True if value is numeric, false otherwise.
      */
     public static function numeric (mixed $value):bool {
 
@@ -199,8 +190,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is object ? true : false)</code> True if value is object, false otherwise.
-     * @phpstan-return ($value is object ? true : false)
+     * @return ($value is object ? true : false) True if value is object, false otherwise.
      */
     public static function object (mixed $value):bool {
 
@@ -216,8 +206,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is resource ? true : false)</code> True if value is resource, false otherwise or if resource is closed.
-     * @phpstan-return ($value is resource ? true : false)
+     * @return ($value is resource ? true : false) True if value is resource, false otherwise or if resource is closed.
      */
     public static function resource (mixed $value):bool {
 
@@ -235,8 +224,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return booL <code>($value is scalar ? true : false)</code> True if value is scalar, false otherwise.
-     * @phpstan-return ($value is scalar ? true : false)
+     * @return ($value is scalar ? true : false) True if value is scalar, false otherwise.
      */
     public static function scalar (mixed $value):bool {
 
@@ -252,8 +240,7 @@ final class DataIs {
      * Value to check.
      * </p>
      *
-     * @return bool <code>($value is string ? true : false)</code> True if value is string, false otherwise.
-     * @phpstan-return ($value is string ? true : false)
+     * @return ($value is string ? true : false) True if value is string, false otherwise.
      */
     public static function string (mixed $value):bool {
 

@@ -49,11 +49,9 @@ final class File extends FileSystem {
      * ### Tells whether the path is a regular file
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -73,11 +71,9 @@ final class File extends FileSystem {
      * ### Tells whether the path is executable
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -105,11 +101,9 @@ final class File extends FileSystem {
      * the client's machine $_FILES['userfile']['name'] does not work.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @return bool True on success or false on failure.
      */
@@ -123,11 +117,9 @@ final class File extends FileSystem {
      * ### Gets file size
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get file size for file.
      * @error\exeption E_WARNING upon failure.
@@ -154,16 +146,13 @@ final class File extends FileSystem {
      * @uses \FireHub\Core\Support\Constants\Path\DS To separate folders.
      * @uses \FireHub\Core\Support\LowLevel\File::basename() To get a base name component of $to a path.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param string $to <p>
      * The destination path. If dest is a URL, the copy operation may fail if the wrapper does not support overwriting
      * of existing files. If the destination file already exists, it will be overwritten.
      * </p>
-     *
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not copy file.
      * @error\exeption W_WARNING if we could not copy the file.
@@ -185,11 +174,9 @@ final class File extends FileSystem {
      * Attempts to remove the folder named by $path.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not delete the file.
      * @error\exeption E_WARNING upon failure.
@@ -207,14 +194,12 @@ final class File extends FileSystem {
      * ### Create a hard link
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param string $link <p>
      * The link name.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not create a hard link for a path.
      * @error\exeption E_WARNING if method fails, if $link already exists, or if $path does not exist.
@@ -236,8 +221,7 @@ final class File extends FileSystem {
      * ### Reads entire file into a string
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path of the file to read.
      * </p>
      * @param int $offset [optional] <p>
@@ -245,13 +229,10 @@ final class File extends FileSystem {
      * Seeking ($offset) is not supported with remote files. Attempting to seek on non-local files may work with small
      * offsets, but this is unpredictable because it works on the buffered stream.
      * </p>
-     * @param null|int $length [optional] <p>
-     * <code>null|non-negative-int</code>
+     * @param null|non-negative-int $length [optional] <p>
      * Maximum length of data read. The default is to read until the end of the file is reached. Note that this
      * parameter is applied to the stream processed by the filters.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param null|non-negative-int $length
      *
      * @throws Error If we cannot get content from a path.
      * @error\exeption E_WARNING if filename cannot be found, length is less than zero, seeking to the specified
@@ -259,8 +240,7 @@ final class File extends FileSystem {
      *
      * @return string The read data.
      *
-     * @note If you're opening a URI with special characters, such as spaces, you need to encode the URI with
-     * urlencode().
+     * @note If you're opening a URI with special characters, such as spaces, you need to encode the URI with urlencode().
      */
     public static function getContent (string $path, int $offset = 0, int $length = null):string {
 
@@ -274,8 +254,7 @@ final class File extends FileSystem {
      * ### Reads entire file into an array
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param bool $skip_empty_lines [optional] <p>
@@ -284,14 +263,11 @@ final class File extends FileSystem {
      * @param bool $ignore_new_lines [optional] <p>
      * Omit newline at the end of each array element.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we cannot get content from a path.
      * @error\exeption E_WARNING if filename doesn't exist.
      *
-     * @return array <code>string[]</code> The file in an array. Each element of the array corresponds to a line in
-     * the file, with newline still attached.
-     * @phpstan-return string[]
+     * @return string[] The file in an array. Each element of the array corresponds to a line in the file, with newline still attached.
      *
      * @warning When using SSL, Microsoft IIS will violate the protocol by closing the connection without sending a
      * close_notify indicator. PHP will report this as "SSL: Fatal Protocol Error" when you reach the end of the data.
@@ -323,12 +299,10 @@ final class File extends FileSystem {
      *
      * @uses \FireHub\Core\Support\LowLevel\File::isFile() To tell whether the $file is a regular file.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file where to write the data.
      * </p>
-     * @param array|string $data <p>
-     * <code><![CDATA[ array<int, string>|string ]]></code>
+     * @param array<int, string>|string $data <p>
      * The data to write.
      * </p>
      * @param bool $append [optional] <p>
@@ -340,15 +314,10 @@ final class File extends FileSystem {
      * @param bool $create_file [optional] <p>
      * Is true, method will create a new file if one doesn't exist.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param array<int, string>|string $data
-     *
      * @throws Error If $create_file option is off and $path is not file, or could not put content on a path.
      * @error\exeption E_WARNING if permission denied to write to file.
      *
-     * @return int <code>non-negative-int</code> Number of bytes that were written to the file, false otherwise.
-
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of bytes that were written to the file, false otherwise.
      */
     public static function putContent (string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int {
 
@@ -369,11 +338,9 @@ final class File extends FileSystem {
      * Reads a file and writes it to the output buffer.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * The filename path being read.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not put read file on a path, or a path is empty.
      * @error\exeption E_WARNING upon failure.
@@ -398,16 +365,12 @@ final class File extends FileSystem {
      * by $to.
      * @since 1.0.0
      *
-     * @param string $from <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $from <p>
      * Filename of the uploaded file.
      * </p>
-     * @param string $to <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $to <p>
      * Destination of the moved file.
      * </p>
-     * @phpstan-param non-empty-string $from
-     * @phpstan-param non-empty-string $to
      *
      * @throws Error If we could not move the uploaded file.
      * @error\exeption E_WARNING upon failure.

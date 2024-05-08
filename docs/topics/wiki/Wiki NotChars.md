@@ -25,16 +25,41 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|readonly private|<a href="#$characters">characters</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public|<a href="#regex()">regex</a>|### Get regex predefined pattern|
 
+<h2><a name="$characters"># property: characters</a></h2>
+
+```php
+readonly private array $characters
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L38)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L38)**</sub>
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php
-public NotChars::__construct(array $characters):void
+public NotChars::__construct(\FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters):void
 ```
 
 
@@ -51,12 +76,11 @@ public NotChars::__construct(array $characters):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L39)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L39)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L37)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L37)**</sub>
 #### Parameters
 
-* array **$characters** - _<code>\FireHub\Core\Support\Contracts\HighLevel\Characters[]</code>
-List of characters._
+* [\FireHub\Core\Support\Contracts\HighLevel\Characters[]](./Wiki-Characters[]) **$characters** - _List of characters._
 #### Returns
 
 * void
@@ -80,8 +104,8 @@ public NotChars::regex()
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L53)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L53)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L51)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotChars.php#L51)**</sub>
 #### Throws
 
 * [\Error](./Wiki-Error) - _If $characters is not exclusive list of character interface._

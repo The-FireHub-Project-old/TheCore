@@ -30,10 +30,9 @@ abstract class Occurrences extends Pattern {
      * @param \FireHub\Core\Support\Strings\Expression\FunctionFamily $function_family <p>
      * Function to use.
      * </p>
-     * @param int $number <p>
+     * @param non-negative-int $number <p>
      * Number of occurrences.
      * </p>
-     * @phpstan-param non-negative-int $number
      *
      * @return void
      */

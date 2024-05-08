@@ -99,7 +99,7 @@ public static Data::setType(mixed $value, \FireHub\Core\Support\Enums\Data\Type 
 <h2><a name="serializevalue()"># method: serializeValue</a></h2>
 
 ```php
-public static Data::serializeValue(string|int|float|bool|array|object|null $value):string
+public static Data::serializeValue(scalar|array<array-key,mixed>|object|null $value):string
 ```
 
 
@@ -118,12 +118,11 @@ _Generates a storable representation of a value.
 This is useful for storing or passing PHP values around without losing their type and structure.
 To make the serialized string into a PHP value again, use unserialize()._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L175)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173)**</sub>
 #### Parameters
 
-* string or int or float or bool or array or object or null **$value** - _<code>scalar|array<array-key, mixed>|object|null</code>
-The value to be serialized._
+* scalar or array&lt;array-key,mixed&gt; or object or null **$value** - _The value to be serialized._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If try to serialize anonymous class, function or resource._
@@ -133,7 +132,7 @@ The value to be serialized._
 <h2><a name="unserializevalue()"># method: unserializeValue</a></h2>
 
 ```php
-public static Data::unserializeValue(string $data, bool|array $allowed_classes = false, int $max_depth = 4096):mixed
+public static Data::unserializeValue(non-empty-string $data, bool|class-string[] $allowed_classes = false, int $max_depth = 4096):mixed
 ```
 
 
@@ -150,14 +149,12 @@ public static Data::unserializeValue(string $data, bool|array $allowed_classes =
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L213)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207)**</sub>
 #### Parameters
 
-* string **$data** - _<code>non-empty-string</code>
-The serialized string._
-* bool or array **$allowed_classes** = false - _[optional] 
-<code>bool|array<class-string></code>
+* non-empty-string **$data** - _The serialized string._
+* bool or class-string[] **$allowed_classes** = false - _[optional] 
 Either an array of class names which should be accepted, false to accept no classes,
 or true to accept all classes._
 * int **$max_depth** = 4096 - _[optional] 

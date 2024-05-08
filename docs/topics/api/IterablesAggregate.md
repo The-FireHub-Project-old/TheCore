@@ -65,7 +65,7 @@
 ## method: getIterator {id="getiterator()"}
 
 <code-block lang="php">
-    <![CDATA[public IterablesAggregate::getIterator():\Traversable]]>
+    <![CDATA[public IterablesAggregate::getIterator():\Traversable<\FireHub\Core\Support\Contracts\Iterator\TKey,\FireHub\Core\Support\Contracts\Iterator\TValue>]]>
 </code-block>
 
 
@@ -85,12 +85,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L39">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.IterablesAggregate.php#L39">
                     View blame
                 </a>
             </def></deflist>
@@ -101,7 +101,6 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="Traversable.md">\Traversable</a> - <format style="italic"><code><![CDATA[ Traversable<TKey, TValue> ]]></code>
-An instance of an object implementing Iterator or Traversable.</format></li></list>
+        <list><li><a href="TValue&gt;.md">\Traversable&lt;\FireHub\Core\Support\Contracts\Iterator\TKey,\FireHub\Core\Support\Contracts\Iterator\TValue&gt;</a> - <format style="italic">An instance of an object implementing Iterator or Traversable.</format></li></list>
     </def>
 </deflist>

@@ -36,10 +36,9 @@ final class Func {
      * Checks the list of defined functions, both built-in (internal) and user-defined, for function.
      * @since 1.0.0
      *
-     * @param string $name <p>
+     * @param non-empty-string $name <p>
      * The function name.
      * </p>
-     * @phpstan-param non-empty-string $name
      *
      * @return bool True if the interface exists, false otherwise.
      *
@@ -69,8 +68,7 @@ final class Func {
      * Zero or more parameters to be passed to the callback.
      * </p>
      *
-     * @return mixed <code>TReturn</code> The return value of the callback.
-     * @phpstan-return TReturn
+     * @return TReturn The return value of the callback.
      *
      * @note Callbacks registered with this method will not be called if there is an uncaught exception thrown
      * in a previous callback.

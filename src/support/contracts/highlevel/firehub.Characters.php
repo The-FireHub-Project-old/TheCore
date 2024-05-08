@@ -50,8 +50,7 @@ interface Characters extends Stringable {
      * Character encoding.
      * </p>
      *
-     * @return $this|\FireHub\Core\Support\Enums\String\Encoding This character or current encoding.
-     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : $this)
+     * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : $this) This character or current encoding.
      */
     public function encoding (?Encoding $encoding = null):self|Encoding;
 
@@ -71,8 +70,7 @@ interface Characters extends Stringable {
      * ### Get character as raw string
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Support\Contracts\HighLevel\Characters|string <code>$this|non-empty-string</code> Character as string.
-     * @phpstan-return ($string is null ? non-empty-string : \FireHub\Core\Support\Contracts\HighLevel\Characters)
+     * @return($string is null ? non-empty-string : \FireHub\Core\Support\Contracts\HighLevel\Characters) Character as string.
      */
     public function string (string $string = null):Characters|string;
 

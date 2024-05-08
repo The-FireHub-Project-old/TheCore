@@ -25,6 +25,11 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|private|<a href="#$list">list</a>|### List of loaders|[]|
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
@@ -33,10 +38,30 @@ This class is marked as **final**.
 |public|<a href="#remove()">remove</a>|### Removes loader|
 |public|<a href="#list()">list</a>|### Get list of autoloader implementations|
 
+<h2><a name="$list"># property: list</a></h2>
+
+```php
+private array<non-empty-string,callable> $list = []
+```
+
+
+
+
+
+
+
+
+
+### ### List of loaders
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L34)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L34)**</sub>
 <h2><a name="get()"># method: get</a></h2>
 
 ```php
-public Loaders::get(string $name):callable
+public Loaders::get(non-empty-string $name):callable
 ```
 
 
@@ -53,22 +78,21 @@ public Loaders::get(string $name):callable
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L52)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L52)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L48)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L48)**</sub>
 #### Parameters
 
-* string **$name** - _<code>non-empty-string</code>
-Loader name._
+* non-empty-string **$name** - _Loader name._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If loader doesn&#039;t exist._
 #### Returns
 
-* callable - _<code>callable(string):void</code> Loader callback._
+* callable - _Loader callback._
 <h2><a name="add()"># method: add</a></h2>
 
 ```php
-public Loaders::add(string $name, callable $callback):true
+public Loaders::add(non-empty-string $name, callable $callback):true
 ```
 
 
@@ -85,12 +109,11 @@ public Loaders::add(string $name, callable $callback):true
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L79)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L79)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L73)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L73)**</sub>
 #### Parameters
 
-* string **$name** - _<code>non-empty-string</code>
-Loader name._
+* non-empty-string **$name** - _Loader name._
 * callable **$callback** - _<code>callable(string):void</code>
 The autoload function being registered._
 #### Throws
@@ -102,7 +125,7 @@ The autoload function being registered._
 <h2><a name="remove()"># method: remove</a></h2>
 
 ```php
-public Loaders::remove(string $name):true
+public Loaders::remove(non-empty-string $name):true
 ```
 
 
@@ -119,12 +142,11 @@ public Loaders::remove(string $name):true
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L106)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L106)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L98)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L98)**</sub>
 #### Parameters
 
-* string **$name** - _<code>non-empty-string</code>
-Loader name._
+* non-empty-string **$name** - _Loader name._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If loader doesn&#039;t exist._
@@ -134,7 +156,7 @@ Loader name._
 <h2><a name="list()"># method: list</a></h2>
 
 ```php
-public Loaders::list():array
+public Loaders::list():array<non-empty-string,callable>
 ```
 
 
@@ -151,9 +173,9 @@ public Loaders::list():array
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L125)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L125)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L116)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Loaders.php#L116)**</sub>
 #### Returns
 
-* array - _<code>array<non-empty-string, callable(string):void></code> List of autoloader
+* array&lt;non-empty-string,callable&gt; - _<code>array<non-empty-string, callable(string):void></code> List of autoloader
 implementations._

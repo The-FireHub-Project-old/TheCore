@@ -162,8 +162,7 @@ interface Numbers extends Stringable {
      * Parse a number with grouped thousands and optionally decimal digits using the rounding half up rule.
      * @since 1.0.0
      *
-     * @param int $decimals <p>
-     * <code>non-negative-int</code>
+     * @param non-negative-int $decimals <p>
      * Sets the number of decimal digits.
      * If 0, the decimal_separator is omitted from the return value.
      * </p>
@@ -173,7 +172,6 @@ interface Numbers extends Stringable {
      * @param string $thousands_separator <p>
      * Sets the separator for thousands.
      * </p>
-     * @phpstan-param non-negative-int $decimals
      *
      * @return string A formatted version of number.
      */

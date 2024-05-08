@@ -70,11 +70,9 @@ class FileSystem {
      * ### Checks whether a file or folder exists
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -97,11 +95,9 @@ class FileSystem {
      * ### Tells whether a file exists and is readable
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -120,11 +116,9 @@ class FileSystem {
      * Tells whether the path is writable
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -142,11 +136,9 @@ class FileSystem {
      * ### Tells whether the path is a symbolic link
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -171,16 +163,12 @@ class FileSystem {
      * @uses \FireHub\Core\Support\LowLevel\FileSystem::parent() To return a parent folder path.
      * @uses \FireHub\Core\Support\Constants\Path\DS To separate folders.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * The old name path.
      * </p>
-     * @param string $new_name <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $new_name <p>
      * The new name.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string $new_name
      *
      * @throws Error If we could not rename a path.
      * @error\exeption E_WARNING upon failure.
@@ -203,15 +191,13 @@ class FileSystem {
      * Given a string containing the path to a file or directory, this function will return the trailing name component.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * A path. On Windows, both slash (/) and backslash (\) are used as directory separator character. In other
      * environments, it is the forward slash (/).
      * </p>
      * @param string $suffix [optional] <p>
      * If the name component ends in suffix, this will also be cut off.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @return string The base name of the given path.
      *
@@ -305,16 +291,12 @@ class FileSystem {
      * that is levels up from the current folder.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * A path.
      * </p>
-     * @param int $levels [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $levels [optional] <p>
      * The number of parent folders to go up. This must be an integer greater than 0.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param positive-int $levels
      *
      * @throws ValueError If $levels are less than 1.
      *
@@ -336,11 +318,9 @@ class FileSystem {
      * Gets the file or folder group. The group ID is returned in numerical format.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path of the file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get a group for file.
      * @error\exeption E_WARNING if we could not get a group for file.
@@ -365,16 +345,12 @@ class FileSystem {
      * files arbitrarily; other users may change the group of files to any group of which that user is a member.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path of the file or folder.
      * </p>
-     * @param string|int $group <p>
-     * <code>non-empty-string|int</code>
+     * @param non-empty-string|int $group <p>
      * A group name or number.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string|int $group
      *
      * @throws Error If we could not set a group for file or folder.
      *
@@ -394,11 +370,9 @@ class FileSystem {
      * ### Gets file or folder owner
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path of the file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get an owner for file or folder.
      * @error\exeption E_WARNING if we could not get an owner for file or folder.
@@ -420,16 +394,12 @@ class FileSystem {
      * ### Gets file or folder owner
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Pth of the file or folder.
      * </p>
-     * @param string|int $user <p>
-     * <code>non-empty-string|int</code>
+     * @param non-empty-string|int $user <p>
      * A username or number.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string|int $user
      *
      * @throws Error If we could not get an owner for file or folder.
      *
@@ -456,11 +426,9 @@ class FileSystem {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::int() To find whether fileperms() function returns integer.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::part() To get part of decoct() function.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * The path.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get permissions for a path.
      *
@@ -487,8 +455,7 @@ class FileSystem {
      * @uses \FireHub\Core\Support\Enums\FileSystem\Permission As parameter.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::int() To find whether octdec returns integer.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * The path.
      * </p>
      * @param \FireHub\Core\Support\Enums\FileSystem\Permission $owner <p>
@@ -500,7 +467,6 @@ class FileSystem {
      * @param \FireHub\Core\Support\Enums\FileSystem\Permission $global <p>
      * Everyone's permission,
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not set permissions for a path.
      * @error\exeption E_WARNING if we could not set permissions for a path.
@@ -526,11 +492,9 @@ class FileSystem {
      * ### Gets last access time of path
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get last accessed time for a path.
      * @error\exeption E_WARNING if we could not get last accessed time for a path.
@@ -558,11 +522,9 @@ class FileSystem {
      * owner group.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get last modified time for a path.
      * @error\exeption E_WARNING if we could not get last modified time for a path.
@@ -586,11 +548,9 @@ class FileSystem {
      * ownership or group.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get last changed time for a path.
      * @error\exeption E_WARNING if we could not get last changed time for a path.
@@ -619,8 +579,7 @@ class FileSystem {
      * given in mtime. Note that the access time is always modified, regardless of the number of parameters.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to file or folder.
      * </p>
      * @param null|int $last_accessed [optional] <p>
@@ -630,7 +589,6 @@ class FileSystem {
      * If not null, the access time of the given filename is set to the value of atime. Otherwise, it is set to the
      * value passed to the mtime parameter. If both are null, the current system time is used.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not set last access and modification time of a path.
      *
@@ -652,11 +610,9 @@ class FileSystem {
      * Inode are special disk blocks they are created when the file system is created.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to file or folder.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we don't get inode for a path.
      * @error\exeption E_WARNING if we not get inode for a path.
@@ -679,20 +635,17 @@ class FileSystem {
      * @uses \FireHub\Core\Support\Enums\Order::ASC To list files and folders in ascending order.
      * @uses \FireHub\Core\Support\Enums\Order::DESC To list files and folders in descending order.
      *
-     * @param string $folder <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $folder <p>
      * The folder that will be scanned.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\Order $order [optional] <p>
      * Result order.
      * </p>
-     * @phpstan-param non-empty-string $folder
      *
      * @throws Error If $folder is empty, or we could not list files and directories inside the specified folder.
      * @error\exeption E_WARNING upon failure.
      *
-     * @return array <code>string[]</code> An array of filenames.
-     * @phpstan-return string[]
+     * @return string[] An array of filenames.
      */
     final public static function list (string $folder, Order $order = null):array {
 
@@ -712,8 +665,7 @@ class FileSystem {
      * function, which is similar to the rules used by common shells.
      * @since 1.0.0
      *
-     * @param string $pattern <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $pattern <p>
      * The pattern. No tilde expansion or parameter substitution is done.
      * - * - Matches zero or more characters.
      * - ? - Matches exactly one character (any character).
@@ -724,13 +676,10 @@ class FileSystem {
      * @param bool $only_folders [optional] <p>
      * Return only directory entries which match the pattern.
      * </p>
-     * @phpstan-param non-empty-string $pattern
      *
      * @throws Error If there was an error while searching for a path.
      *
-     * @return array <code>string[]</code> An array containing the matched files/folders, an empty array if no file
-     * matched.
-     * @phpstan-return string[]
+     * @return string[] An array containing the matched files/folders, an empty array if no file matched.
      *
      * @note This function will not work on remote files as the file to be examined must be accessible via the
      * server's filesystem.
@@ -749,16 +698,12 @@ class FileSystem {
      * Creates a symbolic link to the existing $path with the specified name $link.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the symlink.
      * </p>
-     * @param string $link <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $link <p>
      * The link name.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string $link
      *
      * @throws Error If we could not create symlink for a path with link.
      * @error\exeption E_WARNING if a link already exists, permission denied or on Windows $path doesn't exist.
@@ -776,11 +721,9 @@ class FileSystem {
      * ### Returns the target of a symbolic link
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the symlink.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not target for a path.
      *
@@ -800,16 +743,12 @@ class FileSystem {
      * symlink arbitrarily. Other users may change the group of a symlink to any group of which that user is a member.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the symlink.
      * </p>
-     * @param string|int $group <p>
-     * <code>non-empty-string|int</code>
+     * @param non-empty-string|int $group <p>
      * The group specified by name or number.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string|int $group
      *
      * @throws Error If we could not change a symlink group.
      *
@@ -834,16 +773,13 @@ class FileSystem {
      * symlink.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the symlink.
      * </p>
-     * @param string|int $user <p>
-     * <code>non-empty-string|int</code>
+     * @param non-empty-string|int $user <p>
+
      * Username or number.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param non-empty-string|int $user
      *
      * @throws Error If we could not change symlink ownership.
      *
@@ -871,14 +807,12 @@ class FileSystem {
      * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter string keys in statistics.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To find whether the statistics key is string or not.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file or folder.
      * </p>
      * @param bool $symlink [optional] <p>
      * If true, the method gives information about a file or symbolic link.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @throws Error If we could not get statistics for a path.
      *

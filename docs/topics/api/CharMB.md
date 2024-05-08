@@ -136,7 +136,7 @@ Character encoding. If it is null, the internal character encoding value will be
 ## method: ord {id="ord()"}
 
 <code-block lang="php">
-    <![CDATA[public static CharMB::ord(string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int]]>
+    <![CDATA[public static CharMB::ord(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int]]>
 </code-block>
 
 
@@ -156,12 +156,12 @@ Character encoding. If it is null, the internal character encoding value will be
 <p><format style="italic">Returns the Unicode code point value of the given character. This function complements [[CharMB#chr()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81">
                     View blame
                 </a>
             </def></deflist>
@@ -177,8 +177,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$character</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$character</format> - <format style="italic">
 A character.
 </format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.

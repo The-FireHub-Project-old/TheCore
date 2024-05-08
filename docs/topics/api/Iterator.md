@@ -65,7 +65,7 @@
 ## method: toArray {id="toarray()"}
 
 <code-block lang="php">
-    <![CDATA[public static Iterator::toArray(\Traversable $iterator, bool $preserve_keys = true):array]]>
+    <![CDATA[public static Iterator::toArray(\Traversable<\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue> $iterator, bool $preserve_keys = true):mixed]]>
 </code-block>
 
 
@@ -85,12 +85,12 @@
 <p><format style="italic">Copy the elements of an iterator into an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L60">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L60">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56">
                     View blame
                 </a>
             </def></deflist>
@@ -106,8 +106,7 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li><a href="Traversable.md">\Traversable</a> <format style="bold">$iterator</format> - <format style="italic">
-<code><![CDATA[ Traversable<TKey, TValue> ]]></code>
+        <list><li><a href="TValue&gt;.md">\Traversable&lt;\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue&gt;</a> <format style="bold">$iterator</format> - <format style="italic">
 The iterator being copied.
 </format></li><li>bool <format style="bold">$preserve_keys</format> = true - <format style="italic">[optional] 
 Whether to use the iterator element keys as index.
@@ -119,14 +118,13 @@ to their resource ID, and bool keys will be converted to integers.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)</code> An array
-containing items of the iterator.</format></li></list>
+        <list><li>mixed - <format style="italic">An array containing items of the iterator.</format></li></list>
     </def>
 </deflist>
 ## method: count {id="count()"}
 
 <code-block lang="php">
-    <![CDATA[public static Iterator::count(\Traversable $iterator):int]]>
+    <![CDATA[public static Iterator::count(\Traversable<mixed,mixed> $iterator)]]>
 </code-block>
 
 
@@ -146,12 +144,12 @@ containing items of the iterator.</format></li></list>
 <p><format style="italic">Count the elements in an iterator. Method is not guaranteed to retain the current position of the iterator.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74">
                     View blame
                 </a>
             </def></deflist>
@@ -162,21 +160,20 @@ containing items of the iterator.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li><a href="Traversable.md">\Traversable</a> <format style="bold">$iterator</format> - <format style="italic">
-<code><![CDATA[ Traversable<mixed, mixed> ]]></code>
+        <list><li><a href="Traversable&lt;mixed,mixed&gt;.md">\Traversable&lt;mixed,mixed&gt;</a> <format style="bold">$iterator</format> - <format style="italic">
 The iterator being counted.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic"><code>non-negative-int</code> Number of elements in iterator.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int Number of elements in iterator.</format></li></list>
     </def>
 </deflist>
 ## method: apply {id="apply()"}
 
 <code-block lang="php">
-    <![CDATA[public static Iterator::apply(\Traversable $iterator, callable $callback, null|array $arguments = null):int]]>
+    <![CDATA[public static Iterator::apply(\Traversable<\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue> $iterator, callable $callback, null|\FireHub\Core\Support\LowLevel\TValue[] $arguments = null):int]]>
 </code-block>
 
 
@@ -196,12 +193,12 @@ The iterator being counted.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101">
                     View blame
                 </a>
             </def></deflist>
@@ -217,15 +214,13 @@ The iterator being counted.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li><a href="Traversable.md">\Traversable</a> <format style="bold">$iterator</format> - <format style="italic">
-<code><![CDATA[ Traversable<TKey, TValue> ]]></code>
+        <list><li><a href="TValue&gt;.md">\Traversable&lt;\FireHub\Core\Support\LowLevel\TKey,\FireHub\Core\Support\LowLevel\TValue&gt;</a> <format style="bold">$iterator</format> - <format style="italic">
 The iterator objects to iterate over.
 </format></li><li>callable <format style="bold">$callback</format> - <format style="italic">
 <code>callable (TValue $value=):bool</code>
 The callback function to call on every element The function must return true to continue iterating over the
 iterator.
-</format></li><li>null or array <format style="bold">$arguments</format> = null - <format style="italic">
-<code><![CDATA[ array<TValue> ]]></code>
+</format></li><li>null or <a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> <format style="bold">$arguments</format> = null - <format style="italic">
 An array of arguments; each element of args is passed to the callback as separate argument.
 </format></li></list>
     </def>

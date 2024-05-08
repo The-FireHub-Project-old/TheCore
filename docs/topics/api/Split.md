@@ -35,7 +35,7 @@
     </def><def title="Parent class:">
         <a href="FunctionFamily.md">\FireHub\Core\Support\Strings\Expression\FunctionFamily</a>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L23">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L27">
             View source code
         </a>
     </def>
@@ -60,27 +60,31 @@
 ### Used by
 <deflist>
     <def title="This class is used by:">
-        <list><li><a href="Expression.md#split()">\FireHub\Core\Support\Strings\Expression::split()</a>  - <format style="italic">As return.</format></li></list>
+        <list><li><a href="Expression.md#split()">\FireHub\Core\Support\Strings\Expression::split()</a>  - <format style="italic">As return.</format></li><li><a href="Expression.md#splitwithoutempty()">\FireHub\Core\Support\Strings\Expression::splitWithoutEmpty()</a>  - <format style="italic">As return.</format></li></list>
     </def>
 </deflist>
 ### Properties
 | Name | Title | Value | Default |
 |:-----|:------|:------|:--------|
+|protected|<a href="#$string_or_character">string_or_character</a>|||
+|readonly private|<a href="#$remove_empty">remove_empty</a>|||
+|readonly private|<a href="#$limit">limit</a>||-1|
 |inherited protected|<a href="#$delimiter">delimiter</a>|### Pattern enclosure|&#039;/&#039;|
 |inherited protected|<a href="#$modifiers">modifiers</a>|### List of expression pattern modifiers|[]|
-|inherited protected|<a href="#$string_or_character">string_or_character</a>|||
 
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
+|public|<a href="#__construct()">__construct</a>|### Constructor|
 |public|<a href="#custom()">custom</a>|### Custom regex pattern|
-|inherited public|<a href="#__construct()">__construct</a>|### Constructor|
 |inherited public|<a href="#withdelimiter()">withDelimiter</a>|### Set patter enclosure delimiter|
 |inherited protected|<a href="#patternbuilder()">patternBuilder</a>|### Pattern builder|
 |inherited public|<a href="#__call()">__call</a>|### Call predefined patterns|
 |inherited magic public|<a href="#any()">any</a>||
 |inherited magic public|<a href="#is()">is</a>||
 |inherited magic public|<a href="#has()">has</a>||
+|inherited magic public|<a href="#beginswith()">beginsWith</a>||
+|inherited magic public|<a href="#endswith()">endsWith</a>||
 |inherited magic public|<a href="#oneormore()">oneOrMore</a>||
 |inherited magic public|<a href="#zeroormore()">zeroOrMore</a>||
 |inherited magic public|<a href="#zeroorone()">zeroOrOne</a>||
@@ -88,77 +92,9 @@
 |inherited magic public|<a href="#atleast()">atLeast</a>||
 |inherited magic public|<a href="#atmost()">atMost</a>||
 |inherited magic public|<a href="#between()">between</a>||
+|inherited magic public|<a href="#before()">before</a>||
+|inherited magic public|<a href="#after()">after</a>||
 
-## property: delimiter {id="$delimiter"}
-
-<code-block lang="php">
-    <![CDATA[protected string $delimiter = &#039;/&#039;]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-### ### Pattern enclosure
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L50">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L50">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-## property: modifiers {id="$modifiers"}
-
-<code-block lang="php">
-    <![CDATA[protected array $modifiers = []]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-### ### List of expression pattern modifiers
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L59">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L59">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
 ## property: string_or_character {id="$string_or_character"}
 
 <code-block lang="php">
@@ -180,19 +116,210 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L80">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L54">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L80">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L54">
                     View blame
                 </a>
             </def></deflist>
+## property: remove_empty {id="$remove_empty"}
+
+<code-block lang="php">
+    <![CDATA[readonly private bool $remove_empty]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L55">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L55">
+                    View blame
+                </a>
+            </def></deflist>
+## property: limit {id="$limit"}
+
+<code-block lang="php">
+    <![CDATA[readonly private int $limit = -1]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L56">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L56">
+                    View blame
+                </a>
+            </def></deflist>
+## property: delimiter {id="$delimiter"}
+
+<code-block lang="php">
+    <![CDATA[protected non-empty-string $delimiter = &#039;/&#039;]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+### ### Pattern enclosure
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L53">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L53">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+## property: modifiers {id="$modifiers"}
+
+<code-block lang="php">
+    <![CDATA[protected \FireHub\Core\Support\Enums\String\Expression\Modifier[] $modifiers = []]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+### ### List of expression pattern modifiers
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L61">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L61">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+## method: __construct {id="__construct()"}
+
+<code-block lang="php">
+    <![CDATA[public Split::__construct(\FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string_or_character, bool $remove_empty, int $limit = -1, \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers):void]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Constructor
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L53">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L53">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a>  - <format style="italic">As parameter.</format></li><li><a href="Strings.md">\FireHub\Core\Support\Contracts\HighLevel\Strings</a>  - <format style="italic">As parameter.</format></li><li><a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a>  - <format style="italic">As parameter.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> or <a href="Strings.md">\FireHub\Core\Support\Contracts\HighLevel\Strings</a> <format style="bold">$string_or_character</format> - <format style="italic">
+Character or string to use.
+</format></li><li>bool <format style="bold">$remove_empty</format> - <format style="italic">
+If true, only non-empty pieces will be returned.
+</format></li><li>int <format style="bold">$limit</format> = -1 - <format style="italic">[optional] 
+The maximum possible replacements for each pattern in each subject string.
+Defaults to -1 (no limit).
+</format></li><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format> - <format style="italic">
+List of expression pattern modifiers.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>void</li></list>
+    </def>
+</deflist>
 ## method: custom {id="custom()"}
 
 <code-block lang="php">
-    <![CDATA[public Split::custom(string $pattern):array]]>
+    <![CDATA[public Split::custom(string $pattern):string[]]]>
 </code-block>
 
 
@@ -212,12 +339,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L38">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L76">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L38">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Split.php#L76">
                     View blame
                 </a>
             </def></deflist>
@@ -240,63 +367,7 @@ The regular expression pattern.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> True if string matches the regular expression pattern, false if not.</format></li></list>
-    </def>
-</deflist>
-## method: __construct {id="__construct()"}
-
-<code-block lang="php">
-    <![CDATA[public FunctionFamily::__construct(\FireHub\Core\Support\Contracts\HighLevel\Characters|\FireHub\Core\Support\Contracts\HighLevel\Strings $string_or_character, \FireHub\Core\Support\Enums\String\Expression\Modifier ...$modifiers):void]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Constructor
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L79">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L79">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method uses:">
-        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a>  - <format style="italic">As parameter.</format></li><li><a href="Strings.md">\FireHub\Core\Support\Contracts\HighLevel\Strings</a>  - <format style="italic">As parameter.</format></li><li><a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a>  - <format style="italic">As parameter.</format></li><li><a href="Pattern.md#get()">\FireHub\Core\Support\Strings\Expression\Pattern::get()</a>  - <format style="italic">To get pattern result.</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has parameters:">
-        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> or <a href="Strings.md">\FireHub\Core\Support\Contracts\HighLevel\Strings</a> <format style="bold">$string_or_character</format> - <format style="italic">
-Character or string to use.
-</format></li><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format> - <format style="italic">
-List of expression pattern modifiers.
-</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>void</li></list>
+        <list><li>string[] - <format style="italic">True if string matches the regular expression pattern, false if not.</format></li></list>
     </def>
 </deflist>
 ## method: withDelimiter {id="withdelimiter()"}
@@ -322,12 +393,12 @@ List of expression pattern modifiers.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L116">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L118">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L116">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L118">
                     View blame
                 </a>
             </def></deflist>
@@ -381,12 +452,12 @@ Patter enclosure delimiter to use.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L140">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L142">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L140">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L142">
                     View blame
                 </a>
             </def></deflist>
@@ -397,7 +468,7 @@ Patter enclosure delimiter to use.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To build a pattern.</format></li></list>
+        <list><li><a href="Check.md#custom()">\FireHub\Core\Support\Strings\Expression\Check::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Get.md#custom()">\FireHub\Core\Support\Strings\Expression\Get::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Replace.md#custom()">\FireHub\Core\Support\Strings\Expression\Replace::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="ReplaceFunc.md#custom()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::custom()</a>  - <format style="italic">To build a pattern.</format></li><li><a href="Split.md#custom()">\FireHub\Core\Support\Strings\Expression\Split::custom()</a>  - <format style="italic">To build a pattern.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -415,7 +486,7 @@ The regular expression pattern.
 ## method: __call {id="__call()"}
 
 <code-block lang="php">
-    <![CDATA[public FunctionFamily::__call(string $method, array $arguments):\FireHub\Core\Support\Strings\Expression\Pattern]]>
+    <![CDATA[public FunctionFamily::__call(non-empty-string $method, array<array-key,mixed> $arguments):\FireHub\Core\Support\Strings\Expression\Pattern]]>
 </code-block>
 
 
@@ -435,12 +506,12 @@ The regular expression pattern.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L172">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L170">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L172">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L170">
                     View blame
                 </a>
             </def></deflist>
@@ -456,11 +527,9 @@ The regular expression pattern.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$method</format> - <format style="italic">
-<code>non-empty-string</code>
+        <list><li>non-empty-string <format style="bold">$method</format> - <format style="italic">
 Method name.
-</format></li><li>array <format style="bold">$arguments</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+</format></li><li>array&lt;array-key,mixed&gt; <format style="bold">$arguments</format> - <format style="italic">
 List of arguments.
 </format></li></list>
     </def>
@@ -570,6 +639,80 @@ List of arguments.
 
 
 <p><format style="italic">() ### Has string from the beginning until the end</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Pattern.md">\FireHub\Core\Support\Strings\Expression\Pattern</a></li></list>
+    </def>
+</deflist>
+## method: beginsWith {id="beginswith()"}
+
+<code-block lang="php">
+    <![CDATA[public FunctionFamily::beginsWith():\FireHub\Core\Support\Strings\Expression\Pattern]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><format style="italic">() ### If begins string is</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Pattern.md">\FireHub\Core\Support\Strings\Expression\Pattern</a></li></list>
+    </def>
+</deflist>
+## method: endsWith {id="endswith()"}
+
+<code-block lang="php">
+    <![CDATA[public FunctionFamily::endsWith():\FireHub\Core\Support\Strings\Expression\Pattern]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><format style="italic">() ### If ends string is</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
@@ -829,6 +972,80 @@ List of arguments.
 
 
 <p><format style="italic">(int $from, int $to) ### Between occurrences</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Pattern.md">\FireHub\Core\Support\Strings\Expression\Pattern</a></li></list>
+    </def>
+</deflist>
+## method: before {id="before()"}
+
+<code-block lang="php">
+    <![CDATA[public FunctionFamily::before():\FireHub\Core\Support\Strings\Expression\Pattern]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><format style="italic">() ### Before occurrences</format></p>
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Pattern.md">\FireHub\Core\Support\Strings\Expression\Pattern</a></li></list>
+    </def>
+</deflist>
+## method: after {id="after()"}
+
+<code-block lang="php">
+    <![CDATA[public FunctionFamily::after():\FireHub\Core\Support\Strings\Expression\Pattern]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><format style="italic">() ### After occurrences</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.FunctionFamily.php#L0">

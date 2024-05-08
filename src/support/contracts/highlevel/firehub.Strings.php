@@ -51,11 +51,9 @@ interface Strings extends Stringable {
      * ### value on string
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $value <p>
      * String to insert.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return \FireHub\Core\Support\Strings\InsertValue Inserts value.
      */
@@ -79,11 +77,9 @@ interface Strings extends Stringable {
      * Performs a check indicating if $string begins with $value.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return bool True if string starts with value, false otherwise.
      */
@@ -95,11 +91,9 @@ interface Strings extends Stringable {
      * Performs a check indicating if $string begins with $value.
      * @since 1.0.0
      *
-     * @param string ...$values <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string ...$values <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $values
      *
      * @return bool True if string starts with any of the given values, false otherwise.
      */
@@ -111,11 +105,9 @@ interface Strings extends Stringable {
      * Performs a check indicating if $string ends with $value.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return bool True if string ends with value, false otherwise.
      */
@@ -127,11 +119,9 @@ interface Strings extends Stringable {
      * Performs a check indicating if $string begins with $value.
      * @since 1.0.0
      *
-     * @param string ...$values <p>
-     * <code>non-empty-string></code>
+     * @param non-empty-string ...$values <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $values
      *
      * @return bool True if string ends with any of the given values, false otherwise.
      */
@@ -143,11 +133,9 @@ interface Strings extends Stringable {
      * Performs a check indicating if $string is contained in $string.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return bool True if a string contains value, false otherwise.
      */
@@ -157,11 +145,9 @@ interface Strings extends Stringable {
      * ### Checks if string contains all values
      * @since 1.0.0
      *
-     * @param string ...$values <p>
-     * <code>non-empty-string[]</code>
+     * @param non-empty-string ...$values <p>
      * The list of values to search for.
      * </p>
-     * @phpstan-param non-empty-string $values
      *
      * @return bool True if a string contains all values, false otherwise.
      */
@@ -171,11 +157,9 @@ interface Strings extends Stringable {
      * ### Checks if string contains any of the values
      * @since 1.0.0
      *
-     * @param string ...$values <p>
-     * <code>non-empty-string[]</code>
+     * @param non-empty-string ...$values <p>
      * The list of values to search for.
      * </p>
-     * @phpstan-param non-empty-string $values
      *
      * @return bool True if a string contains any of the values, false otherwise.
      */
@@ -187,11 +171,9 @@ interface Strings extends Stringable {
      * Performs a case-sensitive check indicating if $string is contained in $string.
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
      * @return bool True if a string equals value, false otherwise.
      */
@@ -201,11 +183,9 @@ interface Strings extends Stringable {
      * ### Checks if string equals to any of the values
      * @since 1.0.0
      *
-     * @param string ...$values <p>
-     * <code>non-empty-string[]</code>
+     * @param non-empty-string ...$values <p>
      * The list of values to search for.
      * </p>
-     * @phpstan-param non-empty-string $values
      *
      * @return bool True if a string equals to any of the values, false otherwise.
      */
@@ -233,8 +213,7 @@ interface Strings extends Stringable {
      * String encoding.
      * </p>
      *
-     * @return $this|\FireHub\Core\Support\Enums\String\Encoding This character or current encoding.
-     * @phpstan-return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : $this)
+     * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : $this) This character or current encoding.
      */
     public function encoding (?Encoding $encoding = null):self|Encoding;
 
@@ -246,8 +225,7 @@ interface Strings extends Stringable {
      * String to set.
      * </p>
      *
-     * @return $this|string String as raw string.
-     * @phpstan-return ($string is null ? string : $this)
+     * @return ($string is null ? string : $this) String as raw string.
      */
     public function string (string $string = null):self|string;
 
@@ -313,10 +291,9 @@ interface Strings extends Stringable {
      * ### Capitalize every word in string
      * @since 1.0.0
      *
-     * @param array $ignore [optional] <p>
+     * @param non-empty-string[] $ignore $ignore [optional] <p>
      * List of additional words not to be capitalized.
      * </p>
-     * @phpstan-param non-empty-string[] $ignore
      *
      * @return $this This string.
      */
@@ -390,11 +367,9 @@ interface Strings extends Stringable {
      * Capitalizes the first word of the string, replaces underscores with spaces and removes forbidden words.
      * @since 1.0.0
      *
-     * @param array $forbidden_words [optional] <p>
-     * <code><![CDATA[ list<string> ]]></code>
+     * @param list<string> $forbidden_words [optional] <p>
      * List of forbidden words to remove.
      * </p>
-     * @phpstan-param list<string> $forbidden_words
      *
      * @return $this This string.
      */
@@ -439,10 +414,8 @@ interface Strings extends Stringable {
      * It uses the same tag stripping state machine as the fgetss() function.
      * @since 1.0.0
      *
-     * @param null|string|array $allowed_tags <p>
-     * <code><![CDATA[ null|string|array<int, string> ]]></code>
+     * @param null|string|array<int, string> $allowed_tags <p>
      * You can use the optional second parameter to specify tags which should not be stripped.
-     * @phpstan-param null|string|array<int, string> $allowed_tags
      *
      * @return $this This string.
      *
@@ -466,16 +439,12 @@ interface Strings extends Stringable {
      * ### Slice string after first start and until last end
      * @since 1.0.0
      *
-     * @param string $start <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $start <p>
      * First character.
      * </p>
-     * @param string $end <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $end <p>
      * Last character.
      * </p>
-     * @phpstan-param non-empty-string $start
-     * @phpstan-param non-empty-string $end
      *
      * @return $this This string.
      */
@@ -485,16 +454,12 @@ interface Strings extends Stringable {
      * ### Slice string after first start and until first end
      * @since 1.0.0
      *
-     * @param string $start <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $start <p>
      * First character.
      * </p>
-     * @param string $end <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $end <p>
      * Last character.
      * </p>
-     * @phpstan-param non-empty-string $start
-     * @phpstan-param non-empty-string $end
      *
      * @return $this This string.
      */
@@ -504,16 +469,12 @@ interface Strings extends Stringable {
      * ### Slice string after last start and until last end
      * @since 1.0.0
      *
-     * @param string $start <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $start <p>
      * First character.
      * </p>
-     * @param string $end <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $end <p>
      * Last character.
      * </p>
-     * @phpstan-param non-empty-string $start
-     * @phpstan-param non-empty-string $end
      *
      * @return $this This string.
      */
@@ -652,14 +613,12 @@ interface Strings extends Stringable {
      * ### Inserts string at the position provided
      * @since 1.0.0
      *
-     * @param string $string <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $string <p>
      * String to insert.
      * </p>
      * @param int $position <p>
      * Position where string will be inserted.
      * </p>
-     * @phpstan-param non-empty-string $string
      *
      * @return $this This string.
      *
@@ -730,11 +689,9 @@ interface Strings extends Stringable {
      * ### Replace all occurrences recursively of search in a subject replaced with the given replacement value
      * @since 1.0.0
      *
-     * @param array $rules <p>
-     * <code><![CDATA[ array<non-empty-string, string> ]]></code>
+     * @param array<non-empty-string, string> $rules <p>
      * Find => Replace pattern rules.
      * </p>
-     * @phpstan-param array<non-empty-string, string> $rules
      *
      * @return $this This string.
      *
@@ -781,15 +738,13 @@ interface Strings extends Stringable {
      * If the value of pad_length is negative, less than, or equal to the length of the input string,
      * no padding takes place.
      * </p>
-     * @param string $pad [optional] <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $pad [optional] <p>
      * The pad may be truncated if the required number of padding characters can't be evenly divided by the pad's
      * length.
      * </p>
      * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
      * Pad side.
      * </p>
-     * @phpstan-param non-empty-string $pad
      *
      * @return $this This string.
      */
@@ -845,11 +800,9 @@ interface Strings extends Stringable {
      * ### Makes sure that the current string starts with the given text
      * @since 1.0.0
      *
-     * @param string $prefix <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $prefix <p>
      * The prefix to make sure it exists.
      * </p>
-     * @phpstan-param non-empty-string $prefix
      *
      * @return $this This string.
      */
@@ -859,11 +812,9 @@ interface Strings extends Stringable {
      * ### Makes sure that the current string ends with the given text
      * @since 1.0.0
      *
-     * @param string $suffix <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $suffix <p>
      * The suffix to make sure it exists.
      * </p>
-     * @phpstan-param non-empty-string $suffix
      *
      * @return $this This string.
      */
@@ -873,11 +824,9 @@ interface Strings extends Stringable {
      * ### Makes sure that the current string doesn't start with the given text
      * @since 1.0.0
      *
-     * @param string $prefix <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $prefix <p>
      * The prefix to make sure exists.
      * </p>
-     * @phpstan-param non-empty-string $prefix
      *
      * @return $this This string.
      */
@@ -887,11 +836,9 @@ interface Strings extends Stringable {
      * ### Makes sure that the current string doesn't end with the given text
      * @since 1.0.0
      *
-     * @param string $suffix <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $suffix <p>
      * The suffix to make sure exists.
      * </p>
-     * @phpstan-param non-empty-string $suffix
      *
      * @return $this This string.
      */
@@ -901,11 +848,9 @@ interface Strings extends Stringable {
      * Surrounds string with the given substring
      * @since 1.0.0
      *
-     * @param string $with <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $with <p>
      * The substring to add to both sides.
      * </p>
-     * @phpstan-param non-empty-string $with
      *
      * @return $this This string.
      */
@@ -927,11 +872,9 @@ interface Strings extends Stringable {
      * ### Wraps each word in the string with specified quote
      * @since 1.0.0
      *
-     * @param string $with <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $with <p>
      * String to quote with.
      * </p>
-     * @phpstan-param non-empty-string $with
      *
      * @return $this This string.
      */
@@ -1033,17 +976,14 @@ interface Strings extends Stringable {
      * ### Chop a string to an array
      * @since 1.0.0
      *
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $length [optional] <p>
      * Maximum length of the chunk.
      * </p>
-     * @phpstan-param positive-int $length
      *
-     * @return array <code><![CDATA[ list<string> ]]></code> If the optional $length parameter is specified, the
+     * @return list<non-empty-string> If the optional $length parameter is specified, the
      * returned array will be broken down into chunks with each being $length in length, except the final chunk which
      * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
      * byte in size.
-     * @phpstan-return list<non-empty-string>
      *
      * @todo Change from array to Collection
      */
@@ -1055,23 +995,18 @@ interface Strings extends Stringable {
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      *
-     * @param string $with <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $with <p>
      * The boundary string.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
      * If the limit parameter is negative, all components except the last - limit are returned.
      * If the limit parameter is zero, then this is treated as 1.
      * </p>
-     * @phpstan-param non-empty-string $with
-     * @phpstan-param int<min, max> $limit
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
+     * @return string[] If delimiter contains a value that is not contained in string and a negative
      * limit is used, then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
-     * @phpstan-return string[]
      *
      * @todo Change from array to Collection
      */
@@ -1087,17 +1022,13 @@ interface Strings extends Stringable {
      * <code>non-empty-string[]</code>
      * The boundary characters.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
-     * @phpstan-param int<min, max> $limit
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned.
+     * @return string[] If delimiter contains a value not contained in string and a negative limit is used, then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
-     * @phpstan-return string[]
      */
     public function breakWithAny (array $characters, int $limit = MAX):array;
 
@@ -1107,22 +1038,16 @@ interface Strings extends Stringable {
      *
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      *
-     * @param string $with <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $with <p>
      * The boundary string.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
-     * @phpstan-param non-empty-string $with
-     * @phpstan-param int<min, max> $limit
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned.
+     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
-     * @phpstan-return string[]
      *
      * @todo Change from array to Collection
      */
@@ -1135,20 +1060,15 @@ interface Strings extends Stringable {
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      *
      * @param \FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters <p>
-     * <code>non-empty-string[]</code>
      * The boundary characters.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
-     * @phpstan-param int<min, max> $limit
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned.
+     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
-     * @phpstan-return string[]
      */
     public function splitBeforeAny (array $characters, int $limit = MAX):array;
 
@@ -1162,17 +1082,13 @@ interface Strings extends Stringable {
      * <code>non-empty-string[]</code>
      * The boundary characters.
      * </p>
-     * @param int $limit [optional] <p>
-     * <code><![CDATA[ int<min, max> ]]></code>
+     * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
-     * @phpstan-param int<min, max> $limit
      *
-     * @return array <code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned.
+     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
-     * @phpstan-return string[]
      */
     public function splitAfterAny (array $characters, int $limit = MAX):array;
 
@@ -1180,11 +1096,9 @@ interface Strings extends Stringable {
      * ### Group a string into chunks
      * @since 1.0.0
      *
-     * @param int $number_of_groups <p>
-     * <code>positive-int</code>
+     * @param positive-int $number_of_groups <p>
      * The size of each chunk.
      * </p>
-     * @phpstan-param positive-int $number_of_groups
      *
      * @return list<string> Grouped string into chunks.
      *
@@ -1196,14 +1110,11 @@ interface Strings extends Stringable {
      * ### Checks how mny times string contains value
      * @since 1.0.0
      *
-     * @param string $value <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $value <p>
      * The value to search for.
      * </p>
-     * @phpstan-param non-empty-string $value
      *
-     * @return int Number of times the searched value occurs in the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Number of times the searched value occurs in the string.
      */
     public function containTimes (string $value):int;
 
@@ -1211,8 +1122,7 @@ interface Strings extends Stringable {
      * ### Get string length
      * @since 1.0.0
      *
-     * @return int Length of the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int Length of the string.
      */
     public function length ():int;
 
@@ -1224,8 +1134,7 @@ interface Strings extends Stringable {
      * String to find.
      * </p>
      *
-     * @return int|false Position of the first occurrence for a substring.
-     * @phpstan-return non-negative-int|false
+     * @return non-negative-int|false Position of the first occurrence for a substring.
      */
     public function indexOf (string $find):int|false;
 
@@ -1237,8 +1146,7 @@ interface Strings extends Stringable {
      * String to find.
      * </p>
      *
-     * @return int|false Position of the last occurrence for a substring.
-     * @phpstan-return non-negative-int|false
+     * @return non-negative-int|false Position of the last occurrence for a substring.
      */
     public function lastIndexOf (string $find):int|false;
 

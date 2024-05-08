@@ -156,11 +156,9 @@ final class Data {
      * To make the serialized string into a PHP value again, use unserialize().
      * @since 1.0.0
      *
-     * @param string|int|float|bool|array|object|null $value <p>
-     * <code><![CDATA[ scalar|array<array-key, mixed>|object|null ]]></code>
+     * @param scalar|array<array-key, mixed>|object|null $value <p>
      * The value to be serialized.
      * </p>
-     * @phpstan-param scalar|array<array-key, mixed>|object|null $value
      *
      * @throws Error If try to serialize anonymous class, function or resource.
      *
@@ -190,20 +188,16 @@ final class Data {
      * ### Creates a PHP value from a stored representation
      * @since 1.0.0
      *
-     * @param string $data <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $data <p>
      * The serialized string.
      * </p>
-     * @param bool|array $allowed_classes [optional] <p>
-     * <code><![CDATA[ bool|array<class-string> ]]></code>
+     * @param bool|array<class-string> $allowed_classes [optional] <p>
      * Either an array of class names which should be accepted, false to accept no classes,
      * or true to accept all classes.
      * </p>
      * @param int $max_depth [optional] <p>
      * The maximum depth of structures permitted during unserialization, and is intended to prevent stack overflows.
      * </p>
-     * @phpstan-param non-empty-string $data
-     * @phpstan-param bool|array<class-string> $allowed_classes
      *
      * @throws Error $data is already false already or $data is NULL, or could not unserialize data.
      * @error\exeption E_WARNING if could not unserialize data.

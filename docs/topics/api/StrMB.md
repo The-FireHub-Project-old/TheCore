@@ -67,8 +67,8 @@
 |public static |<a href="#split()">split</a>|### Given a multibyte string, return an array of its characters|
 |public static |<a href="#partcount()">partCount</a>|### Get number of times the searched substring occurs in the string|
 |public static |<a href="#length()">length</a>|### Get string length|
-|public static |<a href="#firstposition()">firstPosition</a>|### Find the position of the first occurrence of a substring in a string|
-|public static |<a href="#lastposition()">lastPosition</a>|### Find the position of the last occurrence of a substring in a string|
+|public static |<a href="#firstposition()">firstPosition</a>|### Find the position of the first occurrence for a substring in a string|
+|public static |<a href="#lastposition()">lastPosition</a>|### Find the position of the last occurrence for a substring in a string|
 |public static |<a href="#encoding()">encoding</a>|### Set/Get internal character encoding|
 |public static |<a href="#detectencoding()">detectEncoding</a>|### Detect character encoding|
 |public static |<a href="#convertencoding()">convertEncoding</a>|### Convert a string from one character encoding to another|
@@ -79,18 +79,18 @@
 |inherited public static |<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
 |inherited public static |<a href="#implode()">implode</a>|### Join array elements with a string|
 |inherited public static |<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
-|inherited public static |<a href="#replace()">replace</a>|### Replace all occurrences of the search string with the replacement string|
 |inherited public static |<a href="#repeat()">repeat</a>|### Repeat a string|
 |inherited public static |<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
 |inherited public static |<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
 |inherited public static |<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |inherited public static |<a href="#explode()">explode</a>|### Split a string by a string|
 |inherited public static |<a href="#compare()">compare</a>|### String comparison|
+|inherited public static |<a href="#translate()">translate</a>|### Translate characters or replace substrings|
 
 ## method: convert {id="convert()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::convert(string $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):string]]>
+    <![CDATA[public static StrMB::convert(string $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed]]>
 </code-block>
 
 
@@ -110,12 +110,12 @@
 <p><format style="italic">Performs case folding on a string, converted in the way specified by $caseFolding.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L73">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L73">
                     View blame
                 </a>
             </def></deflist>
@@ -131,7 +131,7 @@
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Char.md#tolower()">\FireHub\Core\Support\Char::toLower()</a>  - <format style="italic">To convert character.</format></li><li><a href="Char.md#toupper()">\FireHub\Core\Support\Char::toUpper()</a>  - <format style="italic">To convert character.</format></li><li><a href="IStr.md#startswith()">\FireHub\Core\Support\IStr::startsWith()</a>  - <format style="italic">To convert raw string.</format></li><li><a href="IStr.md#endswith()">\FireHub\Core\Support\IStr::endsWith()</a>  - <format style="italic">To convert raw string.</format></li><li><a href="IStr.md#contains()">\FireHub\Core\Support\IStr::contains()</a>  - <format style="italic">To convert the string.</format></li><li><a href="IStr.md#equals()">\FireHub\Core\Support\IStr::equals()</a>  - <format style="italic">To convert the string.</format></li><li><a href="Str.md#tolower()">\FireHub\Core\Support\Str::toLower()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#toupper()">\FireHub\Core\Support\Str::toUpper()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#totitle()">\FireHub\Core\Support\Str::toTitle()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#capitalize()">\FireHub\Core\Support\Str::capitalize()</a>  - <format style="italic">To perform case folding on a string.</format></li><li><a href="Str.md#decapitalize()">\FireHub\Core\Support\Str::deCapitalize()</a>  - <format style="italic">To perform case folding on a string.</format></li></list>
+        <list><li><a href="Char.md#tolower()">\FireHub\Core\Support\Char::toLower()</a>  - <format style="italic">To convert character.</format></li><li><a href="Char.md#toupper()">\FireHub\Core\Support\Char::toUpper()</a>  - <format style="italic">To convert character.</format></li><li><a href="IStr.md#startswith()">\FireHub\Core\Support\IStr::startsWith()</a>  - <format style="italic">To convert raw string.</format></li><li><a href="IStr.md#endswith()">\FireHub\Core\Support\IStr::endsWith()</a>  - <format style="italic">To convert raw string.</format></li><li><a href="IStr.md#contains()">\FireHub\Core\Support\IStr::contains()</a>  - <format style="italic">To convert the string.</format></li><li><a href="IStr.md#equals()">\FireHub\Core\Support\IStr::equals()</a>  - <format style="italic">To convert the string.</format></li><li><a href="IStr.md#containtimes()">\FireHub\Core\Support\IStr::containTimes()</a>  - <format style="italic">To convert the string.</format></li><li><a href="Str.md#tolower()">\FireHub\Core\Support\Strings\Str::toLower()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#toupper()">\FireHub\Core\Support\Strings\Str::toUpper()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#totitle()">\FireHub\Core\Support\Strings\Str::toTitle()</a>  - <format style="italic">To convert string.</format></li><li><a href="Str.md#capitalize()">\FireHub\Core\Support\Strings\Str::capitalize()</a>  - <format style="italic">To perform case folding on a string.</format></li><li><a href="Str.md#decapitalize()">\FireHub\Core\Support\Strings\Str::deCapitalize()</a>  - <format style="italic">To perform case folding on a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -147,7 +147,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic"><code>$string is non-empty-string ? non-empty-string : string</code> Converted string.</format></li></list>
+        <list><li>mixed - <format style="italic">Converted string.</format></li></list>
     </def>
 </deflist>
 ## method: part {id="part()"}
@@ -174,12 +174,12 @@ Character encoding. If it is null, the internal character encoding value will be
 from the beginning of $string. First character's position is 0. Second character position is 1, and so on.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L111">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L111">
                     View blame
                 </a>
             </def></deflist>
@@ -195,7 +195,7 @@ from the beginning of $string. First character's position is 0. Second character
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Str.md#slice()">\FireHub\Core\Support\Str::slice()</a>  - <format style="italic">To get part of string.</format></li><li><a href="Str.md#carry()">\FireHub\Core\Support\Str::carry()</a>  - <format style="italic">To get part of string.</format></li></list>
+        <list><li><a href="Str.md#carry()">\FireHub\Core\Support\Strings\Str::carry()</a>  - <format style="italic">To get part of string.</format></li><li><a href="Str.md#move()">\FireHub\Core\Support\Strings\Str::move()</a>  - <format style="italic">To get part of string.</format></li><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To get string segment to mask.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To part of the string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -243,12 +243,12 @@ Character encoding. If it is null, the internal character encoding value will be
 <p><format style="italic">Returns part of $string starting from and including the first occurrence of $find to the end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L143">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L143">
                     View blame
                 </a>
             </def></deflist>
@@ -264,7 +264,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="IStr.md#carryfrom()">\FireHub\Core\Support\IStr::carryFrom()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="IStr.md#carryuntil()">\FireHub\Core\Support\IStr::carryUntil()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Str::carryFrom()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="Str.md#carryuntil()">\FireHub\Core\Support\Str::carryUntil()</a>  - <format style="italic">To get the first part of a string.</format></li></list>
+        <list><li><a href="IStr.md#carryfrom()">\FireHub\Core\Support\IStr::carryFrom()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="IStr.md#carryuntil()">\FireHub\Core\Support\IStr::carryUntil()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Strings\Str::carryFrom()</a>  - <format style="italic">To get the first part of a string.</format></li><li><a href="Str.md#carryuntil()">\FireHub\Core\Support\Strings\Str::carryUntil()</a>  - <format style="italic">To get the first part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -311,12 +311,12 @@ Character encoding. If it is null, the internal character encoding value will be
 end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L178">
                     View blame
                 </a>
             </def></deflist>
@@ -332,7 +332,7 @@ end of $string.</format></p>
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="IStr.md#carryfromlast()">\FireHub\Core\Support\IStr::carryFromLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="IStr.md#carryuntillast()">\FireHub\Core\Support\IStr::carryUntilLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="Str.md#carryfromlast()">\FireHub\Core\Support\Str::carryFromLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Str::carryUntilLast()</a>  - <format style="italic">To get the last part of a string.</format></li></list>
+        <list><li><a href="IStr.md#carryfromlast()">\FireHub\Core\Support\IStr::carryFromLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="IStr.md#carryuntillast()">\FireHub\Core\Support\IStr::carryUntilLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="Str.md#carryfromlast()">\FireHub\Core\Support\Strings\Str::carryFromLast()</a>  - <format style="italic">To get the last part of a string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Strings\Str::carryUntilLast()</a>  - <format style="italic">To get the last part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -358,7 +358,7 @@ Character encoding. If it is null, the internal character encoding value will be
 ## method: split {id="split()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::split(string $string, int $length = 1, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):array]]>
+    <![CDATA[public static StrMB::split(string $string, positive-int $length = 1, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):list<non-empty-string>]]>
 </code-block>
 
 
@@ -381,12 +381,12 @@ is specified, the string is broken down into chunks of the specified length in c
 $encoding parameter can be optionally specified, and it is good practice to do so.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L213">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L213">
                     View blame
                 </a>
             </def></deflist>
@@ -401,11 +401,15 @@ $encoding parameter can be optionally specified, and it is good practice to do s
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Str.md#chop()">\FireHub\Core\Support\Strings\Str::chop()</a>  - <format style="italic">To return an array of string characters.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The input string.
-</format></li><li>int <format style="bold">$length</format> = 1 - <format style="italic">[optional] 
-<code>positive-int</code>
+</format></li><li>positive-int <format style="bold">$length</format> = 1 - <format style="italic">[optional] 
 Maximum length of the chunk.
 </format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.
@@ -419,16 +423,15 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
-returned array will be broken down into chunks with each being $length in length, except the final chunk which
-may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-byte in size.</format></li></list>
+        <list><li>list&lt;non-empty-string&gt; - <format style="italic">If the optional $length parameter is specified, the returned array will be broken down into chunks with each being
+$length in length, except the final chunk which may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk
+will be one byte in size.</format></li></list>
     </def>
 </deflist>
 ## method: partCount {id="partcount()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::partCount(string $string, string $search, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int]]>
+    <![CDATA[public static StrMB::partCount(string $string, string $search, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
 </code-block>
 
 
@@ -448,12 +451,12 @@ byte in size.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L240">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L240">
                     View blame
                 </a>
             </def></deflist>
@@ -480,13 +483,13 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic"><code>non-negative-int</code> Number of times the searched substring occurs in the string.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int Number of times the searched substring occurs in the string.</format></li></list>
     </def>
 </deflist>
 ## method: length {id="length()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int]]>
+    <![CDATA[public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
 </code-block>
 
 
@@ -506,12 +509,12 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L263">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L263">
                     View blame
                 </a>
             </def></deflist>
@@ -527,7 +530,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Char.md#__construct()">\FireHub\Core\Support\Char::__construct()</a>  - <format style="italic">To check the length of the provided character.</format></li><li><a href="Str.md#carryafter()">\FireHub\Core\Support\Str::carryAfter()</a>  - <format style="italic">To get length for $find.</format></li><li><a href="Str.md#carryafterlast()">\FireHub\Core\Support\Str::carryAfterLast()</a>  - <format style="italic">To get length for $find.</format></li></list>
+        <list><li><a href="Char.md#__construct()">\FireHub\Core\Support\Char::__construct()</a>  - <format style="italic">To check the length of the provided character.</format></li><li><a href="Str.md#carryafter()">\FireHub\Core\Support\Strings\Str::carryAfter()</a>  - <format style="italic">To get length for $find.</format></li><li><a href="Str.md#carryafterlast()">\FireHub\Core\Support\Strings\Str::carryAfterLast()</a>  - <format style="italic">To get length for $find.</format></li><li><a href="Str.md#move()">\FireHub\Core\Support\Strings\Str::move()</a>  - <format style="italic">To get string length.</format></li><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To get masked string length.</format></li><li><a href="Str.md#removeprefix()">\FireHub\Core\Support\Strings\Str::removePrefix()</a>  - <format style="italic">To get $prefix length.</format></li><li><a href="Str.md#removesuffix()">\FireHub\Core\Support\Strings\Str::removeSuffix()</a>  - <format style="italic">To get $suffix length.</format></li><li><a href="Str.md#truncate()">\FireHub\Core\Support\Strings\Str::truncate()</a>  - <format style="italic">To get length of $with argument.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To get length of $with argument.</format></li><li><a href="Str.md#break()">\FireHub\Core\Support\Strings\Str::break()</a>  - <format style="italic">To get substring length.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -541,13 +544,13 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic"><code>non-negative-int</code> String length.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int String length.</format></li></list>
     </def>
 </deflist>
 ## method: firstPosition {id="firstposition()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::firstPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):false|int]]>
+    <![CDATA[public static StrMB::firstPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
 </code-block>
 
 
@@ -562,17 +565,17 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 
-### ### Find the position of the first occurrence of a substring in a string
+### ### Find the position of the first occurrence for a substring in a string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L293">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L293">
                     View blame
                 </a>
             </def></deflist>
@@ -588,7 +591,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="IStr.md#indexof()">\FireHub\Core\Support\IStr::indexOf()</a>  - <format style="italic">To find the position of the first occurrence of a substring in a string.</format></li><li><a href="Str.md#indexof()">\FireHub\Core\Support\Str::indexOf()</a>  - <format style="italic">To find the position of the first occurrence of a substring in a string.</format></li></list>
+        <list><li><a href="IStr.md#indexof()">\FireHub\Core\Support\IStr::indexOf()</a>  - <format style="italic">To find the position for the first occurrence of a substring in a string.</format></li><li><a href="Str.md#move()">\FireHub\Core\Support\Strings\Str::move()</a>  - <format style="italic">To find the position of the first occurrence for a substring in a string.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To find the position of the first occurrence for a substring in a string.</format></li><li><a href="Str.md#indexof()">\FireHub\Core\Support\Strings\Str::indexOf()</a>  - <format style="italic">To find the position of the first occurrence for a substring in a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -608,13 +611,13 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>false or int - <format style="italic">Numeric position of the first occurrence or false if none exist.</format></li></list>
+        <list><li> - <format style="italic">false|non-negative-int Numeric position of the first occurrence or false if none exist.</format></li></list>
     </def>
 </deflist>
 ## method: lastPosition {id="lastposition()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::lastPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):false|int]]>
+    <![CDATA[public static StrMB::lastPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
 </code-block>
 
 
@@ -629,17 +632,17 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 
-### ### Find the position of the last occurrence of a substring in a string
+### ### Find the position of the last occurrence for a substring in a string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L333">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L325">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L333">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L325">
                     View blame
                 </a>
             </def></deflist>
@@ -655,7 +658,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="IStr.md#lastindexof()">\FireHub\Core\Support\IStr::lastIndexOf()</a>  - <format style="italic">To find the position of the last occurrence of a substring in a string.</format></li><li><a href="Str.md#lastindexof()">\FireHub\Core\Support\Str::lastIndexOf()</a>  - <format style="italic">To find the position of the last occurrence of a substring in a string.</format></li></list>
+        <list><li><a href="IStr.md#lastindexof()">\FireHub\Core\Support\IStr::lastIndexOf()</a>  - <format style="italic">To find the position for the last occurrence of a substring in a string.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To find the position of the last occurrence for a substring in a string.</format></li><li><a href="Str.md#lastindexof()">\FireHub\Core\Support\Strings\Str::lastIndexOf()</a>  - <format style="italic">To find the position of the last occurrence for a substring in a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -675,13 +678,13 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>false or int - <format style="italic">Numeric position of the last occurrence or false if none exist.</format></li></list>
+        <list><li> - <format style="italic">false|non-negative-int Numeric position of the last occurrence or false if none exist.</format></li></list>
     </def>
 </deflist>
 ## method: encoding {id="encoding()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding]]>
+    <![CDATA[public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed]]>
 </code-block>
 
 
@@ -701,12 +704,12 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L361">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L351">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L361">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L351">
                     View blame
                 </a>
             </def></deflist>
@@ -736,9 +739,8 @@ module. You should notice that the internal encoding is totally different from t
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>true or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> - <format style="italic">If encoding is set, then returns true. In this case, the
-character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
-encoding name is returned.</format></li></list>
+        <list><li>mixed - <format style="italic">If encoding is set, then returns true. In this case, the
+character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned.</format></li></list>
     </def>
 </deflist>
 ## method: detectEncoding {id="detectencoding()"}
@@ -764,12 +766,12 @@ encoding name is returned.</format></li></list>
 <p><format style="italic">Detects the most likely character encoding for string from an ordered list of candidates.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L385">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L375">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L385">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L375">
                     View blame
                 </a>
             </def></deflist>
@@ -820,12 +822,12 @@ is not valid in any of the listed encodings.</format></li></list>
 values will be converted recursively.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L420">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L410">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L420">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L410">
                     View blame
                 </a>
             </def></deflist>
@@ -883,12 +885,12 @@ Character encoding. If it is null, the internal character encoding value will be
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L442">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L432">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L442">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L432">
                     View blame
                 </a>
             </def></deflist>
@@ -943,12 +945,12 @@ The expected encoding.
 <p><format style="italic">Performs a case-sensitive check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L64">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L64">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -974,7 +976,7 @@ The string to search in.
 ## method: startsWith {id="startswith()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::startsWith(string $value, string $string):bool]]>
+    <![CDATA[final public static StrSafe::startsWith(non-empty-string $value, string $string):bool]]>
 </code-block>
 
 
@@ -998,12 +1000,12 @@ The string to search in.
 <p><format style="italic">Performs a case-sensitive check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L87">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L84">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L87">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L84">
                     View blame
                 </a>
             </def></deflist>
@@ -1014,8 +1016,7 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format> - <format style="italic">
-<code>non-empty-string></code>
+        <list><li>non-empty-string <format style="bold">$value</format> - <format style="italic">
 The value to search for.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string to search in.
@@ -1030,7 +1031,7 @@ The string to search in.
 ## method: endsWith {id="endswith()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::endsWith(string $value, string $string):bool]]>
+    <![CDATA[final public static StrSafe::endsWith(non-empty-string $value, string $string):bool]]>
 </code-block>
 
 
@@ -1054,12 +1055,12 @@ The string to search in.
 <p><format style="italic">Performs a case-sensitive check indicating if $string ends with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L111">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L105">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L111">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L105">
                     View blame
                 </a>
             </def></deflist>
@@ -1070,8 +1071,7 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format> - <format style="italic">
-<code>non-empty-string></code>
+        <list><li>non-empty-string <format style="bold">$value</format> - <format style="italic">
 The value to search for.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string to search in.
@@ -1107,12 +1107,12 @@ The string to search in.
 (single quote, double quote, backslash, NUL).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L127">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L127">
                     View blame
                 </a>
             </def></deflist>
@@ -1142,7 +1142,7 @@ The string to be escaped.
 ## method: implode {id="implode()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::implode(array $array, string $separator = &#039;&#039;):string]]>
+    <![CDATA[final public static StrSafe::implode(array<array-key,null|scalar|\Stringable> $array, string $separator = &#039;&#039;):string]]>
 </code-block>
 
 
@@ -1166,12 +1166,12 @@ The string to be escaped.
 <p><format style="italic">Join array elements with a $separator string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L159">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L151">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L159">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L151">
                     View blame
                 </a>
             </def></deflist>
@@ -1182,8 +1182,7 @@ The string to be escaped.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, null|scalar|Stringable> ]]></code>
+        <list><li>array&lt;array-key,null or scalar or <a href="Stringable&gt;.md">\Stringable&gt;</a> <format style="bold">$array</format> - <format style="italic">
 The array of strings to implode.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 The boundary string.
@@ -1228,12 +1227,12 @@ with the separator string between each element.</format></li></list>
 <p><format style="italic">Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L177">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L169">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L177">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L169">
                     View blame
                 </a>
             </def></deflist>
@@ -1252,71 +1251,6 @@ The input string.
 <deflist>
     <def title="This method returns:">
         <list><li>string - <format style="italic">The string with meta-characters quoted.</format></li></list>
-    </def>
-</deflist>
-## method: replace {id="replace()"}
-
-<code-block lang="php">
-    <![CDATA[final public static StrSafe::replace(string|array $search, string|array $replace, string $string, bool $case_sensitive = true, null|int &$count = null):string]]>
-</code-block>
-
-
-
-
-
-<tip>
-    <p>
-        This method is marked as <format style="bold">final</format>.
-    </p>
-</tip>
-
-
-
-
-
-
-
-### ### Replace all occurrences of the search string with the replacement string
-
-<p><format style="italic">This function returns a string or an array with all occurrences of search
-in a subject replaced with the given replacement value.</format></p>
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L219">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L219">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has parameters:">
-        <list><li>string or array <format style="bold">$search</format> - <format style="italic">
-<code><![CDATA[ string|list<string> ]]></code>
-The replacement value that replaces found search values.
-An array may be used to designate multiple replacements.
-</format></li><li>string or array <format style="bold">$replace</format> - <format style="italic">
-<code><![CDATA[ string|list<string> ]]></code>
-The string being searched and replaced on.
-</format></li><li>string <format style="bold">$string</format> - <format style="italic">
-The value being searched for.
-</format></li><li>bool <format style="bold">$case_sensitive</format> = true - <format style="italic">[optional] 
-Searched values are case-insensitive.
-</format></li><li>by reference null or int <format style="bold">$count</format> = null - <format style="italic">[optional] 
-If passed, this will hold the number of matched and replaced needles.
-</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>string - <format style="italic">String with the replaced values.</format></li></list>
     </def>
 </deflist>
 ## method: repeat {id="repeat()"}
@@ -1346,12 +1280,12 @@ If passed, this will hold the number of matched and replaced needles.
 <p><format style="italic">Returns string repeated $times times.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L250">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L196">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L250">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L196">
                     View blame
                 </a>
             </def></deflist>
@@ -1365,17 +1299,11 @@ If passed, this will hold the number of matched and replaced needles.
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The string to be repeated.
 </format></li><li>int <format style="bold">$times</format> - <format style="italic">
-<code>non-negative-int</code>
-Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0. If the
-multiplier is set to 0, the function will return an empty string.
+Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
+If the $times is set to 0 or less, the function will return empty string.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 Separator in between any repeated string.
 </format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $times argument is not 0 or greater.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1386,7 +1314,7 @@ Separator in between any repeated string.
 ## method: stripTags {id="striptags()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrSafe::stripTags(string $string, null|string|array $allowed_tags = null):string]]>
+    <![CDATA[public static StrSafe::stripTags(string $string, null|string|array<int,string> $allowed_tags = null):string]]>
 </code-block>
 
 
@@ -1407,12 +1335,12 @@ Separator in between any repeated string.
 uses the same tag stripping state machine as the fgetss() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L277">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L221">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L277">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L221">
                     View blame
                 </a>
             </def></deflist>
@@ -1425,8 +1353,7 @@ uses the same tag stripping state machine as the fgetss() function.</format></p>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The input string.
-</format></li><li>null or string or array <format style="bold">$allowed_tags</format> = null - <format style="italic">
-<code><![CDATA[ null|string|array<int, string> ]]></code>
+</format></li><li>null or string or array&lt;int,string&gt; <format style="bold">$allowed_tags</format> = null - <format style="italic">
 You can use the optional second parameter to specify tags which should not be stripped.</format></li></list>
     </def>
 </deflist>
@@ -1458,12 +1385,12 @@ You can use the optional second parameter to specify tags which should not be st
 <p><format style="italic">Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L244">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L244">
                     View blame
                 </a>
             </def></deflist>
@@ -1525,12 +1452,12 @@ Without the second parameter, [[StrSafe#trim()]] will strip these characters.
 - "\v" (ASCII 11 (0x0B)), a vertical tab.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L342">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L286">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L342">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L286">
                     View blame
                 </a>
             </def></deflist>
@@ -1565,7 +1492,7 @@ to be stripped. With '..', you can specify a range of characters.
 ## method: explode {id="explode()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::explode(string $string, string $separator, int $limit = MAX):array]]>
+    <![CDATA[final public static StrSafe::explode(string $string, non-empty-string $separator, int<min, max> $limit = MAX):string[]]]>
 </code-block>
 
 
@@ -1590,12 +1517,12 @@ to be stripped. With '..', you can specify a range of characters.
 formed by the string separator.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L384">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L322">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L384">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L322">
                     View blame
                 </a>
             </def></deflist>
@@ -1613,11 +1540,9 @@ formed by the string separator.</format></p>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The input string.
-</format></li><li>string <format style="bold">$separator</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$separator</format> - <format style="italic">
 The boundary string.
-</format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-<code><![CDATA[ int<min, max> ]]></code>
+</format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
 If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
 element containing the rest of the string. If the limit parameter is negative, all components except the last
 - limit are returned. If the limit parameter is zero, then this is treated as 1.
@@ -1631,9 +1556,8 @@ element containing the rest of the string. If the limit parameter is negative, a
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-returned.</format></li></list>
+        <list><li>string[] - <format style="italic">If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
 ## method: compare {id="compare()"}
@@ -1659,12 +1583,12 @@ returned.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L406">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L344">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L406">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L344">
                     View blame
                 </a>
             </def></deflist>
@@ -1691,5 +1615,56 @@ String to compare with.
     <def title="This method returns:">
         <list><li>int&lt;-1, 1&gt; - <format style="italic">-1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if they are
 equal.</format></li></list>
+    </def>
+</deflist>
+## method: translate {id="translate()"}
+
+<code-block lang="php">
+    <![CDATA[public static StrSafe::translate(string $string, array<non-empty-string,string> $replace_pairs):string]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Translate characters or replace substrings
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L365">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L365">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$string</format> - <format style="italic">
+The string being translated to.
+</format></li><li>array&lt;non-empty-string,string&gt; <format style="bold">$replace_pairs</format> - <format style="italic">
+An array of key-value pairs for translation.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>string - <format style="italic">The translated string.</format></li></list>
     </def>
 </deflist>
