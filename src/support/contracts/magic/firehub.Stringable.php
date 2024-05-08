@@ -12,7 +12,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Contracts;
+namespace FireHub\Core\Support\Contracts\Magic;
 
 use Stringable as InternalStringable;
 

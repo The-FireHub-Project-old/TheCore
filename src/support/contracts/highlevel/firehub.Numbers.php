@@ -14,7 +14,7 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
-use FireHub\Core\Support\Contracts\Stringable;
+use FireHub\Core\Support\Contracts\Magic\Stringable;
 use FireHub\Core\Support\Enums\Number\Round;
 
 /**

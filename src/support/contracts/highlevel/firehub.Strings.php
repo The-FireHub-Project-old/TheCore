@@ -14,9 +14,7 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
-use FireHub\Core\Support\Contracts\ {
-    Stringable, HighLevel\Characters
-};
+use FireHub\Core\Support\Contracts\Magic\Stringable;
 use FireHub\Core\Support\Char;
 use FireHub\Core\Support\Strings\ {
     Expression, InsertValue
