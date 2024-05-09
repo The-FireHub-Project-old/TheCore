@@ -26,7 +26,7 @@ namespace FireHub\Core\Support\Contracts\Magic;
 interface Overloadable {
 
     /**
-     * ### Reading data from inaccessible (protected or private) or non-existing properties
+     * ### Reading data from inaccessible (protected or private) properties
      * @since 1.0.0
      *
      * @param non-empty-string $name <p>
@@ -38,7 +38,7 @@ interface Overloadable {
     public function __get (string $name):mixed;
 
     /**
-     * ### Writing data from inaccessible (protected or private) or non-existing properties
+     * ### Writing data from inaccessible (protected or private) properties
      * @since 1.0.0
      *
      * @param non-empty-string $name <p>
@@ -53,7 +53,7 @@ interface Overloadable {
     public function __set (string $name, mixed $value):void;
 
     /**
-     * ### Triggered by calling isset() or empty() on inaccessible (protected or private) or non-existing properties
+     * ### Triggered by calling isset() or empty() on inaccessible (protected or private) properties
      * @since 1.0.0
      *
      * @param non-empty-string $name <p>
@@ -65,7 +65,7 @@ interface Overloadable {
     public function __isset (string $name):bool;
 
     /**
-     * ### Triggered by calling unset() on inaccessible (protected or private) or non-existing properties
+     * ### Triggered by calling unset() on inaccessible (protected or private) properties
      * @since 1.0.0
      *
      * @param non-empty-string $name <p>
