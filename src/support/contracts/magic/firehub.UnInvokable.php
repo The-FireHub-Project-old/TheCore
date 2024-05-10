@@ -15,19 +15,21 @@
 namespace FireHub\Core\Support\Contracts\Magic;
 
 /**
- * ### Debuggable contract
+ * ### Invokable contract
+ *
+ * @inheritDoc
+ *
  * @since 1.0.0
  */
-interface Debuggable {
+interface UnInvokable extends Invokable {
 
     /**
-     * ### This method is called by var_dump() when dumping an object
+     * @inheritDoc
      *
-     * If the method isn't defined on an object, then all public, protected and private properties will be shown.
      * @since 1.0.0
      *
-     * @return array<string, mixed> Get the properties that should be shown.
+     * @return never
      */
-    public function __debugInfo ():array;
+    public function __invoke (mixed ...$values):never;
 
 }

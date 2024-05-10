@@ -15,19 +15,30 @@
 namespace FireHub\Core\Support\Contracts\Magic;
 
 /**
- * ### Debuggable contract
+ * ### UnSerializable contract
+ *
+ * @inheritDoc
+ *
  * @since 1.0.0
  */
-interface Debuggable {
+interface UnSerializable extends Serializable {
 
     /**
-     * ### This method is called by var_dump() when dumping an object
+     * @inheritDoc
      *
-     * If the method isn't defined on an object, then all public, protected and private properties will be shown.
      * @since 1.0.0
      *
-     * @return array<string, mixed> Get the properties that should be shown.
+     * @return never
      */
-    public function __debugInfo ():array;
+    public function __serialize ():never;
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return never
+     */
+    public function __unserialize (array $data):never;
 
 }
