@@ -170,7 +170,7 @@ final class Data {
      * example, serialize() output should generally be stored in a BLOB field in a database, rather than a CHAR or
      * TEXT field.
      */
-    public static function serializeValue (string|int|float|bool|array|object|null $value):string {
+    public static function serialize (string|int|float|bool|array|object|null $value):string {
 
         try {
 
@@ -204,7 +204,7 @@ final class Data {
      *
      * @return mixed The converted value is returned.
      */
-    public static function unserializeValue (string $data, bool|array $allowed_classes = false, int $max_depth = 4096):mixed {
+    public static function unserialize (string $data, bool|array $allowed_classes = false, int $max_depth = 4096):mixed {
 
         return match ($data) {
             'b:0;', 'N;' => throw new Error('$data is already false already or $data is NULL'),

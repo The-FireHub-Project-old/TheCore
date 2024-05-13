@@ -20,6 +20,11 @@ namespace FireHub\Core\Support\Contracts;
  * @inheritDoc
  *
  * @since 1.0.0
+ *
+ * @template TKey
+ * @template TValue
+ *
+ * @extends \FireHub\Core\Support\Contracts\ArrayAccessible<TKey, TValue>
  */
 interface ArrayInAccessible extends ArrayAccessible {
 
