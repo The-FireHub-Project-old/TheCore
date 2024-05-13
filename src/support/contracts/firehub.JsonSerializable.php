@@ -28,7 +28,6 @@ interface JsonSerializable extends InternalJsonSerializable {
      * ### Specify data which should be serialized to JSON
      *
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * With default, all public, non-static properties will be returned.
      * @since 1.0.0
      *
      * @return array<array-key, mixed> Data which can be serialized by json_encode(), which is a value of any type other than a resource.
