@@ -111,7 +111,7 @@ final class Obj extends ClsObj {
     }
 
     /**
-     * ### Gets the class public property values
+     * ### Gets the mangled object properties
      *
      * Returns an array whose elements are the object's properties. The keys are the member variable names, with a
      * few notable exceptions: private variables have the class name prepended to the variable name, and protected
