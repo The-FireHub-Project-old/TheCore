@@ -91,9 +91,9 @@ final class Obj extends ClsObj {
     }
 
     /**
-     * ### Gets the properties of the given object
+     * ### Gets the public properties of the given object
      *
-     * Gets the accessible non-static properties of the given object according to scope.
+     * Gets the accessible non-static public properties of the given object.
      * @since 1.0.0
      *
      * @param object $object <p>
