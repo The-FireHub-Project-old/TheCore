@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error;
 
 use function preg_match;
@@ -60,7 +63,7 @@ final class Regex {
      * @param null|string[] &$result [optional] <p>
      * Regular expression match result.
      * </p>
-     * @param-out array $result
+     * @param-out array<string>|array<array<int, string>> $result
      *
      * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
      *
