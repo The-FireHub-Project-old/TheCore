@@ -21,7 +21,7 @@ namespace FireHub\Core\Support\Contracts\Magic;
 interface Debuggable {
 
     /**
-     * ### This method is called by var_dump() when dumping an object
+     * ### This method is called by var_dump() and print_r() when dumping an object
      *
      * If the method isn't defined on an object, then all public, protected and private properties will be shown.
      * @since 1.0.0
