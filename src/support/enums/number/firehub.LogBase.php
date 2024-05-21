@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\Number;
 
+use FireHub\Core\Base\ {
+    InitEnum, Trait\ConcreteEnum
+};
+
 /**
  * ### Logarithmic base
  * @since 1.0.0
  */
-enum LogBase {
+enum LogBase implements InitEnum {
+
+    /**
+     * ### FireHub initial concrete enum trait
+     * @since 1.0.0
+     */
+    use ConcreteEnum;
 
     /**
      * ### e

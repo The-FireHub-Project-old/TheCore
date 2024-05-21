@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\FileSystem;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### File permission enum
  * @since 1.0.0
  */
-enum Permission:int {
+enum Permission:int implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### User has no permissions

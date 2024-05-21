@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error, ValueError;
 
@@ -26,7 +29,13 @@ use function mb_ord;
  * Class provides multibyte specific character functions that help you deal with multibyte encodings.
  * @since 1.0.0
  */
-final class CharMB {
+final class CharMB implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Return character by Unicode code point value

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\Strings;
 use FireHub\Core\Support\Strings\Expression\ReplaceFunc;
 
@@ -21,7 +24,13 @@ use FireHub\Core\Support\Strings\Expression\ReplaceFunc;
  * ### Insert value on string
  * @since 1.0.0
  */
-final class InsertValue {
+final class InsertValue implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Constructor

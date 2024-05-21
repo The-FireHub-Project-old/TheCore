@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\String\Expression;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Expression pattern modifiers
  * @since 1.0.0
  */
-enum Modifier:string {
+enum Modifier:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### Makes the expression match case-insensitive

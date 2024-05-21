@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Ordering enum
  * @since 1.0.0
  */
-enum Order:string {
+enum Order:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### Arranging in ascending order

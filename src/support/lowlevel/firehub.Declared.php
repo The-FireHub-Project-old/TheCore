@@ -14,6 +14,10 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
+
 use function get_declared_classes;
 use function get_declared_interfaces;
 use function get_declared_traits;
@@ -28,7 +32,13 @@ use function get_defined_functions;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class Declared {
+final class Declared implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Gets the declared classes

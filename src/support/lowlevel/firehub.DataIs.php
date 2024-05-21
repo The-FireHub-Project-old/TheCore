@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Countable;
 
 use function is_array;
@@ -36,7 +39,13 @@ use function is_string;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class DataIs {
+final class DataIs implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks if value is array

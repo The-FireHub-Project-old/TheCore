@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Sorting enum
  * @since 1.0.0
  */
-enum Sort:int {
+enum Sort:int implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### Compare items normally

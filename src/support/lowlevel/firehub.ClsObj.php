@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error, TypeError;
 
 use function class_implements;
@@ -34,7 +37,13 @@ use function is_subclass_of;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-abstract class ClsObj {
+abstract class ClsObj implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks if the class method exists

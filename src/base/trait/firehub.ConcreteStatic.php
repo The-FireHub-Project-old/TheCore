@@ -7,45 +7,31 @@
  * @copyright 2024 FireHub Web Application Framework
  * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
  *
- * @package Core\Support
+ * @package Core\Base
  *
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Enums;
-
-use FireHub\Core\Base\ {
-    InitEnum, Trait\ConcreteEnum
-};
+namespace FireHub\Core\Base\Trait;
 
 /**
- * ### Side enum
+ * ### FireHub initial concrete static trait
  * @since 1.0.0
  */
-enum Side implements InitEnum {
+trait ConcreteStatic {
 
     /**
-     * ### FireHub initial concrete enum trait
+     * ### FireHub base concrete trait
      * @since 1.0.0
      */
-    use ConcreteEnum;
+    use Base;
 
     /**
-     * ### Use left side
+     * ### Constructor
      * @since 1.0.0
+     *
+     * @return void
      */
-    case LEFT;
-
-    /**
-     * ### Use right side
-     * @since 1.0.0
-     */
-    case RIGHT;
-
-    /**
-     * ### Use both sides
-     * @since 1.0.0
-     */
-    case BOTH;
+    private function __construct () {}
 
 }

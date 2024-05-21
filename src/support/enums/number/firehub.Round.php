@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\Number;
 
+use FireHub\Core\Base\ {
+    InitEnum, Trait\ConcreteEnum
+};
+
 /**
  * ### Enum for rounding number options
  * @since 1.0.0
  */
-enum Round {
+enum Round implements InitEnum {
+
+    /**
+     * ### FireHub initial concrete enum trait
+     * @since 1.0.0
+     */
+    use ConcreteEnum;
 
     /**
      * ### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2

@@ -14,13 +14,23 @@
 
 namespace FireHub\Core\Support\Enums\Data;
 
+use FireHub\Core\Base\ {
+    InitEnum, Trait\ConcreteEnum
+};
+
 /**
  * ### Data type enum
  *
  * Data type defines the type of data a variable can store.
  * @since 1.0.0
  */
-enum Type {
+enum Type implements InitEnum {
+
+    /**
+     * ### FireHub initial concrete enum trait
+     * @since 1.0.0
+     */
+    use ConcreteEnum;
 
     /**
      * ### A bool expresses a truth value, it can be either true or false

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\LowLevel\Folder;
 use Error, Phar, Throwable;
 
@@ -27,7 +30,13 @@ use const FireHub\Core\Support\Constants\Path\DS;
  *
  * @api
  */
-final class Path {
+final class Path implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Get FireHub project path

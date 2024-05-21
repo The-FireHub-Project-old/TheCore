@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error;
 
 use function base64_decode;
@@ -30,7 +33,13 @@ use function quoted_printable_encode;
  * language, allowing them to be stored, transmitted, and transformed using digital computers.
  * @since 1.0.0
  */
-final class StrEncode {
+final class StrEncode implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Encodes string with MIME base64

@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\DateTime;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Timezones enum
  * @since 1.0.0
  */
-enum Zone:string {
+enum Zone:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

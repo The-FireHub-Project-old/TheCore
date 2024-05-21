@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\Strings\Expression;
 use FireHub\Core\Support\LowLevel\ {
@@ -34,7 +37,13 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
  *
  * @api
  */
-class Char implements Characters {
+class Char implements Init, Characters {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Constructor

@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\String;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### String case folding enum
  * @since 1.0.0
  */
-enum CaseFolding:int {
+enum CaseFolding:int implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### Performs a full lower-case folding

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Traversable;
 
 use function iterator_apply;
@@ -26,7 +29,13 @@ use function iterator_to_array;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class Iterator {
+final class Iterator implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Copy the iterator into an array

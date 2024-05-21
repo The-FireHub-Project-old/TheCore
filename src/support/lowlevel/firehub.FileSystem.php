@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\ {
     Order, FileSystem\Permission
 };
@@ -64,7 +67,13 @@ use function touch;
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class FileSystem {
+class FileSystem implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks whether a file or folder exists

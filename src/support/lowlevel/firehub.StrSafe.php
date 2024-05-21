@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Side;
 use Error, ValueError, Stringable;
 
@@ -43,7 +46,13 @@ use function trim;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-abstract class StrSafe {
+abstract class StrSafe implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks if string contains value

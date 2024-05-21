@@ -14,13 +14,22 @@
 
 namespace FireHub\Core\Support\Enums\String\Words;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
 use FireHub\Core\Support\LowLevel\StrSB;
 
 /**
  * ### A conjunction is used to combine two or more objects, phrases or clauses
  * @since 1.0.0
  */
-enum Conjunction:string {
+enum Conjunction:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

@@ -14,13 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\String;
 
-use FireHub\Core\Support\Char;
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
 
 /**
  * ### End of sentence punctuation
  * @since 1.0.0
  */
-enum EndingPunctuation:string {
+enum EndingPunctuation:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

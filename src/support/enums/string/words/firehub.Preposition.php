@@ -14,13 +14,22 @@
 
 namespace FireHub\Core\Support\Enums\String\Words;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
 use FireHub\Core\Support\LowLevel\StrSB;
 
 /**
  * ### A preposition is a word or group of words used before a noun, pronoun, or noun phrase to show a direction, time, place, location, spatial relationships
  * @since 1.0.0
  */
-enum Preposition:string {
+enum Preposition:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

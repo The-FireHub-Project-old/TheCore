@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\ {
     Collectable, Strings, Characters
 };
@@ -44,7 +47,13 @@ use function FireHub\Core\Support\Helpers\String\asBoolean;
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-abstract class Str implements Strings {
+abstract class Str implements Init, Strings {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### String to use

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\ {
     Characters, Strings
 };
@@ -28,7 +31,13 @@ use Closure;
  * ### Regular expression
  * @since 1.0.0
  */
-final class Expression {
+final class Expression implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### List of expression pattern modifiers

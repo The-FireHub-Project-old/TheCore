@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\Numbers;
 use FireHub\Core\Support\LowLevel\ {
     Data, NumFloat
@@ -30,7 +33,13 @@ use FireHub\Core\Support\Enums\ {
  *
  * @api
  */
-class Number implements Numbers {
+class Number implements Init, Numbers {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Constructor

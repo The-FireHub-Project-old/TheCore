@@ -39,7 +39,13 @@ use const PREG_SPLIT_NO_EMPTY;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class Regex {
+final class Regex implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Perform a regular expression match

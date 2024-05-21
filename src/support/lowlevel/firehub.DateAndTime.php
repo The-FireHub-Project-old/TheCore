@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Data\Type;
 use Error, ValueError;
 
@@ -39,7 +42,13 @@ use function time;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class DateAndTime {
+final class DateAndTime implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Check for valid date

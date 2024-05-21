@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\String\Encoding;
 use Error;
 
@@ -38,7 +41,13 @@ use function mb_split;
  *
  * @comment Temporary exclude on phpmd.md because match pattern is not read correctly on line 158.
  */
-final class RegexMB {
+final class RegexMB implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Perform a regular expression match

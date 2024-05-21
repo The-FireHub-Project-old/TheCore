@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Countable;
 
 use const COUNT_NORMAL;
@@ -33,7 +36,13 @@ use function reset;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class Iterables {
+final class Iterables implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Counts all elements in the array

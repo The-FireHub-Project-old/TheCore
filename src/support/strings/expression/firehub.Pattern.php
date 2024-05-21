@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings\Expression;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use FireHub\Core\Support\Strings\Expression\Pattern\Predefined;
 use FireHub\Core\Support\LowLevel\ {
@@ -120,7 +123,13 @@ use Error;
  *
  * @comment Temporary exclude on phpmd.md because match pattern is not read correctly on line 290.
  */
-abstract class Pattern {
+abstract class Pattern implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Constructor

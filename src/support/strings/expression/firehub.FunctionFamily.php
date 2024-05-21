@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings\Expression;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\ {
     Characters, Strings
 };
@@ -42,7 +45,13 @@ use Error;
  * @method Pattern before () ### Before occurrences
  * @method Pattern after () ### After occurrences
  */
-abstract class FunctionFamily {
+abstract class FunctionFamily implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Pattern enclosure

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\DateTime\Zone;
 use Error;
 
@@ -27,7 +30,13 @@ use function timezone_abbreviations_list;
  * A time zone is an area that observes a uniform standard time for legal, commercial and social purposes.
  * @since 1.0.0
  */
-final class DateAndTimeZone {
+final class DateAndTimeZone implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Gets the default timezone used by all date/time functions in a script

@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\String\Words;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### An article is a word that comes before a noun to show whether it's specific or general
  * @since 1.0.0
  */
-enum Article:string {
+enum Article:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

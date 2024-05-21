@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Number\ {
     LogBase, Round
 };
@@ -40,7 +43,13 @@ use function sqrt;
  * Class contains methods that are used on all number types.
  * @since 1.0.0
  */
-abstract class Num {
+abstract class Num implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Absolute value

@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Strings\Expression\Pattern\Predefined;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Strings\Expression\Pattern\Predefined;
 use FireHub\Core\Support\Contracts\HighLevel\Characters;
 use Error;
@@ -22,7 +25,13 @@ use Error;
  * ### Not in the range of characters
  * @since 1.0.0
  */
-final class NotInRange implements Predefined {
+final class NotInRange implements Init, Predefined {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Constructor

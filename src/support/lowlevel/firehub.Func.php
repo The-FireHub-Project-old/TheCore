@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error;
 
 use function function_exists;
@@ -28,7 +31,13 @@ use function unregister_tick_function;
  * Class allows you to obtain information about functions.
  * @since 1.0.0
  */
-final class Func {
+final class Func implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks if function name exists

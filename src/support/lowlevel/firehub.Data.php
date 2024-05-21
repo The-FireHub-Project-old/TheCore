@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Data\Type;
 use Error, Exception, Stringable;
 
@@ -30,7 +33,13 @@ use function unserialize;
  *
  * @comment Temporary exclude on phpmd.md because match pattern is not read correctly on line 196.
  */
-final class Data {
+final class Data implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Gets data type

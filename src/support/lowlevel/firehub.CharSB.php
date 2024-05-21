@@ -14,6 +14,10 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
+
 use function chr;
 use function ord;
 
@@ -23,7 +27,13 @@ use function ord;
  * Class allows you to manipulate characters in various ways.
  * @since 1.0.0
  */
-final class CharSB {
+final class CharSB implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Generate a single-byte string from a number

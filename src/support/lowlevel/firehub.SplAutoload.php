@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error, LogicException;
 
 use function spl_autoload;
@@ -29,7 +32,13 @@ use function spl_autoload_unregister;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class SplAutoload {
+final class SplAutoload implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Default autoload implementation
