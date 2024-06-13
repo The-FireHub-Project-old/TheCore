@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Contracts\HighLevel;
 
+use FireHub\Core\Support\Contracts\Countable;
 use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
 
 /**
@@ -27,7 +28,7 @@ use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
  *
  * @extends \FireHub\Core\Support\Contracts\Iterator\IterablesAggregate<TKey, TValue>
  */
-interface Collectable extends IterablesAggregate {
+interface Collectable extends Countable, IterablesAggregate {
 
     /**
      * ### Get collection as an array

@@ -1,0 +1,142 @@
+<?php declare(strict_types = 1);
+
+/**
+ * This file is part of FireHub Web Application Framework package
+ *
+ * @author Danijel Galić <danijel.galic@outlook.com>
+ * @copyright 2024 FireHub Web Application Framework
+ * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
+ *
+ * @package Core\Support
+ *
+ * @version GIT: $Id$ Blob checksum.
+ */
+
+namespace FireHub\Core\Support\Collection\Type;
+
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\LowLevel\Iterator;
+use SplObjectStorage, Traversable;
+
+/**
+ * ### Object collection type
+ *
+ * Object collection provides a map from objects to data or, by ignoring data, an object set.
+ * This dual purpose can be useful in many cases involving the need to uniquely identify objects.
+ * @since 1.0.0
+ *
+ * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<int, object>
+ */
+final class Obj implements Init, Collectable {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
+
+    /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @param SplObjectStorage<object, mixed> $storage <p>
+     * Storage underlying data.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        private SplObjectStorage $storage
+    ) {}
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     *
+     * $collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     * });
+     *
+     * $collection->all();
+     *
+     * // [['object' => object(stdClass), 'info' => 'data for object 1'], ['object' => object(stdClass), 'info' => [1,2,3]]]
+     * ```
+     *
+     * @return list<array{object: object, info: mixed}> Collection items as an array.
+     */
+    public function all ():array {
+
+        $this->storage->rewind();
+
+        $data = [];
+
+        while ($this->storage->valid()) {
+
+            $object = $this->storage->current();
+            $info = $this->storage->getInfo();
+            $this->storage->next();
+
+            $data[] = ['object' => $object, 'info' => $info];
+
+        }
+
+        return $data;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count storage items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     *
+     * $collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     * });
+     *
+     * $collection->count();
+     *
+     * // 2
+     * ```
+     */
+    public function count ():int {
+
+        return Iterator::count($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return Traversable<object> Collection items as an array.
+     */
+    public function getIterator ():Traversable {
+
+        yield from $this->storage;
+
+    }
+
+}
