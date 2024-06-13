@@ -51,17 +51,18 @@ final class Iterables implements InitStatic {
      * @param array<array-key, mixed>|Countable $array <p>
      * Array to count.
      * </p>
-     * @param bool $multidimensional [optional] <p>
-     * Count multidimensional items.
+     * @param bool $recursive [optional] <p>
+     * Recursively count the array.
+     * This is particularly useful for counting all the elements of a multidimensional array.
      * </p>
      *
      * @error\exeption E_WARNING if multidimensional is on and method detect recursion to avoid an infinite loop.
      *
      * @return non-negative-int Number of elements in an array.
      */
-    public static function count (array|Countable $array, bool $multidimensional = false):int {
+    public static function count (array|Countable $array, bool $recursive = false):int {
 
-        return count($array, $multidimensional ? COUNT_RECURSIVE : COUNT_NORMAL);
+        return count($array, $recursive ? COUNT_RECURSIVE : COUNT_NORMAL);
 
     }
 
