@@ -225,7 +225,7 @@ interface Strings extends Stringable {
      *
      * @return ($string is null ? string : $this) String as raw string.
      */
-    public function string (string $string = null):self|string;
+    public function string (?string $string = null):self|string;
 
     /**
      * ### Make a string lowercase

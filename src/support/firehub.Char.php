@@ -260,7 +260,7 @@ class Char implements Init, Characters {
      * // X
      * ```
      */
-    public function string (string $string = null):Characters|string {
+    public function string (?string $string = null):Characters|string {
 
         return !DataIs::null($string) && !empty($string)
             ? self::from($string)

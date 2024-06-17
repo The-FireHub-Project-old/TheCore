@@ -168,7 +168,7 @@ abstract class Arr implements Init, Collectable {
      * // ['J' => 4, 'R' => 2]
      * ```
      *
-     * @param callable(TValue=, TKey=):array-key $callback $callback <p>
+     * @param callable(TValue=, TKey=):array-key $callback <p>
      * Count all items by custom callable.
      * </p>
      *
@@ -233,11 +233,15 @@ abstract class Arr implements Init, Collectable {
      * // ['Doe' => 2, 'Roe' => 1]
      * ```
      *
+     * @param null|int|string $column [optional] <p>
+     * Column to count by.
+     * </p>
+     *
      * @error\exeption E_WARNING for every element that is not string or int.
      *
      * @return \FireHub\Core\Support\Collection\Type\Associative<array-key, positive-int> New collection with counted values.
      */
-    public function countByValues (int|string $column = null):Associative {
+    public function countByValues (null|int|string $column = null):Associative {
 
         return new Associative(
             ArrLL::countValues(

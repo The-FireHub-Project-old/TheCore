@@ -70,9 +70,13 @@ interface Characters extends Stringable {
      * ### Get character as raw string
      * @since 1.0.0
      *
-     * @return($string is null ? non-empty-string : \FireHub\Core\Support\Contracts\HighLevel\Characters) Character as string.
+     * @param null|string $string [optional] <p>
+     * If exists, argument will set the string.
+     * </p>
+     *
+     * @return ($string is null ? non-empty-string : \FireHub\Core\Support\Contracts\HighLevel\Characters) Character as string.
      */
-    public function string (string $string = null):Characters|string;
+    public function string (?string $string = null):Characters|string;
 
     /**
      * ### Make a character lowercase

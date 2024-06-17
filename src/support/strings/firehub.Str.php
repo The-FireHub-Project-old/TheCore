@@ -541,7 +541,7 @@ abstract class Str implements Init, Strings {
      * // FireHub Web App
      * ```
      */
-    public function string (string $string = null):self|string {
+    public function string (?string $string = null):self|string {
 
         if (DataIs::null($string)) return $this->string;
 
