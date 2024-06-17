@@ -145,7 +145,7 @@ final class DateAndTime implements InitStatic {
      *
      * @link https://www.php.net/manual/en/datetime.format.php To check valid $format formats.
      */
-    public static function format (string $format = 'Y-m-d H:i:s.u', int $timestamp = null, bool $gmt = false):string {
+    public static function format (string $format = 'Y-m-d H:i:s.u', ?int $timestamp = null, bool $gmt = false):string {
 
         return $gmt ? gmdate($format, $timestamp) : date($format, $timestamp);
 
@@ -176,7 +176,7 @@ final class DateAndTime implements InitStatic {
      *
      * @link https://www.php.net/manual/en/function.idate.phP
      */
-    public static function formatInteger (string $format, int $timestamp = null):int {
+    public static function formatInteger (string $format, ?int $timestamp = null):int {
 
         return ($format = idate($format, $timestamp)) !== false
             ? $format
@@ -216,7 +216,7 @@ final class DateAndTime implements InitStatic {
      *  dts: mixed
      * }
      */
-    public static function get (int $timestamp = null):array {
+    public static function get (?int $timestamp = null):array {
 
         $get_date = getdate($timestamp);
         $get_date['timestamp'] = $get_date[0];
@@ -301,7 +301,7 @@ final class DateAndTime implements InitStatic {
      * integer.). For 64-bit versions of PHP, the valid range of a timestamp is effectively infinite, as 64 bits can
      * represent approximately 293 billion years in either direction.
      */
-    public static function stringToTimestamp (string $datetime, int $timestamp = null):int {
+    public static function stringToTimestamp (string $datetime, ?int $timestamp = null):int {
 
         return strtotime($datetime, $timestamp)
             ?: throw new Error('Could not convert string to timestamp.');
@@ -352,7 +352,7 @@ final class DateAndTime implements InitStatic {
      *
      * @return int The Unix timestamp of the arguments given.
      */
-    public static function toTimestamp (int $hour, int $minute = null, int $second = null, int $year = null, int $month = null, int $day = null, bool $gmt = false):int {
+    public static function toTimestamp (int $hour, ?int $minute = null, ?int $second = null, ?int $year = null, ?int $month = null, ?int $day = null, bool $gmt = false):int {
 
         return (
             $timestamp = $gmt

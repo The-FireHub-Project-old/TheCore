@@ -606,7 +606,7 @@ class FileSystem implements InitStatic {
      * @note If the file does not exist, it will be created.
      * @note Note that time resolution may differ from one file system to another.
      */
-    final public static function setLastAccessedAndModification (string $path, int $last_accessed = null, int $last_modified = null):true {
+    final public static function setLastAccessedAndModification (string $path, ?int $last_accessed = null, ?int $last_modified = null):true {
 
         return touch($path, $last_modified, $last_accessed)
             ?: throw new Error("Could not set last access and modification time of path: $path.");
@@ -656,7 +656,7 @@ class FileSystem implements InitStatic {
      *
      * @return string[] An array of filenames.
      */
-    final public static function list (string $folder, Order $order = null):array {
+    final public static function list (string $folder, ?Order $order = null):array {
 
         return scandir($folder, match ($order) {
             Order::ASC => SCANDIR_SORT_ASCENDING,

@@ -79,7 +79,7 @@ final class Regex implements InitStatic {
      * false. Please read the section on Booleans for more information. Use the === operator for testing the return
      * value of this function.
      */
-    public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, array &$result = null):bool {
+    public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, ?array &$result = null):bool {
 
         return $all
             ? preg_match_all($pattern, $string, $result, offset: $offset) !== 0

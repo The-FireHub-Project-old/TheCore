@@ -60,7 +60,7 @@ final class CharMB implements InitStatic {
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values
      *
      */
-    public static function chr (int $codepoint, Encoding $encoding = null):string {
+    public static function chr (int $codepoint, ?Encoding $encoding = null):string {
 
         return ($chr = mb_chr($codepoint, $encoding?->value)) !== false
             ? $chr : throw new Error('Codepoint could not be converted to character');
@@ -87,7 +87,7 @@ final class CharMB implements InitStatic {
      *
      * @return int The Unicode code point for the first character of string.
      */
-    public static function ord (string $character, Encoding $encoding = null):int {
+    public static function ord (string $character, ?Encoding $encoding = null):int {
 
         return ($ord = mb_ord($character, $encoding?->value)) !== false
             ? $ord : throw new Error('Character could not be converted to codepoint');

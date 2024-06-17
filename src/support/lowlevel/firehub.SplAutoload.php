@@ -60,7 +60,7 @@ final class SplAutoload implements InitStatic {
      *
      * @return void
      */
-    public static function default (string $class, string $file_extensions = null):void {
+    public static function default (string $class, ?string $file_extensions = null):void {
 
         spl_autoload($class, $file_extensions);
 
@@ -83,7 +83,7 @@ final class SplAutoload implements InitStatic {
      *
      * @note There should not be a space between the defined file extensions.
      */
-    public static function extensions (string $file_extensions = null):string {
+    public static function extensions (?string $file_extensions = null):string {
 
         return spl_autoload_extensions($file_extensions);
 
@@ -112,7 +112,7 @@ final class SplAutoload implements InitStatic {
      *
      * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */
-    public static function register (callable $callback = null, bool $prepend = false):true {
+    public static function register (?callable $callback = null, bool $prepend = false):true {
 
         return spl_autoload_register($callback, true, $prepend)
             ?: throw new Error('Failed to register a callback function as an autoloader.');

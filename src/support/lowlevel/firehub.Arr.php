@@ -448,7 +448,7 @@ final class Arr implements InitStatic {
      *
      * @return ($index is null ? array<TValue> : array<TValue, TValue>) Array of values representing a single column from the input array.
      */
-    public static function column (array $array, int|string $key, int|string $index = null):array {
+    public static function column (array $array, int|string $key, null|int|string $index = null):array {
 
         return array_column($array, $key, $index);
 
@@ -1073,7 +1073,7 @@ final class Arr implements InitStatic {
      * @caution If the array is changed from the callback function (e.g., an element added, deleted or unset) then
      * behavior of this function is undefined.
      */
-    public static function filter (array $array, callable $callback = null, bool $pass_value = false, bool $pass_key = false):array {
+    public static function filter (array $array, ?callable $callback = null, bool $pass_value = false, bool $pass_key = false):array {
 
         if (DataIs::null($callback)) return array_filter($array);
 
@@ -1387,7 +1387,7 @@ final class Arr implements InitStatic {
      *
      * @note Named keys will always retain their name.
      */
-    public static function slice (array $array, int $offset, int $length = null, bool $preserve_keys = false):array {
+    public static function slice (array $array, int $offset, ?int $length = null, bool $preserve_keys = false):array {
 
         return array_slice($array, $offset, $length, $preserve_keys);
 
@@ -1433,7 +1433,7 @@ final class Arr implements InitStatic {
      * @note If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
      * This may result in unexpected behavior when using an object or null replacement.
      */
-    public static function splice (array &$array, int $offset, int $length = null, mixed $replacement = []):array {
+    public static function splice (array &$array, ?int $offset, int $length = null, mixed $replacement = []):array {
 
         return array_splice($array, $offset, $length, $replacement);
 

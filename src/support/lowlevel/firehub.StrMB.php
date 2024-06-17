@@ -70,7 +70,7 @@ final class StrMB extends StrSafe {
      *
      * @return ($string is non-empty-string ? non-empty-string : string) Converted string.
      */
-    public static function convert (string $string, CaseFolding $caseFolding, Encoding $encoding = null):string {
+    public static function convert (string $string, CaseFolding $caseFolding, ?Encoding $encoding = null):string {
 
         return mb_convert_case($string, match ($caseFolding) {
             CaseFolding::UPPER => 0,
@@ -108,7 +108,7 @@ final class StrMB extends StrSafe {
      *
      * @return string The portion of string specified by the start and length parameters.
      */
-    public static function part (string $string, int $start, int $length = null, Encoding $encoding = null):string {
+    public static function part (string $string, int $start, int $length = null, ?Encoding $encoding = null):string {
 
         return mb_substr($string, $start, $length, $encoding?->value);
 
@@ -140,7 +140,7 @@ final class StrMB extends StrSafe {
      *
      * @return string|false The portion of string or false if needle is not found.
      */
-    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, Encoding $encoding = null):string|false {
+    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
         if ($case_sensitive) return mb_strstr($string, $find, $before_needle, $encoding?->value);
 
@@ -175,7 +175,7 @@ final class StrMB extends StrSafe {
      *
      * @return string|false The portion of string, or false if needle is not found.
      */
-    public static function lastPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, Encoding $encoding = null):string|false {
+    public static function lastPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
         if ($case_sensitive) return mb_strrchr($string, $find, $before_needle, $encoding?->value);
 
@@ -210,7 +210,7 @@ final class StrMB extends StrSafe {
      * $length in length, except the final chunk which may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk
      * will be one byte in size.
      */
-    public static function split (string $string, int $length = 1, Encoding $encoding = null):array {
+    public static function split (string $string, int $length = 1, ?Encoding $encoding = null):array {
 
         /** @phpstan-ignore-next-line Since length is more than one, it must be non-empty-string */
         return !$length < 1
@@ -237,7 +237,7 @@ final class StrMB extends StrSafe {
      *
      * @return non-negative-int Number of times the searched substring occurs in the string.
      */
-    public static function partCount (string $string, string $search, Encoding $encoding = null):int {
+    public static function partCount (string $string, string $search, ?Encoding $encoding = null):int {
 
         return mb_substr_count($string, $search, $encoding?->value);
 
@@ -260,7 +260,7 @@ final class StrMB extends StrSafe {
      *
      * @return non-negative-int String length.
      */
-    public static function length (string $string, Encoding $encoding = null):int {
+    public static function length (string $string, ?Encoding $encoding = null):int {
 
         return mb_strlen($string, $encoding?->value);
 
@@ -290,7 +290,7 @@ final class StrMB extends StrSafe {
      *
      * @return false|non-negative-int Numeric position of the first occurrence or false if none exist.
      */
-    public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
+    public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, ?Encoding $encoding = null):false|int {
 
         if ($case_sensitive) return mb_strpos($string, $search, $offset, $encoding?->value);
 
@@ -322,7 +322,7 @@ final class StrMB extends StrSafe {
      *
      * @return false|non-negative-int Numeric position of the last occurrence or false if none exist.
      */
-    public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
+    public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, ?Encoding $encoding = null):false|int {
 
         if ($case_sensitive) return mb_strrpos($string, $search, $offset, $encoding?->value);
 
@@ -348,7 +348,7 @@ final class StrMB extends StrSafe {
      * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true) If encoding is set, then returns true. In this case, the
      * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned.
      */
-    public static function encoding (Encoding $encoding = null):true|Encoding {
+    public static function encoding (?Encoding $encoding = null):true|Encoding {
 
         return $encoding
             ? mb_internal_encoding($encoding->value)
@@ -407,7 +407,7 @@ final class StrMB extends StrSafe {
      *
      * @return string Encoded string.
      */
-    public static function convertEncoding (string $string, Encoding $to, Encoding $from = null):string {
+    public static function convertEncoding (string $string, Encoding $to, ?Encoding $from = null):string {
 
         return mb_convert_encoding($string, $to->value, $from?->value)
             ?: throw new Error('Could not convert string.');
@@ -429,7 +429,7 @@ final class StrMB extends StrSafe {
      *
      * @return True on success or false on failure.
      */
-    public static function checkEncoding (string $string, Encoding $encoding = null):bool {
+    public static function checkEncoding (string $string, ?Encoding $encoding = null):bool {
 
         /** @phpstan-ignore-next-line PHPStan reports return should be true */
         return mb_check_encoding($string, $encoding?->value);

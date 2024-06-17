@@ -74,12 +74,12 @@ final class StrSB extends StrSafe {
      * @param string $string <p>
      * The string to be escaped.
      * </p>
-     * @param string $characters [optional] <p>
+     * @param null|string $characters [optional] <p>
      * The list of characters to be escaped. Non-alphanumeric characters with ASCII codes lower than 32 and higher
      * than 126 converted to octal representation.
      * </p>
      */
-    public static function addSlashes (string $string, string $characters = null):string {
+    public static function addSlashes (string $string, ?string $characters = null):string {
 
         return empty($characters)
             ? parent::addSlashes($string)
@@ -186,7 +186,7 @@ final class StrSB extends StrSafe {
      * multiple replacements.
      * @tip To replace text based on a pattern rather than a fixed string, use preg_replace().
      */
-    public static function replace (string|array $search, string|array $replace, string $string, bool $case_sensitive = true, int &$count = null):string {
+    public static function replace (string|array $search, string|array $replace, string $string, bool $case_sensitive = true, ?int &$count = null):string {
 
         if ($case_sensitive) return str_replace($search, $replace, $string, $count);
 
@@ -220,7 +220,7 @@ final class StrSB extends StrSafe {
      *
      * @return string String with the replaced values.
      */
-    public static function replacePart (string $string, string $replace, int $offset, int $length = null):string {
+    public static function replacePart (string $string, string $replace, int $offset, ?int $length = null):string {
 
         return substr_replace($string, $replace, $offset, $length);
 
@@ -561,7 +561,7 @@ final class StrSB extends StrSafe {
      *
      * @return int|array<int, string> Number of words found or list of words.
      */
-    public static function countWords (string $string, string $characters = null, int $format = 0):int|array {
+    public static function countWords (string $string, ?string $characters = null, int $format = 0):int|array {
 
         return str_word_count($string, $format, $characters)
             ?: throw new Error('Failed to count words for string.');
@@ -740,7 +740,7 @@ final class StrSB extends StrSafe {
      *
      * @return int -1 if string1 is less than string2, 1 if string1 is greater than string2 and 0 if they are equal.
      */
-    public static function comparePart (string $string_1, string $string_2, int $offset, int $length = null, bool $case_sensitive = true):int {
+    public static function comparePart (string $string_1, string $string_2, int $offset, ?int $length = null, bool $case_sensitive = true):int {
 
         return substr_compare(
             $string_1,

@@ -73,7 +73,7 @@ final class RegexMB implements InitStatic {
      *
      * @return bool True if string matches the regular expression pattern, false if not.
      */
-    public static function match (string $pattern, string $string, bool $case_sensitive = true, array &$result = null):bool {
+    public static function match (string $pattern, string $string, bool $case_sensitive = true, ?array &$result = null):bool {
 
         return $case_sensitive
             ? mb_ereg($pattern, $string, $result) // @phpstan-ignore-line PHPStan report return mixed
@@ -200,7 +200,7 @@ final class RegexMB implements InitStatic {
      *
      * @phpstan-ignore-next-line PHPStan reports that mb_regex_encoding can only be bool.
      */
-    public static function encoding (Encoding $encoding = null):true|Encoding {
+    public static function encoding (?Encoding $encoding = null):true|Encoding {
 
         return match ($regex_encoding = mb_regex_encoding($encoding?->value)) {
             true => true,

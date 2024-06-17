@@ -107,7 +107,7 @@ final class Iterator implements InitStatic {
      *
      * @return int Iteration count.
      */
-    public static function apply (Traversable $iterator, callable $callback, array $arguments = null):int {
+    public static function apply (Traversable $iterator, callable $callback, ?array $arguments = null):int {
 
         return iterator_apply($iterator, $callback, $arguments);
 

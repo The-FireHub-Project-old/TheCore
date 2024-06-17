@@ -242,7 +242,7 @@ final class File extends FileSystem {
      *
      * @note If you're opening a URI with special characters, such as spaces, you need to encode the URI with urlencode().
      */
-    public static function getContent (string $path, int $offset = 0, int $length = null):string {
+    public static function getContent (string $path, int $offset = 0, ?int $length = null):string {
 
         return ($content = file_get_contents($path, false, null, $offset, $length)) !== false
             ? $content
