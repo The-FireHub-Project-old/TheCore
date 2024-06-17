@@ -1433,7 +1433,7 @@ final class Arr implements InitStatic {
      * @note If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
      * This may result in unexpected behavior when using an object or null replacement.
      */
-    public static function splice (array &$array, ?int $offset, int $length = null, mixed $replacement = []):array {
+    public static function splice (array &$array, int $offset, ?int $length = null, mixed $replacement = []):array {
 
         return array_splice($array, $offset, $length, $replacement);
 
