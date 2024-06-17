@@ -66,4 +66,38 @@ final class AssociativeTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('one value', $this->collection->first());
+
+        $this->assertSame('two value', $this->collection->first(function ($value, $key) {
+            return $key <> 'one';
+        }));
+
+        $this->assertNull($this->collection->first(function ($value, $key) {
+            return $key === 'x';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('three value', $this->collection->last());
+
+        $this->assertSame('two value', $this->collection->last(function ($value, $key) {
+            return $key <> 'three';
+        }));
+
+    }
+
 }

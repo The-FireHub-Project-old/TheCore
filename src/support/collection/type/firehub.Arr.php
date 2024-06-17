@@ -24,6 +24,10 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use Error, Traversable, TypeError;
 
+use function FireHub\Core\Support\Helpers\Arr\ {
+    first, last
+};
+
 /**
  * ### Array collection type
  * @since 1.0.0
@@ -159,7 +163,7 @@ abstract class Arr implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collections\Collection;
      *
-     * $collection = Collection::create(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
      * $count = $collection->countBy(function ($value, $key) {
      *  return substr($value, 0, 1);
@@ -222,7 +226,7 @@ abstract class Arr implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collections\Collection;
      *
-     * $collection = Collection::create()->multidimensional(fn():array => [
+     * $collection = Collection::list()->multidimensional(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
      *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -248,6 +252,98 @@ abstract class Arr implements Init, Collectable {
                 $column ? ArrLL::column($this->storage, $column) : $this->storage // @phpstan-ignore-line
             )
         );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\first() To get the first value from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->first();
+     *
+     * // 'one value'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->first(function ($value, $key) {
+     *  return $key <> 'one';
+     * });
+     *
+     * // 'two value'
+     * ```
+     */
+    public function first (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) return $value;
+
+            return null;
+
+        }
+
+        return first($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\last() To get the last value from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->last();
+     *
+     * // 'three value'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->last(function ($value, $key) {
+     *  return $key <> 'three';
+     * });
+     *
+     * // 'two value'
+     * ```
+     */
+    public function last (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) $found = $value;
+
+            return $found;
+
+        }
+
+        return last($this->storage);
 
     }
 

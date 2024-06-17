@@ -40,4 +40,96 @@ final class Indexed extends Arr {
         protected array $storage
     ) {}
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::fist() To return parent first method if there is no callback.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
+     *
+     * $collection->first();
+     *
+     * // 'one'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
+     *
+     * $collection->first(function ($value) {
+     *  return $value <> 'one';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function first (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) return $value;
+
+            return null;
+
+        }
+
+        return parent::first();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::last() To return parent last method if there is no callback.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
+     *
+     * $collection->last();
+     *
+     * // 'three'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
+     *
+     * $collection->last(function ($value, $key) {
+     *  return $value <> 'three';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function last (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) $found = $value;
+
+            return $found;
+
+        }
+
+        return parent::last();
+
+    }
+
 }

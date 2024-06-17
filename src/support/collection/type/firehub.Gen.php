@@ -143,6 +143,105 @@ final class Gen implements Init, Collectable {
      *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->first();
+     *
+     * // 'one'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->first(function ($value, $key) {
+     *  return $key <> 'one';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function first (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this as $key => $value)
+                if ($callback($value, $key)) return $value;
+
+            return null;
+
+        }
+
+        return $this->invoke()->current();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To count elements in the iterator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->last();
+     *
+     * // 'three'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->last(function ($value, $key) {
+     *  return $key <> 'three';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function last (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this as $key => $value)
+                if ($callback($value, $key)) $found = $value;
+
+            return $found;
+
+        }
+
+        $counter = 0;
+
+        $count = $this->count();
+
+        foreach ($this as $value)
+            if (++$counter === $count) return $value;
+
+        return null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
+     *
      * @return Traversable<TKey, TValue> Collection items as an array.
      */
     public function getIterator ():Traversable {

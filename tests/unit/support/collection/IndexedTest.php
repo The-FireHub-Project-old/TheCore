@@ -35,6 +35,7 @@ final class IndexedTest extends Base {
 
     public Indexed $collection;
     public Indexed $named;
+    public Indexed $int_named;
     public Indexed $multidimensional;
     public Indexed $multidimensional_complex;
     public Indexed $multidimensional_collection;
@@ -50,7 +51,9 @@ final class IndexedTest extends Base {
 
         $this->named = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
 
-        $this->multidimensional = Collection::list(['one', 'two', ['three', 'our']]);
+        $this->multidimensional = Collection::list(['one', 'two', ['three', 'four']]);
+
+        $this->int_named = Collection::list(['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
 
         $this->multidimensional_complex = Collection::list([
             ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
@@ -147,6 +150,40 @@ final class IndexedTest extends Base {
 
         $this->assertSame(['John' => 1, 'Jane' => 3, 'Richard' => 2], $this->named->countByValues()->all());
         $this->assertSame(['Doe' => 2, 'Roe' => 1], $this->multidimensional_complex->countByValues('lastname')->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('one', $this->int_named->first());
+
+        $this->assertSame('two', $this->int_named->first(function ($value) {
+            return $value <> 'one';
+        }));
+
+        $this->assertNull($this->int_named->first(function ($value) {
+            return $value === 'four';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('three', $this->int_named->last());
+
+        $this->assertSame('two', $this->int_named->last(function ($value) {
+            return $value <> 'three';
+        }));
 
     }
 

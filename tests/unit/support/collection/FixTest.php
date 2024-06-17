@@ -94,4 +94,42 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('one', $this->collection->first());
+
+        $this->assertSame('two', $this->collection->first(function ($value) {
+            return $value === 'two';
+        }));
+
+        $this->assertNull($this->collection->first(function ($value) {
+            return $value === 'four';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('three', $this->collection->last());
+
+        $this->assertSame('two', $this->collection->last(function ($value) {
+            return $value === 'two';
+        }));
+
+        $this->assertNull($this->collection->last(function ($value) {
+            return $value === 'four';
+        }));
+
+    }
+
 }

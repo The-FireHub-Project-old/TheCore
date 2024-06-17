@@ -35,6 +35,7 @@ final class GenTest extends Base {
 
     public Gen $collection;
     public Gen $multidimensional_collection;
+    public Gen $empty;
 
     /**
      * @since 1.0.0
@@ -45,6 +46,10 @@ final class GenTest extends Base {
 
         $this->collection = Collection::lazy(function ():Generator {
             yield from ['one' => 'one value', 'two' => 'two value', 'three' => 'three value'];
+        });
+
+        $this->empty = Collection::lazy(function ():Generator {
+            yield from [];
         });
 
         $this->multidimensional_collection = Collection::lazy(function ():Generator {
@@ -88,6 +93,42 @@ final class GenTest extends Base {
     public function testCountMultidimensional ():void {
 
         $this->assertSame(17, $this->multidimensional_collection->countMultidimensional());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('one value', $this->collection->first());
+
+        $this->assertSame('two value', $this->collection->first(function ($value, $key) {
+            return $key <> 'one';
+        }));
+
+        $this->assertNull($this->collection->first(function ($value, $key) {
+            return $key === 'x';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('three value', $this->collection->last());
+
+        $this->assertNull($this->empty->last());
+
+        $this->assertSame('two value', $this->collection->last(function ($value, $key) {
+            return $key <> 'three';
+        }));
 
     }
 

@@ -32,6 +32,7 @@ use SplObjectStorage, stdClass;
 final class ObjTest extends Base {
 
     public Obj $collection;
+    public Obj $empty;
 
     /**
      * @since 1.0.0
@@ -44,6 +45,8 @@ final class ObjTest extends Base {
             $storage[new stdClass()] = 'two';
             $storage[new stdClass()] = 'three';
         });
+
+        $this->empty = Collection::object(function (SplObjectStorage $storage):void {});
 
     }
 
@@ -66,6 +69,40 @@ final class ObjTest extends Base {
     public function testCount ():void {
 
         $this->assertSame(3, $this->collection->count());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertEquals(new stdClass(), $this->collection->first());
+
+        $this->assertEquals(new stdClass(), $this->collection->first(function ($object, $info) {
+            return $info <> 'one';
+        }));
+
+        $this->assertNull($this->empty->first());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertEquals(new stdClass(), $this->collection->last());
+
+        $this->assertEquals(new stdClass(), $this->collection->last(function ($object, $info) {
+            return $info <> 'three';
+        }));
+
+        $this->assertNull($this->empty->last());
 
     }
 
