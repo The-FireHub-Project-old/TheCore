@@ -64,7 +64,7 @@ final class Gen implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -90,7 +90,7 @@ final class Gen implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -113,7 +113,7 @@ final class Gen implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
      *
      * $collection = Collection::lazy(function ():Generator {
@@ -145,7 +145,7 @@ final class Gen implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -155,7 +155,7 @@ final class Gen implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -186,11 +186,56 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->firstKey();
+     *
+     * // 0
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->firstKey(function ($value, $key) {
+     *  return $key <> 'one';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function firstKey (callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            foreach ($this as $key => $value)
+                if ($callback($value, $key)) return $key;
+
+            return null;
+
+        }
+
+        return $this->invoke()->key();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To count elements in the iterator.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -200,7 +245,7 @@ final class Gen implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
      *
@@ -230,6 +275,60 @@ final class Gen implements Init, Collectable {
 
         foreach ($this as $value)
             if (++$counter === $count) return $value;
+
+        return null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To count elements in the iterator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->lastKey();
+     *
+     * // 2
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['one', 'two', 'three']);
+     *
+     * $collection->lastKey(function ($value, $key) {
+     *  return $key <> 'three';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function lastKey (callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this as $key => $value)
+                if ($callback($value, $key)) $found = $key;
+
+            return $found;
+
+        }
+
+        $counter = 0;
+
+        $count = $this->count();
+
+        foreach ($this as $key => $value)
+            if (++$counter === $count) return $key;
 
         return null;
 

@@ -19,7 +19,9 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
-use FireHub\Core\Support\LowLevel\Iterator;
+use FireHub\Core\Support\LowLevel\ {
+    Iterables, Iterator
+};
 use SplFixedArray, Traversable;
 
 /**
@@ -60,7 +62,7 @@ final class Fix implements Init, Collectable {
      *
      * * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -90,7 +92,7 @@ final class Fix implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -118,7 +120,7 @@ final class Fix implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
      *
      * $collection = Collection::fixed(function (SplFixedArray $storage):void {
@@ -149,7 +151,7 @@ final class Fix implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -163,7 +165,7 @@ final class Fix implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -178,7 +180,7 @@ final class Fix implements Init, Collectable {
      * // 'two'
      * ```
      *
-     * @param null|callable(mixed=):mixed $callback [optional] <p>
+     * @param null|callable(mixed=):bool $callback [optional] <p>
      * If callback is used, the method will return the first item that passes truth test.
      * </p>
      */
@@ -202,11 +204,70 @@ final class Fix implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->firstKey();
+     *
+     * // 0
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->firstKey(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @param null|callable(mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the first item that passes truth test.
+     * </p>
+     */
+    public function firstKey (callable $callback = null):?int {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) return $key;
+
+            return null;
+
+        }
+
+        $iterator = $this->storage->getIterator();
+
+        $iterator->rewind(); // @phpstan-ignore-line
+
+        return $iterator->key(); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Fix::count() To count elements in the iterator.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -220,7 +281,7 @@ final class Fix implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::fixed(function ($storage):void {
      *  $storage[0] = 'one';
@@ -235,7 +296,7 @@ final class Fix implements Init, Collectable {
      * // 'two'
      * ```
      *
-     * @param null|callable(mixed=):mixed $callback [optional] <p>
+     * @param null|callable(mixed=):bool $callback [optional] <p>
      * If callback is used, the method will return the last item that passes truth test.
      * </p>
      */
@@ -253,6 +314,63 @@ final class Fix implements Init, Collectable {
         }
 
         return $this->storage[$this->count() - 1];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->lastKey();
+     *
+     * // 2
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->lastKey(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @param null|callable(mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the last key that passes truth test.
+     * </p>
+     */
+    public function lastKey (callable $callback = null):?int {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) $found = $key;
+
+            return $found;
+
+        }
+
+        return $this->count() - 1;
 
     }
 

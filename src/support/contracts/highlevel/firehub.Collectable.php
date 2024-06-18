@@ -42,7 +42,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * ### Get first item from collection
      * @since 1.0.0
      *
-     * @param null|callable(TValue=, TKey=):TValue $callback [optional] <p>
+     * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
      * If callback is used, the method will return the first item that passes truth test.
      * </p>
      *
@@ -51,15 +51,39 @@ interface Collectable extends Countable, IterablesAggregate {
     public function first (callable $callback = null):mixed;
 
     /**
+     * ### Get first key from collection
+     * @since 1.0.0
+     *
+     * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * If callback is used, the method will return the first key that passes truth test.
+     * </p>
+     *
+     * @return null|TKey First key from a collection.
+     */
+    public function firstKey (callable $callback = null):mixed;
+
+    /**
      * ### Get last item from collection
      * @since 1.0.0
      *
-     * @param null|callable(TValue=, TKey=):TValue $callback [optional] <p>
+     * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
      * If callback is used, the method will return the last item that passes truth test.
      * </p>
      *
      * @return null|TValue Last item from a collection.
      */
     public function last (callable $callback = null):mixed;
+
+    /**
+     * ### Get last key from collection
+     * @since 1.0.0
+     *
+     * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * If callback is used, the method will return the last key that passes truth test.
+     * </p>
+     *
+     * @return null|TKey Last key from a collection.
+     */
+    public function lastKey (callable $callback = null):mixed;
 
 }

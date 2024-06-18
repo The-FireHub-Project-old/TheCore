@@ -60,7 +60,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'two', 'three']);
      *
@@ -86,7 +86,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'two', 'three']);
      *
@@ -109,7 +109,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'two', ['three', 'four']]);
      *
@@ -132,7 +132,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
      *
      * $collection = Collection::list(fn():array => [
@@ -161,7 +161,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
@@ -214,7 +214,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example Using countBy method.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
@@ -224,7 +224,7 @@ abstract class Arr implements Init, Collectable {
      * ```
      * @example Counting a multidimensional collection.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list()->multidimensional(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
@@ -264,7 +264,7 @@ abstract class Arr implements Init, Collectable {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
      *
@@ -274,7 +274,7 @@ abstract class Arr implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
      *
@@ -305,11 +305,56 @@ abstract class Arr implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get the first key from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->firstKey();
+     *
+     * // 'one'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->firstKey(function ($value, $key) {
+     *  return $key <> 'one';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function firstKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) return $key;
+
+            return null;
+
+        }
+
+        return ArrLL::firstKey($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Helpers\Arr\last() To get the last value from a collection.
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
      *
@@ -319,7 +364,7 @@ abstract class Arr implements Init, Collectable {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
      *
@@ -344,6 +389,53 @@ abstract class Arr implements Init, Collectable {
         }
 
         return last($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get the last key from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->lastKey();
+     *
+     * // 'three'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['one' => 'one value', 'two' => 'two value', 'three' => 'three value']);
+     *
+     * $collection->lastKey(function ($value, $key) {
+     *  return $key <> 'three';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function lastKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) $found = $key;
+
+            return $found;
+
+        }
+
+        return ArrLL::lastKey($this->storage);
 
     }
 

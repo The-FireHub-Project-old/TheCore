@@ -49,7 +49,7 @@ final class Indexed extends Arr {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
      *
@@ -59,7 +59,7 @@ final class Indexed extends Arr {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
      *
@@ -94,7 +94,7 @@ final class Indexed extends Arr {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
      *
@@ -104,7 +104,7 @@ final class Indexed extends Arr {
      * ```
      * @example With $callback parameter.
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
      *
