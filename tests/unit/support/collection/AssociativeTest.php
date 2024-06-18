@@ -134,4 +134,23 @@ final class AssociativeTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEach ():void {
+
+        $this->assertTrue($this->collection->each(function ($value, $key) {
+            if ($key === 'four') return false;
+            return true;
+        }));
+
+        $this->assertFalse($this->collection->each(function ($value, $key) {
+            if ($key === 'three') return false;
+            return true;
+        }));
+
+    }
+
 }

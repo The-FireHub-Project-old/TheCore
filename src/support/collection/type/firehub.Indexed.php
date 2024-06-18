@@ -132,4 +132,36 @@ final class Indexed extends Arr {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
+     *
+     * $collection->each(function ($value) {
+     *  if (* condition *) {
+     *      return false;
+     *  }
+     * });
+     * ```
+     */
+    public function each (callable $callback, int $limit = 1_000_000):bool {
+
+        $counter = 0;
+
+        foreach ($this->storage as $value)
+            if (
+                $callback($value) === false
+                || $counter++ > $limit
+            ) return false;
+
+        return true;
+
+    }
+
 }

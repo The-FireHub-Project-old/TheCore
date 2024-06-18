@@ -86,4 +86,19 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function lastKey (callable $callback = null):mixed;
 
+    /**
+     * ### Call user generated function on each item in collection
+     * @since 1.0.0
+     *
+     * @param callable(TValue=, TKey=):(false|void) $callback <p>
+     * Function to call on each item in collection.
+     * </p>
+     * @param positive-int $limit [optional] <p>
+     * Maximum number of elements that is allowed to be iterated.
+     * </p>
+     *
+     * @return bool True if each item in the collection has iterated, false otherwise.
+     */
+    public function each (callable $callback, int $limit = 1_000_000):bool;
+
 }

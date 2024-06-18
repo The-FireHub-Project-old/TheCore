@@ -187,4 +187,23 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEach ():void {
+
+        $this->assertTrue($this->int_named->each(function ($value) {
+            if ($value === 'four') return false;
+            return true;
+        }));
+
+        $this->assertFalse($this->int_named->each(function ($value) {
+            if ($value === 'three') return false;
+            return true;
+        }));
+
+    }
+
 }
