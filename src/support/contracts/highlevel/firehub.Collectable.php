@@ -101,4 +101,18 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function each (callable $callback, int $limit = 1_000_000):bool;
 
+    /**
+     * ### Searches the collection for a given value and returns the first corresponding key if successful
+     * @since 1.0.0
+     *
+     * @param TValue $value <p>
+     * The searched value.
+     * If value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     *
+     * @return TKey|false The key if it is found in the collection, false otherwise.
+     * If value is found in a collection more than once, the first matching key is returned.
+     */
+    public function search (mixed $value):mixed;
+
 }

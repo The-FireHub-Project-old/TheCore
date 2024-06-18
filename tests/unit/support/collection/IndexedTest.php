@@ -206,4 +206,17 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame(5, $this->int_named->search('three'));
+
+        $this->assertFalse($this->int_named->search('four'));
+
+    }
+
 }

@@ -448,6 +448,37 @@ final class Obj implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     * });
+     *
+     * $collection->search($cls1);
+     *
+     * // 0
+     * ```
+     */
+    public function search (mixed $value):int|false {
+
+        foreach ($this->storage as $key => $object)
+            if ($value === $object) return $key;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<object> Collection items as an array.
      */
     public function getIterator ():Traversable {

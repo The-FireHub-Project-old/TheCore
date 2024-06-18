@@ -476,6 +476,36 @@ abstract class Arr implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => [
+     *  'firstname' => 'John', 'lastname' => 'Doe', 'age' => 25
+     * ]);
+     *
+     * $collection->search('Doe');
+     *
+     * // lastname
+     * ```
+     *
+     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
+     * Please read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
+     */
+    public function search (mixed $value):int|string|false {
+
+        return ArrLL::search($value, $this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<TKey, TValue> Collection items as an array.
      */
     public function getIterator ():Traversable {

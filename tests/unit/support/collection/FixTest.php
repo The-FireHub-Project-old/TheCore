@@ -189,4 +189,17 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame(2, $this->collection->search('three'));
+
+        $this->assertFalse($this->collection->search('four'));
+
+    }
+
 }

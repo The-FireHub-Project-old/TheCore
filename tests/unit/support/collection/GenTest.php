@@ -187,4 +187,17 @@ final class GenTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame('three', $this->collection->search('three value'));
+
+        $this->assertFalse($this->collection->search('four'));
+
+    }
+
 }
