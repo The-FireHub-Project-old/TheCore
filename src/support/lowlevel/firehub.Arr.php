@@ -433,7 +433,6 @@ final class Arr implements InitStatic {
      * objects (this is useful together with $index to reindex the array).
      * </p>
      * @param null|TKey $index [optional] <p>
-     * <code>null|TKey</code>
      * The column to use as the index/keys for the returned array. This value may be the integer key of the column,
      * or it may be the string key name. The value is cast as usual for array keys.
      * </p>
@@ -1688,7 +1687,7 @@ final class Arr implements InitStatic {
      * Array to search.
      * </p>
      *
-     * @return TKey|false <code>TKey|false</code> The key for value if it is found in the array, false otherwise.
+     * @return TKey|false The key for value if it is found in the array, false otherwise.
      *
      * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
      * Please read the section on Booleans for more information. Use the === operator for testing the return value of
