@@ -159,15 +159,13 @@ final class DateAndTime implements InitStatic {
      * [[DateAndTime#time()]].
      * @since 1.0.0
      *
-     * @param string $format <p>
-     * <code>'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z'</code>
+     * @param 'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z' $format <p>
      * Single format character.
      * </p>
      * @param null|int $timestamp [optional] <p>
      * The optional timestamp parameter is an integer Unix timestamp that defaults to the current local time
      * if a timestamp is not given.
      * </p>
-     * @phpstan-param 'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z' $format
      *
      * @throws Error If failed to format a Unix timestamp as integer.
      * @error\exeption E_WARNING If the time zone is not valid.

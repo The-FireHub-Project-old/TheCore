@@ -212,7 +212,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The array to apply a user function.
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
@@ -223,7 +223,6 @@ final class Arr implements InitStatic {
      * original array itself. Users may not change the array itself from the callback function, e.g., add/delete
      * elements, unset elements, etc.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @throws ArgumentCountError If the $callback function requires more than two parameters.
@@ -246,7 +245,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The array to apply a user function.
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
@@ -257,7 +256,6 @@ final class Arr implements InitStatic {
      * original array itself. Users may not change the array itself from the callback function. E.g., Add/delete
      * elements, unset elements, etc.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @throws ArgumentCountError If the $callback function requires more than two parameters.
@@ -331,19 +329,17 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, array-key> $keys <p>
+     * @param array<array-key, TKey> $keys <p>
      * Array of values that will be used as keys.
      * Illegal values for a key will be converted to string.
      * </p>
      * @param TValue $value <p>
      * Value to use for filling.
      * </p>
-     * @phpstan-param array<array-key, TKey> $keys
      *
      * @throws Error If key could not be converted to string.
      *
-     * @return array<array-key, TValue> The filled array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filled array.
      */
     public static function fillKeys (array $keys, mixed $value):array {
 
@@ -363,21 +359,19 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to work on.
      * </p>
      * @param \FireHub\Core\Support\Enums\String\CaseFolding $case [optional] <p>
      * <code>\FireHub\Core\Support\Enums\String\CaseFolding::LOWER|\FireHub\Core\Support\Enums\String\CaseFolding::UPPER</code>
      * Either LOWER or UPPER case folding.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      * @phpstan-param (
      *  \FireHub\Core\Support\Enums\String\CaseFolding::LOWER
      *  |\FireHub\Core\Support\Enums\String\CaseFolding::UPPER
      * ) $case
      *
-     * @return array<array-key, TValue> An array with its keys lower or uppercased.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array with its keys lower or uppercased.
      */
     public static function foldKeys (array $array, CaseFolding $case = CaseFolding::LOWER):array {
 
@@ -394,7 +388,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array.
      * </p>
      * @param positive-int $length <p>
@@ -405,7 +399,6 @@ final class Arr implements InitStatic {
      * When set to true, keys will be preserved.
      * Default is false that will reindex the chunk numerically.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @throws ValueError If length is less than 1.
      *
@@ -429,7 +422,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, array<array-key, TValue>> $array <p>
+     * @param array<array-key, array<TKey, TValue>> $array <p>
      * A multidimensional array (record set) from which to pull a column of values. If an array of objects is provided,
      * then public properties can be directly pulled. In order for protected or private properties to be pulled,
      * the class must implement both the __get() and __isset() magic methods.
@@ -444,7 +437,6 @@ final class Arr implements InitStatic {
      * The column to use as the index/keys for the returned array. This value may be the integer key of the column,
      * or it may be the string key name. The value is cast as usual for array keys.
      * </p>
-     * @phpstan-param array<array-key, array<TKey, TValue>> $array
      *
      * @return ($index is null ? array<TValue> : array<TValue, TValue>) Array of values representing a single column from the input array.
      */
@@ -464,14 +456,13 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, array-key> $keys <p>
+     * @param array<array-key, TKey> $keys <p>
      * Array of values to be used as keys.
      * Illegal values for a key will be converted to string.
      * </p>
      * @param array<array-key, TValue> $values <p>
      * Array of values to be used as values on a combined array.
      * </p>
-     * @phpstan-param array<array-key, TKey> $keys
      *
      * @throws ValueError If arguments $keys and $values don't have the same number of elements.
      *
@@ -493,16 +484,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. You can check deeper dimensions by
      * using [[Arr#difference($array1[0], $array2[0])]].
@@ -523,7 +512,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -534,10 +523,8 @@ final class Arr implements InitStatic {
      * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -561,16 +548,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> Returns an array containing all the entries from array whose keys are absent from all the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Returns an array containing all the entries from array whose keys are absent from all the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
      * dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].
@@ -591,7 +576,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -601,10 +586,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
@@ -628,16 +611,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. It is possible to check deeper
      * dimensions by using, for example, [[Arr#differenceAssoc($array1[0], $array2[0])]].
@@ -662,17 +643,15 @@ final class Arr implements InitStatic {
      * @param array<array-key, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array<array-key, mixed> $excludes <p>
+     * @param array<TKey, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
@@ -701,17 +680,15 @@ final class Arr implements InitStatic {
      * @param array<array-key, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array<array-key, mixed> $excludes <p>
+     * @param array<TKey, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> Returns an array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TValue> Returns an array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -735,7 +712,7 @@ final class Arr implements InitStatic {
      * @template TKey
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -749,10 +726,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function for key.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
 
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -777,16 +752,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
      * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
      * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
      * string representation is the same.
@@ -806,7 +779,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -816,10 +789,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> Arrays containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Arrays containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -842,16 +813,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
      * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      */
     public static function intersectKey (array $array, array ...$arrays):array {
 
@@ -869,7 +838,7 @@ final class Arr implements InitStatic {
      * @template TKey
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -879,10 +848,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -904,16 +871,14 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
      * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
      * @note The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.
      * In other words, a strict type check is executed, so the string representation must be the same.
@@ -935,7 +900,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -945,10 +910,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -970,7 +933,7 @@ final class Arr implements InitStatic {
      * @template TKey
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -980,10 +943,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -1007,7 +968,7 @@ final class Arr implements InitStatic {
      * @template TKey
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
      * @param array<array-key, mixed> $excludes <p>
@@ -1021,10 +982,8 @@ final class Arr implements InitStatic {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function for key.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -1051,7 +1010,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to iterate over.
      * </p>
      * @param null|callable(TValue, TKey=):bool $callback [optional] <p>
@@ -1065,10 +1024,8 @@ final class Arr implements InitStatic {
      * @param bool $pass_key [optional] <p>
      * Pass key as the argument to callback.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> Filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Filtered array.
      *
      * @caution If the array is changed from the callback function (e.g., an element added, deleted or unset) then
      * behavior of this function is undefined.
@@ -1098,15 +1055,13 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue of array-key
      *
-     * @param array<array-key, array-key> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to flip.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @error\exeption E_WARNING if values on $array argument are neither int nor string.
      *
-     * @return array<array-key, array-key> The flipped array.
-     * @phpstan-return array<TValue, TKey>
+     * @return array<TValue, TKey> The flipped array.
      */
     public static function flip (array $array):array {
 
@@ -1170,7 +1125,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * Array to run through the callback function.
      * </p>
      * @param callable(TValue $value):mixed $callback <p>
@@ -1179,10 +1134,8 @@ final class Arr implements InitStatic {
      * Null can be passed as a value to $callback to perform a zip operation on multiple arrays.
      * If only an array is provided, map() will return the input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, mixed> Array containing all the elements of arr1 after applying the callback function.
-     * @phpstan-return array<TKey, mixed>
+     * @return array<TKey, mixed> Array containing all the elements of arr1 after applying the callback function.
      */
     public static function map (array $array, callable $callback):array {
 
@@ -1203,13 +1156,10 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> ...$arrays [optional] <p>
+     * @param array<TKey, TValue> ...$arrays [optional] <p>
      * Variable list of arrays to merge.
-     * </p>
-     * @phpstan-param array<TKey, TValue> ...$arrays
      *
-     * @return array<array-key, TValue> The resulting array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The resulting array.
      *
      * @note If the input arrays have the same string keys, then the later value for that key will overwrite the
      * previous one.
@@ -1341,14 +1291,13 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * Array to reverse.
      * </p>
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
      * Non-numeric keys are not affected by this setting and will always be preserved.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) The reversed array.
      */
@@ -1365,7 +1314,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The input array.
      * </p>
      * @param int $offset <p>
@@ -1381,7 +1330,6 @@ final class Arr implements InitStatic {
      * Note that array_slice will reorder and reset the array indices by default.
      * You can change this behavior by setting preserve_keys to true.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @return ($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>) Sliced array.
      *
@@ -1403,7 +1351,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * Array to splice.
      * </p>
      * @param int $offset <p>
@@ -1423,11 +1371,9 @@ final class Arr implements InitStatic {
      * are inserted in the place specified by the offset.
      * Keys in a replacement array are not preserved.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, mixed> $array
      *
-     * @return array<array-key, TValue> Spliced array.
-     * @phpstan-return array<TKey|int, TValue>
+     * @return array<TKey, TValue> Spliced array.
      *
      * @note Numerical keys in an array are not preserved.
      * @note If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
@@ -1448,13 +1394,11 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array to remove duplicates.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array<array-key, TValue> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
      * @note The new array will preserve associative keys, and reindex others.
      * @note This method is not intended to work on multidimensional arrays.
@@ -1740,13 +1684,11 @@ final class Arr implements InitStatic {
      * The searched value.
      * If $value is a string, the comparison is done in a case-sensitive manner.
      * </p>
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * Array to search.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return int|string|false <code>TKey|false</code> The key for value if it is found in the array, false otherwise.
-     * @phpstan-return TKey|false
+     * @return TKey|false <code>TKey|false</code> The key for value if it is found in the array, false otherwise.
      *
      * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
      * Please read the section on Booleans for more information. Use the === operator for testing the return value of
@@ -1839,7 +1781,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
@@ -1848,7 +1790,6 @@ final class Arr implements InitStatic {
      * @param \FireHub\Core\Support\Enums\Sort $flag [optional] <p>
      * Sort flag.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
@@ -1870,7 +1811,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param callable(TValue $a, TValue $b):int<-1, 1> $callback <p>
@@ -1881,7 +1822,6 @@ final class Arr implements InitStatic {
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
@@ -1903,7 +1843,7 @@ final class Arr implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param callable(TKey $a, TKey $b):int<-1, 1> $callback <p>
@@ -1912,7 +1852,6 @@ final class Arr implements InitStatic {
      * by pairs of array keys. The comparison function must return an integer less than, equal to, or greater than
      * zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.

@@ -76,10 +76,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @return TValue|false The current() function simply returns the value of the array element that is being pointed
      * to with the internal pointer. It does not move the pointer in any way. If the internal pointer points beyond
@@ -109,10 +108,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<TKey, TValue> $array <p>
      * The array.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @return null|TKey The key() function simply returns the key of the array element that's currently being pointed to by the internal pointer.
      * It does not move the pointer in any way.
@@ -134,10 +132,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return TValue|false Returns the array value in the previous place that's pointed to by the internal array pointer,
@@ -166,10 +163,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The array being affected.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return TValue|false Returns the array value in the next place that's pointed to by the internal array
@@ -198,10 +194,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return TValue|false Returns the value of the first array element, or false if the array is empty.
@@ -228,10 +223,9 @@ final class Iterables implements InitStatic {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<array-key, TValue> &$array <p>
+     * @param array<TKey, TValue> &$array <p>
      * The input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return TValue|false Returns the value of the last element or false for an empty array.
