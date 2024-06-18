@@ -18,7 +18,9 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
-use FireHub\Core\Support\LowLevel\Iterator;
+use FireHub\Core\Support\LowLevel\ {
+    DataIs, Iterator
+};
 use SplObjectStorage, Traversable;
 
 /**
@@ -448,6 +450,9 @@ final class Obj implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;
@@ -464,8 +469,29 @@ final class Obj implements Init, Collectable {
      *
      * // 0
      * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     * });
+     *
+     * $collection->search(function ($value) use ($cls1, $cls2) {
+     *  return $value !== $cls1;
+     * });
+     *
+     * // 1
+     * ```
      */
     public function search (mixed $value):int|false {
+
+        /** @phpstan-ignore-next-line */
+        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
 
         foreach ($this->storage as $key => $object)
             if ($value === $object) return $key;

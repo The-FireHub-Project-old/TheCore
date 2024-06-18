@@ -198,6 +198,10 @@ final class FixTest extends Base {
 
         $this->assertSame(2, $this->collection->search('three'));
 
+        $this->assertSame(1, $this->collection->search(function ($value) {
+            return $value !== 'one';
+        }));
+
         $this->assertFalse($this->collection->search('four'));
 
     }

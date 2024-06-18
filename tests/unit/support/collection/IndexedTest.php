@@ -215,6 +215,10 @@ final class IndexedTest extends Base {
 
         $this->assertSame(5, $this->int_named->search('three'));
 
+        $this->assertSame(3, $this->int_named->search(function ($value) {
+            return $value !== 'one';
+        }));
+
         $this->assertFalse($this->int_named->search('four'));
 
     }

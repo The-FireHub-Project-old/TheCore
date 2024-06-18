@@ -196,6 +196,10 @@ final class GenTest extends Base {
 
         $this->assertSame('three', $this->collection->search('three value'));
 
+        $this->assertSame('two', $this->collection->search(function ($value) {
+            return $value !== 'one value';
+        }));
+
         $this->assertFalse($this->collection->search('four'));
 
     }

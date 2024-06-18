@@ -19,7 +19,9 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
-use FireHub\Core\Support\LowLevel\Iterator;
+use FireHub\Core\Support\LowLevel\ {
+    DataIs, Iterator
+};
 use Closure, Generator, Traversable;
 
 /**
@@ -371,6 +373,9 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;
@@ -383,8 +388,25 @@ final class Gen implements Init, Collectable {
      *
      * // 'firstname'
      * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from [
+     *  'firstname' => 'John', 'lastname' => 'Doe', 'age' => 25
+     * ]);
+     *
+     * $collection->search(function ($value) {
+     *  return $value !== 'John';
+     * });
+     *
+     * // 'lastname'
+     * ```
      */
     public function search (mixed $value):int|string|false {
+
+        /** @phpstan-ignore-next-line */
+        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
 
         foreach ($this as $storage_key => $storage_value)
             if ($value === $storage_value) return $storage_key;

@@ -176,6 +176,12 @@ final class ObjTest extends Base {
             $storage[$cls1] = 'test';
         })->search($cls1));
 
+        $this->assertSame(0, Collection::object(function (SplObjectStorage $storage) use ($cls1):void {
+            $storage[$cls1] = 'test';
+        })->search(function ($value) use ($cls1) {
+            return $value === $cls1;
+        }));
+
         $this->assertFalse($this->collection->search(new stdClass()));
 
     }
