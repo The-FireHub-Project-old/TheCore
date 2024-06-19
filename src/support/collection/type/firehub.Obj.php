@@ -57,6 +57,56 @@ final class Obj implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->all();
+     *
+     * // [
+     * //   ['object' => object(stdClass), 'info' => 'data for object 1'],
+     * //   ['object' => object(stdClass), 'info' => [1,2,3]],
+     * //   ['object' => object(stdClass), 'info' => 20]
+     * // ]
+     * ```
+     *
+     * @return list<array{object: object, info: mixed}> Collection items as an array.
+     */
+    public function all ():array {
+
+        $this->storage->rewind();
+
+        $data = [];
+
+        while ($this->storage->valid()) {
+
+            $object = $this->storage->current();
+            $info = $this->storage->getInfo();
+            $this->storage->next();
+
+            $data[] = ['object' => $object, 'info' => $info];
+
+        }
+
+        return $data;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count storage items.
      *
      * @example

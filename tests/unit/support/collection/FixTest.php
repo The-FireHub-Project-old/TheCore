@@ -66,6 +66,17 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testAll ():void {
+
+        $this->assertSame(['one', 'two', 'three'], $this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCount ():void {
 
         $this->assertSame(3, $this->collection->count());

@@ -63,6 +63,21 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testAll ():void {
+
+        $this->assertSame([
+            ['object' => $this->cls1, 'info' => 'data for object 1'],
+            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls3, 'info' => 20]
+        ], $this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCount ():void {
 
         $this->assertSame(3, $this->collection->count());

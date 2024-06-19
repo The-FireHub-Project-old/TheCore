@@ -68,6 +68,17 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testAll ():void {
+
+        $this->assertSame(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2], $this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testCount ():void {
 
         $this->assertSame(4, $this->collection->count());

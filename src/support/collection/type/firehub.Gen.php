@@ -60,6 +60,32 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->all();
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     *
+     * @return array<TKey, TValue> Collection items as an array.
+     */
+    public function all ():array {
+
+        return Iterator::toArray($this->invoke());
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count storage items.
      *
      * @example

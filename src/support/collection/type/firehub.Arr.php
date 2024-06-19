@@ -47,6 +47,31 @@ abstract class Arr implements Init, Collectable {
      */
     protected array $storage = [];
 
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->all();
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
+     * ```
+     *
+     * @return array<TKey, TValue> Collection items as an array.
+     */
+    public function all ():array {
+
+        return $this->storage;
+
+    }
+
     /**
      * @inheritDoc
      *

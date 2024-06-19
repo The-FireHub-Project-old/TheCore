@@ -30,4 +30,12 @@ use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
  */
 interface Collectable extends Countable, IterablesAggregate {
 
+    /**
+     * ### Get collection as an array
+     * @since 1.0.0
+     *
+     * @return array<array-key, mixed> Collection items as an array.
+     */
+    public function all ():array;
+
 }

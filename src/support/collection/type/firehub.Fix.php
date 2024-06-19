@@ -58,6 +58,34 @@ final class Fix implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->all();
+     *
+     * // ['one', 'two', 'three']
+     * ```
+     *
+     * @return array<mixed> Collection items as an array.
+     */
+    public function all ():array {
+
+        return $this->storage->jsonSerialize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count storage items.
      *
      * @example
