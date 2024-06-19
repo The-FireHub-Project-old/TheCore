@@ -108,6 +108,25 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testFirstKey ():void {
+
+        $this->assertEquals(0, $this->collection->firstKey());
+
+        $this->assertEquals(1, $this->collection->firstKey(function ($object, $info) {
+            return $info <> 'data for object 1';
+        }));
+
+        $this->assertNull($this->collection->firstKey(function ($object, $info) {
+            return $info === 'x';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLast ():void {
 
         $this->assertEquals($this->cls3, $this->collection->last());
@@ -117,6 +136,23 @@ final class ObjTest extends Base {
         }));
 
         $this->assertNull($this->empty->last());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLastKey ():void {
+
+        $this->assertEquals(2, $this->collection->lastKey());
+
+        $this->assertEquals(1, $this->collection->lastKey(function ($object, $info) {
+            return $info <> 20;
+        }));
+
+        $this->assertNull($this->empty->lastKey());
 
     }
 

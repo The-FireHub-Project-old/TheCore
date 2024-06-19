@@ -91,6 +91,51 @@ final class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::firstKey() As parent method if $callback doesn't exist.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->firstKey();
+     *
+     * // 'firstname'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->firstKey(function ($value, $key) {
+     *  return $key <> 'firstname';
+     * });
+     *
+     * // 'lastname'
+     * ```
+     */
+    public function firstKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) return $key;
+
+            return null;
+
+        }
+
+        return parent::firstKey();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Arr::last() As parent method if $callback doesn't exist.
      *
      * @example
@@ -130,6 +175,53 @@ final class Associative extends Arr {
         }
 
         return parent::last();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::lastKey() As parent method if $callback doesn't exist.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->lastKey();
+     *
+     * // 10
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->lastKey(function ($value, $key) {
+     *  return $key <> 2;
+     * });
+     *
+     * // 'age'
+     * ```
+     */
+    public function lastKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value, $key)) $found = $key;
+
+            return $found;
+
+        }
+
+        return parent::lastKey();
 
     }
 

@@ -180,7 +180,7 @@ final class Fix implements Init, Collectable {
      * // 'two'
      * ```
      */
-    public function first (callable $callback = null):mixed {
+    public function first (?callable $callback = null):mixed {
 
         if ($callback) {
 
@@ -192,6 +192,61 @@ final class Fix implements Init, Collectable {
         }
 
         return $this->storage[0];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->firstKey();
+     *
+     * // 0
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->firstKey(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function firstKey (?callable $callback = null):?int {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) return $key;
+
+            return null;
+
+        }
+
+        $iterator = $this->storage->getIterator();
+
+        $iterator->rewind(); // @phpstan-ignore-line
+
+        return $iterator->key(); // @phpstan-ignore-line
 
     }
 
@@ -233,7 +288,7 @@ final class Fix implements Init, Collectable {
      * // 'two'
      * ```
      */
-    public function last (callable $callback = null):mixed {
+    public function last (?callable $callback = null):mixed {
 
         if ($callback) {
 
@@ -247,6 +302,59 @@ final class Fix implements Init, Collectable {
         }
 
         return $this->storage[$this->count() - 1];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->lastKey();
+     *
+     * // 2
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->lastKey(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function lastKey (?callable $callback = null):?int {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) $found = $key;
+
+            return $found;
+
+        }
+
+        return $this->count() - 1;
 
     }
 

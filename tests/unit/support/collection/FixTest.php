@@ -118,6 +118,25 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testFirstKey ():void {
+
+        $this->assertSame(0, $this->collection->firstKey());
+
+        $this->assertSame(1, $this->collection->firstKey(function ($value) {
+            return $value === 'two';
+        }));
+
+        $this->assertNull($this->collection->firstKey(function ($value) {
+            return $value === 'four';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLast ():void {
 
         $this->assertSame('three', $this->collection->last());
@@ -127,6 +146,25 @@ final class FixTest extends Base {
         }));
 
         $this->assertNull($this->collection->last(function ($value) {
+            return $value === 'four';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLastKey ():void {
+
+        $this->assertSame(2, $this->collection->lastKey());
+
+        $this->assertSame(1, $this->collection->lastKey(function ($value) {
+            return $value === 'two';
+        }));
+
+        $this->assertNull($this->collection->lastKey(function ($value) {
             return $value === 'four';
         }));
 

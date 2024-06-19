@@ -184,7 +184,7 @@ final class Obj implements Init, Collectable {
      *
      * @phpstan-ignore-next-line
      */
-    public function first (callable $callback = null):mixed {
+    public function first (?callable $callback = null):mixed {
 
         if ($callback) {
 
@@ -198,6 +198,73 @@ final class Obj implements Init, Collectable {
         $this->storage->rewind();
 
         return $this->storage->valid() ? $this->storage->current() : null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->firstKey();
+     *
+     * // 0
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->firstKey(function ($object, $info) use ($cls1) {
+     *  return $object === $cls1;
+     * });
+     *
+     * // 0
+     * ```
+     *
+     * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the first item that passes truth test.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function firstKey (?callable $callback = null):?int {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $object)
+                if ($callback($object, $this->storage[$object])) return $key;
+
+            return null;
+
+        }
+
+        $this->storage->rewind();
+
+        return $this->storage->valid() ? $this->storage->key() : null;
 
     }
 
@@ -253,7 +320,7 @@ final class Obj implements Init, Collectable {
      *
      * @phpstan-ignore-next-line
      */
-    public function last (callable $callback = null):mixed {
+    public function last (?callable $callback = null):mixed {
 
         if ($callback) {
 
@@ -271,6 +338,83 @@ final class Obj implements Init, Collectable {
         $count = $this->count();
 
         foreach ($this->storage as $value) if (++$counter === $count) return $value;
+
+        return null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To count elements in the iterator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->lastKey();
+     *
+     * // 1
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->lastKey(function ($object, $info) use ($cls1) {
+     *  return $info <> 20;
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the last item that passes truth test.
+     * </p>
+     *
+     * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function lastKey (?callable $callback = null):?int {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $object)
+                if ($callback($object, $this->storage[$object])) $found = $key;
+
+            return $found;
+
+        }
+
+        $counter = 0;
+
+        $count = $this->count();
+
+        foreach ($this->storage as $key => $value) if (++$counter === $count) return $key;
 
         return null;
 

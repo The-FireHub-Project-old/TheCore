@@ -314,6 +314,51 @@ abstract class Arr implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get the first key from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->firstKey();
+     *
+     * // 0
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->firstKey(function ($value) {
+     *  return $value <> 'John';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function firstKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) return $key;
+
+            return null;
+
+        }
+
+        return ArrLL::firstKey($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Helpers\Arr\last() To get the last value from a collection.
      *
      * @example
@@ -353,6 +398,53 @@ abstract class Arr implements Init, Collectable {
         }
 
         return last($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To get the last key from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->lastKey();
+     *
+     * // 5
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->lastKey(function ($value) {
+     *  return $value <> 'Richard';
+     * });
+     *
+     * // 3
+     * ```
+     */
+    public function lastKey (?callable $callback = null):null|int|string {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $key => $value)
+                if ($callback($value)) $found = $key;
+
+            return $found;
+
+        }
+
+        return ArrLL::lastKey($this->storage);
 
     }
 
