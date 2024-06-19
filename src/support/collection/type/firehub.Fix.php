@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\Iterator;
 use SplFixedArray, Traversable;
 
@@ -77,6 +78,41 @@ final class Fix implements Init, Collectable {
     public function count ():int {
 
         return Iterator::count($this->storage);
+
+    }
+
+    /**
+     * ### Count elements in Collectables, counted recursively
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\CountCollectables To count elements in Collectables, counted recursively.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+     *
+     * $collection = Collection::fixed(function (SplFixedArray $storage):void {
+     *  $storage[0] = Collection::list([Collection::list([1,2,3]), Collection::list([1,2])]);
+     *  $storage[1] = 'one';
+     *  $storage[2] = 'two';
+     *  $storage[3] = Collection::fixed(function (SplFixedArray $sub_storage):void {
+     *      $sub_storage[0] = Collection::list([1,2]);
+     *      $sub_storage[1] = Collection::list([1,2]);
+     *  }, 2);
+     * }, 4);
+     *
+     * $collection->countCollectables();
+     *
+     * // 17
+     * ```
+     *
+     * @return non-negative-int Number of elements of an object.
+     */
+    public function countMultidimensional ():int {
+
+        return (new CountCollectables($this))();
 
     }
 

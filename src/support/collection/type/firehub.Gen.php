@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\Iterator;
 use Closure, Generator, Traversable;
 
@@ -90,6 +91,39 @@ final class Gen implements Init, Collectable {
     public function getIterator ():Traversable {
 
         return $this->invoke();
+
+    }
+
+    /**
+     * ### Count elements in Collectables, counted recursively
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\CountCollectables To count elements in Collectables, counted recursively.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+     *
+     * $collection = Collection::lazy(function ():Generator {
+     *  yield from [
+     *      Collection::list([Collection::list([1,2,3]), Collection::list([1,2])]),
+     *      'one',
+     *      'two',
+     *      Collection::list([Collection::list([1,2]),Collection::list([1,2])])
+     *  ];
+     * });
+     *
+     * $collection->countCollectables();
+     *
+     * // 17
+     * ```
+     *
+     * @return non-negative-int Number of elements of an object.
+     */
+    public function countMultidimensional ():int {
+
+        return (new CountCollectables($this))();
 
     }
 

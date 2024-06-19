@@ -29,7 +29,7 @@ class CountCollectables {
      * ### Counting result
      * @since 1.0.0
      *
-     * @var int
+     * @var non-negative-int
      */
     private int $count = 0;
 
@@ -51,7 +51,7 @@ class CountCollectables {
      *
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
      *
-     * @return int Number of elements in Collectables, counted recursively.
+     * @return non-negative-int Number of elements in Collectables, counted recursively.
      */
     public function __invoke ():int {
 

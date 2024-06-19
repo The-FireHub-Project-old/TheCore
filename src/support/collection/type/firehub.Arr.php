@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\Iterables;
 use Traversable;
 
@@ -67,6 +68,66 @@ abstract class Arr implements Init, Collectable {
     public function count ():int {
 
         return Iterables::count($this->storage);
+
+    }
+
+    /**
+     * ### Recursively count elements
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count storage items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->countRecursively();
+     *
+     * // 14
+     * ```
+     *
+     * @return non-negative-int The number of elements in an object counted recursively.
+     */
+    public function countRecursively ():int {
+
+        return Iterables::count($this->storage, true);
+
+    }
+
+    /**
+     * ### Count elements in Collectables, counted recursively
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\CountCollectables To count elements in Collectables, counted recursively.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  Collection::list([Collection::list([1,2,3]), Collection::list([1,2])]),
+     *  'one',
+     *  'two',
+     *  Collection::list([Collection::list([1,2]),Collection::list([1,2])])
+     * ]);
+     *
+     * $collection->countCollectables();
+     *
+     * // 17
+     * ```
+     *
+     * @return non-negative-int Number of elements of an object.
+     */
+    public function countMultidimensional ():int {
+
+        return (new CountCollectables($this))();
 
     }
 

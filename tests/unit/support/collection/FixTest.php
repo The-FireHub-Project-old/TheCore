@@ -72,4 +72,15 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCountMultidimensional ():void {
+
+        $this->assertSame(17, $this->multidimensional_collection->countMultidimensional());
+
+    }
+
 }

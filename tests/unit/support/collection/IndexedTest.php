@@ -71,4 +71,26 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCountRecursively ():void {
+
+        $this->assertSame(14, $this->multidimensional->countRecursively());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCountMultidimensional ():void {
+
+        $this->assertSame(17, $this->multidimensional_collection->countMultidimensional());
+
+    }
+
 }
