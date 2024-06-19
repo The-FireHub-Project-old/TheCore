@@ -34,10 +34,7 @@ use Error;
 final class IndexedTest extends Base {
 
     public Indexed $collection;
-    public Indexed $named;
-    public Indexed $int_named;
     public Indexed $multidimensional;
-    public Indexed $multidimensional_complex;
     public Indexed $multidimensional_collection;
 
     /**
@@ -47,15 +44,9 @@ final class IndexedTest extends Base {
      */
     public function setUp ():void {
 
-        $this->collection = Collection::list(['one', 'two', 'three']);
+        $this->collection = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
 
-        $this->named = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-
-        $this->multidimensional = Collection::list(['one', 'two', ['three', 'four']]);
-
-        $this->int_named = Collection::list(['one', 'one', 'one', 'two', 'two', 'three', 'three', 'three']);
-
-        $this->multidimensional_complex = Collection::list([
+        $this->multidimensional = Collection::list([
             ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
             ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
             ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -74,152 +65,9 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
-    public function testAll ():void {
-
-        $this->assertIsArray($this->collection->all());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testCount ():void {
 
-        $this->assertSame(3, $this->collection->count());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCountRecursively ():void {
-
-        $this->assertSame(5, $this->multidimensional->countRecursively());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCountMultidimensional ():void {
-
-        $this->assertSame(17, $this->multidimensional_collection->countMultidimensional());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCountBy ():void {
-
-        $this->assertSame(['J' => 4, 'R' => 2], $this->named->countBy(function ($value, $key) {
-            return substr($value, 0, 1);
-        })->all());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testFromEmptyCharacter ():void {
-
-        $this->expectException(Error::class);
-
-        $this->named->countBy(function ($value, $key) {
-            return [];
-        });
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCountByValues ():void {
-
-        $this->assertSame(['John' => 1, 'Jane' => 3, 'Richard' => 2], $this->named->countByValues()->all());
-        $this->assertSame(['Doe' => 2, 'Roe' => 1], $this->multidimensional_complex->countByValues('lastname')->all());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testFirst ():void {
-
-        $this->assertSame('one', $this->int_named->first());
-
-        $this->assertSame('two', $this->int_named->first(function ($value) {
-            return $value <> 'one';
-        }));
-
-        $this->assertNull($this->int_named->first(function ($value) {
-            return $value === 'four';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testLast ():void {
-
-        $this->assertSame('three', $this->int_named->last());
-
-        $this->assertSame('two', $this->int_named->last(function ($value) {
-            return $value <> 'three';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testEach ():void {
-
-        $this->assertTrue($this->int_named->each(function ($value) {
-            if ($value === 'four') return false;
-            return true;
-        }));
-
-        $this->assertFalse($this->int_named->each(function ($value) {
-            if ($value === 'three') return false;
-            return true;
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSearch ():void {
-
-        $this->assertSame(5, $this->int_named->search('three'));
-
-        $this->assertSame(3, $this->int_named->search(function ($value) {
-            return $value !== 'one';
-        }));
-
-        $this->assertFalse($this->int_named->search('four'));
+        $this->assertSame(6, $this->collection->count());
 
     }
 

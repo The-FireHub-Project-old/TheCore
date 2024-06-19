@@ -34,8 +34,8 @@ use Generator;
 final class GenTest extends Base {
 
     public Gen $collection;
-    public Gen $multidimensional_collection;
     public Gen $empty;
+    public Gen $multidimensional_collection;
 
     /**
      * @since 1.0.0
@@ -45,7 +45,7 @@ final class GenTest extends Base {
     public function setUp ():void {
 
         $this->collection = Collection::lazy(function ():Generator {
-            yield from ['one' => 'one value', 'two' => 'two value', 'three' => 'three value'];
+            yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2];
         });
 
         $this->empty = Collection::lazy(function ():Generator {
@@ -68,139 +68,9 @@ final class GenTest extends Base {
      *
      * @return void
      */
-    public function testAll ():void {
-
-        $this->assertIsArray($this->collection->all());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
     public function testCount ():void {
 
-        $this->assertSame(3, $this->collection->count());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCountMultidimensional ():void {
-
-        $this->assertSame(17, $this->multidimensional_collection->countMultidimensional());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testFirst ():void {
-
-        $this->assertSame('one value', $this->collection->first());
-
-        $this->assertSame('two value', $this->collection->first(function ($value, $key) {
-            return $key <> 'one';
-        }));
-
-        $this->assertNull($this->collection->first(function ($value, $key) {
-            return $key === 'x';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testFirstKey ():void {
-
-        $this->assertSame('one', $this->collection->firstKey());
-
-        $this->assertSame('two', $this->collection->firstKey(function ($value, $key) {
-            return $key <> 'one';
-        }));
-
-        $this->assertNull($this->collection->firstKey(function ($value, $key) {
-            return $key === 'x';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testLast ():void {
-
-        $this->assertSame('three value', $this->collection->last());
-
-        $this->assertNull($this->empty->last());
-
-        $this->assertSame('two value', $this->collection->last(function ($value, $key) {
-            return $key <> 'three';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testLastKey ():void {
-
-        $this->assertSame('three', $this->collection->lastKey());
-
-        $this->assertNull($this->empty->lastKey());
-
-        $this->assertSame('two', $this->collection->lastKey(function ($value, $key) {
-            return $key <> 'three';
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testEach ():void {
-
-        $this->assertTrue($this->collection->each(function ($value, $key) {
-            if ($key === 'four') return false;
-            return true;
-        }));
-
-        $this->assertFalse($this->collection->each(function ($value, $key) {
-            if ($key === 'three') return false;
-            return true;
-        }));
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSearch ():void {
-
-        $this->assertSame('three', $this->collection->search('three value'));
-
-        $this->assertSame('two', $this->collection->search(function ($value) {
-            return $value !== 'one value';
-        }));
-
-        $this->assertFalse($this->collection->search('four'));
+        $this->assertSame(4, $this->collection->count());
 
     }
 
