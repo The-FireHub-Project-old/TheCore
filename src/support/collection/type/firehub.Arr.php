@@ -24,6 +24,10 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use Error, Traversable, TypeError;
 
+use function FireHub\Core\Support\Helpers\Arr\ {
+    first, last
+};
+
 /**
  * ### Array collection type
  * @since 1.0.0
@@ -257,6 +261,98 @@ abstract class Arr implements Init, Collectable {
                 $column ? ArrLL::column($this->storage, $column) : $this->storage // @phpstan-ignore-line
             )
         );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\first() To get the first value from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->first();
+     *
+     * // 'John'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->first(function ($value) {
+     *  return $values <> 'John';
+     * });
+     *
+     * // 'Jane'
+     * ```
+     */
+    public function first (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) return $value;
+
+            return null;
+
+        }
+
+        return first($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\last() To get the last value from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->last();
+     *
+     * // 'Richard'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->last(function ($value) {
+     *  return $value <> 'Richard';
+     * });
+     *
+     * // 'Jane'
+     * ```
+     */
+    public function last (?callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) $found = $value;
+
+            return $found;
+
+        }
+
+        return last($this->storage);
 
     }
 

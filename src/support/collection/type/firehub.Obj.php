@@ -139,6 +139,148 @@ final class Obj implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->first();
+     *
+     * // new stdClass()
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->first(function ($object, $info) use ($cls1) {
+     *  return $object === $cls1;
+     * });
+     *
+     * // new stdClass()
+     * ```
+     *
+     * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the first item that passes truth test.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function first (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this->storage as $object)
+                if ($callback($object, $this->storage[$object])) return $object;
+
+            return null;
+
+        }
+
+        $this->storage->rewind();
+
+        return $this->storage->valid() ? $this->storage->current() : null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To count elements in the iterator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->last();
+     *
+     * // new stdClass()
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->last(function ($object, $info) use ($cls1) {
+     *  return $info <> 20;
+     * });
+     *
+     * // new stdClass()
+     * ```
+     *
+     * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * If callback is used, the method will return the last item that passes truth test.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function last (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $object)
+                if ($callback($object, $this->storage[$object])) $found = $object;
+
+            return $found;
+
+        }
+
+        $counter = 0;
+
+        $count = $this->count();
+
+        foreach ($this->storage as $value) if (++$counter === $count) return $value;
+
+        return null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<object> Collection items as an array.
      */
     public function getIterator ():Traversable {

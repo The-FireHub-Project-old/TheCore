@@ -149,6 +149,112 @@ final class Fix implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->first();
+     *
+     * // 'one'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->first(function ($value) {
+     *  return $value === 'two;
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function first (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) return $value;
+
+            return null;
+
+        }
+
+        return $this->storage[0];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::count() To count elements in the iterator.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->last();
+     *
+     * // 'three'
+     * ```
+     * @example With $callback parameter.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->last(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // 'two'
+     * ```
+     */
+    public function last (callable $callback = null):mixed {
+
+        if ($callback) {
+
+            $found = null;
+
+            foreach ($this->storage as $value)
+                if ($callback($value)) $found = $value;
+
+            return $found;
+
+        }
+
+        return $this->storage[$this->count() - 1];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<int, mixed|null> Collection items as an array.
      */
     public function getIterator ():Traversable {

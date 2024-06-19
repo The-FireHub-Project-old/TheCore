@@ -96,4 +96,40 @@ final class GenTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('John', $this->collection->first());
+
+        $this->assertSame('Doe', $this->collection->first(function ($value, $key) {
+            return $key <> 'firstname';
+        }));
+
+        $this->assertNull($this->collection->first(function ($value, $key) {
+            return $value === 'Jack';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame(2, $this->collection->last());
+
+        $this->assertNull($this->empty->last());
+
+        $this->assertSame(25, $this->collection->last(function ($value, $key) {
+            return $key <> 10;
+        }));
+
+    }
+
 }

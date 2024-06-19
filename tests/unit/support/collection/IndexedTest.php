@@ -144,4 +144,42 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirst ():void {
+
+        $this->assertSame('John', $this->collection->first());
+
+        $this->assertSame('Jane', $this->collection->first(function ($value) {
+            return $value <> 'John';
+        }));
+
+        $this->assertNull($this->collection->first(function ($value) {
+            return $value === 'Jack';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLast ():void {
+
+        $this->assertSame('Richard', $this->collection->last());
+
+        $this->assertSame('Jane', $this->collection->last(function ($value) {
+            return $value <> 'Richard';
+        }));
+
+        $this->assertNull($this->collection->last(function ($value) {
+            return $value === 'Jack';
+        }));
+
+    }
+
 }
