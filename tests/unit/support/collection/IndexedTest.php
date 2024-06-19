@@ -104,4 +104,44 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCountBy ():void {
+
+        $this->assertSame(['J' => 4, 'R' => 2], $this->collection->countBy(function ($value) {
+            return substr($value, 0, 1);
+        })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFromEmptyCharacter ():void {
+
+        $this->expectException(Error::class);
+
+        $this->collection->countBy(function () {
+            return [];
+        });
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCountByValues ():void {
+
+        $this->assertSame(['John' => 1, 'Jane' => 3, 'Richard' => 2], $this->collection->countByValues()->all());
+        $this->assertSame(['Doe' => 2, 'Roe' => 1], $this->multidimensional->countByValues('lastname')->all());
+
+    }
+
 }

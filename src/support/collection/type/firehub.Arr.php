@@ -19,8 +19,10 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
-use FireHub\Core\Support\LowLevel\Iterables;
-use Traversable;
+use FireHub\Core\Support\LowLevel\ {
+    Arr as ArrLL, Iterables
+};
+use Error, Traversable, TypeError;
 
 /**
  * ### Array collection type
@@ -153,6 +155,108 @@ abstract class Arr implements Init, Collectable {
     public function countMultidimensional ():int {
 
         return (new CountCollectables($this))();
+
+    }
+
+    /**
+     * ### Counts the occurrences of values with callback function
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $count = $collection->countBy(function ($value, $key) {
+     *  return substr($value, 0, 1);
+     * });
+     *
+     * // ['J' => 4, 'R' => 2]
+     * ```
+     *
+     * @param callable(TValue=, TKey=):array-key $callback <p>
+     * Count all items by custom callable.
+     * </p>
+     *
+     * @throws Error If counted values are neither string nor int.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<array-key, positive-int> New collection with group items.
+     */
+    public function countBy (callable $callback):Associative {
+
+        $storage = [];
+
+        try {
+
+            foreach ($this->storage as $key => $value) {
+
+                $callable = $callback($value, $key);
+
+                $storage[$callable] = ($storage[$callable] ?? 0) + 1;
+
+            }
+
+        } catch (TypeError) {
+
+            throw new Error('Cannot count values that are neither string nor int.');
+
+        }
+
+        return new Associative($storage);
+
+    }
+
+    /**
+     * ### Counts the occurrences of values in the collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As return.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::countValues() To count the occurrences of each distinct value in a collection.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::column() To get the values from a single column in the collection.
+     *
+     * @example Using countBy method.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $count = $collection->countBy();
+     *
+     * // ['John' => 1, 'Jane' => 3, 'Richard' => 2]
+     * ```
+     * @example Counting a multidimensional collection.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list()->multidimensional(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $count = $collection->countByValues('lastname);
+     *
+     * // ['Doe' => 2, 'Roe' => 1]
+     * ```
+     *
+     * @param null|int|string $column [optional] <p>
+     * Column to count by.
+     * </p>
+     *
+     * @error\exeption E_WARNING for every element that is not string or int.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<array-key, positive-int> New collection with counted values.
+     */
+    public function countByValues (null|int|string $column = null):Associative {
+
+        return new Associative(
+            ArrLL::countValues(
+                $column ? ArrLL::column($this->storage, $column) : $this->storage // @phpstan-ignore-line
+            )
+        );
 
     }
 
