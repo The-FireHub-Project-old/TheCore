@@ -168,4 +168,23 @@ final class GenTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEach ():void {
+
+        $this->assertTrue($this->collection->each(function ($value, $key) {
+            if ($value === 'Jack') return false;
+            return true;
+        }));
+
+        $this->assertFalse($this->collection->each(function ($value, $key) {
+            if ($value === 'John') return false;
+            return true;
+        }));
+
+    }
+
 }

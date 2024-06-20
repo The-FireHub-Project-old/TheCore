@@ -156,4 +156,23 @@ final class ObjTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEach ():void {
+
+        $this->assertTrue($this->collection->each(function ($object, $info) {
+            if ($info === 'data for object 2') return false;
+            return true;
+        }));
+
+        $this->assertFalse($this->collection->each(function ($object, $info) {
+            if ($info === 'data for object 1') return false;
+            return true;
+        }));
+
+    }
+
 }

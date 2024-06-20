@@ -453,6 +453,39 @@ abstract class Arr implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->each(function ($value, $key) {
+     *  if ($value === 'Jack') return false;
+     *  return true;
+     * });
+     *
+     * // false
+     * ```
+     */
+    public function each (callable $callback, int $limit = 1_000_000):bool {
+
+        $counter = 0;
+
+        foreach ($this->storage as $value)
+            if (
+                $callback($value) === false
+                || $counter++ > $limit
+            ) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<TKey, TValue> Collection items as an array.
      */
     public function getIterator ():Traversable {

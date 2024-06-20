@@ -225,4 +225,37 @@ final class Associative extends Arr {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->each(function ($value, $key) {
+     *  if ($value === 'Jack') return false;
+     *  return true;
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function each (callable $callback, int $limit = 1_000_000):bool {
+
+        $counter = 0;
+
+        foreach ($this->storage as $key => $value)
+            if (
+                $callback($value, $key) === false
+                || $counter++ > $limit
+            ) return false;
+
+        return true;
+
+    }
+
 }

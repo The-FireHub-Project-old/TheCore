@@ -363,6 +363,43 @@ final class Fix implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->each(function ($value) {
+     *  if ($value === 'four') return false;
+     *  return true;
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function each (callable $callback, int $limit = 1_000_000):bool {
+
+        $counter = 0;
+
+        foreach ($this->storage as $value)
+            if (
+                $callback($value) === false
+                || $counter++ > $limit
+            ) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @return Traversable<int, mixed|null> Collection items as an array.
      */
     public function getIterator ():Traversable {

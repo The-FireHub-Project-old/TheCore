@@ -170,4 +170,23 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEach ():void {
+
+        $this->assertFalse($this->collection->each(function ($value) {
+            if ($value === 'three') return false;
+            return true;
+        }));
+
+        $this->assertTrue($this->collection->each(function ($value) {
+            if ($value === 'four') return false;
+            return true;
+        }));
+
+    }
+
 }
