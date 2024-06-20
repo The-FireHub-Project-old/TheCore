@@ -57,7 +57,7 @@ interface ArrayAccessible extends ArrayAccess {
      * ### Assign a value to the specified offset
      * @since 1.0.0
      *
-     * @param TKey $offset <p>
+     * @param ?TKey $offset <p>
      * Offset to assign the value to.
      * </p>
      * @param TValue $value <p>
