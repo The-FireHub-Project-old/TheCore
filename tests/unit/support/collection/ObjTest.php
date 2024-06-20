@@ -175,4 +175,21 @@ final class ObjTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame(0, $this->collection->search($this->cls1));
+
+        $this->assertSame(1, $this->collection->search(function ($object, $info) {
+            return $info !== 'data for object 1';
+        }));
+
+        $this->assertFalse($this->collection->search(new stdClass()));
+
+    }
+
 }

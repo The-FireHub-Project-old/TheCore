@@ -135,4 +135,21 @@ final class AssociativeTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame('lastname', $this->collection->search('Doe'));
+
+        $this->assertSame('lastname', $this->collection->search(function ($value, $key) {
+            return $key !== 'firstname';
+        }));
+
+        $this->assertFalse($this->collection->search('Jack'));
+
+    }
+
 }

@@ -239,4 +239,21 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame(1, $this->collection->search('Jane'));
+
+        $this->assertSame(1, $this->collection->search(function ($value) {
+            return $value !== 'John';
+        }));
+
+        $this->assertFalse($this->collection->search('Jack'));
+
+    }
+
 }

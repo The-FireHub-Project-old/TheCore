@@ -19,7 +19,9 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
-use FireHub\Core\Support\LowLevel\Iterator;
+use FireHub\Core\Support\LowLevel\ {
+    DataIs, Iterator
+};
 use SplFixedArray, Traversable;
 
 /**
@@ -392,6 +394,56 @@ final class Fix implements Init, Collectable {
             ) return false;
 
         return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->search('two');
+     *
+     * // 1
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->search(function ($value) {
+     *  return $value !== 'one';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function search (mixed $value):int|false {
+
+        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
+
+        foreach ($this->storage as $storage_key => $storage_value)
+            if ($value === $storage_value) return $storage_key;
+
+        return false;
 
     }
 

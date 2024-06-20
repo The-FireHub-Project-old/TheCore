@@ -187,4 +187,21 @@ final class GenTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSearch ():void {
+
+        $this->assertSame('firstname', $this->collection->search('John'));
+
+        $this->assertSame('lastname', $this->collection->search(function ($value, $key) {
+            return $value !== 'John';
+        }));
+
+        $this->assertFalse($this->collection->search('Jack'));
+
+    }
+
 }

@@ -20,7 +20,7 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\ {
-    Arr as ArrLL, Iterables
+    Arr as ArrLL, DataIs, Iterables
 };
 use Error, Traversable, TypeError;
 
@@ -478,6 +478,50 @@ abstract class Arr implements Init, Collectable {
             ) return false;
 
         return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->search('Jane');
+     *
+     * // 1
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->search(function ($value, $key) {
+     *  return $value !== 'John';
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
+     * Please read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
+     */
+    public function search (mixed $value):int|string|false {
+
+        return DataIs::callable($value)
+            ? ($this->firstKey($value) ?? false)
+            : ArrLL::search($value, $this->storage);
 
     }
 
