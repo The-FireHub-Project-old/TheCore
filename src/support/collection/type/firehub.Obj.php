@@ -477,6 +477,114 @@ final class Obj implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::first() Used to search string value.
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::search() Used to search a callable value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->contains($cls1);
+     *
+     * // true
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->contains(function ($object, $info) {
+     *  return $object === $cls1;
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function contains (mixed $value):bool {
+
+        return DataIs::callable($value)
+            ? !($this->first($value) === null) // @phpstan-ignore-line
+            : !($this->search($value) === false);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::contains() To determine whether a collection contains a given item.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->doesntContain($cls1);
+     *
+     * // false
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->doesntContain(function ($object, $info) {
+     *  return $object === $cls1;
+     * });
+     *
+     * // false
+     * ```
+     */
+    public function doesntContains (mixed $value):bool {
+
+        return !$this->contains($value);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Obj::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *

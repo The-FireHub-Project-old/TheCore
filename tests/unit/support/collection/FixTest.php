@@ -194,6 +194,38 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testContains ():void {
+
+        $this->assertTrue($this->collection->contains('one'));
+        $this->assertFalse($this->collection->contains('four'));
+
+        $this->assertTrue($this->collection->contains(function ($value) {
+            return $value === 'one';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDoesntContains ():void {
+
+        $this->assertFalse($this->collection->doesntContains('one'));
+        $this->assertTrue($this->collection->doesntContains('four'));
+
+        $this->assertFalse($this->collection->doesntContains(function ($value) {
+            return $value === 'one';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSearch ():void {
 
         $this->assertSame(2, $this->collection->search('three'));

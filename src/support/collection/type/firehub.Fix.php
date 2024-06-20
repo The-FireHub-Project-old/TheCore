@@ -402,6 +402,98 @@ final class Fix implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::first() Used to search string value.
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::search() Used to search a callable value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->contains('one');
+     *
+     * // true
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->contains(function ($value) {
+     *  return $value === 'one';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function contains (mixed $value):bool {
+
+        return DataIs::callable($value)
+            ? !($this->first($value) === null)
+            : !($this->search($value) === false);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::contains() To determine whether a collection contains a given item.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->doesntContain('four');
+     *
+     * // true
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->doesntContain(function ($value) {
+     *  return $value === 'four';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function doesntContains (mixed $value):bool {
+
+        return !$this->contains($value);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Fix::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *

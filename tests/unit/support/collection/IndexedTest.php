@@ -244,6 +244,38 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testContains ():void {
+
+        $this->assertTrue($this->collection->contains('Jane'));
+        $this->assertFalse($this->collection->contains('Jack'));
+
+        $this->assertTrue($this->collection->contains(function ($value) {
+            return $value === 'Jane';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDoesntContains ():void {
+
+        $this->assertFalse($this->collection->doesntContains('Jane'));
+        $this->assertTrue($this->collection->doesntContains('Jack'));
+
+        $this->assertFalse($this->collection->doesntContains(function ($value) {
+            return $value === 'Jane';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSearch ():void {
 
         $this->assertSame(1, $this->collection->search('Jane'));

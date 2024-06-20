@@ -192,6 +192,38 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testContains ():void {
+
+        $this->assertTrue($this->collection->contains('John'));
+        $this->assertFalse($this->collection->contains('Jack'));
+
+        $this->assertTrue($this->collection->contains(function ($value) {
+            return $value === 'John';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDoesntContains ():void {
+
+        $this->assertFalse($this->collection->doesntContains('John'));
+        $this->assertTrue($this->collection->doesntContains('Jack'));
+
+        $this->assertFalse($this->collection->doesntContains(function ($value, $key) {
+            return $value === 'John';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSearch ():void {
 
         $this->assertSame('firstname', $this->collection->search('John'));

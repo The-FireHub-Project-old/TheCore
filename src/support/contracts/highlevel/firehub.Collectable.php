@@ -115,4 +115,28 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function search (mixed $value):mixed;
 
+    /**
+     * ### Determines whether a collection contains a given item
+     * @since 1.0.0
+     *
+     * @param TValue|callable(TValue=, TKey=):bool $value <p>
+     * The value to check.
+     * </p>
+     *
+     * @return bool True if a collection contains checked item, false otherwise.
+     */
+    public function contains (mixed $value):bool;
+
+    /**
+     * ### Determines whether collection doesn't contain a given item
+     * @since 1.0.0
+     *
+     * @param TValue|callable(TValue=, TKey=):bool $value <p>
+     * The value to check.
+     * </p>
+     *
+     * @return bool True if a collection doesn't contain checked item, false otherwise.
+     */
+    public function doesntContains (mixed $value):bool;
+
 }

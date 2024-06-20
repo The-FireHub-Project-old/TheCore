@@ -180,6 +180,38 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testContains ():void {
+
+        $this->assertTrue($this->collection->contains($this->cls1));
+        $this->assertFalse($this->collection->contains(new stdClass()));
+
+        $this->assertTrue($this->collection->contains(function ($object, $info) {
+            return $object === $this->cls1;
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDoesntContains ():void {
+
+        $this->assertFalse($this->collection->doesntContains($this->cls1));
+        $this->assertTrue($this->collection->doesntContains(new stdClass()));
+
+        $this->assertFalse($this->collection->doesntContains(function ($object, $info) {
+            return$object === $this->cls1;
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSearch ():void {
 
         $this->assertSame(0, $this->collection->search($this->cls1));

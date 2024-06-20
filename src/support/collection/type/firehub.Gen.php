@@ -376,6 +376,82 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::first() Used to search string value.
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::search() Used to search a callable value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->contains('John');
+     *
+     * // true
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->contains(function ($value, $key) {
+     *  return $value === 'John';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function contains (mixed $value):bool {
+
+        return DataIs::callable($value)
+            ? !($this->first($value) === null)
+            : !($this->search($value) === false);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::contains() To determine whether a collection contains a given item.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->doesntContain('Jack');
+     *
+     * // true
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->doesntContain(function ($value, $key) {
+     *  return $value === 'Jack';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function doesntContains (mixed $value):bool {
+
+        return !$this->contains($value);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *
