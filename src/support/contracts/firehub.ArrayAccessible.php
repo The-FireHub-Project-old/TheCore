@@ -49,7 +49,7 @@ interface ArrayAccessible extends ArrayAccess {
      * Offset to retrieve.
      * </p>
      *
-     * @return TValue Offset value.
+     * @return TValue|null Offset value.
      */
     public function offsetGet (mixed $offset):mixed;
 
