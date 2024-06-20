@@ -518,6 +518,13 @@ final class Obj implements Init, Collectable {
      *
      * // 1
      * ```
+     *
+     * @param object|callable(object=, mixed=):bool $value <p>
+     * The searched value.
+     * If value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
      */
     public function search (mixed $value):int|false {
 

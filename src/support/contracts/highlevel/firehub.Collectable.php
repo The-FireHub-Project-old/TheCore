@@ -105,7 +105,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * ### Searches the collection for a given value and returns the first corresponding key if successful
      * @since 1.0.0
      *
-     * @param TValue|callable(TValue=):bool $value <p>
+     * @param TValue|callable(TValue=, TKey=):bool $value <p>
      * The searched value.
      * If value is a string, the comparison is done in a case-sensitive manner.
      * </p>
