@@ -49,6 +49,27 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testArrayAccessible ():void {
+
+        $this->assertTrue(isset($this->collection['firstname']));
+        $this->assertFalse(isset($this->collection['gender']));
+
+        $this->assertSame('John',$this->collection['firstname']);
+        $this->assertNull($this->collection['gender']);
+
+        $this->collection['gender'] = 'male';
+        $this->assertSame(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'gender' => 'male'],$this->collection->all());
+
+        unset($this->collection['gender']);
+        $this->assertSame(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],$this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFirst ():void {
 
         $this->assertSame('John', $this->collection->first());

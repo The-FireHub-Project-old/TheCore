@@ -17,7 +17,7 @@ namespace FireHub\Core\Support\Collection\Type;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -31,9 +31,9 @@ use SplFixedArray, Traversable;
  * This collection type must be resized manually and allows only integers within the range as indexes.
  * @since 1.0.0
  *
- * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<int, mixed>
+ * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, mixed>
  */
-final class Fix implements Init, Collectable {
+final class Fix implements Init, Accessible {
 
     /**
      * ### FireHub initial concrete trait
@@ -536,6 +536,50 @@ final class Fix implements Init, Collectable {
             if ($value === $storage_value) return $storage_key;
 
         return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetExists (mixed $offset):bool {
+
+        return isset($this->storage[$offset]);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetGet (mixed $offset):mixed {
+
+        return $this->storage[$offset];
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetSet (mixed $offset, mixed $value):void {
+
+        $this->storage[$offset] = $value;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetUnset (mixed $offset):void {
+
+        unset($this->storage[$offset]);
 
     }
 

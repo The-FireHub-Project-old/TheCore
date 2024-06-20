@@ -65,6 +65,27 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testArrayAccessible ():void {
+
+        $this->assertTrue(isset($this->collection[0]));
+        $this->assertFalse(isset($this->collection[6]));
+
+        $this->assertSame('John',$this->collection[0]);
+        $this->assertNull($this->collection[6]);
+
+        $this->collection[] = 'Jack';
+        $this->assertSame(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Jack'],$this->collection->all());
+
+        unset($this->collection[6]);
+        $this->assertSame(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'],$this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'], $this->collection->all());

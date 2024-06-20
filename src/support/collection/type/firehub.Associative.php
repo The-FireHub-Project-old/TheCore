@@ -258,4 +258,22 @@ final class Associative extends Arr {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @param ?array-key $offset <p>
+     * Offset to assign the value to.
+     * </p>
+     * @param TValue $value <p>
+     * Value to set.
+     * </p>
+     */
+    public function offsetSet (mixed $offset, mixed $value):void {
+
+        $this->storage[$offset] = $value;
+
+    }
+
 }

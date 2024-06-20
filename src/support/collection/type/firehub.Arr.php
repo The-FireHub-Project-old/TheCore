@@ -17,7 +17,7 @@ namespace FireHub\Core\Support\Collection\Type;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
@@ -35,9 +35,9 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @template TKey of array-key
  * @template TValue
  *
- * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>
+ * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  */
-abstract class Arr implements Init, Collectable {
+abstract class Arr implements Init, Accessible {
 
     /**
      * ### FireHub initial concrete trait
@@ -598,6 +598,59 @@ abstract class Arr implements Init, Collectable {
         return DataIs::callable($value)
             ? ($this->firstKey($value) ?? false)
             : ArrLL::search($value, $this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetExists (mixed $offset):bool {
+
+        return isset($this->storage[$offset]);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::offsetExists() To check if offset exists.
+     */
+    public function offsetGet (mixed $offset):mixed {
+
+        return $this->offsetExists($offset) ? $this->storage[$offset] : null;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @param ?array-key $offset <p>
+     * Offset to assign the value to.
+     * </p>
+     * @param TValue $value <p>
+     * Value to set.
+     * </p>
+     */
+    public function offsetSet (mixed $offset, mixed $value):void {
+
+        $this->storage[] = $value;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function offsetUnset (mixed $offset):void {
+
+        unset($this->storage[$offset]);
 
     }
 

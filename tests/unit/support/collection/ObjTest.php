@@ -63,6 +63,37 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testArrayAccessible ():void {
+
+        $this->assertTrue(isset($this->collection[$this->cls1]));
+        $this->assertFalse(isset($this->collection[new stdClass()]));
+
+        $this->assertSame('data for object 1',$this->collection[$this->cls1]);
+        $this->assertNull($this->collection[new stdClass()]);
+
+        $cls4 = new stdClass();
+        $this->collection[$cls4] = 'new class';
+        $this->assertSame([
+            ['object' => $this->cls1, 'info' => 'data for object 1'],
+            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls3, 'info' => 20],
+            ['object' => $cls4, 'info' => 'new class']
+        ], $this->collection->all());
+
+        unset($this->collection[$cls4]);
+        $this->assertSame([
+            ['object' => $this->cls1, 'info' => 'data for object 1'],
+            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls3, 'info' => 20]
+        ], $this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame([

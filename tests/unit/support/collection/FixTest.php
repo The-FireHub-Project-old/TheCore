@@ -66,6 +66,26 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testArrayAccessible ():void {
+
+        $this->assertTrue(isset($this->collection[0]));
+        $this->assertFalse(isset($this->collection[3]));
+
+        $this->assertSame('one',$this->collection[0]);
+
+        $this->collection[0] = 'first';
+        $this->assertSame(['first', 'two', 'three'],$this->collection->all());
+
+        unset($this->collection[1]);
+        $this->assertSame(['first', null, 'three'],$this->collection->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame(['one', 'two', 'three'], $this->collection->all());
