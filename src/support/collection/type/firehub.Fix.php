@@ -596,4 +596,17 @@ final class Fix implements Init, Accessible {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return array<mixed> Data that can be serialized by json_encode().
+     */
+    public function jsonSerialize ():array {
+
+        return $this->storage->jsonSerialize();
+
+    }
+
 }

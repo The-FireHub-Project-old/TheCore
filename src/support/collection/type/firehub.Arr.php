@@ -667,4 +667,17 @@ abstract class Arr implements Init, Accessible {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return array<TKey, TValue> Data that can be serialized by json_encode().
+     */
+    public function jsonSerialize ():array {
+
+        return $this->storage;
+
+    }
+
 }

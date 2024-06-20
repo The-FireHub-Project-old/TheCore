@@ -309,4 +309,15 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testJsonSerialize ():void {
+
+        $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));
+
+    }
+
 }

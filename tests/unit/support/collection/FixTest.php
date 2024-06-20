@@ -258,4 +258,15 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testJsonSerialize ():void {
+
+        $this->assertSame('["one","two","three"]', json_encode($this->collection));
+
+    }
+
 }

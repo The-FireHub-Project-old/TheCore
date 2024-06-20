@@ -516,4 +516,19 @@ final class Gen implements Init, Collectable {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::all() To get a collection as an array.
+     *
+     * @return array<TKey, TValue> Data that can be serialized by json_encode().
+     */
+    public function jsonSerialize ():array {
+
+        return $this->all();
+
+    }
+
 }
