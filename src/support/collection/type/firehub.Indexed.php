@@ -24,17 +24,16 @@ namespace FireHub\Core\Support\Collection\Type;
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<array-key, TValue>
  */
-final class Indexed extends Arr {
+class Indexed extends Arr {
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @param array<TValue> $storage <p>
      * Array underlying data.
      * </p>
-     *
-     * @return void
      */
     public function __construct (
         protected array $storage

@@ -86,6 +86,20 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testFromArray ():void {
+
+        $this->assertSame(
+            ['first', 'two', 'three'],
+            Fix::fromArray(['first', 'two', 'three'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame(['one', 'two', 'three'], $this->collection->all());

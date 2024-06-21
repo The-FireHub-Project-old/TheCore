@@ -62,6 +62,19 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @return self<TKey, TValue> New collection from provided array.
+     */
+    public static function fromArray (array $array):self {
+
+        return new self(fn() => yield from $array);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
      *
      * @example

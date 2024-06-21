@@ -55,6 +55,30 @@ abstract class Arr implements Init, Accessible {
      */
     protected array $storage = [];
 
+    /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @param array<TKey, TValue> $storage <p>
+     * Array underlying data.
+     * </p>
+     *
+     * @return void
+     */
+    abstract public function __construct (array $storage);
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return static<TKey, TValue> New collection from provided array.
+     */
+    public static function fromArray (array $array):self {
+
+        return new static($array);
+
+    }
 
     /**
      * @inheritDoc

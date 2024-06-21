@@ -25,17 +25,16 @@ namespace FireHub\Core\Support\Collection\Type;
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<TKey, TValue>
  */
-final class Associative extends Arr {
+class Associative extends Arr {
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @param array<TKey, TValue> $storage <p>
      * Array underlying data.
      * </p>
-     *
-     * @return void
      */
     public function __construct (
         protected array $storage

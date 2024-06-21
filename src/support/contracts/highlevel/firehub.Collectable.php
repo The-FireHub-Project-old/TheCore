@@ -31,6 +31,18 @@ use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
 interface Collectable extends Countable, IterablesAggregate {
 
     /**
+     * ### Create a collection from a provided array
+     * @since 1.0.0
+     *
+     * @param array<array-key, mixed> $array <p>
+     * Array from which a new collection will be created.
+     * </p>
+     *
+     * @return self<TKey, TValue> New collection from provided array.
+     */
+    public static function fromArray (array $array):self;
+
+    /**
      * ### Get collection as an array
      * @since 1.0.0
      *

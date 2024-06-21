@@ -21,7 +21,7 @@ use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
 };
-use SplObjectStorage , UnexpectedValueException, Traversable;
+use Error, SplObjectStorage , UnexpectedValueException, Traversable;
 
 /**
  * ### Object collection type
@@ -53,6 +53,34 @@ final class Obj implements Init, Accessible {
     public function __construct (
         private SplObjectStorage $storage
     ) {}
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @throws Error If missing object or info key from an array.
+     *
+     * @return list<array{object: object, info: mixed}> New collection from provided array.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public static function fromArray (array $array):self {
+
+        $storage = new SplObjectStorage();
+
+        foreach ($array as $value) {
+
+            $object = $value['object'] ?? throw new Error('Missing object key from an array!'); // @phpstan-ignore-line
+            $info = $value['info'] ?? throw new Error('Missing info key from an array!'); // @phpstan-ignore-line
+
+            $storage[$object] = $info; // @phpstan-ignore-line
+
+        }
+
+        return new self($storage);
+
+    }
 
     /**
      * @inheritDoc

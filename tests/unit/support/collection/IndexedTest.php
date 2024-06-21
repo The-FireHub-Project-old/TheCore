@@ -86,6 +86,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testFromArray ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
+            Indexed::fromArray(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'], $this->collection->all());

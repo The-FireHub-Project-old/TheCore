@@ -20,7 +20,7 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\ {
-    DataIs, Iterables, Iterator
+    Arr, DataIs, Iterables, Iterator
 };
 use SplFixedArray, Traversable;
 
@@ -54,6 +54,19 @@ final class Fix implements Init, Accessible {
     public function __construct (
         private SplFixedArray $storage
     ) {}
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::values() To get values from array argument.
+     */
+    public static function fromArray (array $array):self {
+
+        return new self(SplFixedArray::fromArray(Arr::values($array)));
+
+    }
 
     /**
      * @inheritDoc

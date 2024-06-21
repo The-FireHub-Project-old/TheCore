@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Collection\Helpers;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 
 /**
@@ -23,7 +26,13 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
  * @template TKey
  * @template TValue
  */
-class CountCollectables {
+final class CountCollectables implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Counting result

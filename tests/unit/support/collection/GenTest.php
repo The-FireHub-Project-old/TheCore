@@ -68,6 +68,20 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testFromArray ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            Gen::fromArray(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2], $this->collection->all());

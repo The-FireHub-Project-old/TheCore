@@ -94,6 +94,28 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testFromArray ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1'],
+                ['object' => $this->cls2, 'info' => [1,2,3]],
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            Obj::fromArray([
+                ['object' => $this->cls1, 'info' => 'data for object 1'],
+                ['object' => $this->cls2, 'info' => [1,2,3]],
+                ['object' => $this->cls3, 'info' => 20]
+            ])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testAll ():void {
 
         $this->assertSame([
