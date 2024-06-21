@@ -237,7 +237,6 @@ class Associative extends Arr {
      *
      * $collection->each(function ($value, $key) {
      *  if ($value === 'Jack') return false;
-     *  return true;
      * });
      *
      * // true

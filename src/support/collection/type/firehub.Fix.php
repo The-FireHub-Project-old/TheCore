@@ -390,7 +390,6 @@ final class Fix implements Init, Accessible {
      *
      * $collection->each(function ($value) {
      *  if ($value === 'four') return false;
-     *  return true;
      * });
      *
      * // true

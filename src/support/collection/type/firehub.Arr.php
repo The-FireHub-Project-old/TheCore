@@ -487,7 +487,6 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection->each(function ($value, $key) {
      *  if ($value === 'Jack') return false;
-     *  return true;
      * });
      *
      * // false

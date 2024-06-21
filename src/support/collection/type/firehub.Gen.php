@@ -364,7 +364,6 @@ final class Gen implements Init, Collectable {
      *
      * $collection->each(function ($value, $key) {
      *  if ($value === 'John') return false;
-     *  return true;
      * });
      *
      * // false

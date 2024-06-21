@@ -102,7 +102,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * ### Call user generated function on each item in collection
      * @since 1.0.0
      *
-     * @param callable(TValue=, TKey=):(false|void) $callback <p>
+     * @param callable(TValue=, TKey=):mixed $callback <p>
      * Function to call on each item in collection.
      * </p>
      * @param positive-int $limit [optional] <p>

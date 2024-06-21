@@ -471,13 +471,12 @@ final class Obj implements Init, Accessible {
      *
      * $collection->each(function ($object, $info) {
      *  if ($info === 'data for object 1') return false;
-     *  return true;
      * });
      *
      * // false
      * ```
      *
-     * @param callable(object=, mixed=):(false|void) $callback <p>
+     * @param callable(object=, mixed=):mixed $callback <p>
      * Function to call on each item in collection.
      * </p>
      * @param positive-int $limit [optional] <p>
