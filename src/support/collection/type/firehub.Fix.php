@@ -628,10 +628,6 @@ final class Fix implements Init, Accessible {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count collection items.
-     *
-     * @param array<array-key, mixed> $data <p>
-     * Serialized data.
-     * </p>
      */
     public function __unserialize (array $data):void {
 
