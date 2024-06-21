@@ -35,19 +35,4 @@ interface Callables {
      */
     public function __call (string $method, array $arguments):mixed;
 
-    /**
-     * ### Invoking inaccessible (protected or private) or non-existing static methods in an object context
-     * @since 1.0.0
-     *
-     * @param non-empty-string $method <p>
-     * Method name.
-     * </p>
-     * @param array<array-key, mixed> $arguments <p>
-     * List of arguments.
-     * </p>
-     *
-     * @return mixed Method return.
-     */
-    public static function __callStatic (string $method, array $arguments):mixed;
-
 }

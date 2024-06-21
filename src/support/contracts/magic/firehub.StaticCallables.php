@@ -14,32 +14,25 @@
 
 namespace FireHub\Core\Support\Contracts\Magic;
 
-
 /**
- * ### UnCallable contract
- *
- * @inheritDoc
- *
+ * ### Static callable contract
  * @since 1.0.0
  */
-interface UnCallables extends Callables, StaticCallables {
+interface StaticCallables {
 
     /**
-     * @inheritDoc
-     *
+     * ### Invoking inaccessible (protected or private) or non-existing static methods in an object context
      * @since 1.0.0
      *
-     * @return never
-     */
-    public function __call (string $method, array $arguments):never;
-
-    /**
-     * @inheritDoc
+     * @param non-empty-string $method <p>
+     * Method name.
+     * </p>
+     * @param array<array-key, mixed> $arguments <p>
+     * List of arguments.
+     * </p>
      *
-     * @since 1.0.0
-     *
-     * @return never
+     * @return mixed Method return.
      */
-    public static function __callStatic (string $method, array $arguments):never;
+    public static function __callStatic (string $method, array $arguments):mixed;
 
 }
