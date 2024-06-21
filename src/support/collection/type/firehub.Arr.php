@@ -25,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    first, last
+    is_empty, first, last
 };
 
 /**
@@ -38,6 +38,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 abstract class Arr implements Init, Accessible {
 
@@ -530,6 +531,54 @@ abstract class Arr implements Init, Accessible {
             if (!$callback($value)) return false;
 
         return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\is_empty() To check if an array is empty.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->isEmpty();
+     *
+     * // false
+     * ```
+     */
+    public function isEmpty ():bool {
+
+        return is_empty($this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::isEmpty() To check if a collection is empty.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->isNotEmpty();
+     *
+     * // true
+     * ```
+     */
+    public function isNotEmpty ():bool {
+
+        return !static::isEmpty();
 
     }
 

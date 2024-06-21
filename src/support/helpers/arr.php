@@ -14,7 +14,40 @@
 
 namespace FireHub\Core\Support\Helpers\Arr;
 
-use FireHub\Core\Support\LowLevel\Arr;
+use FireHub\Core\Support\LowLevel\ {
+    Arr, Iterables
+};
+
+
+
+/**
+ * ### Checks if an array is empty
+ * @since 1.0.0
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Array\is_empty;
+ *
+ * is_empty([]);
+ *
+ * // true
+ * ```
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count array elements.
+ *
+ * @param array<array-key, mixed> $array <p>
+ * Array to check.
+ * </p>
+ *
+ * @return bool True if an array is empty, false otherwise
+ *
+ * @api
+ */
+function is_empty (array $array):bool {
+
+    return Iterables::count($array) === 0;
+
+}
 
 /**
  * ### Get first value from array

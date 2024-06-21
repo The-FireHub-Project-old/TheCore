@@ -31,6 +31,8 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  * @since 1.0.0
  *
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, object>
+ *
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Obj implements Init, Accessible {
 
@@ -639,6 +641,70 @@ final class Obj implements Init, Accessible {
     public function doesntContains (mixed $value):bool {
 
         return !$this->contains($value);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To check if the number of collection items is 0.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->isEmpty();
+     *
+     * // false
+     * ```
+     */
+    public function isEmpty ():bool {
+
+        return $this->count() === 0;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::isEmpty() To check if a collection is empty.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->isNotEmpty();
+     *
+     * // true
+     * ```
+     */
+    public function isNotEmpty ():bool {
+
+        return !self::isEmpty();
 
     }
 

@@ -282,6 +282,28 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testIsEmpty ():void {
+
+        $this->assertFalse($this->collection->isEmpty());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsNotEmpty ():void {
+
+        $this->assertTrue($this->collection->isNotEmpty());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSearch ():void {
 
         $this->assertSame(0, $this->collection->search($this->cls1));

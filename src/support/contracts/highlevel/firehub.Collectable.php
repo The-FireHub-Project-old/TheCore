@@ -140,6 +140,22 @@ interface Collectable extends Countable, IterablesAggregate {
     public function search (mixed $value):mixed;
 
     /**
+     * ### Check if a collection is empty
+     * @since 1.0.0
+     *
+     * @return bool True if a collection is empty, false otherwise.
+     */
+    public function isEmpty ():bool;
+
+    /**
+     * ### Check if a collection is not empty
+     * @since 1.0.0
+     *
+     * @return bool True if a collection is not empty, false otherwise.
+     */
+    public function isNotEmpty ():bool;
+
+    /**
      * ### Determines whether a collection contains a given item
      * @since 1.0.0
      *
