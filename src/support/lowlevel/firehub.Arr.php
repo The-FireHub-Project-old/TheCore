@@ -1104,7 +1104,7 @@ final class Arr implements InitStatic {
      * The array.
      * </p>
      *
-     * @return array<TValue> An indexed array of values.
+     * @return array<int, TValue> An indexed array of values.
      */
     public static function values (array $array):array {
 
