@@ -247,4 +247,20 @@ final class GenTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSerialize ():void {
+
+        $this->assertSame(
+            'O:40:"FireHub\Core\Support\Collection\Type\Gen":4:{s:9:"firstname";s:4:"John";s:8:"lastname";s:3:"Doe";s:3:"age";i:25;i:10;i:2;}',
+            $serialize = serialize($this->collection)
+        );
+
+        $this->assertEquals($this->collection, unserialize($serialize));
+
+    }
+
 }

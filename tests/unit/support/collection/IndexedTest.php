@@ -320,4 +320,20 @@ final class IndexedTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSerialize ():void {
+
+        $this->assertSame(
+            'O:44:"FireHub\Core\Support\Collection\Type\Indexed":6:{i:0;s:4:"John";i:1;s:4:"Jane";i:2;s:4:"Jane";i:3;s:4:"Jane";i:4;s:7:"Richard";i:5;s:7:"Richard";}',
+            $serialize = serialize($this->collection)
+        );
+
+        $this->assertEquals($this->collection, unserialize($serialize));
+
+    }
+
 }

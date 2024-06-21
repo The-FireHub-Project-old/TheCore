@@ -269,4 +269,20 @@ final class FixTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSerialize ():void {
+
+        $this->assertSame(
+            'O:40:"FireHub\Core\Support\Collection\Type\Fix":3:{i:0;s:3:"one";i:1;s:3:"two";i:2;s:5:"three";}',
+            $serialize = serialize($this->collection)
+        );
+
+        $this->assertEquals($this->collection, unserialize($serialize));
+
+    }
+
 }

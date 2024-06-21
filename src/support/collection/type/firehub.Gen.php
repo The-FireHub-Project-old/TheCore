@@ -531,4 +531,38 @@ final class Gen implements Init, Collectable {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::all() To get a collection as an array.
+     *
+     * @return array<TKey, TValue> An associative array of key/value pairs that represent the serialized form of the object.
+     */
+    public function __serialize ():array {
+
+        return $this->all();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
+     *
+     * @param array<TKey, TValue> $data <p>
+     * Serialized data.
+     * </p>
+     */
+    public function __unserialize (array $data):void {
+
+        $this->callable = fn():Generator => yield from $data;
+
+        $this->invoke();
+
+    }
+
 }

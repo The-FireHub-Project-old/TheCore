@@ -20,7 +20,7 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\LowLevel\ {
-    DataIs, Iterator
+    DataIs, Iterables, Iterator
 };
 use SplFixedArray, Traversable;
 
@@ -606,6 +606,39 @@ final class Fix implements Init, Accessible {
     public function jsonSerialize ():array {
 
         return $this->storage->jsonSerialize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return array<mixed> An associative array of key/value pairs that represent the serialized form of the object.
+     */
+    public function __serialize ():array {
+
+        return $this->jsonSerialize();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count collection items.
+     *
+     * @param array<array-key, mixed> $data <p>
+     * Serialized data.
+     * </p>
+     */
+    public function __unserialize (array $data):void {
+
+        $this->storage = new SplFixedArray(Iterables::count($data));
+
+        $count = 0;
+        foreach ($data as $value) $this->storage[$count++] = $value;
 
     }
 
