@@ -279,6 +279,23 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testEvery ():void {
+
+        $this->assertFalse($this->collection->every(function ($value) {
+            return $value === 'Jane';
+        }));
+
+        $this->assertTrue($this->collection->every(function ($value) {
+            return $value !== 'Jack';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testContains ():void {
 
         $this->assertTrue($this->collection->contains('Jane'));

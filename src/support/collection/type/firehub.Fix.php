@@ -32,6 +32,8 @@ use SplFixedArray, Traversable;
  * @since 1.0.0
  *
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, mixed>
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class Fix implements Init, Accessible {
 
@@ -404,6 +406,37 @@ final class Fix implements Init, Accessible {
                 $callback($value) === false
                 || $counter++ > $limit
             ) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->every(function ($value) {
+     *  return $value !== 'four';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function every (callable $callback):bool {
+
+        foreach ($this->storage as $value)
+            if (!$callback($value)) return false;
 
         return true;
 

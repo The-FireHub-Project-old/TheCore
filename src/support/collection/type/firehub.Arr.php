@@ -485,7 +485,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $collection->each(function ($value, $key) {
+     * $collection->each(function ($value) {
      *  if ($value === 'Jack') return false;
      * });
      *
@@ -501,6 +501,33 @@ abstract class Arr implements Init, Accessible {
                 $callback($value) === false
                 || $counter++ > $limit
             ) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->every(function ($value) {
+     *  return $value !== 'Jack';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function every (callable $callback):bool {
+
+        foreach ($this->storage as $value)
+            if (!$callback($value)) return false;
 
         return true;
 

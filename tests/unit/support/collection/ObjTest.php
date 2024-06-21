@@ -233,6 +233,23 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testEvery ():void {
+
+        $this->assertFalse($this->collection->every(function ($object, $info) {
+            return $info === 'data for object 1';
+        }));
+
+        $this->assertTrue($this->collection->every(function ($object, $info) {
+            return $info !== 10;
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testContains ():void {
 
         $this->assertTrue($this->collection->contains($this->cls1));

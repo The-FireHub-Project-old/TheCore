@@ -504,6 +504,41 @@ final class Obj implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->every(function ($object, $info) {
+     *  return $info !== 10;
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function every (callable $callback):bool {
+
+        foreach ($this->storage as $object)
+            if (!$callback($object, $this->storage[$object])) return false; // @phpstan-ignore-line
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Obj::first() Used to search string value.
      * @uses \FireHub\Core\Support\Collection\Type\Obj::search() Used to search a callable value.

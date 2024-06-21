@@ -388,6 +388,33 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->every(function ($value, $key) {
+     *  return $key !== 'gender';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function every (callable $callback):bool {
+
+        foreach ($this as $key => $value)
+            if (!$callback($value, $key)) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Gen::first() Used to search string value.
      * @uses \FireHub\Core\Support\Collection\Type\Gen::search() Used to search a callable value.

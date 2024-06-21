@@ -261,6 +261,33 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->every(function ($value, $key) {
+     *  return $key !== 'gender';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function every (callable $callback):bool {
+
+        foreach ($this->storage as $key => $value)
+            if (!$callback($value, $key)) return false;
+
+        return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @param ?array-key $offset <p>
      * Offset to assign the value to.
      * </p>
