@@ -36,11 +36,23 @@ interface Accessible extends Collectable, ArrayAccessible {
      * @since 1.0.0
      *
      * @param callable(TValue $value=, TKey=):bool $callback <p>
-     * Function to call on each item in collection.
+     * Function to call on each item in a collection.
      * </p>
      *
      * @return static<TKey, TValue> New filtered collection.
      */
     public function filter (callable $callback):self;
+
+    /**
+     * ### Reject items from collection
+     * @since 1.0.0
+     *
+     * @param callable(TValue $value=, TKey=):bool $callback $callback <p>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return static<TKey, TValue> New rejected collection.
+     */
+    public function reject (callable $callback):self;
 
 }

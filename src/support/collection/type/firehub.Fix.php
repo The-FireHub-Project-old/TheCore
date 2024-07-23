@@ -34,6 +34,7 @@ use SplFixedArray, Traversable;
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, mixed>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Fix implements Init, Accessible {
 
@@ -674,6 +675,37 @@ final class Fix implements Init, Accessible {
         $storage->setSize($counter);
 
         return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $reject = $collection->reject(function ($value) {
+     *  return $value === 'one';
+     * });
+     *
+     * // ['two', 'three']
+     * ```
+     */
+    public function reject (callable $callback):self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value) => $value != $callback($value));
 
     }
 

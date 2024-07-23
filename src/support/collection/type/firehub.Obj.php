@@ -816,6 +816,43 @@ final class Obj implements Init, Accessible {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $filter = $collection->reject(function ($object, $info) {
+     *  return $info !== 20;
+     * });
+     *
+     * // [[object(stdClass), 'data for object 1']]
+     * ```
+     */
+    public function reject (callable $callback):self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function offsetExists (mixed $offset):bool {
 

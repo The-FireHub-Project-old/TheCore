@@ -734,6 +734,33 @@ abstract class Arr implements Init, Accessible {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $filtered = $collection->reject(function ($value) {
+     *  return $value !== 'Jane';
+     * });
+     *
+     * // ['Jane', 'Jane', 'Jane']
+     * ```
+     */
+    public function reject (callable $callback):static {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value) => $value != $callback($value));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function offsetExists (mixed $offset):bool {
 

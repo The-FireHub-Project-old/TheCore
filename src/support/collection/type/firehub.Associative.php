@@ -318,6 +318,33 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $filtered = $collection->reject(function ($value, $key) {
+     *  return $key === 'age' || $value === 2;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     */
+    public function reject (callable $callback):static {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @param ?array-key $offset <p>
      * Offset to assign the value to.
      * </p>
