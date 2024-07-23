@@ -316,4 +316,17 @@ final class ObjTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFilter ():void {
+
+        $this->assertSame([['object' => $this->cls3, 'info' => 20]], $this->collection->filter(function ($object, $info) {
+            return $info === 20;
+        })->all());
+
+    }
+
 }

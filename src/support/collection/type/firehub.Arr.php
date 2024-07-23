@@ -268,7 +268,7 @@ abstract class Arr implements Init, Accessible {
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
      * ]);
      *
-     * $count = $collection->countByValues('lastname);
+     * $count = $collection->countByValues('lastname');
      *
      * // ['Doe' => 2, 'Roe' => 1]
      * ```
@@ -539,6 +539,50 @@ abstract class Arr implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->search('Jane');
+     *
+     * // 1
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->search(function ($value, $key) {
+     *  return $value !== 'John';
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
+     */
+    public function search (mixed $value):int|string|false {
+
+        return DataIs::callable($value)
+            ? ($this->firstKey($value) ?? false)
+            : ArrLL::search($value, $this->storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Helpers\Arr\is_empty() To check if an array is empty.
      *
      * @example
@@ -663,9 +707,7 @@ abstract class Arr implements Init, Accessible {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::firstKey() To get the first key from a collection.
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter elements in an array.
      *
      * @example
      * ```php
@@ -673,32 +715,18 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $collection->search('Jane');
-     *
-     * // 1
-     * ```
-     * @example With callable.
-     * ```php
-     * use FireHub\Core\Support\Collection;
-     *
-     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $collection->search(function ($value, $key) {
-     *  return $value !== 'John';
+     * $filtered = $collection->filter(function ($value) {
+     *  return $value !== 'Jane';
      * });
      *
-     * // 1
+     * // ['John', 'Richard', 'Richard']
      * ```
-     *
-     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
-     * Please read the section on Booleans for more information.
-     * Use the === operator for testing the return value of this function.
      */
-    public function search (mixed $value):int|string|false {
+    public function filter (callable $callback):static {
 
-        return DataIs::callable($value)
-            ? ($this->firstKey($value) ?? false)
-            : ArrLL::search($value, $this->storage);
+        return new static(
+            ArrLL::filter($this->storage, $callback, true)
+        );
 
     }
 

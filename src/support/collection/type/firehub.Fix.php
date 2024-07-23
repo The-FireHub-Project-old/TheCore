@@ -447,6 +447,56 @@ final class Fix implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->search('two');
+     *
+     * // 1
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->search(function ($value) {
+     *  return $value !== 'one';
+     * });
+     *
+     * // 1
+     * ```
+     */
+    public function search (mixed $value):int|false {
+
+        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
+
+        foreach ($this->storage as $storage_key => $storage_value)
+            if ($value === $storage_value) return $storage_key;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Fix::count() To check if the number of collection items is 0.
      *
      * @example
@@ -595,9 +645,6 @@ final class Fix implements Init, Accessible {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Fix::firstKey() To get the first key from a collection.
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
-     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;
@@ -608,35 +655,25 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $collection->search('two');
-     *
-     * // 1
-     * ```
-     * @example With callable.
-     * ```php
-     * use FireHub\Core\Support\Collection;
-     *
-     * $collection = Collection::fixed(function ($storage):void {
-     *  $storage[0] = 'one';
-     *  $storage[1] = 'two';
-     *  $storage[2] = 'three';
-     * }, 3);
-     *
-     * $collection->search(function ($value) {
+     * $filtered = $collection->filter(function ($value) {
      *  return $value !== 'one';
      * });
      *
-     * // 1
+     * // ['two', 'three']
      * ```
      */
-    public function search (mixed $value):int|false {
+    public function filter (callable $callback):self {
 
-        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
+        $storage = new SplFixedArray($this->storage->getSize());
 
-        foreach ($this->storage as $storage_key => $storage_value)
-            if ($value === $storage_value) return $storage_key;
+        $counter = 0;
 
-        return false;
+        foreach ($this->storage as $value)
+            !$callback($value) ?: $storage[$counter++] = $value;
+
+        $storage->setSize($counter);
+
+        return new self($storage);
 
     }
 

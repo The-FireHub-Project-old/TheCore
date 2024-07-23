@@ -367,6 +367,19 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testFilter ():void {
+
+        $this->assertSame([0 => 'John', 4 => 'Richard', 5 => 'Richard'], $this->collection->filter(function ($value) {
+            return $value !== 'Jane';
+        })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));

@@ -227,6 +227,19 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testFilter ():void {
+
+        $this->assertSame(['age' => 25, 10 => 2], $this->collection->filter(function ($value, $key) {
+            return $key !== 'firstname' && $value !== 'Doe';
+        })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));

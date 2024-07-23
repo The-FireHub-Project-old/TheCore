@@ -31,4 +31,16 @@ use FireHub\Core\Support\Contracts\ArrayAccessible;
  */
 interface Accessible extends Collectable, ArrayAccessible {
 
+    /**
+     * ### Filter items from collection
+     * @since 1.0.0
+     *
+     * @param callable(TValue $value=, TKey=):bool $callback <p>
+     * Function to call on each item in collection.
+     * </p>
+     *
+     * @return static<TKey, TValue> New filtered collection.
+     */
+    public function filter (callable $callback):self;
+
 }

@@ -1044,7 +1044,7 @@ final class Arr implements InitStatic {
     /**
      * ### Exchanges all keys with their associated values in an array
      *
-     * Returns an array in flip order; i.e., keys from an $array become values and values from an $array become keys.
+     * Returns an array in flip order; i.e., keys from an $array become values, and values from an $array become keys.
      * Note that the values of $array need to be valid keys, i.e., they need to be either int or string. A warning
      * will be emitted if a value has the wrong type, and the key/value pair in question will not be included in the
      * result. If a value has several occurrences, the latest key will be used as its value, and all others will be

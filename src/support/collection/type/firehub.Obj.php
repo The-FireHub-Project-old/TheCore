@@ -541,6 +541,71 @@ final class Obj implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::firstKey() To get the first key from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->search($cls1);
+     *
+     * // 0
+     * ```
+     * @example With callable.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->search(function ($object, $info) use ($cls1, $cls2, $cls3) {
+     *  return $info !== 'data for object 1';
+     * });
+     *
+     * // 1
+     * ```
+     *
+     * @param object|callable(object=, mixed=):bool $value <p>
+     * The searched value.
+     * If value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function search (mixed $value):int|false {
+
+        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
+
+        foreach ($this->storage as $key => $object)
+            if ($value === $object) return $key;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Obj::first() Used to search string value.
      * @uses \FireHub\Core\Support\Collection\Type\Obj::search() Used to search a callable value.
@@ -713,29 +778,10 @@ final class Obj implements Init, Accessible {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Obj::firstKey() To get the first key from a collection.
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
-     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $cls1 = new stdClass();
-     * $cls2 = new stdClass();
-     * $cls3 = new stdClass();
-     *
-     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
-     *  $storage[$cls1] = 'data for object 1';
-     *  $storage[$cls2] = [1,2,3];
-     *  $storage[$cls3] = 20;
-     * });
-     *
-     * $collection->search($cls1);
-     *
-     * // 0
-     * ```
-     * @example With callable.
-     * ```php
      * use FireHub\Core\Support\Collection;
      *
      * $cls1 = new stdClass();
@@ -748,28 +794,21 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $collection->search(function ($object, $info) use ($cls1, $cls2, $cls3) {
-     *  return $info !== 'data for object 1';
+     * $filter = $collection->filter(function ($object, $info) {
+     *  return $info === 20;
      * });
      *
-     * // 1
+     * // [[object(stdClass), 'data for object 1']]
      * ```
-     *
-     * @param object|callable(object=, mixed=):bool $value <p>
-     * The searched value.
-     * If value is a string, the comparison is done in a case-sensitive manner.
-     * </p>
-     *
-     * @phpstan-ignore-next-line
      */
-    public function search (mixed $value):int|false {
+    public function filter (callable $callback):self {
 
-        if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
+        $storage = new SplObjectStorage();
 
-        foreach ($this->storage as $key => $object)
-            if ($value === $object) return $key;
+        foreach ($this->storage as $object)
+            !$callback($object, $this->storage[$object]) ?: $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
-        return false;
+        return new self($storage);
 
     }
 

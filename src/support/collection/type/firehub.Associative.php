@@ -14,6 +14,8 @@
 
 namespace FireHub\Core\Support\Collection\Type;
 
+use FireHub\Core\Support\LowLevel\Arr as ArrLL;
+
 /**
  * ### Associative array collection type
  *
@@ -280,6 +282,34 @@ class Associative extends Arr {
             if (!$callback($value, $key)) return false;
 
         return true;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $filtered = $collection->filter(function ($value, $key) {
+     *  return $key !== 'firstname' && $value !== 'Doe';
+     * });
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     */
+    public function filter (callable $callback):static {
+
+        return new static(
+            ArrLL::filter($this->storage, $callback, true, true)
+        );
 
     }
 
