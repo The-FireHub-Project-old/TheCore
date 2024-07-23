@@ -52,10 +52,10 @@ final class Chars implements Init, Predefined {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters To test if $characters is list of character interface.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters To test if $characters is a list of character interface.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To get a raw string from character.
      *
-     * @throws Error If $characters is not exclusive list of character interface.
+     * @throws Error If $characters is not an exclusive list of character interface.
      */
     public function regex ():string {
 

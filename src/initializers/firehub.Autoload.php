@@ -23,10 +23,12 @@ use Closure, Error, Throwable;
 /**
  * ### Automatically loads classes and interfaces
  *
- * Autoload registers any number of autoloaders, enabling for classes and interfaces to be automatically loaded if they
- * are currently not defined. By registering autoloaders, FireHub is given a last chance to load the class or
- * interface before it fails with an error. Any class-like construct may be autoloaded the same way. That includes
- * classes, interfaces, traits, and enumerations.
+ * Autoload registers any number of autoloaders, enabling for classes and interfaces to be automatically loaded
+ * if they're currently not defined.
+ * By registering autoloaders, FireHub is given a last chance to load the class or interface
+ * before it fails with an error.
+ * Any class-like construct may be autoloaded the same way.
+ * That includes classes, interfaces, traits, and enumerations.
  * @since 1.0.0
  *
  * @api
@@ -47,7 +49,7 @@ final class Autoload {
      *
      * @uses \FireHub\Core\Initializers\Autoload\Callback As autoload function being registered.
      * @uses \FireHub\Core\Support\LowLevel\SplAutoload::register() To register a callback function as an autoloader.
-     * @uses \FireHub\Core\Initializers\Autoload\Loaders::add() To add new callback function as loader with alias.
+     * @uses \FireHub\Core\Initializers\Autoload\Loaders::add() To add a new callback function as loader with alias.
      *
      * @param non-empty-string $alias $alias <p>
      * Autoloader implementation name.
@@ -60,7 +62,7 @@ final class Autoload {
      * </p>
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return void
      */
@@ -104,15 +106,15 @@ final class Autoload {
      * ```
      *
      * @param class-string[] $classes <p>
-     * List of classes to be preloaders. These preloaders will be called in order as they are in the list.
+     * List of classes to be preloaders. These preloaders will be called in order as they're in the list.
      * </p>
      * @param callable(string $class):string $callback <p>
      * <code>callable(string $class):string</code>
      * Get a class path for including.
      * </p>
      *
-     * @throws Error If a system cannot preload class.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @throws Error If a system can't preload a class.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return void
      */
@@ -124,14 +126,14 @@ final class Autoload {
     }
 
     /**
-     * ### Register new autoload implementation at the end of the queue
+     * ### Register a new autoloaded implementation at the end of the queue
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::$callback To invoke autoload function being registered.
      *
      * @example Registering new autoload implementation.
      *
-     * First parameter is autoloaded name that can be later used to unregistered same autoloader, while the second
+     * First parameter is autoloaded name that can be later used to unregister the same autoloader, while the second
      * parameter should be a root path where all your classes are stored.
      *
      * ```php
@@ -139,7 +141,7 @@ final class Autoload {
      *
      * Autoload::append('MyApp', 'path_to_my_app/');
      * ```
-     * @example Registering new autoload implementation with function.
+     * @example Registering a new autoloaded implementation with function.
      *
      * Alternatively, you can use callback instead of writing a direct root path. Callback should still return a root
      * path for your classes, but this way you can manipulate a returning result like in example bellow.
@@ -168,7 +170,7 @@ final class Autoload {
      * </p>
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return self Autoload implementation.
      */
@@ -182,7 +184,7 @@ final class Autoload {
      * ### This method is alias for [[Autoload#append()]]
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Initializers\Autoload::append() To register new autoload implementation at the end of
+     * @uses \FireHub\Core\Initializers\Autoload::append() To register a new autoloaded implementation at the end of
      * the queue.
      *
      * @param non-empty-string $alias <p>
@@ -195,7 +197,7 @@ final class Autoload {
      * </p>
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return self Autoload implementation.
      */
@@ -206,7 +208,7 @@ final class Autoload {
     }
 
     /**
-     * ### Register new autoload implementation at the beginning of the queue
+     * ### Register a new autoloaded implementation at the beginning of the queue
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::$callback To invoke autoload function being registered.

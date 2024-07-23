@@ -32,7 +32,7 @@ trait Base {
      *
      * @uses \FireHub\Core\Support\LowLevel\Constant::value() To return the value of a constant.
      *
-     * @throws Error If constant name is empty or doesn't exist.
+     * @throws Error If the constant name is empty or doesn't exist.
      */
     public static function getConstantValue (string $name):mixed {
 

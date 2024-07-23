@@ -55,7 +55,7 @@ final class Data implements InitStatic {
      * @uses \FireHub\Core\Support\Enums\Data\Type::T_RESOURCE As data type.
      *
      * @param mixed $value <p>
-     * The variable being type checked.
+     * The variable being type-checked.
      * </p>
      *
      * @throws Error If a type of value is unknown.
@@ -99,7 +99,7 @@ final class Data implements InitStatic {
      * Type to convert variable to.
      * </p>
      *
-     * @throws Error If a type cannot be set to resource or failed to set a type for value.
+     * @throws Error If a type can't be set to resource or failed to set a type for value.
      *
      * @return mixed Converted value.
      * @phpstan-return (
@@ -124,11 +124,11 @@ final class Data implements InitStatic {
      */
     public static function setType (mixed $value, Type $type):mixed {
 
-        // if value is array that is trying to convert to string
+        // if value is an array trying to convert to string
         if (self::getType($value) === Type::T_ARRAY && $type === Type::T_STRING)
             throw new Error('Cannot convert array to string.');
 
-        // if value is array that is trying to convert to string
+        // if value is an array trying to convert to string
         if (
             self::getType($value) === Type::T_OBJECT && !$value instanceof Stringable
             && (
@@ -166,12 +166,12 @@ final class Data implements InitStatic {
      * @since 1.0.0
      *
      * @param scalar|array<array-key, mixed>|object|null $value <p>
-     * The value to be serialized.
+     * The value is to be serialized.
      * </p>
      *
-     * @throws Error If try to serialize anonymous class, function or resource.
+     * @throws Error If try to serialize an anonymous class, function, or resource.
      *
-     * @return string String containing a byte-stream representation of value that can be stored anywhere.
+     * @return string String containing a byte-stream representation of a value that can be stored anywhere.
      *
      * @warning When serialize() serializes objects, the leading backslash is not included in the class name of
      * namespaced classes for maximum compatibility.
@@ -205,7 +205,7 @@ final class Data implements InitStatic {
      * or true to accept all classes.
      * </p>
      * @param int $max_depth [optional] <p>
-     * The maximum depth of structures permitted during unserialization, and is intended to prevent stack overflows.
+     * The maximum depth of structures is permitted during unserialization and is intended to prevent stack overflows.
      * </p>
      *
      * @throws Error $data is already false already or $data is NULL, or could not unserialize data.

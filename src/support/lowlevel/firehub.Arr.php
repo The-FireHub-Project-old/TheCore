@@ -125,7 +125,7 @@ final class Arr implements InitStatic {
      * An array with keys to check.
      * </p>
      *
-     * @return bool True if key exists in an array, false otherwise.
+     * @return bool True if the key exists in an array, false otherwise.
      *
      * @note Method will search for the keys in the first dimension only. Nested keys in multidimensional arrays will
      * not be found.
@@ -148,7 +148,7 @@ final class Arr implements InitStatic {
      * The array.
      * </p>
      *
-     * @return bool True if value is found in the array, false otherwise.
+     * @return bool True if a value is found in the array, false otherwise.
      */
     public static function inArray (mixed $value, array $array):bool {
 
@@ -164,7 +164,7 @@ final class Arr implements InitStatic {
      * @since 1.0.0
      *
      * @param array<array-key, mixed> $array <p>
-     * The array being evaluated.
+     * The array is being evaluated.
      * </p>
      *
      * @return ($array is list ? true: false) True if an array is a list, false otherwise.
@@ -217,11 +217,11 @@ final class Arr implements InitStatic {
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
      * <code>callable (TValue $value, TKey $key):mixed</code>
-     * Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
+     * Typically, the function name takes on two parameters. The array parameter's value is the first, and the key/index
      * second. If a function name needs to be working with the actual values of the array, specify the first
-     * parameter of function name as a reference. Then, any changes made to those elements will be made in the
-     * original array itself. Users may not change the array itself from the callback function, e.g., add/delete
-     * elements, unset elements, etc.
+     * parameter of the function name as a reference. Then, any changes made to those elements will be made in the
+     * original array itself. Users may not change the array itself from the callback function, for example, add/delete
+     * elements, unset elements, and so on.
      * </p>
      * @phpstan-param-out array<TKey, TValue> $array
      *
@@ -250,11 +250,11 @@ final class Arr implements InitStatic {
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
      * <code>callable (TValue $value, TKey $key):mixed</code>
-     * Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
+     * Typically, the function name takes on two parameters. The array parameter's value is the first, and the key/index
      * second. If a function name needs to be working with the actual values of the array, specify the first
-     * parameter of function name as a reference. Then, any changes made to those elements will be made in the
-     * original array itself. Users may not change the array itself from the callback function. E.g., Add/delete
-     * elements, unset elements, etc.
+     * parameter of the function name as a reference. Then, any changes made to those elements will be made in the
+     * original array itself. Users may not change the array itself from the callback function. For example, Add/delete
+     * elements, unset elements, and so on.
      * </p>
      * @phpstan-param-out array<TKey, TValue> $array
      *
@@ -294,7 +294,7 @@ final class Arr implements InitStatic {
     /**
      * ### Fill an array with values
      *
-     * Fills an array with $length entries of the value of the $value parameter, keys starting at the $start_index
+     * Fills an array with $length entries of the value for the $value parameter, keys starting at the $start_index
      * parameter.
      * @since 1.0.0
      *
@@ -337,7 +337,7 @@ final class Arr implements InitStatic {
      * Value to use for filling.
      * </p>
      *
-     * @throws Error If key could not be converted to string.
+     * @throws Error If the key couldn't be converted to string.
      *
      * @return array<TKey, TValue> The filled array.
      */
@@ -350,7 +350,8 @@ final class Arr implements InitStatic {
     /**
      * ### Changes the case of all keys in an array
      *
-     * Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.
+     * Returns an array with all keys from an array lowercased or uppercased.
+     * Numbered indices are left as is.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER As default parameter.
@@ -400,10 +401,10 @@ final class Arr implements InitStatic {
      * Default is false that will reindex the chunk numerically.
      * </p>
      *
-     * @throws ValueError If length is less than 1.
+     * @throws ValueError If the length is less than 1.
      *
      * @return ($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>) Multidimensional numerically indexed array, starting with zero,
-     * with each dimension containing $length elements.
+     * with each dimension is containing $length elements.
      */
     public static function chunk (array $array, int $length, bool $preserve_keys = false):array {
 
@@ -476,7 +477,7 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the difference of arrays using values for comparison
      *
-     * Compares an array against one or more other arrays and returns the values in array that are not present in any of
+     * Compares an array against one or more other arrays and returns the values in an array that aren't present in any of
      * the other arrays.
      * @since 1.0.0
      *
@@ -490,7 +491,7 @@ final class Arr implements InitStatic {
      * An array to compare against.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. You can check deeper dimensions by
      * using [[Arr#difference($array1[0], $array2[0])]].
@@ -523,12 +524,12 @@ final class Arr implements InitStatic {
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
      * value of 0, which will compare such values as equal.
-     * @note Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
+     * @note Note that this function only checks one dimension of an n-dimensional array. Of course, you can
      * check deeper dimensions by using [[Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func']].
      */
     public static function differenceFunc (array $array, array $excludes, callable $callback):array {
@@ -540,8 +541,8 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the difference of arrays using keys for comparison
      *
-     * Compares the keys from array against the keys from arrays and returns the difference. This function is like
-     * [[Arr#difference()]] except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like [[Arr#difference()]] except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -554,7 +555,7 @@ final class Arr implements InitStatic {
      * An array to compare against.
      * </p>
      *
-     * @return array<TKey, TValue> Returns an array containing all the entries from array whose keys are absent from all the other arrays.
+     * @return array<TKey, TValue> Returns an array containing all the entries from an array whose keys are absent from all the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
      * dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].
@@ -568,8 +569,8 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
      *
-     * Compares the keys from array against the keys from arrays and returns the difference. This function is like
-     * [[Arr#difference()]] except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like [[Arr#difference()]] except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -586,7 +587,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
@@ -617,7 +618,7 @@ final class Arr implements InitStatic {
      * An array to compare against.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. It is possible to check deeper
      * dimensions by using, for example, [[Arr#differenceAssoc($array1[0], $array2[0])]].
@@ -633,7 +634,7 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the difference of arrays with additional index check by using a callback for value comparison
      *
-     * Computes the difference of arrays with additional index check, compares data by a callback function.
+     * Computes the difference of arrays with an additional index check, compares data by a callback function.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -650,12 +651,12 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
      * of 0, which will compare such values as equal.
-     * @note Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
+     * @note Note that this function only checks one dimension of an n-dimensional array. Of course, you can
      * check deeper dimensions by using, for example,
      * [[Arr#differenceAssocFuncValue($array1[0], $array2[0], 'some_comparison_func')]].
      */
@@ -670,7 +671,7 @@ final class Arr implements InitStatic {
      *
      * Compares an array against arrays and returns the difference. Unlike [[Arr#difference()]], the array keys are
      * used in the comparison. Unlike [[Arr#differenceAssoc()]], a user-supplied callback function is used for the
-     * indices comparison, not internal function.
+     * indices comparison, not an internal function.
      * @since 1.0.0
      *
      * @template TKey
@@ -687,7 +688,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TValue> Returns an array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TValue> Returns an array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -726,7 +727,7 @@ final class Arr implements InitStatic {
      * The comparison function for key.
      * </p>
 
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -744,8 +745,8 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the intersection of arrays using values for comparison
      *
-     * Returns an array containing all the values of array that are present in all the arguments. Note that keys are
-     * preserved.
+     * Returns an array containing all the values of an array that are present in all the arguments.
+     * Note that keys are preserved.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -789,7 +790,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> Arrays containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> Arrays containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -806,7 +807,7 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the intersection of arrays using keys for comparison
      *
-     * Returns an array containing all the entries of array which have keys that are present in all the arguments.
+     * Returns an array containing all the entries of an array which have keys that are present in all the arguments.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -830,7 +831,7 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the intersection of arrays using keys for comparison by using a callback for data comparison
      *
-     * Returns an array containing all the values of array which have matching keys that are present in all the
+     * Returns an array containing all the values of an array which have matching keys that are present in all the
      * arguments.
      * @since 1.0.0
      *
@@ -848,7 +849,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -863,8 +864,8 @@ final class Arr implements InitStatic {
     /**
      * ### Computes the intersection of arrays with additional index check
      *
-     * Returns an array containing all the values of array that are present in all the arguments. Note that the keys
-     * are also used in the comparison unlike in [[Arr#intersect()]].
+     * Returns an array containing all the values of an array that are present in all the arguments.
+     * Note that the keys are also used in the comparison unlike in [[Arr#intersect()]].
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -910,7 +911,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -943,7 +944,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -982,7 +983,7 @@ final class Arr implements InitStatic {
      * The comparison function for key.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that are not present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -999,9 +1000,10 @@ final class Arr implements InitStatic {
     /**
      * ### Filter elements in an array
      *
-     * Iterates over each value in the $array passing them to the $callback function. If the $callback function
-     * returns true, the current value from an $array is returned into the result array. Array keys are preserved, and
-     * may result in gaps if the $array was indexed. The result array can be re-indexed using the values() function.
+     * Iterates over each value in the $array, passing them to the $callback function.
+     * If the $callback function returns true, the current value from an $array is returned into the result array.
+     * Array keys are preserved and may result in gaps if the $array was indexed.
+     * The result array can be re-indexed using the values() function.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::null To find whether a callable parameter is null.
@@ -1026,7 +1028,7 @@ final class Arr implements InitStatic {
      *
      * @return array<TKey, TValue> Filtered array.
      *
-     * @caution If the array is changed from the callback function (e.g., an element added, deleted or unset) then
+     * @caution If the array is changed from the callback function (for example, an element added, deleted, or unset), then
      * behavior of this function is undefined.
      */
     public static function filter (array $array, ?callable $callback = null, bool $pass_value = false, bool $pass_key = false):array {
@@ -1044,11 +1046,12 @@ final class Arr implements InitStatic {
     /**
      * ### Exchanges all keys with their associated values in an array
      *
-     * Returns an array in flip order; i.e., keys from an $array become values, and values from an $array become keys.
-     * Note that the values of $array need to be valid keys, i.e., they need to be either int or string. A warning
-     * will be emitted if a value has the wrong type, and the key/value pair in question will not be included in the
-     * result. If a value has several occurrences, the latest key will be used as its value, and all others will be
-     * lost.
+     * Returns an array in flip order; in other words, keys from an $array become values,
+     * and values from an $array become keys.
+     * Note that the values of $array need to be valid keys; in other words, they need to be either int or string.
+     * A warning will be emitted if a value has the wrong type, and the key/value pair in question will not be
+     * included in the result.
+     * If a value has several occurrences, the latest key will be used as its value, and all others will be lost.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -1069,10 +1072,11 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Return all the keys or a subset of the keys of an array
+     * ### Return all the keys or a subset of the keys for an array
      *
-     * Returns the keys, numeric and string, from the $array. If a $filter is specified, then only the keys for that
-     * value are returned. Otherwise, all the keys from the array are returned.
+     * Returns the keys, numeric, and string, from the $array.
+     * If a $filter is specified, then only the keys for that value are returned.
+     * Otherwise, all the keys from the array are returned.
      * @since 1.0.0
      *
      * @param array<array-key, mixed> $array <p>
@@ -1143,12 +1147,12 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Merges the elements of one or more arrays together
+     * ### Merges the elements of one or more arrays
      *
-     * Merges the elements of one or more arrays together so that the values of one are appended to the end of the
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of the
      * previous one. It returns the resulting array. If the input arrays have the same string keys, then the later
      * value for that key will overwrite the previous one. If, however, the arrays contain numeric keys, the later
-     * value will not overwrite the original value, but will be appended. Values in the input arrays with numeric
+     * value will not overwrite the original value but will be appended. Values in the input arrays with numeric
      * keys will be renumbered with incrementing keys starting from zero in the result array.
      * @since 1.0.0
      *
@@ -1174,11 +1178,11 @@ final class Arr implements InitStatic {
     /**
      * ### Merge two or more arrays recursively
      *
-     * Merges the elements of one or more arrays together so that the values of one are appended to the end of the
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of the
      * previous one. It returns the resulting array. If the input arrays have the same string keys, then the values
      * for these keys are merged into an array. This is done recursively, so that if one of the values is an array
      * itself, the function will merge it with a corresponding entry in another array too. If, however, the arrays
-     * have the same numeric key, the later value will not overwrite the original value, but will be appended.
+     * have the same numeric key, the later value will not overwrite the original value but will be appended.
      * @since 1.0.0
      *
      * @param array<array-key, mixed> ...$arrays [optional] <p>
@@ -1196,10 +1200,10 @@ final class Arr implements InitStatic {
     /**
      * ### Pad array to the specified length with a value
      *
-     * Returns a copy of the array padded to size specified by $length with value $value. If the length is positive,
-     * then the array is padded on the right if it's negative then on the left. If the absolute value of length is
-     * less than or equal to the length of the array, then no padding takes place. It is possible to add at most
-     * 1048576 elements at a time.
+     * Returns a copy of the array padded to the size specified by $length with value $value.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.
+     * If the absolute value of length is less than or equal to the length of the array, then no padding takes place.
+     * It is possible to add at most 1,048,576 elements at a time.
      * @since 1.0.0
      *
      * @param array<array-key, mixed> $array <p>
@@ -1207,7 +1211,7 @@ final class Arr implements InitStatic {
      * </p>
      * @param int $length <p>
      * New size of the array.
-     * If the length is positive, then the array is padded on the right if it's negative then on the left.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.
      * If the absolute value of length is less than or equal to the length of the array, then no padding takes place.
      * </p>
      * @param mixed $value <p>
@@ -1295,7 +1299,7 @@ final class Arr implements InitStatic {
      * </p>
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
-     * Non-numeric keys are not affected by this setting and will always be preserved.
+     * Non-numeric keys aren't affected by this setting and will always be preserved.
      * </p>
      *
      * @return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) The reversed array.
@@ -1359,23 +1363,23 @@ final class Arr implements InitStatic {
      * If the offset is negative, then it starts that far from the end of the input array.
      * </p>
      * @param null|int $length [optional] <p>
-     * If length is omitted, removes everything from offset to the end of the array.
-     * If length is specified and is positive, then that many elements will be removed.
-     * If length is specified and is negative, then the end of the removed portion will be that many elements from
+     * If the length is omitted, removes everything from offset to the end of the array.
+     * If the length is specified and is positive, then that many elements will be removed.
+     * If the length is specified and is negative, then the end of the removed portion will be that many elements from
      * the end of the array.
      * </p>
      * @param mixed $replacement [optional] <p>
      * If a replacement array is specified, then the removed elements will be replaced with elements from this array.
      * If offset and length are such that nothing is removed, then the elements from the replacement array or array
      * are inserted in the place specified by the offset.
-     * Keys in a replacement array are not preserved.
+     * Keys in a replacement array aren't preserved.
      * </p>
      * @phpstan-param-out array<TKey, mixed> $array
      *
      * @return array<TKey, TValue> Spliced array.
      *
-     * @note Numerical keys in an array are not preserved.
-     * @note If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
+     * @note Numerical keys in an array aren't preserved.
+     * @note If the replacement is not an array, it will be typecast to one (in other words (array) $replacement).
      * This may result in unexpected behavior when using an object or null replacement.
      */
     public static function splice (array &$array, int $offset, ?int $length = null, mixed $replacement = []):array {
@@ -1399,7 +1403,7 @@ final class Arr implements InitStatic {
      *
      * @return array<TKey, TValue> The filtered array.
      *
-     * @note The new array will preserve associative keys, and reindex others.
+     * @note The new array will preserve associative keys and reindex others.
      * @note This method is not intended to work on multidimensional arrays.
      */
     public static function unique (array $array):array {
@@ -1423,10 +1427,10 @@ final class Arr implements InitStatic {
      * given as a positive number. If not specified, a step will default to 1.
      * </p>
      *
-     * @throws ValueError If &start or &end is a string implicitly cast to int because the other boundary value
+     * @throws ValueError If &start or &end is a string implicitly cast to int because of the other boundary value
      * is a number, $start or $end is a non-numeric string with more than one byte or &start or &end is the empty
      * string.
-     * @error\exeption E_WARNING If &start or &end is a string implicitly cast to int because the other boundary value
+     * @error\exeption E_WARNING If &start or &end is a string implicitly cast to int because of the other boundary value
      * is a number, $start or $end is a non-numeric string with more than one byte or &start or &end is the empty
      * string.
      *
@@ -1444,7 +1448,7 @@ final class Arr implements InitStatic {
     /**
      * ### Pick one or more random keys out of an array
      *
-     * Picks one or more random entries out of an array, and returns the key (or keys) of the random entries.
+     * Picks one or more random entries out of an array and returns the key (or keys) of the random entries.
      * @since 1.0.0
      *
      * @param array<array-key, mixed> $array <p>
@@ -1454,12 +1458,12 @@ final class Arr implements InitStatic {
      * Specifies how many entries should be picked.
      * </p>
      *
-     * @throws ValueError If $number is not between one and the number of elements in argument.
+     * @throws ValueError If $number is not between one and the number of elements in the argument.
      *
      * @return array<int, array-key>|int|string When picking only one entry, array_rand() returns the key for a random entry.
      * Otherwise, an array of keys for the random entries is returned.
      *
-     * @caution This function does not generate cryptographically secure values, and must not be used for
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for
      * cryptographic purposes, or purposes that require returned values to be unguessable.
      */
     public static function random (array $array, int $number = 1):int|string|array {
@@ -1486,7 +1490,7 @@ final class Arr implements InitStatic {
      * or as a final result in case the array is empty.
      * </p>
      *
-     * @return mixed Resulting value or null if the array is empty and initial is not passed.
+     * @return mixed Resulting value or null if the array is empty and the initial is not passed.
      */
     public static function reduce (array $array, callable $callback, mixed $initial = null):mixed {
 
@@ -1495,7 +1499,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Pop the element off the end of array
+     * ### Pop the element off the end of an array
      *
      * Pops and returns the last element value of th $array, shortening the $array by one element.
      * @since 1.0.0
@@ -1518,10 +1522,10 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Push elements onto the end of array
+     * ### Push elements onto the end of an array
      *
-     * Method treats an array as a stack, and pushes the passed variables onto the end of array. The length of array
-     * increases by the number of variables pushed.
+     * Method treats an array as a stack and pushes the passed variables onto the end of an array.
+     * The length of an array increases by the number of variables pushed.
      * @since 1.0.0
      *
      * @template TValue
@@ -1536,7 +1540,7 @@ final class Arr implements InitStatic {
      *
      * @return int The new number of elements in the array.
      *
-     * @note If you use push to add one element to the array, it's better to use $array[] = because in that way there
+     * @note If you use push to add one element to the array, it is better to use $array[] = because in that way there
      * is no overhead of calling a function.
      */
     public static function push (array &$array, mixed ...$values):int {
@@ -1574,7 +1578,7 @@ final class Arr implements InitStatic {
      * ### Prepend one or more elements to the beginning of an array
      *
      * Method prepends passed elements to the front of the array.
-     * Note that the list of elements is prepended as a whole, so that the prepended elements stay in the same order.
+     * Note that the list of elements is prepended as a whole so that the prepended elements stay in the same order.
      * All numerical array keys will be modified to start counting from zero while literal keys won't be changed.
      * @since 1.0.0
      *
@@ -1599,7 +1603,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Get first key from an array
+     * ### Get the first key from an array
      *
      * Get the first key of the given $array without affecting the internal array pointer.
      * @since 1.0.0
@@ -1617,7 +1621,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Get last key from array
+     * ### Get the last key from an array
      *
      * Get the last key of the given $array without affecting the internal array pointer.
      * @since 1.0.0
@@ -1644,7 +1648,7 @@ final class Arr implements InitStatic {
      * The array.
      * </p>
      *
-     * @error\exeption E_WARNING If $array values cannot be converted to int or float.
+     * @error\exeption E_WARNING If $array values can't be converted to int or float.
      *
      * @return int|float The product as an integer or float.
      */
@@ -1662,7 +1666,7 @@ final class Arr implements InitStatic {
      * The input array.
      * </p>
      *
-     * @error\exeption E_WARNING If $array values cannot be converted to int or float.
+     * @error\exeption E_WARNING If $array values can't be converted to int or float.
      *
      * @return int|float The sum of values as an integer or float; 0 if the array is empty.
      */
@@ -1689,9 +1693,9 @@ final class Arr implements InitStatic {
      *
      * @return TKey|false The key for value if it is found in the array, false otherwise.
      *
-     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
-     * Please read the section on Booleans for more information. Use the === operator for testing the return value of
-     * this function.
+     * @warning This method may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
      */
     public static function search (mixed $value, array $array):int|string|false {
 
@@ -1714,10 +1718,10 @@ final class Arr implements InitStatic {
      *
      * @return true Always returns true.
      *
-     * @caution This function does not generate cryptographically secure values, and must not be used for cryptographic
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for cryptographic
      * purposes, or purposes that require returned values to be unguessable.
-     * @note This function assigns new keys to the elements in array. It will remove any existing keys that may have
-     * been assigned, rather than just reordering the keys.
+     * @note This function assigns new keys to the elements in an array. It will remove any existing keys that may have
+     * been assigned, rather than reordering the keys.
      * @note Resets array's internal pointer to the first element.
      */
     public static function shuffle (array &$array):true {
@@ -1771,7 +1775,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Sorts array by key
+     * ### Sorts an array by key
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
@@ -1836,7 +1840,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Sorts array by key using a user-defined comparison function
+     * ### Sorts an array by key using a user-defined comparison function
      * @since 1.0.0
      *
      * @template TKey of array-key

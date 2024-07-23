@@ -19,8 +19,8 @@ namespace FireHub\Core\Support\Contracts\Magic;
  *
  * Overloading provides the means to dynamically create properties and methods. These dynamic entities are processed via
  * magic methods one can establish in a class for various action types.
- * The overloading methods are invoked when interacting with properties or methods that have not been declared or are
- * not visible in the current scope.
+ * The overloading methods are invoked when interacting with properties or methods that haven't been declared
+ * or are *n't visible in the current scope.
  * @since 1.0.0
  */
 interface Overloadable {

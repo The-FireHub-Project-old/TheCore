@@ -112,7 +112,7 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains value.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains a value.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::convert() To convert the string.
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To lowercase string.
      *
@@ -239,7 +239,7 @@ final class IStr extends Str {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if expression returns an array.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs To check if the expression returns an array.
      * @uses \FireHub\Core\Support\Constants\Number\MAX To set maximum PHP integer.
      */
     public function break (string $with, int $limit = MAX):array {

@@ -25,7 +25,7 @@ use FireHub\Core\Base\ {
 enum Modifier:string implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
@@ -67,10 +67,12 @@ enum Modifier:string implements InitBackedEnum {
      * ### Dot metacharacter matches all characters
      *
      * If this modifier is set, whitespace data characters in the pattern are totally ignored except when escaped
-     * or inside a character class, and characters between an unescaped # outside a character class and the next
-     * newline character, inclusive, are also ignored. This is equivalent to Perl's /x modifier, and makes it possible
-     * to include commentary inside complicated patterns. Note, however, that this applies only to data characters.
-     * Whitespace characters may never appear within special character sequences in a pattern, for example within
+     * or inside a character class, and characters between an unescaped # outside a character class
+     * and the next newline character, inclusive, are also ignored.
+     * This is equivalent to Perl's /x modifier, and makes it possible to include commentary inside complicated
+     * patterns.
+     * Note, however, that this applies only to data characters.
+     * Whitespace characters may never appear within special character sequences in a pattern, for example, within
      * the sequence (?( which introduces a conditional subpattern.
      * @since 1.0.0
      */
@@ -102,7 +104,7 @@ enum Modifier:string implements InitBackedEnum {
      *
      * When a pattern is going to be used several times, it is worth spending more time analyzing it to speed up
      * the time taken for matching. If this modifier is set, then this extra analysis is performed. At present,
-     * studying a pattern is useful only for non-anchored patterns that do not have a single fixed starting character.
+     * studying a pattern is useful only for non-anchored patterns that don't have a single fixed starting character.
      * @since 1.0.0
      */
     case EXTRA_ANALYSIS = 'S';
@@ -110,9 +112,9 @@ enum Modifier:string implements InitBackedEnum {
     /**
      * ### Inverts the greediness
      *
-     * This modifier inverts the "greediness" of the quantifiers so that they are not greedy by default, but become
+     * This modifier inverts the "greediness" of the quantifiers so that they aren't greedy by default, but become
      * greedy if followed by ?. It is not compatible with Perl. It can also be set by a (?U) modifier setting within
-     * the pattern or by a question mark behind a quantifier (e.g. .*?).
+     * the pattern or by a question mark behind a quantifier (for example: .*?).
      * @since 1.0.0
      *
      * @see https://www.php.net/manual/en/pcre.configuration.php#ini.pcre.backtrack-limit To see pcre.backtrack_limit
@@ -137,7 +139,7 @@ enum Modifier:string implements InitBackedEnum {
      * ### Extra analysis is performed
      *
      * The (?J) internal option setting changes the local PCRE_DUPNAMES option. Allow duplicate names for
-     * sub-patterns. As of PHP 7.2.0, J is supported as modifier as well.
+     * sub-patterns. As of PHP 7.2.0, J is supported as a modifier as well.
      * @since 1.0.0
      */
     case INFO_J_CHANGED = 'J';
@@ -147,7 +149,7 @@ enum Modifier:string implements InitBackedEnum {
      *
      * This modifier turns on additional functionality of PCRE that is incompatible with Perl. Pattern and subject
      * strings are treated as UTF-8. An invalid subject will cause the preg_* function to match nothing; an invalid
-     * pattern will trigger an error of level E_WARNING. Five and six octet UTF-8 sequences are regarded as invalid.
+     * pattern will trigger an error of level E_WARNING. Five and six-octet UTF-8 sequences are regarded as invalid.
      * @since 1.0.0
      */
     case MULTIBYTE = 'u';

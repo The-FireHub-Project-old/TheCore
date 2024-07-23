@@ -66,7 +66,7 @@ final class Loaders {
      * The autoload function being registered.
      * </p>
      *
-     * @throws Error If loader is empty, or loader already exists.
+     * @throws Error If the loader is empty, or the loader already exists.
      *
      * @return true Always true.
      */

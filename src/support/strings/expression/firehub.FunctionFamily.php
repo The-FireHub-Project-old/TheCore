@@ -120,7 +120,7 @@ abstract class FunctionFamily implements Init {
      * Patter enclosure delimiter to use.
      * </p>
      *
-     * @throws Error If delimiter is alphanumeric, backslash, or whitespace.
+     * @throws Error If the delimiter is alphanumeric, backslash, or whitespace.
      *
      * @return static Current function.
      */

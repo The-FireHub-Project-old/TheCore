@@ -71,7 +71,7 @@ final class Split extends FunctionFamily {
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To get character raw string.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Strings::string() To get string raw string.
      *
-     * @return string[] True if string matches the regular expression pattern, false if not.
+     * @return string[] True if the string matches the regular expression pattern, false if not.
      */
     public function custom (string $pattern):array {
 

@@ -19,13 +19,13 @@ use FireHub\Core\Base\ {
 };
 
 /**
- * ### An article is a word that comes before a noun to show whether it's specific or general
+ * ### An article is a word that comes before a noun to show whether it is specific or general
  * @since 1.0.0
  */
 enum Article:string implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;

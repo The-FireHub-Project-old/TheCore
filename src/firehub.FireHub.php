@@ -28,7 +28,7 @@ use const FireHub\Core\Support\Constants\Path\DS;
 /**
  * ### Main FireHub class for bootstrapping
  *
- * This class contains all system definitions, constants and dependant components for FireHub bootstrapping.
+ * This class contains all system definitions, constants, and dependant components for FireHub bootstrapping.
  * @since 1.0.0
  */
 final class FireHub {
@@ -50,7 +50,7 @@ final class FireHub {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Enums\Kernel As parameter.
-     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run selected Kernel.
+     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
      * @uses \FireHub\Core\Firehub::bootloaders() To initialize bootloaders.
      * @uses \FireHub\Core\Firehub::kernel() To process Kernel.
      *
@@ -58,9 +58,9 @@ final class FireHub {
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
      * </p>
      *
-     * @throws Error If a system cannot load constant, helper or autoload files, or a system cannot load autoload files,
+     * @throws Error If a system can't load constant, helper, or autoload files, or a system can't load autoload files,
      * or failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return string Response from Kernel.
      */
@@ -75,7 +75,7 @@ final class FireHub {
     /**
      * ### Initialize bootloaders
      *
-     * Load series of bootloaders required to boot FireHub framework.
+     * Load the series of bootloaders required to boot FireHub framework.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\FireHub::registerConstants() To register constants.
@@ -83,9 +83,9 @@ final class FireHub {
      * @uses \FireHub\Core\FireHub::preload() To load preloader classes.
      * @uses \FireHub\Core\Firehub::autoload() To load autoloader.
      *
-     * @throws Error If a system cannot load constant, helper or autoload files, or a system cannot load autoload files,
+     * @throws Error If a system can't load constant, helper, or autoload files, or a system can't load autoload files,
      * or failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return $this This object.
      */
@@ -102,10 +102,10 @@ final class FireHub {
     /**
      * ### Register constants
      *
-     * This method will scan Initializers\Constants folder and automatically include all PHP files.
+     * This method will scan the Initializers\Constants folder and automatically include all PHP files.
      * @since 1.0.0
      *
-     * @throws Error If a system cannot load constant files.
+     * @throws Error If a system can't load constant files.
      *
      * @return $this This object.
      */
@@ -133,10 +133,10 @@ final class FireHub {
     /**
      * ### Register helper functions
      *
-     * This method will scan Initializers\Helpers folder and automatically include all PHP files.
+     * This method will scan the Initializers\Helpers folder and automatically include all PHP files.
      * @since 1.0.0
      *
-     * @throws Error If a system cannot load helper files.
+     * @throws Error If a system can't load helper files.
      *
      * @return $this This object.
      */
@@ -166,10 +166,10 @@ final class FireHub {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::include() To manually include a list of classes.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
-     * @throws Error If a system cannot load autoload files.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @throws Error If a system can't load autoload files.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return $this This object.
      */
@@ -208,7 +208,7 @@ final class FireHub {
     /**
      * ### Load autoloader
      *
-     * This method contains definitions and series of functions needed for calling classes.
+     * This method contains definitions and a series of functions needed for calling classes.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::prepend() To register FireHub main autoloader.
@@ -218,10 +218,10 @@ final class FireHub {
      * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To check if the first key is firehub and core.
      * @uses \FireHub\Core\Support\LowLevel\Arr::shift() To remove firehub and core form namespace.
      * @uses \FireHub\Core\Support\Path::core() To get FireHub Core path.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @throws Error If a system failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return $this This object.
      */

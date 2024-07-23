@@ -32,7 +32,7 @@ use function is_subclass_of;
 /**
  * ### Class and object low-level proxy class
  *
- * Class allows you to obtain information about classes and objects.
+ * Class allows you to collect information about classes and objects.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
@@ -82,7 +82,7 @@ abstract class ClsObj implements InitStatic {
      * @return bool True if the property exists, false if it doesn't exist.
      *
      * @note As opposed with isset(), [[ClsObj#propertyExist()]] returns true even if the property has the value null.
-     * @note This method cannot detect properties that are magically accessible using the __get magic method.
+     * @note This method can't detect properties that are magically accessible using the __get magic method.
      * @note Using this function will use any registered autoloaders if the class is not already known.
      */
     final public static function propertyExist (string|object $object_or_class, string $property):bool {
@@ -117,13 +117,14 @@ abstract class ClsObj implements InitStatic {
     }
 
     /**
-     * ### Checks if class has this class as one of its parents or implements it
+     * ### Checks if a class has this class as one of its parents or implements it
      *
      * Checks if the given object_or_class has the class $class as one of its parents or implements it.
      * @since 1.0.0
      *
      * @param class-string|object $object_or_class <p>
-     * The tested class. No error is generated if the class does not exist.
+     * The tested class.
+     * No error is generated if the class doesn't exist.
      * </p>
      * @param class-string $class <p>
      * The class or interface name.
@@ -145,7 +146,7 @@ abstract class ClsObj implements InitStatic {
      * ### Gets the class or object methods names
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\Cls::isClass() To check if $object_or_class parameter is class.
+     * @uses \FireHub\Core\Support\LowLevel\Cls::isClass() To check if the $object_or_class parameter is class.
      *
      * @param class-string|object $object_or_class <p>
      * The class name or an object instance.
@@ -183,7 +184,7 @@ abstract class ClsObj implements InitStatic {
     /**
      * ### Return the parent classes of the given class
      *
-     * This function returns an array with the name of the parent classes of the given object_or_class.
+     * This function returns an array with the name of the parent classes for the given object_or_class.
      * @since 1.0.0
      *
      * @param class-string|object $object_or_class <p>
@@ -193,8 +194,8 @@ abstract class ClsObj implements InitStatic {
      * Whether to allow this function to load the class automatically through the __autoload magic method.
      * </p>
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
-     * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
+     * @throws Error If $object_or_class doesn't exist and couldn't be loaded.
+     * @error\exeption E_WARNING If $object_or_class doesn't exist and couldn't be loaded.
      *
      * @return array<string, class-string> An array on success.
      */
@@ -219,8 +220,8 @@ abstract class ClsObj implements InitStatic {
      * Whether to allow this function to load the class automatically through the __autoload magic method.
      * </p>
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
-     * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
+     * @throws Error If $object_or_class doesn't exist and couldn't be loaded.
+     * @error\exeption E_WARNING If $object_or_class doesn't exist and couldn't be loaded.
      *
      * @return array<string, class-string> An array.
      */
@@ -245,8 +246,8 @@ abstract class ClsObj implements InitStatic {
      * Whether to allow this function to load the class automatically through the __autoload magic method.
      * </p>
      *
-     * @throws Error If $object_or_class does not exist and could not be loaded.
-     * @error\exeption E_WARNING If $object_or_class does not exist and could not be loaded.
+     * @throws Error If $object_or_class doesn't exist and couldn't be loaded.
+     * @error\exeption E_WARNING If $object_or_class doesn't exist and couldn't be loaded.
      *
      * @return array<string, class-string> An array.
      */

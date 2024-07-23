@@ -71,7 +71,7 @@ final class RegexMB implements InitStatic {
      *
      * @error\exeption E_WARNING if an invalid POSIX bracket type.
      *
-     * @return bool True if string matches the regular expression pattern, false if not.
+     * @return bool True if the string matches the regular expression pattern, false if not.
      */
     public static function match (string $pattern, string $string, bool $case_sensitive = true, ?array &$result = null):bool {
 
@@ -97,11 +97,11 @@ final class RegexMB implements InitStatic {
      * The string being evaluated.
      * </p>
      * @param bool $case_sensitive [optional] <p>
-     * Case-sensitive replace.
+     * Case-sensitive replace type.
      * </p>
      *
-     * @throws Error If string is not valid for the current encoding, or while performing a regular expression search
-     * and replace.
+     * @throws Error If string is not valid for the current encoding or while performing a regular expression search
+     * and replace type.
      *
      * @return string Replaced string.
      *
@@ -139,8 +139,8 @@ final class RegexMB implements InitStatic {
      * The string being evaluated.
      * </p>
      *
-     * @throws Error If string is not valid for the current encoding, or while performing a regular expression search
-     * and replace.
+     * @throws Error If string is not valid for the current encoding or while performing a regular expression search
+     * and replace type.
      *
      * @return string Replaced string.
      */

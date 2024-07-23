@@ -24,7 +24,7 @@ use FireHub\Core\Support\Enums\Number\Round;
 interface Numbers extends Stringable {
 
     /**
-     * ### Check if number is positive
+     * ### Check if the number is positive
      * @since 1.0.0
      *
      * @return bool True if the number is positive, false otherwise.
@@ -32,7 +32,7 @@ interface Numbers extends Stringable {
     public function isPositive ():bool;
 
     /**
-     * ### Check if number is negative
+     * ### Check if the number is negative
      * @since 1.0.0
      *
      * @return bool True if the number is negative, false otherwise.
@@ -42,7 +42,7 @@ interface Numbers extends Stringable {
     /**
      * ### Finds whether a value is a legal finite number
      *
-     * Checks whether $number is legally finite on this platform.
+     * Checks whether the $number is legally finite on this platform.
      * @since 1.0.0
      *
      * @return bool True if the number is a legal finite number, false otherwise.
@@ -63,7 +63,7 @@ interface Numbers extends Stringable {
     /**
      * ### Finds whether a value is not a number
      *
-     * Checks whether num is 'not a number', like the result of acos(1.01).
+     * Checks whether a num is 'not a number', like the result of acos(1.01).
      * @since 1.0.0
      *
      * @return bool True if the number is not a number, false otherwise.
@@ -121,10 +121,11 @@ interface Numbers extends Stringable {
      * @uses \FireHub\Core\Support\Enums\Number\Round::HALF_UP As default rounding.
      *
      * @param int $precision [optional] <p>
-     * Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-     * digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-     * before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-     * num is rounded to tens, for a precision of -2 to hundreds, etc.
+     * Number of decimal digits to round to.
+     * If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+     * If the precision is negative, num is rounded to precision significant digits before the decimal point, in other
+     * words, to the nearest multiple of pow(10, -$precision), for example, for a precision of -1 num is rounded to
+     * tens, for a precision of -2 to hundreds, and so on.
      * </p>
      * @param \FireHub\Core\Support\Enums\Number\Round $round [optional] <p>
      * Specify the mode in which rounding occurs.
@@ -144,7 +145,7 @@ interface Numbers extends Stringable {
      * Specify the mode in which rounding occurs.
      * </p>
      *
-     * @return int Number as raw integer.
+     * @return int Number as a raw integer.
      */
     public function asInt (Round $round = Round::HALF_UP):int;
 
@@ -159,7 +160,7 @@ interface Numbers extends Stringable {
     /**
      * ### Parse number
      *
-     * Parse a number with grouped thousands and optionally decimal digits using the rounding half up rule.
+     * Parse a number with grouped thousands and optionally decimal digits using the rounding half-up rule.
      * @since 1.0.0
      *
      * @param non-negative-int $decimals <p>
@@ -173,7 +174,7 @@ interface Numbers extends Stringable {
      * Sets the separator for thousands.
      * </p>
      *
-     * @return string A formatted version of number.
+     * @return string A formatted version of the number.
      */
     public function parse (int $decimals = 0, string $decimal_separator = '.', string $thousands_separator = ','):string;
 

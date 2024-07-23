@@ -37,7 +37,7 @@ use function tanh;
  * ### Float number low-level proxy class
  *
  * Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the
- * following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.
+ * following syntax: 1.234, 1.2e3, 7E-10, 1_234.567.
  * @since 1.0.0
  */
 final class NumFloat extends Num {
@@ -45,7 +45,7 @@ final class NumFloat extends Num {
     /**
      * ### Finds whether a value is a legal finite number
      *
-     * Checks whether $number is legally finite on this platform.
+     * Checks whether the $number is legally finite on this platform.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -83,14 +83,14 @@ final class NumFloat extends Num {
     /**
      * ### Finds whether a value is not a number
      *
-     * Checks whether num is 'not a number', like the result of acos(1.01).
+     * Checks whether a num is 'not a number', like the result of acos(1.01).
      * @since 1.0.0
      *
      * @param float $number <p>
      * Value to check.
      * </p>
      *
-     * @return bool True if number is 'not a number', false otherwise.
+     * @return bool True if a number is 'not a number', false otherwise.
      */
     public static function isNan (float $number):bool {
 
@@ -125,7 +125,7 @@ final class NumFloat extends Num {
      *
      * Returns the floating point remainder of dividing the dividend ($dividend) by the divisor ($divisor). The
      * remainder (r) is defined as: $dividend = i * $divisor + r, for some integer i. If $divisor is non-zero, r has
-     * the same sign as $dividend and a magnitude less than the magnitude of $divisor.
+     * the same sign as $dividend and a magnitude less than the size of $divisor.
      * @since 1.0.0
      *
      * @param float $dividend <p>
@@ -153,7 +153,7 @@ final class NumFloat extends Num {
      * An angle in radians.
      * </p>
      *
-     * @return float The cosine of angle.
+     * @return float The cosine of an angle.
      */
     public static function cosine (float $number):float {
 
@@ -201,7 +201,7 @@ final class NumFloat extends Num {
     /**
      * ### Inverse hyperbolic cosine
      *
-     * Returns the inverse hyperbolic cosine of $number, i.e., the value whose hyperbolic cosine is $number.
+     * Returns the inverse hyperbolic cosine of $number, in other words, the value whose hyperbolic cosine is $number.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -256,7 +256,7 @@ final class NumFloat extends Num {
     /**
      * ### Hyperbolic sine
      *
-     * Returns the hyperbolic sine of num, defined as (exponent($number) - exponent(-$number))/2.
+     * Returns the hyperbolic sine of num, defined as (exponent($number) – exponent(-$number))/2.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -274,7 +274,7 @@ final class NumFloat extends Num {
     /**
      * ### Inverse hyperbolic tangent
      *
-     * Returns the inverse hyperbolic sine of $number, i.e., the value whose hyperbolic sine is $number.
+     * Returns the inverse hyperbolic sine of $number, in other words, the value whose hyperbolic sine is $number.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -370,7 +370,7 @@ final class NumFloat extends Num {
     /**
      * ### Inverse hyperbolic tangent
      *
-     * Returns the inverse hyperbolic tangent of $number, i.e., the value whose hyperbolic tangent is $number.
+     * Returns the inverse hyperbolic tangent of $number, in other words, the value whose hyperbolic tangent is $number.
      * @since 1.0.0
      *
      * @param float $number <p>

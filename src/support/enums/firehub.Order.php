@@ -25,7 +25,7 @@ use FireHub\Core\Base\ {
 enum Order:string implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
@@ -46,7 +46,7 @@ enum Order:string implements InitBackedEnum {
      * ### Get the reverse order
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Support\Enums\Order The reversed order.
+     * @return \FireHub\Core\Support\Enums\Order Reversed order.
      */
     public function reverse ():Order {
 

@@ -26,7 +26,7 @@ use function trait_exists;
 /**
  * ### Class low-level proxy class
  *
- * Class allows you to obtain information about classes.
+ * Class allows you to collect information about classes.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
@@ -34,7 +34,7 @@ use function trait_exists;
 final class Cls extends ClsObj {
 
     /**
-     * ### Checks if class name exists
+     * ### Checks if a class name exists
      *
      * This method checks whether the given class has been defined.
      * @since 1.0.0
@@ -109,7 +109,7 @@ final class Cls extends ClsObj {
      * Whether to autoload if not already loaded.
      * </p>
      *
-     * @return bool True if trait exists, false otherwise.
+     * @return bool True if the trait exists, false otherwise.
      */
     public static function isTrait (string $name, bool $autoload = true):bool {
 
@@ -159,7 +159,7 @@ final class Cls extends ClsObj {
      * The class name.
      * </p>
      *
-     * @throws Error If $class is not valid class name.
+     * @throws Error If $class is not a valid class name.
      *
      * @return array<array-key, mixed> Returns an associative array of declared properties visible from the current scope, with their default value.
      *

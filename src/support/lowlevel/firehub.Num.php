@@ -125,10 +125,11 @@ abstract class Num implements InitStatic {
      * The value to round.
      * </p>
      * @param int $precision [optional] <p>
-     * Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-     * digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-     * before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-     * num is rounded to tens, for a precision of -2 to hundreds, etc.
+     * Number of decimal digits to round to.
+     * If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+     * If the precision is negative, num is rounded to precision significant digits
+     * before the decimal point, in other words, to the nearest multiple of pow(10, -$precision), for example,
+     * for a precision of -1 num is rounded to tens, for a precision of -2 to hundreds, and so on
      * </p>
      * @param \FireHub\Core\Support\Enums\Number\Round $round [optional] <p>
      * Specify the mode in which rounding occurs.
@@ -172,7 +173,7 @@ abstract class Num implements InitStatic {
     }
 
     /**
-     * ### Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero
+     * ### Returns log(1 + number), computed in a way that is accurate even when the value of the number is close to zero
      * @since 1.0.0
      *
      * @param float|int $number <p>
@@ -275,7 +276,7 @@ abstract class Num implements InitStatic {
     /**
      * ### Format a number with grouped thousands
      *
-     * Formats a number with grouped thousands and optionally decimal digits using the rounding half up rule.
+     * Formats a number with grouped thousands and optionally decimal digits using the rounding half-up rule.
      * @since 1.0.0
      *
      * @param int|float $number <p>
@@ -291,7 +292,7 @@ abstract class Num implements InitStatic {
      * Sets the separator for thousands.
      * </p>
      *
-     * @return string A formatted version of number.
+     * @return string A formatted version of the number.
      */
     final public static function format (int|float $number, int $decimals, string $decimal_separator = '.', string $thousands_separator = ','):string {
 
@@ -355,10 +356,10 @@ abstract class Num implements InitStatic {
     }
 
     /**
-     * ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
+     * ### Returns exp($number) – 1, computed in a way that is accurate even when the value of the number is close to zero
      *
-     * Method returns the equivalent to 'exp(num) - 1' computed in a way that is accurate even if the value of num is
-     * near zero, a case where 'exp (num) - 1' would be inaccurate due to subtraction of two numbers that are nearly
+     * Method returns the equivalent to 'exp(num) – 1' computed in a way that is accurate even if the value of num is
+     * near zero, a case where 'exp (num) – 1' would be inaccurate due to subtraction of two numbers that are nearly
      * equal.
      * @since 1.0.0
      *

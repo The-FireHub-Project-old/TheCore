@@ -55,7 +55,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
-     * If callback is used, the method will return the first item that passes truth test.
+     * If callback is used, the method will return the first item that passes the truth test.
      * </p>
      *
      * @return null|TValue First item from a collection.
@@ -67,7 +67,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
-     * If callback is used, the method will return the first key that passes truth test.
+     * If callback is used, the method will return the first key that passes the truth test.
      * </p>
      *
      * @return null|TKey First key from a collection.
@@ -79,7 +79,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
-     * If callback is used, the method will return the last item that passes truth test.
+     * If callback is used, the method will return the last item that passes the truth test.
      * </p>
      *
      * @return null|TValue Last item from a collection.
@@ -91,7 +91,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
-     * If callback is used, the method will return the last key that passes truth test.
+     * If callback is used, the method will return the last key that passes the truth test.
      * </p>
      *
      * @return null|TKey Last key from a collection.
@@ -99,11 +99,11 @@ interface Collectable extends Countable, IterablesAggregate {
     public function lastKey (?callable $callback = null):mixed;
 
     /**
-     * ### Call user generated function on each item in collection
+     * ### Call user-generated function on each item in collection
      * @since 1.0.0
      *
      * @param callable(TValue=, TKey=):mixed $callback <p>
-     * Function to call on each item in collection.
+     * Function to call on each item in a collection.
      * </p>
      * @param positive-int $limit [optional] <p>
      * Maximum number of elements that is allowed to be iterated.
@@ -118,7 +118,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue=, TKey=):bool $callback <p>
-     * Function to call on each item in collection.
+     * Function to call on each item in a collection.
      * </p>
      *
      * @return bool True if each item in the collection passes a given truth test, false otherwise.
@@ -131,11 +131,11 @@ interface Collectable extends Countable, IterablesAggregate {
      *
      * @param TValue|callable(TValue=, TKey=):bool $value <p>
      * The searched value.
-     * If value is a string, the comparison is done in a case-sensitive manner.
+     * If the value is a string, the comparison is done in a case-sensitive manner.
      * </p>
      *
      * @return TKey|false The key if it is found in the collection, false otherwise.
-     * If value is found in a collection more than once, the first matching key is returned.
+     * If a value is found in a collection more than once, the first matching key is returned.
      */
     public function search (mixed $value):mixed;
 
@@ -151,7 +151,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * ### Check if a collection is not empty
      * @since 1.0.0
      *
-     * @return bool True if a collection is not empty, false otherwise.
+     * @return bool True, if a collection is not empty, false otherwise.
      */
     public function isNotEmpty ():bool;
 
@@ -163,7 +163,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * The value to check.
      * </p>
      *
-     * @return bool True if a collection contains checked item, false otherwise.
+     * @return bool True if a collection contains a checked item, false otherwise.
      */
     public function contains (mixed $value):bool;
 
@@ -175,7 +175,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * The value to check.
      * </p>
      *
-     * @return bool True if a collection doesn't contain checked item, false otherwise.
+     * @return bool True if a collection doesn't contain a checked item, false otherwise.
      */
     public function doesntContains (mixed $value):bool;
 

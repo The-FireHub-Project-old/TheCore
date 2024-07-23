@@ -67,17 +67,17 @@ final class Regex implements InitStatic {
      * If true, search subject for a match to the regular expression given in a pattern.
      * </p>
      * @param null|string[] &$result [optional] <p>
-     * Regular expression match result.
+     * Regular expressions match the result.
      * </p>
      * @param-out array<string>|array<array<int, string>> $result
      *
-     * @error\exeption E_WARNING if the regex pattern passed does not compile to a valid regex.
+     * @error\exeption E_WARNING if the regex pattern passed doesn't compile to a valid regex.
      *
-     * @return bool True if string matches the regular expression pattern, false if not.
+     * @return bool True if the string matches the regular expression pattern, false if not.
      *
-     * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-     * false. Please read the section on Booleans for more information. Use the === operator for testing the return
-     * value of this function.
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information. Use the === operator for testing the return value of this
+     * function.
      */
     public static function match (string $pattern, string $string, int $offset = 0, bool $all = false, ?array &$result = null):bool {
 
@@ -107,8 +107,8 @@ final class Regex implements InitStatic {
      * Defaults to -1 (no limit).
      * </p>
      *
-     * @throws Error If error while performing a regular expression search and replace.
-     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
+     * @throws Error If error while performing a regular expression, search and replace.
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed doesn't compile to valid
      * regex.
      *
      * @return string Replaced string.
@@ -143,8 +143,8 @@ final class Regex implements InitStatic {
      * Defaults to -1 (no limit).
      * </p>
      *
-     * @throws Error If error while performing a regular expression search and replace.
-     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
+     * @throws Error If error while performing a regular expression, search and replace.
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed doesn't compile to valid
      * regex.
      *
      * @return string Replaced string.
@@ -177,7 +177,7 @@ final class Regex implements InitStatic {
      * </p>
      *
      * @throws Error If error while performing a regular expression split.
-     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed does not compile to valid
+     * @error\exeption E_WARNING using the "\e" modifier, or if the regex pattern passed doesn't compile to valid
      * regex.
      *
      * @return string[] Array containing substrings of $string split along boundaries matched by $pattern.
@@ -193,7 +193,8 @@ final class Regex implements InitStatic {
      * ### Quote regular expression characters
      *
      * Method takes string and puts a backslash in front of every character that is part of the regular expression syntax.
-     * This is useful if you have a run-time string that you need to match in some text and the string may contain special regex characters.
+     * This is useful if you have a runtime string that you need to match in some text
+     * and the string may contain special regex characters.
      * @since 1.0.0
      *
      * @param string $string <p>

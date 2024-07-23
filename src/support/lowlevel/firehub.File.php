@@ -94,11 +94,11 @@ final class File extends FileSystem {
      * ### Tells whether the file was uploaded via HTTP POST
      *
      * Returns true if the file named by filename was uploaded via HTTP POST. This is useful to help ensure that a
-     * malicious user hasn't tried to trick the script into working on files upon which it should not be working.
+     * malicious user hasn't tried to trick the script into working on files upon which it shouldn't be working.
      * This sort of check is especially important if there is any chance that anything done with uploaded files could
      * reveal their contents to the user, or even to other users on the same system. For proper working, the function
-     * [[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], - the name of the uploaded file on
-     * the client's machine $_FILES['userfile']['name'] does not work.
+     * [[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], – the name of the uploaded file on
+     * the client's machine $_FILES['userfile']['name'] doesn't work.
      * @since 1.0.0
      *
      * @param non-empty-string $path <p>
@@ -121,7 +121,7 @@ final class File extends FileSystem {
      * Path to the file.
      * </p>
      *
-     * @throws Error If we could not get file size for file.
+     * @throws Error If we couldn't get file size for file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return int The size of the file in bytes.
@@ -150,12 +150,13 @@ final class File extends FileSystem {
      * Path to the file.
      * </p>
      * @param string $to <p>
-     * The destination path. If dest is a URL, the copy operation may fail if the wrapper does not support overwriting
-     * of existing files. If the destination file already exists, it will be overwritten.
+     * The destination path.
+     * If dest is a URL, the copy operation may fail if the wrapper doesn't support overwriting of existing files.
+     * If the destination file already exists, it will be overwritten.
      * </p>
      *
-     * @throws Error If we could not copy file.
-     * @error\exeption W_WARNING if we could not copy the file.
+     * @throws Error If we couldn't copy file.
+     * @error\exeption W_WARNING if we couldn't copy the file.
      *
      * @return void
      *
@@ -178,7 +179,7 @@ final class File extends FileSystem {
      * Path to the file.
      * </p>
      *
-     * @throws Error If we could not delete the file.
+     * @throws Error If we couldn't delete the file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return void
@@ -201,8 +202,8 @@ final class File extends FileSystem {
      * The link name.
      * </p>
      *
-     * @throws Error If we could not create a hard link for a path.
-     * @error\exeption E_WARNING if method fails, if $link already exists, or if $path does not exist.
+     * @throws Error If we couldn't create a hard link for a path.
+     * @error\exeption E_WARNING if the method fails, if $link already exists, or if $path doesn't exist.
      *
      * @return void
      *
@@ -218,7 +219,7 @@ final class File extends FileSystem {
     }
 
     /**
-     * ### Reads entire file into a string
+     * ### Reads the entire file into a string
      * @since 1.0.0
      *
      * @param non-empty-string $path <p>
@@ -234,13 +235,14 @@ final class File extends FileSystem {
      * parameter is applied to the stream processed by the filters.
      * </p>
      *
-     * @throws Error If we cannot get content from a path.
-     * @error\exeption E_WARNING if filename cannot be found, length is less than zero, seeking to the specified
+     * @throws Error If we can't get content from a path.
+     * @error\exeption E_WARNING if the filename can't be found, length is less than zero, seeking to the specified
      * offset in the stream fails or $path is folder.
      *
      * @return string The read data.
      *
-     * @note If you're opening a URI with special characters, such as spaces, you need to encode the URI with urlencode().
+     * @note If you're opening an URI with special characters, such as spaces, you need to encode the URI with
+     * urlencode().
      */
     public static function getContent (string $path, int $offset = 0, ?int $length = null):string {
 
@@ -251,7 +253,7 @@ final class File extends FileSystem {
     }
 
     /**
-     * ### Reads entire file into an array
+     * ### Reads the entire file into an array
      * @since 1.0.0
      *
      * @param non-empty-string $path <p>
@@ -261,23 +263,23 @@ final class File extends FileSystem {
      * Skip empty lines.
      * </p>
      * @param bool $ignore_new_lines [optional] <p>
-     * Omit newline at the end of each array element.
+     * Omit a newline at the end of each array element.
      * </p>
      *
-     * @throws Error If we cannot get content from a path.
-     * @error\exeption E_WARNING if filename doesn't exist.
+     * @throws Error If we can't get content from a path.
+     * @error\exeption E_WARNING if the filename doesn't exist.
      *
-     * @return string[] The file in an array. Each element of the array corresponds to a line in the file, with newline still attached.
+     * @return string[] The file in an array. Each element of the array corresponds to a line in the file, with the newline still attached.
      *
      * @warning When using SSL, Microsoft IIS will violate the protocol by closing the connection without sending a
      * close_notify indicator. PHP will report this as "SSL: Fatal Protocol Error" when you reach the end of the data.
-     * To work around this, the value of error_reporting should be lowered to a level that does not include warnings.
+     * To work around this, the value of error_reporting should be lowered to a level that doesn't include warnings.
      * PHP can detect buggy IIS server software when you open the stream using the https:// wrapper and will suppress
      * the warning. When using fsockopen() to create a ssl:// socket, the developer is responsible for detecting and
      * suppressing this warning.
      * @note Each line in the resulting array will include the line ending, unless $ignore_new_lines is used.
-     * @tip If PHP is not properly recognizing the line endings when reading files either on or created by a
-     * Macintosh computer, enabling the auto_detect_line_endings run-time configuration option may help resolve the
+     * @tip If PHP doesn't properly recognize the line endings when reading files either on or created by a
+     * Macintosh computer, enabling the auto_detect_line_endings runtime configuration option may help resolve the
      * problem.
      * @tip A URL can be used as a $path.
      */
@@ -312,12 +314,12 @@ final class File extends FileSystem {
      * Acquire an exclusive lock on the file while proceeding to the writing.
      * </p>
      * @param bool $create_file [optional] <p>
-     * Is true, method will create a new file if one doesn't exist.
+     * Is true, the method will create a new file if one doesn't exist.
      * </p>
-     * @throws Error If $create_file option is off and $path is not file, or could not put content on a path.
+     * @throws Error If the $create_file option is off, and $path is not file, or couldn't put content on a path.
      * @error\exeption E_WARNING if permission denied to write to file.
      *
-     * @return non-negative-int Number of bytes that were written to the file, false otherwise.
+     * @return non-negative-int The number of bytes that were written to the file false otherwise.
      */
     public static function putContent (string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int {
 
@@ -342,13 +344,13 @@ final class File extends FileSystem {
      * The filename path being read.
      * </p>
      *
-     * @throws Error If we could not put read file on a path, or a path is empty.
+     * @throws Error If we couldn't put read file on a path, or a path is empty.
      * @error\exeption E_WARNING upon failure.
      *
      * @return int The number of bytes read from the file.
      *
      * @note [[File#read()]] will not present any memory issues, even when sending large files, on its own. If you
-     * encounter out of memory error ensures that output buffering is off with ob_get_level().
+     * encounter out-of-memory error ensures that output buffering is off with ob_get_level().
      */
     public static function read (string $path):int {
 
@@ -372,7 +374,7 @@ final class File extends FileSystem {
      * Destination of the moved file.
      * </p>
      *
-     * @throws Error If we could not move the uploaded file.
+     * @throws Error If we couldn't move the uploaded file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return void

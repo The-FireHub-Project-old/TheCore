@@ -58,7 +58,7 @@ final class DateAndTime implements InitStatic {
      * @since 1.0.0
      *
      * @param int<1, 32767> $year <p>
-     * The year is between 1 and 32767 inclusive
+     * The year is between 1 and 32,767 inclusive
      * </p>
      * @param int<1, 12> $month <p>
      * The month is between 1 and 12 inclusive.
@@ -76,7 +76,7 @@ final class DateAndTime implements InitStatic {
     }
 
     /**
-     * ### Returns associative array with detailed info about given date/time
+     * ### Returns associative array with detailed info about the given date /time
      *
      * Method parses the given datetime string according to the same rules as [[DateAndTime#stringToTimestamp()]].
      * @since 1.0.0
@@ -85,9 +85,9 @@ final class DateAndTime implements InitStatic {
      * String representing the date/time.
      * </p>
      *
-     * @return array<string, mixed> Associative array with detailed info about given date/time.
+     * @return array<string, mixed> Associative array with detailed info about the given date /time.
      *
-     * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
+     * @warning The number of array elements in the warning and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
      */
     public static function parse (string $datetime):array {
@@ -97,7 +97,7 @@ final class DateAndTime implements InitStatic {
     }
 
     /**
-     * ### Get info about given date formatted according to the specified format
+     * ### Get info about the given date formatted according to the specified format
      * @since 1.0.0
      *
      * @param non-empty-string $format <p>
@@ -111,7 +111,7 @@ final class DateAndTime implements InitStatic {
      *
      * @return array<string, mixed> Associative array with detailed info about a given date/time.
      *
-     * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
+     * @warning The number of array elements in the warning and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
      */
     public static function parseFromFormat (string $format, string $datetime):array {
@@ -187,7 +187,7 @@ final class DateAndTime implements InitStatic {
      * @since 1.0.0
      *
      * @param null|int $timestamp [optional] <p>
-     * The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if timestamp
+     * The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if the timestamp
      * is omitted or null.
      * </p>
      *
@@ -240,7 +240,7 @@ final class DateAndTime implements InitStatic {
      * Longitude in degrees.
      * </p>
      *
-     * @throws Error If we could not get information about sunset and twilight.
+     * @throws Error If we couldn't get information about sunset and twilight.
      *
      * @return array <code><![CDATA[ array<sunrise: int|bool, sunset: int|bool, transit: int|bool,
      * civil_twilight_begin: int|bool, civil_twilight_end: int|bool, nautical_twilight_begin: int|bool,
@@ -261,7 +261,7 @@ final class DateAndTime implements InitStatic {
     public static function sunInfo (int $timestamp, float $latitude, float $longitude):array {
 
         /**
-         * PHPStan reports that date_sun_info returns array<string, bool|int>
+         * PHPStan reports that date_sun_info returns an array<string, bool|int>
          * @phpstan-ignore-next-line
          */
         return date_sun_info($timestamp, $latitude, $longitude)
@@ -284,7 +284,7 @@ final class DateAndTime implements InitStatic {
      * The timestamp which is used as a base for the calculation of relative dates.
      * </p>
      *
-     * @throws Error If we could not convert string to timestamp.
+     * @throws Error If we couldn't convert string to timestamp.
      * @error\exeption E_WARNING if the time zone is not valid.
      *
      * @return int A timestamp.
@@ -314,9 +314,9 @@ final class DateAndTime implements InitStatic {
      * @since 1.0.0
      *
      * @param int $hour <p>
-     * The number of hours relative to the start of the day is determined by month, day and year. Negative values
+     * The number of hours relative to the start of the day is determined by month, day, and year. Negative values
      * reference the hour before midnight of the day in question. Values greater than 23 reference the appropriate
-     * hour in the following day(s).
+     * hour on the following day(s).
      * </p>
      * @param null|int $minute <p>
      * The number of the minute relative to the start of the hour. Negative values reference the minute in the
@@ -332,21 +332,22 @@ final class DateAndTime implements InitStatic {
      * @param null|int $month <p>
      * The number of the month relative to the end of the previous year. Values 1 to 12 reference the normal calendar
      * months of the year in question. Values less than 1 (including negative values) reference the months in the
-     * previous year in reverse order, so 0 is December, -1 is November, etc. Values greater than 12 reference the
-     * appropriate month in the following year(s).
+     * previous year in reverse order, so 0 is December, -1 is November, and so on.
+     * Values greater than 12 reference the appropriate month in the following year(s).
      * </p>
      * @param null|int $day <p>
-     * The number of the day relative to the end of the previous month. Values 1 to 28, 29, 30 or 31 (depending upon
+     * The number of the days relative to the end of the previous month. Values 1 to 28, 29, 30, or 31 (depending upon
      * the month) reference the normal days in the relevant month. Values less than 1 (including negative values)
      * reference the days in the previous month, so 0 is the last day of the previous month, -1 is the day before
-     * that, etc. Values greater than the number of days in the relevant month reference the appropriate day in the
+     * that, and so on.
+     * Values greater than the number of days in the relevant month reference the appropriate day in the
      * following month(s).
      * </p>
      * @param bool $gmt [optional] <p>
      * Get a GMT/UTC timestamp.
      * </p>
      *
-     * @throws Error If timestamp doesn't fit in a PHP integer.
+     * @throws Error If the timestamp doesn't fit in a PHP integer.
      *
      * @return int The Unix timestamp of the arguments given.
      */
@@ -368,7 +369,7 @@ final class DateAndTime implements InitStatic {
      *
      * @return int The current timestamp.
      *
-     * @tip Timestamp of the start for the request is available in $_SERVER['REQUEST_TIME'].
+     * @tip The timestamp of the start for the request is available in $_SERVER['REQUEST_TIME'].
      */
     public static function time ():int {
 

@@ -150,7 +150,7 @@ class Char implements Init, Characters {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If a character is empty or codepoint could not be converted to character, or codepoint could not be
+     * @throws Error If a character is empty or codepoint couldn't be converted to character, or codepoint could not be
      * converted to character.
      *
      * @return self New character.
@@ -218,7 +218,7 @@ class Char implements Init, Characters {
      * Char::from('F')->encoding(Encoding::UTF_8);
      * ```
      *
-     * @throws Error If we could not get current encoding.
+     * @throws Error If we couldn't get current encoding.
      * @throws ValueError If the value of encoding is an invalid encoding.
      */
     public function encoding (?Encoding $encoding = null):self|Encoding {
@@ -240,7 +240,7 @@ class Char implements Init, Characters {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Char::from To create a new character if $string argument is present.
+     * @uses \FireHub\Core\Support\Char::from To create a new character if the $string argument is present.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::null() To check if $string is null or not.
      *
      * @example
@@ -336,7 +336,7 @@ class Char implements Init, Characters {
      * // 70
      * ```
      *
-     * @throws Error If character could not be converted to codepoint.
+     * @throws Error If character couldn't be converted to codepoint.
      */
     public function codepoint ():int {
 

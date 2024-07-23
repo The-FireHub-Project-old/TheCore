@@ -21,7 +21,7 @@ use FireHub\Core\Base\ {
 /**
  * ### Data category enum
  *
- * Data category defines the category of data type.
+ * Data category defines the category of a data type.
  * @since 1.0.0
  */
 enum Category implements InitEnum {

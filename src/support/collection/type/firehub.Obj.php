@@ -608,7 +608,7 @@ final class Obj implements Init, Accessible {
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Obj::first() Used to search string value.
-     * @uses \FireHub\Core\Support\Collection\Type\Obj::search() Used to search a callable value.
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::search() Used to search for a callable value.
      *
      * @example
      * ```php

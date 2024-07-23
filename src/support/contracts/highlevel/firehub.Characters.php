@@ -57,8 +57,8 @@ interface Characters extends Stringable {
     /**
      * ### Boolean representation of the given logical character value
      *
-     * True - positive-int
-     * False - non-positive-int
+     * True – positive-int
+     * False – non-positive-int
      * For all other characters, the return value is a result of a boolean cast.
      * @since 1.0.0
      *

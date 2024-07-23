@@ -18,7 +18,7 @@ namespace FireHub\Core\Support\Contracts\Magic;
  * ### Exportable contract
  * @since 1.0.0
  *
- * @note When exporting an object, var_export() does not check whether the object's implements __set_state(),
+ * @note When exporting an object, var_export() doesn't check whether the object's implements __set_state(),
  * so re-importing objects will result in an Error exception, if __set_state() is not implemented.
  * Particularly, this affects some internal classes. It is the responsibility of the programmer to verify that only
  * objects will be re-imported, whose class implements __set_state().

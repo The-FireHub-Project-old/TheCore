@@ -46,7 +46,7 @@ final class Declared implements InitStatic {
      *
      * @return array<class-string> Array of the names for the declared classes in the current script.
      *
-     * @note Note that depending on what extensions you have compiled or loaded into PHP, additional classes could be
+     * @note Note that depending on what extensions you've compiled or loaded into PHP, additional classes could be
      * present. This means that you will not be able to define your own classes using these names.
      */
     public static function classes ():array {
@@ -110,7 +110,7 @@ final class Declared implements InitStatic {
      *
      * @return array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}
      * A multidimensional array containing a list of all defined functions, both built-in (internal) and user-defined.
-     * The internal functions will be accessible via $arr["internal"], and the user defined ones using $arr["user"].
+     * The internal functions will be accessible via $arr["internal"], and the user-defined ones using $arr["user"].
      */
     public static function functions (bool $exclude_disabled = true):array {
 

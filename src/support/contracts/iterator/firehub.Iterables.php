@@ -57,7 +57,7 @@ interface Iterables extends Traversable, Iterator {
     public function key ():mixed;
 
     /**
-     * ### Move forward to next element
+     * ### Move forward to the next element
      * @since 1.0.0
      *
      * @return void

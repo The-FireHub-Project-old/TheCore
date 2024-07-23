@@ -32,9 +32,10 @@ use const PHP_PREFIX;
 use const PHP_SYSCONFDIR;
 
 /**
- * ### System definition for separating folders, platform specific
+ * ### System definition for separating folders, platform-specific
  *
- * Convert '\\' and '/' for different operating systems. This is just a shorter version of PHP internal
+ * Convert '\\' and '/' for different operating systems.
+ * This is a shorter version of PHP internal
  * DIRECTORY_SEPARATOR constant.
  * @since 1.0.0
  *

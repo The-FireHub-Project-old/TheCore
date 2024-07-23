@@ -59,7 +59,7 @@ final class NotInRange implements Init, Predefined {
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters To test if $characters is of character interface.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To get a raw string from character.
      *
-     * @throws Error If $characters is not exclusive list of character interface.
+     * @throws Error If $characters is not an exclusive list of character interface.
      */
     public function regex ():string {
 

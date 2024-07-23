@@ -53,7 +53,7 @@ final class CharMB implements InitStatic {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If codepoint could not be converted to character.
+     * @throws Error If codepoint couldn't be converted to character.
      *
      * @return string string A string containing the requested character.
      *
@@ -82,8 +82,8 @@ final class CharMB implements InitStatic {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If character could not be converted to codepoint.
-     * @throws ValueError If empty string is provided.
+     * @throws Error If character couldn't be converted to codepoint.
+     * @throws ValueError If an empty string is provided.
      *
      * @return int The Unicode code point for the first character of string.
      */

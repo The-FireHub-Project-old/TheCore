@@ -60,7 +60,7 @@ use Error;
  * @method mixed graphical () ### Printing characters, excluding space
  * @method mixed notGraphical () ### Not-printing characters, excluding space
  * @method mixed wordCharacters () ### Underscore or any character that is a letter or digit
- * @method mixed notWordCharacters () ### Not-underscore or any character that is not letter nor digit
+ * @method mixed notWordCharacters () ### Not-underscore or any character that is not a letter nor digit
  * @method mixed hexadecimals () ### Hexadecimals
  * @method mixed notHexadecimals () ### Not-hexadecimals
  * @method mixed verticalWhitespaces () ### Vertical whitespaces
@@ -96,9 +96,9 @@ use Error;
  * @method mixed mathematical () ### Mathematical symbol
  * @method mixed notMathematical () ### Not-mathematical symbol
  * @method mixed otherSymbol () ### An other symbol
- * @method mixed notOtherSymbol () ### Not other symbol
- * @method mixed unassigned () ### Unassigned - characters with code points greater than 0x10FFFF
- * @method mixed assigned () ### Assigned - characters with code points smaller than 0x10FFFF
+ * @method mixed notOtherSymbol () ### Not another symbol
+ * @method mixed unassigned () ### Unassigned – characters with code points greater than 0x10FFFF
+ * @method mixed assigned () ### Assigned – characters with code points smaller than 0x10FFFF
  * @method mixed notNewLine () ### not-new line
  * @method mixed mark () ### Mark
  * @method mixed notMark () ### Non-mark

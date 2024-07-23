@@ -35,7 +35,7 @@ interface Base {
     /**
      * ### Data serialized as JSON
      *
-     * With default, all public (static and non-static, initialized and non-initialized) properties will be returned.
+     * By default, all public (static and non-static, initialized and non-initialized) properties will be returned.
      * @since 1.0.0
      *
      * @return string Data which is serialized as JSON.

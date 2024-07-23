@@ -50,15 +50,15 @@ final class Callback {
      * @uses \FireHub\Core\Support\LowLevel\StrSB::explode() To split class to components.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join array elements to get namespace.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To lowercase all namespaces.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get classname.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the classname.
      * @uses \FireHub\Core\Support\LowLevel\Arr::pop() To remove classname from namespace.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @param string $class <p>
      * Class FQN to resolve.
      * </p>
      *
-     * @throws Error If a system could not get class components.
+     * @throws Error If a system couldn't get class components.
      *
      * @return array{namespace: string, classname: string} Class components.
      */
@@ -95,14 +95,14 @@ final class Callback {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $class is callable or string.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if callable path return string.
      * @uses \FireHub\Core\Support\LowLevel\File::isFile() To check if $path is a valid path.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @param string $class <p>
      * Fully qualified class name that is being loaded.
      * </p>
      *
-     * @throws Error If a system could not get class components.
-     * @error\exeption E_WARNING if a system cannot preload class.
+     * @throws Error If a system couldn't get class components.
+     * @error\exeption E_WARNING if a system can't preload a class.
      *
      * @return void
      */

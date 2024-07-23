@@ -459,7 +459,7 @@ final class Gen implements Init, Collectable {
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Gen::first() Used to search string value.
-     * @uses \FireHub\Core\Support\Collection\Type\Gen::search() Used to search a callable value.
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::search() Used to search for a callable value.
      *
      * @example
      * ```php

@@ -27,7 +27,7 @@ use function timezone_abbreviations_list;
 /**
  * ### Timezone low-level proxy class
  *
- * A time zone is an area that observes a uniform standard time for legal, commercial and social purposes.
+ * A time zone is an area that observes a uniform standard time for legal, commercial, and social purposes.
  * @since 1.0.0
  */
 final class DateAndTimeZone implements InitStatic {
@@ -44,12 +44,12 @@ final class DateAndTimeZone implements InitStatic {
      * In order of preference, this function returns the default timezone by:
      * - reading the timezone set using the setDefaultTimezone() method (if any).
      * - reading the value of the 'date.timezone' ini option (if set).
-     * If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.
+     * If none of the above succeeds, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\DateTime\Zone To check for valid timezone.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Zone To check for a valid timezone.
      *
-     * @throws Error If we cannot get the default timezone.
+     * @throws Error If we can't get the default timezone.
      *
      * @return \FireHub\Core\Support\Enums\DateTime\Zone Timezone enum.
      */

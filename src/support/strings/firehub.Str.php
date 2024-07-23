@@ -102,7 +102,7 @@ abstract class Str implements Init, Strings {
      *
      * Str::from('FireHub');
      * ```
-     * @example Creating new string with specific encoding.
+     * @example Creating a new string with specific encoding.
      * ```php
      * use FireHub\Core\Support\Str;
      * use FireHub\Core\Support\Enums\String\Encoding;
@@ -159,7 +159,7 @@ abstract class Str implements Init, Strings {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If array item could not be converted to string.
+     * @throws Error If the array item couldn't be converted to string.
      *
      * @return static New string containing a string representation of all the array elements in the same order,
      * with the separator string between each element.
@@ -348,7 +348,7 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains value.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::contains() To check if a string contains a value.
      *
      * @example
      * ```php
@@ -500,7 +500,7 @@ abstract class Str implements Init, Strings {
      * Str::from('FireHub')->encoding(Encoding::UTF_8);
      * ```
      *
-     * @throws Error If we could not get current encoding.
+     * @throws Error If we couldn't get current encoding.
      * @throws ValueError If the value of encoding is an invalid encoding.
      */
     public function encoding (?Encoding $encoding = null):self|Encoding {
@@ -757,8 +757,8 @@ abstract class Str implements Init, Strings {
      * @uses \FireHub\Core\Support\Strings\Str::capitalize() To capitalize each word.
      * @uses \FireHub\Core\Support\Strings\Str::deCapitalize() To deCapitalize each word.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if word is inside an ignore list.
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as new string.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() Check if the word is inside an ignore list.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as a new string.
      * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all ignored cases.
      *
      * @example
@@ -1090,7 +1090,7 @@ abstract class Str implements Init, Strings {
      *
      * // FireHub
      * ```
-     * @example With $allowed_tags parameter, you allow certain tags to be excluded for the strip.
+     * @example With the $allowed_tags parameter, you allow certain tags to be excluded from the strip.
      *  ```php
      *  use FireHub\Core\Support\Str;
      *
@@ -1098,7 +1098,7 @@ abstract class Str implements Init, Strings {
      *
      *  // <p>FireHub</p>
      *  ```
-     * @example Alternatively, you can use array in $allowed_tags parameter to allow multiple tags.
+     * @example Alternatively, you can use an array in $allowed_tags parameter to allow multiple tags.
      *  ```php
      *  use FireHub\Core\Support\Str;
      *
@@ -1107,7 +1107,7 @@ abstract class Str implements Init, Strings {
      *  // <p><a>FireHub</a></p>
      *  ```
      *
-     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * @note Self-closing XHTML tags are ignored, and only non-self-closing tags should be used in allowed_tags.
      * For example, to allow both <br> and <br/>, you should use: <br>.
      * </p>
      */
@@ -1148,8 +1148,8 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To cary from part of the string.
-     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To cary until the last part of a string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To carry from part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To carry until the last part of a string.
      *
      * @example
      * ```php
@@ -1170,8 +1170,8 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To cary from part of the string.
-     * @uses \FireHub\Core\Support\Strings\Str::carryUntil() To cary until the part of a string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryFrom() To carry from part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntil() To carry until the part of a string.
      *
      * @example
      * ```php
@@ -1192,8 +1192,8 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Strings\Str::carryFromLast() To cary from the last part of the string.
-     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To cary until the last part of a string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryFromLast() To carry from the last part of the string.
+     * @uses \FireHub\Core\Support\Strings\Str::carryUntilLast() To carry until the last part of a string.
      *
      * @example
      * ```php
@@ -1261,7 +1261,7 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of a string.
      *
      * @example
      * ```php
@@ -1328,7 +1328,7 @@ abstract class Str implements Init, Strings {
      * @since 1.0.0
      *
      * @uses static::carry() To get the last part for string.
-     * @uses static::indexOf() To get position of $find.
+     * @uses static::indexOf() To get the position of $find.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
      *
      * @example
@@ -1404,7 +1404,7 @@ abstract class Str implements Init, Strings {
      * @since 1.0.0
      *
      * @uses static::carry() To get the last part for string.
-     * @uses static::lastIndexOf() To get lst position of $find.
+     * @uses static::lastIndexOf() To get the last position of $find.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length for $find.
      *
      * @example
@@ -1478,7 +1478,7 @@ abstract class Str implements Init, Strings {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get part of a string.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::firstPosition() To find the position of the first occurrence for a substring in a string.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get string length.
      *
@@ -1603,7 +1603,7 @@ abstract class Str implements Init, Strings {
      *
      * // FireHubFireHubFireHubFireHub
      * ```
-     * @example With custom separator.
+     * @example With a custom separator.
      * ```php
      * use FireHub\Core\Support\Str;
      *
@@ -1705,11 +1705,11 @@ abstract class Str implements Init, Strings {
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::part() To get string segment to mask.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get masked string length.
-     * @uses \FireHub\Core\Support\Strings\Str::length() To get current string length.
-     * @uses \FireHub\Core\Support\Strings\Str::overwrite() To remove current string.
+     * @uses \FireHub\Core\Support\Strings\Str::length() To get the current string length.
+     * @uses \FireHub\Core\Support\Strings\Str::overwrite() To remove the current string.
      * @uses \FireHub\Core\Support\Strings\Str::pad() To add masked string.
      * @uses \FireHub\Core\Support\Strings\Str::prepend() To add the first part of the string.
-     * @uses \FireHub\Core\Support\Strings\Str::append() To add the last part the string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To add the last part to the string.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters::string() To add character to pad.
      *
      * @example
@@ -1915,7 +1915,7 @@ abstract class Str implements Init, Strings {
      * @uses \FireHub\Core\Support\LowLevel\Arr::range() To create an array containing a range of elements.
      * @uses \FireHub\Core\Support\LowLevel\Arr::shuffle() To shuffle an array.
      * @uses \FireHub\Core\Support\Str::length() To get string length.
-     * @uses \FireHub\Core\Support\Str::part() To get part of string.
+     * @uses \FireHub\Core\Support\Str::part() To get part of a string.
      *
      * @example
      * ```php
@@ -1951,7 +1951,7 @@ abstract class Str implements Init, Strings {
      * @uses \FireHub\Core\Support\Strings\Str::from() To create string from any word.
      * @uses \FireHub\Core\Support\Strings\Str::surround() To surround any word with $with argument.
      * @uses \FireHub\Core\Support\Strings\Str::append() To append words.
-     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as new string.
+     * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join words with $with argument as a new string.
      *
      * @example
      * ```php
@@ -2014,9 +2014,9 @@ abstract class Str implements Init, Strings {
      * ```
      *
      * @note Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-     * are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
+     * are (or aren't) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
      * thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-     * seemingly does not.
+     * seemingly doesn't.
      */
     public function trim (Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):self {
 
@@ -2034,7 +2034,7 @@ abstract class Str implements Init, Strings {
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To get length of $with argument.
      * @uses \FireHub\Core\Support\Strings\Str::length() To get length of current string.
      * @uses \FireHub\Core\Support\Strings\Str::carry() To get part of the current string.
-     * @uses \FireHub\Core\Support\Strings\Str::append() To append $with argument at the end of the current string.
+     * @uses \FireHub\Core\Support\Strings\Str::append() To append $with an argument at the end of the current string.
      *
      *  @example
      * ```php
@@ -2177,7 +2177,7 @@ abstract class Str implements Init, Strings {
      * // ['Fir', 'eHu', 'b']
      * ```
      *
-     * @throws Error If length is less than 1.
+     * @throws Error If the length is less than 1.
      */
     public function chop (int $length = 1):array {
 
@@ -2335,7 +2335,7 @@ abstract class Str implements Init, Strings {
      * // ['Fir', 'eHu', 'b']
      * ```
      *
-     * @throws Error If number of groups is less than one.
+     * @throws Error If the number of groups is less than one.
      */
     public function group (int $number_of_groups):array {
 
@@ -2447,7 +2447,7 @@ abstract class Str implements Init, Strings {
      * // H
      * ```
      *
-     * @throws Error If character index is out of range.
+     * @throws Error If the character index is out of range.
      */
     public function charAt (int $index):Char {
 

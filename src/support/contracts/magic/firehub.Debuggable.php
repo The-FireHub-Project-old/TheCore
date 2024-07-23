@@ -23,7 +23,7 @@ interface Debuggable {
     /**
      * ### This method is called by var_dump() and print_r() when dumping an object
      *
-     * If the method isn't defined on an object, then all public, protected and private properties will be shown.
+     * If the method isn't defined on an object, then all public, protected, and private properties will be shown.
      * @since 1.0.0
      *
      * @return array<string, mixed> Get the properties that should be shown.

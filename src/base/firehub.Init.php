@@ -28,7 +28,7 @@ interface Init extends Base, JsonSerializable, Serializable {
      * ### Specify data which should be serialized to JSON
      *
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * With default, all initialized public, non-static properties will be returned.
+     * By default, all initialized public, non-static properties will be returned.
      *
      * @inheritDoc
      *

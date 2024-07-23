@@ -26,7 +26,7 @@ use FireHub\Core\Support\LowLevel\StrSB;
 enum Preposition:string implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
@@ -433,13 +433,13 @@ enum Preposition:string implements InitBackedEnum {
     }
 
     /**
-     * ### Get list of all short prepositions
+     * ### Get a list of all short prepositions
      *
      * All prepositions with length less than four are considered short.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Words\Preposition::cases() To get a list of all prepositions.
-     * @uses \FireHub\Core\Support\Enums\String\Words\Preposition::short() To check if preposition is short.
+     * @uses \FireHub\Core\Support\Enums\String\Words\Preposition::short() To check if the preposition is short.
      *
      * @return self[] List of all short conjunctions.
      */

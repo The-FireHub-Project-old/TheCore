@@ -55,7 +55,7 @@ abstract class StrSafe implements InitStatic {
     use ConcreteStatic;
 
     /**
-     * ### Checks if string contains value
+     * ### Checks if string contains a value
      *
      * Performs a case-sensitive check indicating if $string is contained in $string.
      * @since 1.0.0
@@ -67,7 +67,7 @@ abstract class StrSafe implements InitStatic {
      * The string to search in.
      * </p>
      *
-     * @return bool True if a string contains value, false otherwise.
+     * @return bool True if a string contains a value, false otherwise.
      */
     final public static function contains (string $value, string $string):bool {
 
@@ -88,7 +88,7 @@ abstract class StrSafe implements InitStatic {
      * The string to search in.
      * </p>
      *
-     * @return bool True if string starts with value, false otherwise.
+     * @return bool True if the string starts with value, false otherwise.
      */
     final public static function startsWith (string $value, string $string):bool {
 
@@ -109,7 +109,7 @@ abstract class StrSafe implements InitStatic {
      * The string to search in.
      * </p>
      *
-     * @return bool True if string ends with value, false otherwise.
+     * @return bool True if the string ends with value, false otherwise.
      */
     final public static function endsWith (string $value, string $string):bool {
 
@@ -152,7 +152,7 @@ abstract class StrSafe implements InitStatic {
      * The boundary string.
      * </p>
      *
-     * @throws Error If array item could not be converted to string.
+     * @throws Error If the array item couldn't be converted to string.
      *
      * @return string Returns a string containing a string representation of all the array elements in the same order,
      * with the separator string between each element.
@@ -164,7 +164,7 @@ abstract class StrSafe implements InitStatic {
     }
 
     /**
-     * ### Quote meta characters
+     * ### Quote meta-characters
      *
      * Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).
      * @since 1.0.0
@@ -188,11 +188,11 @@ abstract class StrSafe implements InitStatic {
      * @since 1.0.0
      *
      * @param string $string <p>
-     * The string to be repeated.
+     * The string is to be repeated.
      * </p>
      * @param int $times <p>
      * Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
-     * If the $times is set to 0 or less, the function will return empty string.
+     * If the $times are set to 0 or less, the function will return an empty string.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
@@ -219,11 +219,11 @@ abstract class StrSafe implements InitStatic {
      * The input string.
      * </p>
      * @param null|string|array<int, string> $allowed_tags <p>
-     * You can use the optional second parameter to specify tags which should not be stripped.
+     * You can use the optional second parameter to specify tags which shouldn't be stripped.
      *
      * @return string the Stripped string.
      *
-     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * @note Self-closing XHTML tags are ignored, and only non-self-closing tags should be used in allowed_tags.
      * For example, to allow both <br> and <br/>, you should use: <br>.
      * </p>
      */
@@ -259,7 +259,7 @@ abstract class StrSafe implements InitStatic {
     /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
-     * This function returns a string with whitespace stripped from the beginning and end of string.
+     * This function returns a string with whitespace stripped from the beginning and end of the string.
      * Without the second parameter, [[StrSafe#trim()]] will strip these characters.
      *
      * - " " (ASCII 32 (0x20)), an ordinary space.
@@ -288,9 +288,9 @@ abstract class StrSafe implements InitStatic {
      * @return string The trimmed string.
      *
      * @note Because trim() trims characters from the beginning and end of a string, it may be confusing when characters
-     * are (or are not) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
+     * are (or aren't) removed from the middle. Trim('abc', 'bad') removes both 'a' and 'b' because it trims 'a'
      * thus moving 'b' to the beginning to also be trimmed. So, this is why it "works" whereas trim('abc', 'b')
-     * seemingly does not.
+     * seemingly doesn't.
      */
     final public static function trim (string $string, Side $side = Side::BOTH, string $characters = " \n\r\t\v\x00"):string {
 
@@ -323,9 +323,10 @@ abstract class StrSafe implements InitStatic {
      * - limit are returned. If the limit parameter is zero, then this is treated as 1.
      * </p>
      *
-     * @throws ValueError If separator is an empty string.
+     * @throws ValueError If the separator is an empty string.
      *
-     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+     * @return string[] If a delimiter contains a value not contained in string, and a negative limit is used,
+     * then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      */
     final public static function explode (string $string, string $separator, int $limit = MAX):array {

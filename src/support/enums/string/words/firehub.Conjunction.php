@@ -20,13 +20,13 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\LowLevel\StrSB;
 
 /**
- * ### A conjunction is used to combine two or more objects, phrases or clauses
+ * ### A conjunction is used to combine two or more objects, phrases, or clauses
  * @since 1.0.0
  */
 enum Conjunction:string implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
@@ -152,7 +152,7 @@ enum Conjunction:string implements InitBackedEnum {
     case YET = 'yet';
 
     /**
-     * ### Check if conjunction is short
+     * ### Check if the conjunction is short
      *
      * All conjunctions with length less than four are considered short.
      * @since 1.0.0
@@ -168,13 +168,13 @@ enum Conjunction:string implements InitBackedEnum {
     }
 
     /**
-     * ### Get list of all short conjunctions
+     * ### Get a list of all short conjunctions
      *
      * All conjunctions with length less than four are considered short.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Words\Conjunction::cases() To get a list of all conjunctions.
-     * @uses \FireHub\Core\Support\Enums\String\Words\Conjunction::short() To check if conjunction is short.
+     * @uses \FireHub\Core\Support\Enums\String\Words\Conjunction::short() To check if the conjunction is short.
      *
      * @return self[] List of all short conjunctions.
      */

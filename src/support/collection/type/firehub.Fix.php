@@ -49,7 +49,7 @@ final class Fix implements Init, Accessible {
      * @since 1.0.0
      *
      * @param SplFixedArray<mixed> $storage <p>
-     * Fixed array underlying data.
+     * Fixed the array underlying data.
      * </p>
      *
      * @return void
@@ -556,7 +556,7 @@ final class Fix implements Init, Accessible {
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Fix::first() Used to search string value.
-     * @uses \FireHub\Core\Support\Collection\Type\Fix::search() Used to search a callable value.
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::search() Used to search for a callable value.
      *
      * @example
      * ```php

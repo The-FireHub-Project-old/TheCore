@@ -64,14 +64,14 @@ final class DataIs implements InitStatic {
     }
 
     /**
-     * ### Checks if value is boolean
+     * ### Checks if the value is boolean
      * @since 1.0.0
      *
      * @param mixed $value <p>
      * Value to check.
      * </p>
      *
-     * @return ($value is bool ? true : false) True if value is boolean, false otherwise.
+     * @return ($value is bool ? true : false) True if the value is boolean, false otherwise.
      */
     public static function bool (mixed $value):bool {
 
@@ -183,7 +183,7 @@ final class DataIs implements InitStatic {
      * Value to check.
      * </p>
      *
-     * @return ($value is numeric ? true : false) True if value is numeric, false otherwise.
+     * @return ($value is numeric ? true : false) True if the value is numeric, false otherwise.
      */
     public static function numeric (mixed $value):bool {
 
@@ -215,7 +215,7 @@ final class DataIs implements InitStatic {
      * Value to check.
      * </p>
      *
-     * @return ($value is resource ? true : false) True if value is resource, false otherwise or if resource is closed.
+     * @return ($value is resource ? true : false) True if value is resource, false otherwise, or if the resource is closed.
      */
     public static function resource (mixed $value):bool {
 
@@ -226,14 +226,14 @@ final class DataIs implements InitStatic {
     /**
      * ### Finds whether a variable is a scalar
      *
-     * Scalar values include: string, int, float and bool.
+     * Scalar values include: string, int, float, and bool.
      * @since 1.0.0
      *
      * @param mixed $value <p>
      * Value to check.
      * </p>
      *
-     * @return ($value is scalar ? true : false) True if value is scalar, false otherwise.
+     * @return ($value is scalar ? true : false) True if the value is scalar, false otherwise.
      */
     public static function scalar (mixed $value):bool {
 

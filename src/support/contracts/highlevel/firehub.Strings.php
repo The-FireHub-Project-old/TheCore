@@ -60,8 +60,8 @@ interface Strings extends Stringable {
     /**
      * ### Boolean representation of the given logical string value
      *
-     * True - 'true', '1', 'on', 'yes', positive-int
-     * False - 'false', '0','off', 'no', only blanks, non-positive-int
+     * True – 'true', '1', 'on', 'yes', positive-int
+     * False – 'false', '0','off', 'no', only blanks, non-positive-int
      * For all other strings, the return value is a result of a boolean cast.
      * @since 1.0.0
      *
@@ -79,7 +79,7 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return bool True if string starts with value, false otherwise.
+     * @return bool True if the string starts with value, false otherwise.
      */
     public function startsWith (string $value):bool;
 
@@ -93,7 +93,7 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return bool True if string starts with any of the given values, false otherwise.
+     * @return bool True if the string starts with any of the given values, false otherwise.
      */
     public function startsWithAny (string ...$values):bool;
 
@@ -107,7 +107,7 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return bool True if string ends with value, false otherwise.
+     * @return bool True if the string ends with value, false otherwise.
      */
     public function endsWith (string $value):bool;
 
@@ -121,12 +121,12 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return bool True if string ends with any of the given values, false otherwise.
+     * @return bool True if the string ends with any of the given values, false otherwise.
      */
     public function endsWithAny (string ...$values):bool;
 
     /**
-     * ### Checks if string contains value
+     * ### Checks if string contains a value
      *
      * Performs a check indicating if $string is contained in $string.
      * @since 1.0.0
@@ -135,7 +135,7 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return bool True if a string contains value, false otherwise.
+     * @return bool True if a string contains a value, false otherwise.
      */
     public function contains (string $value):bool;
 
@@ -190,7 +190,7 @@ interface Strings extends Stringable {
     public function equalsAny (string ...$values):bool;
 
     /**
-     * ### Checks if string matches a given pattern
+     * ### Checks if a string matches a given pattern
      * @since 1.0.0
      *
      * @param string $pattern <p>
@@ -252,7 +252,7 @@ interface Strings extends Stringable {
     public function toTitle ():self;
 
     /**
-     * ### Make a first character of string uppercased
+     * ### Make the first character of string uppercased
      * @since 1.0.0
      *
      * @return $this This string.
@@ -260,7 +260,7 @@ interface Strings extends Stringable {
     public function capitalize ():self;
 
     /**
-     * ### Make a first character of string uppercased
+     * ### Make the first character of string uppercased
      * @since 1.0.0
      *
      * @return $this This string.
@@ -362,7 +362,7 @@ interface Strings extends Stringable {
     /**
      * ### Humanize string
      *
-     * Capitalizes the first word of the string, replaces underscores with spaces and removes forbidden words.
+     * Capitalizes the first word of the string, replaces underscores with spaces, and removes forbidden words.
      * @since 1.0.0
      *
      * @param list<string> $forbidden_words [optional] <p>
@@ -413,18 +413,18 @@ interface Strings extends Stringable {
      * @since 1.0.0
      *
      * @param null|string|array<int, string> $allowed_tags <p>
-     * You can use the optional second parameter to specify tags which should not be stripped.
+     * You can use the optional second parameter to specify tags which shouldn't be stripped.
      *
      * @return $this This string.
      *
-     * @note Self-closing XHTML tags are ignored and only non-self-closing tags should be used in allowed_tags.
+     * @note Self-closing XHTML tags are ignored, and only non-self-closing tags should be used in allowed_tags.
      * For example, to allow both <br> and <br/>, you should use: <br>.
      * </p>
      */
     public function stripTags (null|string|array $allowed_tags = null):self;
 
     /**
-     * ### Quote meta characters
+     * ### Quote meta-characters
      *
      * Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).
      * @since 1.0.0
@@ -494,8 +494,8 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @tip If $end is omitted, the function extracts the remaining string.
-     * @tip If $end is negative, it is computed from the end of the string.
+     * @tip If the $end is omitted, the function extracts the remaining string.
+     * @tip If the $end is negative, it is computed from the end of the string.
      */
     public function slice (int $from, ?int $until = null):self;
 
@@ -582,7 +582,7 @@ interface Strings extends Stringable {
     /**
      * ### Carry from the last part of the string
      *
-     * Returns last part of $string starting from the first occurrence of $find to the end of $string.
+     * Returns the last part of $string starting from the first occurrence of $find to the end of $string.
      * @since 1.0.0
      *
      * @param string $find <p>
@@ -620,7 +620,7 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @tip If $end is negative, it is computed from the end of the string.
+     * @tip If the $end is negative, it is computed from the end of the string.
      */
     public function insert (string $string, int $position):self;
 
@@ -642,7 +642,7 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @tip If $end is negative, it is computed from the end of the string.
+     * @tip If the $end is negative, it is computed from the end of the string.
      */
     public function move (int $from, int $length, int $to):self;
 
@@ -664,7 +664,7 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @tip If $end is negative, it is computed from the end of the string.
+     * @tip If the $end is negative, it is computed from the end of the string.
      */
     public function overwrite (int $from, int $until, string $with):self;
 
@@ -693,7 +693,7 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @note Because method replaces left to right, it might replace a previously inserted value when doing
+     * @note Because the method replaces left to right, it might replace a previously inserted value when doing
      * multiple replacements.
      */
     public function replaceRecursive (array $rules):self;
@@ -704,7 +704,7 @@ interface Strings extends Stringable {
      *
      * @param int $times <p>
      * Number of time the input string should be repeated.
-     * If the $times is set to 0 or less, the function will return empty string.
+     * If the $times are set to 0 or less, the function will return an empty string.
      * </p>
      * @param string $separator [optional] <p>
      * Separator in between any repeated string.
@@ -751,7 +751,7 @@ interface Strings extends Stringable {
     /**
      * ### Mask a portion of a string
      *
-     * Masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings
+     * Masks a portion of a string with a repeated character and may be used to obfuscate segments of strings
      * such as email addresses and phone numbers,
      * @since 1.0.0
      *
@@ -860,8 +860,8 @@ interface Strings extends Stringable {
      *
      * @return $this This string.
      *
-     * @caution This function does not generate cryptographically secure values,
-     * and must not be used for cryptographic purposes,
+     * @caution This function doesn't generate cryptographically secure values,
+     * and mustn't be used for cryptographic purposes,
      * or purposes that require returned values to be unguessable.
      */
     public function shuffle ():self;
@@ -881,7 +881,7 @@ interface Strings extends Stringable {
     /**
      * ### Strip whitespace (or other characters) from the beginning and end of a string
      *
-     * This function returns a string with whitespace stripped from the beginning and end of string.
+     * This function returns a string with whitespace stripped from the beginning and end of the string.
      * Without the second parameter, [[StrSafe#trim()]] will strip these characters.
      *
      * - " " (ASCII 32 (0x20)), an ordinary space.
@@ -918,12 +918,12 @@ interface Strings extends Stringable {
      * @return $this This string.
      *
      * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
-     * @note If truncate is negative, string will be truncated from right to left.
+     * @note If truncate is negative, the string will be truncated from right to left.
      */
     public function truncate (int $length, string $with = ''):self;
 
     /**
-     * ### Truncates the string to a given length, while ensuring that it does not split words
+     * ### Truncates the string to a given length while ensuring that it doesn't split words
      * @since 1.0.0
      *
      * @param int $length <p>
@@ -936,12 +936,12 @@ interface Strings extends Stringable {
      * @return $this This string.
      *
      * @note If truncating occurs, the string is further truncated so that the $with may be appended without exceeding the desired length.
-     * @note If truncate is negative, string will be truncated from right to left.
+     * @note If truncate is negative, the string will be truncated from right to left.
      */
     public function safeTruncate (int $length, string $with):self;
 
     /**
-     * ### Get first character of string
+     * ### Get the first character of string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
@@ -951,7 +951,7 @@ interface Strings extends Stringable {
     public function first ():?Characters;
 
     /**
-     * ### Get last character of string
+     * ### Get the last character of string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Characters As return.
@@ -978,10 +978,10 @@ interface Strings extends Stringable {
      * Maximum length of the chunk.
      * </p>
      *
-     * @return list<non-empty-string> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
+     * @return list<non-empty-string> If the optional $length parameter is specified, the returned array will be
+     * broken down into chunks with each being $length in length, except the final chunk, which may be shorter if the
+     * string doesn't divide evenly.
+     * The default $length is 1, meaning every chunk will be one byte in size.
      *
      * @todo Change from array to Collection
      */
@@ -998,12 +998,12 @@ interface Strings extends Stringable {
      * </p>
      * @param int<min, max> $limit [optional] <p>
      * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
-     * If the limit parameter is negative, all components except the last - limit are returned.
+     * If the limit parameter is negative, all components except the last – limit are returned.
      * If the limit parameter is zero, then this is treated as 1.
      * </p>
      *
-     * @return string[] If delimiter contains a value that is not contained in string and a negative
-     * limit is used, then an empty array will be returned.
+     * @return string[] If the delimiter contains a value not contained in string and a negative limit is used, then
+     * an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      *
      * @todo Change from array to Collection
@@ -1021,11 +1021,13 @@ interface Strings extends Stringable {
      * The boundary characters.
      * </p>
      * @param int<min, max> $limit [optional] <p>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with
+     * the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
      *
-     * @return string[] If delimiter contains a value not contained in string and a negative limit is used, then an empty array will be returned.
+     * @return string[] If a delimiter contains a value not contained in string, and a negative limit is used,
+     * then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      */
     public function breakWithAny (array $characters, int $limit = MAX):array;
@@ -1040,11 +1042,13 @@ interface Strings extends Stringable {
      * The boundary string.
      * </p>
      * @param int<min, max> $limit [optional] <p>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with
+     * the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
      *
-     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+     * @return string[] If a delimiter contains a value not contained in string, and a negative limit is used,
+     * then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      *
      * @todo Change from array to Collection
@@ -1061,11 +1065,13 @@ interface Strings extends Stringable {
      * The boundary characters.
      * </p>
      * @param int<min, max> $limit [optional] <p>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with
+     * the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
      *
-     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+     * @return string[] If a delimiter contains a value not contained in string, and a negative limit is used,
+     * then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      */
     public function splitBeforeAny (array $characters, int $limit = MAX):array;
@@ -1081,11 +1087,13 @@ interface Strings extends Stringable {
      * The boundary characters.
      * </p>
      * @param int<min, max> $limit [optional] <p>
-     * If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+     * If the limit is set and positive, the returned array will contain a maximum of limit elements with
+     * the last element containing the rest of the string.
      * If the limit parameter is zero or -1, then this is treated as 1.
      * </p>
      *
-     * @return string[] If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+     * @return string[] If a delimiter contains a value not contained in string, and a negative limit is used,
+     * then an empty array will be returned.
      * For any other limit, an array containing string will be returned.
      */
     public function splitAfterAny (array $characters, int $limit = MAX):array;
@@ -1112,7 +1120,7 @@ interface Strings extends Stringable {
      * The value to search for.
      * </p>
      *
-     * @return non-negative-int Number of times the searched value occurs in the string.
+     * @return non-negative-int The number of times the searched value occurs in the string.
      */
     public function containTimes (string $value):int;
 

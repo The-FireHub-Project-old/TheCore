@@ -102,7 +102,7 @@ final class Iterator implements InitStatic {
      * iterator.
      * </p>
      * @param null|array<TValue> $arguments <p>
-     * An array of arguments; each element of args is passed to the callback as separate argument.
+     * An array of arguments; each element of args is passed to the callback as a separate argument.
      * </p>
      *
      * @return int Iteration count.

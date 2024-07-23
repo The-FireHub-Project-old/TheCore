@@ -44,9 +44,9 @@ final class Path implements Init {
      *
      * @uses \FireHub\Core\Support\Path::phar() To get a current phar path.
      * @uses \FireHub\Core\Support\LowLevel\Folder::parent() To return a parent core phar folder.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
-     * @throws Error If a system could not load your project phar.
+     * @throws Error If a system couldn't load your project phar.
      *
      * @return non-empty-string FireHub project path.
      */
@@ -68,7 +68,7 @@ final class Path implements Init {
      * ### Get FireHub Core path
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @return non-empty-string FireHub Core path.
      */
@@ -86,7 +86,7 @@ final class Path implements Init {
      * If true, a full phar URL is returned; otherwise the full path on disk to the phar archive is returned.
      * </p>
      *
-     * @throws Error If a system could not get a current phar path.
+     * @throws Error If a system couldn't get a current phar path.
      *
      * @return non-empty-string Current phar path.
      */

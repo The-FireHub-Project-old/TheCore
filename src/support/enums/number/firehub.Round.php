@@ -31,7 +31,7 @@ enum Round implements InitEnum {
     use ConcreteEnum;
 
     /**
-     * ### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2
+     * ### Rounds number away from zero when it is halfway there, making 1.5 into 2 and -1.5 into -2
      * @since 1.0.0
      */
     case HALF_UP;
@@ -49,7 +49,7 @@ enum Round implements InitEnum {
     case HALF_EVEN;
 
     /**
-     * ### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3
+     * ### Rounds number towards the nearest odd value when it is halfway there, making 1.5 into 1 and 2.5 into 3
      * @since 1.0.0
      */
     case HALF_ODD;

@@ -44,7 +44,7 @@ final class SplAutoload implements InitStatic {
      * ### Default autoload implementation
      *
      * This function is intended to be used as a default implementation for [[SplAutoload#register()]].
-     * If nothing else is specified and register method is called without any parameters,
+     * If nothing else is specified and the register method is called without any parameters,
      * then this function will be used for any later call to autoload.
      * @since 1.0.0
      *
@@ -74,14 +74,14 @@ final class SplAutoload implements InitStatic {
      * @since 1.0.0
      *
      * @param null|non-empty-string $file_extensions [optional] <p>
-     * If null, it simply returns the current list of extensions each separated by comma.
+     * If null, it simply returns the current list of extensions, each separated by comma.
      * To modify the list of file extensions, invoke the functions with the new list of file extensions to use
      * in a single string with each extension separated by comma.
      * </p>
      *
-     * @return string A comma delimited list of default file extensions for default method.
+     * @return string A comma delimited the list of default file extensions for default method.
      *
-     * @note There should not be a space between the defined file extensions.
+     * @note There shouldn't be a space between the defined file extensions.
      */
     public static function extensions (?string $file_extensions = null):string {
 
@@ -92,9 +92,10 @@ final class SplAutoload implements InitStatic {
     /**
      * ### Register a callback function as an autoloader
      *
-     * Register a function with the spl provided autoload queue. If the queue is not yet activated, it will be
-     * activated. If there must be multiple autoload functions, this method allows for this. It effectively creates a
-     * queue of autoload functions, and runs through each of them in the order they are defined.
+     * Register a function with the spl provided autoloaded queue.
+     * If the queue is not yet activated, it will be activated.
+     * If there must be multiple autoload functions, this method allows for this.
+     * It effectively creates a queue of autoload functions and runs through each of them in the order they are defined.
      * @since 1.0.0
      *
      * @param null|callable(string $class):void $callback [optional] <p>

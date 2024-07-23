@@ -44,7 +44,7 @@ final class StrEncode implements InitStatic {
     /**
      * ### Encodes string with MIME base64
      *
-     * This encoding is designed to make binary data survive transport through transport layers that are not 8-bit
+     * This encoding is designed to make binary data survive transport through transport layers that aren't 8-bit
      * clean, such as mail bodies. Base64-encoded data takes about 33% more space than the original data.
      * @since 1.0.0
      *
@@ -68,7 +68,7 @@ final class StrEncode implements InitStatic {
      * The base64 encoded data.
      * </p>
      *
-     * @throws Error If we cannot decode $data to base64.
+     * @throws Error If we can't decode $data to base64.
      *
      * @return string Decoded string.
      */

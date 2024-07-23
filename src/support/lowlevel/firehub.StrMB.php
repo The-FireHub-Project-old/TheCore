@@ -40,7 +40,7 @@ use function mb_substr_count;
 /**
  * ### Multibyte string low-level proxy class
  *
- * Class provides multibyte specific string functions that help you deal with multibyte encodings.
+ * Class provides multibyte-specific string functions that help you deal with multibyte encodings.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
@@ -84,7 +84,7 @@ final class StrMB extends StrSafe {
      * ### Get part of string
      *
      * Performs a multibyte safe [[StrSB#part()]] operation based on the number of characters. Position is counted
-     * from the beginning of $string. First character's position is 0. Second character position is 1, and so on.
+     * from the beginning of $string. The first character's position is 0. The second character's position is 1, and so on.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -115,7 +115,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find first part of a string
+     * ### Find the first part of a string
      *
      * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
      * @since 1.0.0
@@ -138,7 +138,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string|false The portion of string or false if needle is not found.
+     * @return string|false The portion of string or false if the needle is not found.
      */
     public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
@@ -149,7 +149,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find last part of a string
+     * ### Find the last part of a string
      *
      * This function returns the portion of $string which starts at the last occurrence of $find and goes until the
      * end of $string.
@@ -173,7 +173,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string|false The portion of string, or false if needle is not found.
+     * @return string|false The portion of string, or false if the needle is not found.
      */
     public static function lastPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
@@ -204,10 +204,10 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If length is less than 1.
+     * @throws Error If the length is less than 1.
      *
      * @return list<non-empty-string> If the optional $length parameter is specified, the returned array will be broken down into chunks with each being
-     * $length in length, except the final chunk which may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk
+     * $length in length, except the final chunk, which may be shorter if the string doesn't divide evenly. The default $length is 1, meaning every chunk
      * will be one byte in size.
      */
     public static function split (string $string, int $length = 1, ?Encoding $encoding = null):array {
@@ -220,7 +220,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Get number of times the searched substring occurs in the string
+     * ### Get the number of times the searched substring occurs in the string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -235,7 +235,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return non-negative-int Number of times the searched substring occurs in the string.
+     * @return non-negative-int The number of times the searched substring occurs in the string.
      */
     public static function partCount (string $string, string $search, ?Encoding $encoding = null):int {
 
@@ -343,7 +343,7 @@ final class StrMB extends StrSafe {
      * </p>
      *
      * @throws ValueError If the value of encoding is an invalid encoding.
-     * @throws Error If we could not get current encoding.
+     * @throws Error If we couldn't get current encoding.
      *
      * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true) If encoding is set, then returns true. In this case, the
      * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned.
@@ -402,7 +402,7 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If we could not convert string.
+     * @throws Error If we couldn't convert string.
      * @throws ValueError If the value of $to or $from is an invalid encoding.
      *
      * @return string Encoded string.

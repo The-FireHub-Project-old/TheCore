@@ -35,7 +35,7 @@ final class CountCollectables implements Init {
     use Concrete;
 
     /**
-     * ### Counting result
+     * ### Counting a result
      * @since 1.0.0
      *
      * @var non-negative-int

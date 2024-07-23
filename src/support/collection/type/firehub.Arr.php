@@ -566,7 +566,7 @@ abstract class Arr implements Init, Accessible {
      * // 1
      * ```
      *
-     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
+     * @warning This method may return Boolean false but may also return a non-Boolean value which evaluates to false.
      * Read the section on Booleans for more information.
      * Use the === operator for testing the return value of this function.
      */
@@ -633,7 +633,7 @@ abstract class Arr implements Init, Accessible {
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if argument $value is callable.
      * @uses \FireHub\Core\Support\Collection\Type\Arr::first() Used to search string value.
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::search() Used to search a callable value.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::search() Used to search for a callable value.
      *
      * @example
      * ```php
@@ -773,7 +773,7 @@ abstract class Arr implements Init, Accessible {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::offsetExists() To check if offset exists.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::offsetExists() To check if an offset exists.
      */
     public function offsetGet (mixed $offset):mixed {
 

@@ -18,7 +18,7 @@ use FireHub\Core\Support\LowLevel\Constant;
 use Error;
 
 /**
- * ### FireHub initial concrete backed enum trait
+ * ### FireHub initial concrete-backed enum trait
  * @since 1.0.0
  */
 trait ConcreteBackedEnum {

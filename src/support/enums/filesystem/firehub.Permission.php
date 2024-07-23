@@ -25,7 +25,7 @@ use FireHub\Core\Base\ {
 enum Permission:int implements InitBackedEnum {
 
     /**
-     * ### FireHub initial concrete backed enum trait
+     * ### FireHub initial concrete-backed enum trait
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
@@ -43,7 +43,7 @@ enum Permission:int implements InitBackedEnum {
     case EXECUTE = 1;
 
     /**
-     * ### Grants the ability to modify, or remove the content of the file
+     * ### Grants the ability to modify or remove the content of the file
      * @since 1.0.0
      */
     case WRITE = 2;
@@ -55,7 +55,7 @@ enum Permission:int implements InitBackedEnum {
     case WRITE_EXECUTE = 3;
 
     /**
-     * ### Grants the ability to read, i.e., view the contents of the file
+     * ### Grants the ability to read, in other words, view the contents of the file
      * @since 1.0.0
      */
     case READ = 4;
@@ -73,7 +73,7 @@ enum Permission:int implements InitBackedEnum {
     case READ_WRITE = 6;
 
     /**
-     * ### User has all permissions: read, write and execute
+     * ### User has all permissions: read, write, and execute
      * @since 1.0.0
      */
     case ALL = 7;

@@ -28,7 +28,7 @@ use function unregister_tick_function;
 /**
  * ### Function low-level proxy class
  *
- * Class allows you to obtain information about functions.
+ * Class allows you to collect information about functions.
  * @since 1.0.0
  */
 final class Func implements InitStatic {
@@ -40,7 +40,7 @@ final class Func implements InitStatic {
     use ConcreteStatic;
 
     /**
-     * ### Checks if function name exists
+     * ### Checks if the function name exists
      *
      * Checks the list of defined functions, both built-in (internal) and user-defined, for function.
      * @since 1.0.0
@@ -100,7 +100,7 @@ final class Func implements InitStatic {
      *
      * @param callable $callback <p>
      * The shutdown callback to register.
-     * The shutdown callbacks are executed as part of the request, so it's possible to send output from them and
+     * The shutdown callbacks are executed as part of the request, so it is possible to send output from them and
      * access output buffers.
      * </p>
      * @param mixed ...$arguments <p>
@@ -110,9 +110,9 @@ final class Func implements InitStatic {
      * @return void
      *
      * @note The working directory of the script can change inside the shutdown function under some web servers,
-     * e.g. Apache.
+     * for example, Apache.
      * @note Shutdown functions will not be executed if the process is killed with a SIGTERM or SIGKILL signal. While
-     * you cannot intercept a SIGKILL, you can use pcntl_signal() to install a handler for a SIGTERM which uses exit()
+     * you can't intercept a SIGKILL, you can use pcntl_signal() to install a handler for a SIGTERM which uses exit()
      * to end cleanly.
      * @note Shutdown functions run separately from the time tracked by max_execution_time. That means even if a
      * process is terminated for running too long, shutdown functions will still be called. Additionally, if the
@@ -134,7 +134,7 @@ final class Func implements InitStatic {
      * The function to register.
      * </p>
      * @param mixed ...$arguments <p>
-     * Parameters for callback function.
+     * Parameters for a callback function.
      * </p>
      *
      * @throws Error If failed to register tick function.

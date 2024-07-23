@@ -26,7 +26,7 @@ use function defined;
 /**
  * ### Constant low-level class proxy class
  *
- * Class allows you to obtain information about constants.
+ * Class allows you to collect information about constants.
  * @since 1.0.0
  */
 final class Constant implements InitStatic {
@@ -84,8 +84,8 @@ final class Constant implements InitStatic {
     /**
      * ### Returns the value of a constant
      *
-     * Method [[Constant#value()]] is useful if you need to retrieve the value of a constant, but do not know its name.
-     * I.e., it is stored in a variable or returned by a function.
+     * Method [[Constant#value()]] is useful if you need to retrieve the value of a constant but don't know its name.
+     * In other words, it is stored in a variable or returned by a function.
      * @since 1.0.0
      *
      * @param non-empty-string $name <p>

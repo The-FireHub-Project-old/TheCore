@@ -25,7 +25,7 @@ interface Destroyable {
      *
      * Like constructors, the engine will not call parent destructors implicitly.
      * To run a parent destructor, one would have to explicitly call parent::__destruct() in the destructor body.
-     * Also like constructors, a child class may inherit the parent's destructor if it does not implement one itself.
+     * Also, like constructors, a child class may inherit the parent's destructor if it doesn't implement one itself.
      * @since 1.0.0
      *
      * @return void
