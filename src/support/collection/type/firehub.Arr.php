@@ -811,12 +811,12 @@ abstract class Arr implements Init, Accessible {
      * User-defined function.
      * </p>
      *
-     * @return static<array<TKey, TValue>> The grouped collection.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array<TKey, TValue>> The grouped collection.
      */
-    public function groupBy (callable $callback):static {
+    public function groupBy (callable $callback):Indexed {
 
         /** @phpstan-ignore-next-line */
-        return new static(ArrLL::reduce(
+        return new Indexed(ArrLL::reduce(
             ArrLL::keys($this->storage),
             function (array $carry, int|string $key) use ($callback):array { // @phpstan-ignore-line
 
