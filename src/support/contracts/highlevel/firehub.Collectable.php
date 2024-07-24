@@ -55,6 +55,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * <code>null|callable(TValue=, TKey=):bool</code>
      * If callback is used, the method will return the first item that passes the truth test.
      * </p>
      *
@@ -67,6 +68,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * <code>null|callable(TValue=, TKey=):bool</code>
      * If callback is used, the method will return the first key that passes the truth test.
      * </p>
      *
@@ -79,6 +81,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * <code>null|callable(TValue=, TKey=):bool</code>
      * If callback is used, the method will return the last item that passes the truth test.
      * </p>
      *
@@ -91,6 +94,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param null|callable(TValue=, TKey=):bool $callback [optional] <p>
+     * <code>null|callable(TValue=, TKey=):bool</code>
      * If callback is used, the method will return the last key that passes the truth test.
      * </p>
      *
@@ -103,6 +107,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue=, TKey=):mixed $callback <p>
+     * <code>callable(TValue=, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      * @param positive-int $limit [optional] <p>
@@ -118,6 +123,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue=, TKey=):bool $callback <p>
+     * <code>callable(TValue=, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
@@ -130,6 +136,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param TValue|callable(TValue=, TKey=):bool $value <p>
+     * <code>TValue|callable(TValue=, TKey=):bool</code>
      * The searched value.
      * If the value is a string, the comparison is done in a case-sensitive manner.
      * </p>
@@ -160,6 +167,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param TValue|callable(TValue=, TKey=):bool $value <p>
+     * <code>TValue|callable(TValue=, TKey=):bool</code>
      * The value to check.
      * </p>
      *

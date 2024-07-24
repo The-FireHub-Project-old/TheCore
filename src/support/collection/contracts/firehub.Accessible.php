@@ -36,6 +36,7 @@ interface Accessible extends Collectable, ArrayAccessible {
      * @since 1.0.0
      *
      * @param callable(TValue $value=, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
@@ -48,6 +49,7 @@ interface Accessible extends Collectable, ArrayAccessible {
      * @since 1.0.0
      *
      * @param callable(TValue $value=, TKey=):bool $callback $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *

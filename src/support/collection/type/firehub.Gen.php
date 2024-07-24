@@ -48,6 +48,7 @@ final class Gen implements Init, Collectable {
      * @since 1.0.0
      *
      * @param Closure():Generator<TKey, TValue> $callable <p>
+     * <code>Closure():Generator<TKey, TValue></code>
      * Data from a callable source.
      * </p>
      *

@@ -209,6 +209,7 @@ abstract class Arr implements Init, Accessible {
      * ```
      *
      * @param callable(TValue=, TKey=):array-key $callback <p>
+     * <code>callable(TValue=, TKey=):bool</code>
      * Count all items by custom callable.
      * </p>
      *
@@ -806,6 +807,7 @@ abstract class Arr implements Init, Accessible {
      * ```
      *
      * @param callable(TValue $prev, TValue $curr):bool $callback <p>
+     * <code>callable(TValue $prev, TValue $curr):bool</code>
      * User-defined function.
      * </p>
      *

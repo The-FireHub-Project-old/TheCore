@@ -211,6 +211,7 @@ final class Obj implements Init, Accessible {
      * ```
      *
      * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * <code>null|callable(object=, mixed=):bool</code>
      * If callback is used, the method will return the first item that passes truth test.
      * </p>
      *
@@ -278,6 +279,7 @@ final class Obj implements Init, Accessible {
      * ```
      *
      * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * <code>null|callable(object=, mixed=):bool</code>
      * If callback is used, the method will return the first item that passes truth test.
      * </p>
      *
@@ -347,6 +349,7 @@ final class Obj implements Init, Accessible {
      * ```
      *
      * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * <code>null|callable(object=, mixed=):bool</code>
      * If callback is used, the method will return the last item that passes truth test.
      * </p>
      *
@@ -422,6 +425,7 @@ final class Obj implements Init, Accessible {
      * ```
      *
      * @param null|callable(object=, mixed=):bool $callback [optional] <p>
+     * <code>null|callable(object=, mixed=):bool</code>
      * If callback is used, the method will return the last item that passes truth test.
      * </p>
      *
@@ -479,6 +483,7 @@ final class Obj implements Init, Accessible {
      * ```
      *
      * @param callable(object=, mixed=):mixed $callback <p>
+     * <code>callable(object=, mixed=):bool</code>
      * Function to call on each item in collection.
      * </p>
      * @param positive-int $limit [optional] <p>
