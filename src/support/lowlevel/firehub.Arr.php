@@ -1478,10 +1478,12 @@ final class Arr implements InitStatic {
      * Iteratively applies the $callback function to the elements of the $array, to reduce the array to a single value.
      * @since 1.0.0
      *
-     * @param array<array-key, mixed> $array <p>
+     * @template TValue
+     *
+     * @param array<array-key, TValue> $array <p>
      * The input array.
      * </p>
-     * @param callable(mixed $carry, mixed $item):mixed $callback <p>
+     * @param callable(mixed $carry, TValue $item):mixed $callback <p>
      * <code>callable (mixed $carry, mixed $item):mixed</code>
      * The callable function.
      * </p>
