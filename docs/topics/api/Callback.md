@@ -193,7 +193,7 @@ inside a root path.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrSB.md#explode()">\FireHub\Core\Support\LowLevel\StrSB::explode()</a>  - <format style="italic">To split class to components.</format></li><li><a href="StrSB.md#implode()">\FireHub\Core\Support\LowLevel\StrSB::implode()</a>  - <format style="italic">To join array elements to get namespace.</format></li><li><a href="StrSB.md#tolower()">\FireHub\Core\Support\LowLevel\StrSB::toLower()</a>  - <format style="italic">To lowercase all namespaces.</format></li><li><a href="Arr.md#lastkey()">\FireHub\Core\Support\LowLevel\Arr::lastKey()</a>  - <format style="italic">To get classname.</format></li><li><a href="Arr.md#pop()">\FireHub\Core\Support\LowLevel\Arr::pop()</a>  - <format style="italic">To remove classname from namespace.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
+        <list><li><a href="StrSB.md#explode()">\FireHub\Core\Support\LowLevel\StrSB::explode()</a>  - <format style="italic">To split class to components.</format></li><li><a href="StrSB.md#implode()">\FireHub\Core\Support\LowLevel\StrSB::implode()</a>  - <format style="italic">To join array elements to get namespace.</format></li><li><a href="StrSB.md#tolower()">\FireHub\Core\Support\LowLevel\StrSB::toLower()</a>  - <format style="italic">To lowercase all namespaces.</format></li><li><a href="Arr.md#lastkey()">\FireHub\Core\Support\LowLevel\Arr::lastKey()</a>  - <format style="italic">To get the classname.</format></li><li><a href="Arr.md#pop()">\FireHub\Core\Support\LowLevel\Arr::pop()</a>  - <format style="italic">To remove classname from namespace.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform-specific.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -210,7 +210,7 @@ Class FQN to resolve.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system could not get class components.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system couldn&#039;t get class components.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -257,7 +257,7 @@ Class FQN to resolve.
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get class components from class FQN.</format></li><li><a href="DataIs.md#callable()">\FireHub\Core\Support\LowLevel\DataIs::callable()</a>  - <format style="italic">To check if $class is callable or string.</format></li><li><a href="DataIs.md#string()">\FireHub\Core\Support\LowLevel\DataIs::string()</a>  - <format style="italic">To check if callable path return string.</format></li><li><a href="File.md#isfile()">\FireHub\Core\Support\LowLevel\File::isFile()</a>  - <format style="italic">To check if $path is a valid path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
+        <list><li><a href="Callback.md#classcomponents()">\FireHub\Core\Initializers\Autoload\Callback::classComponents()</a>  - <format style="italic">To get class components from class FQN.</format></li><li><a href="DataIs.md#callable()">\FireHub\Core\Support\LowLevel\DataIs::callable()</a>  - <format style="italic">To check if $class is callable or string.</format></li><li><a href="DataIs.md#string()">\FireHub\Core\Support\LowLevel\DataIs::string()</a>  - <format style="italic">To check if callable path return string.</format></li><li><a href="File.md#isfile()">\FireHub\Core\Support\LowLevel\File::isFile()</a>  - <format style="italic">To check if $path is a valid path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform-specific.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -269,7 +269,7 @@ Fully qualified class name that is being loaded.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system could not get class components.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system couldn&#039;t get class components.</format></li></list>
     </def>
 </deflist>
 <deflist>

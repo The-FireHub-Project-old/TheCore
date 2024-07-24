@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\String\Expression\Modifier
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L25">
             View source code
         </a>
     </def>
@@ -91,12 +95,12 @@
 <p><format style="italic">If this modifier is set, letters in the pattern match both upper and lower case letters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L29">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L39">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L29">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L39">
                     View blame
                 </a>
             </def></deflist>
@@ -135,12 +139,12 @@ If there are no "\n" characters in a subject string, or no occurrences of ^ or $
 modifier has no effect.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L44">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L54">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L44">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L54">
                     View blame
                 </a>
             </def></deflist>
@@ -169,12 +173,12 @@ Without it, newlines are excluded. This modifier is equivalent to Perl's /s modi
 [^a] always matches a newline character, independent of the setting for this modifier.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L64">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L64">
                     View blame
                 </a>
             </def></deflist>
@@ -199,19 +203,21 @@ Without it, newlines are excluded. This modifier is equivalent to Perl's /s modi
 ### ### Dot metacharacter matches all characters
 
 <p><format style="italic">If this modifier is set, whitespace data characters in the pattern are totally ignored except when escaped
-or inside a character class, and characters between an unescaped # outside a character class and the next
-newline character, inclusive, are also ignored. This is equivalent to Perl's /x modifier, and makes it possible
-to include commentary inside complicated patterns. Note, however, that this applies only to data characters.
-Whitespace characters may never appear within special character sequences in a pattern, for example within
+or inside a character class, and characters between an unescaped # outside a character class
+and the next newline character, inclusive, are also ignored.
+This is equivalent to Perl's /x modifier, and makes it possible to include commentary inside complicated
+patterns.
+Note, however, that this applies only to data characters.
+Whitespace characters may never appear within special character sequences in a pattern, for example, within
 the sequence (?( which introduces a conditional subpattern.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L79">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L79">
                     View blame
                 </a>
             </def></deflist>
@@ -240,12 +246,12 @@ the start of the string which is being searched (the "subject string"). This eff
 appropriate constructs in the pattern itself, which is the only way to do it in Perl.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L89">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L89">
                     View blame
                 </a>
             </def></deflist>
@@ -275,12 +281,12 @@ before any other newlines). This modifier is ignored if m modifier is set. There
 modifier in Perl.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L100">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L100">
                     View blame
                 </a>
             </def></deflist>
@@ -306,15 +312,15 @@ modifier in Perl.</format></p>
 
 <p><format style="italic">When a pattern is going to be used several times, it is worth spending more time analyzing it to speed up
 the time taken for matching. If this modifier is set, then this extra analysis is performed. At present,
-studying a pattern is useful only for non-anchored patterns that do not have a single fixed starting character.</format></p>
+studying a pattern is useful only for non-anchored patterns that don't have a single fixed starting character.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L98">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L110">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L98">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L110">
                     View blame
                 </a>
             </def></deflist>
@@ -338,17 +344,17 @@ studying a pattern is useful only for non-anchored patterns that do not have a s
 
 ### ### Inverts the greediness
 
-<p><format style="italic">This modifier inverts the "greediness" of the quantifiers so that they are not greedy by default, but become
+<p><format style="italic">This modifier inverts the "greediness" of the quantifiers so that they aren't greedy by default, but become
 greedy if followed by ?. It is not compatible with Perl. It can also be set by a (?U) modifier setting within
-the pattern or by a question mark behind a quantifier (e.g. .*?).</format></p>
+the pattern or by a question mark behind a quantifier (for example: .*?).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L125">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L125">
                     View blame
                 </a>
             </def></deflist>
@@ -384,12 +390,12 @@ combinations for future expansion. By default, as in Perl, a backslash followed 
 meaning is treated as a literal. There are at present no other features controlled by this modifier.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L124">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L136">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L124">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L136">
                     View blame
                 </a>
             </def></deflist>
@@ -414,15 +420,15 @@ meaning is treated as a literal. There are at present no other features controll
 ### ### Extra analysis is performed
 
 <p><format style="italic">The (?J) internal option setting changes the local PCRE_DUPNAMES option. Allow duplicate names for
-sub-patterns. As of PHP 7.2.0, J is supported as modifier as well.</format></p>
+sub-patterns. As of PHP 7.2.0, J is supported as a modifier as well.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L145">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L133">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L145">
                     View blame
                 </a>
             </def></deflist>
@@ -448,15 +454,15 @@ sub-patterns. As of PHP 7.2.0, J is supported as modifier as well.</format></p>
 
 <p><format style="italic">This modifier turns on additional functionality of PCRE that is incompatible with Perl. Pattern and subject
 strings are treated as UTF-8. An invalid subject will cause the preg_* function to match nothing; an invalid
-pattern will trigger an error of level E_WARNING. Five and six octet UTF-8 sequences are regarded as invalid.</format></p>
+pattern will trigger an error of level E_WARNING. Five and six-octet UTF-8 sequences are regarded as invalid.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L143">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L155">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L143">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L155">
                     View blame
                 </a>
             </def></deflist>
@@ -490,12 +496,12 @@ This only affects which groups are captured, it is still possible to use numbere
 the matches array will still contain numbered results.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L165">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L153">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/expression/firehub.Modifier.php#L165">
                     View blame
                 </a>
             </def></deflist>

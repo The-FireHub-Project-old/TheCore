@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\String\CaseFolding
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L25">
             View source code
         </a>
     </def>
@@ -76,12 +80,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -113,12 +117,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L43">
                     View blame
                 </a>
             </def></deflist>
@@ -150,12 +154,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L49">
                     View blame
                 </a>
             </def></deflist>

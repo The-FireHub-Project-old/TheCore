@@ -63,7 +63,7 @@
 |public|<a href="#valid()">valid</a>|### Checks if the current position is valid|
 |public|<a href="#current()">current</a>|### Return the current element|
 |public|<a href="#key()">key</a>|### Return the key of the current element|
-|public|<a href="#next()">next</a>|### Move forward to next element|
+|public|<a href="#next()">next</a>|### Move forward to the next element|
 |public|<a href="#rewind()">rewind</a>|### Rewind the iterator to the first element|
 
 ## method: valid {id="valid()"}
@@ -210,7 +210,7 @@
 
 
 
-### ### Move forward to next element
+### ### Move forward to the next element
 
 
 

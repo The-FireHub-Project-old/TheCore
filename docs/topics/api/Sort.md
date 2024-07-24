@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\Sort
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L25">
             View source code
         </a>
     </def>
@@ -80,12 +84,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -117,12 +121,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L43">
                     View blame
                 </a>
             </def></deflist>
@@ -149,12 +153,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -181,12 +185,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L55">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L55">
                     View blame
                 </a>
             </def></deflist>
@@ -213,12 +217,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L61">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L61">
                     View blame
                 </a>
             </def></deflist>
@@ -245,12 +249,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -277,12 +281,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L73">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L73">
                     View blame
                 </a>
             </def></deflist>

@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\SplAutoload
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L32">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L35">
             View source code
         </a>
     </def>
@@ -65,6 +69,7 @@
 |public static |<a href="#functions()">functions</a>|### Get all registered autoload functions|
 |public static |<a href="#load()">load</a>|### Try all registered autoload functions to load the requested class|
 
+
 ## method: default {id="default()"}
 
 <code-block lang="php">
@@ -86,16 +91,16 @@
 ### ### Default autoload implementation
 
 <p><format style="italic">This function is intended to be used as a default implementation for [[SplAutoload#register()]].
-If nothing else is specified and register method is called without any parameters,
+If nothing else is specified and the register method is called without any parameters,
 then this function will be used for any later call to autoload.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -148,12 +153,12 @@ filename extensions .inc and .php.
 [[SplAutoload#default()]] will be using.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L86">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L86">
                     View blame
                 </a>
             </def></deflist>
@@ -165,7 +170,7 @@ filename extensions .inc and .php.
 <deflist>
     <def title="This method has parameters:">
         <list><li>null or non-empty-string <format style="bold">$file_extensions</format> = null - <format style="italic">[optional] 
-If null, it simply returns the current list of extensions each separated by comma.
+If null, it simply returns the current list of extensions, each separated by comma.
 To modify the list of file extensions, invoke the functions with the new list of file extensions to use
 in a single string with each extension separated by comma.
 </format></li></list>
@@ -173,7 +178,7 @@ in a single string with each extension separated by comma.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">A comma delimited list of default file extensions for default method.</format></li></list>
+        <list><li>string - <format style="italic">A comma delimited the list of default file extensions for default method.</format></li></list>
     </def>
 </deflist>
 ## method: register {id="register()"}
@@ -196,17 +201,18 @@ in a single string with each extension separated by comma.
 
 ### ### Register a callback function as an autoloader
 
-<p><format style="italic">Register a function with the spl provided autoload queue. If the queue is not yet activated, it will be
-activated. If there must be multiple autoload functions, this method allows for this. It effectively creates a
-queue of autoload functions, and runs through each of them in the order they are defined.</format></p>
+<p><format style="italic">Register a function with the spl provided autoloaded queue.
+If the queue is not yet activated, it will be activated.
+If there must be multiple autoload functions, this method allows for this.
+It effectively creates a queue of autoload functions and runs through each of them in the order they are defined.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L116">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L106">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L116">
                     View blame
                 </a>
             </def></deflist>
@@ -266,12 +272,12 @@ function, then it will be deactivated. When this function results in the queue b
 function that previously existed will not be reactivated.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L140">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L140">
                     View blame
                 </a>
             </def></deflist>
@@ -321,12 +327,12 @@ The autoload function that will be unregistered.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L154">
                     View blame
                 </a>
             </def></deflist>
@@ -364,12 +370,12 @@ If no function is registered, or autoloaded queue is not activated, then the ret
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L173">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L173">
                     View blame
                 </a>
             </def></deflist>

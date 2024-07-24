@@ -16,7 +16,7 @@
 
 
 
-### ### Enum for available Kernel types
+### ### Enum for possible Kernel types
 
 
 
@@ -67,7 +67,7 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#run()">run</a>|### Run selected Kernel|
+|public|<a href="#run()">run</a>|### Run the selected Kernel|
 
 ## method: run {id="run()"}
 
@@ -87,7 +87,7 @@
 
 
 
-### ### Run selected Kernel
+### ### Run the selected Kernel
 
 
 
@@ -113,7 +113,7 @@
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="FireHub.md#boot()">\FireHub\Core\FireHub::boot()</a>  - <format style="italic">To run selected Kernel.</format></li></list>
+        <list><li><a href="FireHub.md#boot()">\FireHub\Core\FireHub::boot()</a>  - <format style="italic">To run the selected Kernel.</format></li></list>
     </def>
 </deflist>
 <deflist>

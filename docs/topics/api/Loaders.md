@@ -201,7 +201,7 @@ Loader name.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Autoload.md#__construct()">\FireHub\Core\Initializers\Autoload::__construct()</a>  - <format style="italic">To add new callback function as loader with alias.</format></li></list>
+        <list><li><a href="Autoload.md#__construct()">\FireHub\Core\Initializers\Autoload::__construct()</a>  - <format style="italic">To add a new callback function as loader with alias.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -216,7 +216,7 @@ The autoload function being registered.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If loader is empty, or loader already exists.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the loader is empty, or the loader already exists.</format></li></list>
     </def>
 </deflist>
 <deflist>

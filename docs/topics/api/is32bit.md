@@ -60,7 +60,7 @@
 ### Returns
 <deflist>
     <def title="This function returns:">
-        <list><li>bool - <format style="italic">True if using 32bit version of PHP, otherwise false.</format></li></list>
+        <list><li>bool - <format style="italic">True if using the 32bit version of PHP, otherwise false.</format></li></list>
     </def>
 </deflist>
 ### Examples

@@ -54,8 +54,8 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#ispositive()">isPositive</a>|### Check if number is positive|
-|public|<a href="#isnegative()">isNegative</a>|### Check if number is negative|
+|public|<a href="#ispositive()">isPositive</a>|### Check if the number is positive|
+|public|<a href="#isnegative()">isNegative</a>|### Check if the number is negative|
 |public|<a href="#isfinite()">isFinite</a>|### Finds whether a value is a legal finite number|
 |public|<a href="#isinfinite()">isInfinite</a>|### Finds whether a value is infinite|
 |public|<a href="#isnan()">isNan</a>|### Finds whether a value is not a number|
@@ -88,7 +88,7 @@
 
 
 
-### ### Check if number is positive
+### ### Check if the number is positive
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-### ### Check if number is negative
+### ### Check if the number is negative
 
 
 
@@ -174,7 +174,7 @@
 
 ### ### Finds whether a value is a legal finite number
 
-<p><format style="italic">Checks whether $number is legally finite on this platform.</format></p>
+<p><format style="italic">Checks whether the $number is legally finite on this platform.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L50">
@@ -259,7 +259,7 @@ into a float on this platform.</format></p>
 
 ### ### Finds whether a value is not a number
 
-<p><format style="italic">Checks whether num is 'not a number', like the result of acos(1.01).</format></p>
+<p><format style="italic">Checks whether a num is 'not a number', like the result of acos(1.01).</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L71">
@@ -514,12 +514,12 @@ into a float on this platform.</format></p>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L136">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L136">
                     View blame
                 </a>
             </def></deflist>
@@ -536,10 +536,11 @@ into a float on this platform.</format></p>
 <deflist>
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$precision</format> - <format style="italic">[optional] 
-Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-num is rounded to tens, for a precision of -2 to hundreds, etc.
+Number of decimal digits to round to.
+If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+If the precision is negative, num is rounded to precision significant digits before the decimal point, in other
+words, to the nearest multiple of pow(10, -$precision), for example, for a precision of -1 num is rounded to
+tens, for a precision of -2 to hundreds, and so on.
 </format></li><li><a href="Round.md">\FireHub\Core\Support\Enums\Number\Round</a> <format style="bold">$round</format> = Round::HALF_UP - <format style="italic">[optional] 
 Specify the mode in which rounding occurs.
 </format></li></list>
@@ -573,12 +574,12 @@ Specify the mode in which rounding occurs.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L149">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L150">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L149">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L150">
                     View blame
                 </a>
             </def></deflist>
@@ -601,7 +602,7 @@ Specify the mode in which rounding occurs.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic">Number as raw integer.</format></li></list>
+        <list><li>int - <format style="italic">Number as a raw integer.</format></li></list>
     </def>
 </deflist>
 ## method: asFloat {id="asfloat()"}
@@ -627,12 +628,12 @@ Specify the mode in which rounding occurs.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L157">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L158">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L157">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L158">
                     View blame
                 </a>
             </def></deflist>
@@ -666,15 +667,15 @@ Specify the mode in which rounding occurs.
 
 ### ### Parse number
 
-<p><format style="italic">Parse a number with grouped thousands and optionally decimal digits using the rounding half up rule.</format></p>
+<p><format style="italic">Parse a number with grouped thousands and optionally decimal digits using the rounding half-up rule.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L178">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L179">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L178">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Numbers.php#L179">
                     View blame
                 </a>
             </def></deflist>
@@ -694,7 +695,7 @@ Sets the separator for thousands.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">A formatted version of number.</format></li></list>
+        <list><li>string - <format style="italic">A formatted version of the number.</format></li></list>
     </def>
 </deflist>
 ## method: __toString {id="__tostring()"}
@@ -720,12 +721,12 @@ Sets the separator for thousands.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View blame
                 </a>
             </def></deflist>

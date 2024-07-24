@@ -33,9 +33,11 @@
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange
     </def><def title="Implements:">
-        <list><li><a href="Predefined.md">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined</a></li></list>
+        <list><li><a href="Init.md">\FireHub\Core\Base\Init</a></li><li><a href="Predefined.md">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="Concrete.md">\FireHub\Core\Base\Trait\Concrete</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L25">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L28">
             View source code
         </a>
     </def>
@@ -68,6 +70,9 @@
 |:-----|:-----|:------|
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public|<a href="#regex()">regex</a>|### Get regex predefined pattern|
+|inherited public|<a href="#jsonserialize()">jsonSerialize</a>||
+|inherited public|<a href="#__serialize()">__serialize</a>||
+|inherited public|<a href="#__unserialize()">__unserialize</a>||
 
 ## property: from {id="$from"}
 
@@ -90,12 +95,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L50">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L50">
                     View blame
                 </a>
             </def></deflist>
@@ -120,12 +125,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L42">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L51">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L42">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L51">
                     View blame
                 </a>
             </def></deflist>
@@ -152,12 +157,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L40">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -203,12 +208,12 @@ Until character.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L55">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L64">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L55">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/pattern/predefined/firehub.NotInRange.php#L64">
                     View blame
                 </a>
             </def></deflist>
@@ -224,6 +229,147 @@ Until character.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $characters is not exclusive list of character interface.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $characters is not an exclusive list of character interface.</format></li></list>
+    </def>
+</deflist>
+## method: jsonSerialize {id="jsonserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::jsonSerialize()]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="Obj.md#properties()">\FireHub\Core\Support\LowLevel\Obj::properties()</a>  - <format style="italic">To get all public class properties.</format></li></list>
+    </def>
+</deflist>
+## method: __serialize {id="__serialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__serialize():never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to serialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
+## method: __unserialize {id="__unserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__unserialize(array $data):never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array <format style="bold">$data</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to unserialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
     </def>
 </deflist>

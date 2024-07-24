@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\Number\Round
+    </def><def title="Implements:">
+        <list><li><a href="InitEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L25">
             View source code
         </a>
     </def>
@@ -54,10 +58,10 @@
 ### Cases
 | Name | Title | Value |
 |:-----|:------|:------|
-|<a href="#half_up">HALF_UP</a>|### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2||
+|<a href="#half_up">HALF_UP</a>|### Rounds number away from zero when it is halfway there, making 1.5 into 2 and -1.5 into -2||
 |<a href="#half_down">HALF_DOWN</a>|### Rounds number towards zero when it is halfway there, making 1.5 into 1 and -1.5 into -1||
 |<a href="#half_even">HALF_EVEN</a>|### Rounds towards the nearest even value when it is halfway there, making both 1.5 and 2.5 into 2||
-|<a href="#half_odd">HALF_ODD</a>|### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3||
+|<a href="#half_odd">HALF_ODD</a>|### Rounds number towards the nearest odd value when it is halfway there, making 1.5 into 1 and 2.5 into 3||
 
 ## case: HALF_UP {id="half_up"}
 
@@ -72,17 +76,17 @@
 
 
 
-### ### Rounds number away from zero when it is half way there, making 1.5 into 2 and -1.5 into -2
+### ### Rounds number away from zero when it is halfway there, making 1.5 into 2 and -1.5 into -2
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -114,12 +118,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L43">
                     View blame
                 </a>
             </def></deflist>
@@ -151,12 +155,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -183,17 +187,17 @@
 
 
 
-### ### Rounds number towards the nearest odd value when it is half way there, making 1.5 into 1 and 2.5 into 3
+### ### Rounds number towards the nearest odd value when it is halfway there, making 1.5 into 1 and 2.5 into 3
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L55">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/number/firehub.Round.php#L55">
                     View blame
                 </a>
             </def></deflist>

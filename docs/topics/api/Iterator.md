@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Iterator
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L29">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L32">
             View source code
         </a>
     </def>
@@ -62,6 +66,7 @@
 |public static |<a href="#count()">count</a>|### Count the elements in an iterator|
 |public static |<a href="#apply()">apply</a>|### Call a function for every element in an iterator|
 
+
 ## method: toArray {id="toarray()"}
 
 <code-block lang="php">
@@ -85,12 +90,12 @@
 <p><format style="italic">Copy the elements of an iterator into an array.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L65">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L56">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L65">
                     View blame
                 </a>
             </def></deflist>
@@ -144,18 +149,23 @@ to their resource ID, and bool keys will be converted to integers.
 <p><format style="italic">Count the elements in an iterator. Method is not guaranteed to retain the current position of the iterator.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L83">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L74">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L83">
                     View blame
                 </a>
             </def></deflist>
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Fix.md#count()">\FireHub\Core\Support\Collection\Type\Fix::count()</a>  - <format style="italic">To count storage items.</format></li><li><a href="Gen.md#count()">\FireHub\Core\Support\Collection\Type\Gen::count()</a>  - <format style="italic">To count storage items.</format></li><li><a href="Obj.md#count()">\FireHub\Core\Support\Collection\Type\Obj::count()</a>  - <format style="italic">To count storage items.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -193,12 +203,12 @@ The iterator being counted.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L110">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L101">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Iterator.php#L110">
                     View blame
                 </a>
             </def></deflist>
@@ -221,7 +231,7 @@ The iterator objects to iterate over.
 The callback function to call on every element The function must return true to continue iterating over the
 iterator.
 </format></li><li>null or <a href="TValue[].md">\FireHub\Core\Support\LowLevel\TValue[]</a> <format style="bold">$arguments</format> = null - <format style="italic">
-An array of arguments; each element of args is passed to the callback as separate argument.
+An array of arguments; each element of args is passed to the callback as a separate argument.
 </format></li></list>
     </def>
 </deflist>

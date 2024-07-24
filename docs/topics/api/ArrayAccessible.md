@@ -22,7 +22,7 @@
 
 <deflist>
     <def title="Interface basic info:">
-        <list><li>This interface was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;</li><li>Copyright: 2023 FireHub Web Application Framework</li><li>License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3</li><li>Version: GIT: $Id$ Blob checksum.</li></list>
+        <list><li>This interface was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;</li><li>Copyright: 2024 FireHub Web Application Framework</li><li>License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3</li><li>Version: GIT: $Id$ Blob checksum.</li></list>
     </def>
 </deflist>
 
@@ -117,7 +117,7 @@ Offset to check for.
 ## method: offsetGet {id="offsetget()"}
 
 <code-block lang="php">
-    <![CDATA[public ArrayAccessible::offsetGet(\FireHub\Core\Support\Contracts\TKey $offset):\FireHub\Core\Support\Contracts\TValue]]>
+    <![CDATA[public ArrayAccessible::offsetGet(\FireHub\Core\Support\Contracts\TKey $offset):\FireHub\Core\Support\Contracts\TValue|null]]>
 </code-block>
 
 
@@ -160,13 +160,13 @@ Offset to retrieve.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li><a href="TValue.md">\FireHub\Core\Support\Contracts\TValue</a> - <format style="italic">Offset value.</format></li></list>
+        <list><li><a href="TValue.md">\FireHub\Core\Support\Contracts\TValue</a> or null - <format style="italic">Offset value.</format></li></list>
     </def>
 </deflist>
 ## method: offsetSet {id="offsetset()"}
 
 <code-block lang="php">
-    <![CDATA[public ArrayAccessible::offsetSet(\FireHub\Core\Support\Contracts\TKey $offset, \FireHub\Core\Support\Contracts\TValue $value):void]]>
+    <![CDATA[public ArrayAccessible::offsetSet(?\FireHub\Core\Support\Contracts\TKey $offset, \FireHub\Core\Support\Contracts\TValue $value):void]]>
 </code-block>
 
 
@@ -202,7 +202,7 @@ Offset to retrieve.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li><a href="TKey.md">\FireHub\Core\Support\Contracts\TKey</a> <format style="bold">$offset</format> - <format style="italic">
+        <list><li>null or <a href="TKey.md">\FireHub\Core\Support\Contracts\TKey</a> <format style="bold">$offset</format> - <format style="italic">
 Offset to assign the value to.
 </format></li><li><a href="TValue.md">\FireHub\Core\Support\Contracts\TValue</a> <format style="bold">$value</format> - <format style="italic">
 Value to set.

@@ -22,7 +22,7 @@
 
 ### ### Class low-level proxy class
 
-<p><format style="italic">Class allows you to obtain information about classes.</format></p>
+<p><format style="italic">Class allows you to collect information about classes.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -60,16 +60,17 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public static |<a href="#isclass()">isClass</a>|### Checks if class name exists|
+|public static |<a href="#isclass()">isClass</a>|### Checks if a class name exists|
 |public static |<a href="#isinterface()">isInterface</a>|### Checks if interface name exists|
 |public static |<a href="#isenum()">isEnum</a>|### Checks if enum name exists|
 |public static |<a href="#istrait()">isTrait</a>|### Checks if trait name exist|
 |public static |<a href="#alias()">alias</a>|### Creates an alias for a class|
 |public static |<a href="#properties()">properties</a>|### Gets the class public properties and their default values|
+
 |inherited public static |<a href="#methodexist()">methodExist</a>|### Checks if the class method exists|
 |inherited public static |<a href="#propertyexist()">propertyExist</a>|### Checks if the object or class has a property|
 |inherited public static |<a href="#ofclass()">ofClass</a>|### Checks whether the object or class is of a given type or subtype|
-|inherited public static |<a href="#subclassof()">subClassOf</a>|### Checks if class has this class as one of its parents or implements it|
+|inherited public static |<a href="#subclassof()">subClassOf</a>|### Checks if a class has this class as one of its parents or implements it|
 |inherited public static |<a href="#methods()">methods</a>|### Gets the class or object methods names|
 |inherited public static |<a href="#parentclass()">parentClass</a>|### Retrieves the parent class name for an object or class|
 |inherited public static |<a href="#parents()">parents</a>|### Return the parent classes of the given class|
@@ -94,7 +95,7 @@
 
 
 
-### ### Checks if class name exists
+### ### Checks if a class name exists
 
 <p><format style="italic">This method checks whether the given class has been defined.</format></p>
 
@@ -120,7 +121,7 @@
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Cls.md#properties()">\FireHub\Core\Support\LowLevel\Cls::properties()</a>  - <format style="italic">To check if $class is class.</format></li><li><a href="ClsObj.md#methods()">\FireHub\Core\Support\LowLevel\ClsObj::methods()</a>  - <format style="italic">To check if $object_or_class parameter is class.</format></li></list>
+        <list><li><a href="Cls.md#properties()">\FireHub\Core\Support\LowLevel\Cls::properties()</a>  - <format style="italic">To check if $class is class.</format></li><li><a href="ClsObj.md#methods()">\FireHub\Core\Support\LowLevel\ClsObj::methods()</a>  - <format style="italic">To check if the $object_or_class parameter is class.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -292,7 +293,7 @@ Whether to autoload if not already loaded.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if trait exists, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the trait exists, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: alias {id="alias()"}
@@ -397,6 +398,11 @@ Whether to autoload if the original class is not found.
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Base.md#asjson()">\FireHub\Core\Base\Trait\Base::asJSON()</a>  - <format style="italic">To get class public properties and their default values.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>class-string <format style="bold">$class</format> - <format style="italic">
 The class name.
@@ -405,7 +411,7 @@ The class name.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $class is not valid class name.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $class is not a valid class name.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -436,12 +442,12 @@ The class name.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -491,12 +497,12 @@ The method name.
 <p><format style="italic">This method checks if the given property exists in the specified class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L79">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L88">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L79">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L88">
                     View blame
                 </a>
             </def></deflist>
@@ -542,12 +548,12 @@ The name of the property.
 <p><format style="italic">Checks if the given $object_or_class is of this object type or has this object type as one of its supertypes.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L104">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L113">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L104">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L113">
                     View blame
                 </a>
             </def></deflist>
@@ -591,17 +597,17 @@ false otherwise.</format></li></list>
 
 
 
-### ### Checks if class has this class as one of its parents or implements it
+### ### Checks if a class has this class as one of its parents or implements it
 
 <p><format style="italic">Checks if the given object_or_class has the class $class as one of its parents or implements it.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L139">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L139">
                     View blame
                 </a>
             </def></deflist>
@@ -613,7 +619,8 @@ false otherwise.</format></li></list>
 <deflist>
     <def title="This method has parameters:">
         <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
-The tested class. No error is generated if the class does not exist.
+The tested class.
+No error is generated if the class doesn't exist.
 </format></li><li>class-string <format style="bold">$class</format> - <format style="italic">
 The class or interface name.
 </format></li><li>bool <format style="bold">$autoload</format> = true - <format style="italic">[optional] 
@@ -654,12 +661,12 @@ false otherwise.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L161">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L161">
                     View blame
                 </a>
             </def></deflist>
@@ -670,7 +677,7 @@ false otherwise.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Cls.md#isclass()">\FireHub\Core\Support\LowLevel\Cls::isClass()</a>  - <format style="italic">To check if $object_or_class parameter is class.</format></li></list>
+        <list><li><a href="Cls.md#isclass()">\FireHub\Core\Support\LowLevel\Cls::isClass()</a>  - <format style="italic">To check if the $object_or_class parameter is class.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -717,12 +724,12 @@ The class name or an object instance.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L168">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L168">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L178">
                     View blame
                 </a>
             </def></deflist>
@@ -768,15 +775,15 @@ doesn't have a parent.</format></li></list>
 
 ### ### Return the parent classes of the given class
 
-<p><format style="italic">This function returns an array with the name of the parent classes of the given object_or_class.</format></p>
+<p><format style="italic">This function returns an array with the name of the parent classes for the given object_or_class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L192">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L202">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L192">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L202">
                     View blame
                 </a>
             </def></deflist>
@@ -796,7 +803,7 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -832,12 +839,12 @@ Whether to allow this function to load the class automatically through the __aut
 and its parents implement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L228">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L228">
                     View blame
                 </a>
             </def></deflist>
@@ -857,7 +864,7 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -893,12 +900,12 @@ Whether to allow this function to load the class automatically through the __aut
 This does, however, not include any traits used by a parent class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L244">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L254">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L244">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L254">
                     View blame
                 </a>
             </def></deflist>
@@ -918,7 +925,7 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>

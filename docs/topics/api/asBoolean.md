@@ -18,8 +18,8 @@
 
 ### ### Boolean representation of the given logical string value
 
-<p><format style="italic">True - 'true', '1', 'on', 'yes', positive-int
-False - 'false', '0','off', 'no', only blanks, non-positive-int
+<p><format style="italic">True – 'true', '1', 'on', 'yes', positive-int
+False – 'false', '0','off', 'no', only blanks, non-positive-int
 For all other strings, the return value is a result of a boolean cast.</format></p>
 
 <deflist>

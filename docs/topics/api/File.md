@@ -67,11 +67,12 @@
 |public static |<a href="#copy()">copy</a>|### Copies file|
 |public static |<a href="#delete()">delete</a>|### Deletes a file|
 |public static |<a href="#link()">link</a>|### Create a hard link|
-|public static |<a href="#getcontent()">getContent</a>|### Reads entire file into a string|
-|public static |<a href="#getcontentarray()">getContentArray</a>|### Reads entire file into an array|
+|public static |<a href="#getcontent()">getContent</a>|### Reads the entire file into a string|
+|public static |<a href="#getcontentarray()">getContentArray</a>|### Reads the entire file into an array|
 |public static |<a href="#putcontent()">putContent</a>|### Write data to a file|
 |public static |<a href="#read()">read</a>|### Outputs a file|
 |public static |<a href="#moveuploaded()">moveUploaded</a>|### Moves an uploaded file to a new location|
+
 |inherited public static |<a href="#exist()">exist</a>|### Checks whether a file or folder exists|
 |inherited public static |<a href="#isreadable()">isReadable</a>|### Tells whether a file exists and is readable|
 |inherited public static |<a href="#iswritable()">isWritable</a>|Tells whether the path is writable|
@@ -225,11 +226,11 @@ Path to the file.
 ### ### Tells whether the file was uploaded via HTTP POST
 
 <p><format style="italic">Returns true if the file named by filename was uploaded via HTTP POST. This is useful to help ensure that a
-malicious user hasn't tried to trick the script into working on files upon which it should not be working.
+malicious user hasn't tried to trick the script into working on files upon which it shouldn't be working.
 This sort of check is especially important if there is any chance that anything done with uploaded files could
 reveal their contents to the user, or even to other users on the same system. For proper working, the function
-[[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], - the name of the uploaded file on
-the client's machine $_FILES['userfile']['name'] does not work.</format></p>
+[[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], – the name of the uploaded file on
+the client's machine $_FILES['userfile']['name'] doesn't work.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L110">
@@ -304,7 +305,7 @@ Path to the file.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not get file size for file.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t get file size for file.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -335,12 +336,12 @@ Path to the file.
 <p><format style="italic">Makes a copy of the file $path to $to.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L164">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L165">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L164">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L165">
                     View blame
                 </a>
             </def></deflist>
@@ -359,14 +360,15 @@ Path to the file.
         <list><li>non-empty-string <format style="bold">$path</format> - <format style="italic">
 Path to the file.
 </format></li><li>string <format style="bold">$to</format> - <format style="italic">
-The destination path. If dest is a URL, the copy operation may fail if the wrapper does not support overwriting
-of existing files. If the destination file already exists, it will be overwritten.
+The destination path.
+If dest is a URL, the copy operation may fail if the wrapper doesn't support overwriting of existing files.
+If the destination file already exists, it will be overwritten.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not copy file.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t copy file.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -397,12 +399,12 @@ of existing files. If the destination file already exists, it will be overwritte
 <p><format style="italic">Attempts to remove the folder named by $path.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L186">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L187">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L186">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L187">
                     View blame
                 </a>
             </def></deflist>
@@ -420,7 +422,7 @@ Path to the file.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not delete the file.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t delete the file.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -451,12 +453,12 @@ Path to the file.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L213">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L214">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L213">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L214">
                     View blame
                 </a>
             </def></deflist>
@@ -476,7 +478,7 @@ The link name.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not create a hard link for a path.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t create a hard link for a path.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -487,7 +489,7 @@ The link name.
 ## method: getContent {id="getcontent()"}
 
 <code-block lang="php">
-    <![CDATA[public static File::getContent(non-empty-string $path, int $offset, int $length = null):string]]>
+    <![CDATA[public static File::getContent(non-empty-string $path, int $offset, ?int $length = null):string]]>
 </code-block>
 
 
@@ -502,17 +504,17 @@ The link name.
 
 
 
-### ### Reads entire file into a string
+### ### Reads the entire file into a string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L247">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L247">
                     View blame
                 </a>
             </def></deflist>
@@ -529,12 +531,12 @@ Path of the file to read.
 The offset where the reading starts on the original stream. Negative offsets count from the end of the stream.
 Seeking ($offset) is not supported with remote files. Attempting to seek on non-local files may work with small
 offsets, but this is unpredictable because it works on the buffered stream.
-</format></li><li>int <format style="bold">$length</format> = null</li></list>
+</format></li><li>null or int <format style="bold">$length</format> = null</li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we cannot get content from a path.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we can&#039;t get content from a path.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -560,17 +562,17 @@ offsets, but this is unpredictable because it works on the buffered stream.
 
 
 
-### ### Reads entire file into an array
+### ### Reads the entire file into an array
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L284">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L286">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L284">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L286">
                     View blame
                 </a>
             </def></deflist>
@@ -586,18 +588,18 @@ Path to the file.
 </format></li><li>bool <format style="bold">$skip_empty_lines</format> = false - <format style="italic">[optional] 
 Skip empty lines.
 </format></li><li>bool <format style="bold">$ignore_new_lines</format> = false - <format style="italic">[optional] 
-Omit newline at the end of each array element.
+Omit a newline at the end of each array element.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we cannot get content from a path.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we can&#039;t get content from a path.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">The file in an array. Each element of the array corresponds to a line in the file, with newline still attached.</format></li></list>
+        <list><li>string[] - <format style="italic">The file in an array. Each element of the array corresponds to a line in the file, with the newline still attached.</format></li></list>
     </def>
 </deflist>
 ## method: putContent {id="putcontent()"}
@@ -623,12 +625,12 @@ Omit newline at the end of each array element.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L322">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L324">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L322">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L324">
                     View blame
                 </a>
             </def></deflist>
@@ -653,18 +655,18 @@ Append the data to the file instead of overwriting it.
 </format></li><li>bool <format style="bold">$lock</format> = true - <format style="italic">[optional] 
 Acquire an exclusive lock on the file while proceeding to the writing.
 </format></li><li>bool <format style="bold">$create_file</format> = false - <format style="italic">[optional] 
-Is true, method will create a new file if one doesn't exist.
+Is true, the method will create a new file if one doesn't exist.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $create_file option is off and $path is not file, or could not put content on a path.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the $create_file option is off, and $path is not file, or couldn&#039;t put content on a path.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li> - <format style="italic">non-negative-int Number of bytes that were written to the file, false otherwise.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int The number of bytes that were written to the file false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: read {id="read()"}
@@ -690,12 +692,12 @@ Is true, method will create a new file if one doesn't exist.
 <p><format style="italic">Reads a file and writes it to the output buffer.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L353">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L355">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L353">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L355">
                     View blame
                 </a>
             </def></deflist>
@@ -713,7 +715,7 @@ The filename path being read.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not put read file on a path, or a path is empty.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t put read file on a path, or a path is empty.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -746,12 +748,12 @@ uploaded via PHP's HTTP POST upload mechanism). If the file is valid, it will be
 by $to.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L385">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L387">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L385">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.File.php#L387">
                     View blame
                 </a>
             </def></deflist>
@@ -771,7 +773,7 @@ Destination of the moved file.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not move the uploaded file.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t move the uploaded file.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -806,12 +808,12 @@ Destination of the moved file.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L97">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L97">
                     View blame
                 </a>
             </def></deflist>
@@ -859,12 +861,12 @@ Path to the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L118">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L118">
                     View blame
                 </a>
             </def></deflist>
@@ -912,12 +914,12 @@ Path to the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L138">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L138">
                     View blame
                 </a>
             </def></deflist>
@@ -965,12 +967,12 @@ Path to the file.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L158">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L158">
                     View blame
                 </a>
             </def></deflist>
@@ -1016,12 +1018,12 @@ $new_name exists, it will be overwritten. If renaming a directory and $new_name 
 emit a warning.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L190">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L190">
                     View blame
                 </a>
             </def></deflist>
@@ -1081,12 +1083,12 @@ The new name.
 <p><format style="italic">Given a string containing the path to a file or directory, this function will return the trailing name component.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L219">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L219">
                     View blame
                 </a>
             </def></deflist>
@@ -1137,12 +1139,12 @@ If the name component ends in suffix, this will also be cut off.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L249">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L249">
                     View blame
                 </a>
             </def></deflist>
@@ -1192,12 +1194,12 @@ The path to be parsed.
 returns the canonical absolute pathname. Trailing delimiters, such as \ and /, are also removed.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L289">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L289">
                     View blame
                 </a>
             </def></deflist>
@@ -1252,12 +1254,12 @@ executable permissions.</format></li></list>
 that is levels up from the current folder.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L318">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L318">
                     View blame
                 </a>
             </def></deflist>
@@ -1318,12 +1320,12 @@ returned, indicating the current folder.</format></li></list>
 <p><format style="italic">Gets the file or folder group. The group ID is returned in numerical format.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L343">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L343">
                     View blame
                 </a>
             </def></deflist>
@@ -1377,12 +1379,12 @@ Path of the file or folder.
 files arbitrarily; other users may change the group of files to any group of which that user is a member.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L371">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L371">
                     View blame
                 </a>
             </def></deflist>
@@ -1437,12 +1439,12 @@ A group name or number.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L395">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L395">
                     View blame
                 </a>
             </def></deflist>
@@ -1495,12 +1497,12 @@ Path of the file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L422">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L422">
                     View blame
                 </a>
             </def></deflist>
@@ -1558,12 +1560,12 @@ A username or number.
 <p><format style="italic">Gets permissions for the given path.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L450">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L450">
                     View blame
                 </a>
             </def></deflist>
@@ -1624,12 +1626,12 @@ The path.
 <p><format style="italic">Attempts to change the mode of the specified path to that given in permissions.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L492">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L492">
                     View blame
                 </a>
             </def></deflist>
@@ -1693,12 +1695,12 @@ Everyone's permission,
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L520">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L520">
                     View blame
                 </a>
             </def></deflist>
@@ -1752,12 +1754,12 @@ Path to file or folder.
 owner group.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L546">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L546">
                     View blame
                 </a>
             </def></deflist>
@@ -1811,12 +1813,12 @@ Path to file or folder.
 ownership or group.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L577">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L577">
                     View blame
                 </a>
             </def></deflist>
@@ -1870,12 +1872,12 @@ Path to file or folder.
 given in mtime. Note that the access time is always modified, regardless of the number of parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L609">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L609">
                     View blame
                 </a>
             </def></deflist>
@@ -1933,12 +1935,12 @@ value passed to the mtime parameter. If both are null, the current system time i
 <p><format style="italic">Inode are special disk blocks they are created when the file system is created.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L633">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L633">
                     View blame
                 </a>
             </def></deflist>
@@ -1991,12 +1993,12 @@ Path to file or folder.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L659">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L659">
                     View blame
                 </a>
             </def></deflist>
@@ -2057,12 +2059,12 @@ Result order.
 function, which is similar to the rules used by common shells.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697">
                     View blame
                 </a>
             </def></deflist>
@@ -2122,12 +2124,12 @@ Return only directory entries which match the pattern.
 <p><format style="italic">Creates a symbolic link to the existing $path with the specified name $link.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L722">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L722">
                     View blame
                 </a>
             </def></deflist>
@@ -2182,12 +2184,12 @@ The link name.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L741">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L741">
                     View blame
                 </a>
             </def></deflist>
@@ -2241,12 +2243,12 @@ Path to the symlink.
 symlink arbitrarily. Other users may change the group of a symlink to any group of which that user is a member.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L771">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L771">
                     View blame
                 </a>
             </def></deflist>
@@ -2302,12 +2304,12 @@ The group specified by name or number.
 symlink.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L802">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L802">
                     View blame
                 </a>
             </def></deflist>
@@ -2364,12 +2366,12 @@ Username or number.
 file itself, not the symlink - use $symlink argument to change that behavior.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L834">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L834">
                     View blame
                 </a>
             </def></deflist>
@@ -2438,12 +2440,12 @@ will return false until you create the file. If you create the file, it will ret
 delete the file. However, [[File#delete()]] clears the cache automatically.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L873">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L873">
                     View blame
                 </a>
             </def></deflist>

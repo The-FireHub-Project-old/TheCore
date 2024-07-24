@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\String\EndingPunctuation
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L23">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L25">
             View source code
         </a>
     </def>
@@ -76,12 +80,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L28">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L36">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L28">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L36">
                     View blame
                 </a>
             </def></deflist>
@@ -108,12 +112,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L41">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L41">
                     View blame
                 </a>
             </def></deflist>
@@ -140,12 +144,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L38">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L46">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L38">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.EndingPunctuation.php#L46">
                     View blame
                 </a>
             </def></deflist>

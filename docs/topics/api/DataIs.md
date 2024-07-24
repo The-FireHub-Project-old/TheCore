@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\DataIs
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L39">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L42">
             View source code
         </a>
     </def>
@@ -58,14 +62,14 @@
 ### Used by
 <deflist>
     <def title="This class is used by:">
-        <list><li><a href="IStr.md#break()">\FireHub\Core\Support\IStr::break()</a>  - <format style="italic">To check if expression returns an array.</format></li></list>
+        <list><li><a href="IStr.md#break()">\FireHub\Core\Support\IStr::break()</a>  - <format style="italic">To check if the expression returns an array.</format></li></list>
     </def>
 </deflist>
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public static |<a href="#array()">array</a>|### Checks if value is array|
-|public static |<a href="#bool()">bool</a>|### Checks if value is boolean|
+|public static |<a href="#bool()">bool</a>|### Checks if the value is boolean|
 |public static |<a href="#callable()">callable</a>|### Verify that the contents of a variable can be called as a function|
 |public static |<a href="#countable()">countable</a>|### Verify that the contents of a variable is a countable value|
 |public static |<a href="#float()">float</a>|### Finds whether the type of variable is a float|
@@ -77,6 +81,7 @@
 |public static |<a href="#resource()">resource</a>|### Finds whether a variable is a resource|
 |public static |<a href="#scalar()">scalar</a>|### Finds whether a variable is a scalar|
 |public static |<a href="#string()">string</a>|### Find whether the type of variable is a string|
+
 
 ## method: array {id="array()"}
 
@@ -101,12 +106,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L60">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L60">
                     View blame
                 </a>
             </def></deflist>
@@ -145,17 +150,17 @@ Value to check.
 
 
 
-### ### Checks if value is boolean
+### ### Checks if the value is boolean
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L76">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L67">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L76">
                     View blame
                 </a>
             </def></deflist>
@@ -173,7 +178,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">True if value is boolean, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if the value is boolean, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: callable {id="callable()"}
@@ -199,12 +204,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L92">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L92">
                     View blame
                 </a>
             </def></deflist>
@@ -215,7 +220,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Callback.md#__invoke()">\FireHub\Core\Initializers\Autoload\Callback::__invoke()</a>  - <format style="italic">To check if $class is callable or string.</format></li></list>
+        <list><li><a href="Callback.md#__invoke()">\FireHub\Core\Initializers\Autoload\Callback::__invoke()</a>  - <format style="italic">To check if $class is callable or string.</format></li><li><a href="Arr.md#search()">\FireHub\Core\Support\Collection\Type\Arr::search()</a>  - <format style="italic">To check if $value is callable.</format></li><li><a href="Arr.md#contains()">\FireHub\Core\Support\Collection\Type\Arr::contains()</a>  - <format style="italic">To check if argument $value is callable.</format></li><li><a href="Fix.md#search()">\FireHub\Core\Support\Collection\Type\Fix::search()</a>  - <format style="italic">To check if $value is callable.</format></li><li><a href="Fix.md#contains()">\FireHub\Core\Support\Collection\Type\Fix::contains()</a>  - <format style="italic">To check if argument $value is callable.</format></li><li><a href="Gen.md#search()">\FireHub\Core\Support\Collection\Type\Gen::search()</a>  - <format style="italic">To check if $value is callable.</format></li><li><a href="Gen.md#contains()">\FireHub\Core\Support\Collection\Type\Gen::contains()</a>  - <format style="italic">To check if argument $value is callable.</format></li><li><a href="Obj.md#search()">\FireHub\Core\Support\Collection\Type\Obj::search()</a>  - <format style="italic">To check if $value is callable.</format></li><li><a href="Obj.md#contains()">\FireHub\Core\Support\Collection\Type\Obj::contains()</a>  - <format style="italic">To check if argument $value is callable.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -253,12 +258,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L108">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L108">
                     View blame
                 </a>
             </def></deflist>
@@ -302,12 +307,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L124">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L115">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L124">
                     View blame
                 </a>
             </def></deflist>
@@ -351,12 +356,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L140">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L131">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L140">
                     View blame
                 </a>
             </def></deflist>
@@ -405,12 +410,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L156">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L147">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L156">
                     View blame
                 </a>
             </def></deflist>
@@ -454,12 +459,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L172">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L163">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L172">
                     View blame
                 </a>
             </def></deflist>
@@ -508,12 +513,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L179">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L188">
                     View blame
                 </a>
             </def></deflist>
@@ -536,7 +541,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">True if value is numeric, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if the value is numeric, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: object {id="object()"}
@@ -562,12 +567,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L204">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L195">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L204">
                     View blame
                 </a>
             </def></deflist>
@@ -611,12 +616,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L220">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L211">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L220">
                     View blame
                 </a>
             </def></deflist>
@@ -634,7 +639,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">True if value is resource, false otherwise or if resource is closed.</format></li></list>
+        <list><li>mixed - <format style="italic">True if value is resource, false otherwise, or if the resource is closed.</format></li></list>
     </def>
 </deflist>
 ## method: scalar {id="scalar()"}
@@ -657,15 +662,15 @@ Value to check.
 
 ### ### Finds whether a variable is a scalar
 
-<p><format style="italic">Scalar values include: string, int, float and bool.</format></p>
+<p><format style="italic">Scalar values include: string, int, float, and bool.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L238">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L229">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L238">
                     View blame
                 </a>
             </def></deflist>
@@ -683,7 +688,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic">True if value is scalar, false otherwise.</format></li></list>
+        <list><li>mixed - <format style="italic">True if the value is scalar, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: string {id="string()"}
@@ -709,12 +714,12 @@ Value to check.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L254">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L245">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DataIs.php#L254">
                     View blame
                 </a>
             </def></deflist>

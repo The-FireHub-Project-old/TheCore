@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Constant Name:">
         \FireHub\Core\Support\Constants\Path\BINARY
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/path.php#L145">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/path.php#L146">
             View source code
         </a>
     </def>

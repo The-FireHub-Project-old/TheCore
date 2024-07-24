@@ -30,19 +30,19 @@ string|Stringable to accept either a string primitive or an object that can be c
 </deflist>
 
 <deflist><def title="Fully Qualified Interface Name:">
-        \FireHub\Core\Support\Contracts\Stringable
+        \FireHub\Core\Support\Contracts\Magic\Stringable
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L28">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L28">
             View source code
         </a>
     </def>
     <def title="Blame:">
-        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php">
+        <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php">
             View blame
         </a>
     </def>
     <def title="History:">
-        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php">
+        <a href="https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php">
             View history
         </a>
     </def></deflist>
@@ -82,12 +82,12 @@ string|Stringable to accept either a string primitive or an object that can be c
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View blame
                 </a>
             </def></deflist>

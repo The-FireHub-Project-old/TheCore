@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Interface Name:">
         \FireHub\Core\Support\Contracts\HighLevel\Strings
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L36">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L34">
             View source code
         </a>
     </def>
@@ -67,19 +67,19 @@
 |public|<a href="#startswithany()">startsWithAny</a>|### Checks if a string starts with any of the given values|
 |public|<a href="#endswith()">endsWith</a>|### Checks if a string ends with a given value|
 |public|<a href="#endswithany()">endsWithAny</a>|### Checks if a string ends with any of the given values|
-|public|<a href="#contains()">contains</a>|### Checks if string contains value|
+|public|<a href="#contains()">contains</a>|### Checks if string contains a value|
 |public|<a href="#containsall()">containsAll</a>|### Checks if string contains all values|
 |public|<a href="#containsany()">containsAny</a>|### Checks if string contains any of the values|
 |public|<a href="#equals()">equals</a>|### Checks if string equals value|
 |public|<a href="#equalsany()">equalsAny</a>|### Checks if string equals to any of the values|
-|public|<a href="#match()">match</a>|### Checks if string matches a given pattern|
+|public|<a href="#match()">match</a>|### Checks if a string matches a given pattern|
 |public|<a href="#encoding()">encoding</a>|### Get or change string encoding|
 |public|<a href="#string()">string</a>|### Get or set string as raw string|
 |public|<a href="#tolower()">toLower</a>|### Make a string lowercase|
 |public|<a href="#toupper()">toUpper</a>|### Make a string uppercase|
 |public|<a href="#totitle()">toTitle</a>|### Make a string title-case|
-|public|<a href="#capitalize()">capitalize</a>|### Make a first character of string uppercased|
-|public|<a href="#decapitalize()">deCapitalize</a>|### Make a first character of string uppercased|
+|public|<a href="#capitalize()">capitalize</a>|### Make the first character of string uppercased|
+|public|<a href="#decapitalize()">deCapitalize</a>|### Make the first character of string uppercased|
 |public|<a href="#swapcase()">swapCase</a>|### Swap lower and upper cases on string|
 |public|<a href="#streamline()">streamline</a>|### Streamline string|
 |public|<a href="#titleize()">titleize</a>|### Capitalize every word in string|
@@ -95,7 +95,7 @@
 |public|<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
 |public|<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
 |public|<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
-|public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
+|public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta-characters|
 |public|<a href="#between()">between</a>|### Slice string after first start and until last end|
 |public|<a href="#betweenfirst()">betweenFirst</a>|### Slice string after first start and until first end|
 |public|<a href="#betweenlast()">betweenLast</a>|### Slice string after last start and until last end|
@@ -127,9 +127,9 @@
 |public|<a href="#quote()">quote</a>|### Wraps each word in the string with specified quote|
 |public|<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |public|<a href="#truncate()">truncate</a>|### Truncates the string to a given length|
-|public|<a href="#safetruncate()">safeTruncate</a>|### Truncates the string to a given length, while ensuring that it does not split words|
-|public|<a href="#first()">first</a>|### Get first character of string|
-|public|<a href="#last()">last</a>|### Get last character of string|
+|public|<a href="#safetruncate()">safeTruncate</a>|### Truncates the string to a given length while ensuring that it doesn't split words|
+|public|<a href="#first()">first</a>|### Get the first character of string|
+|public|<a href="#last()">last</a>|### Get the last character of string|
 |public|<a href="#tochars()">toChars</a>|### Break string into characters|
 |public|<a href="#chop()">chop</a>|### Chop a string to an array|
 |public|<a href="#break()">break</a>|### Break string with a separator|
@@ -168,12 +168,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L46">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L46">
                     View blame
                 </a>
             </def></deflist>
@@ -217,12 +217,12 @@ List of additional expression pattern modifiers.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L60">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L58">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L60">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L58">
                     View blame
                 </a>
             </def></deflist>
@@ -263,17 +263,17 @@ String to insert.
 
 ### ### Boolean representation of the given logical string value
 
-<p><format style="italic">True - 'true', '1', 'on', 'yes', positive-int
-False - 'false', '0','off', 'no', only blanks, non-positive-int
+<p><format style="italic">True – 'true', '1', 'on', 'yes', positive-int
+False – 'false', '0','off', 'no', only blanks, non-positive-int
 For all other strings, the return value is a result of a boolean cast.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L70">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L70">
                     View blame
                 </a>
             </def></deflist>
@@ -310,12 +310,12 @@ For all other strings, the return value is a result of a boolean cast.</format><
 <p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L84">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L84">
                     View blame
                 </a>
             </def></deflist>
@@ -333,7 +333,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string starts with value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string starts with value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: startsWithAny {id="startswithany()"}
@@ -359,12 +359,12 @@ The value to search for.
 <p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L100">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L98">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L100">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L98">
                     View blame
                 </a>
             </def></deflist>
@@ -382,7 +382,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string starts with any of the given values, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string starts with any of the given values, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: endsWith {id="endswith()"}
@@ -408,12 +408,12 @@ The value to search for.
 <p><format style="italic">Performs a check indicating if $string ends with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L114">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L112">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L114">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L112">
                     View blame
                 </a>
             </def></deflist>
@@ -431,7 +431,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string ends with value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string ends with value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: endsWithAny {id="endswithany()"}
@@ -457,12 +457,12 @@ The value to search for.
 <p><format style="italic">Performs a check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L128">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L126">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L128">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L126">
                     View blame
                 </a>
             </def></deflist>
@@ -480,7 +480,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string ends with any of the given values, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string ends with any of the given values, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: contains {id="contains()"}
@@ -501,17 +501,17 @@ The value to search for.
 
 
 
-### ### Checks if string contains value
+### ### Checks if string contains a value
 
 <p><format style="italic">Performs a check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L142">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L140">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L142">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L140">
                     View blame
                 </a>
             </def></deflist>
@@ -529,7 +529,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if a string contains value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if a string contains a value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: containsAll {id="containsall()"}
@@ -555,12 +555,12 @@ The value to search for.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L152">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L154">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L152">
                     View blame
                 </a>
             </def></deflist>
@@ -604,12 +604,12 @@ The list of values to search for.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L166">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L164">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L166">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L164">
                     View blame
                 </a>
             </def></deflist>
@@ -653,12 +653,12 @@ The list of values to search for.
 <p><format style="italic">Performs a case-sensitive check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L180">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L180">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L178">
                     View blame
                 </a>
             </def></deflist>
@@ -702,12 +702,12 @@ The value to search for.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L192">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L190">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L192">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L190">
                     View blame
                 </a>
             </def></deflist>
@@ -746,17 +746,17 @@ The list of values to search for.
 
 
 
-### ### Checks if string matches a given pattern
+### ### Checks if a string matches a given pattern
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L204">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L202">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L204">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L202">
                     View blame
                 </a>
             </def></deflist>
@@ -800,12 +800,12 @@ The pattern to match against.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L216">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L218">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L216">
                     View blame
                 </a>
             </def></deflist>
@@ -854,12 +854,12 @@ String encoding.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L230">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L228">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L230">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L228">
                     View blame
                 </a>
             </def></deflist>
@@ -908,12 +908,12 @@ String to set.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L238">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L236">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L238">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L236">
                     View blame
                 </a>
             </def></deflist>
@@ -950,12 +950,12 @@ String to set.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L246">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L244">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L246">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L244">
                     View blame
                 </a>
             </def></deflist>
@@ -992,12 +992,12 @@ String to set.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L252">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L252">
                     View blame
                 </a>
             </def></deflist>
@@ -1029,17 +1029,17 @@ String to set.
 
 
 
-### ### Make a first character of string uppercased
+### ### Make the first character of string uppercased
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L262">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L260">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L262">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L260">
                     View blame
                 </a>
             </def></deflist>
@@ -1071,17 +1071,17 @@ String to set.
 
 
 
-### ### Make a first character of string uppercased
+### ### Make the first character of string uppercased
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L270">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L268">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L270">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L268">
                     View blame
                 </a>
             </def></deflist>
@@ -1118,12 +1118,12 @@ String to set.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L278">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L276">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L278">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L276">
                     View blame
                 </a>
             </def></deflist>
@@ -1160,12 +1160,12 @@ String to set.
 <p><format style="italic">Strip whitespace (or other characters) from the beginning and end of a string and strip multiple spaces.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L288">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L286">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L288">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L286">
                     View blame
                 </a>
             </def></deflist>
@@ -1202,12 +1202,12 @@ String to set.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L298">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L300">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L298">
                     View blame
                 </a>
             </def></deflist>
@@ -1251,12 +1251,12 @@ List of additional words not to be capitalized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L308">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L306">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L308">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L306">
                     View blame
                 </a>
             </def></deflist>
@@ -1293,12 +1293,12 @@ List of additional words not to be capitalized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L316">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L314">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L316">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L314">
                     View blame
                 </a>
             </def></deflist>
@@ -1335,12 +1335,12 @@ List of additional words not to be capitalized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L324">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L322">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L324">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L322">
                     View blame
                 </a>
             </def></deflist>
@@ -1377,12 +1377,12 @@ List of additional words not to be capitalized.
 <p><format style="italic">Format strings delimited by casing, hyphens, or underscores into a space delimited string with each word's first letter capitalized.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L332">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L332">
                     View blame
                 </a>
             </def></deflist>
@@ -1419,12 +1419,12 @@ List of additional words not to be capitalized.
 <p><format style="italic">Delimiters are inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L344">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L342">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L344">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L342">
                     View blame
                 </a>
             </def></deflist>
@@ -1466,12 +1466,12 @@ List of additional words not to be capitalized.
 <p><format style="italic">Dash is inserted before uppercase characters (except the first character of the string), and in place of spaces, dashes, and underscores.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L354">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L352">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L354">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L352">
                     View blame
                 </a>
             </def></deflist>
@@ -1508,12 +1508,12 @@ List of additional words not to be capitalized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L362">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L360">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L362">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L360">
                     View blame
                 </a>
             </def></deflist>
@@ -1547,15 +1547,15 @@ List of additional words not to be capitalized.
 
 ### ### Humanize string
 
-<p><format style="italic">Capitalizes the first word of the string, replaces underscores with spaces and removes forbidden words.</format></p>
+<p><format style="italic">Capitalizes the first word of the string, replaces underscores with spaces, and removes forbidden words.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L376">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L374">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L376">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L374">
                     View blame
                 </a>
             </def></deflist>
@@ -1600,12 +1600,12 @@ List of forbidden words to remove.
 replaced by their ASCII equivalents.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L385">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L385">
                     View blame
                 </a>
             </def></deflist>
@@ -1643,12 +1643,12 @@ replaced by their ASCII equivalents.</format></p>
 (single quote, double quote, backslash, NUL).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L398">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L396">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L398">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L396">
                     View blame
                 </a>
             </def></deflist>
@@ -1685,12 +1685,12 @@ replaced by their ASCII equivalents.</format></p>
 <p><format style="italic">Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L408">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L406">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L408">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L406">
                     View blame
                 </a>
             </def></deflist>
@@ -1728,12 +1728,12 @@ replaced by their ASCII equivalents.</format></p>
 It uses the same tag stripping state machine as the fgetss() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L426">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L424">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L426">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L424">
                     View blame
                 </a>
             </def></deflist>
@@ -1745,7 +1745,7 @@ It uses the same tag stripping state machine as the fgetss() function.</format><
 <deflist>
     <def title="This method has parameters:">
         <list><li>null or string or array&lt;int,string&gt; <format style="bold">$allowed_tags</format> = null - <format style="italic">
-You can use the optional second parameter to specify tags which should not be stripped.</format></li></list>
+You can use the optional second parameter to specify tags which shouldn't be stripped.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1771,17 +1771,17 @@ You can use the optional second parameter to specify tags which should not be st
 
 
 
-### ### Quote meta characters
+### ### Quote meta-characters
 
 <p><format style="italic">Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L436">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L434">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L436">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L434">
                     View blame
                 </a>
             </def></deflist>
@@ -1818,12 +1818,12 @@ You can use the optional second parameter to specify tags which should not be st
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L451">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L449">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L451">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L449">
                     View blame
                 </a>
             </def></deflist>
@@ -1869,12 +1869,12 @@ Last character.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L466">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L464">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L466">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L464">
                     View blame
                 </a>
             </def></deflist>
@@ -1920,12 +1920,12 @@ Last character.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L481">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L479">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L481">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L479">
                     View blame
                 </a>
             </def></deflist>
@@ -1971,12 +1971,12 @@ Last character.
 <p><format style="italic">Slice with part of the string specified by the $from and $until parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L502">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L500">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L502">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L500">
                     View blame
                 </a>
             </def></deflist>
@@ -2023,12 +2023,12 @@ If omitted or NULL is passed, extract all characters to the end of the string.
 <p><format style="italic">Carry with part of the string specified by the $from and $length parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L525">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L523">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L525">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L523">
                     View blame
                 </a>
             </def></deflist>
@@ -2078,12 +2078,12 @@ If omitted or NULL is passed, extract all characters to the end of the string.
 <p><format style="italic">Returns part of $string starting from and including the first occurrence of $find to the end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L539">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L537">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L539">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L537">
                     View blame
                 </a>
             </def></deflist>
@@ -2127,12 +2127,12 @@ String to find.
 <p><format style="italic">Returns part of $string starting from the first occurrence of $find to the end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L553">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L551">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L553">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L551">
                     View blame
                 </a>
             </def></deflist>
@@ -2176,12 +2176,12 @@ String to find.
 <p><format style="italic">Returns part of $string starting from the beginning until the first occurrence of $find.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L567">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L565">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L567">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L565">
                     View blame
                 </a>
             </def></deflist>
@@ -2226,12 +2226,12 @@ String to find.
 and goes until the end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L582">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L580">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L582">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L580">
                     View blame
                 </a>
             </def></deflist>
@@ -2272,15 +2272,15 @@ String to find.
 
 ### ### Carry from the last part of the string
 
-<p><format style="italic">Returns last part of $string starting from the first occurrence of $find to the end of $string.</format></p>
+<p><format style="italic">Returns the last part of $string starting from the first occurrence of $find to the end of $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L596">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L594">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L596">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L594">
                     View blame
                 </a>
             </def></deflist>
@@ -2324,12 +2324,12 @@ String to find.
 <p><format style="italic">Returns part of $string starting from the beginning until and goes until the last occurrence of $find.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L610">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L608">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L610">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L608">
                     View blame
                 </a>
             </def></deflist>
@@ -2373,12 +2373,12 @@ String to find.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L627">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L625">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L627">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L625">
                     View blame
                 </a>
             </def></deflist>
@@ -2424,12 +2424,12 @@ Position where string will be inserted.
 <p><format style="italic">Move part of the string specified by the $from and $until parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L649">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L647">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L649">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L647">
                     View blame
                 </a>
             </def></deflist>
@@ -2477,12 +2477,12 @@ Position where string will be moved, counting from zero.
 <p><format style="italic">Overwrite with part of the string specified by the $from and $until parameters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L671">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L669">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L671">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L669">
                     View blame
                 </a>
             </def></deflist>
@@ -2530,12 +2530,12 @@ The string to insert.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L686">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L684">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L686">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L684">
                     View blame
                 </a>
             </def></deflist>
@@ -2581,12 +2581,12 @@ The string being searched and replaced on.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L701">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L699">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L701">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L699">
                     View blame
                 </a>
             </def></deflist>
@@ -2630,12 +2630,12 @@ Find => Replace pattern rules.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L717">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L715">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L717">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L715">
                     View blame
                 </a>
             </def></deflist>
@@ -2648,7 +2648,7 @@ Find => Replace pattern rules.
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$times</format> - <format style="italic">
 Number of time the input string should be repeated.
-If the $times is set to 0 or less, the function will return empty string.
+If the $times are set to 0 or less, the function will return an empty string.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 Separator in between any repeated string.
 </format></li></list>
@@ -2682,12 +2682,12 @@ Separator in between any repeated string.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L725">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L723">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L725">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L723">
                     View blame
                 </a>
             </def></deflist>
@@ -2726,12 +2726,12 @@ If the optional argument $pad is not supplied, the $string is padded with spaces
 with characters from $pad up to the limit.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L751">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L749">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L751">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L749">
                     View blame
                 </a>
             </def></deflist>
@@ -2783,16 +2783,16 @@ Pad side.
 
 ### ### Mask a portion of a string
 
-<p><format style="italic">Masks a portion of a string with a repeated character, and may be used to obfuscate segments of strings
+<p><format style="italic">Masks a portion of a string with a repeated character and may be used to obfuscate segments of strings
 such as email addresses and phone numbers,</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L773">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L771">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L773">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L771">
                     View blame
                 </a>
             </def></deflist>
@@ -2841,12 +2841,12 @@ Maximum number of characters to use for masking.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L785">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L783">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L785">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L783">
                     View blame
                 </a>
             </def></deflist>
@@ -2890,12 +2890,12 @@ The prefix to prepend.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L797">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L795">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L797">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L795">
                     View blame
                 </a>
             </def></deflist>
@@ -2939,12 +2939,12 @@ The suffix to append.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L809">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L807">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L809">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L807">
                     View blame
                 </a>
             </def></deflist>
@@ -2988,12 +2988,12 @@ The prefix to make sure it exists.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L821">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L819">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L821">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L819">
                     View blame
                 </a>
             </def></deflist>
@@ -3037,12 +3037,12 @@ The suffix to make sure it exists.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L833">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L831">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L833">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L831">
                     View blame
                 </a>
             </def></deflist>
@@ -3086,12 +3086,12 @@ The prefix to make sure exists.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L845">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L843">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L845">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L843">
                     View blame
                 </a>
             </def></deflist>
@@ -3135,12 +3135,12 @@ The suffix to make sure exists.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L857">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L855">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L857">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L855">
                     View blame
                 </a>
             </def></deflist>
@@ -3184,12 +3184,12 @@ The substring to add to both sides.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L869">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L867">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L869">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L867">
                     View blame
                 </a>
             </def></deflist>
@@ -3226,12 +3226,12 @@ The substring to add to both sides.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L881">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L879">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L881">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L879">
                     View blame
                 </a>
             </def></deflist>
@@ -3273,7 +3273,7 @@ String to quote with.
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
-<p><format style="italic">This function returns a string with whitespace stripped from the beginning and end of string.
+<p><format style="italic">This function returns a string with whitespace stripped from the beginning and end of the string.
 Without the second parameter, [[StrSafe#trim()]] will strip these characters.
 
 - " " (ASCII 32 (0x20)), an ordinary space.
@@ -3284,12 +3284,12 @@ Without the second parameter, [[StrSafe#trim()]] will strip these characters.
 - "\v" (ASCII 11 (0x0B)), a vertical tab.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L907">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L905">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L907">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L905">
                     View blame
                 </a>
             </def></deflist>
@@ -3337,12 +3337,12 @@ to be stripped. With '..', you can specify a range of characters.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L925">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L923">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L925">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L923">
                     View blame
                 </a>
             </def></deflist>
@@ -3383,17 +3383,17 @@ Truncates the string with.
 
 
 
-### ### Truncates the string to a given length, while ensuring that it does not split words
+### ### Truncates the string to a given length while ensuring that it doesn't split words
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L943">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L941">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L943">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L941">
                     View blame
                 </a>
             </def></deflist>
@@ -3434,17 +3434,17 @@ Truncates the string with.
 
 
 
-### ### Get first character of string
+### ### Get the first character of string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L953">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L951">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L953">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L951">
                     View blame
                 </a>
             </def></deflist>
@@ -3481,17 +3481,17 @@ Truncates the string with.
 
 
 
-### ### Get last character of string
+### ### Get the last character of string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L963">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L961">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L963">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L961">
                     View blame
                 </a>
             </def></deflist>
@@ -3536,12 +3536,12 @@ Truncates the string with.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L973">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L971">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L973">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L971">
                     View blame
                 </a>
             </def></deflist>
@@ -3581,12 +3581,12 @@ Truncates the string with.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L990">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L988">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L990">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L988">
                     View blame
                 </a>
             </def></deflist>
@@ -3604,10 +3604,10 @@ Maximum length of the chunk.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>list&lt;non-empty-string&gt; - <format style="italic">If the optional $length parameter is specified, the
-returned array will be broken down into chunks with each being $length in length, except the final chunk which
-may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-byte in size.</format></li></list>
+        <list><li>list&lt;non-empty-string&gt; - <format style="italic">If the optional $length parameter is specified, the returned array will be
+broken down into chunks with each being $length in length, except the final chunk, which may be shorter if the
+string doesn't divide evenly.
+The default $length is 1, meaning every chunk will be one byte in size.</format></li></list>
     </def>
 </deflist>
 ## method: break {id="break()"}
@@ -3636,12 +3636,12 @@ byte in size.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1013">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1011">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1013">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1011">
                     View blame
                 </a>
             </def></deflist>
@@ -3661,15 +3661,15 @@ byte in size.</format></li></list>
 The boundary string.
 </format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
 If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
-If the limit parameter is negative, all components except the last - limit are returned.
+If the limit parameter is negative, all components except the last – limit are returned.
 If the limit parameter is zero, then this is treated as 1.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">If delimiter contains a value that is not contained in string and a negative
-limit is used, then an empty array will be returned.
+        <list><li>string[] - <format style="italic">If the delimiter contains a value not contained in string and a negative limit is used, then
+an empty array will be returned.
 For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
@@ -3721,14 +3721,16 @@ For any other limit, an array containing string will be returned.</format></li><
 <code>non-empty-string[]</code>
 The boundary characters.
 </format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">If delimiter contains a value not contained in string and a negative limit is used, then an empty array will be returned.
+        <list><li>string[] - <format style="italic">If a delimiter contains a value not contained in string, and a negative limit is used,
+then an empty array will be returned.
 For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
@@ -3758,12 +3760,12 @@ For any other limit, an array containing string will be returned.</format></li><
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1054">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1056">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1054">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1056">
                     View blame
                 </a>
             </def></deflist>
@@ -3782,14 +3784,16 @@ For any other limit, an array containing string will be returned.</format></li><
         <list><li>non-empty-string <format style="bold">$with</format> - <format style="italic">
 The boundary string.
 </format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+        <list><li>string[] - <format style="italic">If a delimiter contains a value not contained in string, and a negative limit is used,
+then an empty array will be returned.
 For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
@@ -3816,12 +3820,12 @@ For any other limit, an array containing string will be returned.</format></li><
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1073">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1077">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1073">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1077">
                     View blame
                 </a>
             </def></deflist>
@@ -3840,14 +3844,16 @@ For any other limit, an array containing string will be returned.</format></li><
         <list><li><a href="Characters[].md">\FireHub\Core\Support\Contracts\HighLevel\Characters[]</a> <format style="bold">$characters</format> - <format style="italic">
 The boundary characters.
 </format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+        <list><li>string[] - <format style="italic">If a delimiter contains a value not contained in string, and a negative limit is used,
+then an empty array will be returned.
 For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
@@ -3874,12 +3880,12 @@ For any other limit, an array containing string will be returned.</format></li><
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1093">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1099">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1093">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1099">
                     View blame
                 </a>
             </def></deflist>
@@ -3899,14 +3905,16 @@ For any other limit, an array containing string will be returned.</format></li><
 <code>non-empty-string[]</code>
 The boundary characters.
 </format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string[] - <format style="italic">If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+        <list><li>string[] - <format style="italic">If a delimiter contains a value not contained in string, and a negative limit is used,
+then an empty array will be returned.
 For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
@@ -3936,12 +3944,12 @@ For any other limit, an array containing string will be returned.</format></li><
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1107">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1113">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1107">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1113">
                     View blame
                 </a>
             </def></deflist>
@@ -3985,12 +3993,12 @@ The size of each chunk.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1119">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1125">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1119">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1125">
                     View blame
                 </a>
             </def></deflist>
@@ -4008,7 +4016,7 @@ The value to search for.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li> - <format style="italic">non-negative-int Number of times the searched value occurs in the string.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int The number of times the searched value occurs in the string.</format></li></list>
     </def>
 </deflist>
 ## method: length {id="length()"}
@@ -4034,12 +4042,12 @@ The value to search for.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1127">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1133">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1127">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1133">
                     View blame
                 </a>
             </def></deflist>
@@ -4076,12 +4084,12 @@ The value to search for.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1139">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1145">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1139">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1145">
                     View blame
                 </a>
             </def></deflist>
@@ -4125,12 +4133,12 @@ String to find.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1151">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1157">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1151">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1157">
                     View blame
                 </a>
             </def></deflist>
@@ -4174,12 +4182,12 @@ String to find.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1165">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1171">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1165">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Strings.php#L1171">
                     View blame
                 </a>
             </def></deflist>
@@ -4225,12 +4233,12 @@ If the start is negative, the returned string will start at the start character 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View blame
                 </a>
             </def></deflist>

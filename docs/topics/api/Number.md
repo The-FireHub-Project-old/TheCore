@@ -29,9 +29,11 @@
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\Number
     </def><def title="Implements:">
-        <list><li><a href="Numbers.md">\FireHub\Core\Support\Contracts\HighLevel\Numbers</a></li></list>
+        <list><li><a href="Init.md">\FireHub\Core\Base\Init</a></li><li><a href="Numbers.md">\FireHub\Core\Support\Contracts\HighLevel\Numbers</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="Concrete.md">\FireHub\Core\Base\Trait\Concrete</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L33">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L36">
             View source code
         </a>
     </def>
@@ -63,8 +65,8 @@
 |:-----|:-----|:------|
 |public|<a href="#__construct()">__construct</a>|### Constructor|
 |public static |<a href="#from()">from</a>|### Create a new number from raw number|
-|public|<a href="#ispositive()">isPositive</a>|### Check if number is positive|
-|public|<a href="#isnegative()">isNegative</a>|### Check if number is negative|
+|public|<a href="#ispositive()">isPositive</a>|### Check if the number is positive|
+|public|<a href="#isnegative()">isNegative</a>|### Check if the number is negative|
 |public|<a href="#isfinite()">isFinite</a>|### Finds whether a value is a legal finite number|
 |public|<a href="#isinfinite()">isInfinite</a>|### Finds whether a value is infinite|
 |public|<a href="#isnan()">isNan</a>|### Finds whether a value is not a number|
@@ -77,7 +79,10 @@
 |public|<a href="#asint()">asInt</a>|### Get number as raw integer|
 |public|<a href="#asfloat()">asFloat</a>|### Get number as raw float|
 |public|<a href="#parse()">parse</a>|### Parse number|
-|public|<a href="#__tostring()">__toString</a>||
+|public|<a href="#__tostring()">__toString</a>|### Gets a string representation of the object|
+|inherited public|<a href="#jsonserialize()">jsonSerialize</a>||
+|inherited public|<a href="#__serialize()">__serialize</a>||
+|inherited public|<a href="#__unserialize()">__unserialize</a>||
 
 ## property: number {id="$number"}
 
@@ -100,12 +105,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L46">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L55">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L46">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L55">
                     View blame
                 </a>
             </def></deflist>
@@ -132,12 +137,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L54">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L54">
                     View blame
                 </a>
             </def></deflist>
@@ -181,12 +186,12 @@ Number to use.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L66">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L75">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L66">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L75">
                     View blame
                 </a>
             </def></deflist>
@@ -231,17 +236,17 @@ Number::from(10);
 
 
 
-### ### Check if number is positive
+### ### Check if the number is positive
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L95">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L86">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L95">
                     View blame
                 </a>
             </def></deflist>
@@ -281,17 +286,17 @@ Number::from(12)->isPositive();
 
 
 
-### ### Check if number is negative
+### ### Check if the number is negative
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L108">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L117">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L108">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L117">
                     View blame
                 </a>
             </def></deflist>
@@ -336,12 +341,12 @@ Number::from(12)->isNegative();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L139">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L139">
                     View blame
                 </a>
             </def></deflist>
@@ -386,12 +391,12 @@ Number::from(1e308 * 2)->isFinite();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L161">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L161">
                     View blame
                 </a>
             </def></deflist>
@@ -436,12 +441,12 @@ Number::from(1e308 * 2)->isInfinite();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L174">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L183">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L174">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L183">
                     View blame
                 </a>
             </def></deflist>
@@ -486,12 +491,12 @@ Number::from(sqrt(-1))->isNan();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L196">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L205">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L196">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L205">
                     View blame
                 </a>
             </def></deflist>
@@ -536,12 +541,12 @@ $number = Number::from(-12)->toPositive();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L220">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L229">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L220">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L229">
                     View blame
                 </a>
             </def></deflist>
@@ -586,12 +591,12 @@ $number = Number::from(12)->toNegative();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L244">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L253">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L244">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L253">
                     View blame
                 </a>
             </def></deflist>
@@ -636,12 +641,12 @@ $number = Number::from(-12)->absolute();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L268">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L277">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L268">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L277">
                     View blame
                 </a>
             </def></deflist>
@@ -686,12 +691,12 @@ $number = Number::from(12.5)->ceil();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L292">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L301">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L292">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L301">
                     View blame
                 </a>
             </def></deflist>
@@ -736,12 +741,12 @@ $number = Number::from(12.5)->floor();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L343">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L334">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L343">
                     View blame
                 </a>
             </def></deflist>
@@ -763,10 +768,11 @@ $number = Number::from(12.5)->floor();
 <deflist>
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$precision</format> - <format style="italic">[optional] 
-Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-num is rounded to tens, for a precision of -2 to hundreds, etc.
+Number of decimal digits to round to.
+If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+If the precision is negative, num is rounded to precision significant digits before the decimal point, in other
+words, to the nearest multiple of pow(10, -$precision), for example, for a precision of -1 num is rounded to
+tens, for a precision of -2 to hundreds, and so on.
 </format></li><li><a href="Round.md">\FireHub\Core\Support\Enums\Number\Round</a> <format style="bold">$round</format> = Round::HALF_UP - <format style="italic">[optional] 
 Specify the mode in which rounding occurs.
 </format></li></list>
@@ -820,12 +826,12 @@ $number = Number::from(12.56)->round(1);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L370">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L379">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L370">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L379">
                     View blame
                 </a>
             </def></deflist>
@@ -885,12 +891,12 @@ Number::from(10.5)->asInt(Round::HALF_DOWN);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L390">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L399">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L390">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L399">
                     View blame
                 </a>
             </def></deflist>
@@ -930,12 +936,12 @@ Number::from(10)->asInt();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L410">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L419">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L410">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L419">
                     View blame
                 </a>
             </def></deflist>
@@ -979,17 +985,17 @@ $number = Number::from(1000.54)->parse();
 
 
 
-
+### ### Gets a string representation of the object
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L435">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Number.php#L444">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L435">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Number.php#L444">
                     View blame
                 </a>
             </def></deflist>
@@ -1005,3 +1011,145 @@ echo Number::from(12);
 
 // 12
 ```
+
+## method: jsonSerialize {id="jsonserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::jsonSerialize()]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="Obj.md#properties()">\FireHub\Core\Support\LowLevel\Obj::properties()</a>  - <format style="italic">To get all public class properties.</format></li></list>
+    </def>
+</deflist>
+## method: __serialize {id="__serialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__serialize():never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to serialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
+## method: __unserialize {id="__unserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__unserialize(array $data):never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array <format style="bold">$data</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to unserialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>

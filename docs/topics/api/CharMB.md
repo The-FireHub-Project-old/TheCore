@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\CharMB
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L29">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L32">
             View source code
         </a>
     </def>
@@ -61,6 +65,7 @@
 |public static |<a href="#chr()">chr</a>|### Return character by Unicode code point value|
 |public static |<a href="#ord()">ord</a>|### Get Unicode code point of character|
 
+
 ## method: chr {id="chr()"}
 
 <code-block lang="php">
@@ -85,12 +90,12 @@
 encoding. This function complements [[CharMB#ord()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L54">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -120,7 +125,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If codepoint could not be converted to character.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If codepoint couldn&#039;t be converted to character.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -156,12 +161,12 @@ Character encoding. If it is null, the internal character encoding value will be
 <p><format style="italic">Returns the Unicode code point value of the given character. This function complements [[CharMB#chr()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L90">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L90">
                     View blame
                 </a>
             </def></deflist>
@@ -186,7 +191,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If character could not be converted to codepoint.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If empty string is provided.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If character couldn&#039;t be converted to codepoint.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If an empty string is provided.</format></li></list>
     </def>
 </deflist>
 <deflist>

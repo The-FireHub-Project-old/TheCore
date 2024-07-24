@@ -60,27 +60,29 @@
 ### Properties
 | Name | Title | Value | Default |
 |:-----|:------|:------|:--------|
-|inherited protected|<a href="#$string">string</a>|### String to use|&#039;&#039;|
+|inherited protected|<a href="#$string">string</a>|### String to use||
 |inherited protected|<a href="#$encoding">encoding</a>|Character encoding|null|
 
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#expression()">expression</a>||
-|public|<a href="#startswith()">startsWith</a>||
-|public|<a href="#endswith()">endsWith</a>||
-|public|<a href="#contains()">contains</a>||
-|public|<a href="#equals()">equals</a>||
-|public|<a href="#carryfrom()">carryFrom</a>||
-|public|<a href="#carryuntil()">carryUntil</a>||
-|public|<a href="#carryfromlast()">carryFromLast</a>||
-|public|<a href="#carryuntillast()">carryUntilLast</a>||
-|public|<a href="#break()">break</a>||
-|public|<a href="#containtimes()">containTimes</a>||
-|public|<a href="#indexof()">indexOf</a>||
-|public|<a href="#lastindexof()">lastIndexOf</a>||
+|public|<a href="#expression()">expression</a>|### Regular expression|
+|public|<a href="#startswith()">startsWith</a>|### Checks if a string starts with a given value|
+|public|<a href="#endswith()">endsWith</a>|### Checks if a string ends with a given value|
+|public|<a href="#contains()">contains</a>|### Checks if string contains a value|
+|public|<a href="#equals()">equals</a>|### Checks if string equals value|
+|public|<a href="#carryfrom()">carryFrom</a>|### Carry from part of the string|
+|public|<a href="#carryuntil()">carryUntil</a>|### Carry until part of the string|
+|public|<a href="#carryfromlast()">carryFromLast</a>|### Carry from the last part of a string|
+|public|<a href="#carryuntillast()">carryUntilLast</a>|### Carry until the last part of a string|
+|public|<a href="#break()">break</a>|### Break string with a separator|
+|public|<a href="#containtimes()">containTimes</a>|### Checks how mny times string contains value|
+|public|<a href="#indexof()">indexOf</a>|### Find the position of the first occurrence of a substring|
+|public|<a href="#lastindexof()">lastIndexOf</a>|### Find the position of the last occurrence of a substring|
+|inherited public|<a href="#jsonserialize()">jsonSerialize</a>||
+|inherited public|<a href="#__serialize()">__serialize</a>||
+|inherited public|<a href="#__unserialize()">__unserialize</a>||
 |inherited public|<a href="#__construct()">__construct</a>|### Constructor|
-|inherited public|<a href="#replacemultiple()">replaceMultiple</a>|### Replace all occurrences of search in a subject replaced with the given replacement value|
 |inherited public static |<a href="#from()">from</a>|### Create a new string from raw string|
 |inherited public static |<a href="#fromlist()">fromList</a>|### Create a new string from array elements with a string|
 |inherited public|<a href="#insertvalue()">insertValue</a>|### value on string|
@@ -91,14 +93,14 @@
 |inherited public|<a href="#containsall()">containsAll</a>|### Checks if string contains all values|
 |inherited public|<a href="#containsany()">containsAny</a>|### Checks if string contains any of the values|
 |inherited public|<a href="#equalsany()">equalsAny</a>|### Checks if string equals to any of the values|
-|inherited public|<a href="#match()">match</a>|### Checks if string matches a given pattern|
+|inherited public|<a href="#match()">match</a>|### Checks if a string matches a given pattern|
 |inherited public|<a href="#encoding()">encoding</a>|### Get or change string encoding|
 |inherited public|<a href="#string()">string</a>|### Get or set string as raw string|
 |inherited public|<a href="#tolower()">toLower</a>|### Make a string lowercase|
 |inherited public|<a href="#toupper()">toUpper</a>|### Make a string uppercase|
 |inherited public|<a href="#totitle()">toTitle</a>|### Make a string title-case|
-|inherited public|<a href="#capitalize()">capitalize</a>|### Make a first character of string uppercased|
-|inherited public|<a href="#decapitalize()">deCapitalize</a>|### Make a first character of string uppercased|
+|inherited public|<a href="#capitalize()">capitalize</a>|### Make the first character of string uppercased|
+|inherited public|<a href="#decapitalize()">deCapitalize</a>|### Make the first character of string uppercased|
 |inherited public|<a href="#swapcase()">swapCase</a>|### Swap lower and upper cases on string|
 |inherited public|<a href="#streamline()">streamline</a>|### Streamline string|
 |inherited public|<a href="#titleize()">titleize</a>|### Capitalize every word in string|
@@ -114,7 +116,7 @@
 |inherited public|<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
 |inherited public|<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
 |inherited public|<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
-|inherited public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
+|inherited public|<a href="#quotemeta()">quoteMeta</a>|### Quote meta-characters|
 |inherited public|<a href="#between()">between</a>|### Slice string after first start and until last end|
 |inherited public|<a href="#betweenfirst()">betweenFirst</a>|### Slice string after first start and until first end|
 |inherited public|<a href="#betweenlast()">betweenLast</a>|### Slice string after last start and until last end|
@@ -142,9 +144,9 @@
 |inherited public|<a href="#quote()">quote</a>|### Wraps each word in the string with specified quote|
 |inherited public|<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |inherited public|<a href="#truncate()">truncate</a>|### Truncates the string to a given length|
-|inherited public|<a href="#safetruncate()">safeTruncate</a>|### Truncates the string to a given length, while ensuring that it does not split words|
-|inherited public|<a href="#first()">first</a>|### Get first character of string|
-|inherited public|<a href="#last()">last</a>|### Get last character of string|
+|inherited public|<a href="#safetruncate()">safeTruncate</a>|### Truncates the string to a given length while ensuring that it doesn't split words|
+|inherited public|<a href="#first()">first</a>|### Get the first character of string|
+|inherited public|<a href="#last()">last</a>|### Get the last character of string|
 |inherited public|<a href="#chop()">chop</a>|### Chop a string to an array|
 |inherited public|<a href="#breakwithany()">breakWithAny</a>|### Break string with any of separators|
 |inherited public|<a href="#split()">split</a>|### Split string with a separator|
@@ -153,12 +155,13 @@
 |inherited public|<a href="#group()">group</a>|### Group a string into chunks|
 |inherited public|<a href="#length()">length</a>|### Get string length|
 |inherited public|<a href="#charat()">charAt</a>|### Find the character at the provider position|
-|inherited public|<a href="#__tostring()">__toString</a>||
+|inherited public|<a href="#__tostring()">__toString</a>|### Gets a string representation of the object|
+|inherited public|<a href="#replacemultiple()">replaceMultiple</a>|### Replace all occurrences of search in a subject replaced with the given replacement value|
 
 ## property: string {id="$string"}
 
 <code-block lang="php">
-    <![CDATA[protected string $string = &#039;&#039;]]>
+    <![CDATA[protected string $string]]>
 </code-block>
 
 
@@ -176,24 +179,19 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L55">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L55">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L37">
                     View blame
                 </a>
             </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
 ## property: encoding {id="$encoding"}
 
 <code-block lang="php">
-    <![CDATA[protected null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null]]>
+    <![CDATA[protected ?\FireHub\Core\Support\Enums\String\Encoding $encoding = null]]>
 </code-block>
 
 
@@ -211,20 +209,15 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L38">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L38">
                     View blame
                 </a>
             </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
 ## method: expression {id="expression()"}
 
 <code-block lang="php">
@@ -243,7 +236,7 @@
 
 
 
-
+### ### Regular expression
 
 
 
@@ -269,7 +262,9 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format></li></list>
+        <list><li>variadic <a href="Modifier.md">\FireHub\Core\Support\Enums\String\Expression\Modifier</a> <format style="bold">$modifiers</format> - <format style="italic">
+List of additional expression pattern modifiers.
+</format></li></list>
     </def>
 </deflist>
 ## method: startsWith {id="startswith()"}
@@ -290,7 +285,7 @@
 
 
 
-
+### ### Checks if a string starts with a given value
 
 
 
@@ -316,7 +311,9 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format></li></list>
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -345,7 +342,7 @@ Str::from('FireHub')->startsWith('fire');
 
 
 
-
+### ### Checks if a string ends with a given value
 
 
 
@@ -371,7 +368,9 @@ Str::from('FireHub')->startsWith('fire');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format></li></list>
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -400,7 +399,7 @@ Str::from('FireHub')->endsWith('hub');
 
 
 
-
+### ### Checks if string contains a value
 
 
 
@@ -421,12 +420,14 @@ Str::from('FireHub')->endsWith('hub');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrMB.md#contains()">\FireHub\Core\Support\LowLevel\StrMB::contains()</a>  - <format style="italic">To check if a string contains value.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert the string.</format></li><li><a href="CaseFolding.md#lower">\FireHub\Core\Support\Enums\String\CaseFolding::LOWER</a>  - <format style="italic">To lowercase string.</format></li></list>
+        <list><li><a href="StrMB.md#contains()">\FireHub\Core\Support\LowLevel\StrMB::contains()</a>  - <format style="italic">To check if a string contains a value.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert the string.</format></li><li><a href="CaseFolding.md#lower">\FireHub\Core\Support\Enums\String\CaseFolding::LOWER</a>  - <format style="italic">To lowercase string.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format></li></list>
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -455,7 +456,7 @@ Str::from('FireHub')->contains('fire');
 
 
 
-
+### ### Checks if string equals value
 
 
 
@@ -481,7 +482,9 @@ Str::from('FireHub')->contains('fire');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format></li></list>
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -510,7 +513,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Carry from part of the string
 
 
 
@@ -536,7 +539,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ## method: carryUntil {id="carryuntil()"}
@@ -557,7 +562,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Carry until part of the string
 
 
 
@@ -583,7 +588,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ## method: carryFromLast {id="carryfromlast()"}
@@ -604,7 +611,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Carry from the last part of a string
 
 
 
@@ -630,7 +637,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ## method: carryUntilLast {id="carryuntillast()"}
@@ -651,7 +660,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Carry until the last part of a string
 
 
 
@@ -677,7 +686,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ## method: break {id="break()"}
@@ -698,7 +709,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Break string with a separator
 
 
 
@@ -719,12 +730,18 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="DataIs.md">\FireHub\Core\Support\LowLevel\DataIs</a>  - <format style="italic">To check if expression returns an array.</format></li><li><a href="MAX.md">\FireHub\Core\Support\Constants\Number\MAX</a>  - <format style="italic">To set maximum PHP integer.</format></li></list>
+        <list><li><a href="DataIs.md">\FireHub\Core\Support\LowLevel\DataIs</a>  - <format style="italic">To check if the expression returns an array.</format></li><li><a href="MAX.md">\FireHub\Core\Support\Constants\Number\MAX</a>  - <format style="italic">To set maximum PHP integer.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$with</format></li><li>int <format style="bold">$limit</format> = MAX</li></list>
+        <list><li>string <format style="bold">$with</format> - <format style="italic">
+The boundary string.
+</format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
+If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit parameter is negative, all components except the last – limit are returned.
+If the limit parameter is zero, then this is treated as 1.
+</format></li></list>
     </def>
 </deflist>
 ## method: containTimes {id="containtimes()"}
@@ -745,7 +762,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Checks how mny times string contains value
 
 
 
@@ -771,7 +788,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format></li></list>
+        <list><li>string <format style="bold">$value</format> - <format style="italic">
+The value to search for.
+</format></li></list>
     </def>
 </deflist>
 ## method: indexOf {id="indexof()"}
@@ -792,7 +811,7 @@ Str::from('FireHub')->contains('firehub');
 
 
 
-
+### ### Find the position of the first occurrence of a substring
 
 
 
@@ -818,7 +837,9 @@ Str::from('FireHub')->contains('firehub');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -847,7 +868,7 @@ Str::from('FireHub Web App')->indexOf('Web');
 
 
 
-
+### ### Find the position of the last occurrence of a substring
 
 
 
@@ -873,7 +894,9 @@ Str::from('FireHub Web App')->indexOf('Web');
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$find</format></li></list>
+        <list><li>string <format style="bold">$find</format> - <format style="italic">
+String to find.
+</format></li></list>
     </def>
 </deflist>
 ```php
@@ -884,10 +907,10 @@ Str::from('FireHub Web App')->lastIndexOf('e');
 // 9
 ```
 
-## method: __construct {id="__construct()"}
+## method: jsonSerialize {id="jsonserialize()"}
 
 <code-block lang="php">
-    <![CDATA[abstract public Str::__construct(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):void]]>
+    <![CDATA[public Concrete::jsonSerialize()]]>
 </code-block>
 
 
@@ -896,27 +919,23 @@ Str::from('FireHub Web App')->lastIndexOf('e');
 
 
 
-<tip>
-    <p>
-        This is an <format style="bold">abstract</format> method that cannot be instantiated directly.
-    </p>
-</tip>
 
 
 
 
 
-### ### Constructor
+
+
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
                     View blame
                 </a>
             </def></deflist>
@@ -927,7 +946,143 @@ Str::from('FireHub Web App')->lastIndexOf('e');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a>  - <format style="italic">As parameter.</format></li></list>
+        <list><li><a href="Obj.md#properties()">\FireHub\Core\Support\LowLevel\Obj::properties()</a>  - <format style="italic">To get all public class properties.</format></li></list>
+    </def>
+</deflist>
+## method: __serialize {id="__serialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__serialize():never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to serialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
+## method: __unserialize {id="__unserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__unserialize(array $data):never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array <format style="bold">$data</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to unserialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
+## method: __construct {id="__construct()"}
+
+<code-block lang="php">
+    <![CDATA[public Str::__construct(string $string, ?\FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Constructor
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L36">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L36">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
     </def>
 </deflist>
 <deflist>
@@ -940,72 +1095,6 @@ If it is null, the internal character encoding value will be used.
 </format></li></list>
     </def>
 </deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>void</li></list>
-    </def>
-</deflist>
-## method: replaceMultiple {id="replacemultiple()"}
-
-<code-block lang="php">
-    <![CDATA[public Str::replaceMultiple(array<non-empty-string,string> $rules):$this]]>
-</code-block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ### Replace all occurrences of search in a subject replaced with the given replacement value
-
-
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L61">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L61">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method uses:">
-        <list><li><a href="StrMB.md#translate()">\FireHub\Core\Support\StrMB::translate()</a>  - <format style="italic">To translate characters or replace substrings.</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has parameters:">
-        <list><li>array&lt;non-empty-string,string&gt; <format style="bold">$rules</format> - <format style="italic">
-Find => Replace pattern rules.
-</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>$this - <format style="italic">This string.</format></li></list>
-    </def>
-</deflist>
-```php
-use FireHub\Core\Support\Str;
-
-Str::from('FireHub')->replaceMultiple(['F' => 'M', 'H' => 'X']);
-
-// MireXub
-
 ## method: from {id="from()"}
 
 <code-block lang="php">
@@ -1029,12 +1118,12 @@ Str::from('FireHub')->replaceMultiple(['F' => 'M', 'H' => 'X']);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L122">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L122">
                     View blame
                 </a>
             </def></deflist>
@@ -1067,7 +1156,7 @@ use FireHub\Core\Support\Str;
 
 Str::from('FireHub');
 ```
-Creating new string with specific encoding.
+Creating a new string with specific encoding.
 ```php
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Enums\String\Encoding;
@@ -1101,12 +1190,12 @@ Str::from('FireHub', Encoding::UTF_8);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L160">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L169">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L160">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L169">
                     View blame
                 </a>
             </def></deflist>
@@ -1133,7 +1222,7 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If array item could not be converted to string.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the array item couldn&#039;t be converted to string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -1181,12 +1270,12 @@ Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'B'], '-');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L190">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L199">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L190">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L199">
                     View blame
                 </a>
             </def></deflist>
@@ -1230,12 +1319,12 @@ String to insert.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L211">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L220">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L211">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L220">
                     View blame
                 </a>
             </def></deflist>
@@ -1283,12 +1372,12 @@ Str::from('FireHub')->toChars();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L237">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L246">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L237">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L246">
                     View blame
                 </a>
             </def></deflist>
@@ -1332,12 +1421,12 @@ Str::from('Yes')->asBoolean();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L281">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L290">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L281">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L290">
                     View blame
                 </a>
             </def></deflist>
@@ -1389,12 +1478,12 @@ Str::from('FireHub')->startsWithAny('Fire', 'test');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L328">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L337">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L328">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L337">
                     View blame
                 </a>
             </def></deflist>
@@ -1446,12 +1535,12 @@ Str::from('FireHub')->endsWithAny('Hub', 'test');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L375">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L384">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L375">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L384">
                     View blame
                 </a>
             </def></deflist>
@@ -1503,12 +1592,12 @@ Str::from('FireHub')->containsAll('ire', 'Fi');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L400">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L409">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L400">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L409">
                     View blame
                 </a>
             </def></deflist>
@@ -1560,12 +1649,12 @@ Str::from('FireHub')->containsAny('ire', 'Fi');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L445">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L454">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L445">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L454">
                     View blame
                 </a>
             </def></deflist>
@@ -1612,17 +1701,17 @@ Str::from('FireHub')->equalsAny('FireHub', 'Fi');
 
 
 
-### ### Checks if string matches a given pattern
+### ### Checks if a string matches a given pattern
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L468">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L477">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L468">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L477">
                     View blame
                 </a>
             </def></deflist>
@@ -1669,12 +1758,12 @@ Str::from('FireHub Web App')->match('Fire*b*A*');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L497">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L506">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L497">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L506">
                     View blame
                 </a>
             </def></deflist>
@@ -1697,7 +1786,7 @@ String encoding.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not get current encoding.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If the value of encoding is an invalid encoding.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t get current encoding.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If the value of encoding is an invalid encoding.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -1710,7 +1799,7 @@ Str::from('FireHub')->encoding(Encoding::UTF_8);
 ## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public Str::string(string $string = null)]]>
+    <![CDATA[public Str::string(?string $string = null)]]>
 </code-block>
 
 
@@ -1730,12 +1819,12 @@ Str::from('FireHub')->encoding(Encoding::UTF_8);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L535">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L544">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L535">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L544">
                     View blame
                 </a>
             </def></deflist>
@@ -1751,7 +1840,7 @@ Str::from('FireHub')->encoding(Encoding::UTF_8);
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$string</format> = null - <format style="italic">[optional] 
+        <list><li>null or string <format style="bold">$string</format> = null - <format style="italic">[optional] 
 String to set.
 </format></li></list>
     </def>
@@ -1796,12 +1885,12 @@ Str::from('FireHub')->string('FireHub Web App');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L562">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L571">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L562">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L571">
                     View blame
                 </a>
             </def></deflist>
@@ -1846,12 +1935,12 @@ Str::from('FireHub')->toLower();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L587">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L596">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L587">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L596">
                     View blame
                 </a>
             </def></deflist>
@@ -1896,12 +1985,12 @@ Str::from('FireHub')->toUpper();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L612">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L621">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L612">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L621">
                     View blame
                 </a>
             </def></deflist>
@@ -1941,17 +2030,17 @@ Str::from('FireHub web app')->toTitle();
 
 
 
-### ### Make a first character of string uppercased
+### ### Make the first character of string uppercased
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L638">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L647">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L638">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L647">
                     View blame
                 </a>
             </def></deflist>
@@ -1996,17 +2085,17 @@ Str::from('firehub')->capitalize();
 
 
 
-### ### Make a first character of string uppercased
+### ### Make the first character of string uppercased
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L668">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L677">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L668">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L677">
                     View blame
                 </a>
             </def></deflist>
@@ -2056,12 +2145,12 @@ Str::from('FireHub')->deCapitalize();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L699">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L708">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L699">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L708">
                     View blame
                 </a>
             </def></deflist>
@@ -2111,12 +2200,12 @@ Str::from('FireHub')->swapCase();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L731">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L740">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L731">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L740">
                     View blame
                 </a>
             </def></deflist>
@@ -2167,12 +2256,12 @@ Str::from(' Fire
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L764">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L773">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L764">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L773">
                     View blame
                 </a>
             </def></deflist>
@@ -2183,7 +2272,7 @@ Str::from(' Fire
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Conjunction.md#shorts()">\FireHub\Core\Support\Enums\String\Words\Conjunction::shorts()</a>  - <format style="italic">To get a list of all short conjunctions.</format></li><li><a href="Preposition.md#shorts()">\FireHub\Core\Support\Enums\String\Words\Preposition::shorts()</a>  - <format style="italic">To get a list of all short prepositions.</format></li><li><a href="Str.md#streamline()">\FireHub\Core\Support\Strings\Str::streamline()</a>  - <format style="italic">To streamline string.</format></li><li><a href="Str.md#expression()">\FireHub\Core\Support\Strings\Str::expression()</a>  - <format style="italic">As regular expression.</format></li><li><a href="Str.md#from()">\FireHub\Core\Support\Strings\Str::from()</a>  - <format style="italic">To create string from any word.</format></li><li><a href="Str.md#capitalize()">\FireHub\Core\Support\Strings\Str::capitalize()</a>  - <format style="italic">To capitalize each word.</format></li><li><a href="Str.md#decapitalize()">\FireHub\Core\Support\Strings\Str::deCapitalize()</a>  - <format style="italic">To deCapitalize each word.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append words.</format></li><li><a href="Arr.md#inarray()">\FireHub\Core\Support\LowLevel\Arr::inArray()</a>  - <format style="italic">Check if word is inside an ignore list.</format></li><li><a href="StrMB.md#implode()">\FireHub\Core\Support\LowLevel\StrMB::implode()</a>  - <format style="italic">To join words with $with argument as new string.</format></li><li><a href="Arr.md#merge()">\FireHub\Core\Support\LowLevel\Arr::merge()</a>  - <format style="italic">To merge all ignored cases.</format></li></list>
+        <list><li><a href="Conjunction.md#shorts()">\FireHub\Core\Support\Enums\String\Words\Conjunction::shorts()</a>  - <format style="italic">To get a list of all short conjunctions.</format></li><li><a href="Preposition.md#shorts()">\FireHub\Core\Support\Enums\String\Words\Preposition::shorts()</a>  - <format style="italic">To get a list of all short prepositions.</format></li><li><a href="Str.md#streamline()">\FireHub\Core\Support\Strings\Str::streamline()</a>  - <format style="italic">To streamline string.</format></li><li><a href="Str.md#expression()">\FireHub\Core\Support\Strings\Str::expression()</a>  - <format style="italic">As regular expression.</format></li><li><a href="Str.md#from()">\FireHub\Core\Support\Strings\Str::from()</a>  - <format style="italic">To create string from any word.</format></li><li><a href="Str.md#capitalize()">\FireHub\Core\Support\Strings\Str::capitalize()</a>  - <format style="italic">To capitalize each word.</format></li><li><a href="Str.md#decapitalize()">\FireHub\Core\Support\Strings\Str::deCapitalize()</a>  - <format style="italic">To deCapitalize each word.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append words.</format></li><li><a href="Arr.md#inarray()">\FireHub\Core\Support\LowLevel\Arr::inArray()</a>  - <format style="italic">Check if the word is inside an ignore list.</format></li><li><a href="StrMB.md#implode()">\FireHub\Core\Support\LowLevel\StrMB::implode()</a>  - <format style="italic">To join words with $with argument as a new string.</format></li><li><a href="Arr.md#merge()">\FireHub\Core\Support\LowLevel\Arr::merge()</a>  - <format style="italic">To merge all ignored cases.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -2224,12 +2313,12 @@ Str::from('FireHub web app')->titleize();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L805">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L814">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L805">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L814">
                     View blame
                 </a>
             </def></deflist>
@@ -2274,12 +2363,12 @@ Str::from('FireHub Web App')->spaceless();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L827">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L836">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L827">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L836">
                     View blame
                 </a>
             </def></deflist>
@@ -2324,12 +2413,12 @@ Str::from('FireHub')->kebabCase();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L849">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L858">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L849">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L858">
                     View blame
                 </a>
             </def></deflist>
@@ -2374,12 +2463,12 @@ Str::from('FireHub')->snakeCase();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L872">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L881">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L872">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L881">
                     View blame
                 </a>
             </def></deflist>
@@ -2424,12 +2513,12 @@ Str::from('FireHub Web app')->headline();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L897">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L906">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L897">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L906">
                     View blame
                 </a>
             </def></deflist>
@@ -2479,12 +2568,12 @@ Str::from('FireHub')->delimit('-');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L924">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L933">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L924">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L933">
                     View blame
                 </a>
             </def></deflist>
@@ -2529,12 +2618,12 @@ Str::from('FireHub')->dasherize();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L946">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L955">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L946">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L955">
                     View blame
                 </a>
             </def></deflist>
@@ -2579,12 +2668,12 @@ Str::from('FireHub web app')->pascalize();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L970">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L979">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L970">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L979">
                     View blame
                 </a>
             </def></deflist>
@@ -2636,12 +2725,12 @@ Str::from('firehub_id')->humanize();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L997">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1006">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L997">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1006">
                     View blame
                 </a>
             </def></deflist>
@@ -2691,12 +2780,12 @@ Str::from('“FireHub…”')->tidy();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1032">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1041">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1032">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1041">
                     View blame
                 </a>
             </def></deflist>
@@ -2741,12 +2830,12 @@ Str::from("Is your name O'Reilly?")->addSlashes();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1061">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1070">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1061">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1070">
                     View blame
                 </a>
             </def></deflist>
@@ -2791,12 +2880,12 @@ Str::from('Is your name O\'Reilly?')->stripSlashes();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1105">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1114">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1105">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1114">
                     View blame
                 </a>
             </def></deflist>
@@ -2813,7 +2902,7 @@ Str::from('Is your name O\'Reilly?')->stripSlashes();
 <deflist>
     <def title="This method has parameters:">
         <list><li>null or string or array <format style="bold">$allowed_tags</format> = null - <format style="italic">
-You can use the optional second parameter to specify tags which should not be stripped.</format></li></list>
+You can use the optional second parameter to specify tags which shouldn't be stripped.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -2823,7 +2912,7 @@ Str::from('<p>FireHub</p>')->stripTags();
 
 // FireHub
 ```
-With $allowed_tags parameter, you allow certain tags to be excluded for the strip.
+With the $allowed_tags parameter, you allow certain tags to be excluded from the strip.
 ```php
 use FireHub\Core\Support\Str;
 
@@ -2831,7 +2920,7 @@ Str::from('<p><i><a>FireHub</a></i></p>')->stripTags('<p>');
 
 // <p>FireHub</p>
 ```
-Alternatively, you can use array in $allowed_tags parameter to allow multiple tags.
+Alternatively, you can use an array in $allowed_tags parameter to allow multiple tags.
 ```php
 use FireHub\Core\Support\Str;
 
@@ -2858,17 +2947,17 @@ Str::from('<p><i><a>FireHub</a></i></p>')->stripTags(['<p>', '<a>']);
 
 
 
-### ### Quote meta characters
+### ### Quote meta-characters
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1129">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1138">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1129">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1138">
                     View blame
                 </a>
             </def></deflist>
@@ -2913,12 +3002,12 @@ Str::from('FireHub?')->quoteMeta();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1153">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1162">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1153">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1162">
                     View blame
                 </a>
             </def></deflist>
@@ -2929,7 +3018,7 @@ Str::from('FireHub?')->quoteMeta();
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Strings\Str::carryFrom()</a>  - <format style="italic">To cary from part of the string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Strings\Str::carryUntilLast()</a>  - <format style="italic">To cary until the last part of a string.</format></li></list>
+        <list><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Strings\Str::carryFrom()</a>  - <format style="italic">To carry from part of the string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Strings\Str::carryUntilLast()</a>  - <format style="italic">To carry until the last part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -2971,12 +3060,12 @@ Str::from('FireHubFireHubFireHub')->between('F', 'H');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1175">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1184">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1175">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1184">
                     View blame
                 </a>
             </def></deflist>
@@ -2987,7 +3076,7 @@ Str::from('FireHubFireHubFireHub')->between('F', 'H');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Strings\Str::carryFrom()</a>  - <format style="italic">To cary from part of the string.</format></li><li><a href="Str.md#carryuntil()">\FireHub\Core\Support\Strings\Str::carryUntil()</a>  - <format style="italic">To cary until the part of a string.</format></li></list>
+        <list><li><a href="Str.md#carryfrom()">\FireHub\Core\Support\Strings\Str::carryFrom()</a>  - <format style="italic">To carry from part of the string.</format></li><li><a href="Str.md#carryuntil()">\FireHub\Core\Support\Strings\Str::carryUntil()</a>  - <format style="italic">To carry until the part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3029,12 +3118,12 @@ Str::from('FireHubFireHubFireHub')->betweenFirst('F', 'H');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1197">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1206">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1197">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1206">
                     View blame
                 </a>
             </def></deflist>
@@ -3045,7 +3134,7 @@ Str::from('FireHubFireHubFireHub')->betweenFirst('F', 'H');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Str.md#carryfromlast()">\FireHub\Core\Support\Strings\Str::carryFromLast()</a>  - <format style="italic">To cary from the last part of the string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Strings\Str::carryUntilLast()</a>  - <format style="italic">To cary until the last part of a string.</format></li></list>
+        <list><li><a href="Str.md#carryfromlast()">\FireHub\Core\Support\Strings\Str::carryFromLast()</a>  - <format style="italic">To carry from the last part of the string.</format></li><li><a href="Str.md#carryuntillast()">\FireHub\Core\Support\Strings\Str::carryUntilLast()</a>  - <format style="italic">To carry until the last part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3087,12 +3176,12 @@ Str::from('Fire')->betweenLast('F', 'H');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1237">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1246">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1237">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1246">
                     View blame
                 </a>
             </def></deflist>
@@ -3163,12 +3252,12 @@ Str::from('FireHub')->slice(1, -1);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1282">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1291">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1282">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1291">
                     View blame
                 </a>
             </def></deflist>
@@ -3179,7 +3268,7 @@ Str::from('FireHub')->slice(1, -1);
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get part of string.</format></li></list>
+        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get part of a string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3247,12 +3336,12 @@ Str::from('FireHub')->carry(-3, -1);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1334">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1343">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1334">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1343">
                     View blame
                 </a>
             </def></deflist>
@@ -3263,7 +3352,7 @@ Str::from('FireHub')->carry(-3, -1);
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="static.md#carry()">\FireHub\Core\Support\Strings\static::carry()</a>  - <format style="italic">To get the last part for string.</format></li><li><a href="static.md#indexof()">\FireHub\Core\Support\Strings\static::indexOf()</a>  - <format style="italic">To get position of $find.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length for $find.</format></li></list>
+        <list><li><a href="static.md#carry()">\FireHub\Core\Support\Strings\static::carry()</a>  - <format style="italic">To get the last part for string.</format></li><li><a href="static.md#indexof()">\FireHub\Core\Support\Strings\static::indexOf()</a>  - <format style="italic">To get the position of $find.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length for $find.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3304,12 +3393,12 @@ Str::from('FireHub Web App')->carryAfter('Web ');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1410">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1419">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1410">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1419">
                     View blame
                 </a>
             </def></deflist>
@@ -3320,7 +3409,7 @@ Str::from('FireHub Web App')->carryAfter('Web ');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="static.md#carry()">\FireHub\Core\Support\Strings\static::carry()</a>  - <format style="italic">To get the last part for string.</format></li><li><a href="static.md#lastindexof()">\FireHub\Core\Support\Strings\static::lastIndexOf()</a>  - <format style="italic">To get lst position of $find.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length for $find.</format></li></list>
+        <list><li><a href="static.md#carry()">\FireHub\Core\Support\Strings\static::carry()</a>  - <format style="italic">To get the last part for string.</format></li><li><a href="static.md#lastindexof()">\FireHub\Core\Support\Strings\static::lastIndexOf()</a>  - <format style="italic">To get the last position of $find.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length for $find.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3361,12 +3450,12 @@ Str::from('FireHub Web App')->carryAfter('Web ');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1459">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1468">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1459">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1468">
                     View blame
                 </a>
             </def></deflist>
@@ -3420,12 +3509,12 @@ Str::from('FireHub')->insert('=', 2);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1487">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1496">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1487">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1496">
                     View blame
                 </a>
             </def></deflist>
@@ -3436,7 +3525,7 @@ Str::from('FireHub')->insert('=', 2);
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get part of string.</format></li><li><a href="StrMB.md#firstposition()">\FireHub\Core\Support\LowLevel\StrMB::firstPosition()</a>  - <format style="italic">To find the position of the first occurrence for a substring in a string.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get string length.</format></li></list>
+        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get part of a string.</format></li><li><a href="StrMB.md#firstposition()">\FireHub\Core\Support\LowLevel\StrMB::firstPosition()</a>  - <format style="italic">To find the position of the first occurrence for a substring in a string.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get string length.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3486,12 +3575,12 @@ Str::from('FireHub')->move(0, 2, 4);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1524">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1533">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1524">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1533">
                     View blame
                 </a>
             </def></deflist>
@@ -3507,7 +3596,7 @@ Str::from('FireHub')->move(0, 2, 4);
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To remove current string.</format></li></list>
+        <list><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To remove the current string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3557,12 +3646,12 @@ Str::from('FireHub')->overwrite(2, 4, '=');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1549">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1558">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1549">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1558">
                     View blame
                 </a>
             </def></deflist>
@@ -3620,12 +3709,12 @@ Str::from('FireHub')->replace('H', 'X');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1574">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1583">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1574">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1583">
                     View blame
                 </a>
             </def></deflist>
@@ -3676,12 +3765,12 @@ Str::from('1122')->replaceRecursive(['1' => '2', '2' => '1']);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1608">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1617">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1608">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1617">
                     View blame
                 </a>
             </def></deflist>
@@ -3699,7 +3788,7 @@ Str::from('1122')->replaceRecursive(['1' => '2', '2' => '1']);
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$times</format> - <format style="italic">
 Number of time the input string should be repeated.
-If the $times is set to 0 or less, the function will return empty string.
+If the $times are set to 0 or less, the function will return an empty string.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 Separator in between any repeated string.
 </format></li></list>
@@ -3712,7 +3801,7 @@ Str::from('FireHub')->repeat(3);
 
 // FireHubFireHubFireHubFireHub
 ```
-With custom separator.
+With a custom separator.
 ```php
 use FireHub\Core\Support\Str;
 
@@ -3744,12 +3833,12 @@ Str::from('FireHub')->repeat(3, '-');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1635">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1644">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1635">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1644">
                     View blame
                 </a>
             </def></deflist>
@@ -3799,12 +3888,12 @@ Str::from('FireHub')->reverse();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1677">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1686">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1677">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1686">
                     View blame
                 </a>
             </def></deflist>
@@ -3882,12 +3971,12 @@ Str::from('FireHub')->pad(10, '-', Side::RIGHT);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1716">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1725">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1716">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1725">
                     View blame
                 </a>
             </def></deflist>
@@ -3898,7 +3987,7 @@ Str::from('FireHub')->pad(10, '-', Side::RIGHT);
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get string segment to mask.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get masked string length.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Strings\Str::length()</a>  - <format style="italic">To get current string length.</format></li><li><a href="Str.md#overwrite()">\FireHub\Core\Support\Strings\Str::overwrite()</a>  - <format style="italic">To remove current string.</format></li><li><a href="Str.md#pad()">\FireHub\Core\Support\Strings\Str::pad()</a>  - <format style="italic">To add masked string.</format></li><li><a href="Str.md#prepend()">\FireHub\Core\Support\Strings\Str::prepend()</a>  - <format style="italic">To add the first part of the string.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To add the last part the string.</format></li><li><a href="Characters.md#string()">\FireHub\Core\Support\Contracts\HighLevel\Characters::string()</a>  - <format style="italic">To add character to pad.</format></li></list>
+        <list><li><a href="StrMB.md#part()">\FireHub\Core\Support\LowLevel\StrMB::part()</a>  - <format style="italic">To get string segment to mask.</format></li><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get masked string length.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Strings\Str::length()</a>  - <format style="italic">To get the current string length.</format></li><li><a href="Str.md#overwrite()">\FireHub\Core\Support\Strings\Str::overwrite()</a>  - <format style="italic">To remove the current string.</format></li><li><a href="Str.md#pad()">\FireHub\Core\Support\Strings\Str::pad()</a>  - <format style="italic">To add masked string.</format></li><li><a href="Str.md#prepend()">\FireHub\Core\Support\Strings\Str::prepend()</a>  - <format style="italic">To add the first part of the string.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To add the last part to the string.</format></li><li><a href="Characters.md#string()">\FireHub\Core\Support\Contracts\HighLevel\Characters::string()</a>  - <format style="italic">To add character to pad.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -3945,12 +4034,12 @@ Str::from('FireHub Web App')->mask(Char::from('*'), 5, 3);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1750">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1759">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1750">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1759">
                     View blame
                 </a>
             </def></deflist>
@@ -4002,12 +4091,12 @@ Str::from('FireHub')->prepend('Text-');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1772">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1781">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1772">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1781">
                     View blame
                 </a>
             </def></deflist>
@@ -4018,7 +4107,7 @@ Str::from('FireHub')->prepend('Text-');
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Str.md#titleize()">\FireHub\Core\Support\Strings\Str::titleize()</a>  - <format style="italic">To append words.</format></li><li><a href="Str.md#insert()">\FireHub\Core\Support\Strings\Str::insert()</a>  - <format style="italic">To append $string argument.</format></li><li><a href="Str.md#overwrite()">\FireHub\Core\Support\Strings\Str::overwrite()</a>  - <format style="italic">To append $string argument.</format></li><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To add the last part the string.</format></li><li><a href="Str.md#surround()">\FireHub\Core\Support\Strings\Str::surround()</a>  - <format style="italic">To append $with argument.</format></li><li><a href="Str.md#quote()">\FireHub\Core\Support\Strings\Str::quote()</a>  - <format style="italic">To append words.</format></li><li><a href="Str.md#truncate()">\FireHub\Core\Support\Strings\Str::truncate()</a>  - <format style="italic">To append $with argument at the end of the current string.
+        <list><li><a href="Str.md#titleize()">\FireHub\Core\Support\Strings\Str::titleize()</a>  - <format style="italic">To append words.</format></li><li><a href="Str.md#insert()">\FireHub\Core\Support\Strings\Str::insert()</a>  - <format style="italic">To append $string argument.</format></li><li><a href="Str.md#overwrite()">\FireHub\Core\Support\Strings\Str::overwrite()</a>  - <format style="italic">To append $string argument.</format></li><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To add the last part to the string.</format></li><li><a href="Str.md#surround()">\FireHub\Core\Support\Strings\Str::surround()</a>  - <format style="italic">To append $with argument.</format></li><li><a href="Str.md#quote()">\FireHub\Core\Support\Strings\Str::quote()</a>  - <format style="italic">To append words.</format></li><li><a href="Str.md#truncate()">\FireHub\Core\Support\Strings\Str::truncate()</a>  - <format style="italic">To append $with an argument at the end of the current string.
 
  @example
 ```php
@@ -4068,12 +4157,12 @@ Str::from('FireHub')->append('-text');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1797">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1806">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1797">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1806">
                     View blame
                 </a>
             </def></deflist>
@@ -4125,12 +4214,12 @@ Str::from('FireHub')->ensureStartsWith('The ');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1820">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1829">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1820">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1829">
                     View blame
                 </a>
             </def></deflist>
@@ -4182,12 +4271,12 @@ Str::from('FireHub')->ensureEndsWith(' Framework');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1844">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1853">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1844">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1853">
                     View blame
                 </a>
             </def></deflist>
@@ -4239,12 +4328,12 @@ Str::from('FireHub')->removePrefix('Fire');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1870">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1879">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1870">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1879">
                     View blame
                 </a>
             </def></deflist>
@@ -4295,12 +4384,12 @@ Str::from('FireHub')->removeSuffix('Hub');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1895">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1904">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1895">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1904">
                     View blame
                 </a>
             </def></deflist>
@@ -4357,12 +4446,12 @@ Str::from('FireHub')->surround('-');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1920">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1929">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1920">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1929">
                     View blame
                 </a>
             </def></deflist>
@@ -4373,7 +4462,7 @@ Str::from('FireHub')->surround('-');
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Arr.md#range()">\FireHub\Core\Support\LowLevel\Arr::range()</a>  - <format style="italic">To create an array containing a range of elements.</format></li><li><a href="Arr.md#shuffle()">\FireHub\Core\Support\LowLevel\Arr::shuffle()</a>  - <format style="italic">To shuffle an array.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Str::length()</a>  - <format style="italic">To get string length.</format></li><li><a href="Str.md#part()">\FireHub\Core\Support\Str::part()</a>  - <format style="italic">To get part of string.</format></li></list>
+        <list><li><a href="Arr.md#range()">\FireHub\Core\Support\LowLevel\Arr::range()</a>  - <format style="italic">To create an array containing a range of elements.</format></li><li><a href="Arr.md#shuffle()">\FireHub\Core\Support\LowLevel\Arr::shuffle()</a>  - <format style="italic">To shuffle an array.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Str::length()</a>  - <format style="italic">To get string length.</format></li><li><a href="Str.md#part()">\FireHub\Core\Support\Str::part()</a>  - <format style="italic">To get part of a string.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -4407,12 +4496,12 @@ Str::from('FireHub')->shuffle();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1958">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1967">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1958">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L1967">
                     View blame
                 </a>
             </def></deflist>
@@ -4423,7 +4512,7 @@ Str::from('FireHub')->shuffle();
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Str.md#streamline()">\FireHub\Core\Support\Strings\Str::streamline()</a>  - <format style="italic">To streamline string.</format></li><li><a href="Str.md#expression()">\FireHub\Core\Support\Strings\Str::expression()</a>  - <format style="italic">As regular expression.</format></li><li><a href="Str.md#from()">\FireHub\Core\Support\Strings\Str::from()</a>  - <format style="italic">To create string from any word.</format></li><li><a href="Str.md#surround()">\FireHub\Core\Support\Strings\Str::surround()</a>  - <format style="italic">To surround any word with $with argument.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append words.</format></li><li><a href="StrMB.md#implode()">\FireHub\Core\Support\LowLevel\StrMB::implode()</a>  - <format style="italic">To join words with $with argument as new string.</format></li></list>
+        <list><li><a href="Str.md#streamline()">\FireHub\Core\Support\Strings\Str::streamline()</a>  - <format style="italic">To streamline string.</format></li><li><a href="Str.md#expression()">\FireHub\Core\Support\Strings\Str::expression()</a>  - <format style="italic">As regular expression.</format></li><li><a href="Str.md#from()">\FireHub\Core\Support\Strings\Str::from()</a>  - <format style="italic">To create string from any word.</format></li><li><a href="Str.md#surround()">\FireHub\Core\Support\Strings\Str::surround()</a>  - <format style="italic">To surround any word with $with argument.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append words.</format></li><li><a href="StrMB.md#implode()">\FireHub\Core\Support\LowLevel\StrMB::implode()</a>  - <format style="italic">To join words with $with argument as a new string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -4470,12 +4559,12 @@ Str::from('FireHub Web App')->quote(-);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2012">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2021">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2012">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2021">
                     View blame
                 </a>
             </def></deflist>
@@ -4549,12 +4638,12 @@ Str::from("FireHub \n\r")->trim(Side::RIGHT, "\n\r ");
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2050">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2059">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2050">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2059">
                     View blame
                 </a>
             </def></deflist>
@@ -4565,7 +4654,7 @@ Str::from("FireHub \n\r")->trim(Side::RIGHT, "\n\r ");
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length of $with argument.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Strings\Str::length()</a>  - <format style="italic">To get length of current string.</format></li><li><a href="Str.md#carry()">\FireHub\Core\Support\Strings\Str::carry()</a>  - <format style="italic">To get part of the current string.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append $with argument at the end of the current string.
+        <list><li><a href="StrMB.md#length()">\FireHub\Core\Support\LowLevel\StrMB::length()</a>  - <format style="italic">To get length of $with argument.</format></li><li><a href="Str.md#length()">\FireHub\Core\Support\Strings\Str::length()</a>  - <format style="italic">To get length of current string.</format></li><li><a href="Str.md#carry()">\FireHub\Core\Support\Strings\Str::carry()</a>  - <format style="italic">To get part of the current string.</format></li><li><a href="Str.md#append()">\FireHub\Core\Support\Strings\Str::append()</a>  - <format style="italic">To append $with an argument at the end of the current string.
 
  @example
 ```php
@@ -4618,17 +4707,17 @@ Str::from('FireHub Web App')->truncate(10, '...');
 
 
 
-### ### Truncates the string to a given length, while ensuring that it does not split words
+### ### Truncates the string to a given length while ensuring that it doesn't split words
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2085">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2094">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2085">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2094">
                     View blame
                 </a>
             </def></deflist>
@@ -4685,17 +4774,17 @@ Str::from('FireHub Web Application')->safeTruncate(17, '...');
                 <p><format color="DarkBlue">Change when toChars() method refactors with Collection.</format></p>
             </tip>
 
-### ### Get first character of string
+### ### Get the first character of string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2120">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2129">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2120">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2129">
                     View blame
                 </a>
             </def></deflist>
@@ -4730,17 +4819,17 @@ Str::from('FireHub Web Application')->safeTruncate(17, '...');
                 <p><format color="DarkBlue">Change when toChars() method refactors with Collection.</format></p>
             </tip>
 
-### ### Get last character of string
+### ### Get the last character of string
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2139">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2148">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2139">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2148">
                     View blame
                 </a>
             </def></deflist>
@@ -4777,12 +4866,12 @@ Str::from('FireHub Web Application')->safeTruncate(17, '...');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2173">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2182">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2173">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2182">
                     View blame
                 </a>
             </def></deflist>
@@ -4810,7 +4899,7 @@ Maximum length of the chunk.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If length is less than 1.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the length is less than 1.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -4852,12 +4941,12 @@ Str::from('FireHub')->chop(3);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2230">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2239">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2230">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2239">
                     View blame
                 </a>
             </def></deflist>
@@ -4877,7 +4966,8 @@ Str::from('FireHub')->chop(3);
 <code>non-empty-string[]</code>
 The boundary characters.
 </format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
@@ -4914,12 +5004,12 @@ Str::from('FireHub Web Application')->breakWithAny([Char::from('e'), Char::from(
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2254">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2263">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2254">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2263">
                     View blame
                 </a>
             </def></deflist>
@@ -4938,7 +5028,8 @@ Str::from('FireHub Web Application')->breakWithAny([Char::from('e'), Char::from(
         <list><li>string <format style="bold">$with</format> - <format style="italic">
 The boundary string.
 </format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
@@ -4974,12 +5065,12 @@ Str::from('FireHub')->split('H');
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2279">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2288">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2279">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2288">
                     View blame
                 </a>
             </def></deflist>
@@ -4998,7 +5089,8 @@ Str::from('FireHub')->split('H');
         <list><li>array <format style="bold">$characters</format> - <format style="italic">
 The boundary characters.
 </format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
@@ -5035,12 +5127,12 @@ Str::from('FireHub Web Application')->splitBeforeAny([Char::from('W'), Char::fro
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2304">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2313">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2304">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2313">
                     View blame
                 </a>
             </def></deflist>
@@ -5060,7 +5152,8 @@ Str::from('FireHub Web Application')->splitBeforeAny([Char::from('W'), Char::fro
 <code>non-empty-string[]</code>
 The boundary characters.
 </format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-If the limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of the string.
+If the limit is set and positive, the returned array will contain a maximum of limit elements with
+the last element containing the rest of the string.
 If the limit parameter is zero or -1, then this is treated as 1.
 </format></li></list>
     </def>
@@ -5097,12 +5190,12 @@ Str::from('FireHub Web Application')->splitAfterAny([Char::from('W'), Char::from
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2331">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2340">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2331">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2340">
                     View blame
                 </a>
             </def></deflist>
@@ -5125,7 +5218,7 @@ The size of each chunk.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If number of groups is less than one.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the number of groups is less than one.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -5159,12 +5252,12 @@ Str::from('FireHub')->group(3);
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2377">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2386">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2377">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2386">
                     View blame
                 </a>
             </def></deflist>
@@ -5175,7 +5268,7 @@ Str::from('FireHub')->group(3);
 </deflist>
 <deflist>
     <def title="This method is used by:">
-        <list><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To get current string length.</format></li><li><a href="Str.md#truncate()">\FireHub\Core\Support\Strings\Str::truncate()</a>  - <format style="italic">To get length of current string.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To get length of current string.</format></li></list>
+        <list><li><a href="Str.md#mask()">\FireHub\Core\Support\Strings\Str::mask()</a>  - <format style="italic">To get the current string length.</format></li><li><a href="Str.md#truncate()">\FireHub\Core\Support\Strings\Str::truncate()</a>  - <format style="italic">To get length of current string.</format></li><li><a href="Str.md#safetruncate()">\FireHub\Core\Support\Strings\Str::safeTruncate()</a>  - <format style="italic">To get length of current string.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -5209,12 +5302,12 @@ Str::from('FireHub')->length();
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2443">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2452">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2443">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2452">
                     View blame
                 </a>
             </def></deflist>
@@ -5234,7 +5327,7 @@ If the start is negative, the returned string will start at the start character 
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If character index is out of range.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the character index is out of range.</format></li></list>
     </def>
 </deflist>
 ```php
@@ -5263,17 +5356,17 @@ Str::from('FireHub Web App')->charAt(4);
 
 
 
-
+### ### Gets a string representation of the object
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2465">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2474">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2465">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/firehub.Str.php#L2474">
                     View blame
                 </a>
             </def></deflist>
@@ -5289,3 +5382,64 @@ echo Str::from('FireHub');
 
 // FireHub
 ```
+
+## method: replaceMultiple {id="replacemultiple()"}
+
+<code-block lang="php">
+    <![CDATA[public Str::replaceMultiple(array<non-empty-string,string> $rules):$this]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Replace all occurrences of search in a subject replaced with the given replacement value
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/firehub.Str.php#L61">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/firehub.Str.php#L61">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="StrMB.md#translate()">\FireHub\Core\Support\StrMB::translate()</a>  - <format style="italic">To translate characters or replace substrings.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array&lt;non-empty-string,string&gt; <format style="bold">$rules</format> - <format style="italic">
+Find => Replace pattern rules.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>$this - <format style="italic">This string.</format></li></list>
+    </def>
+</deflist>
+```php
+use FireHub\Core\Support\Str;
+
+Str::from('FireHub')->replaceMultiple(['F' => 'M', 'H' => 'X']);
+
+// MireXub

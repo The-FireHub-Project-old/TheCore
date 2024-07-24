@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Data
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L33">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L36">
             View source code
         </a>
     </def>
@@ -60,8 +64,9 @@
 |:-----|:-----|:------|
 |public static |<a href="#gettype()">getType</a>|### Gets data type|
 |public static |<a href="#settype()">setType</a>|### Sets data type|
-|public static |<a href="#serializevalue()">serializeValue</a>|### Generates storable representation of data|
-|public static |<a href="#unserializevalue()">unserializeValue</a>|### Creates a PHP value from a stored representation|
+|public static |<a href="#serialize()">serialize</a>|### Generates storable representation of data|
+|public static |<a href="#unserialize()">unserialize</a>|### Creates a PHP value from a stored representation|
+
 
 ## method: getType {id="gettype()"}
 
@@ -86,12 +91,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L65">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L56">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L65">
                     View blame
                 </a>
             </def></deflist>
@@ -113,7 +118,7 @@
 <deflist>
     <def title="This method has parameters:">
         <list><li>mixed <format style="bold">$value</format> - <format style="italic">
-The variable being type checked.
+The variable being type-checked.
 </format></li></list>
     </def>
 </deflist>
@@ -150,12 +155,12 @@ The variable being type checked.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L125">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L116">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L125">
                     View blame
                 </a>
             </def></deflist>
@@ -185,7 +190,7 @@ Type to convert variable to.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a type cannot be set to resource or failed to set a type for value.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a type can&#039;t be set to resource or failed to set a type for value.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -193,10 +198,10 @@ Type to convert variable to.
         <list><li>mixed - <format style="italic">Converted value.</format></li></list>
     </def>
 </deflist>
-## method: serializeValue {id="serializevalue()"}
+## method: serialize {id="serialize()"}
 
 <code-block lang="php">
-    <![CDATA[public static Data::serializeValue(scalar|array<array-key,mixed>|object|null $value):string]]>
+    <![CDATA[public static Data::serialize(scalar|array<array-key,mixed>|object|null $value):string]]>
 </code-block>
 
 
@@ -218,12 +223,12 @@ This is useful for storing or passing PHP values around without losing their typ
 To make the serialized string into a PHP value again, use unserialize().</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L182">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L173">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L182">
                     View blame
                 </a>
             </def></deflist>
@@ -235,24 +240,24 @@ To make the serialized string into a PHP value again, use unserialize().</format
 <deflist>
     <def title="This method has parameters:">
         <list><li>scalar or array&lt;array-key,mixed&gt; or object or null <format style="bold">$value</format> - <format style="italic">
-The value to be serialized.
+The value is to be serialized.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If try to serialize anonymous class, function or resource.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If try to serialize an anonymous class, function, or resource.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">String containing a byte-stream representation of value that can be stored anywhere.</format></li></list>
+        <list><li>string - <format style="italic">String containing a byte-stream representation of a value that can be stored anywhere.</format></li></list>
     </def>
 </deflist>
-## method: unserializeValue {id="unserializevalue()"}
+## method: unserialize {id="unserialize()"}
 
 <code-block lang="php">
-    <![CDATA[public static Data::unserializeValue(non-empty-string $data, bool|class-string[] $allowed_classes = false, int $max_depth = 4096):mixed]]>
+    <![CDATA[public static Data::unserialize(non-empty-string $data, bool|class-string[] $allowed_classes = false, int $max_depth = 4096):mixed]]>
 </code-block>
 
 
@@ -272,12 +277,12 @@ The value to be serialized.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L216">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L207">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Data.php#L216">
                     View blame
                 </a>
             </def></deflist>
@@ -294,7 +299,7 @@ The serialized string.
 Either an array of class names which should be accepted, false to accept no classes,
 or true to accept all classes.
 </format></li><li>int <format style="bold">$max_depth</format> = 4096 - <format style="italic">[optional] 
-The maximum depth of structures permitted during unserialization, and is intended to prevent stack overflows.
+The maximum depth of structures is permitted during unserialization and is intended to prevent stack overflows.
 </format></li></list>
     </def>
 </deflist>

@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\CharSB
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L26">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L30">
             View source code
         </a>
     </def>
@@ -61,6 +65,7 @@
 |public static |<a href="#chr()">chr</a>|### Generate a single-byte string from a number|
 |public static |<a href="#ord()">ord</a>|### Convert the first byte of a string to a value between 0 and 255|
 
+
 ## method: chr {id="chr()"}
 
 <code-block lang="php">
@@ -84,17 +89,17 @@
 <p><format style="italic">Returns a one-character string containing the character specified by interpreting $codepoint as an unsigned
 integer. This can be used to create a one-character string in a single-byte encoding such as ASCII, ISO-8859,
 or Windows 1252, by passing the position of a desired character in the encoding's mapping table. However, note
-that this function is not aware of any string encoding, and in particular cannot be passed a Unicode code point
+that this function is not aware of any string encoding, and in particular can't be passed a Unicode code point
 value to generate a string in a multibyte encoding like UTF-8 or UTF-16. This function complements
 [[CharSB#ord()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L47">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L57">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L47">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L57">
                     View blame
                 </a>
             </def></deflist>
@@ -147,12 +152,12 @@ aware of any string encoding, and in particular will never identify a Unicode co
 encoding such as UTF-8 or UTF-16. This function complements [[CharSB#chr()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L79">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharSB.php#L79">
                     View blame
                 </a>
             </def></deflist>

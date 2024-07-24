@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\DateAndTime
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L42">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L45">
             View source code
         </a>
     </def>
@@ -59,8 +63,8 @@
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public static |<a href="#check()">check</a>|### Check for valid date|
-|public static |<a href="#parse()">parse</a>|### Returns associative array with detailed info about given date/time|
-|public static |<a href="#parsefromformat()">parseFromFormat</a>|### Get info about given date formatted according to the specified format|
+|public static |<a href="#parse()">parse</a>|### Returns associative array with detailed info about the given date /time|
+|public static |<a href="#parsefromformat()">parseFromFormat</a>|### Get info about the given date formatted according to the specified format|
 |public static |<a href="#format()">format</a>|### Format a Unix timestamp|
 |public static |<a href="#formatinteger()">formatInteger</a>|### Format a Unix timestamp as integer|
 |public static |<a href="#get()">get</a>|### Get date/time information|
@@ -69,6 +73,7 @@
 |public static |<a href="#totimestamp()">toTimestamp</a>|### Format a Unix timestamp|
 |public static |<a href="#time()">time</a>|### Return current Unix timestamp|
 |public static |<a href="#microtime()">microtime</a>|### Get current Unix microseconds|
+
 
 ## method: check {id="check()"}
 
@@ -94,12 +99,12 @@
 properly defined.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L72">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L72">
                     View blame
                 </a>
             </def></deflist>
@@ -111,7 +116,7 @@ properly defined.</format></p>
 <deflist>
     <def title="This method has parameters:">
         <list><li>int&lt;1, 32767&gt; <format style="bold">$year</format> - <format style="italic">
-The year is between 1 and 32767 inclusive
+The year is between 1 and 32,767 inclusive
 </format></li><li>int&lt;1, 12&gt; <format style="bold">$month</format> - <format style="italic">
 The month is between 1 and 12 inclusive.
 </format></li><li>int&lt;1, 31&gt; <format style="bold">$day</format> - <format style="italic">
@@ -142,17 +147,17 @@ The day is within the allowed number of days for the given month. Leap years are
 
 
 
-### ### Returns associative array with detailed info about given date/time
+### ### Returns associative array with detailed info about the given date /time
 
 <p><format style="italic">Method parses the given datetime string according to the same rules as [[DateAndTime#stringToTimestamp()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L84">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L93">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L84">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L93">
                     View blame
                 </a>
             </def></deflist>
@@ -170,7 +175,7 @@ String representing the date/time.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array&lt;string,mixed&gt; - <format style="italic">Associative array with detailed info about given date/time.</format></li></list>
+        <list><li>array&lt;string,mixed&gt; - <format style="italic">Associative array with detailed info about the given date /time.</format></li></list>
     </def>
 </deflist>
 ## method: parseFromFormat {id="parsefromformat()"}
@@ -191,17 +196,17 @@ String representing the date/time.
 
 
 
-### ### Get info about given date formatted according to the specified format
+### ### Get info about the given date formatted according to the specified format
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L108">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L117">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L108">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L117">
                     View blame
                 </a>
             </def></deflist>
@@ -254,12 +259,12 @@ timestamp) or the current time if no timestamp is given. In other words, timesta
 to the value of [[DateAndTime#time()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L139">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L148">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L139">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L148">
                     View blame
                 </a>
             </def></deflist>
@@ -293,7 +298,7 @@ Format a GMT/UTC date/time.
 ## method: formatInteger {id="formatinteger()"}
 
 <code-block lang="php">
-    <![CDATA[public static DateAndTime::formatInteger(string $format, null|int $timestamp = null):int]]>
+    <![CDATA[public static DateAndTime::formatInteger("B"|"d"|"h"|"H"|"i"|"I"|"L"|"m"|"s"|"t"|"U"|"w"|"W"|"y"|"Y"|"z"|"Z" $format, null|int $timestamp = null):int]]>
 </code-block>
 
 
@@ -315,12 +320,12 @@ local time, if no timestamp is given. In other words, timestamp is optional and 
 [[DateAndTime#time()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L170">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L177">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L170">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L177">
                     View blame
                 </a>
             </def></deflist>
@@ -331,8 +336,7 @@ local time, if no timestamp is given. In other words, timestamp is optional and 
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$format</format> - <format style="italic">
-<code>'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z'</code>
+        <list><li>&quot;B&quot; or &quot;d&quot; or &quot;h&quot; or &quot;H&quot; or &quot;i&quot; or &quot;I&quot; or &quot;L&quot; or &quot;m&quot; or &quot;s&quot; or &quot;t&quot; or &quot;U&quot; or &quot;w&quot; or &quot;W&quot; or &quot;y&quot; or &quot;Y&quot; or &quot;z&quot; or &quot;Z&quot; <format style="bold">$format</format> - <format style="italic">
 Single format character.
 </format></li><li>null or int <format style="bold">$timestamp</format> = null - <format style="italic">[optional] 
 The optional timestamp parameter is an integer Unix timestamp that defaults to the current local time
@@ -378,12 +382,12 @@ if a timestamp is not given.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L210">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L217">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L210">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L217">
                     View blame
                 </a>
             </def></deflist>
@@ -395,7 +399,7 @@ if a timestamp is not given.
 <deflist>
     <def title="This method has parameters:">
         <list><li>null or int <format style="bold">$timestamp</format> = null - <format style="italic">[optional] 
-The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if timestamp
+The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if the timestamp
 is omitted or null.
 </format></li></list>
     </def>
@@ -433,12 +437,12 @@ Associative array of information related to the timestamp.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L261">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L254">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L261">
                     View blame
                 </a>
             </def></deflist>
@@ -460,7 +464,7 @@ Longitude in degrees.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not get information about sunset and twilight.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t get information about sunset and twilight.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -496,12 +500,12 @@ into a Unix timestamp (the number of seconds since January 1, 1970 00:00:00 UTC)
 given in baseTimestamp, or the current time if baseTimestamp is not supplied.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L295">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L302">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L295">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L302">
                     View blame
                 </a>
             </def></deflist>
@@ -521,7 +525,7 @@ The timestamp which is used as a base for the calculation of relative dates.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we could not convert string to timestamp.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we couldn&#039;t convert string to timestamp.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -558,12 +562,12 @@ The timestamp which is used as a base for the calculation of relative dates.
 the number of seconds between the Unix Epoch (January, 1 1970 00:00:00 GMT) and the time specified.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L346">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L354">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L346">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L354">
                     View blame
                 </a>
             </def></deflist>
@@ -575,9 +579,9 @@ the number of seconds between the Unix Epoch (January, 1 1970 00:00:00 GMT) and 
 <deflist>
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$hour</format> - <format style="italic">
-The number of hours relative to the start of the day is determined by month, day and year. Negative values
+The number of hours relative to the start of the day is determined by month, day, and year. Negative values
 reference the hour before midnight of the day in question. Values greater than 23 reference the appropriate
-hour in the following day(s).
+hour on the following day(s).
 </format></li><li>null or int <format style="bold">$minute</format> = null - <format style="italic">
 The number of the minute relative to the start of the hour. Negative values reference the minute in the
 previous hour. Values greater than reference 59 the appropriate minute in the following hour(s).
@@ -589,13 +593,14 @@ The year.
 </format></li><li>null or int <format style="bold">$month</format> = null - <format style="italic">
 The number of the month relative to the end of the previous year. Values 1 to 12 reference the normal calendar
 months of the year in question. Values less than 1 (including negative values) reference the months in the
-previous year in reverse order, so 0 is December, -1 is November, etc. Values greater than 12 reference the
-appropriate month in the following year(s).
+previous year in reverse order, so 0 is December, -1 is November, and so on.
+Values greater than 12 reference the appropriate month in the following year(s).
 </format></li><li>null or int <format style="bold">$day</format> = null - <format style="italic">
-The number of the day relative to the end of the previous month. Values 1 to 28, 29, 30 or 31 (depending upon
+The number of the days relative to the end of the previous month. Values 1 to 28, 29, 30, or 31 (depending upon
 the month) reference the normal days in the relevant month. Values less than 1 (including negative values)
 reference the days in the previous month, so 0 is the last day of the previous month, -1 is the day before
-that, etc. Values greater than the number of days in the relevant month reference the appropriate day in the
+that, and so on.
+Values greater than the number of days in the relevant month reference the appropriate day in the
 following month(s).
 </format></li><li>bool <format style="bold">$gmt</format> = false - <format style="italic">[optional] 
 Get a GMT/UTC timestamp.
@@ -604,7 +609,7 @@ Get a GMT/UTC timestamp.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If timestamp doesn&#039;t fit in a PHP integer.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the timestamp doesn&#039;t fit in a PHP integer.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -635,12 +640,12 @@ Get a GMT/UTC timestamp.
 <p><format style="italic">Returns the current time measured in the number of seconds since the Unix Epoch (January, 1 1970 00:00:00 GMT).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L366">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L374">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L366">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L374">
                     View blame
                 </a>
             </def></deflist>
@@ -678,12 +683,12 @@ Get a GMT/UTC timestamp.
 systems that support the gettimeofday() system call.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L388">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L396">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L388">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTime.php#L396">
                     View blame
                 </a>
             </def></deflist>

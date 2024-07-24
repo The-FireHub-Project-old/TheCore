@@ -758,6 +758,88 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Group collection by user-defined function until a result is true
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::reduce() To iteratively reduce the array to a single value using a
+     * callback function.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() To return all the keys or a subset of the keys for an array.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::count() To count all elements in the array.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::end() To set the internal pointer of an array to its last element.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::key() To fetch a key from an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::create()->indexed(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
+     *
+     * $chunks = $collection->groupBy(function ($prev, $curr) {
+     *  return ($curr – $prev) > 1;
+     * });
+     *
+     * // [[1, 2, 3, 4], [13], [22], [27, 28, 29]]
+     * ```
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::list(fn ():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $chunks = $collection->groupBy(function ($prev, $curr) {
+     *  return $curr['lastname'] !== 'Doe';
+     * });
+     *
+     * // [
+     * //   [
+     * //       ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     * //       ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21]
+     * //   ],
+     * //   [
+     * //       ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * //   ]
+     * // ]
+     * ```
+     *
+     * @param callable(TValue $prev, TValue $curr):bool $callback <p>
+     * User-defined function.
+     * </p>
+     *
+     * @return static<array<TKey, TValue>> The grouped collection.
+     */
+    public function groupBy (callable $callback):static {
+
+        /** @phpstan-ignore-next-line */
+        return new static(ArrLL::reduce(
+            ArrLL::keys($this->storage),
+            function (array $carry, int|string $key) use ($callback):array { // @phpstan-ignore-line
+
+                $current = $this->storage[$key];
+                $length = Iterables::count($carry);
+
+                if ($length > 0) {
+
+                    $chunk = &$carry[$length - 1];
+                    Iterables::end($chunk); // @phpstan-ignore-line
+                    $previous = $chunk[Iterables::key($chunk)];
+
+                    if ($callback($previous, $current)) $carry[] = [$key => $current];
+                    else $chunk[$key] = $current;
+
+                } else $carry[] = [$key => $current];
+
+                return $carry;
+            },
+            []
+        ));
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

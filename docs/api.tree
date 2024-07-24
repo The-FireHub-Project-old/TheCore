@@ -11,6 +11,22 @@ start-page="api.md">
             <toc-element topic="FireHub.md"/>
         </toc-element>
     </toc-element>
+    <toc-element toc-title="\Core\Base">
+        <toc-element toc-title="interfaces">
+            <toc-element topic="Base.md"/>
+            <toc-element topic="Init.md"/>
+            <toc-element topic="InitBackedEnum.md"/>
+            <toc-element topic="InitEnum.md"/>
+            <toc-element topic="InitStatic.md"/>
+        </toc-element>
+        <toc-element toc-title="traits">
+            <toc-element topic="Base.md"/>
+            <toc-element topic="Concrete.md"/>
+            <toc-element topic="ConcreteBackedEnum.md"/>
+            <toc-element topic="ConcreteEnum.md"/>
+            <toc-element topic="ConcreteStatic.md"/>
+        </toc-element>
+    </toc-element>
     <toc-element toc-title="\Core\Initializers">
         <toc-element toc-title="classes">
             <toc-element topic="Autoload.md"/>
@@ -31,10 +47,16 @@ start-page="api.md">
     </toc-element>
     <toc-element toc-title="\Core\Support">
         <toc-element toc-title="classes">
-            <toc-element topic="Arr.md"/>
             <toc-element topic="Char.md"/>
-            <toc-element topic="IStr.md"/>
+            <toc-element topic="Collection.md"/>
+            <toc-element topic="CountCollectables.md"/>
+            <toc-element topic="Arr.md"/>
+            <toc-element topic="Associative.md"/>
+            <toc-element topic="Fix.md"/>
+            <toc-element topic="Gen.md"/>
             <toc-element topic="Indexed.md"/>
+            <toc-element topic="Obj.md"/>
+            <toc-element topic="IStr.md"/>
             <toc-element topic="Arr.md"/>
             <toc-element topic="CharMB.md"/>
             <toc-element topic="CharSB.md"/>
@@ -97,6 +119,9 @@ start-page="api.md">
             <toc-element topic="Str.md"/>
         </toc-element>
         <toc-element toc-title="interfaces">
+            <toc-element topic="Accessible.md"/>
+            <toc-element topic="ArrayAccessible.md"/>
+            <toc-element topic="ArrayInAccessible.md"/>
             <toc-element topic="Countable.md"/>
             <toc-element topic="Characters.md"/>
             <toc-element topic="Collectable.md"/>
@@ -105,7 +130,26 @@ start-page="api.md">
             <toc-element topic="Iterables.md"/>
             <toc-element topic="IterablesAggregate.md"/>
             <toc-element topic="Traversable.md"/>
+            <toc-element topic="JsonSerializable.md"/>
+            <toc-element topic="JsonUnSerializable.md"/>
+            <toc-element topic="Callables.md"/>
+            <toc-element topic="Cloneable.md"/>
+            <toc-element topic="Creational.md"/>
+            <toc-element topic="Debuggable.md"/>
+            <toc-element topic="Destroyable.md"/>
+            <toc-element topic="Exportable.md"/>
+            <toc-element topic="Invokable.md"/>
+            <toc-element topic="Overloadable.md"/>
+            <toc-element topic="Serializable.md"/>
+            <toc-element topic="StaticCallables.md"/>
             <toc-element topic="Stringable.md"/>
+            <toc-element topic="UnCallables.md"/>
+            <toc-element topic="UnCloneable.md"/>
+            <toc-element topic="UnInvokable.md"/>
+            <toc-element topic="UnOverloadable.md"/>
+            <toc-element topic="UnSerializable.md"/>
+            <toc-element topic="UnStringable.md"/>
+            <toc-element topic="UnCountable.md"/>
             <toc-element topic="Predefined.md"/>
         </toc-element>
         <toc-element toc-title="enums">
@@ -157,6 +201,9 @@ start-page="api.md">
             <toc-element topic="SYSCONFDIR.md"/>
         </toc-element>
         <toc-element toc-title="functions">
+            <toc-element topic="first.md"/>
+            <toc-element topic="is_empty.md"/>
+            <toc-element topic="last.md"/>
             <toc-element topic="is32bit.md"/>
             <toc-element topic="is64bit.md"/>
             <toc-element topic="asBoolean.md"/>

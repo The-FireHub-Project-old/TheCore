@@ -35,8 +35,12 @@ it needs to be escaped by backslash. Perl style (), }, [], and <> matching delim
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Regex
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L39">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L42">
             View source code
         </a>
     </def>
@@ -67,6 +71,7 @@ it needs to be escaped by backslash. Perl style (), }, [], and <> matching delim
 |public static |<a href="#split()">split</a>|### Split string by a regular expression|
 |public static |<a href="#quote()">quote</a>|### Quote regular expression characters|
 
+
 ## method: match {id="match()"}
 
 <code-block lang="php">
@@ -90,12 +95,12 @@ it needs to be escaped by backslash. Perl style (), }, [], and <> matching delim
 <p><format style="italic">Searches subject for a match to the regular expression given in a pattern.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L73">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L82">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L73">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L82">
                     View blame
                 </a>
             </def></deflist>
@@ -121,13 +126,13 @@ to specify the alternate place from which to start the search (in bytes).
 </format></li><li>bool <format style="bold">$all</format> = false - <format style="italic">[optional] 
 If true, search subject for a match to the regular expression given in a pattern.
 </format></li><li>by reference null or string[] <format style="bold">$result</format> = null - <format style="italic">[optional] 
-Regular expression match result.
+Regular expressions match the result.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string matches the regular expression pattern, false if not.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string matches the regular expression pattern, false if not.</format></li></list>
     </def>
 </deflist>
 ## method: replace {id="replace()"}
@@ -153,12 +158,12 @@ Regular expression match result.
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L107">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L116">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L107">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L116">
                     View blame
                 </a>
             </def></deflist>
@@ -188,7 +193,7 @@ Defaults to -1 (no limit).
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If error while performing a regular expression search and replace.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If error while performing a regular expression, search and replace.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -219,12 +224,12 @@ Defaults to -1 (no limit).
 <p><format style="italic">Searches $subject for matches to $pattern and replaces them with $replacement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L143">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L152">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L143">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L152">
                     View blame
                 </a>
             </def></deflist>
@@ -257,7 +262,7 @@ Defaults to -1 (no limit).
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If error while performing a regular expression search and replace.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If error while performing a regular expression, search and replace.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -288,12 +293,12 @@ Defaults to -1 (no limit).
 <p><format style="italic">Split the given string by a regular expression.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L176">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L185">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L176">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L185">
                     View blame
                 </a>
             </def></deflist>
@@ -352,15 +357,16 @@ If true, only non-empty pieces will be returned.
 ### ### Quote regular expression characters
 
 <p><format style="italic">Method takes string and puts a backslash in front of every character that is part of the regular expression syntax.
-This is useful if you have a run-time string that you need to match in some text and the string may contain special regex characters.</format></p>
+This is useful if you have a runtime string that you need to match in some text
+and the string may contain special regex characters.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L201">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L211">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L201">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Regex.php#L211">
                     View blame
                 </a>
             </def></deflist>

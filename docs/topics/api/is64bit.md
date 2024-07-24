@@ -16,7 +16,7 @@
 
 
 
-### ### Check if using 64bit version of PHP
+### ### Check if using a 64bit version of PHP
 
 
 
@@ -60,7 +60,7 @@
 ### Returns
 <deflist>
     <def title="This function returns:">
-        <list><li>bool - <format style="italic">True if using 64bit version of PHP, otherwise false.</format></li></list>
+        <list><li>bool - <format style="italic">True if using the 64bit version of PHP, otherwise false.</format></li></list>
     </def>
 </deflist>
 ### Examples

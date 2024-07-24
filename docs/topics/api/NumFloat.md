@@ -23,7 +23,7 @@
 ### ### Float number low-level proxy class
 
 <p><format style="italic">Floating point numbers (also known as "floats", "doubles", or "real numbers") can be specified using any of the
-following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.</format></p>
+following syntax: 1.234, 1.2e3, 7E-10, 1_234.567.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -79,12 +79,13 @@ following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.</format></p>
 |public static |<a href="#tangentarc2()">tangentArc2</a>|### Arc tangent of two variables|
 |public static |<a href="#tangenthyperbolic()">tangentHyperbolic</a>|### Hyperbolic tangent|
 |public static |<a href="#tangentinversehyperbolic()">tangentInverseHyperbolic</a>|### Inverse hyperbolic tangent|
+
 |inherited public static |<a href="#absolute()">absolute</a>|### Absolute value|
 |inherited public static |<a href="#ceil()">ceil</a>|### Round fractions up|
 |inherited public static |<a href="#floor()">floor</a>|### Round fractions down|
 |inherited public static |<a href="#round()">round</a>|### Rounds a float|
 |inherited public static |<a href="#log()">log</a>|### Natural logarithm|
-|inherited public static |<a href="#log1p()">log1p</a>|### Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero|
+|inherited public static |<a href="#log1p()">log1p</a>|### Returns log(1 + number), computed in a way that is accurate even when the value of the number is close to zero|
 |inherited public static |<a href="#log10()">log10</a>|### Base-10 logarithm|
 |inherited public static |<a href="#max()">max</a>|### Find highest value|
 |inherited public static |<a href="#min()">min</a>|### Find lowest value|
@@ -93,7 +94,7 @@ following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.</format></p>
 |inherited public static |<a href="#degreestoradian()">degreesToRadian</a>|### Converts the number in degrees to the radian equivalent|
 |inherited public static |<a href="#radiantodegrees()">radianToDegrees</a>|### Converts the radian number to the equivalent number in degrees|
 |inherited public static |<a href="#exponent()">exponent</a>|### Calculates the exponent of e|
-|inherited public static |<a href="#exponent1()">exponent1</a>|### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero|
+|inherited public static |<a href="#exponent1()">exponent1</a>|### Returns exp($number) – 1, computed in a way that is accurate even when the value of the number is close to zero|
 |inherited public static |<a href="#hypotenuselength()">hypotenuseLength</a>|### Calculate the length of the hypotenuse of a right-angle triangle|
 |inherited public static |<a href="#squareroot()">squareRoot</a>|### Square root|
 
@@ -117,7 +118,7 @@ following syntax's: 1.234, 1.2e3, 7E-10, 1_234.567.</format></p>
 
 ### ### Finds whether a value is a legal finite number
 
-<p><format style="italic">Checks whether $number is legally finite on this platform.</format></p>
+<p><format style="italic">Checks whether the $number is legally finite on this platform.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L58">
@@ -227,7 +228,7 @@ The value to check.
 
 ### ### Finds whether a value is not a number
 
-<p><format style="italic">Checks whether num is 'not a number', like the result of acos(1.01).</format></p>
+<p><format style="italic">Checks whether a num is 'not a number', like the result of acos(1.01).</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L95">
@@ -253,7 +254,7 @@ Value to check.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if number is 'not a number', false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if a number is 'not a number', false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: divide {id="divide()"}
@@ -330,7 +331,7 @@ Number which divides the $dividend.
 
 <p><format style="italic">Returns the floating point remainder of dividing the dividend ($dividend) by the divisor ($divisor). The
 remainder (r) is defined as: $dividend = i * $divisor + r, for some integer i. If $divisor is non-zero, r has
-the same sign as $dividend and a magnitude less than the magnitude of $divisor.</format></p>
+the same sign as $dividend and a magnitude less than the size of $divisor.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L140">
@@ -407,7 +408,7 @@ An angle in radians.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>float - <format style="italic">The cosine of angle.</format></li></list>
+        <list><li>float - <format style="italic">The cosine of an angle.</format></li></list>
     </def>
 </deflist>
 ## method: cosineArc {id="cosinearc()"}
@@ -529,7 +530,7 @@ The argument to process.
 
 ### ### Inverse hyperbolic cosine
 
-<p><format style="italic">Returns the inverse hyperbolic cosine of $number, i.e., the value whose hyperbolic cosine is $number.</format></p>
+<p><format style="italic">Returns the inverse hyperbolic cosine of $number, in other words, the value whose hyperbolic cosine is $number.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L213">
@@ -677,7 +678,7 @@ The argument to process.
 
 ### ### Hyperbolic sine
 
-<p><format style="italic">Returns the hyperbolic sine of num, defined as (exponent($number) - exponent(-$number))/2.</format></p>
+<p><format style="italic">Returns the hyperbolic sine of num, defined as (exponent($number) – exponent(-$number))/2.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L268">
@@ -726,7 +727,7 @@ The argument to process.
 
 ### ### Inverse hyperbolic tangent
 
-<p><format style="italic">Returns the inverse hyperbolic sine of $number, i.e., the value whose hyperbolic sine is $number.</format></p>
+<p><format style="italic">Returns the inverse hyperbolic sine of $number, in other words, the value whose hyperbolic sine is $number.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L286">
@@ -976,7 +977,7 @@ The argument to process.
 
 ### ### Inverse hyperbolic tangent
 
-<p><format style="italic">Returns the inverse hyperbolic tangent of $number, i.e., the value whose hyperbolic tangent is $number.</format></p>
+<p><format style="italic">Returns the inverse hyperbolic tangent of $number, in other words, the value whose hyperbolic tangent is $number.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.NumFloat.php#L382">
@@ -1032,12 +1033,12 @@ The argument to process.
 <p><format style="italic">Returns the absolute value of $number.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L66">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L66">
                     View blame
                 </a>
             </def></deflist>
@@ -1085,12 +1086,12 @@ The numeric value to process.
 <p><format style="italic">Returns the next highest integer value by rounding up $number if necessary.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L86">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L77">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L86">
                     View blame
                 </a>
             </def></deflist>
@@ -1143,12 +1144,12 @@ The value to round up.
 <p><format style="italic">Returns the next lowest integer value (as float) by rounding down $number if necessary.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L106">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L97">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L106">
                     View blame
                 </a>
             </def></deflist>
@@ -1202,12 +1203,12 @@ The value to round down.
 $precision can also be negative or zero (default).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L140">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L130">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L140">
                     View blame
                 </a>
             </def></deflist>
@@ -1226,10 +1227,11 @@ $precision can also be negative or zero (default).</format></p>
         <list><li>float or int <format style="bold">$number</format> - <format style="italic">
 The value to round.
 </format></li><li>int <format style="bold">$precision</format> - <format style="italic">[optional] 
-Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-num is rounded to tens, for a precision of -2 to hundreds, etc.
+Number of decimal digits to round to.
+If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+If the precision is negative, num is rounded to precision significant digits
+before the decimal point, in other words, to the nearest multiple of pow(10, -$precision), for example,
+for a precision of -1 num is rounded to tens, for a precision of -2 to hundreds, and so on
 </format></li><li><a href="Round.md">\FireHub\Core\Support\Enums\Number\Round</a> <format style="bold">$round</format> = Round::HALF_UP - <format style="italic">[optional] 
 Specify the mode in which rounding occurs.
 </format></li></list>
@@ -1267,12 +1269,12 @@ Specify the mode in which rounding occurs.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L159">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L169">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L159">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L169">
                     View blame
                 </a>
             </def></deflist>
@@ -1322,17 +1324,17 @@ The optional logarithmic base to use (defaults to 'e' and so to the natural loga
 
 
 
-### ### Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero
+### ### Returns log(1 + number), computed in a way that is accurate even when the value of the number is close to zero
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L175">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L185">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L175">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L185">
                     View blame
                 </a>
             </def></deflist>
@@ -1380,12 +1382,12 @@ The argument to process.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L191">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L201">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L191">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L201">
                     View blame
                 </a>
             </def></deflist>
@@ -1433,12 +1435,12 @@ The argument to process.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L214">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L224">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L214">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L224">
                     View blame
                 </a>
             </def></deflist>
@@ -1495,12 +1497,12 @@ Any comparable values.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L237">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L247">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L237">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L247">
                     View blame
                 </a>
             </def></deflist>
@@ -1557,12 +1559,12 @@ Any comparable values.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L260">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L270">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L260">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L270">
                     View blame
                 </a>
             </def></deflist>
@@ -1611,15 +1613,15 @@ returned as a float.</format></li></list>
 
 ### ### Format a number with grouped thousands
 
-<p><format style="italic">Formats a number with grouped thousands and optionally decimal digits using the rounding half up rule.</format></p>
+<p><format style="italic">Formats a number with grouped thousands and optionally decimal digits using the rounding half-up rule.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L287">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L297">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L287">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L297">
                     View blame
                 </a>
             </def></deflist>
@@ -1641,7 +1643,7 @@ Sets the separator for thousands.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string - <format style="italic">A formatted version of number.</format></li></list>
+        <list><li>string - <format style="italic">A formatted version of the number.</format></li></list>
     </def>
 </deflist>
 ## method: degreesToRadian {id="degreestoradian()"}
@@ -1667,12 +1669,12 @@ Sets the separator for thousands.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L308">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L318">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L308">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L318">
                     View blame
                 </a>
             </def></deflist>
@@ -1716,12 +1718,12 @@ Angular value in degrees.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L324">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L334">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L324">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L334">
                     View blame
                 </a>
             </def></deflist>
@@ -1765,12 +1767,12 @@ Radian value.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L342">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L352">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L342">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L352">
                     View blame
                 </a>
             </def></deflist>
@@ -1809,19 +1811,19 @@ The argument to process.
 
 
 
-### ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
+### ### Returns exp($number) – 1, computed in a way that is accurate even when the value of the number is close to zero
 
-<p><format style="italic">Method returns the equivalent to 'exp(num) - 1' computed in a way that is accurate even if the value of num is
-near zero, a case where 'exp (num) - 1' would be inaccurate due to subtraction of two numbers that are nearly
+<p><format style="italic">Method returns the equivalent to 'exp(num) – 1' computed in a way that is accurate even if the value of num is
+near zero, a case where 'exp (num) – 1' would be inaccurate due to subtraction of two numbers that are nearly
 equal.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L364">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L374">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L364">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L374">
                     View blame
                 </a>
             </def></deflist>
@@ -1867,12 +1869,12 @@ distance of the point (x, y) from the origin.
 This is equivalent to sqrt($x*$x + $y*$y).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L397">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L387">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L397">
                     View blame
                 </a>
             </def></deflist>
@@ -1918,12 +1920,12 @@ Length of the second side.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L403">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L413">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L403">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L413">
                     View blame
                 </a>
             </def></deflist>

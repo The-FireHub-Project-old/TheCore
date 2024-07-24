@@ -66,6 +66,9 @@
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public|<a href="#regex()">regex</a>|### Custom regex|
+|inherited public|<a href="#jsonserialize()">jsonSerialize</a>||
+|inherited public|<a href="#__serialize()">__serialize</a>||
+|inherited public|<a href="#__unserialize()">__unserialize</a>||
 |inherited public|<a href="#__construct()">__construct</a>|### Constructor|
 |inherited public|<a href="#custom()">custom</a>|### Custom regex pattern|
 |inherited public|<a href="#__call()">__call</a>|### Call predefined patterns|
@@ -184,12 +187,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L136">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L145">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L136">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L145">
                     View blame
                 </a>
             </def></deflist>
@@ -237,6 +240,147 @@ The regular expression pattern.
 </format></li></list>
     </def>
 </deflist>
+## method: jsonSerialize {id="jsonserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::jsonSerialize()]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L39">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method uses:">
+        <list><li><a href="Obj.md#properties()">\FireHub\Core\Support\LowLevel\Obj::properties()</a>  - <format style="italic">To get all public class properties.</format></li></list>
+    </def>
+</deflist>
+## method: __serialize {id="__serialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__serialize():never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L54">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to serialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
+## method: __unserialize {id="__unserialize()"}
+
+<code-block lang="php">
+    <![CDATA[public Concrete::__unserialize(array $data):never]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/base/trait/firehub.Concrete.php#L69">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>array <format style="bold">$data</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method throws:">
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If you try to unserialize an object.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>never</li></list>
+    </def>
+</deflist>
 ## method: __construct {id="__construct()"}
 
 <code-block lang="php">
@@ -260,12 +404,12 @@ The regular expression pattern.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L144">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L135">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L144">
                     View blame
                 </a>
             </def></deflist>
@@ -313,12 +457,12 @@ Function to use.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L161">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L152">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L161">
                     View blame
                 </a>
             </def></deflist>
@@ -372,12 +516,12 @@ The regular expression pattern.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L199">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L190">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L199">
                     View blame
                 </a>
             </def></deflist>
@@ -430,7 +574,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Letters</format></p>
+<p><format style="italic">### Letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -467,7 +611,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-letters</format></p>
+<p><format style="italic">### Not-letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -504,7 +648,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Modifier letters</format></p>
+<p><format style="italic">### Modifier letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -541,7 +685,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-modifier letters</format></p>
+<p><format style="italic">### Not-modifier letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -578,7 +722,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Other letters</format></p>
+<p><format style="italic">### Other letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -615,7 +759,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-other letters</format></p>
+<p><format style="italic">### Not-other letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -652,7 +796,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Lower case letters</format></p>
+<p><format style="italic">### Lower case letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -689,7 +833,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Upper case letters</format></p>
+<p><format style="italic">### Upper case letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -726,7 +870,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Title-cased letters</format></p>
+<p><format style="italic">### Title-cased letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -763,7 +907,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-title-cased letters</format></p>
+<p><format style="italic">### Not-title-cased letters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -800,7 +944,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Numbers</format></p>
+<p><format style="italic">### Numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -837,7 +981,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-numbers</format></p>
+<p><format style="italic">### Not-numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -874,7 +1018,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Letter numbers</format></p>
+<p><format style="italic">### Letter numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -911,7 +1055,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-netter numbers</format></p>
+<p><format style="italic">### Not-netter numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -948,7 +1092,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Other numbers</format></p>
+<p><format style="italic">### Other numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -985,7 +1129,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-other numbers</format></p>
+<p><format style="italic">### Not-other numbers</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1022,7 +1166,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Digits</format></p>
+<p><format style="italic">### Digits</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1059,7 +1203,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-digits</format></p>
+<p><format style="italic">### Not-digits</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1096,7 +1240,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Letters and digits</format></p>
+<p><format style="italic">### Letters and digits</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1133,7 +1277,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-letters nor digits</format></p>
+<p><format style="italic">### Not-letters nor digits</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1170,7 +1314,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Character codes 0-127</format></p>
+<p><format style="italic">### Character codes 0-127</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1207,7 +1351,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Character codes not from 0-127</format></p>
+<p><format style="italic">### Character codes not from 0-127</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1244,7 +1388,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Space or tab only</format></p>
+<p><format style="italic">### Space or tab only</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1281,7 +1425,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not space nor tab only</format></p>
+<p><format style="italic">### Not space nor tab only</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1318,7 +1462,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Control characters</format></p>
+<p><format style="italic">### Control characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1355,7 +1499,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-control characters</format></p>
+<p><format style="italic">### Not-control characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1392,7 +1536,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Whitespaces</format></p>
+<p><format style="italic">### Whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1429,7 +1573,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-whitespaces</format></p>
+<p><format style="italic">### Not-whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1466,7 +1610,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Printing characters, including space</format></p>
+<p><format style="italic">### Printing characters, including space</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1503,7 +1647,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-printing characters, including space</format></p>
+<p><format style="italic">### Not-printing characters, including space</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1540,7 +1684,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Printing characters, excluding space</format></p>
+<p><format style="italic">### Printing characters, excluding space</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1577,7 +1721,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-printing characters, excluding space</format></p>
+<p><format style="italic">### Not-printing characters, excluding space</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1614,7 +1758,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Underscore or any character that is a letter or digit</format></p>
+<p><format style="italic">### Underscore or any character that is a letter or digit</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1651,7 +1795,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-underscore or any character that is not letter nor digit</format></p>
+<p><format style="italic">### Not-underscore or any character that is not a letter nor digit</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1688,7 +1832,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Hexadecimals</format></p>
+<p><format style="italic">### Hexadecimals</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1725,7 +1869,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-hexadecimals</format></p>
+<p><format style="italic">### Not-hexadecimals</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1762,7 +1906,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Vertical whitespaces</format></p>
+<p><format style="italic">### Vertical whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1799,7 +1943,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-vertical whitespaces</format></p>
+<p><format style="italic">### Not-vertical whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1836,7 +1980,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Horizontal whitespaces</format></p>
+<p><format style="italic">### Horizontal whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1873,7 +2017,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-horizontal whitespaces</format></p>
+<p><format style="italic">### Not-horizontal whitespaces</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1910,7 +2054,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Word boundaries</format></p>
+<p><format style="italic">### Word boundaries</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1947,7 +2091,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-word boundaries</format></p>
+<p><format style="italic">### Not-word boundaries</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -1984,7 +2128,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Format</format></p>
+<p><format style="italic">### Format</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2021,7 +2165,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-format</format></p>
+<p><format style="italic">### Not-format</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2058,7 +2202,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Punctuation</format></p>
+<p><format style="italic">### Punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2095,7 +2239,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not punctuation</format></p>
+<p><format style="italic">### Not punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2132,7 +2276,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Connector punctuation</format></p>
+<p><format style="italic">### Connector punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2169,7 +2313,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-connector punctuation</format></p>
+<p><format style="italic">### Not-connector punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2206,7 +2350,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Dash punctuation</format></p>
+<p><format style="italic">### Dash punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2243,7 +2387,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-dash punctuation</format></p>
+<p><format style="italic">### Not-dash punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2280,7 +2424,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Close punctuation</format></p>
+<p><format style="italic">### Close punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2317,7 +2461,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-close punctuation</format></p>
+<p><format style="italic">### Not-close punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2354,7 +2498,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Final punctuation</format></p>
+<p><format style="italic">### Final punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2391,7 +2535,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-final punctuation</format></p>
+<p><format style="italic">### Not-final punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2428,7 +2572,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Initial punctuation</format></p>
+<p><format style="italic">### Initial punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2465,7 +2609,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-initial punctuation</format></p>
+<p><format style="italic">### Not-initial punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2502,7 +2646,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Other punctuation</format></p>
+<p><format style="italic">### Other punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2539,7 +2683,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-other punctuation</format></p>
+<p><format style="italic">### Not-other punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2576,7 +2720,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Open punctuation</format></p>
+<p><format style="italic">### Open punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2613,7 +2757,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-open punctuation</format></p>
+<p><format style="italic">### Not-open punctuation</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2650,7 +2794,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Symbol</format></p>
+<p><format style="italic">### Symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2687,7 +2831,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-symbol</format></p>
+<p><format style="italic">### Not-symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2724,7 +2868,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Currency symbol</format></p>
+<p><format style="italic">### Currency symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2761,7 +2905,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-currency symbol</format></p>
+<p><format style="italic">### Not-currency symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2798,7 +2942,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Modifier symbol</format></p>
+<p><format style="italic">### Modifier symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2835,7 +2979,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-modifier symbol</format></p>
+<p><format style="italic">### Not-modifier symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2872,7 +3016,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Mathematical symbol</format></p>
+<p><format style="italic">### Mathematical symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2909,7 +3053,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-mathematical symbol</format></p>
+<p><format style="italic">### Not-mathematical symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2946,7 +3090,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### An other symbol</format></p>
+<p><format style="italic">### An other symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -2983,7 +3127,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not other symbol</format></p>
+<p><format style="italic">### Not another symbol</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3020,7 +3164,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Unassigned - characters with code points greater than 0x10FFFF</format></p>
+<p><format style="italic">### Unassigned – characters with code points greater than 0x10FFFF</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3057,7 +3201,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Assigned - characters with code points smaller than 0x10FFFF</format></p>
+<p><format style="italic">### Assigned – characters with code points smaller than 0x10FFFF</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3094,7 +3238,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### not-new line</format></p>
+<p><format style="italic">### not-new line</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3131,7 +3275,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Mark</format></p>
+<p><format style="italic">### Mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3168,7 +3312,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Non-mark</format></p>
+<p><format style="italic">### Non-mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3205,7 +3349,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Spacing mark</format></p>
+<p><format style="italic">### Spacing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3242,7 +3386,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Non-spacing mark</format></p>
+<p><format style="italic">### Non-spacing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3279,7 +3423,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-spacing mark</format></p>
+<p><format style="italic">### Not-spacing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3316,7 +3460,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-non-spacing mark</format></p>
+<p><format style="italic">### Not-non-spacing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3353,7 +3497,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Enclosing mark</format></p>
+<p><format style="italic">### Enclosing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3390,7 +3534,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-enclosing mark</format></p>
+<p><format style="italic">### Not-enclosing mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3427,7 +3571,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Separator</format></p>
+<p><format style="italic">### Separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3464,7 +3608,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-separator mark</format></p>
+<p><format style="italic">### Not-separator mark</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3501,7 +3645,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Line separator</format></p>
+<p><format style="italic">### Line separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3538,7 +3682,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-line separator</format></p>
+<p><format style="italic">### Not-line separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3575,7 +3719,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Paragraph separator</format></p>
+<p><format style="italic">### Paragraph separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3612,7 +3756,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-paragraph separator</format></p>
+<p><format style="italic">### Not-paragraph separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3649,7 +3793,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Space separator</format></p>
+<p><format style="italic">### Space separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3686,7 +3830,7 @@ List of arguments.
 
 
 
-<p><format style="italic">() ### Not-space separator</format></p>
+<p><format style="italic">### Not-space separator</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3706,7 +3850,7 @@ List of arguments.
 ## method: chars {id="chars()"}
 
 <code-block lang="php">
-    <![CDATA[public Pattern::chars():mixed]]>
+    <![CDATA[public Pattern::chars(\FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters):mixed]]>
 </code-block>
 
 
@@ -3723,7 +3867,7 @@ List of arguments.
 
 
 
-<p><format style="italic">(Characters[] $characters) ### Characters</format></p>
+<p><format style="italic">### Characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3735,6 +3879,11 @@ List of arguments.
                     View blame
                 </a>
             </def></deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li><a href="Characters[].md">\FireHub\Core\Support\Contracts\HighLevel\Characters[]</a> <format style="bold">$characters</format></li></list>
+    </def>
+</deflist>
 <deflist>
     <def title="This method returns:">
         <list><li>mixed</li></list>
@@ -3743,7 +3892,7 @@ List of arguments.
 ## method: notChars {id="notchars()"}
 
 <code-block lang="php">
-    <![CDATA[public Pattern::notChars():mixed]]>
+    <![CDATA[public Pattern::notChars(\FireHub\Core\Support\Contracts\HighLevel\Characters[] $characters):mixed]]>
 </code-block>
 
 
@@ -3760,7 +3909,7 @@ List of arguments.
 
 
 
-<p><format style="italic">(Characters[] $characters) ### Not-characters</format></p>
+<p><format style="italic">### Not-characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3772,6 +3921,11 @@ List of arguments.
                     View blame
                 </a>
             </def></deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li><a href="Characters[].md">\FireHub\Core\Support\Contracts\HighLevel\Characters[]</a> <format style="bold">$characters</format></li></list>
+    </def>
+</deflist>
 <deflist>
     <def title="This method returns:">
         <list><li>mixed</li></list>
@@ -3780,7 +3934,7 @@ List of arguments.
 ## method: inRange {id="inrange()"}
 
 <code-block lang="php">
-    <![CDATA[public Pattern::inRange():mixed]]>
+    <![CDATA[public Pattern::inRange(\FireHub\Core\Support\Contracts\HighLevel\Characters $from, \FireHub\Core\Support\Contracts\HighLevel\Characters $until):mixed]]>
 </code-block>
 
 
@@ -3797,7 +3951,7 @@ List of arguments.
 
 
 
-<p><format style="italic">(Characters $from,Characters $until) In the range of characters</format></p>
+<p><format style="italic">In the range of characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3810,6 +3964,11 @@ List of arguments.
                 </a>
             </def></deflist>
 <deflist>
+    <def title="This method has parameters:">
+        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> <format style="bold">$from</format></li><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> <format style="bold">$until</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method returns:">
         <list><li>mixed</li></list>
     </def>
@@ -3817,7 +3976,7 @@ List of arguments.
 ## method: notInRange {id="notinrange()"}
 
 <code-block lang="php">
-    <![CDATA[public Pattern::notInRange():mixed]]>
+    <![CDATA[public Pattern::notInRange(\FireHub\Core\Support\Contracts\HighLevel\Characters $from, \FireHub\Core\Support\Contracts\HighLevel\Characters $until):mixed]]>
 </code-block>
 
 
@@ -3834,7 +3993,7 @@ List of arguments.
 
 
 
-<p><format style="italic">(Characters $from, Characters $until) Not in the range of characters</format></p>
+<p><format style="italic">Not in the range of characters</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/strings/expression/firehub.Pattern.php#L0">
@@ -3846,6 +4005,11 @@ List of arguments.
                     View blame
                 </a>
             </def></deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> <format style="bold">$from</format></li><li><a href="Characters.md">\FireHub\Core\Support\Contracts\HighLevel\Characters</a> <format style="bold">$until</format></li></list>
+    </def>
+</deflist>
 <deflist>
     <def title="This method returns:">
         <list><li>mixed</li></list>

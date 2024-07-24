@@ -22,7 +22,7 @@
 
 ### ### Constant low-level class proxy class
 
-<p><format style="italic">Class allows you to obtain information about constants.</format></p>
+<p><format style="italic">Class allows you to collect information about constants.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Constant
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L29">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L32">
             View source code
         </a>
     </def>
@@ -62,6 +66,7 @@
 |public static |<a href="#defined()">defined</a>|### Checks whether a given named constant exists|
 |public static |<a href="#value()">value</a>|### Returns the value of a constant|
 
+
 ## method: define {id="define()"}
 
 <code-block lang="php">
@@ -85,12 +90,12 @@
 <p><format style="italic">Defines a named constant at runtime.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L57">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L57">
                     View blame
                 </a>
             </def></deflist>
@@ -136,12 +141,12 @@ The value of the constant.
 <p><format style="italic">This function works also with class constants and enum cases.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L78">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L78">
                     View blame
                 </a>
             </def></deflist>
@@ -182,22 +187,27 @@ The constant name.
 
 ### ### Returns the value of a constant
 
-<p><format style="italic">Method [[Constant#value()]] is useful if you need to retrieve the value of a constant, but do not know its name.
-I.e., it is stored in a variable or returned by a function.</format></p>
+<p><format style="italic">Method [[Constant#value()]] is useful if you need to retrieve the value of a constant but don't know its name.
+In other words, it is stored in a variable or returned by a function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L92">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L101">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L92">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Constant.php#L101">
                     View blame
                 </a>
             </def></deflist>
 <deflist>
     <def title="Version history:">
         <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Base.md#getconstantvalue()">\FireHub\Core\Base\Trait\Base::getConstantValue()</a>  - <format style="italic">To return the value of a constant.</format></li><li><a href="ConcreteBackedEnum.md#fromname()">\FireHub\Core\Base\Trait\ConcreteBackedEnum::fromName()</a>  - <format style="italic">To return the value of a constant.</format></li></list>
     </def>
 </deflist>
 <deflist>

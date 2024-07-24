@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\FileSystem\Permission
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L25">
             View source code
         </a>
     </def>
@@ -62,12 +66,12 @@
 |:-----|:------|:------|
 |<a href="#nothing">NOTHING</a>|### User has no permissions|0|
 |<a href="#execute">EXECUTE</a>|### User with execute permissions can run a file as a program|1|
-|<a href="#write">WRITE</a>|### Grants the ability to modify, or remove the content of the file|2|
+|<a href="#write">WRITE</a>|### Grants the ability to modify or remove the content of the file|2|
 |<a href="#write_execute">WRITE_EXECUTE</a>|### Combination of write and execute permissions|3|
-|<a href="#read">READ</a>|### Grants the ability to read, i.e., view the contents of the file|4|
+|<a href="#read">READ</a>|### Grants the ability to read, in other words, view the contents of the file|4|
 |<a href="#read_execute">READ_EXECUTE</a>|### Combination of read and execute permissions|5|
 |<a href="#read_write">READ_WRITE</a>|### Combination of read and write permissions|6|
-|<a href="#all">ALL</a>|### User has all permissions: read, write and execute|7|
+|<a href="#all">ALL</a>|### User has all permissions: read, write, and execute|7|
 
 ## case: NOTHING {id="nothing"}
 
@@ -87,12 +91,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -119,12 +123,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L43">
                     View blame
                 </a>
             </def></deflist>
@@ -146,17 +150,17 @@
 
 
 
-### ### Grants the ability to modify, or remove the content of the file
+### ### Grants the ability to modify or remove the content of the file
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -183,12 +187,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L55">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L45">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L55">
                     View blame
                 </a>
             </def></deflist>
@@ -210,17 +214,17 @@
 
 
 
-### ### Grants the ability to read, i.e., view the contents of the file
+### ### Grants the ability to read, in other words, view the contents of the file
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L61">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L61">
                     View blame
                 </a>
             </def></deflist>
@@ -247,12 +251,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L57">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -279,12 +283,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L73">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L63">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L73">
                     View blame
                 </a>
             </def></deflist>
@@ -306,17 +310,17 @@
 
 
 
-### ### User has all permissions: read, write and execute
+### ### User has all permissions: read, write, and execute
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L79">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L69">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/filesystem/firehub.Permission.php#L79">
                     View blame
                 </a>
             </def></deflist>

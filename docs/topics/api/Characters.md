@@ -54,7 +54,7 @@
 ### Used by
 <deflist>
     <def title="This interface is used by:">
-        <list><li><a href="Strings.md#first()">\FireHub\Core\Support\Contracts\HighLevel\Strings::first()</a>  - <format style="italic">As return.</format></li><li><a href="Strings.md#last()">\FireHub\Core\Support\Contracts\HighLevel\Strings::last()</a>  - <format style="italic">As return.</format></li><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="ReplaceFunc.md#__construct()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Split.md#__construct()">\FireHub\Core\Support\Strings\Expression\Split::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To test if $characters is list of character interface.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Str.md#first()">\FireHub\Core\Support\Strings\Str::first()</a>  - <format style="italic">As return.</format></li><li><a href="Str.md#last()">\FireHub\Core\Support\Strings\Str::last()</a>  - <format style="italic">As return.</format></li></list>
+        <list><li><a href="Strings.md#first()">\FireHub\Core\Support\Contracts\HighLevel\Strings::first()</a>  - <format style="italic">As return.</format></li><li><a href="Strings.md#last()">\FireHub\Core\Support\Contracts\HighLevel\Strings::last()</a>  - <format style="italic">As return.</format></li><li><a href="FunctionFamily.md#__construct()">\FireHub\Core\Support\Strings\Expression\FunctionFamily::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Replace.md#__construct()">\FireHub\Core\Support\Strings\Expression\Replace::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="ReplaceFunc.md#__construct()">\FireHub\Core\Support\Strings\Expression\ReplaceFunc::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Split.md#__construct()">\FireHub\Core\Support\Strings\Expression\Split::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Chars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\Chars::regex()</a>  - <format style="italic">To test if $characters is a list of character interface.</format></li><li><a href="InRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\InRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="NotChars.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotChars::regex()</a>  - <format style="italic">To test if $characters is a list of character interface.</format></li><li><a href="NotInRange.md#regex()">\FireHub\Core\Support\Strings\Expression\Pattern\Predefined\NotInRange::regex()</a>  - <format style="italic">To test if $characters is of character interface.</format></li><li><a href="Expression.md#__construct()">\FireHub\Core\Support\Strings\Expression::__construct()</a>  - <format style="italic">As parameter.</format></li><li><a href="Str.md#first()">\FireHub\Core\Support\Strings\Str::first()</a>  - <format style="italic">As return.</format></li><li><a href="Str.md#last()">\FireHub\Core\Support\Strings\Str::last()</a>  - <format style="italic">As return.</format></li></list>
     </def>
 </deflist>
 ### Methods
@@ -197,8 +197,8 @@ Character encoding.
 
 ### ### Boolean representation of the given logical character value
 
-<p><format style="italic">True - positive-int
-False - non-positive-int
+<p><format style="italic">True – positive-int
+False – non-positive-int
 For all other characters, the return value is a result of a boolean cast.</format></p>
 
 <deflist><def title="Source code:">
@@ -224,7 +224,7 @@ For all other characters, the return value is a result of a boolean cast.</forma
 ## method: string {id="string()"}
 
 <code-block lang="php">
-    <![CDATA[public Characters::string(string $string = null):mixed]]>
+    <![CDATA[public Characters::string(null|string $string = null):mixed]]>
 </code-block>
 
 
@@ -244,12 +244,12 @@ For all other characters, the return value is a result of a boolean cast.</forma
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L79">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L79">
                     View blame
                 </a>
             </def></deflist>
@@ -265,7 +265,9 @@ For all other characters, the return value is a result of a boolean cast.</forma
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$string</format> = null</li></list>
+        <list><li>null or string <format style="bold">$string</format> = null - <format style="italic">[optional] 
+If exists, argument will set the string.
+</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -296,12 +298,12 @@ For all other characters, the return value is a result of a boolean cast.</forma
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L87">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L83">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L87">
                     View blame
                 </a>
             </def></deflist>
@@ -338,12 +340,12 @@ For all other characters, the return value is a result of a boolean cast.</forma
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L95">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L91">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L95">
                     View blame
                 </a>
             </def></deflist>
@@ -380,12 +382,12 @@ For all other characters, the return value is a result of a boolean cast.</forma
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L103">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L99">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/highlevel/firehub.Characters.php#L103">
                     View blame
                 </a>
             </def></deflist>
@@ -422,12 +424,12 @@ For all other characters, the return value is a result of a boolean cast.</forma
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Stringable.php#L36">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/magic/firehub.Stringable.php#L36">
                     View blame
                 </a>
             </def></deflist>
