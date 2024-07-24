@@ -18,8 +18,6 @@ use FireHub\Core\Support\LowLevel\ {
     Arr, Iterables
 };
 
-
-
 /**
  * ### Checks if an array is empty
  * @since 1.0.0
