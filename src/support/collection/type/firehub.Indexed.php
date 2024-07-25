@@ -39,4 +39,17 @@ class Indexed extends Arr {
         protected array $storage
     ) {}
 
+    public function group ():self {
+
+        return new self(array_reduce(
+            $this->storage,
+            function (array $carry, mixed $value):array {
+                $carry[$value][] = $value;
+                return $carry;
+            },
+            []
+        ));
+
+    }
+
 }

@@ -16,7 +16,7 @@ namespace support\helpers;
 
 use FireHub\Core\Testing\Base;
 use PHPUnit\Framework\Attributes\ {
-    CoversFunction, RequiresPhp
+    CoversFunction
 };
 
 use function FireHub\Core\Support\Helpers\Arr\first;
@@ -28,6 +28,7 @@ use function FireHub\Core\Support\Helpers\Arr\last;
  */
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupBy')]
 final class ArrTest extends Base {
 
     /**
