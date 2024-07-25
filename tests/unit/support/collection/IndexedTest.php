@@ -430,6 +430,33 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testGroupByKey ():void {
+
+        $this->assertSame([
+            'Doe' => [
+                1 => [
+                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+                ],
+                0 => [
+                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+                ]
+            ],
+            'Roe' => [
+                0 => [
+                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+                ]
+            ]
+        ], $this->multidimensional->groupByKey('lastname', function (array $value) {
+            return $value['firstname'] === 'John';
+        })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));

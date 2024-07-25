@@ -15,7 +15,7 @@
 namespace FireHub\Core\Support\Helpers\Arr;
 
 use FireHub\Core\Support\LowLevel\ {
-    Arr, Iterables
+    Arr, DataIs, Iterables
 };
 
 /**
@@ -113,5 +113,73 @@ function last (array $array):mixed {
 
     return isset($key) ? $array[$key] : null;
 
+}
+
+/**
+ * ### Group an array by a key or set of keys shared between all array members
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if the provided key is callable.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the provided key is array.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all groups.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To remove the first key.
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Arr\group_by;
+ *
+ * last([1,2,3]);
+ *
+ * // 3
+ * ```
+ *
+ * @param array<array-key, mixed> $array <p>
+ * The array.
+ * </p>
+ * @param array-key|callable $key <p>
+ * <code><![CDATA[ array-key|callable(array<array-key, mixed>> $row):mixed ]]></code>
+ * Array key to group with.
+ * </p>
+ * @param array-key|callable ...$keys <p>
+ * <code><![CDATA[ array-key|callable(array<array-key, mixed>> $row):mixed ]]></code>
+ * Additional array keys to group with.
+ * </p>
+ *
+ * @return array<array-key, mixed> The grouped array.
+ *
+ * @api
+ */
+function groupByKey (array $array, int|string|callable $key, int|string|callable ...$keys):array {
+
+    $_key = $key;
+
+    $grouped = [];
+    foreach ($array as $array_key => $value) {
+
+        $key = match (true) {
+            DataIs::callable($_key) => $_key($value),
+            DataIs::array($value) && isset($value[$_key]) => $value[$_key],
+            default => null
+        };
+
+        if ($key === null) continue;
+
+        $grouped[$key][$array_key] = $value;
+
+    }
+
+    if (!empty($keys)) {
+
+        foreach ($grouped as $key => $value) {
+
+            $params = Arr::merge([$value], Arr::slice($keys, 0, count($keys)+2));
+
+            $grouped[$key] = groupByKey(...$params); // @phpstan-ignore-line
+
+        }
+
+    }
+
+    return $grouped;
 
 }

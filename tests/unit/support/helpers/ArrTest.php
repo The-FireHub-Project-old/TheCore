@@ -21,6 +21,7 @@ use PHPUnit\Framework\Attributes\ {
 
 use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
+use function FireHub\Core\Support\Helpers\Arr\groupByKey;
 
 /**
  * ### Test PHP functions
@@ -28,7 +29,7 @@ use function FireHub\Core\Support\Helpers\Arr\last;
  */
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
-#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupBy')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
 final class ArrTest extends Base {
 
     /**
@@ -50,6 +51,38 @@ final class ArrTest extends Base {
     public function testLast ():void {
 
         $this->assertSame(3, last([1,2,3]));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testGroupByKey ():void {
+
+        $this->assertSame([
+            'Doe' => [
+                1 => [
+                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+                ],
+                0 => [
+                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+                ]
+            ],
+            'Roe' => [
+                0 => [
+                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+                ]
+            ]
+        ], groupByKey([
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+            ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27],
+            10
+        ], 'lastname', function (array $value) {
+            return $value['firstname'] === 'John';
+        }));
 
     }
 

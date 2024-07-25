@@ -25,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last
+    is_empty, first, last, groupByKey
 };
 
 /**
@@ -838,6 +838,31 @@ abstract class Arr implements Init, Accessible {
             },
             []
         ));
+
+    }
+
+    /**
+     * ### Group collection by a key or set of keys shared between all array members
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As return.
+     * @uses \FireHub\Core\Support\Helpers\Arr\groupByKey() To group a collection by a key or set of keys shared between
+     * all array members.
+     *
+     * @param array-key|callable $key <p>
+     * <code><![CDATA[ array-key|callable(array<array-key, mixed>> $row):mixed ]]></code>
+     * Array key to group with.
+     * </p>
+     * @param array-key|callable ...$keys <p>
+     * <code><![CDATA[ array-key|callable(array<array-key, mixed>> $row):mixed ]]></code>
+     * Additional array keys to group with.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<array-key, mixed> The grouped collection.
+     */
+    public function groupByKey (int|string|callable $key, int|string|callable ...$keys):Associative {
+
+        return new Associative(groupByKey($this->storage, $key, ...$keys));
 
     }
 
