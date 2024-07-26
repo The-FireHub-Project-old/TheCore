@@ -711,99 +711,6 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter elements in an array.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Collection;
-     *
-     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $filtered = $collection->filter(function ($value) {
-     *  return $value !== 'Jane';
-     * });
-     *
-     * // ['John', 'Richard', 'Richard']
-     * ```
-     */
-    public function filter (callable $callback):static {
-
-        return new static(
-            ArrLL::filter($this->storage, $callback, true)
-        );
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::filter() To filter elements in an array.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Collection;
-     *
-     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $filtered = $collection->reject(function ($value) {
-     *  return $value !== 'Jane';
-     * });
-     *
-     * // ['Jane', 'Jane', 'Jane']
-     * ```
-     */
-    public function reject (callable $callback):static {
-
-        /** @phpstan-ignore-next-line */
-        return $this->filter(fn($value) => $value != $callback($value));
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::map() To apply the callback to the elements of the given array.
-     *
-     * @example
-     * ```php
-     * use FireHub\Core\Support\Collection;
-     *
-     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $map = $collection->map(function ($value, $key) {
-     *  return $value.'.';
-     * });
-     *
-     * // ['John.', 'Jane.', 'Jane.', 'Jane.', 'Richard.', 'Richard.']
-     * ```
-     */
-    public function map (callable $callback):static {
-
-        try {
-
-            return new static(ArrLL::map($this->storage, $callback));
-
-        } catch (ArgumentCountError) {
-
-            $storage = [];
-
-            foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
-
-            return new static($storage);
-
-        }
-
-    }
-
-    /**
      * ### Group collection by user-defined function until a result is true
      * @since 1.0.0
      *
@@ -908,6 +815,99 @@ abstract class Arr implements Init, Accessible {
     public function groupByKey (int|string|callable $key, int|string|callable ...$keys):Associative {
 
         return new Associative(groupByKey($this->storage, $key, ...$keys));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $filtered = $collection->filter(function ($value) {
+     *  return $value !== 'Jane';
+     * });
+     *
+     * // ['John', 'Richard', 'Richard']
+     * ```
+     */
+    public function filter (callable $callback):static {
+
+        return new static(
+            ArrLL::filter($this->storage, $callback, true)
+        );
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $filtered = $collection->reject(function ($value) {
+     *  return $value !== 'Jane';
+     * });
+     *
+     * // ['Jane', 'Jane', 'Jane']
+     * ```
+     */
+    public function reject (callable $callback):static {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value) => $value != $callback($value));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::map() To apply the callback to the elements of the given array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $map = $collection->map(function ($value, $key) {
+     *  return $value.'.';
+     * });
+     *
+     * // ['John.', 'Jane.', 'Jane.', 'Jane.', 'Richard.', 'Richard.']
+     * ```
+     */
+    public function map (callable $callback):static {
+
+        try {
+
+            return new static(ArrLL::map($this->storage, $callback));
+
+        } catch (ArgumentCountError) {
+
+            $storage = [];
+
+            foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
+
+            return new static($storage);
+
+        }
 
     }
 

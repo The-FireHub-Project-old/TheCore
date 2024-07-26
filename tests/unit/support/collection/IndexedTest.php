@@ -390,6 +390,67 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testGroupBy ():void {
+
+        $this->assertSame(
+            [
+                0 => [0 => 1, 1 => 2, 2 => 3, 3 => 4],
+                1 => [4 => 13],
+                2 => [5 => 22],
+                3 => [6 => 27, 7 => 28, 8 => 29]
+            ],
+            $this->numbers->groupBy(function ($prev, $curr) {
+                return ($curr - $prev) > 1;
+            })->all());
+
+        $this->assertSame(
+            [
+                [
+                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+                ],
+                [
+                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+                ]
+            ],
+            $this->multidimensional->groupBy(function ($prev, $curr) {
+                return $curr['lastname'] !== 'Doe';
+            })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testGroupByKey ():void {
+
+        $this->assertSame([
+            'Doe' => [
+                1 => [
+                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+                ],
+                0 => [
+                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+                ]
+            ],
+            'Roe' => [
+                0 => [
+                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+                ]
+            ]
+        ], $this->multidimensional->groupByKey('lastname', function (array $value) {
+            return $value['firstname'] === 'John';
+        })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFilter ():void {
 
         $this->assertSame([0 => 'John', 4 => 'Richard', 5 => 'Richard'], $this->collection->filter(function ($value) {
@@ -424,67 +485,6 @@ final class IndexedTest extends Base {
                 return $value.'.';
             })->all()
         );
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testGroupBy ():void {
-
-        $this->assertSame(
-            [
-                0 => [0 => 1, 1 => 2, 2 => 3, 3 => 4],
-                1 => [4 => 13],
-                2 => [5 => 22],
-                3 => [6 => 27, 7 => 28, 8 => 29]
-            ],
-            $this->numbers->groupBy(function ($prev, $curr) {
-                return ($curr - $prev) > 1;
-            })->all());
-
-        $this->assertSame(
-            [
-                [
-                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
-                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
-                ],
-                [
-                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
-                ]
-            ],
-            $this->multidimensional->groupBy(function ($prev, $curr) {
-                return $curr['lastname'] !== 'Doe';
-        })->all());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testGroupByKey ():void {
-
-        $this->assertSame([
-            'Doe' => [
-                1 => [
-                    0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
-                ],
-                0 => [
-                    1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
-                ]
-            ],
-            'Roe' => [
-                0 => [
-                    2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
-                ]
-            ]
-        ], $this->multidimensional->groupByKey('lastname', function (array $value) {
-            return $value['firstname'] === 'John';
-        })->all());
 
     }
 
