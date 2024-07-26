@@ -33,6 +33,7 @@ final class ObjTest extends Base {
 
     public Obj $collection;
     public Obj $empty;
+    public Obj $simple;
 
     public stdClass $cls1;
     public stdClass $cls2;
@@ -55,6 +56,11 @@ final class ObjTest extends Base {
         });
 
         $this->empty = Collection::object(function (SplObjectStorage $storage):void {});
+
+        $this->simple = Collection::object(function (SplObjectStorage $storage):void {
+            $storage[$this->cls1] = 'data for object 1';
+            $storage[$this->cls2] = 'data for object 2';
+        });
 
     }
 
@@ -339,6 +345,25 @@ final class ObjTest extends Base {
         $this->assertSame([['object' => $this->cls3, 'info' => 20]], $this->collection->reject(function ($object, $info) {
             return $info !== 20;
         })->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMap ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'new data for object 1'],
+                ['object' => $this->cls2, 'info' => 'new data for object 2']
+            ],
+            $this->simple->map(function ($object, $info) {
+                return 'new '.$info;
+            })->all()
+        );
 
     }
 

@@ -229,13 +229,13 @@ interface Collectable extends Countable, IterablesAggregate {
      * ### Applies the callback to each collection item
      * @since 1.0.0
      *
-     * @param callable(TValue $value):mixed $callback <p>
+     * @param callable(TValue, TKey=):mixed $callback <p>
      * <code>callable(TValue $value):mixed</code>
      * Function to call on each item in a collection.
      * </p>
      *
      * @return static<TKey, mixed> New modified collection.
      */
-    //public function map (callable $callback):self;
+    public function map (callable $callback):self;
 
 }

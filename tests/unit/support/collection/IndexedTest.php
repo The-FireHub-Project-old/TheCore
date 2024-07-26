@@ -416,6 +416,22 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testMap ():void {
+
+        $this->assertSame(
+            ['John.', 'Jane.', 'Jane.', 'Jane.', 'Richard.', 'Richard.'],
+            $this->collection->map(function ($value) {
+                return $value.'.';
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testGroupBy ():void {
 
         $this->assertSame(

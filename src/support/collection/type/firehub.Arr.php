@@ -23,7 +23,7 @@ use FireHub\Core\Support\Collection\Traits\Convertable;
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
 };
-use Error, Traversable, TypeError;
+use ArgumentCountError, Error, Traversable, TypeError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
     is_empty, first, last, groupByKey
@@ -762,6 +762,44 @@ abstract class Arr implements Init, Accessible {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value) => $value != $callback($value));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::map() To apply the callback to the elements of the given array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $map = $collection->map(function ($value, $key) {
+     *  return $value.'.';
+     * });
+     *
+     * // ['John.', 'Jane.', 'Jane.', 'Jane.', 'Richard.', 'Richard.']
+     * ```
+     */
+    public function map (callable $callback):static {
+
+        try {
+
+            return new static(ArrLL::map($this->storage, $callback));
+
+        } catch (ArgumentCountError) {
+
+            $storage = [];
+
+            foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
+
+            return new static($storage);
+
+        }
 
     }
 

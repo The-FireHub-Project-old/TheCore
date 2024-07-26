@@ -320,6 +320,22 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testMap ():void {
+
+        $this->assertSame(
+            ['firstname' => 'new John', 'lastname' => 'new Doe', 'age' => 'new 25', 10 => 'new 2'],
+            $this->collection->map(function ($value, $key) {
+                return 'new '.$value;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));

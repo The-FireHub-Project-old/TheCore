@@ -318,7 +318,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->lastKey();
      *
@@ -328,7 +328,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->lastKey(function ($value, $key) {
      *  return $key <> 10;
@@ -370,7 +370,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->each(function ($value, $key) {
      *  if ($value === 'John') return false;
@@ -402,7 +402,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->every(function ($value, $key) {
      *  return $key !== 'gender';
@@ -432,7 +432,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->search('John');
      *
@@ -442,7 +442,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->search(function ($value, $key) {
      *  return $value !== 'John';
@@ -475,7 +475,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->contains('John');
      *
@@ -485,7 +485,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->contains(function ($value, $key) {
      *  return $value === 'John';
@@ -513,7 +513,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->doesntContain('Jack');
      *
@@ -523,7 +523,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->doesntContain(function ($value, $key) {
      *  return $value === 'Jack';
@@ -549,7 +549,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->isEmpty();
      *
@@ -573,7 +573,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->isNotEmpty();
      *
@@ -595,7 +595,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $filtered = $collection->filter(function ($value, $key) {
      *  return $key !== 'firstname' && $value !== 'Doe';
@@ -630,7 +630,7 @@ final class Gen implements Init, Collectable {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $filtered = $collection->reject(function ($value, $key) {
      *  return $key === 'age' || $value === 2;
@@ -645,6 +645,36 @@ final class Gen implements Init, Collectable {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $map = $collection->map(function ($value, $key) {
+     *  return 'new '.$value;
+     * });
+     *
+     * // ['firstname' => 'new John', 'lastname' => 'new Doe', 'age' => 'new 25', 10 => 'new 2']
+     * ```
+     *
+     * @return self<TKey, mixed> New modified collection.
+     */
+    public function map (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            foreach ($this as $key => $value) yield $key => $callback($value, $key);
+
+        });
 
     }
 

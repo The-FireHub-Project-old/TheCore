@@ -720,6 +720,38 @@ final class Fix implements Init, Accessible {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $map = $collection->map(function ($value) {
+     *  return 'new '.$value;
+     * });
+     *
+     * // ['new one', 'new two', 'new three']
+     * ```
+     */
+    public function map (callable $callback):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        foreach ($this->storage as $key => $value) $storage[$key] = $callback($value);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function offsetExists (mixed $offset):bool {
 
