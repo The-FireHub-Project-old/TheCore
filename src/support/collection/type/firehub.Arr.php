@@ -737,7 +737,7 @@ abstract class Arr implements Init, Accessible {
      * ```
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn ():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
