@@ -330,7 +330,7 @@ final class ObjTest extends Base {
     public function testFilter ():void {
 
         $this->assertSame(
-            ['object' => $this->cls3, 'info' => 20],
+            [['object' => $this->cls3, 'info' => 20]],
             $this->collection->filter(function ($object, $info) {
                 return $info === 20;
             })->all()
@@ -346,7 +346,7 @@ final class ObjTest extends Base {
     public function testReject ():void {
 
         $this->assertSame(
-            ['object' => $this->cls3, 'info' => 20],
+            [['object' => $this->cls3, 'info' => 20]],
             $this->collection->reject(function ($object, $info) {
                 return $info !== 20;
             }
@@ -384,7 +384,7 @@ final class ObjTest extends Base {
         $cls1 = new stdClass();
         $cls2 = new stdClass();
         $cls3 = new stdClass();
-        $this->collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2, $cls3): void {
+        $collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2, $cls3): void {
             $storage[$cls1] = 'data for object 1';
             $storage[$cls2] = [1, 2, 3];
             $storage[$cls3] = 20;
@@ -396,10 +396,10 @@ final class ObjTest extends Base {
                 ['object' => $this->cls2, 'info' => [1, 2, 3]],
                 ['object' => $this->cls3, 'info' => 20],
                 ['object' => $cls1, 'info' => 'data for object 1'],
-                ['object' => $cls3, 'info' => [1, 2, 3]],
+                ['object' => $cls2, 'info' => [1, 2, 3]],
                 ['object' => $cls3, 'info' => 20],
             ],
-            $this->collection->merge($this->collection)->all()
+            $this->collection->merge($collection)->all()
         );
 
 
