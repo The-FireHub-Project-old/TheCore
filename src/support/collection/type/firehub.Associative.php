@@ -375,6 +375,54 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Merge recursively new collection into current one
+     *
+     * @param self<TKey, TValue> ...$collections <p>
+     * Variable list of collections to recursively merge.
+     * </p>
+     *
+     * @return static<array-key, mixed> New recursively merged collection.
+     *@uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(fn():array => [
+     *  'firstname' => 'Jane', 'lastname' => 'Doe'
+     * ]);
+     *
+     * $collection3 = Collection::associative(fn():array => [
+     *  'one', 'two', 'three'
+     * ]);
+     *
+     * $merged = $collection->mergeRecursive($collection2, $collection3);
+     *
+     * // [
+     * //   'firstname' => ['John', 'Jane'],
+     * //   'lastname' => ['Doe', 'Doe'],
+     * //   'age' => 25, 0 => 2, 1 => 'one', 2 => 'two', 3 => 'three'
+     * // ]
+     * ```
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::mergeRecursive() To merge two or more arrays recursively.
+     */
+    public function mergeRecursive (Collectable ...$collections):self {
+
+        $storage = $this->storage;
+
+        foreach ($collections as $collection)
+            $storage = ArrLL::mergeRecursive($storage, $collection->all());
+
+        return new self($storage);
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

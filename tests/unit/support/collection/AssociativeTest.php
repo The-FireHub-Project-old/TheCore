@@ -287,6 +287,27 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testMergeRecursive ():void {
+
+        $collection2 = Collection::associative(fn():array => ['firstname' => 'Jane', 'lastname' => 'Doe']);
+        $collection3 = Collection::associative(fn():array => ['one', 'two', 'three']);
+
+        $this->assertSame(
+            [
+                'firstname' => ['John', 'Jane'],
+                'lastname' => ['Doe', 'Doe'],
+                'age' => 25, 0 => 2, 1 => 'one', 2 => 'two', 3 => 'three'
+            ],
+            $this->collection->mergeRecursive($collection2, $collection3)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));
