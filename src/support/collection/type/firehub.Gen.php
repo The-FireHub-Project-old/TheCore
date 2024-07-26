@@ -19,6 +19,7 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Traits\Convertable;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
 };
@@ -42,6 +43,12 @@ final class Gen implements Init, Collectable {
      * @since 1.0.0
      */
     use Concrete;
+
+    /**
+     * ### This trait allows converting a collection to a different one
+     * @since 1.0.0
+     */
+    use Convertable;
 
     /**
      * ### Constructor

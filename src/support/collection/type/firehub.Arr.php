@@ -19,6 +19,7 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Traits\Convertable;
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
 };
@@ -47,6 +48,12 @@ abstract class Arr implements Init, Accessible {
      * @since 1.0.0
      */
     use Concrete;
+
+    /**
+     * ### This trait allows converting a collection to a different one
+     * @since 1.0.0
+     */
+    use Convertable;
 
     /**
      * ### Array underlying data

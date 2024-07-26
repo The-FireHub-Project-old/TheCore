@@ -16,6 +16,7 @@ namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Countable;
 use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
+use FireHub\Core\Support\Collection\Helpers\Convert;
 
 /**
  * ### Collectable contract
@@ -41,6 +42,16 @@ interface Collectable extends Countable, IterablesAggregate {
      * @return self<TKey, TValue> New collection from provided array.
      */
     public static function fromArray (array $array):self;
+
+    /**
+     * ### Convert a collection to a different one
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\Convert As return.
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Convert<TKey, TValue> As return.
+     */
+    public function convert ():Convert;
 
     /**
      * ### Get collection as an array

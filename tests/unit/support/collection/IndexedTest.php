@@ -19,7 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Indexed
 };
-use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Helpers\ {
+    Convert, CountCollectables
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
 
@@ -30,6 +32,7 @@ use Error;
 #[CoversClass(Collection::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Indexed::class)]
+#[CoversClass(Convert::class)]
 #[CoversClass(CountCollectables::class)]
 final class IndexedTest extends Base {
 
@@ -95,6 +98,23 @@ final class IndexedTest extends Base {
             ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
             Indexed::fromArray(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'])->all()
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testConvert ():void {
+
+        $this->assertEquals($this->collection, $this->collection->convert()->toList());
+
+        $this->assertNotEquals($this->collection, $this->collection->convert()->toAssociative());
+
+        $this->assertNotEquals($this->collection, $this->collection->convert()->toFixed());
+
+        $this->assertNotEquals($this->collection, $this->collection->convert()->toLazy());
 
     }
 
