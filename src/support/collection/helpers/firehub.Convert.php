@@ -44,7 +44,7 @@ final class Convert implements Init {
      * @since 1.0.0
      *
      * @param \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $collectable <p>
-     * Collectable instance to count.
+     * Collectable instance to convert.
      * </p>
      */
     public function __construct (
