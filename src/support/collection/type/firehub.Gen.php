@@ -35,6 +35,8 @@ use Closure, Generator, Traversable;
  * @template TValue
  *
  * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>
+ *
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Gen implements Init, Collectable {
 
@@ -581,6 +583,68 @@ final class Gen implements Init, Collectable {
     public function isNotEmpty ():bool {
 
         return !self::isEmpty();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $filtered = $collection->filter(function ($value, $key) {
+     *  return $key !== 'firstname' && $value !== 'Doe';
+     * });
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function filter (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            foreach ($this as $key => $value)
+                !$callback($value, $key) ?: yield $key => $value;
+
+            return null;
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::filter() To filter elements in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $filtered = $collection->reject(function ($value, $key) {
+     *  return $key === 'age' || $value === 2;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @return self<TKey, TValue> New rejected collection.
+     */
+    public function reject (callable $callback):self {
+
+        /** @phpstan-ignore-next-line */
+        return $this->filter(fn($value, $key) => $value != $callback($value, $key));
 
     }
 
