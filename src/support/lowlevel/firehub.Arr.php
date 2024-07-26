@@ -1117,7 +1117,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Applies the callback to the elements of the given arrays
+     * ### Applies the callback to the elements of the given array
      *
      * Returns an array containing the results of applying the $callback to the corresponding value of an $array used as
      * arguments for the callback. The number of parameters that the $callback function accepts should match the
