@@ -238,4 +238,16 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function map (callable $callback):self;
 
+    /**
+     * ### Merge new collections into current one
+     * @since 1.0.0
+     *
+     * @param self<TKey, TValue> ...$collections <p>
+     * Collections to merge.
+     * </p>
+     *
+     * @return static<TKey, TValue> New merged collection.
+     */
+    public function merge (self ...$collections):self;
+
 }

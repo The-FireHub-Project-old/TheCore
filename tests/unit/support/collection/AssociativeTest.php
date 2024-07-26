@@ -31,7 +31,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 final class AssociativeTest extends Base {
 
     public Associative $collection;
-    public Associative $multidimensional;
+    public Associative $numbers;
 
     /**
      * @since 1.0.0
@@ -41,6 +41,7 @@ final class AssociativeTest extends Base {
     public function setUp ():void {
 
         $this->collection = Collection::associative(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+        $this->numbers = Collection::associative([1, 2, 3, 4, 13, 22, 27, 28, 29]);
 
     }
 
@@ -260,6 +261,23 @@ final class AssociativeTest extends Base {
             $this->collection->map(function ($value, $key) {
                 return $key.':'.$value;
             })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMerge ():void {
+
+        $this->assertSame(
+            [
+                'firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2,
+                0 => 1, 1 => 2, 2 => 3, 3 => 4, 4 => 13, 5 => 22, 6 => 27, 7 => 28, 8 => 29
+            ],
+            $this->collection->merge($this->numbers)->all()
         );
 
     }

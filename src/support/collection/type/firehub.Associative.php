@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Collection\Type;
 
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\LowLevel\Arr as ArrLL;
 
 /**
@@ -337,6 +338,39 @@ class Associative extends Arr {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection = Collection::associative(fn():array => [2, 1, 2, 3, 4, 13, 22, 27, 28, 29]);
+     *
+     * $merged = $collection->merge($collection2);
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 1, 2, 3, 4, 13, 22, 27, 28, 29]
+     * ```
+     *
+     * @return self<TKey, TValue> New merged collection.
+     */
+    public function merge (Collectable ...$collections):self {
+
+        $storage = $this->storage;
+
+        foreach ($collections as $collection)
+            $storage = $storage + $collection->all();
+
+        return new static($storage);
 
     }
 

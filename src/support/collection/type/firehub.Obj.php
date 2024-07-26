@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Collection\Type;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Traits\Convertable;
 use FireHub\Core\Support\LowLevel\ {
@@ -33,6 +34,7 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  *
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, object>
  *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Obj implements Init, Accessible {
@@ -894,6 +896,54 @@ final class Obj implements Init, Accessible {
 
         foreach ($this->storage as $object)
             $storage[$object] = $callback($object, $this->storage[$object]); // @phpstan-ignore-line
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::storage() To get storage data.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $merged = $collection->merge($collection2);
+     *
+     * // [
+     * //   [object(stdClass), 'data for object 1'], [object(stdClass), [1,2,3]], [object(stdClass),20],
+     * //   [object(stdClass), 'data for object 1'], [object(stdClass), [1,2,3]], [object(stdClass),20]
+     * // ]
+     * ```
+     */
+    public function merge (Collectable ...$collections):self {
+
+        $storage = new SplObjectStorage();
+
+        foreach ($this->storage as $object) $storage[$object] = $this->storage[$object];
+
+        foreach ($collections as $collection)
+            foreach ($collection as $object) $storage[$object] = $collection[$object]; // @phpstan-ignore-line
 
         return new self($storage);
 

@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Collection\Type;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\Convertable;
@@ -39,6 +40,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 abstract class Arr implements Init, Accessible {
@@ -908,6 +910,39 @@ abstract class Arr implements Init, Accessible {
             return new static($storage);
 
         }
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection2 = Collection::list(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
+     *
+     * $merged = $collection->merge($collection2);
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 1, 2, 3, 4, 13, 22, 27, 28, 29]
+     * ```
+     *
+     * @return self<TKey, TValue> New merged collection.
+     */
+    public function merge (Collectable ...$collections):self {
+
+        $storage = $this->storage;
+
+        foreach ($collections as $collection)
+            $storage = [...$storage, ...$collection->all()];
+
+        return new static($storage);
 
     }
 

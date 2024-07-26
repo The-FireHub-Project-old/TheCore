@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Collection\Type;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\Convertable;
@@ -743,6 +744,53 @@ final class Fix implements Init, Accessible {
         $storage = new SplFixedArray($this->storage->getSize());
 
         foreach ($this->storage as $key => $value) $storage[$key] = $callback($value);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::count() To count elements of an object.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $merged = $collection->merge($collection2);
+     *
+     * // ['one', 'two', 'three', 'one', 'two', 'three]
+     * ```
+     */
+    public function merge (Collectable ...$collections):self {
+
+        $size = 0;
+
+        foreach ($collections as $collection)
+            $size += $collection->count();
+
+        $storage = new SplFixedArray($this->storage->getSize() + $size);
+
+        $counter = 0;
+        foreach ($this->storage as $value) $storage[$counter++] = $value;
+
+        foreach ($collections as $collection)
+            foreach ($collection as $value) $storage[$counter++] = $value;
 
         return new self($storage);
 

@@ -36,6 +36,7 @@ final class GenTest extends Base {
     public Gen $collection;
     public Gen $empty;
     public Gen $multidimensional_collection;
+    public Gen $simple;
 
     /**
      * @since 1.0.0
@@ -59,6 +60,10 @@ final class GenTest extends Base {
                 'two',
                 Collection::list([Collection::list([1,2]),Collection::list([1,2])])
             ];
+        });
+
+        $this->simple = Collection::lazy(function ():Generator {
+            yield from ['one', 'two'];
         });
 
     }
@@ -327,6 +332,23 @@ final class GenTest extends Base {
             $this->collection->map(function ($value, $key) {
                 return 'new '.$value;
             })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMerge ():void {
+
+        $this->assertSame(
+            [
+                'firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2,
+                0 => 'one', 1 => 'two'
+            ],
+            $this->collection->merge($this->simple)->all()
         );
 
     }

@@ -36,6 +36,7 @@ use Closure, Generator, Traversable;
  *
  * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>
  *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Gen implements Init, Collectable {
@@ -673,6 +674,41 @@ final class Gen implements Init, Collectable {
         return new self(function () use ($callback):Generator {
 
             foreach ($this as $key => $value) yield $key => $callback($value, $key);
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::lazy(fn():Generator => yield from ['one', 'two']);
+     *
+     * $merged = $collection->merge($collection2);
+     *
+     * // ['one', 'two', 'three', 'four', 'five']
+     * ```
+     *
+     * @return self<TKey, TValue> New merged collection.
+     */
+    public function merge (Collectable ...$collections):self {
+
+        return new self(function () use ($collections):Generator {
+
+            yield from $this->invoke();
+
+            foreach ($collections as $collection) yield from $collection->all(); // @phpstan-ignore-line
 
         });
 

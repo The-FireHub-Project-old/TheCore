@@ -49,15 +49,15 @@ final class ObjTest extends Base {
         $this->cls1 = new stdClass();
         $this->cls2 = new stdClass();
         $this->cls3 = new stdClass();
-        $this->collection = Collection::object(function (SplObjectStorage $storage):void {
+        $this->collection = Collection::object(function (SplObjectStorage $storage): void {
             $storage[$this->cls1] = 'data for object 1';
-            $storage[$this->cls2] = [1,2,3];
+            $storage[$this->cls2] = [1, 2, 3];
             $storage[$this->cls3] = 20;
         });
 
-        $this->empty = Collection::object(function (SplObjectStorage $storage):void {});
+        $this->empty = Collection::object(function (SplObjectStorage $storage): void {});
 
-        $this->simple = Collection::object(function (SplObjectStorage $storage):void {
+        $this->simple = Collection::object(function (SplObjectStorage $storage): void {
             $storage[$this->cls1] = 'data for object 1';
             $storage[$this->cls2] = 'data for object 2';
         });
@@ -74,14 +74,14 @@ final class ObjTest extends Base {
         $this->assertTrue(isset($this->collection[$this->cls1]));
         $this->assertFalse(isset($this->collection[new stdClass()]));
 
-        $this->assertSame('data for object 1',$this->collection[$this->cls1]);
+        $this->assertSame('data for object 1', $this->collection[$this->cls1]);
         $this->assertNull($this->collection[new stdClass()]);
 
         $cls4 = new stdClass();
         $this->collection[$cls4] = 'new class';
         $this->assertSame([
             ['object' => $this->cls1, 'info' => 'data for object 1'],
-            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls2, 'info' => [1, 2, 3]],
             ['object' => $this->cls3, 'info' => 20],
             ['object' => $cls4, 'info' => 'new class']
         ], $this->collection->all());
@@ -89,7 +89,7 @@ final class ObjTest extends Base {
         unset($this->collection[$cls4]);
         $this->assertSame([
             ['object' => $this->cls1, 'info' => 'data for object 1'],
-            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls2, 'info' => [1, 2, 3]],
             ['object' => $this->cls3, 'info' => 20]
         ], $this->collection->all());
 
@@ -105,12 +105,12 @@ final class ObjTest extends Base {
         $this->assertSame(
             [
                 ['object' => $this->cls1, 'info' => 'data for object 1'],
-                ['object' => $this->cls2, 'info' => [1,2,3]],
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
                 ['object' => $this->cls3, 'info' => 20]
             ],
             Obj::fromArray([
                 ['object' => $this->cls1, 'info' => 'data for object 1'],
-                ['object' => $this->cls2, 'info' => [1,2,3]],
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
                 ['object' => $this->cls3, 'info' => 20]
             ])->all()
         );
@@ -126,7 +126,7 @@ final class ObjTest extends Base {
 
         $this->assertSame([
             ['object' => $this->cls1, 'info' => 'data for object 1'],
-            ['object' => $this->cls2, 'info' => [1,2,3]],
+            ['object' => $this->cls2, 'info' => [1, 2, 3]],
             ['object' => $this->cls3, 'info' => 20]
         ], $this->collection->all());
 
@@ -278,7 +278,7 @@ final class ObjTest extends Base {
         $this->assertTrue($this->collection->doesntContains(new stdClass()));
 
         $this->assertFalse($this->collection->doesntContains(function ($object, $info) {
-            return$object === $this->cls1;
+            return $object === $this->cls1;
         }));
 
     }
@@ -329,9 +329,12 @@ final class ObjTest extends Base {
      */
     public function testFilter ():void {
 
-        $this->assertSame([['object' => $this->cls3, 'info' => 20]], $this->collection->filter(function ($object, $info) {
-            return $info === 20;
-        })->all());
+        $this->assertSame(
+            ['object' => $this->cls3, 'info' => 20],
+            $this->collection->filter(function ($object, $info) {
+                return $info === 20;
+            })->all()
+        );
 
     }
 
@@ -342,9 +345,13 @@ final class ObjTest extends Base {
      */
     public function testReject ():void {
 
-        $this->assertSame([['object' => $this->cls3, 'info' => 20]], $this->collection->reject(function ($object, $info) {
-            return $info !== 20;
-        })->all());
+        $this->assertSame(
+            ['object' => $this->cls3, 'info' => 20],
+            $this->collection->reject(function ($object, $info) {
+                return $info !== 20;
+            }
+            )->all()
+        );
 
     }
 
@@ -361,9 +368,40 @@ final class ObjTest extends Base {
                 ['object' => $this->cls2, 'info' => 'new data for object 2']
             ],
             $this->simple->map(function ($object, $info) {
-                return 'new '.$info;
+                return 'new ' . $info;
             })->all()
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMerge ():void {
+
+        $cls1 = new stdClass();
+        $cls2 = new stdClass();
+        $cls3 = new stdClass();
+        $this->collection = Collection::object(function (SplObjectStorage $storage) use ($cls1, $cls2, $cls3): void {
+            $storage[$cls1] = 'data for object 1';
+            $storage[$cls2] = [1, 2, 3];
+            $storage[$cls3] = 20;
+        });
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1'],
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+                ['object' => $this->cls3, 'info' => 20],
+                ['object' => $cls1, 'info' => 'data for object 1'],
+                ['object' => $cls3, 'info' => [1, 2, 3]],
+                ['object' => $cls3, 'info' => 20],
+            ],
+            $this->collection->merge($this->collection)->all()
+        );
+
 
     }
 
