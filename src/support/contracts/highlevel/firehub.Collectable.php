@@ -16,7 +16,9 @@ namespace FireHub\Core\Support\Contracts\HighLevel;
 
 use FireHub\Core\Support\Contracts\Countable;
 use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
-use FireHub\Core\Support\Collection\Helpers\Convert;
+use FireHub\Core\Support\Collection\Helpers\ {
+    Convert, Condition
+};
 
 /**
  * ### Collectable contract
@@ -52,6 +54,16 @@ interface Collectable extends Countable, IterablesAggregate {
      * @return \FireHub\Core\Support\Collection\Helpers\Convert<TKey, TValue> As return.
      */
     public function convert ():Convert;
+
+    /**
+     * ### Conditionable methods for collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\Condition As return.
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Condition<static> As return.
+     */
+    public function when ():Condition;
 
     /**
      * ### Get collection as an array

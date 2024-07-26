@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Indexed
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    Convert, CountCollectables
+    Convert, Condition, CountCollectables
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
@@ -33,6 +33,7 @@ use Error;
 #[CoversClass(Arr::class)]
 #[CoversClass(Indexed::class)]
 #[CoversClass(Convert::class)]
+#[CoversClass(Condition::class)]
 #[CoversClass(CountCollectables::class)]
 final class IndexedTest extends Base {
 
@@ -40,6 +41,7 @@ final class IndexedTest extends Base {
     public Indexed $multidimensional;
     public Indexed $multidimensional_collection;
     public Indexed $numbers;
+    public Indexed $empty;
 
     /**
      * @since 1.0.0
@@ -63,6 +65,8 @@ final class IndexedTest extends Base {
         ]);
 
         $this->numbers = Collection::list([1, 2, 3, 4, 13, 22, 27, 28, 29]);
+
+        $this->empty = Collection::list([]);
 
     }
 
@@ -115,6 +119,88 @@ final class IndexedTest extends Base {
         $this->assertNotEquals($this->collection, $this->collection->convert()->toFixed());
 
         $this->assertNotEquals($this->collection, $this->collection->convert()->toLazy());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhenIs ():void {
+
+        $this->assertEquals(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 10],
+            $this->collection->when()->is(true, function (&$collection) {
+                return $collection[] = 10;
+            })->all()
+        );
+
+        $this->assertEquals(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 10, 11],
+            $this->collection->when()->is(false, function (&$collection) {
+                return $collection[] = 12;
+            }, function (&$collection) {
+                return $collection[] = 11;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhenUnless ():void {
+
+        $this->assertEquals(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 10],
+            $this->collection->when()->unless(false, function (&$collection) {
+                return $collection[] = 10;
+            })->all()
+        );
+
+        $this->assertEquals(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 10, 11],
+            $this->collection->when()->unless(true, function (&$collection) {
+                return $collection[] = 12;
+            }, function (&$collection) {
+                return $collection[] = 11;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhenEmpty ():void {
+
+        $this->assertEquals(
+            [10],
+            $this->empty->when()->empty(function (&$collection) {
+                return $collection[] = 10;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhenNotEmpty ():void {
+
+        $this->assertEquals(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 10],
+            $this->collection->when()->notEmpty(function (&$collection) {
+                return $collection[] = 10;
+            })->all()
+        );
 
     }
 
