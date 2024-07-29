@@ -735,7 +735,7 @@ abstract class Arr implements Init, Accessible {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::create()->indexed(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
+     * $collection = Collection::list()->indexed(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
      *
      * $chunks = $collection->groupBy(function ($prev, $curr) {
      *  return ($curr – $prev) > 1;
