@@ -376,13 +376,14 @@ class Associative extends Arr {
 
     /**
      * ### Merge recursively new collection into current one
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::mergeRecursive() To merge two or more arrays recursively.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
      *
      * @param self<TKey, TValue> ...$collections <p>
      * Variable list of collections to recursively merge.
      * </p>
-     *
-     * @return static<array-key, mixed> New recursively merged collection.
-     *@uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
      *
      * @example
      * ```php
@@ -407,9 +408,7 @@ class Associative extends Arr {
      * // ]
      * ```
      *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::mergeRecursive() To merge two or more arrays recursively.
+     * @return static<array-key, mixed> New recursively merged collection.
      */
     public function mergeRecursive (Collectable ...$collections):self {
 
