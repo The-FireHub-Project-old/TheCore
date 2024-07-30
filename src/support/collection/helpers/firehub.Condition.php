@@ -37,6 +37,8 @@ final class Condition implements Init {
      * ### Constructor
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
+     *
      * @param TCollectable $collectable <p>
      * Collectable instance to condition upon.
      * </p>

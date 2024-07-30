@@ -43,6 +43,8 @@ final class Convert implements Init {
      * ### Constructor
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
+     *
      * @param \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $collectable <p>
      * Collectable instance to convert.
      * </p>
