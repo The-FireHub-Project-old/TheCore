@@ -46,6 +46,8 @@ final class Convert implements Init {
      * @param \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $collectable <p>
      * Collectable instance to convert.
      * </p>
+     *
+     * @return void
      */
     public function __construct (
         private readonly Collectable $collectable

@@ -49,6 +49,8 @@ final class CountCollectables implements Init {
      * @param \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $collectable <p>
      * Collectable instance to count.
      * </p>
+     *
+     * @return void
      */
     public function __construct (
         private readonly Collectable $collectable

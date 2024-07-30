@@ -40,6 +40,8 @@ final class Condition implements Init {
      * @param TCollectable $collectable <p>
      * Collectable instance to condition upon.
      * </p>
+     *
+     * @return void
      */
     public function __construct (
         private readonly Collectable $collectable
