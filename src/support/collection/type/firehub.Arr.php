@@ -41,6 +41,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  *
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  *
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
@@ -62,6 +63,8 @@ abstract class Arr implements Init, Accessible {
     /**
      * ### This trait allows usage of conditionable methods for collection
      * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
 
@@ -949,6 +952,52 @@ abstract class Arr implements Init, Accessible {
 
         foreach ($collections as $collection)
             $storage = [...$storage, ...$collection->all()];
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To extract a slice of the array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $merged = $collection->slice(2, 3);
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     * @example With a negative offset we can start from the last element.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $merged = $collection->slice(-3, 2);
+     *
+     * // ['Jane', 'Richard']
+     * ```
+     * @example With a negative length sequence will stop that many elements from the end of the array.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $merged = $collection->slice(2, -1);
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     */
+    public function slice (int $offset, ?int $length = null):static {
+
+        $storage = ArrLL::slice($this->storage, $offset, $length);
 
         return new static($storage);
 

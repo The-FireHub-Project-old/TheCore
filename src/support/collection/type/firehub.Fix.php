@@ -57,6 +57,8 @@ final class Fix implements Init, Accessible {
     /**
      * ### This trait allows usage of conditionable methods for collection
      * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
 

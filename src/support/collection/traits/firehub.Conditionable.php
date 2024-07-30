@@ -19,6 +19,8 @@ use FireHub\Core\Support\Collection\Helpers\Condition;
 /**
  * ### This trait allows usage of conditionable methods for collection
  * @since 1.0.0
+ *
+ * @template-covariant TCollectable of \FireHub\Core\Support\Contracts\HighLevel\Collectable
  */
 trait Conditionable {
 
@@ -28,6 +30,8 @@ trait Conditionable {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Helpers\Condition As return.
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Condition<TCollectable>
      */
     public function when ():Condition {
 
