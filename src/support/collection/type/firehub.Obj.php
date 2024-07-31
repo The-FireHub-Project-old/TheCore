@@ -19,8 +19,9 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
+use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable
+    Convertable, Conditionable, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -37,6 +38,7 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, object>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Obj implements Init, Accessible {
@@ -60,6 +62,14 @@ final class Obj implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait allows collection slicing
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, object>
+     */
+    use Sliceable;
 
     /**
      * ### Constructor
@@ -954,6 +964,54 @@ final class Obj implements Init, Accessible {
 
         foreach ($collections as $collection)
             foreach ($collection as $object) $storage[$object] = $collection[$object]; // @phpstan-ignore-line
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $merged = $collection->slice(1, 2);
+     *
+     * // [[object(stdClass), [1,2,3]], [object(stdClass), 20]]
+     * ```
+     */
+    public function slice (int $offset, ?int $length = null):self {
+
+        $range = new SliceRange($this->count(), $offset, $length);
+
+        $storage = new SplObjectStorage();
+
+        $start = $range->start();
+        $end = $range->end();
+
+        $position = 0;
+        foreach ($this->storage as $object) {
+
+            if ($position++ < $start) continue;
+
+            if ($position > $end) break;
+
+            $storage[$object] = $this->storage[$object];
+
+        }
 
         return new self($storage);
 

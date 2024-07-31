@@ -18,9 +18,11 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
-use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Helpers\ {
+    CountCollectables, SliceRange
+};
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable
+    Convertable, Conditionable, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -62,6 +64,14 @@ final class Gen implements Init, Collectable {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait allows collection slicing
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<TKey, TValue>
+     */
+    use Sliceable;
 
     /**
      * ### Constructor
@@ -719,6 +729,48 @@ final class Gen implements Init, Collectable {
             yield from $this->invoke();
 
             foreach ($collections as $collection) yield from $collection->all(); // @phpstan-ignore-line
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $merged = $collection->slice(1, 2);
+     *
+     * // ['lastname' => 'Doe', 'age' => 25]
+     * ```
+     *
+     * @return self<TKey, TValue> New sliced collection.
+     */
+    public function slice (int $offset, ?int $length = null):self {
+
+        $range = new SliceRange($this->count(), $offset, $length);
+
+        return new self(function () use ($range):Generator {
+
+            $start = $range->start();
+            $end = $range->end();
+
+            $position = 0;
+            foreach ($this as $key => $value) {
+
+                if ($position++ < $start) continue;
+
+                if ($position > $end) break;
+
+                yield $key => $value;
+
+            }
 
         });
 

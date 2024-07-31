@@ -426,6 +426,32 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To extract a slice of the array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $merged = $collection->slice(2, 3);
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     */
+    public function slice (int $offset, ?int $length = null):static {
+
+        $storage = ArrLL::slice($this->storage, $offset, $length, true);
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @param ?array-key $offset <p>
      * Offset to assign the value to.
      * </p>

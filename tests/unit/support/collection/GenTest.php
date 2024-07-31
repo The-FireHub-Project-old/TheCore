@@ -19,7 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Gen
 };
-use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Helpers\ {
+    CountCollectables, SliceRange
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 use Generator;
 
@@ -31,6 +33,7 @@ use Generator;
 #[CoversClass(Arr::class)]
 #[CoversClass(Gen::class)]
 #[CoversClass(CountCollectables::class)]
+#[CoversClass(SliceRange::class)]
 final class GenTest extends Base {
 
     public Gen $collection;
@@ -349,6 +352,20 @@ final class GenTest extends Base {
                 0 => 'one', 1 => 'two'
             ],
             $this->collection->merge($this->simple)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSlice ():void {
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 'age' => 25],
+            $this->collection->slice(1, 2)->all()
         );
 
     }

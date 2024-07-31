@@ -19,6 +19,7 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Obj
 };
+use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use PHPUnit\Framework\Attributes\CoversClass;
 use SplObjectStorage, stdClass;
 
@@ -29,6 +30,7 @@ use SplObjectStorage, stdClass;
 #[CoversClass(Collection::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Obj::class)]
+#[CoversClass(SliceRange::class)]
 final class ObjTest extends Base {
 
     public Obj $collection;
@@ -402,6 +404,23 @@ final class ObjTest extends Base {
             $this->collection->merge($collection)->all()
         );
 
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSlice ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            $this->collection->slice(1, 2)->all()
+        );
 
     }
 

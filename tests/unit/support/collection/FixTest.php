@@ -19,7 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Fix
 };
-use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Helpers\ {
+    CountCollectables, SliceRange
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 use SplFixedArray;
 
@@ -31,6 +33,7 @@ use SplFixedArray;
 #[CoversClass(Arr::class)]
 #[CoversClass(Fix::class)]
 #[CoversClass(CountCollectables::class)]
+#[CoversClass(SliceRange::class)]
 final class FixTest extends Base {
 
     public Fix $collection;
@@ -363,6 +366,20 @@ final class FixTest extends Base {
         $this->assertSame(
             ['one', 'two', 'three', 'one', 'two', 'three'],
             $this->collection->merge($this->collection)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSlice ():void {
+
+        $this->assertSame(
+            ['two', 'three'],
+            $this->collection->slice(1, 2)->all()
         );
 
     }

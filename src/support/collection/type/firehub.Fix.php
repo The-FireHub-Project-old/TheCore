@@ -19,9 +19,11 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
-use FireHub\Core\Support\Collection\Helpers\CountCollectables;
+use FireHub\Core\Support\Collection\Helpers\ {
+    CountCollectables, SliceRange
+};
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable
+    Convertable, Conditionable, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, Iterables, Iterator
@@ -61,6 +63,14 @@ final class Fix implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait allows collection slicing
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, mixed>
+     */
+    use Sliceable;
 
     /**
      * ### Constructor
@@ -801,6 +811,50 @@ final class Fix implements Init, Accessible {
 
         foreach ($collections as $collection)
             foreach ($collection as $value) $storage[$counter++] = $value;
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $merged = $collection->slice(1, 2);
+     *
+     * // ['two', 'three']
+     * ```
+     */
+    public function slice (int $offset, ?int $length = null):self {
+
+        $range = new SliceRange($this->count(), $offset, $length);
+
+        $storage = new SplFixedArray(max($range->count(), 1));
+
+        $start = $range->start();
+        $end = $range->end();
+
+        $position = 0; $counter = 0;
+        foreach ($this as $value) {
+
+            if ($position++ < $start) continue;
+
+            if ($position > $end) break;
+
+            $storage[$counter++] = $value;
+
+        }
 
         return new self($storage);
 

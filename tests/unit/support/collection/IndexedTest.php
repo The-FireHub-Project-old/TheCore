@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Indexed
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    Convert, Condition, CountCollectables
+    Convert, Condition, CountCollectables, SliceRange
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
@@ -35,6 +35,7 @@ use Error;
 #[CoversClass(Convert::class)]
 #[CoversClass(Condition::class)]
 #[CoversClass(CountCollectables::class)]
+#[CoversClass(SliceRange::class)]
 final class IndexedTest extends Base {
 
     public Indexed $collection;
@@ -584,6 +585,30 @@ final class IndexedTest extends Base {
         $this->assertSame(
             ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 1, 2, 3, 4, 13, 22, 27, 28, 29],
             $this->collection->merge($this->numbers)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSlice ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $this->collection->slice(2, 3)->all()
+        );
+
+        $this->assertSame(
+            ['Jane', 'Richard'],
+            $this->collection->slice(-3, 2)->all()
+        );
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $this->collection->slice(2, -1)->all()
         );
 
     }
