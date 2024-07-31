@@ -381,7 +381,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### ### Split an array into chunks
+     * ### Split an array into chunks
      *
      * Chunks an array into arrays with $length elements. The last chunk may contain less than $length elements.
      * @since 1.0.0
