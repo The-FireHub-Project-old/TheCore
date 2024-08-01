@@ -21,7 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Sliceable
+    Convertable, Conditionable
 };
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
@@ -67,14 +67,6 @@ abstract class Arr implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
-
-    /**
-     * ### This trait allows collection slicing
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<TKey, TValue>
-     */
-    use Sliceable;
 
     /**
      * ### Array underlying data

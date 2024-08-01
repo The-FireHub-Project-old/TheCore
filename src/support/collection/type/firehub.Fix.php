@@ -23,7 +23,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Sliceable
+    Convertable, Conditionable
 };
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, Iterables, Iterator
@@ -63,14 +63,6 @@ final class Fix implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
-
-    /**
-     * ### This trait allows collection slicing
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, mixed>
-     */
-    use Sliceable;
 
     /**
      * ### Constructor

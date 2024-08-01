@@ -22,7 +22,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Sliceable
+    Convertable, Conditionable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -64,14 +64,6 @@ final class Gen implements Init, Collectable {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
-
-    /**
-     * ### This trait allows collection slicing
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<TKey, TValue>
-     */
-    use Sliceable;
 
     /**
      * ### Constructor
