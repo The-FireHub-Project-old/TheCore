@@ -21,7 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable
+    Convertable, Conditionable, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -62,6 +62,14 @@ final class Obj implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait allows usage of slicing methods
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, object>
+     */
+    use Sliceable;
 
     /**
      * ### Constructor

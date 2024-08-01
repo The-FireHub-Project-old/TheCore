@@ -280,4 +280,17 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function slice (int $offset, ?int $length = null):self;
 
+    /**
+     * ### Take first n items from collection
+     * @since 1.0.0
+     *
+     * @param int $count <p>
+     * If the count is positive, then the sequence will have that many elements in it.
+     * If the count is negative, then the sequence will stop that many elements from the end of the array.
+     * </p>
+     *
+     * @return self<TKey, TValue> New sliced collection.
+     */
+    public function take (int $count):self;
+
 }

@@ -404,7 +404,6 @@ final class ObjTest extends Base {
             $this->collection->merge($collection)->all()
         );
 
-
     }
 
     /**
@@ -420,6 +419,23 @@ final class ObjTest extends Base {
                 ['object' => $this->cls3, 'info' => 20]
             ],
             $this->collection->slice(1, 2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTake ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1'],
+                ['object' => $this->cls2, 'info' => [1, 2, 3]]
+            ],
+            $this->collection->take(2)->all()
         );
 
     }
