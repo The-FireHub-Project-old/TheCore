@@ -293,4 +293,17 @@ interface Collectable extends Countable, IterablesAggregate {
      */
     public function take (int $count):self;
 
+    /**
+     * ### Skip first n items from collection
+     * @since 1.0.0
+     *
+     * @param int $count <p>
+     * If the count is non-negative, the sequence will start at that offset in the array.
+     * If the count is negative, the sequence will start that far from the end of the array.
+     * </p>
+     *
+     * @return self<TKey, TValue> New sliced collection.
+     */
+    public function skip (int $count):self;
+
 }

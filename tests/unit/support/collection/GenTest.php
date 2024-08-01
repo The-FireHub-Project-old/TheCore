@@ -389,6 +389,20 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testSkip ():void {
+
+        $this->assertSame(
+            ['age' => 25, 10 => 2],
+            $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));

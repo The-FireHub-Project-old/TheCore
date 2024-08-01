@@ -37,11 +37,48 @@ trait Sliceable {
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::slice() To get a slice from a collection.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $merged = $collection->take(2);
+     *
+     * // ['John', 'Jane']
+     * ```
+     *
      * @return static<TKey, TValue> New sliced collection.
      */
     public function take (int $count):self {
 
         return $this->slice(0, $count);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $merged = $collection->skip(2);
+     *
+     * // ['Jane', 'Jane', 'Richard', 'Richard']
+     * ```
+     *
+     * @return static<TKey, TValue> New sliced collection.
+     */
+    public function skip (int $count):self {
+
+        return $this->slice($count);
 
     }
 

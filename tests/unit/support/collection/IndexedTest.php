@@ -632,6 +632,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSkip ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard', 'Richard'],
+            $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));

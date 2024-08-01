@@ -440,4 +440,20 @@ final class ObjTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkip ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            $this->collection->skip(2)->all()
+        );
+
+    }
+
 }
