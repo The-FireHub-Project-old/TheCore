@@ -974,6 +974,10 @@ final class Obj implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To count for SliceRange.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;

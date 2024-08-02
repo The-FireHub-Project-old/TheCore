@@ -739,6 +739,10 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To count for SliceRange.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.
+     *
      * @example
      * ```php
      * use FireHub\Core\Support\Collection;
