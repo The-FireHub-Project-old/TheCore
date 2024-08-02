@@ -452,6 +452,148 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $take = $collection->takeUntil(function ($value, $key) {
+     *  return $value === 25;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     */
+    public function takeUntil (callable $callback):static {
+
+        $storage = [];
+
+        foreach ($this->storage as $key => $value) {
+
+            if ($callback($value, $key)) break;
+
+            $storage[$key] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $take = $collection->takeWhile(function ($value, $key) {
+     *  return $value !== 25;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     */
+    public function takeWhile (callable $callback):static {
+
+        $storage = [];
+
+        foreach ($this->storage as $key => $value) {
+
+            if (!$callback($value, $key)) break;
+
+            $storage[$key] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $skip = $collection->skipUntil(function ($value, $key) {
+     *  return $value !== 25;
+     * });
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     */
+    public function skipUntil (callable $callback):static {
+
+        $storage = [];
+
+        $found = false;
+        foreach ($this->storage as $key => $value) {
+
+            if (!$found && !$callback($value, $key)) continue;
+
+            $found = true;
+
+            $storage[$key] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $skip = $collection->skipWhile(function ($value, $key) {
+     *  return $value === 'John';
+     * });
+     *
+     * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     */
+    public function skipWhile (callable $callback):static {
+
+        $storage = [];
+
+        $found = false;
+        foreach ($this->storage as $key => $value) {
+
+            if (!$found && $callback($value, $key)) continue;
+
+            $found = true;
+
+            $storage[$key] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @param ?array-key $offset <p>
      * Offset to assign the value to.
      * </p>

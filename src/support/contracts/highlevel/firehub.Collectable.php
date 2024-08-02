@@ -294,6 +294,30 @@ interface Collectable extends Countable, IterablesAggregate {
     public function take (int $count):self;
 
     /**
+     * ### Take until the given callback returns true
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey=):bool $callback <p>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function takeUntil (callable $callback):self;
+
+    /**
+     * ### Take while the given callback returns true
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey=):bool $callback <p>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function takeWhile (callable $callback):self;
+
+    /**
      * ### Skip first n items from collection
      * @since 1.0.0
      *
@@ -305,5 +329,29 @@ interface Collectable extends Countable, IterablesAggregate {
      * @return self<TKey, TValue> New sliced collection.
      */
     public function skip (int $count):self;
+
+    /**
+     * ### sKIP until the given callback returns true
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey=):bool $callback <p>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function skipUntil (callable $callback):self;
+
+    /**
+     * ### Skip while the given callback returns true
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey=):bool $callback <p>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function skipWhile (callable $callback):self;
 
 }

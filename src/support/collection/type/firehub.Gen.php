@@ -781,6 +781,156 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $take = $collection->takeUntil(function ($value, $key) {
+     *  return $value === 25;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function takeUntil (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            foreach ($this as $key => $value) {
+
+                if ($callback($value, $key)) break;
+
+                yield $key => $value;
+
+            }
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $take = $collection->takeWhile(function ($value, $key) {
+     *  return $value !== 25;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function takeWhile (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            foreach ($this as $key => $value) {
+
+                if (!$callback($value, $key)) break;
+
+                yield $key => $value;
+
+            }
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $skip = $collection->skipUntil(function ($value, $key) {
+     *  return $value !== 25;
+     * });
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function skipUntil (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            $found = false;
+            foreach ($this as $key => $value) {
+
+                if (!$found && !$callback($value, $key)) continue;
+
+                $found = true;
+
+                yield $key => $value;
+
+            }
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $skip = $collection->skipWhile(function ($value, $key) {
+     *  return $value === 'John';
+     * });
+     *
+     * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with items.
+     */
+    public function skipWhile (callable $callback):self {
+
+        return new self(function () use ($callback):Generator {
+
+            $found = false;
+            foreach ($this as $key => $value) {
+
+                if (!$found && $callback($value, $key)) continue;
+
+                $found = true;
+
+                yield $key => $value;
+
+            }
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::invoke() To invoke storage.
      *
      * @return Traversable<TKey, TValue> Collection items as an array.

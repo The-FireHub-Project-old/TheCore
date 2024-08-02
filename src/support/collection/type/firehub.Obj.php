@@ -1021,6 +1021,180 @@ final class Obj implements Init, Accessible {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $take = $collection->takeUntil(function ($object, $info) {
+     *  return $info === [1, 2, 3];
+     * });
+     *
+     * // [[objects(stdClass), 'data for object 1']]
+     * ```
+     */
+    public function takeUntil (callable $callback):self {
+
+        $storage = new SplObjectStorage();
+
+        foreach ($this as $object) {
+
+            if ($callback($object, $this->storage[$object])) break; // @phpstan-ignore-line
+
+            $storage[$object] = $this->storage[$object];
+
+        }
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $take = $collection->takeWhile(function ($object, $info) {
+     *  return $info !== [1, 2, 3];
+     * });
+     *
+     * // [[objects(stdClass), 'data for object 1']]
+     * ```
+     */
+    public function takeWhile (callable $callback):self {
+
+        $storage = new SplObjectStorage();
+
+        foreach ($this as $object) {
+
+            if (!$callback($object, $this->storage[$object])) break; // @phpstan-ignore-line
+
+            $storage[$object] = $this->storage[$object];
+
+        }
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $skip = $collection->skipUntil(function ($object, $info) {
+     *  return $info === [1, 2, 3];
+     * });
+     *
+     * // [[objects(stdClass), [1,2,3]], [objects(stdClass), 20]]
+     * ```
+     */
+    public function skipUntil (callable $callback):self {
+
+        $storage = new SplObjectStorage();
+
+        $found = false;
+        foreach ($this as $object) {
+
+            if (!$found && !$callback($object, $this->storage[$object])) continue; // @phpstan-ignore-line
+
+            $found = true;
+
+            $storage[$object] = $this->storage[$object];
+
+        }
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $skip = $collection->skipWhile(function ($object, $info) {
+     *  return $info !== [1, 2, 3];
+     * });
+     *
+     * // [[objects(stdClass), [1,2,3]], [objects(stdClass), 20]]
+     * ```
+     */
+    public function skipWhile (callable $callback):self {
+
+        $storage = new SplObjectStorage();
+
+        $found = false;
+        foreach ($this as $object) {
+
+            if (!$found && $callback($object, $this->storage[$object])) continue; // @phpstan-ignore-line
+
+            $found = true;
+
+            $storage[$object] = $this->storage[$object];
+
+        }
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function offsetExists (mixed $offset):bool {
 

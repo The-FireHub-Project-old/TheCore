@@ -445,6 +445,38 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testTakeUntil ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1']
+            ],
+            $this->collection->takeUntil(fn($object, $info) => $info === [1, 2, 3])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTakeWhile ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1']
+            ],
+            $this->collection->takeWhile(fn($object, $info) => $info !== [1, 2, 3])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSkip ():void {
 
         $this->assertSame(
@@ -452,6 +484,40 @@ final class ObjTest extends Base {
                 ['object' => $this->cls3, 'info' => 20]
             ],
             $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipUntil ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            $this->collection->skipUntil(fn($object, $info) => $info === [1, 2, 3])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipWhile ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            $this->collection->skipWhile(fn($object, $info) => $info !== [1, 2, 3])->all()
         );
 
     }

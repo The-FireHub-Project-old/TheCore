@@ -336,11 +336,67 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testTakeUntil ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe'],
+            $this->collection->takeUntil(fn($value, $key) => $value === 25)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTakeWhile ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe'],
+            $this->collection->takeWhile(fn($value, $key) => $value !== 25)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSkip ():void {
 
         $this->assertSame(
             ['age' => 25, 10 => 2],
             $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipUntil ():void {
+
+        $this->assertSame(
+            ['age' => 25, 10 => 2],
+            $this->collection->skipUntil(fn($value, $key) => $value === 25)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipWhile ():void {
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 'age' => 25, 10 => 2],
+            $this->collection->skipWhile(fn($value, $key) => $value === 'John')->all()
         );
 
     }

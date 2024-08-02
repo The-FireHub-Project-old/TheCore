@@ -403,11 +403,67 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testTakeUntil ():void {
+
+        $this->assertSame(
+            ['one'],
+            $this->collection->takeUntil(fn($value) => $value === 'two')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTakeWhile ():void {
+
+        $this->assertSame(
+            ['one'],
+            $this->collection->takeWhile(fn($value) => $value !== 'two')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSkip ():void {
 
         $this->assertSame(
             ['three'],
             $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipUntil ():void {
+
+        $this->assertSame(
+            ['two', 'three'],
+            $this->collection->skipUntil(fn($value) => $value === 'two')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipWhile ():void {
+
+        $this->assertSame(
+            ['two', 'three'],
+            $this->collection->skipWhile(fn($value) => $value !== 'two')->all()
         );
 
     }

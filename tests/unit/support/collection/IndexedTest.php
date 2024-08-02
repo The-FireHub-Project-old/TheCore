@@ -632,11 +632,67 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testTakeUntil ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane'],
+            $this->collection->takeUntil(fn($value) => $value === 'Richard')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTakeWhile ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane'],
+            $this->collection->takeWhile(fn($value) => $value !== 'Richard')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSkip ():void {
 
         $this->assertSame(
             ['Jane', 'Jane', 'Richard', 'Richard'],
             $this->collection->skip(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipUntil ():void {
+
+        $this->assertSame(
+            ['Richard', 'Richard'],
+            $this->collection->skipUntil(fn($value) => $value === 'Richard')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSkipWhile ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
+            $this->collection->skipWhile(fn($value) => $value === 'John')->all()
         );
 
     }

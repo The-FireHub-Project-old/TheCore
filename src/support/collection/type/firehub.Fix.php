@@ -40,6 +40,7 @@ use SplFixedArray, Traversable;
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, mixed>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Fix implements Init, Accessible {
@@ -855,6 +856,174 @@ final class Fix implements Init, Accessible {
             $storage[$counter++] = $value;
 
         }
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $take = $collection->takeUntil(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // ['one']
+     * ```
+     */
+    public function takeUntil (callable $callback):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        $counter = 0;
+        foreach ($this as $value) {
+
+            if ($callback($value)) break;
+
+            $storage[$counter++] = $value;
+
+        }
+
+        $storage->setSize($counter);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $take = $collection->takeWhile(function ($value) {
+     *  return $value !== 'two';
+     * });
+     *
+     * // ['one']
+     * ```
+     */
+    public function takeWhile (callable $callback):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        $counter = 0;
+        foreach ($this as $value) {
+
+            if (!$callback($value)) break;
+
+            $storage[$counter++] = $value;
+
+        }
+
+        $storage->setSize($counter);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $skip = $collection->skipUntil(function ($value) {
+     *  return $value === 'two';
+     * });
+     *
+     * // ['two', 'three']
+     * ```
+     */
+    public function skipUntil (callable $callback):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        $counter = 0; $found = false;
+        foreach ($this as $value) {
+
+            if (!$found && !$callback($value)) continue;
+
+            $found = true;
+
+            $storage[$counter++] = $value;
+
+        }
+
+        $storage->setSize($counter);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $skip = $collection->skipWhile(function ($value) {
+     *  return $value !== 'two';
+     * });
+     *
+     * // ['two', 'three']
+     * ```
+     */
+    public function skipWhile (callable $callback):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        $counter = 0; $found = false;
+        foreach ($this as $value) {
+
+            if (!$found && $callback($value)) continue;
+
+            $found = true;
+
+            $storage[$counter++] = $value;
+
+        }
+
+        $storage->setSize($counter);
 
         return new self($storage);
 

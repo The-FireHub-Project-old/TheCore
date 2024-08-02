@@ -1015,6 +1015,148 @@ abstract class Arr implements Init, Accessible {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $take = $collection->takeUntil(function ($value) {
+     *  return $value === 'Richard';
+     * });
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane']
+     * ```
+     */
+    public function takeUntil (callable $callback):static {
+
+        $storage = [];
+
+        foreach ($this->storage as $value) {
+
+            if ($callback($value)) break;
+
+            $storage[] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $take = $collection->takeWhile(function ($value) {
+     *  return $value !== 'Richard';
+     * });
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane']
+     * ```
+     */
+    public function takeWhile (callable $callback):static {
+
+        $storage = [];
+
+        foreach ($this->storage as $value) {
+
+            if (!$callback($value)) break;
+
+            $storage[] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $skip = $collection->skipUntil(function ($value) {
+     *  return $value !== 'Richard';
+     * });
+     *
+     * // ['Richard', 'Richard']
+     * ```
+     */
+    public function skipUntil (callable $callback):static {
+
+        $storage = [];
+
+        $found = false;
+        foreach ($this->storage as $value) {
+
+            if (!$found && !$callback($value)) continue;
+
+            $found = true;
+
+            $storage[] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $skip = $collection->skipWhile(function ($value) {
+     *  return $value === 'John';
+     * });
+     *
+     * // ['Jane', 'Jane', 'Jane', 'Richard', 'Richard']
+     * ```
+     */
+    public function skipWhile (callable $callback):static {
+
+        $storage = [];
+
+        $found = false;
+        foreach ($this->storage as $value) {
+
+            if (!$found && $callback($value)) continue;
+
+            $found = true;
+
+            $storage[] = $value;
+
+        }
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function offsetExists (mixed $offset):bool {
 
