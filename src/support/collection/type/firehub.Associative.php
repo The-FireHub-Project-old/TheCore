@@ -299,7 +299,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $filtered = $collection->filter(function ($value, $key) {
+     * $collection->filter(function ($value, $key) {
      *  return $key !== 'firstname' && $value !== 'Doe';
      * });
      *
@@ -327,7 +327,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $filtered = $collection->reject(function ($value, $key) {
+     * $collection->reject(function ($value, $key) {
      *  return $key === 'age' || $value === 2;
      * });
      *
@@ -356,7 +356,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => [2, 1, 2, 3, 4, 13, 22, 27, 28, 29]);
      *
-     * $merged = $collection->merge($collection2);
+     * $collection->merge($collection2);
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 1, 2, 3, 4, 13, 22, 27, 28, 29]
      * ```
@@ -399,7 +399,7 @@ class Associative extends Arr {
      *  'one', 'two', 'three'
      * ]);
      *
-     * $merged = $collection->mergeRecursive($collection2, $collection3);
+     * $collection->mergeRecursive($collection2, $collection3);
      *
      * // [
      * //   'firstname' => ['John', 'Jane'],
@@ -434,7 +434,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $merged = $collection->slice(2, 3);
+     * $collection->slice(2, 3);
      *
      * // ['age' => 25, 10 => 2]
      * ```
@@ -458,7 +458,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $take = $collection->takeUntil(function ($value, $key) {
+     * $collection->takeUntil(function ($value, $key) {
      *  return $value === 25;
      * });
      *
@@ -492,7 +492,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $take = $collection->takeWhile(function ($value, $key) {
+     * $collection->takeWhile(function ($value, $key) {
      *  return $value !== 25;
      * });
      *
@@ -526,7 +526,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $skip = $collection->skipUntil(function ($value, $key) {
+     * $collection->skipUntil(function ($value, $key) {
      *  return $value !== 25;
      * });
      *
@@ -563,7 +563,7 @@ class Associative extends Arr {
      *
      * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $skip = $collection->skipWhile(function ($value, $key) {
+     * $collection->skipWhile(function ($value, $key) {
      *  return $value === 'John';
      * });
      *

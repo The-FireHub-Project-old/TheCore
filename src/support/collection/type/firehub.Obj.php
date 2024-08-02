@@ -828,7 +828,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $filter = $collection->filter(function ($object, $info) {
+     * $collection->filter(function ($object, $info) {
      *  return $info === 20;
      * });
      *
@@ -869,7 +869,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $filter = $collection->reject(function ($object, $info) {
+     * $collection->reject(function ($object, $info) {
      *  return $info !== 20;
      * });
      *
@@ -900,7 +900,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls2] = 'data for object 2';
      * });
      *
-     * $map = $collection->map(function ($info) {
+     * $collection->map(function ($info) {
      *  return 'new '.$info;
      * });
      *
@@ -948,7 +948,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $merged = $collection->merge($collection2);
+     * $collection->merge($collection2);
      *
      * // [
      * //   [object(stdClass), 'data for object 1'], [object(stdClass), [1,2,3]], [object(stdClass),20],
@@ -988,7 +988,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $merged = $collection->slice(1, 2);
+     * $collection->slice(1, 2);
      *
      * // [[object(stdClass), [1,2,3]], [object(stdClass), 20]]
      * ```
@@ -1036,7 +1036,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $take = $collection->takeUntil(function ($object, $info) {
+     * $collection->takeUntil(function ($object, $info) {
      *  return $info === [1, 2, 3];
      * });
      *
@@ -1078,7 +1078,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $take = $collection->takeWhile(function ($object, $info) {
+     * $collection->takeWhile(function ($object, $info) {
      *  return $info !== [1, 2, 3];
      * });
      *
@@ -1120,7 +1120,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $skip = $collection->skipUntil(function ($object, $info) {
+     * $collection->skipUntil(function ($object, $info) {
      *  return $info === [1, 2, 3];
      * });
      *
@@ -1165,7 +1165,7 @@ final class Obj implements Init, Accessible {
      *  $storage[$cls3] = 20;
      * });
      *
-     * $skip = $collection->skipWhile(function ($object, $info) {
+     * $collection->skipWhile(function ($object, $info) {
      *  return $info !== [1, 2, 3];
      * });
      *

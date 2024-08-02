@@ -618,7 +618,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $filtered = $collection->filter(function ($value, $key) {
+     * $collection->filter(function ($value, $key) {
      *  return $key !== 'firstname' && $value !== 'Doe';
      * });
      *
@@ -653,7 +653,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $filtered = $collection->reject(function ($value, $key) {
+     * $collection->reject(function ($value, $key) {
      *  return $key === 'age' || $value === 2;
      * });
      *
@@ -680,7 +680,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $map = $collection->map(function ($value, $key) {
+     * $collection->map(function ($value, $key) {
      *  return 'new '.$value;
      * });
      *
@@ -715,7 +715,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection2 = Collection::lazy(fn():Generator => yield from ['one', 'two']);
      *
-     * $merged = $collection->merge($collection2);
+     * $collection->merge($collection2);
      *
      * // ['one', 'two', 'three', 'four', 'five']
      * ```
@@ -745,7 +745,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $merged = $collection->slice(1, 2);
+     * $collection->slice(1, 2);
      *
      * // ['lastname' => 'Doe', 'age' => 25]
      * ```
@@ -787,7 +787,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $take = $collection->takeUntil(function ($value, $key) {
+     * $collection->takeUntil(function ($value, $key) {
      *  return $value === 25;
      * });
      *
@@ -823,7 +823,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $take = $collection->takeWhile(function ($value, $key) {
+     * $collection->takeWhile(function ($value, $key) {
      *  return $value !== 25;
      * });
      *
@@ -859,7 +859,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $skip = $collection->skipUntil(function ($value, $key) {
+     * $collection->skipUntil(function ($value, $key) {
      *  return $value !== 25;
      * });
      *
@@ -898,7 +898,7 @@ final class Gen implements Init, Collectable {
      *
      * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
-     * $skip = $collection->skipWhile(function ($value, $key) {
+     * $collection->skipWhile(function ($value, $key) {
      *  return $value === 'John';
      * });
      *

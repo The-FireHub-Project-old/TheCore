@@ -229,7 +229,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $count = $collection->countBy(function ($value, $key) {
+     * $collection->countBy(function ($value, $key) {
      *  return substr($value, 0, 1);
      * });
      *
@@ -283,7 +283,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $count = $collection->countBy();
+     * $collection->countBy();
      *
      * // ['John' => 1, 'Jane' => 3, 'Richard' => 2]
      * ```
@@ -297,7 +297,7 @@ abstract class Arr implements Init, Accessible {
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
      * ]);
      *
-     * $count = $collection->countByValues('lastname');
+     *  $collection->countByValues('lastname');
      *
      * // ['Doe' => 2, 'Roe' => 1]
      * ```
@@ -748,7 +748,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list()->indexed(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
      *
-     * $chunks = $collection->groupBy(function ($prev, $curr) {
+     * $collection->groupBy(function ($prev, $curr) {
      *  return ($curr – $prev) > 1;
      * });
      *
@@ -764,7 +764,7 @@ abstract class Arr implements Init, Accessible {
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
      * ]);
      *
-     * $chunks = $collection->groupBy(function ($prev, $curr) {
+     * $collection->groupBy(function ($prev, $curr) {
      *  return $curr['lastname'] !== 'Doe';
      * });
      *
@@ -852,7 +852,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $filtered = $collection->filter(function ($value) {
+     * $collection->filter(function ($value) {
      *  return $value !== 'Jane';
      * });
      *
@@ -880,7 +880,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $filtered = $collection->reject(function ($value) {
+     * $collection->reject(function ($value) {
      *  return $value !== 'Jane';
      * });
      *
@@ -907,7 +907,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $map = $collection->map(function ($value, $key) {
+     * $collection->map(function ($value, $key) {
      *  return $value.'.';
      * });
      *
@@ -947,7 +947,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection2 = Collection::list(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
      *
-     * $merged = $collection->merge($collection2);
+     * $collection->merge($collection2);
      *
      * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 1, 2, 3, 4, 13, 22, 27, 28, 29]
      * ```
@@ -978,7 +978,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $merged = $collection->slice(2, 3);
+     * $collection->slice(2, 3);
      *
      * // ['Jane', 'Jane', 'Richard']
      * ```
@@ -988,7 +988,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $merged = $collection->slice(-3, 2);
+     * $collection->slice(-3, 2);
      *
      * // ['Jane', 'Richard']
      * ```
@@ -998,7 +998,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $merged = $collection->slice(2, -1);
+     * $collection->slice(2, -1);
      *
      * // ['Jane', 'Jane', 'Richard']
      * ```
@@ -1022,7 +1022,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $take = $collection->takeUntil(function ($value) {
+     * $collection->takeUntil(function ($value) {
      *  return $value === 'Richard';
      * });
      *
@@ -1056,7 +1056,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $take = $collection->takeWhile(function ($value) {
+     * $collection->takeWhile(function ($value) {
      *  return $value !== 'Richard';
      * });
      *
@@ -1090,7 +1090,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $skip = $collection->skipUntil(function ($value) {
+     * $collection->skipUntil(function ($value) {
      *  return $value !== 'Richard';
      * });
      *
@@ -1127,7 +1127,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $skip = $collection->skipWhile(function ($value) {
+     * $collection->skipWhile(function ($value) {
      *  return $value === 'John';
      * });
      *

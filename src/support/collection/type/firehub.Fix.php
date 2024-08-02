@@ -685,7 +685,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $filtered = $collection->filter(function ($value) {
+     * $collection->filter(function ($value) {
      *  return $value !== 'one';
      * });
      *
@@ -724,7 +724,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $reject = $collection->reject(function ($value) {
+     * $collection->reject(function ($value) {
      *  return $value === 'one';
      * });
      *
@@ -753,7 +753,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $map = $collection->map(function ($value) {
+     * $collection->map(function ($value) {
      *  return 'new '.$value;
      * });
      *
@@ -793,7 +793,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $merged = $collection->merge($collection2);
+     * $collection->merge($collection2);
      *
      * // ['one', 'two', 'three', 'one', 'two', 'three]
      * ```
@@ -832,7 +832,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $merged = $collection->slice(1, 2);
+     * $collection->slice(1, 2);
      *
      * // ['two', 'three']
      * ```
@@ -876,7 +876,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $take = $collection->takeUntil(function ($value) {
+     * $collection->takeUntil(function ($value) {
      *  return $value === 'two';
      * });
      *
@@ -917,7 +917,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $take = $collection->takeWhile(function ($value) {
+     * $collection->takeWhile(function ($value) {
      *  return $value !== 'two';
      * });
      *
@@ -958,7 +958,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $skip = $collection->skipUntil(function ($value) {
+     * $collection->skipUntil(function ($value) {
      *  return $value === 'two';
      * });
      *
@@ -1001,7 +1001,7 @@ final class Fix implements Init, Accessible {
      *  $storage[2] = 'three';
      * }, 3);
      *
-     * $skip = $collection->skipWhile(function ($value) {
+     * $collection->skipWhile(function ($value) {
      *  return $value !== 'two';
      * });
      *
