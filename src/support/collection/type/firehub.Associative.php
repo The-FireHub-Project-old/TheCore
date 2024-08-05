@@ -15,6 +15,7 @@
 namespace FireHub\Core\Support\Collection\Type;
 
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\LowLevel\Arr as ArrLL;
 
 /**
@@ -27,6 +28,8 @@ use FireHub\Core\Support\LowLevel\Arr as ArrLL;
  * @template TValue
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<TKey, TValue>
+ *
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Associative extends Arr {
 
@@ -442,6 +445,65 @@ class Associative extends Arr {
     public function slice (int $offset, ?int $length = null):static {
 
         $storage = ArrLL::slice($this->storage, $offset, $length, true);
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() As replacement array.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::count() To count for SliceRange.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::slice() To slice a portion of the collection.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::merge() To merge a portion of the collection.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
+     * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $slice = $collection->splice(2, 1)
+     *
+     * $collection->all();
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 10 => 2]
+     *
+     * $slice->all();
+     *
+     * // ['age' => 25]
+     * ```
+     *
+     * @return self<TKey, TValue> New sliced collection.
+     */
+    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):self {
+
+        $range = new SliceRange($this->count(), $offset, $length);
+
+        $start = $range->start();
+        $end = $range->end();
+
+        $storage = []; $position = 0;
+        foreach ($this as $key => $value) {
+
+            if ($position++ < $start) continue;
+
+            if ($position > $end) break;
+
+            unset($this[$key]);
+
+            $storage[$key] = $value;
+
+        }
+
+        empty($replacement) ?: $this->storage = $this->slice(0, $offset)
+            ->merge($replacement, $this->slice($length ?? 0))
+            ->storage;
 
         return new static($storage);
 

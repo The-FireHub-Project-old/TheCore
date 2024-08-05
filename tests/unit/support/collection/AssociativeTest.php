@@ -322,6 +322,25 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testSplice ():void {
+
+        $splice = $this->collection->splice(2, 1, Collection::associative(['sex' => 'male']));
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe', 'sex' => 'male', 10 => 2],
+            $this->collection->all()
+        );
+        $this->assertSame(
+            ['age' => 25],
+            $splice->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTake ():void {
 
         $this->assertSame(

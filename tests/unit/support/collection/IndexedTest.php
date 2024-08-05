@@ -618,6 +618,59 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSplice ():void {
+
+        $collection = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+        $splice = $collection->splice(2, 3);
+        $this->assertSame(
+            ['John', 'Jane', 'Richard'],
+            $collection->all()
+        );
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $splice->all()
+        );
+
+        $collection = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+        $splice = $collection->splice(-5, 2);
+        $this->assertSame(
+            ['John', 'Jane', 'Richard', 'Richard'],
+            $collection->all()
+        );
+        $this->assertSame(
+            ['Jane', 'Jane'],
+            $splice->all()
+        );
+
+        $collection = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+        $splice = $collection->splice(2, -1);
+        $this->assertSame(
+            ['John', 'Jane', 'Richard'],
+            $collection->all()
+        );
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $splice->all()
+        );
+
+        $collection = Collection::list(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+        $splice = $collection->splice(2, 2, Collection::list(['Marc']));
+        $this->assertSame(
+            ['John', 'Jane', 'Marc', 'Richard', 'Richard'],
+            $collection->all()
+        );
+        $this->assertSame(
+            ['Jane', 'Jane'],
+            $splice->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testTake ():void {
 
         $this->assertSame(

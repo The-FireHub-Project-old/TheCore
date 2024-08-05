@@ -1012,6 +1012,108 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Remove a portion of the array and replace it with something else
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() As replacement array.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::splice() To remove a portion of the array and replace it with
+     * something else.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $slice = $collection->splice(2, 3)
+     *
+     * $collection->all();
+     *
+     * // ['John', 'Jane', 'Richard']
+     *
+     * $slice->all();
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     * @example With a negative offset we can start from the last element.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $slice = $collection->splice(-5, 2);
+     *
+     * $collection->all();
+     *
+     * // ['John', 'Jane', 'Richard', 'Richard']
+     *
+     * $slice->all();
+     *
+     * // ['Jane', 'Jane']
+     * ```
+     * @example With a negative length sequence will stop that many elements from the end of the array.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $slice = $collection->slice(2, -1);
+     *
+     * $collection->all();
+     *
+     * // ['John', 'Jane', 'Richard']
+     *
+     * $slice->all();
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     * @example With replacement array.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $slice = $collection->slice(2, 2, ['Marc']);
+     *
+     * $collection->all();
+     *
+     * // ['John', 'Jane', 'Marc', 'Richard']
+     *
+     * $slice->all();
+     *
+     * // ['Jane', 'Jane']
+     * ```
+     *
+     * @param int $offset <p>
+     * If the offset is non-negative, the sequence will start at that offset in the array.
+     * If the offset is negative, the sequence will start that far from the end of the array.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * If length is given and is positive, then the sequence will have that many elements in it.
+     * If length is given and is negative, then the sequence will stop that many elements from the end of the array.
+     * If it is omitted, then the sequence will have everything from offset up until the end of the array.
+     * </p>
+     * @param null|\FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $replacement [optional] <p>
+     * If a replacement collection is specified, then the removed elements will be replaced with elements from this
+     * collection.
+     * If offset and length are such that nothing is removed, then the elements from the replacement collection
+     * or collection are inserted in the place specified by the offset.
+     * Keys in a replacement collection aren't preserved.
+     * </p>
+     *
+     * @return self<TKey, TValue> New sliced collection.
+     *
+     * @note Numerical keys in an array aren't preserved.
+     */
+    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):self {
+
+        $storage = ArrLL::splice($this->storage, $offset, $length, $replacement?->all());
+
+        return new static($storage);
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
