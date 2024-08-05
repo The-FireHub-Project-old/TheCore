@@ -308,6 +308,25 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testPartition ():void {
+
+        $this->assertSame(
+            [
+                0 => [10 => 2],
+                1 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25]
+            ],
+            $this->collection->partition(function ($value, $key) {
+                return $key === 10;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

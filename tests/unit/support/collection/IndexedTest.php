@@ -594,6 +594,25 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testPartition ():void {
+
+        $this->assertSame(
+            [
+                0 => ['Jane', 'Jane', 'Jane'],
+                1 => ['John', 'Richard', 'Richard']
+            ],
+            $this->collection->partition(function ($value) {
+                return $value === 'Jane';
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

@@ -41,6 +41,7 @@ use Closure, Generator, Traversable;
  * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 final class Gen implements Init, Collectable {

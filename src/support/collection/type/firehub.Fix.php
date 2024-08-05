@@ -39,6 +39,7 @@ use SplFixedArray, Traversable;
  *
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<int, mixed>
  *
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
