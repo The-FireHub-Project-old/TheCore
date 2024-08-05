@@ -29,6 +29,7 @@ use FireHub\Core\Support\LowLevel\Arr as ArrLL;
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<TKey, TValue>
  *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Associative extends Arr {
@@ -459,6 +460,32 @@ class Associative extends Arr {
                 : $failed[$key] = $value;
 
         return new static([$passed, $failed]);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::reverse() To reverse the order of array items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->reverse();
+     *
+     * // [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with reversed order.
+     */
+    public function reverse ():self {
+
+        return new static(ArrLL::reverse($this->storage, true));
 
     }
 

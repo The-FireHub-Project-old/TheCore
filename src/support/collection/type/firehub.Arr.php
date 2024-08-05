@@ -1014,6 +1014,31 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Reverse the order of collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::reverse() To reverse the order of array items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->reverse();
+     *
+     * // ['Richard', 'Richard', 'Jane', 'Jane', 'Jane', 'John']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with reversed order.
+     */
+    public function reverse ():self {
+
+        return new static(ArrLL::reverse($this->storage));
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

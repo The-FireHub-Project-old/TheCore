@@ -626,6 +626,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testReverse ():void {
+
+        $this->assertSame(
+            ['Richard', 'Richard', 'Jane', 'Jane', 'Jane', 'John'],
+            $this->collection->reverse()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(
