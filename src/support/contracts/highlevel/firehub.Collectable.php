@@ -329,6 +329,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
@@ -341,6 +342,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
@@ -366,6 +368,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
@@ -378,6 +381,7 @@ interface Collectable extends Countable, IterablesAggregate {
      * @since 1.0.0
      *
      * @param callable(TValue, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
      * Function to call on each item in a collection.
      * </p>
      *
