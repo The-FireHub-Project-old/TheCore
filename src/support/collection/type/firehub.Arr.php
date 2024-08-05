@@ -966,6 +966,48 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Separate collection items that pass a given truth test from those that do not
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * [$passed, $failed] = $collection->partition(function ($value) {
+     *  return $value === 'Jane';
+     * });
+     *
+     * $passed->all();
+     *
+     * // ['Jane', 'Jane', 'Jane']
+     *
+     * $failed->all();
+     *
+     * // ['John', 'Richard', 'Richard']
+     * ```
+     *
+     * @param callable(TValue, TKey=):bool $callback <p>
+     * <code>callable(TValue, TKey=):bool</code>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<int, array<TKey, TValue>>
+     */
+    public function partition (callable $callback):self {
+
+        $passed = []; $failed = [];
+        foreach ($this->storage as $value)
+            $callback($value)
+                ? $passed[] = $value
+                : $failed[] = $value;
+
+        return new static([$passed, $failed]);
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

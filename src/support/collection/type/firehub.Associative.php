@@ -429,6 +429,44 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * [$passed, $failed] = $collection->partition(function ($value, $key) {
+     *  return $key === 10;
+     * });
+     *
+     * $passed->all();
+     *
+     * // [10 => 2]
+     *
+     * $failed->all();
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25]
+     * ```
+     *
+     * @return self<int, array<TKey, TValue>>
+     */
+    public function partition (callable $callback):self {
+
+        $passed = []; $failed = [];
+        foreach ($this->storage as $key => $value)
+            $callback($value, $key)
+                ? $passed[$key] = $value
+                : $failed[$key] = $value;
+
+        return new static([$passed, $failed]);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Associative::slice() To get a slice from a collection.
      *
      * @example
