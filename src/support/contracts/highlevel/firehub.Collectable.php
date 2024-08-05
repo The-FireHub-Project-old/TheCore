@@ -126,6 +126,23 @@ interface Collectable extends Countable, IterablesAggregate {
     public function lastKey (?callable $callback = null):mixed;
 
     /**
+     * ### Reduces the collection to a single value, passing the result of each iteration into the subsequent iteration
+     * @since 1.0.0
+     *
+     * @param callable(mixed $init, TValue $value, TKey $key):mixed $callback <p>
+     * <code>callable(mixed $init, TValue, TKey=):mixed</code>
+     * The callable function.
+     * </p>
+     * @param mixed $initial [optional] <p>
+     * If the optional initial is available, it will be used at the beginning of the process,
+     * or as a final result in case the array is empty.
+     * </p>
+     *
+     * @return mixed Reduced value.
+     */
+    public function reduce (callable $callback, mixed $initial = null):mixed;
+
+    /**
      * ### Call user-generated function on each item in collection
      * @since 1.0.0
      *

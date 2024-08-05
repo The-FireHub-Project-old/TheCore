@@ -195,6 +195,19 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testReduce ():void {
+
+        $this->assertSame('JohnDoe252', $this->collection->reduce(function ($carry, $value, $key) {
+            return $carry.$value;
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEach ():void {
 
         $this->assertTrue($this->collection->each(function ($value, $key) {

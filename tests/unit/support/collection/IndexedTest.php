@@ -370,6 +370,19 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testReduce ():void {
+
+        $this->assertSame(130, $this->numbers->reduce(function ($carry, $value, $key) {
+            return $carry + $value;
+        }, 1));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEach ():void {
 
         $this->assertFalse($this->collection->each(function ($value) {

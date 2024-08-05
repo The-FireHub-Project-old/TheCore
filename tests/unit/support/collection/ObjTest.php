@@ -222,6 +222,19 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testReduce ():void {
+
+        $this->assertSame('stdClassstdClass', $this->simple->reduce(function ($carry, $value, $key) {
+            return $carry.$value::class;
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEach ():void {
 
         $this->assertTrue($this->collection->each(function ($object, $info) {
