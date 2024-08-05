@@ -974,6 +974,49 @@ final class Obj implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->nth(2, 1);
+     *
+     * // [[object(stdClass), [1,2,3]]]
+     * ```
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function nth (int $step, int $offset = 0):self {
+
+        $storage = new SplObjectStorage();
+
+        $counter = 0;
+        foreach (
+            $offset > 0
+                ? $this->slice($offset)->storage
+                : $this->storage as $object
+        ) if ($counter++ % (max($step, 1)) === 0)  $storage[$object] = $this->storage[$object];
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To count for SliceRange.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.

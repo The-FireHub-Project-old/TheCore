@@ -822,6 +822,47 @@ final class Fix implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Fix::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->nth(2, 1);
+     *
+     * // ['two']
+     * ```
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function nth (int $step, int $offset = 0):self {
+
+        $storage = new SplFixedArray($this->storage->getSize());
+
+        $position = 0; $counter = 0;
+        foreach (
+            $offset > 0
+                ? $this->slice($offset)->storage
+                : $this->storage as $value
+        ) if ($position++ % (max($step, 1)) === 0) $storage[$counter++] = $value;
+
+        $storage->setSize($counter);
+
+        return new self($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Fix::count() To count for SliceRange.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.

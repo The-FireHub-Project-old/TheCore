@@ -594,6 +594,48 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testNth ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $this->collection->nth(2, 1)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEven ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Richard'],
+            $this->collection->even()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testOdd ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Richard'],
+            $this->collection->odd()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame(

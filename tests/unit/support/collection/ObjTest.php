@@ -411,6 +411,55 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testNth ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+            ],
+            $this->collection->nth(2, 1)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEven ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls2, 'info' => [1, 2, 3]],
+            ],
+            $this->collection->even()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testOdd ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'data for object 1'],
+                ['object' => $this->cls3, 'info' => 20]
+            ],
+            $this->collection->odd()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame(

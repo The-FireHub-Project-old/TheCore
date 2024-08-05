@@ -28,6 +28,43 @@ trait Sliceable {
      *
      * @since 1.0.0
      */
+    abstract public function nth (int $step, int $offset = 0):self;
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::nth() To get even elements.
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function even ():self {
+
+        return $this->nth(2, 1);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::nth() To get odd elements.
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function odd ():self {
+
+        return $this->nth(2);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
     abstract public function slice (int $offset, ?int $length = null):self;
 
     /**

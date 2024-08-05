@@ -429,6 +429,43 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->nth(2);
+     *
+     * // ['firstname' => 'John', 'age' => 25]
+     * ```
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function nth (int $step, int $offset = 0):self {
+
+        $storage = [];
+
+        $counter = 0;
+        foreach (
+            $offset > 0
+                ? $this->slice($offset)->storage
+                : $this->storage as $key => $value
+        ) if ($counter++ % (max($step, 1)) === 0) $storage[$key] = $value;
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To extract a slice of the array.
      *
      * @example

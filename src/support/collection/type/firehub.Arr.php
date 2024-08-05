@@ -970,6 +970,51 @@ abstract class Arr implements Init, Accessible {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->nth(2);
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     * @example With offset.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->nth(2, 1);
+     *
+     * // ['Jane', 'Richard']
+     * ```
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function nth (int $step, int $offset = 0):self {
+
+        $storage = []; $counter = 0;
+        foreach (
+            $offset > 0
+                ? $this->slice($offset)->storage
+                : $this->storage as $value
+        ) if ($counter++ % (max($step, 1)) === 0) $storage[] = $value;
+
+        return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To extract a slice of the array.
      *
      * @example

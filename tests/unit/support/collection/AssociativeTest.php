@@ -308,6 +308,48 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testNth ():void {
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 10 => 2],
+            $this->collection->nth(2, 1)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEven ():void {
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 10 => 2],
+            $this->collection->even()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testOdd ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'age' => 25],
+            $this->collection->odd()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame(

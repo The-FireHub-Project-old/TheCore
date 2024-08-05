@@ -263,6 +263,37 @@ interface Collectable extends Countable, IterablesAggregate {
     public function merge (self ...$collections):self;
 
     /**
+     * ### New collection consisting of every n-th element
+     * @since 1.0.0
+     *
+     * @param positive-int $step <p>
+     * N-th step.
+     * </p>
+     * @param non-negative-int $offset [optional] <p>
+     * Starting offset.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function nth (int $step, int $offset = 0):self;
+
+    /**
+     * ### New collection consisting of even elements
+     * @since 1.0.0
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function even ():self;
+
+    /**
+     * ### New collection consisting of odd elements
+     * @since 1.0.0
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function odd ():self;
+
+    /**
      * ### Get slice from collection
      * @since 1.0.0
      *

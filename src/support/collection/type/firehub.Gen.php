@@ -739,6 +739,45 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Gen::slice() To get a slice from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->nth(2, 1);
+     *
+     * // ['lastname' => 'Doe', 10 => 2]
+     * ```
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function nth (int $step, int $offset = 0):self {
+
+        return new self(function () use ($step, $offset):Generator {
+
+            $storage = $this->invoke();
+
+            $counter = 0;
+            foreach (
+                $offset > 0
+                    ? $this->slice($offset)
+                    : $storage as $key => $value
+            ) if ($counter++ % (max($step, 1)) === 0) yield $key => $value;
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To count for SliceRange.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::start() As start position.
      * @uses \FireHub\Core\Support\Collection\Helpers\SliceRange::end() As end position.
