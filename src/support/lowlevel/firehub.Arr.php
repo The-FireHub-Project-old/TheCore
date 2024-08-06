@@ -1833,7 +1833,10 @@ final class Arr implements InitStatic {
      *
      * @return true Always true.
      *
-     * @note Resets array's internal pointer to the first element.
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
      */
     public static function sortBy (array &$array, callable $callback, bool $preserve_keys = false):true {
 
