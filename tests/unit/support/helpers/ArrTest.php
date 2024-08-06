@@ -19,18 +19,34 @@ use PHPUnit\Framework\Attributes\ {
     CoversFunction
 };
 
+use function FireHub\Core\Support\Helpers\Arr\is_empty;
 use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
+use function FireHub\Core\Support\Helpers\Arr\shuffle;
 
 /**
  * ### Test PHP functions
  * @since 1.0.0
  */
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\is_empty')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 final class ArrTest extends Base {
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsEmpty ():void {
+
+        $this->assertTrue(is_empty([]));
+        $this->assertFalse(is_empty([1, 2, 3]));
+
+    }
 
     /**
      * @since 1.0.0
@@ -83,6 +99,19 @@ final class ArrTest extends Base {
         ], 'lastname', function (array $value) {
             return $value['firstname'] === 'John';
         }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testShuffle ():void {
+
+        $arr = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2];
+
+        $this->assertTrue(shuffle($arr));
 
     }
 

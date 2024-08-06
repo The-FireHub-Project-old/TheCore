@@ -18,6 +18,8 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\LowLevel\Arr as ArrLL;
 
+use function FireHub\Core\Support\Helpers\Arr\shuffle;
+
 /**
  * ### Associative array collection type
  *
@@ -750,6 +752,32 @@ class Associative extends Arr {
         }
 
         return new static($storage);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\shuffle() To shuffle array items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->shuffle();
+     *
+     * // ['age' => 25, 'firstname' => 'John', 'lastname' => 'Doe', 10 => 2]
+     * ```
+     */
+    public function shuffle ():self {
+
+        shuffle($this->storage);
+
+        return $this;
 
     }
 

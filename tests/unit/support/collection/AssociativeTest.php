@@ -500,6 +500,17 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testShuffle ():void {
+
+        $this->assertSame($this->collection, $this->collection->shuffle());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));

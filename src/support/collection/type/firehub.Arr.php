@@ -1374,6 +1374,33 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Shuffle collection items
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::shuffle() To shuffle array items.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->shuffle();
+     *
+     * // ['Jane', 'Jane', 'Richard', 'John', 'Richard', 'Jane']
+     * ```
+     *
+     * @return $this Shuffled collection.
+     */
+    public function shuffle ():self {
+
+        ArrLL::shuffle($this->storage);
+
+        return $this;
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

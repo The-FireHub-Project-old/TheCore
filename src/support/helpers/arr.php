@@ -120,7 +120,7 @@ function last (array $array):mixed {
  * @since 1.0.0
  *
  * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if the provided key is callable.
- * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the provided key is array.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the provided key is an array.
  * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all groups.
  * @uses \FireHub\Core\Support\LowLevel\Arr::slice() To remove the first key.
  *
@@ -181,5 +181,48 @@ function groupByKey (array $array, int|string|callable $key, int|string|callable
     }
 
     return $grouped;
+
+}
+
+/**
+ * ### Shuffle array items with keys preserved
+ * @since 1.0.0
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::keys() To get array keys.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::shuffle() To shuffle array items.
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Array\shuffle;
+ *
+ * shuffle(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+ *
+ * // ['age' => 25, 'firstname' => 'John', 'lastname' => 'Doe', 10 => 2]
+ * ```
+ *
+ * @param array<TKey, TValue> &$array <p>
+ * An array to shuffle.
+ * </p>
+ *
+ * @return true Always returns true.
+ *
+ * @api
+ */
+function shuffle (array &$array):true {
+
+    $items = [];
+
+    $keys = Arr::keys($array);
+
+    Arr::shuffle($keys);
+
+    foreach($keys as $key) $items[$key] = $array[$key];
+
+    $array = $items;
+
+    return true;
 
 }

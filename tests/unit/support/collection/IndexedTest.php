@@ -843,6 +843,17 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testShuffle ():void {
+
+        $this->assertSame($this->collection, $this->collection->shuffle());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));
