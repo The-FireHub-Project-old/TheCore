@@ -434,7 +434,7 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * [$passed, $failed] = $collection->partition(function ($value, $key) {
      *  return $key === 10;
@@ -474,7 +474,7 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->reverse();
      *
