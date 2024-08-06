@@ -178,7 +178,7 @@ final class Arr implements InitStatic {
     }
 
     /**
-     * ### Sort multiple or multidimensional arrays
+     * ### Sort multiple on multidimensional arrays
      * @since 1.0.0
      *
      * @param array<array-key, array<array-key, mixed>> $array <p>
