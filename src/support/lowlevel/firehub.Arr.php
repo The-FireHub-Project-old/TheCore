@@ -1803,7 +1803,7 @@ final class Arr implements InitStatic {
      *
      * @note Resets array's internal pointer to the first element.
      */
-    public static function sortByKey (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):true {
+    public static function sortByKeys (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):true {
 
         return $order === Order::ASC
             ? ksort($array, $flag->value)
@@ -1858,8 +1858,9 @@ final class Arr implements InitStatic {
      * </p>
      * @param callable(TKey $a, TKey $b):int<-1, 1> $callback <p>
      * <code><![CDATA[ callable (TKey $a, TKey $b):int<-1, 1> ]]></code>
-     * The callback comparison function. Function cmp_function should accept two parameters which will be filled
-     * by pairs of array keys. The comparison function must return an integer less than, equal to, or greater than
+     * The callback comparison function.
+     * Function cmp_function should accept two parameters which will be filled by pairs of array keys.
+     * The comparison function must return an integer less than, equal to, or greater than
      * zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      * @phpstan-param-out array<TKey, TValue> $array
@@ -1868,7 +1869,7 @@ final class Arr implements InitStatic {
      *
      * @note Resets array's internal pointer to the first element.
      */
-    public static function sortKeyBy (array &$array, callable $callback):true {
+    public static function sortKeysBy (array &$array, callable $callback):true {
 
         return uksort($array, $callback);
 

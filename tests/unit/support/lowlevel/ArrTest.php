@@ -1086,17 +1086,17 @@ final class ArrTest extends Base {
      *
      * @return void
      */
-    public function testSortByKey ():void {
+    public function testSortByKeys ():void {
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortByKey($array, Order::ASC, Sort::BY_REGULAR);
+        Arr::sortByKeys($array, Order::ASC, Sort::BY_REGULAR);
         $this->assertSame(
             ['age' => 25, 'firstname' => 'John', 'gender' => 'male', 'height' => '190cm', 'lastname' => 'Doe'],
             $array
         );
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortByKey($array, Order::DESC, Sort::BY_STRING);
+        Arr::sortByKeys($array, Order::DESC, Sort::BY_STRING);
         $this->assertSame(
             ['lastname' => 'Doe', 'height' => '190cm', 'gender' => 'male', 'firstname' => 'John', 'age' => 25],
             $array
@@ -1138,10 +1138,10 @@ final class ArrTest extends Base {
      *
      * @return void
      */
-    public function testSortKeyBy ():void {
+    public function testSortKeysBy ():void {
 
         $array = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 'height' => '190cm', 'gender' => 'male'];
-        Arr::sortKeyBy($array, function ($current, $next) {
+        Arr::sortKeysBy($array, function ($current, $next) {
             if ($current === $next) return 0;
             return ($current < $next) ? -1 : 1;
         });
