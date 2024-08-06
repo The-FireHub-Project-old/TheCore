@@ -900,6 +900,24 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testMultiSort ():void {
+
+        $this->assertSame(
+            [
+                ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+                ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+                ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+            ],
+            $this->multidimensional->multiSort(['lastname' => Order::ASC, 'age' => Order::ASC])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));

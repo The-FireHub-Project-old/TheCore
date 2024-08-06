@@ -14,9 +14,11 @@
 
 namespace FireHub\Core\Support\Helpers\Arr;
 
+use FireHub\Core\Support\Enums\Order;
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, Iterables
 };
+use Error, ValueError;
 
 /**
  * ### Checks if an array is empty
@@ -224,5 +226,83 @@ function shuffle (array &$array):true {
     $array = $items;
 
     return true;
+
+}
+
+/**
+ * ### Sort multiple on multidimensional arrays
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::column() To return the values from a single column in the input array.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::multiSort() To sort multiple or multidimensional arrays.
+ * @uses \FireHub\Core\Support\Enums\Order::DESC As order enum.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use FireHub\Core\Support\Enums\Order;
+ * use function FireHub\Core\Support\Helpers\Array\multiSort;
+ *
+ * $array = [
+ *  ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+ *  ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+ *  ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+ *  ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22],
+ *  ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26]
+ * ];
+ *
+ * multiSort([
+ *  'lastname' => Order::ASC
+ *  'age' => Order::DESC
+ * ]);
+ *
+ * // [
+ * //   ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+ * //   ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+ * //   ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+ * //   ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26],
+ * //   ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22]
+ * // ]
+ * ```
+ *
+ * @param array<array-key, array<TKey, TValue>> &$array <p>
+ * A multidimensional array being sorted.
+ * </p>
+ * @param array<array<TKey, string|\FireHub\Core\Support\Enums\Order>> $fields <p>
+ * List of fields to sort by.
+ * </p>
+ *
+ * @throws Error Failed to sort a multi-sort array.
+ * @throws ValueError If array sizes are inconsistent.
+ *
+ * @return bool True on success, false otherwise.
+ *
+ * @caution Associative (string) keys will be maintained, but numeric keys will be re-indexed.
+ * @note Resets array's internal pointer to the first element.
+ *
+ * @api
+ */
+function multiSort (array &$array, array $fields):bool {
+
+    $multi_sort = [];
+
+    foreach ($fields as $column => $order) {
+
+        $order = match($order) {
+            Order::DESC => SORT_DESC,
+            default => SORT_ASC
+        };
+
+        $multi_sort[] = [...Arr::column($array, $column)]; // @phpstan-ignore-line
+
+        $multi_sort[] = $order;
+
+    }
+
+    $multi_sort[] = &$array;
+
+    return Arr::multiSort($multi_sort); // @phpstan-ignore-line
 
 }

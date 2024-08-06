@@ -15,8 +15,9 @@
 namespace support\helpers;
 
 use FireHub\Core\Testing\Base;
+use FireHub\Core\Support\Enums\Order;
 use PHPUnit\Framework\Attributes\ {
-    CoversFunction
+    CoversClass, CoversFunction
 };
 
 use function FireHub\Core\Support\Helpers\Arr\is_empty;
@@ -24,16 +25,19 @@ use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
+use function FireHub\Core\Support\Helpers\Arr\multiSort;
 
 /**
  * ### Test PHP functions
  * @since 1.0.0
  */
+#[CoversClass(Order::class)]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\is_empty')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
 final class ArrTest extends Base {
 
     /**
@@ -112,6 +116,36 @@ final class ArrTest extends Base {
         $arr = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2];
 
         $this->assertTrue(shuffle($arr));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMultiSort ():void {
+
+        $arr = [
+            ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+            ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+            ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+            ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22],
+            ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26]
+        ];
+
+        multiSort($arr, ['lastname' => Order::ASC, 'age' => Order::DESC]);
+
+        $this->assertSame(
+            [
+                ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+                ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+                ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+                ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26],
+                ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22]
+            ],
+            $arr
+        );
 
     }
 

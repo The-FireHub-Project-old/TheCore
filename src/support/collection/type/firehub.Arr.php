@@ -29,10 +29,10 @@ use FireHub\Core\Support\Enums\ {
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
 };
-use ArgumentCountError, Error, Traversable, TypeError;
+use ArgumentCountError, Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last, groupByKey
+    is_empty, first, last, groupByKey, multiSort
 };
 
 /**
@@ -1499,6 +1499,55 @@ abstract class Arr implements Init, Accessible {
     public function sortBy (callable $callback):self {
 
         ArrLL::sortBy($this->storage, $callback);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Sort collection on multidimensional arrays
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\multiSort() To sort multiple or multidimensional arrays.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     *
+     * $collection = Collection::list(fn ():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->multiSort([
+     *  'lastname' => Order::ASC
+     *  'age' => Order::ASC
+     * ]);
+     *
+     * // [
+     * //   ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     * //   ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     * //   ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array<array<TKey, string|\FireHub\Core\Support\Enums\Order>> $fields <p>
+     * List of fields to sort by.
+     * </p>
+     *
+     * @throws Error Failed to sort a multi-sort array.
+     * @throws ValueError If array sizes are inconsistent.
+     *
+     * @return $this Sorted collection.
+     *
+     * @caution Associative (string) keys will be maintained, but numeric keys will be re-indexed.
+     * @note Resets array's internal pointer to the first element.
+     */
+    public function multiSort (array $fields):self {
+
+        multiSort($this->storage, $fields); // @phpstan-ignore-line
 
         return $this;
 
