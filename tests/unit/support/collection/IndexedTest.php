@@ -22,6 +22,9 @@ use FireHub\Core\Support\Collection\Type\ {
 use FireHub\Core\Support\Collection\Helpers\ {
     Convert, Condition, CountCollectables, SliceRange
 };
+use FireHub\Core\Support\Enums\ {
+    Order, Sort
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
 
@@ -36,6 +39,8 @@ use Error;
 #[CoversClass(Condition::class)]
 #[CoversClass(CountCollectables::class)]
 #[CoversClass(SliceRange::class)]
+#[CoversClass(Order::class)]
+#[CoversClass(Sort::class)]
 final class IndexedTest extends Base {
 
     public Indexed $collection;
@@ -846,6 +851,30 @@ final class IndexedTest extends Base {
     public function testShuffle ():void {
 
         $this->assertSame($this->collection, $this->collection->shuffle());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSort ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Jane', 'John', 'Richard', 'Richard'],
+            $this->collection->sort()->all()
+        );
+
+        $this->assertSame(
+            ['Richard', 'Richard', 'John', 'Jane', 'Jane', 'Jane'],
+            $this->collection->sort(Order::DESC)->all()
+        );
+
+        $this->assertSame(
+            [1, 13, 2, 22, 27, 28, 29, 3, 4],
+            $this->numbers->sort(Order::ASC, Sort::BY_STRING_FLAG_CASE)->all()
+        );
 
     }
 

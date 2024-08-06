@@ -23,6 +23,9 @@ use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\ {
     Convertable, Conditionable, Reducible, Sliceable
 };
+use FireHub\Core\Support\Enums\ {
+    Order, Sort
+};
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
 };
@@ -1395,6 +1398,65 @@ abstract class Arr implements Init, Accessible {
     public function shuffle ():self {
 
         ArrLL::shuffle($this->storage);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Sort collection items
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Order::ASC As parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sort() To sort an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->sort();
+     *
+     * // ['Jane', 'Jane', 'Jane', 'John', 'Richard', 'Richard']
+     * ```
+     * @example Sorting order.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->sort(Order::DESC);
+     *
+     * // ['Richard', 'Richard', 'John', 'Jane', 'Jane', 'Jane']
+     * ```
+     * @example Sorting order with a flag.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     * use FireHub\Core\Support\Enums\Sort;
+     *
+     * $collection = Collection::list(fn():array => [1, 2, 3, 4, 13, 22, 27, 28, 29]);
+     *
+     * $collection->sort(Order::ASC, Sort::BY_STRING_FLAG_CASE);
+     *
+     * // [1, 13, 2, 22, 27, 28, 29, 3, 4]
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
+     * Order type.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Sort $flag [optional] <p>
+     * Sorting type.
+     * </p>
+     *
+     * @return $this Sorted collection.
+     */
+    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+
+        ArrLL::sort($this->storage, $order, $flag);
 
         return $this;
 

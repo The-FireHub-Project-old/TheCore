@@ -16,6 +16,9 @@ namespace FireHub\Core\Support\Collection\Type;
 
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
+use FireHub\Core\Support\Enums\ {
+    Order, Sort
+};
 use FireHub\Core\Support\LowLevel\Arr as ArrLL;
 
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
@@ -776,6 +779,57 @@ class Associative extends Arr {
     public function shuffle ():self {
 
         shuffle($this->storage);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Order::ASC As parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sort() To sort an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sort();
+     *
+     * // [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John']
+     * ```
+     * @example Sorting order.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sort(Order::DESC);
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     * @example Sorting order with a flag.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     * use FireHub\Core\Support\Enums\Sort;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sort(Order::DESC, Sort::BY_NUMERIC);
+     *
+     * // ['age' => 25, 10 => 2, 'firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     */
+    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+
+        ArrLL::sort($this->storage, $order, $flag, true);
 
         return $this;
 

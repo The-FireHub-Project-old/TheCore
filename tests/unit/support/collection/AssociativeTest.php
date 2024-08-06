@@ -19,6 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Associative
 };
+use FireHub\Core\Support\Enums\ {
+    Order, Sort
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
@@ -28,6 +31,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Collection::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Associative::class)]
+#[CoversClass(Order::class)]
+#[CoversClass(Sort::class)]
 final class AssociativeTest extends Base {
 
     public Associative $collection;
@@ -503,6 +508,30 @@ final class AssociativeTest extends Base {
     public function testShuffle ():void {
 
         $this->assertSame($this->collection, $this->collection->shuffle());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSort ():void {
+
+        $this->assertSame(
+            [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John'],
+            $this->collection->sort()->all()
+        );
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            $this->collection->sort(Order::DESC)->all()
+        );
+
+        $this->assertSame(
+            ['age' => 25, 10 => 2, 'firstname' => 'John', 'lastname' => 'Doe'],
+            $this->collection->sort(Order::DESC, Sort::BY_NUMERIC)->all()
+        );
 
     }
 
