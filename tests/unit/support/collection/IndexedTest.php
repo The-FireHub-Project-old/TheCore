@@ -883,6 +883,23 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSortBy ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Jane', 'John', 'Richard', 'Richard'],
+            $this->collection->sortBy(function (mixed $current, mixed $next) {
+                if ($current === $next) return 0;
+                return ($current < $next) ? -1 : 1;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));

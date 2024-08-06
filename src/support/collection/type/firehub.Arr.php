@@ -1463,6 +1463,48 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Sort collection using a user-defined comparison function
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sortBy() To sort an array by values using a user-defined comparison
+     * function.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $$collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->sortBy(function (mixed $current, mixed $next):int {
+     *  if ($a === $b) return 0;
+     *  return ($a < $b) ? -1 : 1;
+     * });
+     *
+     * // ['Jane', 'Jane', 'Jane', 'John', 'Richard', 'Richard']
+     * ```
+     *
+     * @param callable(TValue $a, TValue $b):int<-1, 1> $callback <p>
+     * <code><![CDATA[ callable (TValue $a, TValue $b):int<-1, 1> ]]></code>
+     * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
+     * is considered to be respectively less than, equal to, or greater than the second.
+     * </p>
+     *
+     * @return $this Sorted collection.
+     *
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
+     */
+    public function sortBy (callable $callback):self {
+
+        ArrLL::sortBy($this->storage, $callback);
+
+        return $this;
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

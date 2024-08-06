@@ -840,6 +840,36 @@ class Associative extends Arr {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sortBy() To sort an array by values using a user-defined comparison
+     * function.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);;
+     *
+     * $collection->sortBy(function (mixed $current, mixed $next):int {
+     *  if ($a === $b) return 0;
+     *  return ($a < $b) ? -1 : 1;
+     * });
+     *
+     * // [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John']
+     * ```
+     */
+    public function sortBy (callable $callback):self {
+
+        ArrLL::sortBy($this->storage, $callback, true);
+
+        return $this;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @param ?array-key $offset <p>
      * Offset to assign the value to.
      * </p>

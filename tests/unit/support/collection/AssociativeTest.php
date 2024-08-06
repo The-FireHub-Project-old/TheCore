@@ -540,6 +540,23 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testSortBy ():void {
+
+        $this->assertSame(
+            [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John'],
+            $this->collection->sortBy(function (mixed $current, mixed $next) {
+                if ($current === $next) return 0;
+                return ($current < $next) ? -1 : 1;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));
