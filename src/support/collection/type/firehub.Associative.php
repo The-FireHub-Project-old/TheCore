@@ -847,7 +847,7 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);;
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->sortBy(function (mixed $current, mixed $next):int {
      *  if ($a === $b) return 0;
@@ -860,6 +860,103 @@ class Associative extends Arr {
     public function sortBy (callable $callback):self {
 
         ArrLL::sortBy($this->storage, $callback, true);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Sort collection keys
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Order::ASC As parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sortByKeys() To sort an array by key.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sortKeys();
+     *
+     * // [10 => 2, 'age' => 25, 'firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     * @example Sorting order.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sortKeys(Order::DESC);
+     *
+     * // ['lastname' => 'Doe', 'firstname' => 'John', 'age' => 25, 10 => 2]
+     * ```
+     * @example Sorting order with a flag.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Order;
+     * use FireHub\Core\Support\Enums\Sort;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sort(Order::ASC, Sort::BY_NUMERIC);
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
+     * Order type.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Sort $flag [optional] <p>
+     * Sorting type.
+     * </p>
+     *
+     * @return $this Sorted collection.
+     */
+    public function sortKeys (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+
+        ArrLL::sortByKeys($this->storage, $order, $flag);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Sort collection keys using a user-defined comparison function
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::sortKeysBy() To sort an array by key using a user-defined comparison function.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->sortKeysBy(function (mixed $current, mixed $next):int {
+     *  if ($current === $next) return 0;
+     *  return ($current < $next) ? -1 : 1;
+     * });
+     *
+     * // [10 => 2, 'age' => 25, 'firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @param callable(TKey $a, TKey $b):int<-1, 1> $callback <p>
+     * <code><![CDATA[ callable (TKey $a, TKey $b):int<-1, 1> ]]></code>
+     * The callback comparison function.
+     * Function cmp_function should accept two parameters which will be filled by pairs of array keys.
+     * The comparison function must return an integer less than, equal to, or greater than
+     * zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
+     * </p>
+     *
+     * @return $this Sorted collection.
+     */
+    public function sortKeysBy (callable $callback):self {
+
+        ArrLL::sortKeysBy($this->storage, $callback);
 
         return $this;
 
