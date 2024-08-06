@@ -1476,8 +1476,8 @@ abstract class Arr implements Init, Accessible {
      * $$collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
      * $collection->sortBy(function (mixed $current, mixed $next):int {
-     *  if ($a === $b) return 0;
-     *  return ($a < $b) ? -1 : 1;
+     *  if ($current === $next) return 0;
+     *  return ($current < $next) ? -1 : 1;
      * });
      *
      * // ['Jane', 'Jane', 'Jane', 'John', 'Richard', 'Richard']
