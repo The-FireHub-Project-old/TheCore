@@ -1079,14 +1079,16 @@ final class Arr implements InitStatic {
      * Otherwise, all the keys from the array are returned.
      * @since 1.0.0
      *
-     * @param array<array-key, mixed> $array <p>
+     * @template TKey of array-key
+     *
+     * @param array<TKey, mixed> $array <p>
      * An array containing keys to return.
      * </p>
      * @param mixed $filter [optional] <p>
      * If specified, then only keys containing these values are returned.
      * </p>
      *
-     * @return list<mixed> An array of all the keys in input.
+     * @return list<TKey> An array of all the keys in input.
      */
     public static function keys (array $array, mixed $filter = null):array {
 
