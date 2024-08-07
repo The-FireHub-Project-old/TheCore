@@ -866,6 +866,22 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testCombine ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+            Collection::list(fn() => ['firstname', 'lastname', 'age'])->combine(
+                Collection::list(fn():array => ['John', 'Doe', 25])
+            )->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testShuffle ():void {
 
         $this->assertSame($this->collection, $this->collection->shuffle());
