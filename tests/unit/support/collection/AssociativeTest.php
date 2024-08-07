@@ -278,6 +278,29 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testDifferenceKeys ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 10 => 2],
+            $this->collection->differenceKeys(Collection::associative(['lastname' => 'Doe', 'age' => 25]))->all()
+        );
+
+        $this->assertSame(
+            ['firstname' => 'John', 10 => 2],
+            $this->collection->differenceKeys(
+                Collection::associative(['lastname' => 'Doe', 'age' => 25]),
+                function ($key_a, $key_b) {
+                    return $key_a !== $key_b ? 1 : 0;
+                })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSplit ():void {
 
         $this->assertEquals(

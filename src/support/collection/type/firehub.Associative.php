@@ -375,17 +375,17 @@ class Associative extends Arr {
      * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
      * Collection to compare against.
      * </p>
-     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value <p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value [optional] <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $key <p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $key [optional] <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $array that aren't present in
-     * any of the other arrays.
+     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
+     * any of the other collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
@@ -420,6 +420,61 @@ class Associative extends Arr {
                 $collection->all()
             )
         });
+
+    }
+
+    /**
+     * ### Computes the difference in keys of collections
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::differenceKey() To compute the difference of arrays using keys for
+     * comparison.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::differenceKeyFunc() To compute the difference of arrays using keys for
+     * comparison by using a callback function for data comparison.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->differenceKeys($collection2);
+     *
+     * // ['firstname' => 'John', 10 => 2]
+     * ```
+     * @example With callback function.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->differenceKeys($collection2, function ($key_a, $key_b):int {
+     *  return $key_a !== $key_b ? 1 : 0;
+     * });
+     *
+     * // ['firstname' => 'John', 10 => 2]
+     * ```
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
+     * Collection to compare against.
+     * </p>
+     * @param null|callable(mixed $key_a, mixed $key_b):int<-1, 1> $keys [optional] <p>
+     * The comparison function.
+     * </p>
+     *
+     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
+     * any of the other collections.
+     */
+    public function differenceKeys (Arr $collection, ?callable $keys = null):self {
+
+        return new self($keys
+            ? ArrLL::differenceKeyFunc($this->storage, $collection->all(), $keys)
+            : ArrLL::differenceKey($this->storage, $collection->all()));
 
     }
 

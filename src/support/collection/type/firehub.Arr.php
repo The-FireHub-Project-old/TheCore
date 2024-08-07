@@ -962,14 +962,14 @@ abstract class Arr implements Init, Accessible {
      * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
      * Collection to compare against.
      * </p>
-     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value <p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value [optional] <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $array that aren't present in
-     * any of the other arrays.
+     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
+     * any of the other collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
