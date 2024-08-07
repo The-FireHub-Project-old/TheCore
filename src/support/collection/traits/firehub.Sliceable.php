@@ -31,6 +31,13 @@ trait Sliceable {
      *
      * @since 1.0.0
      */
+    abstract public function count ():int;
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
     abstract public function nth (int $step, int $offset = 0):self;
 
     /**
@@ -127,8 +134,8 @@ trait Sliceable {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::count() To count elements of an object.
-     * @uses \FireHub\Core\Support\Collection\Type\Arr::slice() To get a slice from a collection.
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::count() To count elements of an object.
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::slice() To get a slice from a collection.
      * @uses \FireHub\Core\Support\LowLevel\NumInt::floor() To round fractions down.
      * @uses \FireHub\Core\Support\LowLevel\NumInt::divide() To divide integers.
      *
