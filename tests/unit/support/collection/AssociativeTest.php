@@ -233,6 +233,23 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Associative::fromArray(['firstname' => 'John', 'lastname' => 'Doe']),
+                Associative::fromArray(['age' => 25, 10 => 2])
+            ],
+            $this->collection->split(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFilter ():void {
 
         $this->assertSame(['age' => 25, 10 => 2], $this->collection->filter(function ($value, $key) {
@@ -337,23 +354,6 @@ final class AssociativeTest extends Base {
         $this->assertSame(
             [10 => 2,  'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John'],
             $this->collection->reverse()->all()
-        );
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSplit ():void {
-
-        $this->assertEquals(
-            [
-                Associative::fromArray(['firstname' => 'John', 'lastname' => 'Doe']),
-                Associative::fromArray(['age' => 25, 10 => 2])
-            ],
-            $this->collection->split(2)->all()
         );
 
     }

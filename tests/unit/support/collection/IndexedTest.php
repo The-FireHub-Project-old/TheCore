@@ -556,6 +556,24 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Indexed::fromArray(['John', 'Jane']),
+                Indexed::fromArray(['Jane', 'Jane']),
+                Indexed::fromArray(['Richard', 'Richard'])
+            ],
+            $this->collection->split(3)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFilter ():void {
 
         $this->assertSame([0 => 'John', 4 => 'Richard', 5 => 'Richard'], $this->collection->filter(function ($value) {
@@ -636,24 +654,6 @@ final class IndexedTest extends Base {
         $this->assertSame(
             ['Richard', 'Richard', 'Jane', 'Jane', 'Jane', 'John'],
             $this->collection->reverse()->all()
-        );
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSplit ():void {
-
-        $this->assertEquals(
-            [
-                Indexed::fromArray(['John', 'Jane']),
-                Indexed::fromArray(['Jane', 'Jane']),
-                Indexed::fromArray(['Richard', 'Richard'])
-            ],
-            $this->collection->split(3)->all()
         );
 
     }

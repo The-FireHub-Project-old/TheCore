@@ -332,6 +332,23 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Fix::fromArray(['one', 'two']),
+                Fix::fromArray(['three'])
+            ],
+            $this->collection->split(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFilter ():void {
 
         $this->assertSame(['two', 'three'], $this->collection->filter(function ($value) {
@@ -379,23 +396,6 @@ final class FixTest extends Base {
         $this->assertSame(
             ['one', 'two', 'three', 'one', 'two', 'three'],
             $this->collection->merge($this->collection)->all()
-        );
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testSplit ():void {
-
-        $this->assertEquals(
-            [
-                Fix::fromArray(['one', 'two']),
-                Fix::fromArray(['three'])
-            ],
-            $this->collection->split(2)->all()
         );
 
     }
