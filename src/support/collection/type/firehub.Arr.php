@@ -923,6 +923,70 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Computes the difference of collections
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::difference() To compute the difference of arrays using values for
+     * comparison.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::differenceFunc() To compute the difference of arrays using values for
+     * comparison by using a callback function for data comparison.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection2 = Collection::list(['Jane', 'Richard']);
+     *
+     * $collection1->difference($collection2);
+     *
+     * // ['John']
+     * ```
+     * @example With callback function.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection2 = Collection::list(['Jane', 'Richard']);
+     *
+     * $collection1->difference($collection2, function ($value_a, $value_b):int {
+     *  return $value_a !== $value_b ? 1 : 0;
+     * });
+     *
+     * // ['John']
+     * ```
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
+     * Collection to compare against.
+     * </p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value <p>
+     * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
+     * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
+     * is considered to be respectively less than, equal to, or greater than the second.
+     * </p>
+     *
+     * @return static<TKey, TValue> An array containing all the entries from $array that aren't present in
+     * any of the other arrays.
+     *
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
+     */
+    public function difference (Arr $collection, ?callable $value = null):self {
+
+        return new static(
+            $value
+                ? ArrLL::differenceFunc($this->storage, $collection->all(), $value)
+                : ArrLL::difference($this->storage, $collection->all())
+        );
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

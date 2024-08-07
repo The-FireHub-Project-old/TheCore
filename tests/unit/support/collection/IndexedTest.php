@@ -572,6 +572,29 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testDifference ():void {
+
+        $collection = Collection::list(['Jane', 'Richard']);
+
+        $this->assertSame(
+            ['John'],
+            $this->collection->difference($collection)->all()
+        );
+
+        $this->assertSame(
+            ['John'],
+            $this->collection->difference($collection, function ($value_a, $value_b) {
+                return $value_a !== $value_b ? 1 : 0;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSplit ():void {
 
         $this->assertEquals(
