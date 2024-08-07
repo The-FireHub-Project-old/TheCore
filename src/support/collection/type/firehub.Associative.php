@@ -449,7 +449,7 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::associative(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
      *
@@ -479,6 +479,130 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Computes the intersection of collections
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To verity that the contents of a variable can be called
+     * as a function.
+     * @uses \FireHub\Core\Support\LowLevel\Arr:intersectAssoc() To compute the intersection of arrays with
+     * additional index check.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::intersectAssocFuncKey() To compute the intersection of arrays with
+     * additional index check by using a callback function for key comparison.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::intersectAssocFuncValue() To compute the intersection of arrays with
+     * additional index check by using a callback function for value comparison.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::intersectAssocFuncKeyValue() To compute the intersection of arrays with
+     * additional index check by using a callback function for key and value comparison.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersect($collection2);
+     *
+     * // ['firstname' => 'John', 10 => 2]
+     * ```
+     * @example With a callback function for values.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersect($collection2, function ($value_a, $value_b):int {
+     *  return $value_a !== $value_b ? 1 : 0;
+     * });
+     *
+     * // ['firstname' => 'John', 10 => 2]
+     * ```
+     * @example With a callback function for keys.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersect($collection2, null, function ($key_a, $key_b):int {
+     *  return $key_a === $key_b ? 1 : 0;
+     * });
+     *
+     * // []
+     * ```
+     * @example With a callback function for keys and values.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersect($collection2, function ($value_a, $value_b):int {
+     *  return $value_a === $value_b ? 1 : 0;
+     * }, function ($key_a, $key_b):int {
+     *  return $key_a === $key_b ? 1 : 0;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
+     * Collection to compare against.
+     * </p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $value [optional] <p>
+     * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
+     * The comparison function.
+     * </p>
+     * @param null|callable(mixed $a, mixed $b):int<-1, 1> $key [optional] <p>
+     * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
+     * The comparison function.
+     * </p>
+     *
+     * @return static<TKey, TValue> An array containing all the entries from $collection that are present in
+     * any of the other collections.
+     *
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
+     */
+    public function intersect (Arr $collection, ?callable $value = null, ?callable $key = null):self {
+
+        return new self( match(true) {
+            DataIs::callable($value) && DataIs::callable($key) =>
+            ArrLL::intersectAssocFuncKeyValue(
+                $this->storage,
+                $collection->all(),
+                $value,
+                $key
+            ),
+            DataIs::callable($value) =>
+            ArrLL::intersectAssocFuncValue(
+                $this->storage,
+                $collection->all(),
+                $value
+            ),
+            DataIs::callable($key) =>
+            ArrLL::intersectAssocFuncKey(
+                $this->storage,
+                $collection->all(), // @phpstan-ignore-line
+                $key
+            ),
+            default =>
+            ArrLL::intersectAssoc(
+                $this->storage,
+                $collection->all()
+            )
+        });
+
+    }
+
+    /**
      * ### Computes the intersection in keys of collections
      * @since 1.0.0
      *
@@ -504,7 +628,7 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::associative(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
      *
