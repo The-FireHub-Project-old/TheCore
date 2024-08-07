@@ -595,6 +595,29 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testIntersect ():void {
+
+        $collection = Collection::list(['Jane', 'Richard']);
+
+        $this->assertSame(
+            [1 => 'Jane', 2 => 'Jane', 3 => 'Jane', 4 => 'Richard', 5 => 'Richard'],
+            $this->collection->intersect($collection)->all()
+        );
+
+        $this->assertSame(
+            [0 => 'John', 2 => 'Jane', 3 => 'Jane'],
+            $this->collection->intersect($collection, function ($value_a, $value_b) {
+                return $value_a === $value_b ? 1 : 0;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSplit ():void {
 
         $this->assertEquals(

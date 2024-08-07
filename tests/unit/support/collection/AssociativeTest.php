@@ -301,6 +301,29 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testIntersectKeys ():void {
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 'age' => 25],
+            $this->collection->intersectKeys(Collection::associative(['lastname' => 'Doe', 'age' => 25]))->all()
+        );
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe'],
+            $this->collection->intersectKeys(
+                Collection::associative(['lastname' => 'Doe', 'age' => 25]),
+                function ($key_a, $key_b) {
+                    return $key_a === $key_b ? 1 : 0;
+                })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSplit ():void {
 
         $this->assertEquals(

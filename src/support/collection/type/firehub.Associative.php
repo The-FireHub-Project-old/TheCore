@@ -479,6 +479,61 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Computes the intersection in keys of collections
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::intersectKey() To compute the intersection of arrays using keys for
+     * comparison.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::intersectKeyFunc() To compute the intersection of arrays using keys for
+     * comparison by using a callback function for data comparison.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersectKeys($collection2);
+     *
+     * // ['lastname' => 'Doe', 'age' => 25]
+     * ```
+     * @example With callback function.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection2 = Collection::associative(['lastname' => 'Doe', 'age' => 25]);
+     *
+     * $collection1->intersectKeys($collection2, function ($key_a, $key_b):int {
+     *  return $key_a === $key_b ? 1 : 0;
+     * });
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Arr<array-key, mixed> $collection <p>
+     * Collection to compare against.
+     * </p>
+     * @param null|callable(mixed $key_a, mixed $key_b):int<-1, 1> $keys [optional] <p>
+     * The comparison function.
+     * </p>
+     *
+     * @return static<TKey, TValue> An array containing all the entries from $collection that are present in
+     * any of the other collections.
+     */
+    public function intersectKeys (Arr $collection, ?callable $keys = null):self {
+
+        return new self($keys
+            ? ArrLL::intersectKeyFunc($this->storage, $collection->all(), $keys)
+            : ArrLL::intersectKey($this->storage, $collection->all()));
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
