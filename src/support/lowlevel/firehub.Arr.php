@@ -790,7 +790,8 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> Arrays containing all the entries from $array that aren't present in any of the other arrays.
+     * @return array<TKey, TValue> Arrays containing all the entries from $array that are present in any of the other
+     * arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -849,7 +850,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -911,7 +912,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -944,7 +945,7 @@ final class Arr implements InitStatic {
      * The comparison function.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -983,7 +984,7 @@ final class Arr implements InitStatic {
      * The comparison function for key.
      * </p>
      *
-     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
