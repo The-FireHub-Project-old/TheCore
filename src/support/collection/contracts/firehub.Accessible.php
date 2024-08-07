@@ -31,4 +31,17 @@ use FireHub\Core\Support\Contracts\ArrayAccessible;
  */
 interface Accessible extends Collectable, ArrayAccessible {
 
+    /**
+     * ### Applies the callback to each collection item
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey=):mixed $callback <p>
+     * <code>callable(TValue $value):mixed</code>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return $this New modified collection.
+     */
+    public function transform (callable $callback):self;
+
 }

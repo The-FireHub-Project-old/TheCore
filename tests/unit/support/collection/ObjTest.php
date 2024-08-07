@@ -606,4 +606,23 @@ final class ObjTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTransform ():void {
+
+        $this->assertSame(
+            [
+                ['object' => $this->cls1, 'info' => 'new data for object 1'],
+                ['object' => $this->cls2, 'info' => 'new data for object 2']
+            ],
+            $this->simple->transform(function ($object, $info) {
+                return 'new ' . $info;
+            })->all()
+        );
+
+    }
+
 }

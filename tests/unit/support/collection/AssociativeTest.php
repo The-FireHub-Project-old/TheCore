@@ -615,6 +615,22 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testTransform ():void {
+
+        $this->assertSame(
+            ['firstname' => 'firstname:John', 'lastname' => 'lastname:Doe', 'age' => 'age:25', 10 => '10:2'],
+            $this->collection->transform(function ($value, $key) {
+                return $key.':'.$value;
+            })->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('{"firstname":"John","lastname":"Doe","age":25,"10":2}', json_encode($this->collection));

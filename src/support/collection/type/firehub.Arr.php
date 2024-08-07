@@ -21,7 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable
+    Convertable, Conditionable, Reducible, Sliceable, Transformable
 };
 use FireHub\Core\Support\Enums\ {
     Order, Sort
@@ -79,11 +79,17 @@ abstract class Arr implements Init, Accessible {
 
     /**
      * ### This trait allows usage of slicing methods
-     * @since 1.0.0ž
+     * @since 1.0.0
      *
      * @use \FireHub\Core\Support\Collection\Traits\Sliceable<TKey, TValue>
      */
     use Sliceable;
+
+    /**
+     * ### This trait allows applying the callback to each collection item
+     * @since 1.0.0
+     */
+    use Transformable;
 
     /**
      * ### Array underlying data
@@ -916,7 +922,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $collection->map(function ($value, $key) {
+     * $collection->map(function ($value) {
      *  return $value.'.';
      * });
      *

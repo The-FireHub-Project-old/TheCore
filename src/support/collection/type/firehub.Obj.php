@@ -21,7 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable
+    Convertable, Conditionable, Reducible, Sliceable, Transformable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -76,6 +76,12 @@ final class Obj implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, object>
      */
     use Sliceable;
+
+    /**
+     * ### This trait allows applying the callback to each collection item
+     * @since 1.0.0
+     */
+    use Transformable;
 
     /**
      * ### Constructor

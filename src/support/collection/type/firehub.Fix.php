@@ -23,7 +23,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable
+    Convertable, Conditionable, Reducible, Sliceable, Transformable
 };
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, Iterables, Iterator
@@ -79,6 +79,12 @@ final class Fix implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, mixed>
      */
     use Sliceable;
+
+    /**
+     * ### This trait allows applying the callback to each collection item
+     * @since 1.0.0
+     */
+    use Transformable;
 
     /**
      * ### Constructor
