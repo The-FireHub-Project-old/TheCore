@@ -837,6 +837,35 @@ abstract class Arr implements Init, Accessible {
      * @uses \FireHub\Core\Support\Helpers\Arr\groupByKey() To group a collection by a key or set of keys shared between
      * all array members.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn ():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->groupByKey('lastname', function ($value) {
+     *  return $value['firstname'] === 'John';
+     * });
+     *
+     * // 'Doe' => [
+     * //     1 => [
+     * //          0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * //      ],
+     * //      0 => [
+     * //          1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+     * //      ]
+     * //  ],
+     * //  'Roe' => [
+     * //      0 => [
+     * //          2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * //      ]
+     * //  ]
+     * ```
+     *
      * @param array-key|callable $key <p>
      * <code><![CDATA[ array-key|callable(array<array-key, mixed>> $row):mixed ]]></code>
      * Array key to group with.
