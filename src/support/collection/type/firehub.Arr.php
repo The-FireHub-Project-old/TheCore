@@ -29,7 +29,7 @@ use FireHub\Core\Support\Enums\ {
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
 };
-use ArgumentCountError, Error, Traversable, TypeError, ValueError;
+use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
     is_empty, first, last, groupByKey, multiSort
@@ -925,19 +925,7 @@ abstract class Arr implements Init, Accessible {
      */
     public function map (callable $callback):static {
 
-        try {
-
-            return new static(ArrLL::map($this->storage, $callback));
-
-        } catch (ArgumentCountError) {
-
-            $storage = [];
-
-            foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
-
-            return new static($storage);
-
-        }
+        return new static(ArrLL::map($this->storage, $callback));
 
     }
 

@@ -20,6 +20,7 @@ use FireHub\Core\Support\Enums\ {
     Order, Sort
 };
 use FireHub\Core\Support\LowLevel\Arr as ArrLL;
+use ArgumentCountError;
 
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
 
@@ -347,6 +348,44 @@ class Associative extends Arr {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::map() To apply the callback to the elements of the given array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->map(function ($value, $key) {
+     *  return $key.':'.$value;
+     * });
+     *
+     * // ['firstname' => 'firstname:John', 'lastname' => 'lastname:Doe', 'age' => 'age:25', 10 => '10:2']
+     * ```
+     */
+    public function map (callable $callback):static {
+
+        try {
+
+            return new static(ArrLL::map($this->storage, $callback));
+
+        } catch (ArgumentCountError) {
+
+            $storage = [];
+
+            foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
+
+            return new static($storage);
+
+        }
 
     }
 
