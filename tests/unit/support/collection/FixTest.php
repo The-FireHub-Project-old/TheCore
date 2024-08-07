@@ -388,6 +388,23 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Fix::fromArray(['one', 'two']),
+                Fix::fromArray(['three'])
+            ],
+            $this->collection->split(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

@@ -645,6 +645,24 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Indexed::fromArray(['John', 'Jane']),
+                Indexed::fromArray(['Jane', 'Jane']),
+                Indexed::fromArray(['Richard', 'Richard'])
+            ],
+            $this->collection->split(3)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

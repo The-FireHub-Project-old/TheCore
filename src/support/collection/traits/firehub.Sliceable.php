@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\Collection\Traits;
 
+use FireHub\Core\Support\Collection\Type\Indexed;
+use FireHub\Core\Support\LowLevel\NumInt;
+
 /**
  * ### This trait allows usage of slicing methods
  * @since 1.0.0
@@ -116,6 +119,60 @@ trait Sliceable {
     public function skip (int $count):self {
 
         return $this->slice($count);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::count() To count elements of an object.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::slice() To get a slice from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::floor() To round fractions down.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::divide() To divide integers.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->split(3);
+     *
+     * // [Indexed['John', 'Jane'], Indexed['Jane', 'Jane'], Indexed['Richard', 'Richard']]
+     * ```
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<self<TKey, TValue>> Grouped collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function split (int $number_of_groups):Indexed {
+
+        $storage = [];
+
+        $number_of_groups = max($number_of_groups, 1);
+
+        $group_size = NumInt::floor(
+            NumInt::divide($this->count(), $number_of_groups)
+        );
+
+        $remain = $this->count() % $number_of_groups;
+
+        $start = 0;
+        for ($position = 0; $position < $number_of_groups; $position++) {
+
+            $size = $group_size;
+
+            if ($position < $remain) $size++;
+
+            if ($size) $storage[] = $this->slice($start, $size);
+
+            $start += $size;
+
+        }
+
+        return new Indexed($storage); // @phpstan-ignore-line
 
     }
 

@@ -280,6 +280,18 @@ interface Collectable extends Countable, IterablesAggregate {
     public function merge (self ...$collections):self;
 
     /**
+     * ### Split collection by number of groups into similar size
+     * @since 1.0.0
+     *
+     * @param positive-int $number_of_groups <p>
+     * Number of groups.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Collectable<int, self<TKey, TValue>> Grouped collection.
+     */
+    public function split (int $number_of_groups):Collectable;
+
+    /**
      * ### New collection consisting of every n-th element
      * @since 1.0.0
      *

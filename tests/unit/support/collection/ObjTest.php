@@ -424,6 +424,28 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Obj::fromArray([
+                    ['object' => $this->cls1, 'info' => 'data for object 1'],
+                    ['object' => $this->cls2, 'info' => [1, 2, 3]]
+                ]),
+                Obj::fromArray([
+                    ['object' => $this->cls3, 'info' => 20]
+                ])
+            ],
+            $this->collection->split(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

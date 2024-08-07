@@ -374,6 +374,23 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testSplit ():void {
+
+        $this->assertEquals(
+            [
+                Gen::fromArray(['firstname' => 'John', 'lastname' => 'Doe']),
+                Gen::fromArray(['age' => 25, 10 => 2])
+            ],
+            $this->collection->split(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(
