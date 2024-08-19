@@ -32,7 +32,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last, groupByKey, multiSort
+    is_empty, first, last, groupByKey, duplicates, multiSort, uniqueDuplicatesMultidimensional
 };
 
 /**
@@ -1273,6 +1273,130 @@ abstract class Arr implements Init, Accessible {
         ) if ($counter++ % (max($step, 1)) === 0) $storage[] = $value;
 
         return new static($storage);
+
+    }
+
+    /**
+     * ### Removes duplicate items from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::unique() To remove duplicate values from an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->unique();
+     *
+     * // ['John', 'Jane', 'Richard']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with unique items.
+     *
+     * @note The new array will preserve keys.
+     * @note This method is not intended to work on multidimensional arrays.
+     */
+    public function unique ():self {
+
+        return new static(ArrLL::unique($this->storage));
+
+    }
+
+    /**
+     * ### Removes unique items from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\duplicates() To remove unique values from an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->duplicates();
+     *
+     * // ['Jane', 'Jane', 'Richard']
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with duplicated items.
+     *
+     * @note The new array will preserve keys.
+     */
+    public function duplicates ():self {
+
+        return new static(duplicates($this->storage));
+
+    }
+
+    /**
+     * ### Removes duplicate items from multidimensional collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional() To group a multidimensional array by
+     * provided unique and duplicated column values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->uniqueMultidimensional();
+     *
+     * // [
+     * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with unique items.
+     *
+     * @note The new array will preserve keys.
+     */
+    public function uniqueMultidimensional (int|string $key):self {
+
+        return new static(uniqueDuplicatesMultidimensional($this->storage, $key)[0]);
+
+    }
+
+    /**
+     * ### Removes unique items from multidimensional collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional() To group a multidimensional array by
+     * provided unique and duplicated column values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->duplicatesMultidimensional();
+     *
+     * // [
+     * //   1 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+     * // ]
+     * ```
+     *
+     * @return self<TKey, TValue> New collection with unique items.
+     *
+     * @note The new array will preserve keys.
+     */
+    public function duplicatesMultidimensional (int|string $key):self {
+
+        return new static(uniqueDuplicatesMultidimensional($this->storage, $key)[1]);
 
     }
 

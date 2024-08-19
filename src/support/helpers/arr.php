@@ -267,7 +267,7 @@ function duplicates (array $array):array {
  * // ]
  * ```
  *
- * @param array<array-key, array<array-key, mixed>> $array <p>
+ * @param array<array-key, mixed> $array <p>
  * The array.
  * </p>
  * @param array-key $key <p>
@@ -290,7 +290,7 @@ function uniqueDuplicatesMultidimensional (array $array, int|string $key):array 
 
     foreach ($array as $array_key => $array_value) {
 
-        if (!isset($array_value[$key])) throw new Error('All array items must have provided key!');
+        if (!isset($array_value[$key])) throw new Error('All array items must have provided key!'); // @phpstan-ignore-line
 
         if (!Arr::inArray($array_value[$key], $keys)) {
 

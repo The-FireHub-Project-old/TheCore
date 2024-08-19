@@ -767,6 +767,65 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testUnique ():void {
+
+        $this->assertSame(
+            [0 => 'John', 1 => 'Jane', 4 => 'Richard'],
+            $this->collection->unique()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDuplicates ():void {
+
+        $this->assertSame(
+            [2 => 'Jane', 3 => 'Jane', 5 => 'Richard'],
+            $this->collection->duplicates()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUniqueMultidimensional ():void {
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->multidimensional->uniqueMultidimensional('lastname')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDuplicatesMultidimensional ():void {
+
+        $this->assertSame([
+            1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+        ],
+            $this->multidimensional->duplicatesMultidimensional('lastname')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame(
