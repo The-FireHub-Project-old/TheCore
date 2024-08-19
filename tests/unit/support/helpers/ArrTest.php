@@ -19,11 +19,13 @@ use FireHub\Core\Support\Enums\Order;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, CoversFunction
 };
+use Error;
 
 use function FireHub\Core\Support\Helpers\Arr\is_empty;
 use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
+use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
 use function FireHub\Core\Support\Helpers\Arr\multiSort;
 
@@ -36,6 +38,7 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
 final class ArrTest extends Base {
@@ -103,6 +106,51 @@ final class ArrTest extends Base {
         ], 'lastname', function (array $value) {
             return $value['firstname'] === 'John';
         }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUniqueDuplicatedMultidimensional ():void {
+
+        $arr = [
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+            ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ];
+
+        list($unique, $duplicates) = uniqueDuplicatedMultidimensional($arr, 'firstname');
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ], $unique);
+
+        $this->assertSame([
+            1 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+        ], $duplicates);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUniqueDuplicatedMultidimensionalMissingArrayColumn ():void {
+
+        $this->expectException(Error::class);
+
+        $arr = [
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            ['lastname' => 'Doe', 'age' => 21, 10 => 1],
+            ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ];
+
+        uniqueDuplicatedMultidimensional($arr, 'firstname');
 
     }
 

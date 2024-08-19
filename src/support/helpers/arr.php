@@ -207,6 +207,67 @@ function groupByKey (array $array, int|string|callable $key, int|string|callable
 }
 
 /**
+ * ### Group multidimensional array by provided unique and duplicated column values
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if a value exists in an array.
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional;
+ *
+ * uniqueDuplicatedMultidimensional([
+ *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+ *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+ *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+ *  ], 'firstname');
+ *
+ * // [
+ * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+ * //   2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+ * // ],
+ * // [
+ * //   1 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+ * // ]
+ * ```
+ *
+ * @param array<array-key, array<array-key, mixed>> $array <p>
+ * The array.
+ * </p>
+ * @param array-key $key <p>
+ * Array key to group with.
+ * </p>
+ *
+ * @throws Error If any of the items doesn't have a provided key.
+ *
+ * @return array<array-key, array<array-key, mixed>> The grouped array with unique and duplicated values.
+ *
+ * @api
+ */
+function uniqueDuplicatedMultidimensional (array $array, int|string $key):array {
+
+    $keys = [];
+    $unique = [];
+    $duplicated = [];
+
+    foreach($array as $array_key => $array_value) {
+
+        if (!isset($array_value[$key])) throw new Error('All array items must have provided key!');
+
+        if (!Arr::inArray($array_value[$key], $keys)) {
+
+            $keys[] = $array_value[$key];
+            $unique[$array_key] = $array_value;
+
+        } else $duplicated[$array_key] = $array_value;
+
+    }
+
+    return [$unique, $duplicated];
+
+}
+
+/**
  * ### Shuffle array items with keys preserved
  * @since 1.0.0
  *
