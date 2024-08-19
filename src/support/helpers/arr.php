@@ -250,7 +250,7 @@ function uniqueDuplicatedMultidimensional (array $array, int|string $key):array 
     $unique = [];
     $duplicated = [];
 
-    foreach($array as $array_key => $array_value) {
+    foreach ($array as $array_key => $array_value) {
 
         if (!isset($array_value[$key])) throw new Error('All array items must have provided key!');
 
