@@ -282,7 +282,7 @@ function duplicates (array $array):array {
  *
  * @api
  */
-function uniqueDuplicatedMultidimensional (array $array, int|string $key):array {
+function uniqueDuplicatesMultidimensional (array $array, int|string $key):array {
 
     $keys = [];
     $unique = [];
