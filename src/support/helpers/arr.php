@@ -242,6 +242,8 @@ function groupByKey (array $array, int|string|callable $key, int|string|callable
  *
  * @return array<array-key, array<array-key, mixed>> The grouped array with unique and duplicated values.
  *
+ * @note The new array will preserve keys.
+ *
  * @api
  */
 function uniqueDuplicatedMultidimensional (array $array, int|string $key):array {
