@@ -792,6 +792,40 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Applies the callback to each collection key
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->mapKeys(function ($value, $key) {
+     *  return 'new '.$key;
+     * });
+     *
+     * // ['new firstname' => 'John', 'new lastname' => 'Doe', 'new age' => 25, 'new 10' => 2]
+     * ```
+     *
+     * @param callable(TValue, TKey=):mixed $callback <p>
+     * <code>callable(TValue $value):mixed</code>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return self<array-key, TValue> New modified collection.
+     */
+    public function mapKeys (callable $callback):self {
+
+        $storage = [];
+
+        foreach ($this->storage as $key => $value) $storage[$callback($value, $key)] = $value;
+
+        return new self($storage);
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

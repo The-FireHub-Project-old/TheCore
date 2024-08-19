@@ -434,6 +434,21 @@ final class AssociativeTest extends Base {
         );
 
     }
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMapKeys ():void {
+
+        $this->assertSame(
+            ['new firstname' => 'John', 'new lastname' => 'Doe', 'new age' => 25, 'new 10' => 2],
+            $this->collection->mapKeys(function ($value, $key) {
+                return 'new '.$key;
+            })->all()
+        );
+
+    }
 
     /**
      * @since 1.0.0
