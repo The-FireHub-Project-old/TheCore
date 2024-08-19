@@ -1277,6 +1277,52 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Pad a collection to the specified length with a value
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::pad() To pad an array to the specified length with a value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->pad(10, 'Daniel');
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Daniel', 'Daniel', 'Daniel', 'Daniel']
+     * ```
+     * @example Pad with negative size.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->pad(-10, 'Daniel');
+     *
+     * // ['Daniel', 'Daniel', 'Daniel', 'Daniel', 'John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
+     * ```
+     *
+     * @param int $size <p>
+     * New size of the array.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.
+     * If the absolute value of length is less than or equal to the length of the array, then no padding takes place.
+     * </p>
+     * @param mixed $value <p>
+     * Value to pad if input is less than length.
+     * </p>
+     *
+     * @return self<array-key, mixed> New collection with pad.
+     *
+     * @caution Keys can be re-numbered.
+     */
+    public function pad (int $size, mixed $value):self {
+
+        return new static(ArrLL::pad($this->storage, $size, $value));
+
+    }
+
+    /**
      * ### Removes duplicate items from collection
      * @since 1.0.0
      *

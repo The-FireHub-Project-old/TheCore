@@ -541,6 +541,20 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testPad ():void {
+
+        $this->assertSame(
+            ['Daniel', 'Daniel', 'firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 2 => 2],
+            $this->collection->pad(-6, 'Daniel')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSlice ():void {
 
         $this->assertSame(

@@ -767,6 +767,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testPad ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Daniel', 'Daniel', 'Daniel', 'Daniel'],
+            $this->collection->pad(10, 'Daniel')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testUnique ():void {
 
         $this->assertSame(

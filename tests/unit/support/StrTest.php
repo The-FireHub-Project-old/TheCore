@@ -99,7 +99,7 @@ final class StrTest extends Base {
         );
         $this->string = Str::from('FireHub', Encoding::UTF_8);
         $this->insensitive_string = IStr::from('FireHub', Encoding::UTF_8);
-        $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', false, Encoding::UTF_8);
+        $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', null, Encoding::UTF_8);
         $this->string_with_glue_and_conjunction = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', '=', Encoding::UTF_8);
         $this->string_lower = Str::from('firehub', Encoding::UTF_8);
         $this->string_upper = Str::from('FIREHUB', Encoding::UTF_8);
