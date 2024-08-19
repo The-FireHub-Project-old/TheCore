@@ -21,6 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\ {
     Collectable, Strings, Characters
 };
 use FireHub\Core\Support\Char;
+use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, NumInt, Regex, StrSB, StrMB
 };
@@ -129,8 +130,12 @@ abstract class Str implements Init, Strings {
      * ### Create a new string from array elements with a string
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed As an array type if a pure array is provided.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::slice() To get all collection items expect last one.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get all collection items.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::last() To get the last collection item.
+     * @uses \FireHub\Core\Support\Strings\Str::from() To create a new string.
      * @uses \FireHub\Core\Support\LowLevel\StrMB::implode() To join array elements with a string.
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a list as an array.
      *
      * @example
      * ```php
@@ -148,12 +153,23 @@ abstract class Str implements Init, Strings {
      *
      * // F-i-r-e-H-u-b
      * ```
+     * @example Creating with glue and conjunction.
+     * ```php
+     * use FireHub\Core\Support\Str;
+     *
+     * Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'B'], '-', '=');
+     *
+     * // F-i-r-e-H-u=b
+     * ```
      *
      * @param array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str> $list <p>
      * The array of strings to implode.
      * </p>
      * @param string $glue [optional] <p>
      * The boundary string.
+     * </p>
+     * @param null|string $conjunction [optional] <p>
+     * Last item separator.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
@@ -163,14 +179,21 @@ abstract class Str implements Init, Strings {
      *
      * @return static New string containing a string representation of all the array elements in the same order,
      * with the separator string between each element.
-     *
-     * @todo After Collection check if string.
      */
-    public static function fromList (array|Collectable $list, string $glue = '', ?Encoding $encoding = null):static {
+    public static function fromList (array|Collectable $list, string $glue = '', ?string $conjunction = null, ?Encoding $encoding = null):static {
 
-        return new static(
-            StrMB::implode($list instanceof Collectable ? $list->all() : $list, $glue), // @phpstan-ignore-line
-            $encoding
+        $list = $list instanceof Collectable ? $list : new Indexed($list);
+
+        if ($conjunction)
+            return static::from(
+                StrMB::implode(
+                    $list->slice(0, -1)->all(), $glue
+                ).$conjunction.$list->last(),
+                $encoding
+            );
+
+        return static::from(
+            StrMB::implode($list->all(), $glue), $encoding
         );
 
     }

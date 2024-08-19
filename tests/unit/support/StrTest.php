@@ -79,6 +79,7 @@ final class StrTest extends Base {
     public Str $string;
     public Str $insensitive_string;
     public Str $string_with_glue;
+    public Str $string_with_glue_and_conjunction;
     public Str $string_lower;
     public Str $string_upper;
     public Str $string_with_num;
@@ -98,7 +99,8 @@ final class StrTest extends Base {
         );
         $this->string = Str::from('FireHub', Encoding::UTF_8);
         $this->insensitive_string = IStr::from('FireHub', Encoding::UTF_8);
-        $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', Encoding::UTF_8);
+        $this->string_with_glue = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', false, Encoding::UTF_8);
+        $this->string_with_glue_and_conjunction = Str::fromList(['F', 'i', 'r', 'e', 'H', 'u', 'b'], '-', '=', Encoding::UTF_8);
         $this->string_lower = Str::from('firehub', Encoding::UTF_8);
         $this->string_upper = Str::from('FIREHUB', Encoding::UTF_8);
         $this->string_with_num = Str::from('FireHub123', Encoding::UTF_8);
@@ -741,6 +743,7 @@ final class StrTest extends Base {
         $this->assertSame('FireHub Web App', $this->string->string('FireHub Web App')->string());
         $this->assertSame('FireHub Web App', $this->insensitive_string->string('FireHub Web App')->string());
         $this->assertSame('F-i-r-e-H-u-b', $this->string_with_glue->string());
+        $this->assertSame('F-i-r-e-H-u=b', $this->string_with_glue_and_conjunction->string());
         $this->assertSame('firehub', $this->string_lower->string());
         $this->assertSame('FIREHUB', $this->string_upper->string());
         $this->assertSame('FireHub123', $this->string_with_num->string());
