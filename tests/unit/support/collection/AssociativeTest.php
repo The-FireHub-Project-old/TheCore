@@ -23,6 +23,7 @@ use FireHub\Core\Support\Enums\ {
     Order, Sort
 };
 use PHPUnit\Framework\Attributes\CoversClass;
+use Error;
 
 /**
  * ### Test associative collection high-level support class
@@ -37,6 +38,7 @@ final class AssociativeTest extends Base {
 
     public Associative $collection;
     public Associative $numbers;
+    public Associative $empty;
 
     /**
      * @since 1.0.0
@@ -47,6 +49,7 @@ final class AssociativeTest extends Base {
 
         $this->collection = Collection::associative(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
         $this->numbers = Collection::associative([1, 2, 3, 4, 13, 22, 27, 28, 29]);
+        $this->empty = Collection::associative([]);
 
     }
 
@@ -828,6 +831,30 @@ final class AssociativeTest extends Base {
                 return $key.':'.$value;
             })->all()
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRandom ():void {
+
+        $this->assertIsArray($this->collection->random(2)->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRandomEmpty ():void {
+
+        $this->expectException(Error::class);
+
+        $this->empty->random(2);
 
     }
 
