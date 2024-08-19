@@ -32,7 +32,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last, groupByKey, duplicates, multiSort, uniqueDuplicatesMultidimensional
+    is_empty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesMultidimensional
 };
 
 /**
@@ -1910,6 +1910,61 @@ abstract class Arr implements Init, Accessible {
         multiSort($this->storage, $fields); // @phpstan-ignore-line
 
         return $this;
+
+    }
+
+    /**
+     * ### Pick one or more random values out of the collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\random() To pick one or more random values out of the array.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::count() To count elements of a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     *
+     * $collection->random();
+     *
+     * // 'two' – randomly selected
+     * ```
+     * @example Using more than one random item.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     *
+     * $collection->random(2);
+     *
+     * // ['two', 'five'] – randomly selected
+     * ```
+     *
+     * @throws Error If a collection has zero items.
+     *
+     * @param positive-int $number <p>
+     * Specifies how many entries you want to pick from a collection.
+     * </p>
+     *
+     * @return mixed If you're picking only one entry, returns a random entry.
+     * Otherwise, it returns a collection of random items.
+     */
+    public function random (int $number = 1):mixed {
+
+        $count = $this->count();
+
+        $number = $number > $count
+            ? ($count === 0
+                ? throw new Error('Collection must have at least one item to get random item.')
+                : $count)
+            : $number;
+
+        $random = random($this->storage, $number);
+
+        return $number > 1
+            ? new static($random) // @phpstan-ignore-line
+            : $random;
 
     }
 

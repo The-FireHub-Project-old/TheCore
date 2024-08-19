@@ -27,6 +27,7 @@ use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
 use function FireHub\Core\Support\Helpers\Arr\duplicates;
 use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional;
+use function FireHub\Core\Support\Helpers\Arr\random;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
 use function FireHub\Core\Support\Helpers\Arr\multiSort;
 
@@ -41,6 +42,7 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\duplicates')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\random')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
 final class ArrTest extends Base {
@@ -168,7 +170,20 @@ final class ArrTest extends Base {
             ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
         ];
 
-        uniqueDuplicatedMultidimensional($arr, 'firstname');
+        uniqueDuplicatesMultidimensional($arr, 'firstname');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRandom ():void {
+
+        $arr = ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2];
+
+        $this->assertIsArray(random($arr, 2));
 
     }
 

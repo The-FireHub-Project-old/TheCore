@@ -26,7 +26,7 @@ use Error, ValueError;
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Array\is_empty;
+ * use function FireHub\Core\Support\Helpers\Arr\is_empty;
  *
  * is_empty([]);
  *
@@ -219,7 +219,7 @@ function groupByKey (array $array, int|string|callable $key, int|string|callable
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Array\duplicates;
+ * use function FireHub\Core\Support\Helpers\Arr\duplicates;
  *
  * duplicates([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5]);
  *
@@ -306,6 +306,59 @@ function uniqueDuplicatesMultidimensional (array $array, int|string $key):array 
 }
 
 /**
+ * ### Pick one or more random values out of the array
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::random() To pick one or more random keys out of an array.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the value is an array.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Arr\random;
+ *
+ * random([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5], 1);
+ *
+ * // 4
+ * ```
+ *
+ * @param array<TKey, TValue> $array <p>
+ * Array from we're picking random items.
+ * </p>
+ * @param positive-int $number [optional] <p>
+ * Specifies how many entries you want to pick.
+ * </p>
+ * @param bool $preserve_keys [optional] <p>
+ * Whether you want to preserve keys from an original array or not.
+ * </p>
+ *
+ * @throws ValueError If $number is not between one and the number of elements in the argument.
+ *
+ * @return ($preserve_keys is true ? mixed|array<TKey, TValue> : mixed|list<TValue>)
+ * If you're picking only one entry, return the value for a random entry.
+ * Otherwise, it returns an array of values for the random entries.
+ *
+ * @api
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+ */
+function random (array $array, int $number = 1, bool $preserve_keys = false):mixed {
+
+    $keys = Arr::random($array, $number);
+
+    if (!DataIs::array($keys)) return $array[$keys];
+
+    $items = [];
+    foreach ($keys as $key)
+        $preserve_keys ? $items[$key] = $array[$key] : $items[] = $array[$key];
+
+    return $items;
+
+}
+
+/**
  * ### Shuffle array items with keys preserved
  * @since 1.0.0
  *
@@ -317,7 +370,7 @@ function uniqueDuplicatesMultidimensional (array $array, int|string $key):array 
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Array\shuffle;
+ * use function FireHub\Core\Support\Helpers\Arr\shuffle;
  *
  * shuffle(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
  *

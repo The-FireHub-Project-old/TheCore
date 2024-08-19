@@ -1087,6 +1087,30 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testRandom ():void {
+
+        $this->assertIsArray($this->collection->random(2)->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRandomEmpty ():void {
+
+        $this->expectException(Error::class);
+
+        $this->empty->random(2);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testJsonSerialize ():void {
 
         $this->assertSame('["John","Jane","Jane","Jane","Richard","Richard"]', json_encode($this->collection));
