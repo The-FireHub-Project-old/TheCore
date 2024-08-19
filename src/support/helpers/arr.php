@@ -255,7 +255,7 @@ function duplicates (array $array):array {
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Array\only;
+ * use function FireHub\Core\Support\Helpers\Arr\only;
  *
  * only([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5], [1, 2]);
  *
@@ -278,6 +278,45 @@ function duplicates (array $array):array {
 function only (array $array, array $keys):array {
 
     return Arr::intersectKey($array, Arr::flip($keys));
+
+}
+
+/**
+ * ### Get all values from an array except for those with the specified keys
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::intersectKey() To compute the difference of arrays using keys for
+ * comparison.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::flip To exchange all keys with their associated values in an array.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Arr\except;
+ *
+ * except([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5], [1, 2]);
+ *
+ * // [0 => 1, 3 => 1, 4 => 2, 5 => 3, 6 => 3, 7 => 3, 8 => 4, 9 => 4, 10 => 5]
+ * ```
+ *
+ * @param array<TKey, TValue> $array <p>
+ * The array to filter items.
+ * </p>
+ * @param list<array-key> $keys <p>
+ * List of keys to return.
+ * </p>
+ *
+ * @error\exeption E_WARNING if values on $array argument are neither int nor string.
+ *
+ * @return array<TKey, TValue> The filtered array.
+ *
+ * @api
+ */
+function except (array $array, array $keys):array {
+
+    return Arr::differenceKey($array, Arr::flip($keys));
 
 }
 

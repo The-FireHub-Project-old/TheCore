@@ -27,10 +27,11 @@ use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
 use function FireHub\Core\Support\Helpers\Arr\duplicates;
 use function FireHub\Core\Support\Helpers\Arr\only;
+use function FireHub\Core\Support\Helpers\Arr\except;
 use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional;
 use function FireHub\Core\Support\Helpers\Arr\random;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
-use function FireHub\Core\Support\Helpers\Arr\multiSort;
+use function FireHub\Core\Support\Helpers\Arr\multiSort;use function Symfony\Component\String\s;
 
 /**
  * ### Test PHP functions
@@ -43,6 +44,7 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\duplicates')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\only')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\except')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\random')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
@@ -143,6 +145,22 @@ final class ArrTest extends Base {
         $this->assertSame(
             [1 => 1, 2 => 1],
             only($arr, [1, 2])
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testExpect ():void {
+
+        $arr = [1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5];
+
+        $this->assertSame(
+            [0 => 1, 3 => 1, 4 => 2, 5 => 3, 6 => 3, 7 => 3, 8 => 4, 9 => 4, 10 => 5],
+            except($arr, [1, 2])
         );
 
     }

@@ -25,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
 use ArgumentCountError, Error;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    only, random, shuffle
+    except, only, random, shuffle
 };
 
 /**
@@ -781,6 +781,35 @@ class Associative extends Arr {
     public function only (array $keys):self {
 
         return new self(only($this->storage, $keys));
+
+    }
+
+    /**
+     * ### New collection with all items except the specified keys
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\only() To get all values from an array with the specified keys.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->except('firstname', 'lastname');
+     *
+     * // ['age' => 25, 10 => 2]
+     * ```
+     *
+     * @param list<array-key> $keys <p>
+     * List of keys to keep.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue> New filtered collection.
+     */
+    public function except (array $keys):self {
+
+        return new self(except($this->storage, $keys));
 
     }
 

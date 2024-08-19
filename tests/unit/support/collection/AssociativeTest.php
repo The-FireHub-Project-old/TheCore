@@ -441,6 +441,20 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testExcept ():void {
+
+        $this->assertSame(
+            ['age' => 25, 10 => 2],
+            $this->collection->except(['firstname', 'lastname'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testMap ():void {
 
         $this->assertSame(
