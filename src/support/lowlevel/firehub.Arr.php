@@ -1406,7 +1406,7 @@ final class Arr implements InitStatic {
      *
      * @return array<TKey, TValue> The filtered array.
      *
-     * @note The new array will preserve associative keys and reindex others.
+     * @note The new array will preserve keys.
      * @note This method is not intended to work on multidimensional arrays.
      */
     public static function unique (array $array):array {
