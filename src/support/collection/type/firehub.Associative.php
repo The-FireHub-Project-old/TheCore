@@ -395,7 +395,7 @@ class Associative extends Arr {
      */
     public function difference (Arr $collection, ?callable $value = null, ?callable $key = null):self {
 
-        return new self( match(true) {
+        return new self( match (true) {
             DataIs::callable($value) && DataIs::callable($key) =>
             ArrLL::differenceAssocFuncKeyValue(
                 $this->storage,
@@ -574,7 +574,7 @@ class Associative extends Arr {
      */
     public function intersect (Arr $collection, ?callable $value = null, ?callable $key = null):self {
 
-        return new self( match(true) {
+        return new self( match (true) {
             DataIs::callable($value) && DataIs::callable($key) =>
             ArrLL::intersectAssocFuncKeyValue(
                 $this->storage,
