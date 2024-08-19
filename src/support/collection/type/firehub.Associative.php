@@ -24,7 +24,9 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use ArgumentCountError;
 
-use function FireHub\Core\Support\Helpers\Arr\shuffle;
+use function FireHub\Core\Support\Helpers\Arr\ {
+    only, shuffle
+};
 
 /**
  * ### Associative array collection type
@@ -750,6 +752,35 @@ class Associative extends Arr {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
+
+    }
+
+    /**
+     * ### New collection with items with the specified keys
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\only() To get all values from an array with the specified keys.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->only('firstname', 'lastname');
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe']
+     * ```
+     *
+     * @param list<array-key> $keys <p>
+     * List of keys to keep.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue> New filtered collection.
+     */
+    public function only (array $keys):self {
+
+        return new self(only($this->storage, $keys));
 
     }
 

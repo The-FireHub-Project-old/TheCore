@@ -424,6 +424,20 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testOnly ():void {
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe'],
+            $this->collection->only(['firstname', 'lastname'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testMap ():void {
 
         $this->assertSame(

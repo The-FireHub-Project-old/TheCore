@@ -243,6 +243,45 @@ function duplicates (array $array):array {
 }
 
 /**
+ * ### Get all values from an array with the specified keys
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::intersectKey() To compute the intersection of arrays using keys for
+ * comparison.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::flip To exchange all keys with their associated values in an array.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Array\only;
+ *
+ * only([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5], [1, 2]);
+ *
+ * // [1 => 1, 2 => 1]
+ * ```
+ *
+ * @param array<TKey, TValue> $array <p>
+ * The array to filter items.
+ * </p>
+ * @param list<array-key> $keys <p>
+ * List of keys to return.
+ * </p
+ *
+ * @error\exeption E_WARNING if values on $array argument are neither int nor string.
+ *
+ * @return array<TKey, TValue> The filtered array.
+ *
+ * @api
+ */
+function only (array $array, array $keys):array {
+
+    return Arr::intersectKey($array, Arr::flip($keys));
+
+}
+
+/**
  * ### Group multidimensional array by provided unique and duplicated column values
  * @since 1.0.0
  *
