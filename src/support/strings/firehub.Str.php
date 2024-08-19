@@ -187,13 +187,13 @@ abstract class Str implements Init, Strings {
         if ($conjunction)
             return static::from(
                 StrMB::implode(
-                    $list->slice(0, -1)->all(), $glue
+                    $list->slice(0, -1)->all(), $glue // @phpstan-ignore-line
                 ).$conjunction.$list->last(),
                 $encoding
             );
 
         return static::from(
-            StrMB::implode($list->all(), $glue), $encoding
+            StrMB::implode($list->all(), $glue), $encoding // @phpstan-ignore-line
         );
 
     }
