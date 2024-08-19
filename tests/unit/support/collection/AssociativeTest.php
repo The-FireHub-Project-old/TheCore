@@ -499,6 +499,20 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testFlip ():void {
+
+        $this->assertSame(
+            ['John' => 'firstname', 'Doe' => 'lastname', 25 => 'age', 2 => 10],
+            $this->collection->flip()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testNth ():void {
 
         $this->assertSame(

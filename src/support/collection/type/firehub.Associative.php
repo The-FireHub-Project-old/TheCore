@@ -896,6 +896,35 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Exchanges all keys with their associated values in collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::flip() To exchange all keys with their associated values in an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->flip();
+     *
+     * // ['John' => 'firstname', 'Doe' => 'lastname', 25 => 'age', 2 => 10]
+     * ```
+     *
+     * @error\exeption E_WARNING if values on $array argument are neither int nor string.
+     *
+     * @return self<TValue, TKey> New flipped collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function flip ():self {
+
+        return new self(ArrLL::flip($this->storage)); // @phpstan-ignore-line
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
