@@ -25,6 +25,7 @@ use function FireHub\Core\Support\Helpers\Arr\is_empty;
 use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
+use function FireHub\Core\Support\Helpers\Arr\duplicates;
 use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
 use function FireHub\Core\Support\Helpers\Arr\multiSort;
@@ -38,6 +39,7 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\duplicates')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
@@ -106,6 +108,22 @@ final class ArrTest extends Base {
         ], 'lastname', function (array $value) {
             return $value['firstname'] === 'John';
         }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDuplicates ():void {
+
+        $arr = [1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5];
+
+        $this->assertSame(
+            [1 => 1, 2 => 1, 3 => 1, 6 => 3, 7 => 3, 9 => 4],
+            duplicates($arr)
+        );
 
     }
 

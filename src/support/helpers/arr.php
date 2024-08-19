@@ -207,6 +207,42 @@ function groupByKey (array $array, int|string|callable $key, int|string|callable
 }
 
 /**
+ * ### Removes unique values from an array
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\LowLevel\Arr::differenceAssoc() To compute the difference of arrays with an additional index
+ * check.
+ * @uses \FireHub\Core\Support\LowLevel\Arr::unique() To remove duplicate values from an array.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use function FireHub\Core\Support\Helpers\Array\duplicates;
+ *
+ * duplicates([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5]);
+ *
+ * // [1, 1, 1, 3, 3, 4]
+ * ```
+ *
+ * @param array<TKey, TValue> $array <p>
+ * The array to remove unique values.
+ * </p>
+ *
+ * @return array<TKey, TValue> The array duplicates.
+ *
+ * @note The new array will preserve keys.
+ *
+ * @api
+ */
+function duplicates (array $array):array {
+
+    return Arr::differenceAssoc($array, Arr::unique($array));
+
+}
+
+/**
  * ### Group multidimensional array by provided unique and duplicated column values
  * @since 1.0.0
  *
