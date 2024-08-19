@@ -301,6 +301,46 @@ class Associative extends Arr {
     }
 
     /**
+     * ### Get collection's keys
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() To return all the keys or a subset of the keys for an array.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->keys();
+     *
+     * // ['firstname', 'lastname', 'age', 10]
+     * ```
+     * @example With a filter option.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->keys(25);
+     *
+     * // ['age']
+     * ```
+     *
+     * @param TValue $with_values [optional] <p>
+     * If specified, then only keys containing these values are returned.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<TKey> Collection's keys.
+     */
+    public function keys (mixed $with_values = null):Indexed {
+
+        return new Indexed(ArrLL::keys($this->storage, $with_values));
+
+    }
+
+    /**
      * ### Computes the difference of collections
      * @since 1.0.0
      *

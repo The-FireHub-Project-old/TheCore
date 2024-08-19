@@ -233,6 +233,18 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testKeys ():void {
+
+        $this->assertSame(['firstname', 'lastname', 'age', 10], $this->collection->keys()->all());
+        $this->assertSame(['age'], $this->collection->keys(25)->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testDifference ():void {
 
         $this->assertSame(
