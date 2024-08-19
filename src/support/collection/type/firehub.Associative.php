@@ -37,6 +37,7 @@ use function FireHub\Core\Support\Helpers\Arr\shuffle;
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<TKey, TValue>
  *
+ * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
