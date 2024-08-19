@@ -250,9 +250,9 @@ function duplicates (array $array):array {
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatedMultidimensional;
+ * use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional;
  *
- * uniqueDuplicatedMultidimensional([
+ * uniqueDuplicatesMultidimensional([
  *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
  *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
  *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
