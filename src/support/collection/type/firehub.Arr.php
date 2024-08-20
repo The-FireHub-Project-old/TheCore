@@ -32,7 +32,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesTwoDimensional
+    isEmpty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesTwoDimensional
 };
 
 /**
@@ -673,7 +673,7 @@ abstract class Arr implements Init, Accessible {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Helpers\Arr\is_empty() To check if an array is empty.
+     * @uses \FireHub\Core\Support\Helpers\Arr\isEmpty() To check if an array is empty.
      *
      * @example
      * ```php
@@ -688,7 +688,7 @@ abstract class Arr implements Init, Accessible {
      */
     public function isEmpty ():bool {
 
-        return is_empty($this->storage);
+        return isEmpty($this->storage);
 
     }
 
