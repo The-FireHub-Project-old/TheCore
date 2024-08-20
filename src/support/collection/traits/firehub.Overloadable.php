@@ -20,7 +20,7 @@ use Error;
  * ### This trait allows usage of property overloading for collections
  * @since 1.0.0
  *
- * @template TKey
+ * @template TKey of array-key
  * @template TValue
  */
 trait Overloadable {
@@ -29,7 +29,7 @@ trait Overloadable {
      * ### Gets item from collection
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if item exist in collection.
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
      *
      * @example
      * ```php
@@ -50,10 +50,80 @@ trait Overloadable {
      *
      * @return TValue Item from a collection.
      */
-    public function get (mixed $key):mixed {
+    public function get (int|string $key):mixed {
 
         return $this->exist($key)
             ? $this->__get($key)
+            : throw new Error("Key $key doesn't exist in collection.");
+
+    }
+
+    /**
+     * ### Adds item to collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->add('middle-name', 'Marry');
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @throws Error If the key already exists in a collection.
+     *
+     * @return void
+     */
+    public function add (int|string $key, mixed $value):void {
+
+        !$this->exist($key)
+            ? $this->__set($key, $value)
+            : throw new Error("Key $key already exists in collection.");
+
+    }
+
+    /**
+     * ### Replaces item from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->replace('firstname', 'Marry');
+     *
+     * // ['firstname' => 'Marry', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     */
+    public function replace (int|string $key, mixed $value):void {
+
+        $this->exist($key)
+            ? $this->__set($key, $value)
             : throw new Error("Key $key doesn't exist in collection.");
 
     }
@@ -79,7 +149,7 @@ trait Overloadable {
      *
      * @return bool True on success, false otherwise.
      */
-    public function exist (mixed $key):bool {
+    public function exist (int|string $key):bool {
 
         return $this->__isset($key);
 
