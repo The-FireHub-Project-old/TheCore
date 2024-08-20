@@ -809,13 +809,13 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
-    public function testUniqueMultidimensional ():void {
+    public function testUniqueTwoDimensional ():void {
 
         $this->assertSame([
             0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
             2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
         ],
-            $this->multidimensional->uniqueMultidimensional('lastname')->all()
+            $this->multidimensional->uniqueTwoDimensional('lastname')->all()
         );
 
     }
@@ -825,12 +825,12 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
-    public function testDuplicatesMultidimensional ():void {
+    public function testDuplicatesTwoDimensional ():void {
 
         $this->assertSame([
             1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
         ],
-            $this->multidimensional->duplicatesMultidimensional('lastname')->all()
+            $this->multidimensional->duplicatesTwoDimensional('lastname')->all()
         );
 
     }

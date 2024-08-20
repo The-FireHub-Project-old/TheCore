@@ -32,7 +32,7 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    is_empty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesMultidimensional
+    is_empty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesTwoDimensional
 };
 
 /**
@@ -302,11 +302,11 @@ abstract class Arr implements Init, Accessible {
      *
      * // ['John' => 1, 'Jane' => 3, 'Richard' => 2]
      * ```
-     * @example Counting a multidimensional collection.
+     * @example Counting a two-dimensional collection.
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list()->multidimensional(fn():array => [
+     * $collection = Collection::list(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
      *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -1378,10 +1378,10 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
-     * ### Removes duplicate items from multidimensional collection
+     * ### Removes duplicate items from two-dimensional collection
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional() To group a multidimensional array by
+     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional() To group a two-dimensional array by
      * provided unique and duplicated column values.
      *
      * @example
@@ -1394,7 +1394,7 @@ abstract class Arr implements Init, Accessible {
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
      * ]);
      *
-     * $collection->uniqueMultidimensional();
+     * $collection->uniqueDuplicatesTwoDimensional();
      *
      * // [
      * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
@@ -1406,17 +1406,17 @@ abstract class Arr implements Init, Accessible {
      *
      * @note The new array will preserve keys.
      */
-    public function uniqueMultidimensional (int|string $key):self {
+    public function uniqueTwoDimensional (int|string $key):self {
 
-        return new static(uniqueDuplicatesMultidimensional($this->storage, $key)[0]);
+        return new static(uniqueDuplicatesTwoDimensional($this->storage, $key)[0]);
 
     }
 
     /**
-     * ### Removes unique items from multidimensional collection
+     * ### Removes unique items from two-dimensional collection
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional() To group a multidimensional array by
+     * @uses \FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional() To group a two-dimensional array by
      * provided unique and duplicated column values.
      *
      * @example
@@ -1429,7 +1429,7 @@ abstract class Arr implements Init, Accessible {
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
      * ]);
      *
-     * $collection->duplicatesMultidimensional();
+     * $collection->duplicatesTwoDimensional();
      *
      * // [
      * //   1 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
@@ -1440,9 +1440,9 @@ abstract class Arr implements Init, Accessible {
      *
      * @note The new array will preserve keys.
      */
-    public function duplicatesMultidimensional (int|string $key):self {
+    public function duplicatesTwoDimensional (int|string $key):self {
 
-        return new static(uniqueDuplicatesMultidimensional($this->storage, $key)[1]);
+        return new static(uniqueDuplicatesTwoDimensional($this->storage, $key)[1]);
 
     }
 
@@ -1932,10 +1932,10 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
-     * ### Sort collection on multidimensional arrays
+     * ### Sort collection on two-dimensional arrays
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Helpers\Arr\multiSort() To sort multiple or multidimensional arrays.
+     * @uses \FireHub\Core\Support\Helpers\Arr\multiSort() To sort multiple or two-dimensional arrays.
      *
      * @example
      * ```php

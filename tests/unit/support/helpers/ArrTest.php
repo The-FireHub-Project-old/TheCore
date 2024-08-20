@@ -28,7 +28,7 @@ use function FireHub\Core\Support\Helpers\Arr\groupByKey;
 use function FireHub\Core\Support\Helpers\Arr\duplicates;
 use function FireHub\Core\Support\Helpers\Arr\only;
 use function FireHub\Core\Support\Helpers\Arr\except;
-use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional;
+use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional;
 use function FireHub\Core\Support\Helpers\Arr\random;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
 use function FireHub\Core\Support\Helpers\Arr\multiSort;use function Symfony\Component\String\s;
@@ -45,7 +45,7 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;use function Symfony\Com
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\duplicates')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\only')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\except')]
-#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\random')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
@@ -170,7 +170,7 @@ final class ArrTest extends Base {
      *
      * @return void
      */
-    public function testUniqueDuplicatesMultidimensional ():void {
+    public function testUniqueDuplicatesTwoDimensional ():void {
 
         $arr = [
             ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
@@ -178,7 +178,7 @@ final class ArrTest extends Base {
             ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
         ];
 
-        list($unique, $duplicates) = uniqueDuplicatesMultidimensional($arr, 'firstname');
+        list($unique, $duplicates) = uniqueDuplicatesTwoDimensional($arr, 'firstname');
 
         $this->assertSame([
             0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
@@ -196,7 +196,7 @@ final class ArrTest extends Base {
      *
      * @return void
      */
-    public function testUniqueDuplicatedMultidimensionalMissingArrayColumn ():void {
+    public function testUniqueDuplicatesTwoDimensionalMissingArrayColumn ():void {
 
         $this->expectException(Error::class);
 
@@ -206,7 +206,7 @@ final class ArrTest extends Base {
             ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
         ];
 
-        uniqueDuplicatesMultidimensional($arr, 'firstname');
+        uniqueDuplicatesTwoDimensional($arr, 'firstname');
 
     }
 

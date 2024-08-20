@@ -321,16 +321,16 @@ function except (array $array, array $keys):array {
 }
 
 /**
- * ### Group multidimensional array by provided unique and duplicated column values
+ * ### Group two-dimensional array by provided unique and duplicated column values
  * @since 1.0.0
  *
  * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if a value exists in an array.
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesMultidimensional;
+ * use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional;
  *
- * uniqueDuplicatesMultidimensional([
+ * uniqueDuplicatesTwoDimensional([
  *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
  *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
  *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -360,7 +360,7 @@ function except (array $array, array $keys):array {
  *
  * @api
  */
-function uniqueDuplicatesMultidimensional (array $array, int|string $key):array {
+function uniqueDuplicatesTwoDimensional (array $array, int|string $key):array {
 
     $keys = [];
     $unique = [];
@@ -480,7 +480,7 @@ function shuffle (array &$array):true {
 }
 
 /**
- * ### Sort multiple on multidimensional arrays
+ * ### Sort multiple on two-dimensional arrays
  * @since 1.0.0
  *
  * @uses \FireHub\Core\Support\LowLevel\Arr::column() To return the values from a single column in the input array.
@@ -518,7 +518,7 @@ function shuffle (array &$array):true {
  * ```
  *
  * @param array<array-key, array<TKey, TValue>> &$array <p>
- * A multidimensional array being sorted.
+ * A two-dimensional array being sorted.
  * </p>
  * @param array<array<TKey, string|\FireHub\Core\Support\Enums\Order>> $fields <p>
  * List of fields to sort by.
