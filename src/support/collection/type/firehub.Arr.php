@@ -298,7 +298,7 @@ abstract class Arr implements Init, Accessible {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $collection->countBy();
+     * $collection->countByValues();
      *
      * // ['John' => 1, 'Jane' => 3, 'Richard' => 2]
      * ```
