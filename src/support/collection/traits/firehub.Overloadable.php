@@ -108,7 +108,7 @@ trait Overloadable {
      *
      * $collection->replace('firstname', 'Marry');
      *
-     * // ['firstname' => 'Marry', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
+     * // ['firstname' => 'Marry', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
      * ```
      *
      * @param TKey $key <p>
@@ -119,12 +119,45 @@ trait Overloadable {
      * </p>
      *
      * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return void
      */
     public function replace (int|string $key, mixed $value):void {
 
         $this->exist($key)
             ? $this->__set($key, $value)
             : throw new Error("Key $key doesn't exist in collection.");
+
+    }
+
+    /**
+     * ### Adds or replaces item from collection
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->set('firstname', 'Jenna');
+     * $collection->set('middle-name', 'Marry');
+     *
+     * // ['firstname' => 'Jenna', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @return void
+     */
+    public function set (int|string $key, mixed $value):void {
+
+        $this->offsetSet($key, $value);
 
     }
 
@@ -152,6 +185,39 @@ trait Overloadable {
     public function exist (int|string $key):bool {
 
         return $this->__isset($key);
+
+    }
+
+    /**
+     * ### Removes item from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->remove('firstname');
+     *
+     * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return void
+     */
+    public function remove (int|string $key):void {
+
+        $this->exist($key)
+            ? $this->__unset($key)
+            : throw new Error("Key $key doesn't exist in collection.");
 
     }
 
