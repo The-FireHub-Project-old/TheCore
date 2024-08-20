@@ -61,7 +61,7 @@ final class Condition implements Init {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $this->collection->when()->is(true, function (&$collection) {
+     * $collection->when()->is(true, function (&$collection) {
      *  return $collection[] = 10;
      * }, function (&$collection) {
      *  return $collection[] = 11;
@@ -106,7 +106,7 @@ final class Condition implements Init {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $this->collection->when()->unless(true, function (&$collection) {
+     * $collection->when()->unless(true, function (&$collection) {
      *  return $collection[] = 10;
      * }, function (&$collection) {
      *  return $collection[] = 11;
@@ -154,7 +154,7 @@ final class Condition implements Init {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $this->collection->when()->empty(function (&$collection) {
+     * $collection->when()->empty(function (&$collection) {
      *  return $collection[] = 10;
      * });
      *
@@ -188,7 +188,7 @@ final class Condition implements Init {
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $this->collection->when()->notEmpty(function (&$collection) {
+     * $collection->when()->notEmpty(function (&$collection) {
      *  return $collection[] = 10;
      * });
      *
