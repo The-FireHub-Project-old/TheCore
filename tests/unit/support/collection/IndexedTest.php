@@ -1125,6 +1125,19 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testRandomEmpty ():void {
+
+        $this->expectException(Error::class);
+
+        $this->empty->random(2);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testRandomTwoDimensional ():void {
 
         $this->assertIsArray($this->multidimensional->randomTwoDimensional(2, 'age')->all());
@@ -1136,11 +1149,11 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
-    public function testRandomEmpty ():void {
+    public function testRandomTwoDimensionalEmpty ():void {
 
         $this->expectException(Error::class);
 
-        $this->empty->random(2);
+        $this->empty->randomTwoDimensional(2, 'no-key');
 
     }
 
