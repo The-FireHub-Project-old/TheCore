@@ -15,13 +15,15 @@
 namespace support\helpers;
 
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Enums\Order;
+use FireHub\Core\Support\Enums\ {
+    Order, Data\Category, Data\Type, Operator\Comparison
+};
 use PHPUnit\Framework\Attributes\ {
     CoversClass, CoversFunction
 };
 use Error;
 
-use function FireHub\Core\Support\Helpers\Arr\is_empty;
+use function FireHub\Core\Support\Helpers\Arr\isEmpty;
 use function FireHub\Core\Support\Helpers\Arr\first;
 use function FireHub\Core\Support\Helpers\Arr\last;
 use function FireHub\Core\Support\Helpers\Arr\groupByKey;
@@ -31,14 +33,19 @@ use function FireHub\Core\Support\Helpers\Arr\except;
 use function FireHub\Core\Support\Helpers\Arr\uniqueDuplicatesTwoDimensional;
 use function FireHub\Core\Support\Helpers\Arr\random;
 use function FireHub\Core\Support\Helpers\Arr\shuffle;
-use function FireHub\Core\Support\Helpers\Arr\multiSort;use function Symfony\Component\String\s;
+use function FireHub\Core\Support\Helpers\Arr\multiSort;
+use function FireHub\Core\Support\Helpers\Arr\filterRecursive;
+use function FireHub\Core\Support\Helpers\Arr\filterRecursiveType;
 
 /**
  * ### Test PHP functions
  * @since 1.0.0
  */
 #[CoversClass(Order::class)]
-#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\is_empty')]
+#[CoversClass(Comparison::class)]
+#[CoversClass(Category::class)]
+#[CoversClass(Type::class)]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\isEmpty')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\first')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\last')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\groupByKey')]
@@ -49,6 +56,8 @@ use function FireHub\Core\Support\Helpers\Arr\multiSort;use function Symfony\Com
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\random')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\shuffle')]
 #[CoversFunction('\FireHub\Core\Support\Helpers\Arr\multiSort')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\filterRecursive')]
+#[CoversFunction('\FireHub\Core\Support\Helpers\Arr\filterRecursiveType')]
 final class ArrTest extends Base {
 
     /**
@@ -58,8 +67,8 @@ final class ArrTest extends Base {
      */
     public function testIsEmpty ():void {
 
-        $this->assertTrue(is_empty([]));
-        $this->assertFalse(is_empty([1, 2, 3]));
+        $this->assertTrue(isEmpty([]));
+        $this->assertFalse(isEmpty([1, 2, 3]));
 
     }
 
@@ -262,6 +271,54 @@ final class ArrTest extends Base {
                 ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22]
             ],
             $arr
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFilterRecursive ():void {
+
+        $this->assertSame(
+            [
+                0 => ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+                4 => ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26],
+            ],
+            filterRecursive([
+                0 => ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+                1 => ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+                2 => ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+                3 => ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22],
+                4 => ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 26]
+            ], 'firstname', Comparison::EQUAL, 'John')
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFilterRecursiveType ():void {
+
+        $this->assertSame(
+            [
+                0 => ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+                1 => ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+                2 => ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+                3 => ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22]
+            ],
+            filterRecursiveType([
+                0 => ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
+                1 => ['id' => 2, 'firstname' => 'Jane', 'lastname' => 'Doe', 'gender' => 'female', 'age' => 23],
+                2 => ['id' => 3, 'firstname' => 'Richard', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 27],
+                3 => ['id' => 4, 'firstname' => 'Jane', 'lastname' => 'Roe', 'gender' => 'female', 'age' => 22],
+                4 => ['id' => 5, 'firstname' => 'John', 'lastname' => 'Roe', 'gender' => 'male', 'age' => 'four']
+            ], 'age', Type::T_INT)
         );
 
     }

@@ -14,11 +14,15 @@
 
 namespace FireHub\Core\Support\Helpers\Arr;
 
-use FireHub\Core\Support\Enums\Order;
+use FireHub\Core\Support\Enums\ {
+    Order, Data\Category, Data\Type, Operator\Comparison
+};
 use FireHub\Core\Support\LowLevel\ {
     Arr, DataIs, Iterables
 };
 use Error, ValueError;
+
+use function FireHub\Core\Support\Helpers\Data\isType;
 
 /**
  * ### Checks if an array is empty
@@ -26,9 +30,9 @@ use Error, ValueError;
  *
  * @example
  * ```php
- * use function FireHub\Core\Support\Helpers\Arr\is_empty;
+ * use function FireHub\Core\Support\Helpers\Arr\isEmpty;
  *
- * is_empty([]);
+ * isEmpty([]);
  *
  * // true
  * ```
@@ -43,7 +47,7 @@ use Error, ValueError;
  *
  * @api
  */
-function is_empty (array $array):bool {
+function isEmpty (array $array):bool {
 
     return Iterables::count($array) === 0;
 
@@ -493,7 +497,7 @@ function shuffle (array &$array):true {
  * @example
  * ```php
  * use FireHub\Core\Support\Enums\Order;
- * use function FireHub\Core\Support\Helpers\Array\multiSort;
+ * use function FireHub\Core\Support\Helpers\Arr\multiSort;
  *
  * $array = [
  *  ['id' => 1, 'firstname' => 'John', 'lastname' => 'Doe', 'gender' => 'male', 'age' => 25],
@@ -554,5 +558,159 @@ function multiSort (array &$array, array $fields):bool {
     $multi_sort[] = &$array;
 
     return Arr::multiSort($multi_sort); // @phpstan-ignore-line
+
+}
+
+/**
+ * ### Filter elements in an array recursively
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\Enums\Operator\Comparison As parameter.
+ * @uses \FireHub\Core\Support\Enums\Operator\Comparison::compare() To compare the current enum with provided values.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::array To check if the value is an array.
+ * @uses \FireHub\Core\Support\Helpers\Arr\isEmpty() To check if an array is empty.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use FireHub\Core\Support\Enums\Operator\Comparison;
+ * use function FireHub\Core\Support\Helpers\Arr\filter_recursive;
+ *
+ * $array = [
+ *  ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25],
+ *  ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21],
+ *  ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+ * ];
+ *
+ * filter_recursive($array, 'lastname', Comparison::EQUAL, 'Doe');
+ *
+ * // [
+ * //   ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25],
+ * //   ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21]
+ * // ]
+ * ```
+ *
+ *  @param array<TKey, TValue> $array <p>
+ * The array to iterate over.
+ * </p>
+ * @param int|string $key <p>
+ * Key to filter on.
+ * </p>
+ * @param mixed $value <p>
+ * Value to filter.
+ * </p>
+ * @param \FireHub\Core\Support\Enums\Operator\Comparison $operator <p>
+ * Operator for filter.
+ * </p>
+ * @param bool $keep_filtered [optional] <p>
+ * If true, keep filtered items, remove otherwise.
+ * </p>
+ *
+ * @return array<TKey, TValue> The filtered array.
+ *
+ * @api
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+ */
+function filterRecursive (array $array, int|string $key, Comparison $operator, mixed $value, bool $keep_filtered = true):array {
+
+    foreach ($array as $array_key => $array_value) {
+
+        if (DataIs::array($array_value)) {
+
+            $array_value = filterRecursive(
+                $array_value, $key,$operator, $value, $keep_filtered
+            );
+
+            if (isEmpty($array_value) || $keep_filtered
+                ? !isset($array_value[$key])
+                    || !($operator->compare($array_value[$key], $value))
+                : isset($array_value[$key])
+                    && ($operator->compare($array_value[$key], $value))
+            ) unset($array[$array_key]);
+
+        } else if ($array_key !== $key) unset($array[$array_key]);
+
+    }
+
+    return $array;
+
+}
+
+/**
+ * ### Filter elements in an array recursively with value type
+ * @since 1.0.0
+ *
+ * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+ * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+ * @uses \FireHub\Core\Support\LowLevel\DataIs::array To check if the value is an array.
+ * @uses \FireHub\Core\Support\Helpers\Arr\isEmpty() To check if an array is empty.
+ * @uses \FireHub\Core\Support\Helpers\Data\isType() To check if the value is of a type.
+ *
+ * @template TKey of array-key
+ * @template TValue
+ *
+ * @example
+ * ```php
+ * use FireHub\Core\Support\Enums\Data\Type;
+ * use function FireHub\Core\Support\Helpers\Arr\filter_recursive_type;
+ *
+ * $array = [
+ *  ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25],
+ *  ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21],
+ *  ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+ * ];
+ *
+ * filter_recursive_type($array, 'age', Type::T_INT);
+ *
+ * // [
+ * //   ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25],
+ * //   ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+ * // ]
+ * ```
+ *
+ * @param array-key $key <p>
+ * Key to filter on.
+ * </p>
+ * @param \FireHub\Core\Support\Enums\Data\Category|\FireHub\Core\Support\Enums\Data\Type $type <p>
+ * Type of value to filter.
+ * </p>
+ * @param array<TKey, TValue> $array <p>
+ * The array to iterate over.
+ * </p>
+ * @param bool $keep_filtered [optional] <p>
+ * If true, keep filtered items, remove otherwise.
+ * </p>
+ *
+ * @return array<TKey, TValue> Filtered array.
+ *
+ * @api
+ *
+ * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+ */
+function filterRecursiveType (array $array, int|string $key, Category|Type $type, bool $keep_filtered = true):array {
+
+    foreach ($array as $array_key => $array_value) {
+
+        if (DataIs::array($array_value)) {
+
+            $array_value = filterRecursiveType(
+                $array_value, $key, $type
+            );
+
+            if (isEmpty($array_value) || $keep_filtered
+                ? !isset($array_value[$key])
+                    || !(isType($array_value[$key], $type))
+                : isset($array_value[$key])
+                    && (isType($array_value[$key], $type))
+            ) unset($array[$array_key]);
+
+        } else if ($array_key !== $key) unset($array[$array_key]);
+
+    }
+
+    return $array;
 
 }
