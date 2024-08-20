@@ -24,7 +24,7 @@ use FireHub\Core\Support\Collection\Traits\ {
     Convertable, Conditionable, Reducible, Sliceable, Transformable
 };
 use FireHub\Core\Support\Enums\ {
-    Order, Sort
+    Order, Sort, Data\Category, Data\Type, Operator\Comparison
 };
 use FireHub\Core\Support\LowLevel\ {
     Arr as ArrLL, DataIs, Iterables
@@ -32,7 +32,8 @@ use FireHub\Core\Support\LowLevel\ {
 use Error, Traversable, TypeError, ValueError;
 
 use function FireHub\Core\Support\Helpers\Arr\ {
-    isEmpty, first, last, groupByKey, duplicates, multiSort, random, uniqueDuplicatesTwoDimensional
+    isEmpty, first, last, groupByKey, duplicates, filterRecursive, filterRecursiveType,
+    multiSort, random, uniqueDuplicatesTwoDimensional
 };
 
 /**
@@ -46,6 +47,8 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  *
  * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
@@ -1779,6 +1782,363 @@ abstract class Arr implements Init, Accessible {
         }
 
         return new static($storage);
+
+    }
+
+    /**
+     * ### Filters the collection by a given key / value pair
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison As parameter.
+     * @uses \FireHub\Core\Support\Helpers\Arr\filterRecursive() To filter elements in an array recursively.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->where('lastname', Comparison::EQUAL, 'Doe');
+     *
+     * // [
+     * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   1 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Operator\Comparison $operator <p>
+     * Operator for filtering.
+     * </p>
+     * @param mixed $value <p>
+     * Value to filter.
+     * </p>
+     *
+     * @return static<TKey, TValue> New filtered collection.
+     */
+    public function where (int|string $key, Comparison $operator, mixed $value):self {
+
+        return new static(filterRecursive($this->storage, $key, $operator, $value));
+
+    }
+
+    /**
+     * ### Filters the collection by removing a given key / value pair
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison As parameter.
+     * @uses \FireHub\Core\Support\Helpers\Arr\filterRecursive() To filter elements in an array recursively.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereNot('lastname', Comparison::EQUAL, 'Doe');
+     *
+     * // [
+     * //   2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Operator\Comparison $operator <p>
+     * Operator for filtering.
+     * </p>
+     * @param mixed $value <p>
+     * Value to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereNot (int|string $key, Comparison $operator, mixed $value):self {
+
+        return new static(filterRecursive($this->storage, $key, $operator, $value, false));
+
+    }
+
+    /**
+     * ### Filters the collection by determining if the value is within a given range
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::where() To filter the collection by a given key / value pair.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::GREATER_OR_EQUAL To compare values.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::LESS_OR_EQUAL To compare values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereBetween('age', 24, 27);
+     *
+     * // [
+     * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param mixed $start <p>
+     * Lowest value to filter.
+     * </p>
+     * @param mixed $end <p>
+     * Highest value to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereBetween (int|string $key, mixed $start, mixed $end):self {
+
+        return $this
+            ->where($key, Comparison::GREATER_OR_EQUAL, $start)
+            ->where($key, Comparison::LESS_OR_EQUAL, $end);
+
+    }
+
+    /**
+     * ### Filters the collection by determining if the value is not within a given range
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::where() To filter the collection by a given key / value pair.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::LESS To compare values.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::GREATER To compare values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereNotBetween('age', 24, 27);
+     *
+     * // [
+     * //   1 => 'firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param mixed $start <p>
+     * Lowest value to filter.
+     * </p>
+     * @param mixed $end <p>
+     * Highest value to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereNotBetween (int|string $key, mixed $start, mixed $end):self {
+
+        $storage = $this->where($key, Comparison::LESS, $start)->all();
+        $storage += $this->where($key, Comparison::GREATER, $end)->all();
+
+        return new static($storage);
+
+    }
+
+    /**
+     * ### Filters the collection by determining if the value is within a given range
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::where() To filter the collection by a given key / value pair.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::all() To get a collection as an array.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::EQUAL To compare values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereIn('firstname', ['John', 'Richard']);
+     *
+     * // [
+     * //   0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param list<mixed> $values <p>
+     * Values to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereIn (int|string $key, array $values):self {
+
+        $storage = [];
+        foreach ($values as $value)
+            $storage += $this->where($key, Comparison::EQUAL, $value)->all();
+
+        return new static($storage);
+
+    }
+
+    /**
+     * ### Filters the collection by determining if the value is not within a given range
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::where() To filter the collection by a given key / value pair.
+     * @uses \FireHub\Core\Support\Enums\Operator\Comparison::NOT_EQUAL To compare values.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Operator\Comparison;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereNotIn('firstname', ['John', 'Richard']);
+     *
+     * // [
+     * //   1 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param list<mixed> $values <p>
+     * Values to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereNotIn (int|string $key, array $values):self {
+
+        $collection = $this;
+
+        foreach ($values as $value)
+            $collection = $collection->where($key, Comparison::NOT_EQUAL, $value);
+
+        return $collection;
+
+    }
+
+    /**
+     * ### Filters the collection with value type
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\filterRecursiveType() To filter elements in an array recursively with
+     * a value type.
+     * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+     * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Data\Type;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereDataIs('age', Type::T_INT);
+     *
+     * // [
+     * //   ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     * //   ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * // ]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Data\Category|\FireHub\Core\Support\Enums\Data\Type $type <p>
+     * Data to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereDataIs (int|string $key, Category|Type $type):self {
+
+        return new static(filterRecursiveType($this->storage, $key, $type));
+
+    }
+
+    /**
+     * ### Filters the collection with a value type removed
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\filterRecursiveType() To filter elements in an array recursively with
+     * a value type.
+     * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+     * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Data\Type;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->whereDataIsNot('age', Type::T_INT);
+     *
+     * // []
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to filter on.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\Data\Category|\FireHub\Core\Support\Enums\Data\Type $type <p>
+     * Data to filter.
+     * </p>
+     *
+     * @return self<TKey, TValue> New filtered collection.
+     */
+    public function whereDataIsNot (int|string $key, Category|Type $type):self {
+
+        return new static(filterRecursiveType($this->storage, $key, $type, false));
 
     }
 

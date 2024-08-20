@@ -23,7 +23,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     Convert, Condition, CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Enums\ {
-    Order, Sort
+    Order, Sort, Data\Type, Operator\Comparison
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
@@ -41,6 +41,8 @@ use Error;
 #[CoversClass(SliceRange::class)]
 #[CoversClass(Order::class)]
 #[CoversClass(Sort::class)]
+#[CoversClass(Comparison::class)]
+#[CoversClass(Type::class)]
 final class IndexedTest extends Base {
 
     public Indexed $collection;
@@ -1014,7 +1016,135 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testWhere ():void {
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+        ],
+            $this->multidimensional->where('lastname', Comparison::EQUAL, 'Doe')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereNot ():void {
+
+        $this->assertSame([
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->multidimensional->whereNot('lastname', Comparison::EQUAL, 'Doe')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereBetween ():void {
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->multidimensional->whereBetween('age', 24, 27)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereNotBetween ():void {
+
+        $this->assertSame([
+            1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+        ],
+            $this->multidimensional->whereNotBetween('age', 24, 27)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereIn ():void {
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->multidimensional->whereIn('firstname', ['John', 'Richard'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereNotIn ():void {
+
+        $this->assertSame([
+            1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1]
+        ],
+            $this->multidimensional->whereNotIn('firstname', ['John', 'Richard'])->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereDataIs ():void {
+
+        $this->assertSame([
+            0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            1 => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+            2 => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->multidimensional->whereDataIs('age', Type::T_INT)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testWhereDataIsNot ():void {
+
+        $this->assertSame([],
+            $this->multidimensional->whereDataIsNot('age', Type::T_INT)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testPluck ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Richard'],
+            $this->multidimensional->pluck('firstname')->all()
+        );
 
         $this->assertSame(
             ['John' => 25, 'Jane' => 21, 'Richard' => 27],
