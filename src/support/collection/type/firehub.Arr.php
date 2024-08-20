@@ -623,6 +623,52 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Searches the two-dimensional collection for a given value and returns the first corresponding key
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::combine() To get key from value.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() To get keys from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::column() To get the values from a single column in the collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->searchTwoDimensional('age', 27);
+     *
+     * // 2
+     * ```
+     *
+     * @param array-key $column <p>
+     * The searched value.
+     * If the value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     * @param mixed $value <p>
+     * The searched value.
+     * If the value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     *
+     * @return TKey|false The key if it is found in the collection, false otherwise.
+     * If a value is found in a collection more than once, the first matching key is returned.
+     */
+    public function searchTwoDimensional (int|string $column, mixed $value):int|string|false {
+
+        return ArrLL::search(
+            $value,
+            /* @phpstan-ignore-next-line */
+            ArrLL::combine(ArrLL::keys($this->storage), ArrLL::column($this->storage, $column))
+        );
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0

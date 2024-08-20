@@ -495,6 +495,19 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testSearchTwoDimensional ():void {
+
+        $this->assertSame(0, $this->multidimensional->searchTwoDimensional('firstname', 'John'));
+
+        $this->assertFalse($this->multidimensional->searchTwoDimensional('firstname', 'Jack'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testGroupBy ():void {
 
         $this->assertSame(
