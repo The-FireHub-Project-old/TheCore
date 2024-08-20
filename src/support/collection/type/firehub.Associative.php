@@ -1556,7 +1556,7 @@ class Associative extends Arr {
      *
      * @throws Error If a collection has zero items.
      *
-     * @param positive-int $number <p>
+     * @param positive-int $number [optional] <p>
      * Specifies how many entries you want to pick from a collection.
      * </p>
      *

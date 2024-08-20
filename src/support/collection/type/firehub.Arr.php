@@ -2010,7 +2010,7 @@ abstract class Arr implements Init, Accessible {
      *
      * @throws Error If a collection has zero items.
      *
-     * @param positive-int $number <p>
+     * @param positive-int $number [optional] <p>
      * Specifies how many entries you want to pick from a collection.
      * </p>
      *
@@ -2028,6 +2028,77 @@ abstract class Arr implements Init, Accessible {
             : $number;
 
         $random = random($this->storage, $number);
+
+        return $number > 1
+            ? new static($random) // @phpstan-ignore-line
+            : $random;
+
+    }
+
+    /**
+     * ### Pick one or more random values out of the two-dimensional collection using keys
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Helpers\Arr\random() To pick one or more random values out of the array.
+     * @uses \FireHub\Core\Support\Collection\Type\Arr::count() To count elements of a collection.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::column() To get values from keys.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge values from keys.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->randomTwoDimensional(1, 'age');
+     *
+     * // 21 – randomly selected
+     * ```
+     * @example Using more than one random item.
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     *
+     * $collection->randomTwoDimensional(2, 'age');
+     *
+     * // [25, 27] – randomly selected
+     * ```
+     *
+     * @throws Error If a collection has zero items.
+     *
+     * @param positive-int $number <p>
+     * Specifies how many entries you want to pick from a collection.
+     * </p>
+     * @param int|string $key  <p>
+     * Key to pick from.
+     * </p>
+     * @param int|string ...$keys [optional] <p>
+     * Additional keys to pick from.
+     * </p>
+     *
+     * @return mixed If you're picking only one entry, returns a random entry.
+     * Otherwise, it returns a collection of random items.
+     */
+    public function randomTwoDimensional (int $number, int|string $key, int|string ...$keys):mixed {
+
+        $count = $this->count();
+
+        $number = $number > $count
+            ? ($count === 0
+                ? throw new Error('Collection must have at least one item to get random item.')
+                : $count)
+            : $number;
+
+        $storage = [];
+        $storage[] = ArrLL::column($this->storage, $key); // @phpstan-ignore-line
+        foreach ($keys as $key) $storage[] = ArrLL::column($this->storage, $key); // @phpstan-ignore-line
+
+        $random = random(ArrLL::merge(...$storage), $number);
 
         return $number > 1
             ? new static($random) // @phpstan-ignore-line
