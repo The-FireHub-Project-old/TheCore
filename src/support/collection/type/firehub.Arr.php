@@ -18,10 +18,10 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
-use FireHub\Core\Support\Collection\Contracts\Accessible;
+use FireHub\Core\Support\Collection\Contracts\Accessible as AccessibleCollection;
 use FireHub\Core\Support\Collection\Helpers\CountCollectables;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable, Transformable
+    Accessible, Convertable, Conditionable, Reducible, Sliceable
 };
 use FireHub\Core\Support\Enums\ {
     Order, Sort, Data\Category, Data\Type, Operator\Comparison
@@ -52,13 +52,21 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-abstract class Arr implements Init, Accessible {
+abstract class Arr implements Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait
      * @since 1.0.0
      */
     use Concrete;
+
+    /**
+     * ### This trait allows applying the callback to each collection item
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Accessible<TKey, TValue>
+     */
+    use Accessible;
 
     /**
      * ### This trait allows converting a collection to a different one
@@ -87,12 +95,6 @@ abstract class Arr implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Sliceable<TKey, TValue>
      */
     use Sliceable;
-
-    /**
-     * ### This trait allows applying the callback to each collection item
-     * @since 1.0.0
-     */
-    use Transformable;
 
     /**
      * ### Array underlying data

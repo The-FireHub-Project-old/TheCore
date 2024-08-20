@@ -15,7 +15,9 @@
 namespace FireHub\Core\Support\Collection\Type;
 
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Contracts\Overloadable as OverloadableCollection;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
+use FireHub\Core\Support\Collection\Traits\Overloadable;
 use FireHub\Core\Support\Enums\ {
     Order, Sort
 };
@@ -38,13 +40,22 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @template TValue
  *
  * @extends \FireHub\Core\Support\Collection\Type\Arr<TKey, TValue>
+ * @implements \FireHub\Core\Support\Collection\Contracts\Overloadable<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Associative extends Arr {
+class Associative extends Arr implements OverloadableCollection {
+
+    /**
+     * ### This trait allows usage of property overloading for collections
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Overloadable<TKey, TValue>
+     */
+    use Overloadable;
 
     /**
      * @inheritDoc

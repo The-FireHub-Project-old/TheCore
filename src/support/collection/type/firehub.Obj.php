@@ -18,10 +18,10 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
-use FireHub\Core\Support\Collection\Contracts\Accessible;
+use FireHub\Core\Support\Collection\Contracts\Accessible as AccessibleCollection;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable, Transformable
+    Accessible, Convertable, Conditionable, Reducible, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -41,13 +41,21 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-final class Obj implements Init, Accessible {
+final class Obj implements Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait
      * @since 1.0.0
      */
     use Concrete;
+
+    /**
+     * ### This trait allows applying the callback to each collection item
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\Collection\Traits\Accessible<int, object>
+     */
+    use Accessible;
 
     /**
      * ### This trait allows converting a collection to a different one
@@ -76,12 +84,6 @@ final class Obj implements Init, Accessible {
      * @use \FireHub\Core\Support\Collection\Traits\Sliceable<int, object>
      */
     use Sliceable;
-
-    /**
-     * ### This trait allows applying the callback to each collection item
-     * @since 1.0.0
-     */
-    use Transformable;
 
     /**
      * ### Constructor

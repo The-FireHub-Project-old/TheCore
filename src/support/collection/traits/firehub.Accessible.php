@@ -15,10 +15,13 @@
 namespace FireHub\Core\Support\Collection\Traits;
 
 /**
- * ### This trait allows applying the callback to each collection item
+ * ### This trait provides an easy way to manipulate collections
  * @since 1.0.0
+ *
+ * @template TKey
+ * @template TValue
  */
-trait Transformable {
+trait Accessible {
 
     /**
      * @inheritDoc
