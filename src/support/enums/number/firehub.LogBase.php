@@ -68,7 +68,7 @@ enum LogBase implements InitEnum {
      */
     public function value ():float {
 
-        return match($this) {
+        return match ($this) {
             self::E => 2.7182818284590452354,
             self::LOG2E => 1.4426950408889634074,
             self::LOG10E => 0.43429448190325182765,
