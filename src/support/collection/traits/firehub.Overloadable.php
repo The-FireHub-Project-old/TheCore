@@ -26,7 +26,8 @@ use Error;
 trait Overloadable {
 
     /**
-     * ### Gets item from collection
+     * @inheritdoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
@@ -41,14 +42,6 @@ trait Overloadable {
      *
      * // John
      * ```
-     *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
-     *
-     * @throws Error If the key doesn't exist in a collection.
-     *
-     * @return TValue Item from a collection.
      */
     public function get (int|string $key):mixed {
 
@@ -59,7 +52,8 @@ trait Overloadable {
     }
 
     /**
-     * ### Adds item to collection
+     * @inheritdoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
@@ -75,16 +69,7 @@ trait Overloadable {
      * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
      * ```
      *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
-     * @param TValue $value <p>
-     * Collection value.
-     * </p>
-     *
      * @throws Error If the key already exists in a collection.
-     *
-     * @return void
      */
     public function add (int|string $key, mixed $value):void {
 
@@ -95,7 +80,8 @@ trait Overloadable {
     }
 
     /**
-     * ### Replaces item from collection
+     * @inheritdoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
@@ -111,16 +97,7 @@ trait Overloadable {
      * // ['firstname' => 'Marry', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
      * ```
      *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
-     * @param TValue $value <p>
-     * Collection value.
-     * </p>
-     *
      * @throws Error If the key doesn't exist in a collection.
-     *
-     * @return void
      */
     public function replace (int|string $key, mixed $value):void {
 
@@ -131,7 +108,8 @@ trait Overloadable {
     }
 
     /**
-     * ### Adds or replaces item from collection
+     * @inheritdoc
+     *
      * @since 1.0.0
      *
      * @example
@@ -145,15 +123,6 @@ trait Overloadable {
      *
      * // ['firstname' => 'Jenna', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
      * ```
-     *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
-     * @param TValue $value <p>
-     * Collection value.
-     * </p>
-     *
-     * @return void
      */
     public function set (int|string $key, mixed $value):void {
 
@@ -162,12 +131,9 @@ trait Overloadable {
     }
 
     /**
-     * ### Check if item exist in collection
-     * @since 1.0.0
+     * @inheritdoc
      *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
+     * @since 1.0.0
      *
      * @example
      * ```php
@@ -179,8 +145,6 @@ trait Overloadable {
      *
      * // true
      * ```
-     *
-     * @return bool True on success, false otherwise.
      */
     public function exist (int|string $key):bool {
 
@@ -189,7 +153,8 @@ trait Overloadable {
     }
 
     /**
-     * ### Removes item from collection
+     * @inheritdoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
@@ -205,13 +170,8 @@ trait Overloadable {
      * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
      * ```
      *
-     * @param TKey $key <p>
-     * Collection key.
-     * </p>
-     *
      * @throws Error If the key doesn't exist in a collection.
-     *
-     * @return void
+
      */
     public function remove (int|string $key):void {
 

@@ -22,11 +22,91 @@ use FireHub\Core\Support\Contracts\Magic\Overloadable as MagicOverloadable;
  * Accessible collectable provides an easy way to manipulate collections.
  * @since 1.0.0
  *
- * @template TKey
+ * @template TKey of array-key
  * @template TValue
  *
  * @extends \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  */
 interface Overloadable extends Accessible, MagicOverloadable {
+
+    /**
+     * ### Gets item from collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return TValue Item from a collection.
+     */
+    public function get (int|string $key):mixed;
+
+    /**
+     * ### Adds item to collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @return void
+     */
+    public function add (int|string $key, mixed $value):void;
+
+    /**
+     * ### Replaces item from collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @return void
+     */
+    public function replace (int|string $key, mixed $value):void;
+    /**
+     * ### Adds or replaces item from collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @return void
+     */
+    public function set (int|string $key, mixed $value):void;
+
+    /**
+     * ### Check if item exist in collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return bool True on success, false otherwise.
+     */
+    public function exist (int|string $key):bool;
+
+    /**
+     * ### Removes item from collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return void
+     */
+    public function remove (int|string $key):void;
 
 }
