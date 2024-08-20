@@ -1537,21 +1537,21 @@ class Associative extends Arr {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->random();
      *
-     * // 'two' – randomly selected
+     * // 'Doe' – randomly selected
      * ```
      * @example Using more than one random item.
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->random(2);
      *
-     * // ['two', 'five'] – randomly selected
+     * // ['firstname' => 'John', 'lastname' => 'Doe'] – randomly selected
      * ```
      *
      * @throws Error If a collection has zero items.

@@ -1900,7 +1900,7 @@ abstract class Arr implements Init, Accessible {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $$collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
      * $collection->sortBy(function (mixed $current, mixed $next):int {
      *  if ($current === $next) return 0;
@@ -1991,7 +1991,7 @@ abstract class Arr implements Init, Accessible {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn():array => ['one', 'two', 'three', 'four', 'five']);
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
      * $collection->random();
      *
