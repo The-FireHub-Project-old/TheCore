@@ -1001,6 +1001,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testPluck ():void {
+
+        $this->assertSame(
+            ['John' => 25, 'Jane' => 21, 'Richard' => 27],
+            $this->multidimensional->pluck('age', 'firstname')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testShuffle ():void {
 
         $this->assertSame($this->collection, $this->collection->shuffle());

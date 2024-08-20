@@ -1737,6 +1737,73 @@ abstract class Arr implements Init, Accessible {
     }
 
     /**
+     * ### Get the values from given key
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::column() To return the values from a single column in the input array.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::combine() To create an array by using one array for keys and another
+     * for its values.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed As return.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $pluck = $collection->pluck('firstname');
+     *
+     * // ['John', 'Jane', 'Richard']
+     * ```
+     * @example With custom keys
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
+     *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
+     *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $pluck = $collection->pluck('age', 'firstname');
+     *
+     * // ['John' => 25, 'Jane' => 21, 'Richard' => 27]
+     * ```
+     *
+     * @param array-key $key <p>
+     * Key to pluck.
+     * </p>
+     * @param null|array-key $pluck_key [optional] <p>
+     * Keys for plucked values.
+     * </p>
+     *
+     * @throws ValueError If arguments $keys and $values don't have the same number of elements.
+     *
+     * @return ($pluck_key is null
+     *  ? \FireHub\Core\Support\Collection\Type\Indexed<mixed>
+     *  : \FireHub\Core\Support\Collection\Type\Associative<array-key, mixed>
+     * ) New collection with plucked values.
+     */
+    public function pluck (int|string $key, int|string $pluck_key = null):Indexed|Associative {
+
+        $values = ArrLL::column($this->storage, $key); // @phpstan-ignore-line
+
+        if ($pluck_key)
+            return new Associative(
+                /* @phpstan-ignore-next-line */
+                ArrLL::combine(ArrLL::column($this->storage, $pluck_key), $values)
+            );
+
+        return new Indexed($values);
+
+    }
+
+    /**
      * ### Shuffle collection items
      * @since 1.0.0
      *
@@ -1875,7 +1942,7 @@ abstract class Arr implements Init, Accessible {
      * use FireHub\Core\Support\Collection;
      * use FireHub\Core\Support\Enums\Order;
      *
-     * $collection = Collection::list(fn ():array => [
+     * $collection = Collection::list(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
      *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
