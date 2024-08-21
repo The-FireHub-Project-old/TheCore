@@ -19,6 +19,9 @@ use FireHub\Core\Support\Contracts\Iterator\IterablesAggregate;
 use FireHub\Core\Support\Collection\Helpers\ {
     Convert, Condition
 };
+use FireHub\Core\Support\Enums\Data\ {
+    Category, Type
+};
 
 /**
  * ### Collectable contract
@@ -170,6 +173,21 @@ interface Collectable extends Countable, IterablesAggregate {
      * @return bool True if each item in the collection passes a given truth test, false otherwise.
      */
     public function every (callable $callback):bool;
+
+    /**
+     * ### Verify that all items of a collection are of certain type
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+     * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+     *
+     * @param class-string|\FireHub\Core\Support\Enums\Data\Type|\FireHub\Core\Support\Enums\Data\Category $type <p>
+     * Type to check on all collection items.
+     * </p>
+     *
+     * @return bool True if each item in the collection is of a certain type, false otherwise.
+     */
+    public function ensure (string|Type|Category $type):bool;
 
     /**
      * ### Searches the collection for a given value and returns the first corresponding key if successful

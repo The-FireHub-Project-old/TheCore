@@ -21,7 +21,7 @@ use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection\Contracts\Accessible as AccessibleCollection;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
-    Accessible, Convertable, Conditionable, Reducible, Sliceable
+    Accessible, Convertable, Conditionable, Ensure, Reducible, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -70,6 +70,12 @@ final class Obj implements Init, AccessibleCollection {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait provides item checking
+     * @since 1.0.0
+     */
+    use Ensure;
 
     /**
      * ### This trait allows reduction of the collection to a single value

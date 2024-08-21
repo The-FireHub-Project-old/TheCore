@@ -22,7 +22,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Collection\Traits\ {
-    Convertable, Conditionable, Reducible, Sliceable
+    Convertable, Conditionable, Ensure, Reducible, Sliceable
 };
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Iterator
@@ -65,6 +65,12 @@ final class Gen implements Init, Collectable {
      * @use \FireHub\Core\Support\Collection\Traits\Conditionable<static>
      */
     use Conditionable;
+
+    /**
+     * ### This trait provides item checking
+     * @since 1.0.0
+     */
+    use Ensure;
 
     /**
      * ### This trait allows reduction of the collection to a single value
