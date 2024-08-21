@@ -593,6 +593,23 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testChunk ():void {
+
+        $this->assertEquals(
+            [
+                Associative::fromArray(['firstname' => 'John', 'lastname' => 'Doe']),
+                Associative::fromArray(['age' => 25, 10 => 2])
+            ],
+            $this->collection->chunk(2)->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testFilter ():void {
 
         $this->assertSame(['age' => 25, 10 => 2], $this->collection->filter(function ($value, $key) {

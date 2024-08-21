@@ -14,7 +14,9 @@
 
 namespace FireHub\Core\Support\Collection\Traits;
 
-use FireHub\Core\Support\Collection\Type\Indexed;
+use FireHub\Core\Support\Collection\Type\ {
+    Associative, Indexed, Gen
+};
 use FireHub\Core\Support\LowLevel\NumInt;
 
 /**
@@ -138,6 +140,7 @@ trait Sliceable {
      * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::slice() To get a slice from a collection.
      * @uses \FireHub\Core\Support\LowLevel\NumInt::floor() To round fractions down.
      * @uses \FireHub\Core\Support\LowLevel\NumInt::divide() To divide integers.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed As return.
      *
      * @example
      * ```php
@@ -180,6 +183,58 @@ trait Sliceable {
         }
 
         return new Indexed($storage); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As chunk.
+     * @uses \FireHub\Core\Support\Collection\Type\Gen As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->chunk(4);
+     *
+     * // [Associative['John', 'Jane', 'Jane', 'Jane'], Associative['Richard', 'Richard']]
+     * ```
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Gen<int, \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue>> Grouped collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function chunk ($size_of_group):Gen {
+
+        $size_of_group = max($size_of_group, 1);
+
+        return new Gen(function () use ($size_of_group) {
+
+            $chunks = []; $counter = 0;
+            foreach ($this as $key => $value) {
+
+                $chunks[$key] = $value;
+
+                ++$counter;
+
+                if (!($counter % $size_of_group)) {
+
+                    yield new Associative($chunks);
+
+                    $chunks = []; $counter = 0;
+
+                }
+
+            }
+
+            if ($chunks) yield new Associative($chunks);
+
+        });
 
     }
 
