@@ -48,6 +48,7 @@ final class IndexedTest extends Base {
     public Indexed $collection;
     public Indexed $multidimensional;
     public Indexed $multidimensional_collection;
+    public Indexed $multidimensional_numbers;
     public Indexed $numbers;
     public Indexed $empty;
 
@@ -64,6 +65,11 @@ final class IndexedTest extends Base {
             ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
             ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
             ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ]);
+        $this->multidimensional_numbers = Collection::list(fn():array => [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
         ]);
         $this->multidimensional_collection = Collection::list(fn():array => [
             Collection::list([Collection::list([1,2,3]), Collection::list([1,2])]),
@@ -643,6 +649,17 @@ final class IndexedTest extends Base {
             ],
             $this->collection->split(3)->all()
         );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCollapse ():void {
+
+        $this->assertSame([1, 2, 3, 4, 5, 6, 7, 8, 9], $this->multidimensional_numbers->collapse()->all());
 
     }
 

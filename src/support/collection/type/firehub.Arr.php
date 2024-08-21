@@ -1102,6 +1102,43 @@ abstract class Arr implements Init, AccessibleCollection {
     }
 
     /**
+     * ### Collapses a collection of arrays into a single, flat collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::merge() To merge all subarrays.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if subarray is an array.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  [1, 2, 3],
+     *  [4, 5, 6],
+     *  [7, 8, 9]
+     * ]);
+     *
+     * $collection->collapse();
+     *
+     * // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+     * ```
+     *
+     * @return static<array-key, mixed>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function collapse ():static {
+
+        $storage = [];
+
+        foreach ($this->storage as $value)
+            if (DataIs::array($value)) $storage[] = $value;
+
+        return new static(ArrLL::merge(...$storage));
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
