@@ -571,6 +571,33 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->containTimes('John');
+     *
+     * // 1
+     * ```
+     */
+    public function containTimes (mixed $value):int {
+
+        $counter = 0;
+
+        foreach ($this as $storage_value)
+            if ($value === $storage_value) $counter++;
+
+        return $counter;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::count() To check if the number of collection items is 0.
      *
      * @example

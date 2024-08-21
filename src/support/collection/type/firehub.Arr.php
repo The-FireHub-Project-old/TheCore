@@ -798,6 +798,31 @@ abstract class Arr implements Init, AccessibleCollection {
     }
 
     /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count all elements in the array.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() To get all keys with a specified value.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->containTimes('Jane');
+     *
+     * // 3
+     * ```
+     */
+    public function containTimes (mixed $value):int {
+
+        return Iterables::count(ArrLL::keys($this->storage, $value));
+
+    }
+
+    /**
      * ### Group collection by user-defined function until a result is true
      * @since 1.0.0
      *

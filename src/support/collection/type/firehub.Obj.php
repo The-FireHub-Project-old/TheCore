@@ -762,6 +762,41 @@ final class Obj implements Init, AccessibleCollection {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->containTimes($cls1);
+     *
+     * // 1
+     * ```
+     */
+    public function containTimes (mixed $value):int {
+
+        $counter = 0;
+
+        foreach ($this->storage as $object)
+            if ($value === $object) $counter++;
+
+        return $counter;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Obj::count() To check if the number of collection items is 0.
      *
      * @example

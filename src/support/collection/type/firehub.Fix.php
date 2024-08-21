@@ -700,6 +700,37 @@ final class Fix implements Init, AccessibleCollection {
      *  $storage[2] = 'three';
      * }, 3);
      *
+     * $collection->containTimes('one');
+     *
+     * // 1
+     * ```
+     */
+    public function containTimes (mixed $value):int {
+
+        $counter = 0;
+
+        foreach ($this->storage as $storage_value)
+            if ($value === $storage_value) $counter++;
+
+        return $counter;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
      * $collection->filter(function ($value) {
      *  return $value !== 'one';
      * });

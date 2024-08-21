@@ -303,6 +303,17 @@ final class ObjTest extends Base {
      *
      * @return void
      */
+    public function testContainTimes ():void {
+
+        $this->assertSame(1, $this->collection->containTimes($this->cls1));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testIsEmpty ():void {
 
         $this->assertFalse($this->collection->isEmpty());

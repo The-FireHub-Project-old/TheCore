@@ -229,6 +229,18 @@ interface Collectable extends Countable, IterablesAggregate {
     public function doesntContains (mixed $value):bool;
 
     /**
+     * ### Count number of times value is found in a collection
+     * @since 1.0.0
+     *
+     * @param TValue $value <p>
+     * The value to check.
+     * </p>
+     *
+     * @return non-negative-int The number of times values is found in a collection.
+     */
+    public function containTimes (mixed $value):int;
+
+    /**
      * ### Split collection by number of groups into similar size
      * @since 1.0.0
      *

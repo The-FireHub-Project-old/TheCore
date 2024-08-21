@@ -464,6 +464,17 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testContainTimes ():void {
+
+        $this->assertSame(3, $this->collection->containTimes('Jane'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testIsEmpty ():void {
 
         $this->assertFalse($this->collection->isEmpty());

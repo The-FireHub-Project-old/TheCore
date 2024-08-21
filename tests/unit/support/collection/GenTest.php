@@ -276,6 +276,17 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testContainTimes ():void {
+
+        $this->assertSame(1, $this->collection->containTimes('John'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testIsEmpty ():void {
 
         $this->assertFalse($this->collection->isEmpty());
