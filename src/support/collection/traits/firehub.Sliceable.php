@@ -278,4 +278,36 @@ trait Sliceable {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::count() To count elements of an object.
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::chunk() To split a collection into chunks.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+     *
+     * $collection->group(4);
+     *
+     * // [Associative[1, 2, 3, 4], Associative[5, 6, 7, 8], Associative[9, 10]]
+     * ```
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Gen<int, \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue>> Grouped collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function group (int $number_of_groups):Gen {
+
+        return $this->chunk(
+            ($size = NumInt::ceil($this->count() / $number_of_groups)) >= 1 ? $size : 1
+        );
+
+    }
+
 }

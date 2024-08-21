@@ -266,6 +266,18 @@ interface Collectable extends Countable, IterablesAggregate {
     public function chunkUntil (callable $callback):Collectable;
 
     /**
+     * ### Split the collection into the given number of groups filling non-terminal groups first
+     * @since 1.0.0
+     *
+     * @param positive-int $number_of_groups <p>
+     * Number of groups.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Collectable<int, self<TKey, TValue>> Grouped collection.
+     */
+    public function group (int $number_of_groups):Collectable;
+
+    /**
      * ### Filter items from collection
      * @since 1.0.0
      *
