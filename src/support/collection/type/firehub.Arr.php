@@ -824,7 +824,7 @@ abstract class Arr implements Init, AccessibleCollection {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn ():array => [
+     * $collection = Collection::list(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
      *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -892,7 +892,7 @@ abstract class Arr implements Init, AccessibleCollection {
      * ```php
      * use FireHub\Core\Support\Collection;
      *
-     * $collection = Collection::list(fn ():array => [
+     * $collection = Collection::list(fn():array => [
      *  ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25],
      *  ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21],
      *  ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
@@ -903,7 +903,7 @@ abstract class Arr implements Init, AccessibleCollection {
      * });
      *
      * // 'Doe' => [
-     * //     1 => [
+     * //      1 => [
      * //          0 => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
      * //      ],
      * //      0 => [
