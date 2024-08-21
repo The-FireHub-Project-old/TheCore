@@ -15,6 +15,7 @@
 namespace support\collection;
 
 use FireHub\Core\Testing\Base;
+use FireHub\Core\Support\Contracts\HighLevel\Collectable;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Indexed
@@ -23,7 +24,7 @@ use FireHub\Core\Support\Collection\Helpers\ {
     Convert, Condition, CountCollectables, SliceRange
 };
 use FireHub\Core\Support\Enums\ {
-    Order, Sort, Data\Type, Operator\Comparison
+    Order, Sort, Data\Type, Data\Category, Operator\Comparison
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
@@ -43,6 +44,7 @@ use Error;
 #[CoversClass(Sort::class)]
 #[CoversClass(Comparison::class)]
 #[CoversClass(Type::class)]
+#[CoversClass(Category::class)]
 final class IndexedTest extends Base {
 
     public Indexed $collection;
@@ -424,6 +426,32 @@ final class IndexedTest extends Base {
         $this->assertTrue($this->collection->every(function ($value) {
             return $value !== 'Jack';
         }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEnsure ():void {
+
+        $this->assertTrue($this->collection->ensure(Category::SCALAR));
+        $this->assertTrue($this->collection->ensure(Type::T_STRING));
+        $this->assertFalse($this->multidimensional_collection->ensure(Collectable::class));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testEnsureNot ():void {
+
+        $this->assertFalse($this->collection->ensureNot(Category::SCALAR));
+        $this->assertFalse($this->collection->ensureNot(Type::T_STRING));
+        $this->assertFalse($this->multidimensional_collection->ensureNot(Collectable::class));
 
     }
 
