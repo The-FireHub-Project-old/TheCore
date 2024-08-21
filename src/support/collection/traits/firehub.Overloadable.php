@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Collection\Traits;
 
+use FireHub\Core\Support\LowLevel\Arr;
 use Error;
 
 /**
@@ -104,6 +105,95 @@ trait Overloadable {
         $this->exist($key)
             ? $this->__set($key, $value)
             : throw new Error("Key $key doesn't exist in collection.");
+
+    }
+
+    /**
+     * ### Update item from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::replace() To replace item from a collection.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::replace() To replace the elements of one or more arrays together.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  'first' => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     *  'second' => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     *  'third' => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * ]);
+     *
+     * $collection->update('first', ['firstname' => 'Joe']);
+     *
+     * // [
+     * //   'first' => ['firstname' => 'Joe', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+     * //   'second' => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+     * //   'third' => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+     * //]
+     * ```
+     *
+     * @param array<array-key, mixed> $value <p>
+     * Collection value.
+     * </p>
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return void
+     */
+    public function update (mixed $key, array $value):void {
+
+        /** @phpstan-ignore-next-line */
+        $this->replace($key, Arr::replace($this->storage[$key], $value));
+
+    }
+
+    /**
+     * ### Update item from a collection recursively
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::replaceRecursive() To replace item from a
+     * collection recursively.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::replace() To replace the elements of one or more arrays together.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => [
+     *  'first' => ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25, 10 => 2],
+     *  'second' => ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21, 10 => 1],
+     *  'third' => ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+     * ]);
+     *
+     * $collection->updateRecursive('first', ['name' => ['firstname' => 'Joe']];
+     *
+     * // [
+     * //   'first' => ['name' => ['firstname' => 'Joe', 'lastname' => 'Doe'], 'age' => 25, 10 => 2],
+     * //   'second' => ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21, 10 => 1],
+     * //   'third' => ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+     * //]
+     * ```
+     *
+     * @param array<array-key, mixed> $value <p>
+     * Collection value.
+     * </p>
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return void
+     */
+    public function updateRecursive (mixed $key, array $value):void {
+
+        /** @phpstan-ignore-next-line */
+        $this->replace($key, Arr::replaceRecursive($this->storage[$key], $value));
 
     }
 

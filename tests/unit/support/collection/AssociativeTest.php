@@ -39,6 +39,8 @@ final class AssociativeTest extends Base {
     public Associative $collection;
     public Associative $numbers;
     public Associative $empty;
+    public Associative $two_dimensional;
+    public Associative $multidimensional;
 
     /**
      * @since 1.0.0
@@ -50,6 +52,18 @@ final class AssociativeTest extends Base {
         $this->collection = Collection::associative(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
         $this->numbers = Collection::associative([1, 2, 3, 4, 13, 22, 27, 28, 29]);
         $this->empty = Collection::associative([]);
+
+        $this->two_dimensional = Collection::associative([
+            'first' => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            'second' => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+            'third' => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ]);
+
+        $this->multidimensional = Collection::associative([
+            'first' => ['name' => ['firstname' => 'John', 'lastname' => 'Doe'], 'age' => 25, 10 => 2],
+            'second' => ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21, 10 => 1],
+            'third' => ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+        ]);
 
     }
 
@@ -153,6 +167,44 @@ final class AssociativeTest extends Base {
         $this->expectException(Error::class);
 
         $this->collection->replace('middle-name', 'Jenny');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUpdate ():void {
+
+        $this->two_dimensional->update('first', ['firstname' => 'Joe']);
+
+        $this->assertSame([
+            'first' => ['firstname' => 'Joe', 'lastname' => 'Doe', 'age' => 25, 10 => 2],
+            'second' => ['firstname' => 'Jane', 'lastname' => 'Doe', 'age' => 21, 10 => 1],
+            'third' => ['firstname' => 'Richard', 'lastname' => 'Roe', 'age' => 27]
+        ],
+            $this->two_dimensional->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUpdateRecursive ():void {
+
+        $this->multidimensional->updateRecursive('first', ['name' => ['firstname' => 'Joe']]);
+
+        $this->assertSame([
+            'first' => ['name' => ['firstname' => 'Joe', 'lastname' => 'Doe'], 'age' => 25, 10 => 2],
+            'second' => ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21, 10 => 1],
+            'third' => ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
+        ],
+            $this->multidimensional->all()
+        );
 
     }
 
