@@ -191,8 +191,7 @@ trait Sliceable {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Type\Associative As chunk.
-     * @uses \FireHub\Core\Support\Collection\Type\Gen As return.
+     * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::chunkUntil() To split a collection into chunks by callable.
      *
      * @example
      * ```php
@@ -209,24 +208,65 @@ trait Sliceable {
      *
      * @phpstan-ignore-next-line
      */
-    public function chunk ($size_of_group):Gen {
+    public function chunk (int $size_of_group):Gen {
 
         $size_of_group = max($size_of_group, 1);
 
-        return new Gen(function () use ($size_of_group) {
+        $counter = 0;
+        return $this->chunkUntil(function() use (&$counter, $size_of_group) {
 
-            $chunks = []; $counter = 0;
+            $counter++;
+            if ($counter === $size_of_group) {
+
+                $counter = 0;
+
+                return true;
+
+            }
+
+            return false;
+
+        });
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As chunk.
+     * @uses \FireHub\Core\Support\Collection\Type\Gen As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->chunkUntil(fn($value, $key) => 'Richard');
+     *
+     * // [Associative['John', 'Jane', 'Jane', 'Jane', 'Richard'], Associative['Richard']]
+     * ```
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Gen<int, \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue>> Grouped collection.
+     *
+     * @phpstan-ignore-next-line
+     */
+    public function chunkUntil (callable $callback):Gen {
+
+        return new Gen(function () use ($callback) {
+
+            $chunks = [];
             foreach ($this as $key => $value) {
 
                 $chunks[$key] = $value;
 
-                ++$counter;
-
-                if (!($counter % $size_of_group)) {
+                if ($callback($value, $key)) { // @phpstan-ignore-line
 
                     yield new Associative($chunks);
 
-                    $chunks = []; $counter = 0;
+                    $chunks = [];
 
                 }
 

@@ -253,6 +253,19 @@ interface Collectable extends Countable, IterablesAggregate {
     public function chunk (int $size_of_group):Collectable;
 
     /**
+     * ### Split collection into chunks by callable
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey):mixed $callback <p>
+     * <code>callable(TValue, TKey):bool</code>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>> Grouped collection.
+     */
+    public function chunkUntil (callable $callback):Collectable;
+
+    /**
      * ### Filter items from collection
      * @since 1.0.0
      *
