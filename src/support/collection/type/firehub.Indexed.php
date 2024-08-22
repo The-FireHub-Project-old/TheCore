@@ -76,11 +76,11 @@ class Indexed extends Arr {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
-     * $collection->unshift('Jack', 'second');
+     * $collection->unshift('Jack');
      *
      * // ['Jack', 'John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
      * ```
@@ -96,6 +96,39 @@ class Indexed extends Arr {
         ArrLL::unshift($this->storage, ...$values);
 
         return $this;
+
+    }
+
+    /**
+     * ### Prepends items at the beginning of the collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::unshift() To push items at the beginning of the collection.
+     *
+     * @param TValue ...$values [optional] <p>
+     * List of values to append.
+     * </p>
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->prepend('Jack');
+     *
+     * // ['Jack', 'John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
+     * ```
+     *
+     * @return $this This collection.
+     *
+     * @note This method is an alias of unshift method.
+     *
+     * @see \FireHub\Core\Support\Collection\Type\Indexed::unshift() As alias to this function.
+     */
+    public function prepend (mixed ...$values):self {
+
+        return $this->unshift(...$values);
 
     }
 
@@ -154,6 +187,39 @@ class Indexed extends Arr {
         ArrLL::push($this->storage, ...$values);
 
         return $this;
+
+    }
+
+    /**
+     * ### Append items at the end of the collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::push() To push items at the end of the collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->append('Jack');
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Jack']
+     * ```
+     *
+     * @param TValue ...$values [optional] <p>
+     * List of values to append.
+     * </p>
+     *
+     * @return $this This collection.
+     *
+     * @note This method is an alias of push method.
+     *
+     * @see \FireHub\Core\Support\Collection\Type\Indexed::push() As alias to this function.
+     */
+    public function append (mixed ...$values):self {
+
+        return $this->push(...$values);
 
     }
 

@@ -1272,6 +1272,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testPrepend ():void {
+
+        $this->assertSame(
+            ['Jack', 'John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
+            $this->collection->prepend('Jack')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testPop ():void {
 
         $this->assertSame(
@@ -1291,6 +1305,20 @@ final class IndexedTest extends Base {
         $this->assertSame(
             ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Jack'],
             $this->collection->push('Jack')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testAppend ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Jack'],
+            $this->collection->append('Jack')->all()
         );
 
     }
