@@ -202,7 +202,7 @@ interface Collectable extends Countable, IterablesAggregate {
      *
      * @return bool True if none of the items in a collection is of a certain type, false otherwise.
      */
-    public function ensureNot (string|Type|Category $type):bool;
+    public function ensureNone (string|Type|Category $type):bool;
 
     /**
      * ### Searches the collection for a given value and returns the first corresponding key if successful

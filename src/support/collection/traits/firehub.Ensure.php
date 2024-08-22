@@ -41,6 +41,18 @@ trait Ensure {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if the $type argument is string.
      * @uses \FireHub\Core\Support\LowLevel\Obj::ofClass() To check if the current value is of a checked class.
      * @uses \FireHub\Core\Support\Helpers\Data\isType() To check if the current value is of a checked type.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Data\Type;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->ensure(Type::T_STRING);
+     *
+     * // true
+     * ```
      */
     public function ensure (string|Type|Category $type):bool {
 
@@ -65,8 +77,20 @@ trait Ensure {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if the $type argument is string.
      * @uses \FireHub\Core\Support\LowLevel\Obj::ofClass() To check if the current value is of a checked class.
      * @uses \FireHub\Core\Support\Helpers\Data\isType() To check if the current value is of a checked type.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Data\Type;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->ensureNone(Type::T_INT);
+     *
+     * // true
+     * ```
      */
-    public function ensureNot (string|Type|Category $type):bool {
+    public function ensureNone (string|Type|Category $type):bool {
 
         return $this->every(function ($value) use ($type) { // @phpstan-ignore-line
 

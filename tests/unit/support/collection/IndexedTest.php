@@ -447,11 +447,11 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
-    public function testEnsureNot ():void {
+    public function testEnsureNone ():void {
 
-        $this->assertFalse($this->collection->ensureNot(Category::SCALAR));
-        $this->assertFalse($this->collection->ensureNot(Type::T_STRING));
-        $this->assertFalse($this->multidimensional_collection->ensureNot(Collectable::class));
+        $this->assertFalse($this->collection->ensureNone(Category::SCALAR));
+        $this->assertFalse($this->collection->ensureNone(Type::T_STRING));
+        $this->assertFalse($this->multidimensional_collection->ensureNone(Collectable::class));
 
     }
 
