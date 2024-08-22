@@ -595,6 +595,41 @@ final class Obj implements Init, AccessibleCollection {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $cls1 = new stdClass();
+     * $cls2 = new stdClass();
+     * $cls3 = new stdClass();
+     *
+     * $collection = Collection::object(function ($storage) use ($cls1, $cls2, $cls3):void {
+     *  $storage[$cls1] = 'data for object 1';
+     *  $storage[$cls2] = [1,2,3];
+     *  $storage[$cls3] = 20;
+     * });
+     *
+     * $collection->any(function ($object, $info) {
+     *  return $info === 'data for object 1';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function any (callable $callback):bool {
+
+        foreach ($this->storage as $object)
+            if ($callback($object, $this->storage[$object])) return true; // @phpstan-ignore-line
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Obj::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *

@@ -175,6 +175,19 @@ interface Collectable extends Countable, IterablesAggregate {
     public function every (callable $callback):bool;
 
     /**
+     * ### Verify that any item of a collection pass a given truth test
+     * @since 1.0.0
+     *
+     * @param callable(TValue=, TKey=):bool $callback <p>
+     * <code>callable(TValue=, TKey=):bool</code>
+     * Function to call on each item in a collection.
+     * </p>
+     *
+     * @return bool True if any item in the collection passes a given truth test, false otherwise.
+     */
+    public function any (callable $callback):bool;
+
+    /**
      * ### Verify that all items of a collection are of certain type
      * @since 1.0.0
      *

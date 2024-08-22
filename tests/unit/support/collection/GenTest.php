@@ -244,6 +244,23 @@ final class GenTest extends Base {
      *
      * @return void
      */
+    public function testAny ():void {
+
+        $this->assertTrue($this->collection->any(function ($value, $key) {
+            return $value === 'John';
+        }));
+
+        $this->assertFalse($this->collection->any(function ($value, $key) {
+            return $value === 'Jack';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testContains ():void {
 
         $this->assertTrue($this->collection->contains('John'));

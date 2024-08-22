@@ -434,6 +434,23 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testAny ():void {
+
+        $this->assertTrue($this->collection->any(function ($value) {
+            return $value === 'John';
+        }));
+
+        $this->assertFalse($this->collection->any(function ($value) {
+            return $value === 'Jack';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEnsure ():void {
 
         $this->assertTrue($this->collection->ensure(Category::SCALAR));

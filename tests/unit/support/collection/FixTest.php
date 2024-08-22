@@ -261,6 +261,23 @@ final class FixTest extends Base {
      *
      * @return void
      */
+    public function testAny ():void {
+
+        $this->assertTrue($this->collection->any(function ($value) {
+            return $value === 'one';
+        }));
+
+        $this->assertFalse($this->collection->any(function ($value) {
+            return $value === 'seven';
+        }));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testContains ():void {
 
         $this->assertTrue($this->collection->contains('one'));

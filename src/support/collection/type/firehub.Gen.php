@@ -459,6 +459,33 @@ final class Gen implements Init, Collectable {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::lazy(fn():Generator => yield from ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->any(function ($value, $key) {
+     *  return $value === 'John';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function any (callable $callback):bool {
+
+        foreach ($this as $key => $value)
+            if ($callback($value, $key)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Gen::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *

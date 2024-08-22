@@ -314,6 +314,33 @@ class Associative extends Arr implements OverloadableCollection {
     }
 
     /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->any(function ($value, $key) {
+     *  return $value === 'John';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function any (callable $callback):bool {
+
+        foreach ($this->storage as $key => $value)
+            if ($callback($value, $key)) return true;
+
+        return false;
+
+    }
+
+    /**
      * ### Get collection's keys
      * @since 1.0.0
      *

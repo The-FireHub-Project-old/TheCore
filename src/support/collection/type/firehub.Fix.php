@@ -498,6 +498,38 @@ final class Fix implements Init, AccessibleCollection {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::fixed(function ($storage):void {
+     *  $storage[0] = 'one';
+     *  $storage[1] = 'two';
+     *  $storage[2] = 'three';
+     * }, 3);
+     *
+     * $collection->any(function ($value) {
+     *  return $value === 'one';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function any (callable $callback):bool {
+
+        foreach ($this->storage as $value) {
+            if ($callback($value)) return true;
+        }
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Fix::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      *

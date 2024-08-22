@@ -594,6 +594,33 @@ abstract class Arr implements Init, AccessibleCollection {
      *
      * @since 1.0.0
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->any(function ($value) {
+     *  return $value === 'John';
+     * });
+     *
+     * // true
+     * ```
+     */
+    public function any (callable $callback):bool {
+
+        foreach ($this->storage as $value)
+            if ($callback($value)) return true;
+
+        return false;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
      * @uses \FireHub\Core\Support\Collection\Type\Arr::firstKey() To get the first key from a collection.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $value is callable.
      * @uses \FireHub\Core\Support\LowLevel\Arr::search() To search the array for a given value and returns the first corresponding key if successful.
