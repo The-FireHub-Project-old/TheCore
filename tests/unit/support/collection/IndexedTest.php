@@ -91,7 +91,7 @@ final class IndexedTest extends Base {
 
         $this->range = Collection::range(1, 10, 2)->list();
 
-        $$this->fill = Collection::fill('ok', 3)->list();
+        $this->fill = Collection::fill('ok', 3)->list();
 
     }
 
