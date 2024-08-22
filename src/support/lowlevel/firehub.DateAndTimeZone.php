@@ -74,7 +74,7 @@ final class DateAndTimeZone implements InitStatic {
      *
      * @throws Error If failed to set the default timezone.
      *
-     * @return bool Always true.
+     * @return true Always true.
      *
      * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */
