@@ -25,6 +25,8 @@ use Error;
 /**
  * ### TimeZone support class
  * @since 1.0.0
+ *
+ * @api
  */
 class TimeZone implements Init, Stringable {
 
