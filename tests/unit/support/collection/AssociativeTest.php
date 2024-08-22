@@ -146,6 +146,22 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testPut ():void {
+
+        $this->collection->put('middle-name', 'Marry');
+
+        $this->assertSame(
+            ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry'],
+            $this->collection->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testReplace ():void {
 
         $this->collection->replace('firstname', 'Marry');

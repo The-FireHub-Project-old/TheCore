@@ -81,6 +81,42 @@ trait Overloadable {
     }
 
     /**
+     * ### Puts item into collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::add() To add items to a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->put('middle-name', 'Marry');
+     *
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 'middle-name' => 'Marry']
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     * @param TValue $value <p>
+     * Collection value.
+     * </p>
+     *
+     * @return void
+     *
+     * @note This method is an alias of add method.
+     *
+     * @see \FireHub\Core\Support\Collection\Traits\Overloadable::add() As alias to this function.
+     */
+    public function put (int|string $key, mixed $value):void {
+
+        $this->add($key, $value);
+
+    }
+
+    /**
      * @inheritdoc
      *
      * @since 1.0.0
@@ -246,7 +282,7 @@ trait Overloadable {
      * ### Check if item exist in collection
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if item exists in a collection.
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if an item exists in a collection.
      *
      * @example
      * ```php
