@@ -21,7 +21,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Indexed
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    Convert, Condition, CountCollectables, Emp, SliceRange
+    Convert, Condition, CountCollectables, Emp, Range, SliceRange
 };
 use FireHub\Core\Support\Enums\ {
     Order, Sort, Data\Type, Data\Category, Operator\Comparison
@@ -35,6 +35,7 @@ use Error;
  */
 #[CoversClass(Collection::class)]
 #[CoversClass(Emp::class)]
+#[CoversClass(Range::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Indexed::class)]
 #[CoversClass(Convert::class)]
@@ -54,6 +55,7 @@ final class IndexedTest extends Base {
     public Indexed $multidimensional_numbers;
     public Indexed $numbers;
     public Indexed $empty;
+    public Indexed $range;
 
     /**
      * @since 1.0.0
@@ -84,6 +86,8 @@ final class IndexedTest extends Base {
         $this->numbers = Collection::list([1, 2, 3, 4, 13, 22, 27, 28, 29]);
 
         $this->empty = Collection::empty()->list();
+
+        $this->range = Collection::range(1, 10, 2)->list();
 
     }
 

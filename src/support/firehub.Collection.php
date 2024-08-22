@@ -20,7 +20,9 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Fix, Gen, Obj
 };
-use FireHub\Core\Support\Collection\Helpers\Emp;
+use FireHub\Core\Support\Collection\Helpers\ {
+    Emp, Range
+};
 use Closure, Generator, SplFixedArray, SplObjectStorage;
 
 /**
@@ -219,7 +221,7 @@ class Collection implements InitStatic {
      *
      * @example
      * ```php
-     * use FireHub\Core\Support\Collections\Collection;
+     * use FireHub\Core\Support\Collection;
      *
      * $collection = Collection::empty()->list();
      *
@@ -231,6 +233,45 @@ class Collection implements InitStatic {
     public static function empty ():Emp {
 
         return new Emp();
+
+    }
+
+    /**
+     * ### Creates the collection containing a range of items
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\Range As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::range(10, 20, 2)->list();
+     *
+     * // [10, 12, 14, 16, 18, 20]
+     * ```
+     *
+     * @param int|float|string $start <p>
+     * First value of the sequence.
+     * </p>
+     * @param int|float|string $end <p>
+     * The sequence is ended upon reaching the end value.
+     * </p>
+     * @param positive-int|float $step [optional] <p>
+     * If a step value is given, it will be used as the increment between elements in the sequence.
+     * Step should be given as a positive number.
+     * If not specified, a step will default to 1.
+     * </p>
+     *
+     * @error\exeption E_WARNING If &start or &end is a string implicitly cast to int because of the other boundary value
+     * is a number, $start or $end is a non-numeric string with more than one byte or &start or &end is the empty
+     * string.
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Range Filled with range collection.
+     */
+    public static function range (int|float|string $start, int|float|string $end, int|float $step = 1):Range {
+
+        return new Range($start, $end, $step);
 
     }
 

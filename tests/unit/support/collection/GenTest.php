@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Gen
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    CountCollectables, SliceRange
+    CountCollectables, Range, SliceRange
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Generator;
@@ -30,6 +30,7 @@ use Generator;
  * @since 1.0.0
  */
 #[CoversClass(Collection::class)]
+#[CoversClass(Range::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Gen::class)]
 #[CoversClass(CountCollectables::class)]
@@ -40,6 +41,7 @@ final class GenTest extends Base {
     public Gen $empty;
     public Gen $multidimensional_collection;
     public Gen $simple;
+    public Gen $range;
 
     /**
      * @since 1.0.0
@@ -68,6 +70,8 @@ final class GenTest extends Base {
         $this->simple = Collection::lazy(function ():Generator {
             yield from ['one', 'two'];
         });
+
+        $this->range = Collection::range(1, 10, 2)->lazy();
 
     }
 
