@@ -243,6 +243,39 @@ trait Overloadable {
     }
 
     /**
+     * ### Check if item exist in collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::exist() To check if item exists in a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->has('firstname');
+     *
+     * // true
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return bool True on success, false otherwise.
+     *
+     * @note This method is an alias of has method.
+     *
+     * @see \FireHub\Core\Support\Collection\Traits\Overloadable::exist() As alias to this function.
+     */
+    public function has (int|string $key):bool {
+
+        return $this->exist($key);
+
+    }
+
+    /**
      * @inheritdoc
      *
      * @since 1.0.0
@@ -268,6 +301,41 @@ trait Overloadable {
         $this->exist($key)
             ? $this->__unset($key)
             : throw new Error("Key $key doesn't exist in collection.");
+
+    }
+
+    /**
+     * ### Deletes item from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Traits\Overloadable::remove() To remove the key from a collection.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::associative(fn():array => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+     *
+     * $collection->delete('firstname');
+     *
+     * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * ```
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return void
+     *
+     * @note This method is an alias of remove method.
+     *
+     * @see \FireHub\Core\Support\Collection\Traits\Overloadable::remove() As alias to this function.
+     */
+    public function delete (int|string $key):void {
+
+        $this->remove($key);
 
     }
 

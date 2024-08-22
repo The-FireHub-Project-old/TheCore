@@ -242,9 +242,37 @@ final class AssociativeTest extends Base {
      *
      * @return void
      */
+    public function testHas ():void {
+
+        $this->assertTrue($this->collection->has('firstname'));
+        $this->assertFalse($this->collection->has('middle-name'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testRemove ():void {
 
         $this->collection->remove('firstname');
+
+        $this->assertSame(
+            ['lastname' => 'Doe', 'age' => 25, 10 => 2],
+            $this->collection->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDelete ():void {
+
+        $this->collection->delete('firstname');
 
         $this->assertSame(
             ['lastname' => 'Doe', 'age' => 25, 10 => 2],
