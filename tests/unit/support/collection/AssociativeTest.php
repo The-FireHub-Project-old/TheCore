@@ -19,6 +19,7 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Associative
 };
+use FireHub\Core\Support\Collection\Helpers\Emp;
 use FireHub\Core\Support\Enums\ {
     Order, Sort
 };
@@ -30,6 +31,7 @@ use Error;
  * @since 1.0.0
  */
 #[CoversClass(Collection::class)]
+#[CoversClass(Emp::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Associative::class)]
 #[CoversClass(Order::class)]
@@ -51,7 +53,7 @@ final class AssociativeTest extends Base {
 
         $this->collection = Collection::associative(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
         $this->numbers = Collection::associative([1, 2, 3, 4, 13, 22, 27, 28, 29]);
-        $this->empty = Collection::associative([]);
+        $this->empty = Collection::empty()->associative();
 
         $this->two_dimensional = Collection::associative([
             'first' => ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2],

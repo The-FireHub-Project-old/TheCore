@@ -19,7 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Obj
 };
-use FireHub\Core\Support\Collection\Helpers\SliceRange;
+use FireHub\Core\Support\Collection\Helpers\ {
+    Emp, SliceRange
+};
 use PHPUnit\Framework\Attributes\CoversClass;
 use SplObjectStorage, stdClass;
 
@@ -28,6 +30,7 @@ use SplObjectStorage, stdClass;
  * @since 1.0.0
  */
 #[CoversClass(Collection::class)]
+#[CoversClass(Emp::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Obj::class)]
 #[CoversClass(SliceRange::class)]
@@ -57,7 +60,7 @@ final class ObjTest extends Base {
             $storage[$this->cls3] = 20;
         });
 
-        $this->empty = Collection::object(function (SplObjectStorage $storage): void {});
+        $this->empty = Collection::empty()->object();
 
         $this->simple = Collection::object(function (SplObjectStorage $storage): void {
             $storage[$this->cls1] = 'data for object 1';

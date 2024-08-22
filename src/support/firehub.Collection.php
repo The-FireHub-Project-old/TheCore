@@ -20,6 +20,7 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Fix, Gen, Obj
 };
+use FireHub\Core\Support\Collection\Helpers\Emp;
 use Closure, Generator, SplFixedArray, SplObjectStorage;
 
 /**
@@ -207,6 +208,29 @@ class Collection implements InitStatic {
         $callable($object);
 
         return new Obj($object);
+
+    }
+
+    /**
+     * ### Creates empty collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\Emp As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::empty()->list();
+     *
+     * // []
+     * ```
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Emp Empty collection.
+     */
+    public static function empty ():Emp {
+
+        return new Emp();
 
     }
 
