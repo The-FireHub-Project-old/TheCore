@@ -218,6 +218,21 @@ interface Collectable extends Countable, IterablesAggregate {
     public function ensureNone (string|Type|Category $type):bool;
 
     /**
+     * ### Verify that any of the items in a collection is of certain type
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+     * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+     *
+     * @param class-string|\FireHub\Core\Support\Enums\Data\Type|\FireHub\Core\Support\Enums\Data\Category $type <p>
+     * Type to check on all collection items.
+     * </p>
+     *
+     * @return bool True if any of the items in a collection is of a certain type, false otherwise.
+     */
+    public function ensureAny (string|Type|Category $type):bool;
+
+    /**
      * ### Searches the collection for a given value and returns the first corresponding key if successful
      * @since 1.0.0
      *

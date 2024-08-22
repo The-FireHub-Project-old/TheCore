@@ -101,4 +101,40 @@ trait Ensure {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Data\Type As parameter.
+     * @uses \FireHub\Core\Support\Enums\Data\Category As parameter.
+     * @uses \FireHub\Core\Support\Collection\Traits\Ensure::every() To verify that all items of a collection pass a
+     * given truth test.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if the $type argument is string.
+     * @uses \FireHub\Core\Support\LowLevel\Obj::ofClass() To check if the current value is of a checked class.
+     * @uses \FireHub\Core\Support\Helpers\Data\isType() To check if the current value is of a checked type.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     * use FireHub\Core\Support\Enums\Data\Type;
+     *
+     * $collection = Collection::list(fn():array => ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->ensureAny(Type::T_STRING);
+     *
+     * // true
+     * ```
+     */
+    public function ensureAny (string|Type|Category $type):bool {
+
+        return $this->any(function ($value) use ($type) { // @phpstan-ignore-line
+
+            return DataIs::string($type)
+                ? Obj::ofClass($value, $type) // @phpstan-ignore-line
+                : isType($value, $type);
+        });
+
+    }
+
 }
