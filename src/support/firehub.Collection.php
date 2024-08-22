@@ -21,7 +21,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Fix, Gen, Obj
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    Emp, Range
+    Emp, Fill, Range
 };
 use Closure, Generator, SplFixedArray, SplObjectStorage;
 
@@ -233,6 +233,39 @@ class Collection implements InitStatic {
     public static function empty ():Emp {
 
         return new Emp();
+
+    }
+
+    /**
+     * ### Fill the collection with values
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\Fill As return.
+     *
+     * @template TValue
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::fill('ok', 10)->list();
+     *
+     * // ['ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok', 'ok']
+     * ```
+     *
+     * @param TValue $value <p>
+     * Value to use for filling.
+     * </p>
+     * @param positive-int $length <p>
+     * Number of elements to insert.
+     * Must be greater than or equal to one.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\Fill<TValue> Filled collection.
+     */
+    public static function fill (mixed $value, int $length):Fill {
+
+        return new Fill($value, $length);
 
     }
 

@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Collection\Helpers;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Obj
 };
@@ -38,13 +39,14 @@ final class Emp implements Init {
      * ### Empty indexed array collection
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::list() To create an indexed collection.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed As return.
      *
      * @return \FireHub\Core\Support\Collection\Type\Indexed<mixed> Empty indexed array collection type.
      */
     public function list ():Indexed {
 
-        return new Indexed([]);
+        return Collection::list([]);
 
     }
 
@@ -52,13 +54,14 @@ final class Emp implements Init {
      * ### Empty associative array collection
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::associative() To create an associative collection.
      * @uses \FireHub\Core\Support\Collection\Type\Associative As return.
      *
      * @return \FireHub\Core\Support\Collection\Type\Associative<array-key, mixed> Empty associative array collection type.
      */
     public function associative ():Associative {
 
-        return new Associative([]);
+        return Collection::associative([]);
 
     }
 
@@ -66,13 +69,14 @@ final class Emp implements Init {
      * ### Empty object collection
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::object() To create an object collection.
      * @uses \FireHub\Core\Support\Collection\Type\Obj As return.
      *
      * @return \FireHub\Core\Support\Collection\Type\Obj<object, mixed> Empty object collection type.
      */
     public function object ():Obj {
 
-        return new Obj(new SplObjectStorage());
+        return Collection::object(function () {});
 
     }
 

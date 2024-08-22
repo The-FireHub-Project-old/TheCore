@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Collection\Helpers;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Fix, Gen
 };
@@ -91,13 +92,14 @@ final class Range implements Init {
      * ### Indexed collection containing a range of items
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::list() To create an indexed collection.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed As return.
      *
      * @return \FireHub\Core\Support\Collection\Type\Indexed<string|int|float> Indexed collection type.
      */
     public function list ():Indexed {
 
-        return new Indexed($this->range);
+        return Collection::list($this->range);
 
     }
 
@@ -105,6 +107,7 @@ final class Range implements Init {
      * ### Fixed collection containing a range of items
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::fixed() To create a fixed collection.
      * @uses \FireHub\Core\Support\Collection\Type\Fix As return.
      * @uses \FireHub\Core\Support\LowLevel\Iterables::count() To count range items.
      *
@@ -112,14 +115,12 @@ final class Range implements Init {
      */
     public function fixed ():Fix {
 
-        $storage = new SplFixedArray();
+        return Collection::fixed(function ($storage) {
 
-        $storage->setSize(Iterables::count($this->range));
+            $counter = 0;
+            foreach ($this->range as $value) $storage[$counter++] = $value;
 
-        $counter = 0;
-        foreach ($this->range as $value) $storage[$counter++] = $value;
-
-        return new Fix($storage);
+        }, Iterables::count($this->range));
 
     }
 
@@ -127,13 +128,14 @@ final class Range implements Init {
      * ### Lazy collection containing a range of items
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Support\Collection::lazy() To create a lazy collection.
      * @uses \FireHub\Core\Support\Collection\Type\Gen As return.
      *
      * @return \FireHub\Core\Support\Collection\Type\Gen<int, string|int|float> Indexed collection type.
      */
     public function lazy ():Gen {
 
-        return new Gen(fn() => yield from $this->range);
+        return Collection::lazy(fn() => yield from $this->range);
 
     }
 

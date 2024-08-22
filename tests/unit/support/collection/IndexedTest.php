@@ -96,6 +96,20 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testRangeIsEmpty ():void {
+
+        $this->assertSame(
+            [],
+            Collection::range(1, 10, 20)->list()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testArrayAccessible ():void {
 
         $this->assertTrue(isset($this->collection[0]));
