@@ -1244,6 +1244,62 @@ final class IndexedTest extends Base {
      *
      * @return void
      */
+    public function testShift ():void {
+
+        $this->assertSame(
+            ['Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
+            $this->collection->shift()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testUnshift ():void {
+
+        $this->assertSame(
+            ['Jack', 'John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'],
+            $this->collection->unshift('Jack')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPop ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard'],
+            $this->collection->pop()->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testPush ():void {
+
+        $this->assertSame(
+            ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 'Jack'],
+            $this->collection->push('Jack')->all()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testShuffle ():void {
 
         $this->assertSame($this->collection, $this->collection->shuffle());
