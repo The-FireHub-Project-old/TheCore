@@ -19,7 +19,9 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Arr, Associative
 };
-use FireHub\Core\Support\Collection\Helpers\Emp;
+use FireHub\Core\Support\Collection\Helpers\ {
+    Emp, FillAssoc, FillKeys
+};
 use FireHub\Core\Support\Enums\ {
     Order, Sort
 };
@@ -32,6 +34,8 @@ use Error;
  */
 #[CoversClass(Collection::class)]
 #[CoversClass(Emp::class)]
+#[CoversClass(FillAssoc::class)]
+#[CoversClass(FillKeys::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Associative::class)]
 #[CoversClass(Order::class)]
@@ -43,6 +47,7 @@ final class AssociativeTest extends Base {
     public Associative $empty;
     public Associative $two_dimensional;
     public Associative $multidimensional;
+    public Associative $fill_keys;
 
     /**
      * @since 1.0.0
@@ -51,7 +56,11 @@ final class AssociativeTest extends Base {
      */
     public function setUp ():void {
 
-        $this->collection = Collection::associative(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
+        $this->collection = Collection::fillAssoc(
+            ['firstname', 'lastname', 'age', 10],
+            ['John', 'Doe', 25, 2]
+        )->associative();
+
         $this->numbers = Collection::associative([1, 2, 3, 4, 13, 22, 27, 28, 29]);
         $this->empty = Collection::empty()->associative();
 
@@ -66,6 +75,8 @@ final class AssociativeTest extends Base {
             'second' => ['name' => ['firstname' => 'Jane', 'lastname' => 'Doe'], 'age' => 21, 10 => 1],
             'third' => ['name' => ['firstname' => 'Richard', 'lastname' => 'Roe'], 'age' => 27]
         ]);
+
+        $this->fill_keys = Collection::fillKeys([1, 2, 3], 'ok')->associative();
 
     }
 

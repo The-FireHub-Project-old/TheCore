@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Fix
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    CountCollectables, Range, SliceRange
+    CountCollectables, Fill, Range, SliceRange
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use SplFixedArray;
@@ -32,6 +32,7 @@ use SplFixedArray;
 #[CoversClass(Collection::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Range::class)]
+#[CoversClass(Fill::class)]
 #[CoversClass(Fix::class)]
 #[CoversClass(CountCollectables::class)]
 #[CoversClass(SliceRange::class)]
@@ -40,6 +41,7 @@ final class FixTest extends Base {
     public Fix $collection;
     public Fix $multidimensional_collection;
     public Fix $range;
+    public Fix $fill;
 
     /**
      * @since 1.0.0
@@ -65,6 +67,8 @@ final class FixTest extends Base {
         }, 4);
 
         $this->range = Collection::range(1, 10, 2)->fixed();
+
+        $this->fill = Collection::fill('ok', 3)->fixed();
 
     }
 

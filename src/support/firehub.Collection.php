@@ -21,7 +21,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Fix, Gen, Obj
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    Emp, Fill, Range
+    Emp, Fill, FillAssoc, FillKeys, Range
 };
 use Closure, Generator, SplFixedArray, SplObjectStorage;
 
@@ -32,6 +32,8 @@ use Closure, Generator, SplFixedArray, SplObjectStorage;
  * @since 1.0.0
  *
  * @api
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Collection implements InitStatic {
 
@@ -266,6 +268,72 @@ class Collection implements InitStatic {
     public static function fill (mixed $value, int $length):Fill {
 
         return new Fill($value, $length);
+
+    }
+
+    /**
+     * ### Fill the collection with a list of keys and value
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\FillKeys As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::fillKeys(['one', 'two', 'three'], 10)->list();
+     *
+     * // ['one' => 10, 'two' => 10, 'three' => 10]
+     * ```
+     *
+     * @param list<TKey> $keys <p>
+     * Keys to fill the collection.
+     * </p>
+     * @param TValue $value <p>
+     * Value to use for filling.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\FillKeys<TKey, TValue> Filled with keys collection.
+     */
+    public static function fillKeys (array $keys, mixed $value):FillKeys {
+
+        return new FillKeys($keys, $value);
+
+    }
+
+    /**
+     * ### Fill the collection with a list of keys and values
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @uses \FireHub\Core\Support\Collection\Helpers\FillAssoc As return.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collections\Collection;
+     *
+     * $collection = Collection::fillAssoc(['one', 'two', 'three'], [1, 2, 3])->associative();
+     *
+     * // ['one' => 1, 'two' => 2, 'three' => 3]
+     * ```
+     *
+     * @param list<TKey> $keys <p>
+     * Keys to fill the collection.
+     * </p>
+     * @param list<TValue> $values <p>
+     * Values to use for filling.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Helpers\FillAssoc<TKey, TValue> Collection filled with keys and values.
+     */
+    public static function fillAssoc (array $keys, array $values):FillAssoc {
+
+        return new FillAssoc($keys, $values);
 
     }
 

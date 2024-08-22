@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Arr, Gen
 };
 use FireHub\Core\Support\Collection\Helpers\ {
-    CountCollectables, Range, SliceRange
+    CountCollectables, Fill, FillKeys, Range, SliceRange
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use Generator;
@@ -31,6 +31,8 @@ use Generator;
  */
 #[CoversClass(Collection::class)]
 #[CoversClass(Range::class)]
+#[CoversClass(Fill::class)]
+#[CoversClass(FillKeys::class)]
 #[CoversClass(Arr::class)]
 #[CoversClass(Gen::class)]
 #[CoversClass(CountCollectables::class)]
@@ -42,6 +44,8 @@ final class GenTest extends Base {
     public Gen $multidimensional_collection;
     public Gen $simple;
     public Gen $range;
+    public Gen $fill;
+    public Gen $fill_keys;
 
     /**
      * @since 1.0.0
@@ -72,6 +76,10 @@ final class GenTest extends Base {
         });
 
         $this->range = Collection::range(1, 10, 2)->lazy();
+
+        $this->fill = Collection::fill('ok', 3)->lazy();
+
+        $this->fill_keys = Collection::fillKeys([1, 2, 3], 'ok')->lazy();
 
     }
 
