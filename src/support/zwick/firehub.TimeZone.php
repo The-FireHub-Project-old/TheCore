@@ -256,6 +256,7 @@ class TimeZone implements Init, Stringable {
      *
      * @since 1.0.0
      *
+     * @example
      * ```php
      * use FireHub\Core\Support\Zwick\TimeZone;
      * use FireHub\Core\Support\Enums\DateTime\Zone;

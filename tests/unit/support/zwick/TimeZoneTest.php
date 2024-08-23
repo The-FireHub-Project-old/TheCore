@@ -22,7 +22,7 @@ use PHPUnit\Framework\Attributes\ {
 };
 
 /**
- * ### Test TimeZone high-level support class
+ * ### Test TimeZone zwick support class
  * @since 1.0.0
  */
 #[CoversClass(TimeZone::class)]
