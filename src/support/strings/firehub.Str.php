@@ -78,7 +78,7 @@ abstract class Str implements Init, Strings {
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      *
-     * @param string $string <p>
+     * @param scalar|null|Stringable $string <p>
      * String to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
@@ -89,7 +89,7 @@ abstract class Str implements Init, Strings {
      * @return void
      */
     abstract public function __construct (
-        string $string,
+        string|int|float|bool|null|Stringable $string,
         ?Encoding $encoding = null
     );
 
@@ -111,7 +111,7 @@ abstract class Str implements Init, Strings {
      * Str::from('FireHub', Encoding::UTF_8);
      * ```
      *
-     * @param string $string <p>
+     * @param scalar|null|Stringable $string <p>
      * String to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
@@ -120,7 +120,7 @@ abstract class Str implements Init, Strings {
      *
      * @return static New string.
      */
-    public static function from (string $string, ?Encoding $encoding = null):static {
+    public static function from (string|int|float|bool|null|Stringable $string, ?Encoding $encoding = null):static {
 
         return new static($string, $encoding);
 

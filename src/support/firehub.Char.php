@@ -25,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding, Expression\Modifier
 };
-use Error, ValueError;
+use Error, Stringable, ValueError;
 
 use function FireHub\Core\Support\Helpers\String\asBoolean;
 
@@ -46,12 +46,20 @@ class Char implements Init, Characters {
     use Concrete;
 
     /**
+     * ### Character to use
+     * @since 1.0.0
+     *
+     * @var non-empty-string
+     */
+    private string $character;
+
+    /**
      * ### Constructor
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\StrMB::length() To check the length of the provided character.
      *
-     * @param non-empty-string $character <p>
+     * @param scalar $character <p>
      * Character to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
@@ -65,12 +73,15 @@ class Char implements Init, Characters {
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values.
      */
     public function __construct (
-        private string $character,
+        string|int|float|bool $character,
         private ?Encoding $encoding = null
     ) {
 
-        StrMB::length($this->character) === 1
+        StrMB::length($character = (string)$character) === 1
             ?: throw new Error('Char must be a single character.');
+
+        /** @phpstan-ignore-next-line Character is already checked herr */
+        $this->character = $character;
 
     }
 
@@ -92,7 +103,7 @@ class Char implements Init, Characters {
      * Char::from('F', Encoding::UTF_8);
      * ```
      *
-     * @param non-empty-string $character <p>
+     * @param scalar $character <p>
      * Character to use.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
@@ -103,7 +114,7 @@ class Char implements Init, Characters {
      *
      * @return self New character.
      */
-    public static function from (string $character, ?Encoding $encoding = null):self {
+    public static function from (string|int|float|bool $character, ?Encoding $encoding = null):self {
 
         return new self($character, $encoding);
 
