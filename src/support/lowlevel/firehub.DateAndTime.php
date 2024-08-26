@@ -301,8 +301,8 @@ final class DateAndTime implements InitStatic {
      */
     public static function stringToTimestamp (string $datetime, ?int $timestamp = null):int {
 
-        return strtotime($datetime, $timestamp)
-            ?: throw new Error('Could not convert string to timestamp.');
+        return ($timestamp = strtotime($datetime, $timestamp)) !== false
+            ? $timestamp : throw new Error('Could not convert string to timestamp.');
 
     }
 
