@@ -61,6 +61,17 @@ final class TimeZoneTest extends Base {
      *
      * @return void
      */
+    public function testList ():void {
+
+        $this->assertIsArray(TimeZone::listFrom(Country::UNITED_STATES_OF_AMERICA)->all());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testGet ():void {
 
         $this->assertSame(Zone::AMERICA_NEW_YORK, $this->timezone->get());

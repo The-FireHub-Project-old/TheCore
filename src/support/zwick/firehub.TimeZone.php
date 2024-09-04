@@ -18,6 +18,8 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\Magic\Stringable;
+use FireHub\Core\Support\Collection;
+use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Enums\Geo\Contracts\UNM49;
 use FireHub\Core\Support\Enums\ {
     DateTime\Zone, Geo\Country
@@ -84,6 +86,39 @@ class TimeZone implements Init, Stringable {
     }
 
     /**
+     * ### List all timezones from the provided country or region
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Geo\Contracts\UNM49 As parameter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\TimeZone;
+     * use FireHub\Core\Support\Enums\Geo\Country;
+     *
+     * TimeZone::listFrom(Country::UNITED_STATES_OF_AMERICA);
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\Geo\Contracts\UNM49 $country_or_region <p>
+     * Country or region to filter timezones.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<\FireHub\Core\Support\Enums\DateTime\Zone> Filtered
+     * timezones.
+     */
+    public static function listFrom (UNM49 $country_or_region):Indexed {
+
+        $list = [];
+
+        foreach (Country::casesFrom($country_or_region) as $country)
+            foreach (BaseTimeZone::listIdentifiers(BaseTimeZone::PER_COUNTRY, $country->alpha2()) as $zone)
+                $list[] = Zone::tryFrom($zone);
+
+        return Collection::list($list);
+
+    }
+
+    /**
      * ### Check is timezone from country or region
      * @since 1.0.0
      *
@@ -113,7 +148,7 @@ class TimeZone implements Init, Stringable {
 
         return $country_or_region instanceof Country
             ? $this->country() === $country_or_region
-            : $this->country()->is($country_or_region);
+            : $this->country() !== false && $this->country()->is($country_or_region);
 
     }
 
@@ -196,6 +231,7 @@ class TimeZone implements Init, Stringable {
      */
     public function country ():Country|false {
 
+        /** @phpstan-ignore-next-line */
         return Country::fromAlpha2($this->base_timezone->getLocation()['country_code'] ?? '');
 
     }

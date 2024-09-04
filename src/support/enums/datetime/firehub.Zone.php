@@ -478,6 +478,11 @@ enum Zone:string implements InitBackedEnum {
     /**
      * @since 1.0.0
      */
+    case AMERICA_CIUDAD_JUAREZ = 'America/Ciudad_Juarez';
+
+    /**
+     * @since 1.0.0
+     */
     case AMERICA_COSTA_RICA = 'America/Costa_Rica';
 
     /**
@@ -1713,12 +1718,12 @@ enum Zone:string implements InitBackedEnum {
     /**
      * @since 1.0.0
      */
-    case EUROPE_KIEV = 'Europe/Kiev';
+    case EUROPE_KIROV = 'Europe/Kirov';
 
     /**
      * @since 1.0.0
      */
-    case EUROPE_KIROV = 'Europe/Kirov';
+    case EUROPE_KYIV = 'Europe/Kyiv';
 
     /**
      * @since 1.0.0
