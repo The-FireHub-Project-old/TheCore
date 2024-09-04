@@ -90,6 +90,9 @@ class TimeZone implements Init, Stringable {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Geo\Contracts\UNM49 As parameter.
+     * @uses \FireHub\Core\Support\Enums\Geo\Country::casesFrom() To filter all cases from parameter.
+     * @uses \FireHub\Core\Support\Enums\Geo\Country::alpha2() To get alpha 2 code for country.
+     * @uses \FireHub\Core\Support\Collection::list() To create an indexed collection.
      *
      * @example
      * ```php
@@ -111,8 +114,13 @@ class TimeZone implements Init, Stringable {
         $list = [];
 
         foreach (Country::casesFrom($country_or_region) as $country)
-            foreach (BaseTimeZone::listIdentifiers(BaseTimeZone::PER_COUNTRY, $country->alpha2()) as $zone)
-                $list[] = Zone::tryFrom($zone);
+            foreach (BaseTimeZone::listIdentifiers(BaseTimeZone::PER_COUNTRY, $country->alpha2()) as $zone) {
+
+                $timezone = Zone::tryFrom($zone);
+
+                if ($timezone !== null) $list[] = $timezone;
+
+            }
 
         return Collection::list($list);
 
