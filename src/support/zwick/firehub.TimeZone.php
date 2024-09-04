@@ -18,9 +18,12 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\Magic\Stringable;
-use FireHub\Core\Support\Enums\DateTime\Zone;
+use FireHub\Core\Support\Enums\Geo\Contracts\UNM49;
+use FireHub\Core\Support\Enums\ {
+    DateTime\Zone, Geo\Country
+};
 use FireHub\Core\Support\LowLevel\DateAndTimeZone;
-use Error;
+use Error, DateTimeZone as BaseTimeZone, Exception;
 
 /**
  * ### TimeZone support class
@@ -42,14 +45,14 @@ class TimeZone implements Init, Stringable {
      *
      * @uses \FireHub\Core\Support\Enums\DateTime\Zone As parameter.
      *
-     * @param \FireHub\Core\Support\Enums\DateTime\Zone $timezone <p>
-     * Select one of the provider TimeZone choices.
+     * @param BaseTimeZone $base_timezone <p>
+     * Representation of timezone.
      * </p>
      *
      * @return void
      */
-    public function __construct (
-        private readonly Zone $timezone
+    final private function __construct (
+        private readonly BaseTimeZone $base_timezone
     ) {}
 
     /**
@@ -70,11 +73,47 @@ class TimeZone implements Init, Stringable {
      * Select one of the provider TimeZone choices.
      * </p>
      *
+     * @throws Exception Emits Exception in case of an error.
+     *
      * @return self New timezone.
      */
     public static function create (Zone $timezone):self {
 
-        return new self( $timezone);
+        return new self( new BaseTimeZone($timezone->value));
+
+    }
+
+    /**
+     * ### Check is timezone from country or region
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Geo\Region As parameter.
+     * @uses \FireHub\Core\Support\Enums\Geo\Country::is() To check if the country is a region.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\TimeZone;
+     * use FireHub\Core\Support\Enums\DateTime\Zone;
+     * use FireHub\Core\Support\Enums\Geo\Country;
+     *
+     * $timezone = TimeZone::create(Zone::AMERICA_NEW_YORK);
+     *
+     * $timezone->isFrom(Country::UNITED_STATES_OF_AMERICA);
+     *
+     * // true
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\Geo\Country|\FireHub\Core\Support\Enums\Geo\Contracts\UNM49 $country_or_region <p>
+     * Country or region to check.
+     * </p>
+     *
+     * @return bool True if the timezone is part of a country or region, false otherwise.
+     */
+    public function isFrom (Country|UNM49 $country_or_region):bool {
+
+        return $country_or_region instanceof Country
+            ? $this->country() === $country_or_region
+            : $this->country()->is($country_or_region);
 
     }
 
@@ -100,16 +139,13 @@ class TimeZone implements Init, Stringable {
      */
     public function get ():Zone {
 
-        return $this->timezone;
+        return Zone::from($this->base_timezone->getName());
 
     }
 
     /**
-     * ### Offset in seconds between selected timezone and Coordinated Universal Time (UTC)
+     * ### Current offset in seconds between selected timezone and Coordinated Universal Time (UTC)
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Zwick\TimeZone::getOffset() To get offset in seconds between selected timezone and
-     * Coordinated Universal Time (UTC).
      *
      * @example
      * ```php
@@ -129,16 +165,20 @@ class TimeZone implements Init, Stringable {
      */
     public function offset ():int {
 
-        return $this->getOffset(false);
+        foreach ($this->base_timezone::listAbbreviations() as $zones)
+            foreach ($zones as $zone)
+                if ($zone['timezone_id'] === $this->base_timezone->getName() && $zone['dst'])
+                    return $zone['offset'];
+
+        throw new Error('Could not get timezone offset.');
 
     }
 
     /**
-     * ### Offset in seconds between selected timezone and Coordinated Universal Time (UTC) with daylight-saving time
+     * ### Timezone country
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Zwick\TimeZone::getOffset() To get offset in seconds between selected timezone and
-     * Coordinated Universal Time (UTC).
+     * @uses \FireHub\Core\Support\Enums\Geo\Country::fromAlpha2() To get country from a provided alpha 2 code.
      *
      * @example
      * ```php
@@ -147,18 +187,16 @@ class TimeZone implements Init, Stringable {
      *
      * $timezone = TimeZone::create(Zone::AMERICA_NEW_YORK);
      *
-     * $timezone->offsetDTS();
+     * $timezone->country();
      *
-     * // -14400
+     * // enum(FireHub\Core\Support\Enums\Geo\Country::UNITED_STATES_OF_AMERICA)
      * ```
      *
-     * @throws Error If a system couldn't get timezone offset.
-     *
-     * @return int Time zone offset in seconds between selected timezone and Coordinated Universal Time (UTC).
+     * @return \FireHub\Core\Support\Enums\Geo\Country|false Timezone country or false if one is not found.
      */
-    public function offsetDTS ():int {
+    public function country ():Country|false {
 
-        return $this->getOffset(true);
+        return Country::fromAlpha2($this->base_timezone->getLocation()['country_code'] ?? '');
 
     }
 
@@ -226,32 +264,6 @@ class TimeZone implements Init, Stringable {
     }
 
     /**
-     * ### Offset in seconds between selected timezone and Coordinated Universal Time (UTC)
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\DateAndTimeZone::abbreviationList() To get an associative array containing
-     * dst, offset and the timezone name alias.
-     *
-     * @param bool $dst [optional] <p>
-     * Filter daylight-saving time abbreviations.
-     * </p>
-     *
-     * @throws Error If a system couldn't get timezone offset.
-     *
-     * @return int Time zone offset in seconds between selected timezone and Coordinated Universal Time (UTC).
-     */
-    private function getOffset (bool $dst):int {
-
-        foreach (DateAndTimeZone::abbreviationList() as $zones)
-            foreach ($zones as $zone)
-                if ($zone['timezone_id'] === $this->timezone->value && $zone['dst'] === $dst)
-                    return $zone['offset'];
-
-        throw new Error('Could not get timezone offset.');
-
-    }
-
-    /**
      * @inheritDoc
      *
      * @since 1.0.0
@@ -268,7 +280,7 @@ class TimeZone implements Init, Stringable {
      */
     public function __toString ():string {
 
-        return $this->timezone->value;
+        return $this->base_timezone->getName();
 
     }
 

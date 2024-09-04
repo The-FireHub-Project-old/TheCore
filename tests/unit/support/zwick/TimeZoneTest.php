@@ -16,7 +16,9 @@ namespace support\zwick;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Zwick\TimeZone;
-use FireHub\Core\Support\Enums\DateTime\Zone;
+use FireHub\Core\Support\Enums\ {
+    DateTime\Zone, Geo\Country
+};
 use PHPUnit\Framework\Attributes\ {
     CoversClass, RunInSeparateProcess
 };
@@ -27,6 +29,7 @@ use PHPUnit\Framework\Attributes\ {
  */
 #[CoversClass(TimeZone::class)]
 #[CoversClass(Zone::class)]
+#[CoversClass(Country::class)]
 final class TimeZoneTest extends Base {
 
     public TimeZone $timezone;
@@ -39,6 +42,17 @@ final class TimeZoneTest extends Base {
     public function setUp ():void {
 
         $this->timezone = TimeZone::create(Zone::AMERICA_NEW_YORK);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsFrom ():void {
+
+        $this->assertTrue($this->timezone->isFrom(Country::UNITED_STATES_OF_AMERICA));
 
     }
 
@@ -60,7 +74,7 @@ final class TimeZoneTest extends Base {
      */
     public function testOffset ():void {
 
-        $this->assertSame(-18000, $this->timezone->offset());
+        $this->assertSame(-14400, $this->timezone->offset());
 
     }
 
@@ -69,9 +83,9 @@ final class TimeZoneTest extends Base {
      *
      * @return void
      */
-    public function testOffsetDTS ():void {
+    public function testCountry ():void {
 
-        $this->assertSame(-14400, $this->timezone->offsetDTS());
+        $this->assertSame(Country::UNITED_STATES_OF_AMERICA, $this->timezone->country());
 
     }
 
