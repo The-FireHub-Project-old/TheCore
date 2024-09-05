@@ -14,11 +14,13 @@
 
 namespace FireHub\Core\Base;
 
+use BackedEnum;
+
 /**
  * ### FireHub initial-backed enum interface
  * @since 1.0.0
  */
-interface InitBackedEnum extends InitEnum {
+interface InitBackedEnum extends InitEnum, BackedEnum {
 
     /**
      * ### Get value from enum name

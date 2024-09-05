@@ -14,10 +14,21 @@
 
 namespace FireHub\Core\Base;
 
+use UnitEnum;
+
 /**
  * ### FireHub initial enum interface
+ *
  * @since 1.0.0
  */
-interface InitEnum extends Base {
+interface InitEnum extends Base, UnitEnum {
+
+    /**
+     * ### Generates a list of cases on an enum
+     * @since 1.0.0
+     *
+     * @return array<static> Packed array of all cases in an enumeration, in order of declaration.
+     */
+    public static function cases ():array;
 
 }
