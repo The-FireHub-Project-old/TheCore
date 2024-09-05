@@ -78,6 +78,17 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
+    public function testParse ():void {
+
+        $this->assertSame('1970-01-01 12:11:30.123456', $this->datetime->parse(Predefined::DATE_MICRO_TIME));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testPrint ():void {
 
         $this->assertSame('1970-01-01 12:11:30.123456', $this->datetime->__toString());

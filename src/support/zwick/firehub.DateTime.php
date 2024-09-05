@@ -14,7 +14,9 @@
 
 namespace FireHub\Core\Support\Zwick;
 
-use FireHub\Core\Support\Enums\DateTime\Format\Predefined;
+use FireHub\Core\Support\Enums\DateTime\Format\ {
+    Format, Predefined
+};
 use FireHub\Core\Support\LowLevel\DataIs;
 use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
 
@@ -179,7 +181,7 @@ class DateTime extends Zwick {
      * use FireHub\Core\Support\Zwick\TimeZone;
      * use FireHub\Core\Support\Enums\DateTime\Zone;
      *
-     * DateTime::now()->setTimezone(Zone::EUROPE_ZAGREB);
+     * DateTime::now()->setTimezone(TimeZone::create(Zone::EUROPE_ZAGREB));
      * ```
      *
      * @param \FireHub\Core\Support\Zwick\TimeZone $timezone <p>
@@ -195,6 +197,46 @@ class DateTime extends Zwick {
         $this->timezone = $timezone;
 
         $this->datetime->setTimezone(new BaseTimeZone($timezone->get()->value));
+
+    }
+
+    /**
+     * ### Gets date and/or time according to given format
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Format As parameter.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if a format value is string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Format\Predefined;
+     *
+     * $datetime = DateTime::from('1970-01-01 12:11:13.22');
+     *
+     * $datetime->parse(PredefineD::DATE_MICRO_TIME);
+     *
+     * // 1970-01-01 12:11:13.220000
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\DateTime\Format\Format|string $format <p>
+     * Format enum or string accepted by date().
+     * </p>
+     *
+     * @throws Error If a parsed format is not string.
+     *
+     * @return string Formatted datetime.
+     */
+    public function parse (Format|string $format):string {
+
+        return $this->datetime->format(
+            $format instanceof Format
+                ? (DataIs::string($format->value)
+                    ? $format->value
+                    : throw new Error('Parsed format must be string.')
+                )
+                : $format
+        );
 
     }
 
