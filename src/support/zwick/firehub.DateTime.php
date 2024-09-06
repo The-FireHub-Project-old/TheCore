@@ -234,8 +234,7 @@ class DateTime extends Zwick {
                 ? (DataIs::string($format->value)
                     ? $format->value
                     : throw new Error('Parsed format must be string.')
-                )
-                : $format
+                ) : $format
         );
 
     }
