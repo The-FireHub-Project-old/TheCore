@@ -216,7 +216,7 @@ trait Get {
     }
 
     /**
-     * ### Get month number
+     * ### Get month name
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\DateTime\Names\Month As return.
