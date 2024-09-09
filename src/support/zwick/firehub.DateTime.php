@@ -18,7 +18,11 @@ use FireHub\Core\Support\Enums\DateTime\Format\ {
     Format, Predefined
 };
 use FireHub\Core\Support\Zwick\Traits\ {
-    Check, Get
+    Check, Get, Set
+};
+use FireHub\Core\Support\Zwick\Helpers\Parse;
+use FireHub\Core\Support\Enums\DateTime\ {
+    Names\Month, Names\WeekDay, Relative\Ordinal, Relative\Time, Unit\Unit
 };
 use FireHub\Core\Support\LowLevel\DataIs;
 use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
@@ -29,6 +33,15 @@ use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
  * This class allows you to represent date/time information with a rich set of methods that are supplied to modify
  * and format this information as well.
  * @since 1.0.0
+ *
+ * @method static self now (TimeZone $timezone = null) ### Create datetime with the current date and time
+ * @method static self today (Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with today's date
+ * @method static self yesterday (Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with yesterday's date
+ * @method static self tomorrow (Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with tomorrow's date
+ * @method static self relative (int $number, Unit $unit, Time|string $at = Time::NOW, TimeZone $timezone = null) ### Create datetime with relative date and time
+ * @method static self firstDay (?Month $month = null, ?int $year = null, Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with first day of specified month
+ * @method static self lastDay (?Month $month = null, ?int $year = null, Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with last day of specified month
+ * @method static self ordinalWeekDay (?Ordinal $ordinal, WeekDay $weekday, ?Month $month = null, ?int $year = null, Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with a specified weekday name and month
  *
  * @api
  */
@@ -45,6 +58,12 @@ class DateTime extends Zwick {
      * @since 1.0.0
      */
     use Get;
+
+    /**
+     * ### Sets information about the current date\time
+     * @since 1.0.0
+     */
+    use Set;
 
     /**
      * ### Constructor
@@ -251,6 +270,37 @@ class DateTime extends Zwick {
                     : throw new Error('Parsed format must be string.')
                 ) : $format
         );
+
+    }
+
+    /**
+     * ### Call predefined patterns
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\TimeZone To check if an argument contains an instance of TimeZone.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::from() To create datetime from string.
+     * @uses \FireHub\Core\Support\Zwick\Helpers\Parse To parse about any English textual datetime description into a
+     * date/time.
+     *
+     * @param non-empty-string $method <p>
+     * Method name.
+     * </p>
+     * @param array<array-key, mixed> $arguments <p>
+     * List of arguments.
+     * </p>
+     *
+     * @throws Exception Emits Exception in case of an error.
+     *
+     * @return self New datetime.
+     */
+    public static function __callStatic (string $method, array $arguments):self {
+
+        foreach ($arguments as $argument_key => $argument_value) if ($argument_value instanceof TimeZone) {
+            $timezone = $argument_value;
+            unset($arguments[$argument_key]);
+        }
+
+        return self::from(Parse::$method(...$arguments), $timezone ?? null); // @phpstan-ignore-line
 
     }
 

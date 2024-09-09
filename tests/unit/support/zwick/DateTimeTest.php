@@ -19,8 +19,9 @@ use FireHub\Core\Support\Zwick\ {
     DateTime, TimeZone
 };
 use FireHub\Core\Support\Zwick\Traits\Check;
+use FireHub\Core\Support\Zwick\Helpers\Parse;
 use FireHub\Core\Support\Enums\DateTime\ {
-    Zone, Format\Predefined, Names\Month, Names\WeekDay
+    Relative\Ordinal, Zone, Format\Predefined, Names\Month, Names\WeekDay
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -35,12 +36,16 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Predefined::class)]
 #[CoversClass(WeekDay::class)]
 #[CoversClass(Month::class)]
+#[CoversClass(Ordinal::class)]
+#[CoversClass(Parse::class)]
 final class DateTimeTest extends Base {
 
     public DateTime $datetime;
     public DateTime $future;
 
     public DateTime $now;
+
+    public DateTime $ordinal;
 
     /**
      * @since 1.0.0
@@ -55,6 +60,30 @@ final class DateTimeTest extends Base {
 
         $this->now = DateTime::from('2024-06-09 09:41:07.349993', TimeZone::create(Zone::AMERICA_NEW_YORK));
 
+        $this->ordinal = DateTime::ordinalWeekDay(Ordinal::FIRST, WeekDay::SUNDAY, Month::SEPTEMBER, 2024);
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testFirstDay ():void {
+
+        $this->assertSame(1, DateTime::firstDay(Month::SEPTEMBER)->day());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testLastDay ():void {
+
+        $this->assertSame(30, DateTime::lastDay(Month::SEPTEMBER)->day());
+
     }
 
     /**
@@ -65,6 +94,137 @@ final class DateTimeTest extends Base {
     public function testLeapYear ():void {
 
         $this->assertTrue($this->now->leapYear());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsJanuary ():void {
+
+        $this->assertFalse($this->now->isJanuary());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsFebruary ():void {
+
+        $this->assertFalse($this->now->isFebruary());
+
+    }
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsMarch ():void {
+
+        $this->assertFalse($this->now->isMarch());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsApril ():void {
+
+        $this->assertFalse($this->now->isApril());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsMay ():void {
+
+        $this->assertFalse($this->now->isMay());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsJune ():void {
+
+        $this->assertTrue($this->now->isJune());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsJuly ():void {
+
+        $this->assertFalse($this->now->isJuly());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsAugust ():void {
+
+        $this->assertFalse($this->now->isAugust());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsSeptember ():void {
+
+        $this->assertFalse($this->now->isSeptember());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsOctober ():void {
+
+        $this->assertFalse($this->now->isOctober());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsNovember ():void {
+
+        $this->assertFalse($this->now->isNovember());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsDecember ():void {
+
+        $this->assertFalse($this->now->isDecember());
 
     }
 
@@ -161,9 +321,9 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
-    public function testWeek ():void {
+    public function testWeekInMonth ():void {
 
-        $this->assertSame(1, $this->datetime->week());
+        $this->assertSame(1, $this->datetime->weekInMonth());
 
     }
 

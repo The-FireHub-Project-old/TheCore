@@ -28,8 +28,6 @@ use FireHub\Core\Support\LowLevel\ {
 /**
  * ### Get information about the current date\time
  * @since 1.0.0
- *
- * @api
  */
 trait Get {
 
@@ -246,36 +244,30 @@ trait Get {
     }
 
     /**
-     * ### The week number of the year
+     * ### Get week in month
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
-     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Week::NUMBER As format type.
-     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
-     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::day() To day of the month.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::firstDay() To set calendar to first day of specified month.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::dayInWeek() To get day of the week
      *
-     * @example
+     * @example Get Calendar year.
      * ```php
      * use FireHub\Core\Support\Zwick\DateTime;
      *
-     * DateTime::now()->week(),
+     * DateTime::now()->weekInMonth();
      *
-     * // 12
+     * // 3
      * ```
      *
-     * @return int Week number of the year.
+     * @return int Week in month.
      */
-    public function week ():int {
+    public function weekInMonth ():int {
 
-        return Data::setType($this->parse(Week::NUMBER), Type::T_INT);
+        return NumInt::ceil(($this->day() + self::firstDay()->weekDay()->value - 1) / 7);
 
     }
-
-    //public function weekInMonth ():int {
-
-        //return NumInt::ceil(($this->day() + self::firstDay()->dayInWeek() - 1) / 7);
-
-    //}
 
     /**
      * ### The day of the month
