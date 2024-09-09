@@ -20,7 +20,7 @@ use FireHub\Core\Base\Trait\ConcreteBackedEnum;
  * ### Days unit enum
  * @since 1.0.0
  */
-enum Days:string implements Calculable {
+enum Days:string implements Calculable, Relative {
 
     /**
      * ### FireHub initial concrete-backed enum trait

@@ -22,7 +22,7 @@ use function FireHub\Core\Support\Helpers\PHP\is32bit;
  * ### Basic unit enum
  * @since 1.0.0
  */
-enum Basic:string implements Unit {
+enum Basic:string implements Unit, Relative {
 
     /**
      * ### FireHub initial concrete-backed enum trait

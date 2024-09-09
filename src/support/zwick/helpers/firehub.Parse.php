@@ -18,7 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Enums\DateTime\ {
-    Names\Month, Names\WeekDay, Relative\Day, Relative\Ordinal, Relative\Time, Unit\Unit
+    Names\Month, Names\WeekDay, Relative\Day, Relative\Ordinal, Relative\Time, Unit\Relative
 };
 
 use FireHub\Core\Support\LowLevel\ {
@@ -168,8 +168,8 @@ final class Parse implements Init {
      * @param int $number <p>
      * Number, positive, or negative.
      * </p>
-     * @param \FireHub\Core\Support\Enums\DateTime\Unit\Unit $unit <p>
-     * Unit to use.
+     * @param \FireHub\Core\Support\Enums\DateTime\Unit\Relative $unit <p>
+     * Relative unit to use.
      * </p>
      * @param \FireHub\Core\Support\Enums\DateTime\Relative\Time|non-empty-string $at [optional] <p>
      * Sets time for datetime timestamp.
@@ -177,7 +177,7 @@ final class Parse implements Init {
      *
      * @return non-empty-string
      */
-    public static function relative (int $number, Unit $unit, Time|string $at = Time::NOW):string {
+    public static function relative (int $number, Relative $unit, Time|string $at = Time::NOW):string {
 
         return $number.' '.$unit->plural().' '.(DataIs::string($at) ? $at : $at->value);
 

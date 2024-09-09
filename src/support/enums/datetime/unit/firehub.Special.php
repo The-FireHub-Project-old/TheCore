@@ -20,7 +20,7 @@ use FireHub\Core\Base\Trait\ConcreteBackedEnum;
  * ### Special unit enum
  * @since 1.0.0
  */
-enum Special:string implements Unit {
+enum Special:string implements Unit, Relative {
 
     /**
      * ### FireHub initial concrete-backed enum trait

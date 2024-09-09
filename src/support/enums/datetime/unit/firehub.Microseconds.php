@@ -20,7 +20,7 @@ use FireHub\Core\Base\Trait\ConcreteBackedEnum;
  * ### Microseconds unit enum
  * @since 1.0.0
  */
-enum Microseconds:string implements Calculable {
+enum Microseconds:string implements Calculable, Relative {
 
     /**
      * ### FireHub initial concrete-backed enum trait
