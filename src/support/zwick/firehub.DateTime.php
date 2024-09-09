@@ -274,6 +274,55 @@ class DateTime extends Zwick {
     }
 
     /**
+     * ### Modify the datetime
+     * @since 1.0.0
+     *
+     * @param null|int $year [optional] <p>
+     * Year of the date.
+     * </p>
+     * @param null|int<0, 12> $month [optional] <p>
+     * Year of the date.
+     * </p>
+     * @param null|int<0, 31> $day [optional] <p>
+     * Year of the date.
+     * </p>
+     * @param null|int<0, 23> $hour [optional] <p>
+     * Hour of the time.
+     * </p>
+     * @param null|int<0, 59> $minute [optional] <p>
+     * Minute of the time.
+     * </p>
+     * @param null|int<0, 59> $second [optional] <p>
+     * Second of the time.
+     * </p>
+     * @param null|int<0, 999999> $microsecond [optional] <p>
+     * Microsecond of the time.
+     * </p>
+     *
+     * @return static Datetime with modified datetime.
+     */
+    private function set (int $year = null, ?int $month = null, ?int $day = null, ?int $hour = null, ?int $minute = null, ?int $second = null, ?int $microsecond = null):static {
+
+        if ($year || $month || $day)
+            $this->datetime->setDate(
+                $year ?? $this->year(),
+                $month ?? $this->month(),
+                $day ?? $this->day()
+            );
+
+        if ($hour || $minute || $second || $microsecond)
+            $this->datetime->setTime(
+                $hour ?? $this->hour(),
+                $minute ?? $this->minute(),
+                $second ?? $this->second(),
+                $microsecond ?? $this->microSecond()
+            );
+
+        return $this;
+
+    }
+
+    /**
      * ### Call predefined patterns
      * @since 1.0.0
      *

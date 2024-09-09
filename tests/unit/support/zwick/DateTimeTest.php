@@ -91,6 +91,29 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
+    public function testSet ():void {
+
+        $this->datetime->setYear(2020);
+        $this->datetime->setMonth(12);
+        $this->datetime->setDay(11);
+        $this->datetime->setHour(2);
+        $this->datetime->setMinute(12);
+        $this->datetime->setSecond(22);
+        $this->datetime->setMicroSecond(123456);
+
+        $this->assertSame('2020-12-11 02:12:22.123456', $this->datetime->parse('Y-m-d h:i:s.u'));
+
+        $this->datetime->setMilliSecond(112);
+
+        $this->assertSame('2020-12-11 02:12:22.112000', $this->datetime->parse('Y-m-d h:i:s.u'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testLeapYear ():void {
 
         $this->assertTrue($this->now->leapYear());
