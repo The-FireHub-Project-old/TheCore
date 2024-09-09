@@ -417,4 +417,269 @@ trait Check {
 
     }
 
+    /**
+     * ### Check if DateTime is the first day of the month
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::day() To get day of the month.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isFirstOfMonth();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being the first day of the month, false otherwise.
+     */
+    public function isFirstOfMonth ():bool {
+
+        return $this->day() === 1;
+
+    }
+
+    /**
+     * ### Check if DateTime is the last day of the month
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::day() To get day of the month.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::month() To get the month number.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::lastDay() To set datetime to last day of specified month.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Month As month name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isLastOfMonth();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being the last day of the month, false otherwise.
+     */
+    public function isLastOfMonth ():bool {
+
+        return $this->day() === DateTime::lastDay(Month::from($this->month()))->day();
+
+    }
+
+    /**
+     * ### Check if DateTime is the first day of the year
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::dayInYear() To get day of the year.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isFirstOfYear();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being the first day of the year, false otherwise.
+     */
+    public function isFirstOfYear ():bool {
+
+        return $this->dayInYear() === 1;
+
+    }
+
+    /**
+     * ### Check if DateTime is the last day of the year.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::dayInYear() To get day of the year.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::lastDay() To set datetime to last day of specified month.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Month::DECEMBER As month name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isLastOfYear();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being the last day of the year, false otherwise.
+     */
+    public function isLastOfYear ():bool {
+
+        return $this->dayInYear() === DateTime::lastDay(Month::DECEMBER)->dayInYear();
+
+    }
+
+    /**
+     * ### Check if DateTime is Monday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::MONDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isMonday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Monday, false otherwise.
+     */
+    public function isMonday ():bool {
+
+        return $this->weekDay() === WeekDay::MONDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is Tuesday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::TUESDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isTuesday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Tuesday, false otherwise.
+     */
+    public function isTuesday ():bool {
+
+        return $this->weekDay() === WeekDay::TUESDAY->value;
+
+    }
+
+    /**
+     * ### Check if DateTime is Wednesday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::WEDNESDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isWednesday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Wednesday, false otherwise.
+     */
+    public function isWednesday ():bool {
+
+        return $this->weekDay() === WeekDay::WEDNESDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is Thursday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::THURSDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isThursday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Thursday, false otherwise.
+     */
+    public function isThursday ():bool {
+
+        return $this->weekDay() === WeekDay::THURSDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is Friday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::FRIDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isFriday();
+     *
+     * // true
+     * ```
+     *
+     * @return bool True if is Friday, false otherwise.
+     */
+    public function isFriday ():bool {
+
+        return $this->weekDay() === WeekDay::FRIDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is Saturday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::SATURDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isSaturday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Saturday, false otherwise.
+     */
+    public function isSaturday ():bool {
+
+        return $this->weekDay() === WeekDay::SATURDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is Sunday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::SUNDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isSunday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is Sunday, false otherwise.
+     */
+    public function isSunday ():bool {
+
+        return $this->weekDay() === WeekDay::SUNDAY;
+
+    }
+
 }

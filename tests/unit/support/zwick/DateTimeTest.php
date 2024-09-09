@@ -289,6 +289,127 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
+    public function testIsFirstOfMonth ():void {
+
+        $this->assertFalse($this->now->isFirstOfMonth());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsLastOfMonth ():void {
+
+        $this->assertFalse($this->now->isLastOfMonth());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsFirstOfYear ():void {
+
+        $this->assertFalse($this->now->isFirstOfYear());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsLastOfYear ():void {
+
+        $this->assertFalse($this->now->isLastOfYear());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsMonday ():void {
+
+        $this->assertFalse($this->now->isMonday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsTuesday ():void {
+
+        $this->assertFalse($this->now->isTuesday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsWednesday ():void {
+
+        $this->assertFalse($this->now->isWednesday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsThursday():void {
+
+        $this->assertFalse($this->now->isThursday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsFriday ():void {
+
+        $this->assertFalse($this->now->isFriday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsSaturday ():void {
+
+        $this->assertFalse($this->now->isSaturday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsSunday ():void {
+
+        $this->assertTrue($this->now->isSunday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testMillennium ():void {
 
         $this->assertSame(2, $this->datetime->millennium());
