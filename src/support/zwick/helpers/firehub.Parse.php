@@ -43,6 +43,15 @@ final class Parse implements Init {
      *
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Time::NOW As time name.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now();
+     *
+     * // 2024-08-27 02:54:52.024551
+     * ```
+     *
      * @return non-empty-string
      */
     public static function now ():string {
@@ -58,6 +67,15 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Time::MIDNIGHT As default parameter.
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Day::TODAY To get the current date.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::today();
+     *
+     * // 2024-08-27 00:00:00.000000
+     * ```
      *
      * @param \FireHub\Core\Support\Enums\DateTime\Relative\Time|non-empty-string $at [optional] <p>
      * Sets time.
@@ -79,6 +97,15 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Day::YESTERDAY To get yesterday's date.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::yesterday();
+     *
+     * // 2024-08-26 00:00:00.000000
+     * ```
+     *
      * @param \FireHub\Core\Support\Enums\DateTime\Relative\Time|non-empty-string $at [optional] <p>
      * Sets time for datetime timestamp.
      * </p>
@@ -98,6 +125,15 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Time::MIDNIGHT As default parameter.
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Day::TOMORROW To get tomorrow's date.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::tomorrow();
+     *
+     * // 2024-08-28 00:00:00.000000
+     * ```
      *
      * @param \FireHub\Core\Support\Enums\DateTime\Relative\Time|non-empty-string $at [optional] <p>
      * Sets time for datetime timestamp.
@@ -119,8 +155,18 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Time::NOW As default parameter.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Unit\Days;
+     *
+     * DateTime::relative(2, Days::WEEK, '12:00');
+     *
+     * // 2024-09-23 12:00:00.000000
+     * ```
+     *
      * @param int $number <p>
-     * Number, positive or negative.
+     * Number, positive, or negative.
      * </p>
      * @param \FireHub\Core\Support\Enums\DateTime\Unit\Unit $unit <p>
      * Unit to use.
@@ -148,6 +194,16 @@ final class Parse implements Init {
      * the selected month.
      * @uses \FireHub\Core\Support\LowLevel\DateAndTime::formatInteger() To format a Unix timestamp as integer.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Names\Month;
+     *
+     * DateTime::firstDay(Month::NOVEMBER, 2000);
+     *
+     * // 2000-11-01 00:00:00.000000
+     * ```
      *
      * @param null|\FireHub\Core\Support\Enums\DateTime\Names\Month $month [optional] <p>
      * Sets month for datetime, or current month if null.
@@ -183,6 +239,16 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Ordinal::LAST To get the last day of the first of the selected month.
      * @uses \FireHub\Core\Support\LowLevel\DateAndTime::formatInteger() To format a Unix timestamp as integer.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Names\Month;
+     *
+     * DateTime::lastDay(Month::NOVEMBER, 2000);
+     *
+     * // 2000-11-30 00:00:00.000000
+     * ```
      *
      * @param null|\FireHub\Core\Support\Enums\DateTime\Names\Month $month [optional] <p>
      * Sets month for datetime, or current month if null.
@@ -220,6 +286,18 @@ final class Parse implements Init {
      * @uses \FireHub\Core\Support\Enums\DateTime\Relative\Time::MIDNIGHT As default parameter.
      * @uses \FireHub\Core\Support\LowLevel\DateAndTime::formatInteger() To format a Unix timestamp as integer.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $at is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Relative\Ordinal;
+     * use FireHub\Core\Support\Enums\DateTime\Names\WeekDay;
+     * use FireHub\Core\Support\Enums\DateTime\Names\Month;
+     *
+     * DateTime::ordinalWeekDay(Ordinal::FIRST, WeekDay::SUNDAY, Month::MAY, 2024);
+     *
+     * // 2024-05-05 00:00:00.000000
+     * ```
      *
      * @param \FireHub\Core\Support\Enums\DateTime\Relative\Ordinal $ordinal <p>
      * Sets ordinal value for datetime.

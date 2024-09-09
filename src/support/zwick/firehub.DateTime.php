@@ -299,7 +299,9 @@ class DateTime extends Zwick {
      * Microsecond of the time.
      * </p>
      *
-     * @return static Datetime with modified datetime.
+     * @return $this Datetime with modified datetime.
+     *
+     * @SuppressWarnings@SuppressWarnings(PHPMD.UnusedPrivateMethod)
      */
     private function set (int $year = null, ?int $month = null, ?int $day = null, ?int $hour = null, ?int $minute = null, ?int $second = null, ?int $microsecond = null):static {
 
