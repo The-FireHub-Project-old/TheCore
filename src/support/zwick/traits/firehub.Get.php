@@ -179,11 +179,11 @@ trait Get {
      * // 3
      * ```
      *
-     * @return int Quarter in a year.
+     * @return int<1, 3> Quarter in a year.
      */
     public function quarter ():int {
 
-        return NumInt::ceil(($this->month() + 1) / Months::QUARTER->calculate());
+        return NumInt::ceil(($this->month() + 1) / Months::QUARTER->calculate()); // @phpstan-ignore-line
 
     }
 
@@ -205,11 +205,11 @@ trait Get {
      * // 7
      * ```
      *
-     * @return int Month number.
+     * @return int<1, 12> Month number.
      */
     public function month ():int {
 
-        return Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT);
+        return Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -261,11 +261,11 @@ trait Get {
      * // 3
      * ```
      *
-     * @return int Week in month.
+     * @return int<1, 5> Week in month.
      */
     public function weekInMonth ():int {
 
-        return NumInt::ceil(($this->day() + self::firstDay()->weekDay()->value - 1) / 7);
+        return NumInt::ceil(($this->day() + self::firstDay()->weekDay()->value - 1) / 7); // @phpstan-ignore-line
 
     }
 
@@ -287,11 +287,11 @@ trait Get {
      * // 2
      * ```
      *
-     * @return int Day in month number.
+     * @return int<0, 31> Day in month number.
      */
     public function day ():int {
 
-        return Data::setType($this->parse(Day::NUMERIC_IN_MONTH_SHORT), Type::T_INT);
+        return Data::setType($this->parse(Day::NUMERIC_IN_MONTH_SHORT), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -339,11 +339,11 @@ trait Get {
      * // 195
      * ```
      *
-     * @return int Number of days in the given month.
+     * @return int<1, 366> Number of days in the given month.
      */
     public function dayInYear ():int {
 
-        return Data::setType($this->parse(Day::NUMBER), Type::T_INT) + 1;
+        return Data::setType($this->parse(Day::NUMBER), Type::T_INT) + 1; // @phpstan-ignore-line
 
     }
 
@@ -396,11 +396,11 @@ trait Get {
      * // 13
      * ```
      *
-     * @return int Hour of the time number.
+     * @return int<0, 23> Hour of the time number.
      */
     public function hour ():int {
 
-        return Data::setType($this->parse(Time::HOUR_SHORT_24), Type::T_INT);
+        return Data::setType($this->parse(Time::HOUR_SHORT_24), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -422,11 +422,11 @@ trait Get {
      * // 1
      * ```
      *
-     * @return int Hour of the time number.
+     * @return int<0, 12> Hour of the time number.
      */
     public function hourShort ():int {
 
-        return Data::setType($this->parse(Time::HOUR_SHORT_12), Type::T_INT);
+        return Data::setType($this->parse(Time::HOUR_SHORT_12), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -472,11 +472,11 @@ trait Get {
      * // 5
      * ```
      *
-     * @return int Minute of the time number.
+     * @return int<0, 59> Minute of the time number.
      */
     public function minute ():int {
 
-        return Data::setType($this->parse(Time::MINUTES), Type::T_INT);
+        return Data::setType($this->parse(Time::MINUTES), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -498,11 +498,11 @@ trait Get {
      * // 7
      * ```
      *
-     * @return int Seconds of the time number.
+     * @return int<0, 59> Seconds of the time number.
      */
     public function second ():int {
 
-        return Data::setType($this->parse(Time::SECONDS), Type::T_INT);
+        return Data::setType($this->parse(Time::SECONDS), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -524,11 +524,11 @@ trait Get {
      * // 1
      * ```
      *
-     * @return int Millisecond of the time number.
+     * @return int<0, 999> Millisecond of the time number.
      */
     public function milliSecond ():int {
 
-        return Data::setType($this->parse(Time::MILLISECONDS), Type::T_INT);
+        return Data::setType($this->parse(Time::MILLISECONDS), Type::T_INT); // @phpstan-ignore-line
 
     }
 
@@ -550,11 +550,11 @@ trait Get {
      * // 1409
      * ```
      *
-     * @return int Microsecond of the time number.
+     * @return int<0, 999999> Microsecond of the time number.
      */
     public function microSecond ():int {
 
-        return Data::setType($this->parse(Time::MICROSECONDS), Type::T_INT);
+        return Data::setType($this->parse(Time::MICROSECONDS), Type::T_INT); // @phpstan-ignore-line
 
     }
 

@@ -22,9 +22,11 @@ use FireHub\Core\Support\Zwick\Traits\ {
 };
 use FireHub\Core\Support\Zwick\Helpers\Parse;
 use FireHub\Core\Support\Enums\DateTime\ {
-    Names\Month, Names\WeekDay, Relative\Ordinal, Relative\Time, Unit\Unit
+    Epoch, Zone, Names\Month, Names\WeekDay, Relative\Ordinal, Relative\Time, Unit\Unit
 };
-use FireHub\Core\Support\LowLevel\DataIs;
+use FireHub\Core\Support\LowLevel\ {
+    DataIs, DateAndTime
+};
 use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
 
 /**
@@ -44,6 +46,8 @@ use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
  * @method static self ordinalWeekDay (?Ordinal $ordinal, WeekDay $weekday, ?Month $month = null, ?int $year = null, Time|string $at = Time::MIDNIGHT, TimeZone $timezone = null) ### Create datetime with a specified weekday name and month
  *
  * @api
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class DateTime extends Zwick {
 
@@ -231,6 +235,54 @@ class DateTime extends Zwick {
         $this->timezone = $timezone;
 
         $this->datetime->setTimezone(new BaseTimeZone($timezone->get()->value));
+
+    }
+
+    /**
+     * ### Get timestamp for datetime
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Epoch::UNIX As parameter.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::from() To create a timestamp from string.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::seconds() To get timestamp seconds.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::fractions() To get timestamp fractions.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::microSecond() To get microsecond of the time.
+     * @uses \FireHub\Core\Support\Zwick\TimeZone::create() To create UTC timezone.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Zone::UTC As timezone.
+     * @uses \FireHub\Core\Support\LowLevel\DateAndTime::stringToTimestamp() To parse about any English textual
+     * datetime description into a Unix timestamp.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->timestamp();
+     *
+     * 1725901873.220000
+     * ```
+     *
+     * @param \FireHub\Core\Support\Enums\DateTime\Epoch|non-empty-string $epoch [optional] <p>
+     * Timestamp reference point.
+     * </p>
+     *
+     * @throws Error If we couldn't convert string to timestamp.
+     * @throws Exception Emits Exception in case of an error.
+     *
+     * @return \FireHub\Core\Support\Zwick\Timestamp Returns the timestamp representing the date.
+     */
+    public function timestamp (Epoch|string $epoch = Epoch::UNIX):Timestamp {
+
+        $timestamp = Timestamp::from($this->datetime->getTimestamp(), $this->microSecond());
+
+        return $epoch === Epoch::UNIX
+            ? $timestamp
+            : Timestamp::from(
+                $timestamp->seconds() - DateAndTime::stringToTimestamp(
+                    $epoch instanceOf Epoch ? $epoch->value : $epoch.' ' .TimeZone::create(Zone::UTC)
+                ),
+                $timestamp->fractions(),
+                $epoch
+            );
 
     }
 
