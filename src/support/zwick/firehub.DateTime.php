@@ -184,6 +184,65 @@ class DateTime extends Zwick {
     }
 
     /**
+     * ### Create datetime from provided timestamp
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Timestamp As parameter.
+     * @uses \FireHub\Core\Support\Zwick\TimeZone As parameter.
+     * @uses \FireHub\Core\Support\Zwick\TimeZone::create() To create a default timezone if one wasn't provided.
+     * @uses \FireHub\Core\Support\Zwick\TimeZone::get() To get timezone.
+     * @uses \FireHub\Core\Support\Zwick\TimeZone::getDefaultTimeZone() To get default timezone if one wasn't provided.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::epoch() To get timestamp epoch.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Epoch::UNIX As default epoch.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::seconds() To get timestamp seconds.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::fractions() To get timestamp fractions.
+     * @uses \FireHub\Core\Support\LowLevel\DateAndTime::stringToTimestamp() To parse about any English textual
+     * datetime description into a Unix timestamp.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::setMicroSecond() To set microseconds.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Zwick\Timestamp;
+     *
+     * $datetime = DateTime::fromTimestamp(Timestamp::from(1717940467, 123456));
+     *
+     * // 2024-08-24 12:11:23.123456
+     * ```
+     *
+     * @param \FireHub\Core\Support\Zwick\Timestamp $timestamp <p>
+     * Epoch timestamp.
+     * </p>
+     * @param null|\FireHub\Core\Support\Zwick\TimeZone $timezone [optional] <p>
+     * TimeZone support class.
+     * </p>
+     *
+     * @throws Exception Emits Exception in case of an error.
+     * @throws Error If we couldn't convert string to timestamp.
+     *
+     * @return self New datetime from timestamp.
+     */
+    public static function fromTimestamp (Timestamp $timestamp, ?TimeZone $timezone = null):self {
+
+        $timezone = $timezone ?? TimeZone::create(TimeZone::getDefaultTimeZone());
+
+        return (new self(
+            (new BaseDateTime(
+                'now',
+                new BaseTimeZone($timezone->get()->value)
+            ))->setTimestamp(
+                $timestamp->epoch() === Epoch::UNIX->value
+                ? $timestamp->seconds()
+                : $timestamp->seconds() + DateAndTime::stringToTimestamp(
+                    $timestamp->epoch().' ' .TimeZone::create(Zone::UTC)
+                    )
+            ),
+            $timezone
+        ))->setMicroSecond($timestamp->fractions());
+
+    }
+
+    /**
      * ### Gets timezone for datetime
      * @since 1.0.0
      *

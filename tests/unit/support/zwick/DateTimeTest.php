@@ -16,12 +16,12 @@ namespace support\zwick;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Zwick\ {
-    DateTime, TimeZone
+    DateTime, Timestamp, TimeZone
 };
 use FireHub\Core\Support\Zwick\Traits\Check;
 use FireHub\Core\Support\Zwick\Helpers\Parse;
 use FireHub\Core\Support\Enums\DateTime\ {
-    Relative\Ordinal, Zone, Format\Predefined, Names\Month, Names\WeekDay
+    Epoch, Zone, Relative\Ordinal, Format\Predefined, Names\Month, Names\WeekDay
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -31,7 +31,9 @@ use PHPUnit\Framework\Attributes\CoversClass;
  */
 #[CoversClass(DateTime::class)]
 #[CoversClass(TimeZone::class)]
+#[CoversClass(Timestamp::class)]
 #[CoversClass(Check::class)]
+#[CoversClass(Epoch::class)]
 #[CoversClass(Zone::class)]
 #[CoversClass(Predefined::class)]
 #[CoversClass(WeekDay::class)]
@@ -58,7 +60,7 @@ final class DateTimeTest extends Base {
 
         $this->future = DateTime::fromFormat(Predefined::DATETIME, '5555-12-31 23:59:59', TimeZone::create(Zone::AMERICA_NEW_YORK));
 
-        $this->now = DateTime::from('2024-06-09 09:41:07.349993', TimeZone::create(Zone::AMERICA_NEW_YORK));
+        $this->now = DateTime::fromTimestamp(Timestamp::from(1717940467, 349993), TimeZone::create(Zone::AMERICA_NEW_YORK));
 
         $this->ordinal = DateTime::ordinalWeekDay(Ordinal::FIRST, WeekDay::SUNDAY, Month::SEPTEMBER, 2024);
 
@@ -704,6 +706,19 @@ final class DateTimeTest extends Base {
         $this->datetime->setTimezone(Timezone::create(Zone::AUSTRALIA_MELBOURNE));
 
         $this->assertEquals(TimeZone::create(Zone::AUSTRALIA_MELBOURNE), $this->datetime->timezone());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testTimestamp ():void {
+
+        $this->assertEquals(Timestamp::from(1717940467, 349993), $this->now->timestamp());
+
+        $this->assertEquals(Timestamp::from(14400, 349993, '2024-06-09 09:41:07'), $this->now->timestamp('2024-06-09 09:41:07'));
 
     }
 
