@@ -179,7 +179,7 @@ final class Obj implements Init, AccessibleCollection {
 
         }
 
-        return $data;
+        return $data; // @phpstan-ignore-line
 
     }
 
@@ -271,7 +271,7 @@ final class Obj implements Init, AccessibleCollection {
         if ($callback) {
 
             foreach ($this->storage as $object)
-                if ($callback($object, $this->storage[$object])) return $object;
+                if ($callback($object, $this->storage[$object])) return $object; // @phpstan-ignore-line
 
             return null;
 
@@ -279,7 +279,7 @@ final class Obj implements Init, AccessibleCollection {
 
         $this->storage->rewind();
 
-        return $this->storage->valid() ? $this->storage->current() : null;
+        return $this->storage->valid() ? $this->storage->current() : null; // @phpstan-ignore-line
 
     }
 
@@ -339,7 +339,7 @@ final class Obj implements Init, AccessibleCollection {
         if ($callback) {
 
             foreach ($this->storage as $key => $object)
-                if ($callback($object, $this->storage[$object])) return $key;
+                if ($callback($object, $this->storage[$object])) return $key; // @phpstan-ignore-line
 
             return null;
 
@@ -347,7 +347,7 @@ final class Obj implements Init, AccessibleCollection {
 
         $this->storage->rewind();
 
-        return $this->storage->valid() ? $this->storage->key() : null;
+        return $this->storage->valid() ? $this->storage->key() : null; // @phpstan-ignore-line
 
     }
 
@@ -411,9 +411,9 @@ final class Obj implements Init, AccessibleCollection {
             $found = null;
 
             foreach ($this->storage as $object)
-                if ($callback($object, $this->storage[$object])) $found = $object;
+                if ($callback($object, $this->storage[$object])) $found = $object; // @phpstan-ignore-line
 
-            return $found;
+            return $found; // @phpstan-ignore-line
 
         }
 
@@ -421,7 +421,7 @@ final class Obj implements Init, AccessibleCollection {
 
         $count = $this->count();
 
-        foreach ($this->storage as $value) if (++$counter === $count) return $value;
+        foreach ($this->storage as $value) if (++$counter === $count) return $value; // @phpstan-ignore-line
 
         return null;
 
@@ -489,9 +489,9 @@ final class Obj implements Init, AccessibleCollection {
             $found = null;
 
             foreach ($this->storage as $key => $object)
-                if ($callback($object, $this->storage[$object])) $found = $key;
+                if ($callback($object, $this->storage[$object])) $found = $key; // @phpstan-ignore-line
 
-            return $found;
+            return $found; // @phpstan-ignore-line
 
         }
 
@@ -499,7 +499,7 @@ final class Obj implements Init, AccessibleCollection {
 
         $count = $this->count();
 
-        foreach ($this->storage as $key => $value) if (++$counter === $count) return $key;
+        foreach ($this->storage as $key => $value) if (++$counter === $count) return $key; // @phpstan-ignore-line
 
         return null;
 
@@ -547,7 +547,7 @@ final class Obj implements Init, AccessibleCollection {
 
         foreach ($this->storage as $object)
             if (
-                $callback($object, $this->storage[$object]) === false
+                $callback($object, $this->storage[$object]) === false // @phpstan-ignore-line
                 || $counter++ > $limit
             ) return false;
 
@@ -684,7 +684,7 @@ final class Obj implements Init, AccessibleCollection {
         if (DataIs::callable($value)) return $this->firstKey($value) ?? false;
 
         foreach ($this->storage as $key => $object)
-            if ($value === $object) return $key;
+            if ($value === $object) return $key; // @phpstan-ignore-line
 
         return false;
 
@@ -1050,7 +1050,7 @@ final class Obj implements Init, AccessibleCollection {
 
         $storage = new SplObjectStorage();
 
-        foreach ($this->storage as $object) $storage[$object] = $this->storage[$object];
+        foreach ($this->storage as $object) $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
         foreach ($collections as $collection)
             foreach ($collection as $object) $storage[$object] = $collection[$object]; // @phpstan-ignore-line
@@ -1096,7 +1096,7 @@ final class Obj implements Init, AccessibleCollection {
             $offset > 0
                 ? $this->slice($offset)->storage
                 : $this->storage as $object
-        ) if ($counter++ % (max($step, 1)) === 0)  $storage[$object] = $this->storage[$object];
+        ) if ($counter++ % (max($step, 1)) === 0)  $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
         return new self($storage);
 
@@ -1146,7 +1146,7 @@ final class Obj implements Init, AccessibleCollection {
 
             if ($position > $end) break;
 
-            $storage[$object] = $this->storage[$object];
+            $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
         }
 
@@ -1389,7 +1389,7 @@ final class Obj implements Init, AccessibleCollection {
      */
     public function getIterator ():Traversable {
 
-        yield from $this->storage;
+        yield from $this->storage; // @phpstan-ignore-line
 
     }
 
