@@ -256,6 +256,39 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
+    public function testIsToday ():void {
+
+        $this->assertFalse($this->now->isToday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsYesterday ():void {
+
+        $this->assertFalse($this->now->isYesterday());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsTomorrow ():void {
+
+        $this->assertFalse($this->now->isTomorrow());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testMillennium ():void {
 
         $this->assertSame(2, $this->datetime->millennium());

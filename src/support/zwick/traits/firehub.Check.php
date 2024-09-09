@@ -14,6 +14,7 @@
 
 namespace FireHub\Core\Support\Zwick\Traits;
 
+use FireHub\Core\Support\Zwick\DateTime;
 use FireHub\Core\Support\Enums\DateTime\ {
     Format\Format, Format\Predefined as PredefinedFormat, Format\Year as YearFormat, Format\TimeZone as TimeZoneFormat,
     Names\Month, Names\WeekDay
@@ -338,6 +339,81 @@ trait Check {
     public function isDecember ():bool {
 
         return $this->monthName() === Month::DECEMBER;
+
+    }
+
+    /**
+     * ### Check if DateTime is today
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Check::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::today() To set DateTime to the current date.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Predefined::DATE As date format.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isToday();
+     *
+     * // true
+     * ```
+     *
+     * @return bool True if is DateTime being today, false otherwise.
+     */
+    public function isToday ():bool {
+
+        return $this->parse(PredefinedFormat::DATE) === DateTime::today()->parse(PredefinedFormat::DATE);
+
+    }
+
+    /**
+     * ### Check if DateTime is yesterday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Check::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::yesterday() To set DateTime to yesterday date.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Predefined::DATE As date format.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isYesterday();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being yesterday, false otherwise.
+     */
+    public function isYesterday ():bool {
+
+        return $this->parse(PredefinedFormat::DATE) === DateTime::yesterday()->parse(PredefinedFormat::DATE);
+
+    }
+
+    /**
+     * ### Check if DateTime is tomorrow
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Check::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::tomorrow() To set DateTime to tomorrow date.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Predefined::DATE As date format.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isTomorrow();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being tomorrow, false otherwise.
+     */
+    public function isTomorrow ():bool {
+
+        return $this->parse(PredefinedFormat::DATE) === DateTime::tomorrow()->parse(PredefinedFormat::DATE);
 
     }
 
