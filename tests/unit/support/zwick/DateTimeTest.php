@@ -20,7 +20,7 @@ use FireHub\Core\Support\Zwick\ {
 };
 use FireHub\Core\Support\Zwick\Traits\Check;
 use FireHub\Core\Support\Enums\DateTime\ {
-    Zone, Format\Predefined, Names\WeekDay
+    Zone, Format\Predefined, Names\Month, Names\WeekDay
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -34,6 +34,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Zone::class)]
 #[CoversClass(Predefined::class)]
 #[CoversClass(WeekDay::class)]
+#[CoversClass(Month::class)]
 final class DateTimeTest extends Base {
 
     public DateTime $datetime;
@@ -141,6 +142,17 @@ final class DateTimeTest extends Base {
     public function testMonth ():void {
 
         $this->assertSame(1, $this->datetime->month());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testMonthName ():void {
+
+        $this->assertSame(Month::JANUARY, $this->datetime->monthName());
 
     }
 

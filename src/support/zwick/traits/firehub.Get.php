@@ -18,7 +18,7 @@ use FireHub\Core\Support\Enums\DateTime\Format\ {
     Day, Month, Time, Week, Year
 };
 use FireHub\Core\Support\Enums\DateTime\ {
-    Names\WeekDay, Unit\Months, Unit\Years
+    Names\Month as MonthName, Names\WeekDay, Unit\Months, Unit\Years
 };
 use FireHub\Core\Support\Enums\Data\Type;
 use FireHub\Core\Support\LowLevel\ {
@@ -212,6 +212,36 @@ trait Get {
     public function month ():int {
 
         return Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT);
+
+    }
+
+    /**
+     * ### Get month number
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Names\Month As return.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Month::NUMERIC_SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Names\Month;
+     *
+     * DateTime::now()->monthName();
+     *
+     * // Month::JULY
+     * ```
+     *
+     * @return \FireHub\Core\Support\Enums\DateTime\Names\Month Month number.
+     */
+    public function monthName ():MonthName {
+
+        return MonthName::from(
+            Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT)
+        );
 
     }
 
