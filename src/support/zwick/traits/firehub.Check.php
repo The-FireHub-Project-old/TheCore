@@ -16,7 +16,7 @@ namespace FireHub\Core\Support\Zwick\Traits;
 
 use FireHub\Core\Support\Zwick\DateTime;
 use FireHub\Core\Support\Enums\DateTime\ {
-    Format\Format, Format\Predefined as PredefinedFormat, Format\Year as YearFormat, Format\TimeZone as TimeZoneFormat,
+    Format\Predefined as PredefinedFormat, Format\Year as YearFormat, Format\TimeZone as TimeZoneFormat,
     Names\Month, Names\WeekDay
 };
 use FireHub\Core\Support\Enums\Data\Type;
@@ -679,6 +679,126 @@ trait Check {
     public function isSunday ():bool {
 
         return $this->weekDay() === WeekDay::SUNDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is in weekday
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Check::isWeekend() To check if datetime is in weekend.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isWeekDay();
+     *
+     * // true
+     * ```
+     *
+     * @return bool True if is weekend, false otherwise.
+     */
+    public function isWeekDay ():bool {
+
+        return !$this->isWeekend();
+
+    }
+
+    /**
+     * ### Check if datetime is in weekend
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::weekDay() To get the day number of the week.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::SATURDAY As weekday name.
+     * @uses \FireHub\Core\Support\Enums\DateTime\WeekDay::SUNDAY As weekday name.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isWeekend();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is weekend, false otherwise.
+     */
+    public function isWeekend ():bool {
+
+        return $this->weekDay() === WeekDay::SATURDAY || $this->weekDay() === WeekDay::SUNDAY;
+
+    }
+
+    /**
+     * ### Check if DateTime is at noon
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::hour() To get 24 type hours of the time.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isNoon();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime at noon, false otherwise.
+     */
+    public function isNoon ():bool {
+
+        return $this->hour() === 12;
+
+    }
+
+    /**
+     * ### Check if DateTime is at midnight
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::hour() To get 24 type hours of the time.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->isMidnight();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if is DateTime being at midnight, false otherwise.
+     */
+    public function isMidnight ():bool {
+
+        return $this->hour() === 0;
+
+    }
+
+    /**
+     * ### Check for daylight saving time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To change a type.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Check::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\TimeZone::DAYLIGHT_SAVING_TIME As format type.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_BOOL To set a type as boolean.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->daylightSavingTime();
+     *
+     * // true
+     * ```
+     *
+     * @return bool Whether the date timezone is in daylight-saving time.
+     */
+    public function daylightSavingTime ():bool {
+
+        return Data::setType($this->parse(TimeZoneFormat::DAYLIGHT_SAVING_TIME), Type::T_BOOL);
 
     }
 

@@ -410,6 +410,61 @@ final class DateTimeTest extends Base {
      *
      * @return void
      */
+    public function testIsWeekDay ():void {
+
+        $this->assertFalse($this->now->isWeekDay());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsWeekend ():void {
+
+        $this->assertTrue($this->now->isWeekend());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsNoon ():void {
+
+        $this->assertFalse($this->now->isNoon());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testIsMidnight ():void {
+
+        $this->assertFalse($this->now->isMidnight());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDaylightSavingTime ():void {
+
+        $this->assertTrue($this->now->daylightSavingTime());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testMillennium ():void {
 
         $this->assertSame(2, $this->datetime->millennium());
