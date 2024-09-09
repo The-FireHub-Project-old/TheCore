@@ -17,6 +17,9 @@ namespace FireHub\Core\Support\Zwick;
 use FireHub\Core\Support\Enums\DateTime\Format\ {
     Format, Predefined
 };
+use FireHub\Core\Support\Zwick\Traits\ {
+    Check, Get
+};
 use FireHub\Core\Support\LowLevel\DataIs;
 use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
 
@@ -30,6 +33,18 @@ use DateTime as BaseDateTime, DateTimeZone as BaseTimeZone, Error, Exception;
  * @api
  */
 class DateTime extends Zwick {
+
+    /**
+     * ### Check information about the current date\time
+     * @since 1.0.0
+     */
+    use Check;
+
+    /**
+     * ### Get information about the current date\time
+     * @since 1.0.0
+     */
+    use Get;
 
     /**
      * ### Constructor
