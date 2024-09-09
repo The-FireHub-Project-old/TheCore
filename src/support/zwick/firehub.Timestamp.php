@@ -89,7 +89,7 @@ class Timestamp implements Init, Stringable {
     }
 
     /**
-     * ### Create unix timestamp from string
+     * ### Create timestamp from string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\DateTime\Epoch::UNIX As default parameter.
