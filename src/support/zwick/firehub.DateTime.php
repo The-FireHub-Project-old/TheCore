@@ -556,6 +556,7 @@ class DateTime extends Zwick {
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::minute() To get minute.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::second() To get second.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::microSecond() To get microSecond.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::setTimezone() To change $date timezone to same as original one.
      *
      * @example
      * ```php
@@ -569,9 +570,13 @@ class DateTime extends Zwick {
      * Datetime to compare.
      * </p>
      *
+     * @throws Exception Exception in case of an error.
+     *
      * @return \FireHub\Core\Support\Zwick\Interval Interval difference between two dates.
      */
     public function difference (self $date):Interval {
+
+        $date->setTimezone($this->timezone);
 
         return Interval::years($this->year() - $date->year())
             ->addMonths($this->month() - $date->month())
