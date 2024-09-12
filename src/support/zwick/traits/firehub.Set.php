@@ -62,7 +62,7 @@ trait Set {
      * // 2023-10-17 14:45:17.473596
      * ```
      *
-     * @param int<0, 12> $month <p>
+     * @param int $month <p>
      * Month of the date.
      * </p>
      *
@@ -89,7 +89,7 @@ trait Set {
      * // 2023-07-10 14:45:17.473596
      * ```
      *
-     * @param int<0, 31> $day <p>
+     * @param int $day <p>
      * Day of the date.
      * </p>
      *
@@ -116,7 +116,7 @@ trait Set {
      * // 2023-07-10 10:45:17.473596
      * ```
      *
-     * @param int<0, 23> $hour $hour <p>
+     * @param int $hour $hour <p>
      * Hour of the date.
      * </p>
      *
@@ -143,7 +143,7 @@ trait Set {
      * // 2023-07-10 14:10:17.473596
      * ```
      *
-     * @param int<0, 59> $minute $minute <p>
+     * @param int $minute $minute <p>
      * Minute of the date.
      * </p>
      *
@@ -170,7 +170,7 @@ trait Set {
      * // 2023-07-10 14:45:34.473596
      * ```
      *
-     * @param int<0, 59> $second $second <p>
+     * @param int $second $second <p>
      * Second of the date.
      * </p>
      *
@@ -197,7 +197,7 @@ trait Set {
      * // 2023-07-10 14:45:17.400000
      * ```
      *
-     * @param int<0, 999> $millisecond <p>
+     * @param int $millisecond <p>
      * Millisecond of the date.
      * </p>
      *
@@ -224,7 +224,7 @@ trait Set {
      * // 2023-07-10 14:45:17.374323
      * ```
      *
-     * @param int<0, 999999> $microsecond <p>
+     * @param int $microsecond <p>
      * Microsecond of the date.
      * </p>
      *

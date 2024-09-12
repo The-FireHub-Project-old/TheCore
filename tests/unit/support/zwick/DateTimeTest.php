@@ -16,7 +16,7 @@ namespace support\zwick;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Zwick\ {
-    DateTime, Timestamp, TimeZone
+    DateTime, Timestamp, TimeZone, Interval
 };
 use FireHub\Core\Support\Zwick\Traits\Check;
 use FireHub\Core\Support\Zwick\Helpers\Parse;
@@ -32,6 +32,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(DateTime::class)]
 #[CoversClass(TimeZone::class)]
 #[CoversClass(Timestamp::class)]
+#[CoversClass(Interval::class)]
 #[CoversClass(Check::class)]
 #[CoversClass(Epoch::class)]
 #[CoversClass(Zone::class)]
@@ -719,6 +720,48 @@ final class DateTimeTest extends Base {
         $this->assertEquals(Timestamp::from(1717940467, 349993), $this->now->timestamp());
 
         $this->assertEquals(Timestamp::from(14400, 349993, '2024-06-09 09:41:07'), $this->now->timestamp('2024-06-09 09:41:07'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testAdd ():void {
+
+        $this->assertSame(3, $this->datetime->add(Interval::days(2))->day());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testSub ():void {
+
+        $this->assertSame(5, $this->datetime->sub(Interval::minutes(6))->minute());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testDifference ():void {
+
+        $this->assertEquals(
+            Interval::years(54)
+            ->addMonths(5)
+            ->addDays(8)
+            ->addHours(-4)
+            ->addMinutes(30)
+            ->addSeconds(-23)
+            ->addMicroSeconds(226537),
+            $this->now->difference($this->datetime)
+        );
 
     }
 
