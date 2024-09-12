@@ -162,7 +162,7 @@ abstract class Str implements Init, Strings {
      * // F-i-r-e-H-u=b
      * ```
      *
-     * @param array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<int, \FireHub\Core\Support\Str> $list <p>
+     * @param array<array-key, null|scalar|Stringable>|\FireHub\Core\Support\Contracts\HighLevel\Collectable<covariant array-key,covariant null|scalar|Stringable> $list <p>
      * The array of strings to implode.
      * </p>
      * @param string $glue [optional] <p>
