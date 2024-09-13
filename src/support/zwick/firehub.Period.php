@@ -80,6 +80,65 @@ class Period extends Zwick {
     }
 
     /**
+     * ### Check if provided datetime is inside this period
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\DateTime As parameter.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\Period;
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * $datetime1 = DateTime::from('2020-01-01 12:00:00');
+     * $datetime2 = DateTime::from('2021-01-01 12:00:00');
+     *
+     * $period = Period::between($datetime1, $datetime2);
+     *
+     * $period->inPeriod(DateTime::from('2020-05-05'));
+     *
+     * // true
+     * ```
+     *
+     * @return bool True if provided datetime is inside this period, false otherwise.
+     */
+    public function inPeriod (DateTime $datetime):bool {
+
+        return (($datetime >= $this->start) && ($datetime <= $this->end));
+
+    }
+
+    /**
+     * ### Check if period is currently in progress
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Period::inPeriod() To check if provided datetime is inside this period.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::now() To create datetime with the current date and time.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\Period;
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * $datetime1 = DateTime::from('2020-01-01 12:00:00');
+     * $datetime2 = DateTime::from('2021-01-01 12:00:00');
+     *
+     * $period = Period::between($datetime1, $datetime2);
+     *
+     * $period->inProgress();
+     *
+     * // false
+     * ```
+     *
+     * @return bool True if the period is currently in progress, false otherwise.
+     */
+    public function inProgress ():bool {
+
+        return $this->inPeriod(DateTime::now());
+
+    }
+
+    /**
      * ### Get the start date of the period
      * @since 1.0.0
      *

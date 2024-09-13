@@ -52,6 +52,34 @@ final class PeriodTest extends Base {
      *
      * @return void
      */
+    public function testInPeriod ():void {
+
+        $this->assertTrue(
+            $this->period->inPeriod(DateTime::from('2020-01-01 12:00:00.100000'))
+        );
+
+        $this->assertFalse(
+            $this->period->inPeriod(DateTime::from('2019-01-01 12:00:00.100000'))
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testInProgress ():void {
+
+        $this->assertFalse($this->period->inProgress());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testGetStart ():void {
 
         $this->assertEquals(
