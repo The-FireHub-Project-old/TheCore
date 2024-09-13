@@ -370,10 +370,11 @@ class DateTime extends Zwick {
      *
      * @throws Error If a parsed format is not string.
      *
-     * @return string Formatted datetime.
+     * @return non-empty-string Formatted datetime.
      */
     public function parse (Format|string $format):string {
 
+        /** @phpstan-ignore-next-line */
         return $this->datetime->format(
             $format instanceof Format
                 ? (DataIs::string($format->value)
