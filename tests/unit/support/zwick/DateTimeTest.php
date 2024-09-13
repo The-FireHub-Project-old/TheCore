@@ -16,7 +16,7 @@ namespace support\zwick;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Zwick\ {
-    DateTime, Timestamp, TimeZone, Interval
+    DateTime, Timestamp, TimeZone, Timespan
 };
 use FireHub\Core\Support\Zwick\Traits\Check;
 use FireHub\Core\Support\Zwick\Helpers\Parse;
@@ -32,7 +32,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(DateTime::class)]
 #[CoversClass(TimeZone::class)]
 #[CoversClass(Timestamp::class)]
-#[CoversClass(Interval::class)]
+#[CoversClass(Timespan::class)]
 #[CoversClass(Check::class)]
 #[CoversClass(Epoch::class)]
 #[CoversClass(Zone::class)]
@@ -730,7 +730,7 @@ final class DateTimeTest extends Base {
      */
     public function testAdd ():void {
 
-        $this->assertSame(3, $this->datetime->add(Interval::days(2))->day());
+        $this->assertSame(3, $this->datetime->add(Timespan::days(2))->day());
 
     }
 
@@ -741,7 +741,7 @@ final class DateTimeTest extends Base {
      */
     public function testSub ():void {
 
-        $this->assertSame(5, $this->datetime->sub(Interval::minutes(6))->minute());
+        $this->assertSame(5, $this->datetime->sub(Timespan::minutes(6))->minute());
 
     }
 
@@ -753,7 +753,7 @@ final class DateTimeTest extends Base {
     public function testDifference ():void {
 
         $this->assertEquals(
-            Interval::years(54)
+            Timespan::years(54)
             ->addMonths(5)
             ->addDays(8)
             ->addHours(-4)

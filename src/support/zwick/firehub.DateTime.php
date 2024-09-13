@@ -436,17 +436,17 @@ class DateTime extends Zwick {
     }
 
     /**
-     * ### Add an interval to datetime
+     * ### Add a timespan to datetime
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Zwick\Interval As parameter.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getYears() To get years from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMonths() To get months from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getDays() To get days from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getHours() To get hours from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMinutes() To get minutes from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getSeconds() To get seconds from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMicroSeconds() To get microseconds from an interval.
+     * @uses \FireHub\Core\Support\Zwick\Timespan As parameter.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getYears() To get years from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMonths() To get months from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getDays() To get days from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getHours() To get hours from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMinutes() To get minutes from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getSeconds() To get seconds from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMicroSeconds() To get microseconds from a timespan.
      * @uses \FireHub\Core\Support\Zwick\DateTime::set() To modify the datetime.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::year() To get year.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::month() To get a month.
@@ -459,45 +459,45 @@ class DateTime extends Zwick {
      * @example
      * ```php
      * use FireHub\Core\Support\Zwick\DateTime;
-     * use FireHub\Core\Support\Zwick\Interval;
+     * use FireHub\Core\Support\Zwick\Timespan;
      *
-     * $datetime = DateTime::now()->add(Interval::seconds(5));
+     * $datetime = DateTime::now()->add(Timespan::seconds(5));
      *
      * // 2023-08-30 20:10:05.569234
      * ```
      *
-     * @param \FireHub\Core\Support\Zwick\Interval $interval <p>
-     * Datetime interval.
+     * @param \FireHub\Core\Support\Zwick\Timespan $timespan <p>
+     * Datetime timespan.
      * </p>
      *
-     * @return $this This datetime with an added interval.
+     * @return $this This datetime with an added timespan.
      */
-    public function add (Interval $interval):self {
+    public function add (Timespan $timespan):self {
 
         return $this->set(
-            $this->year() + $interval->getYears(),
-            $this->month() + $interval->getMonths(),
-            $this->day() + $interval->getDays(),
-            $this->hour() + $interval->getHours(),
-            $this->minute() + $interval->getMinutes(),
-            $this->second() + $interval->getSeconds(),
-            $this->microSecond() + $interval->getMicroSeconds()
+            $this->year() + $timespan->getYears(),
+            $this->month() + $timespan->getMonths(),
+            $this->day() + $timespan->getDays(),
+            $this->hour() + $timespan->getHours(),
+            $this->minute() + $timespan->getMinutes(),
+            $this->second() + $timespan->getSeconds(),
+            $this->microSecond() + $timespan->getMicroSeconds()
         );
 
     }
 
     /**
-     * ### Subtract an interval to datetime
+     * ### Subtract a timespan to datetime
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Zwick\Interval As parameter.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getYears() To get years from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMonths() To get months from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getDays() To get days from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getHours() To get hours from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMinutes() To get minutes from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getSeconds() To get seconds from an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::getMicroSeconds() To get microseconds from an interval.
+     * @uses \FireHub\Core\Support\Zwick\Timespan As parameter.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getYears() To get years from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMonths() To get months from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getDays() To get days from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getHours() To get hours from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMinutes() To get minutes from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getSeconds() To get seconds from a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::getMicroSeconds() To get microseconds from a timespan.
      * @uses \FireHub\Core\Support\Zwick\DateTime::set() To modify the datetime.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::year() To get year.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::month() To get a month.
@@ -510,29 +510,29 @@ class DateTime extends Zwick {
      * @example
      * ```php
      * use FireHub\Core\Support\Zwick\DateTime;
-     * use FireHub\Core\Support\Zwick\Interval;
+     * use FireHub\Core\Support\Zwick\Timespan;
      *
-     * $datetime = DateTime::now()->sub(Interval::seconds(5));
+     * $datetime = DateTime::now()->sub(Timespan::seconds(5));
      *
      * // 2023-08-30 20:10:05.569224
      * ```
      *
-     * @param \FireHub\Core\Support\Zwick\Interval $interval <p>
-     * Datetime interval.
+     * @param \FireHub\Core\Support\Zwick\Timespan $timespan <p>
+     * Datetime timespan.
      * </p>
      *
-     * @return $this This datetime with a subtracted interval.
+     * @return $this This datetime with a subtracted timespan.
      */
-    public function sub (Interval $interval):self {
+    public function sub (Timespan $timespan):self {
 
         return $this->set(
-            $this->year() - $interval->getYears(),
-            $this->month() - $interval->getMonths(),
-            $this->day() - $interval->getDays(),
-            $this->hour() - $interval->getHours(),
-            $this->minute() - $interval->getMinutes(),
-            $this->second() - $interval->getSeconds(),
-            $this->microSecond() - $interval->getMicroSeconds()
+            $this->year() - $timespan->getYears(),
+            $this->month() - $timespan->getMonths(),
+            $this->day() - $timespan->getDays(),
+            $this->hour() - $timespan->getHours(),
+            $this->minute() - $timespan->getMinutes(),
+            $this->second() - $timespan->getSeconds(),
+            $this->microSecond() - $timespan->getMicroSeconds()
         );
 
     }
@@ -541,14 +541,14 @@ class DateTime extends Zwick {
      * ### Difference between two dates
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Zwick\Interval As return.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addYears() To add years to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addMonths() To add months to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addDays() To add days to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addHours() To add hours to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addMinutes() To add minutes to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addSeconds() To add seconds to an interval.
-     * @uses \FireHub\Core\Support\Zwick\Interval::addMicroSeconds() To add microseconds to an interval.
+     * @uses \FireHub\Core\Support\Zwick\Timespan As return.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addYears() To add years to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addMonths() To add months to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addDays() To add days to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addHours() To add hours to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addMinutes() To add minutes to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addSeconds() To add seconds to a timespan.
+     * @uses \FireHub\Core\Support\Zwick\Timespan::addMicroSeconds() To add microseconds to a timespan.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::year() To get year.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::month() To get a month.
      * @uses \FireHub\Core\Support\Zwick\Traits\Get::day() To get day.
@@ -561,7 +561,7 @@ class DateTime extends Zwick {
      * @example
      * ```php
      * use FireHub\Core\Support\Zwick\DateTime;
-     * use FireHub\Core\Support\Zwick\Interval;
+     * use FireHub\Core\Support\Zwick\Timespan;
      *
      * $datetime = DateTime::today()->difference(DateTime::yesterday());
      * ```
@@ -572,13 +572,13 @@ class DateTime extends Zwick {
      *
      * @throws Exception Exception in case of an error.
      *
-     * @return \FireHub\Core\Support\Zwick\Interval Interval difference between two dates.
+     * @return \FireHub\Core\Support\Zwick\Timespan Timespan difference between two dates.
      */
-    public function difference (self $date):Interval {
+    public function difference (self $date):Timespan {
 
         $date->setTimezone($this->timezone);
 
-        return Interval::years($this->year() - $date->year())
+        return Timespan::years($this->year() - $date->year())
             ->addMonths($this->month() - $date->month())
             ->addDays($this->day() - $date->day())
             ->addHours($this->hour() - $date->hour())

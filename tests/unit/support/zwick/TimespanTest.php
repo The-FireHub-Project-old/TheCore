@@ -15,18 +15,18 @@
 namespace support\zwick;
 
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Zwick\Interval;
+use FireHub\Core\Support\Zwick\Timespan;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
 
 /**
- * ### Test Interval zwick support class
+ * ### Test Timespan zwick support class
  * @since 1.0.0
  */
-#[CoversClass(Interval::class)]
-final class IntervalTest extends Base {
+#[CoversClass(Timespan::class)]
+final class TimespanTest extends Base {
 
-    public Interval $interval;
+    public Timespan $timespan;
 
     /**
      * @since 1.0.0
@@ -35,7 +35,7 @@ final class IntervalTest extends Base {
      */
     public function setUp ():void {
 
-        $this->interval = Interval::years(2);
+        $this->timespan = Timespan::years(2);
 
     }
 
@@ -46,7 +46,7 @@ final class IntervalTest extends Base {
      */
     public function testAdd ():void {
 
-        $this->assertEquals($this->interval, $this->interval->addDecades(1));
+        $this->assertEquals($this->timespan, $this->timespan->addDecades(1));
 
     }
 
@@ -57,7 +57,7 @@ final class IntervalTest extends Base {
      */
     public function testSub ():void {
 
-        $this->assertEquals($this->interval, $this->interval->subMonths(6));
+        $this->assertEquals($this->timespan, $this->timespan->subMonths(6));
 
     }
 
@@ -68,7 +68,7 @@ final class IntervalTest extends Base {
      */
     public function testGet ():void {
 
-        $this->assertSame(2, $this->interval->getYears());
+        $this->assertSame(2, $this->timespan->getYears());
 
     }
 
@@ -81,7 +81,7 @@ final class IntervalTest extends Base {
 
         $this->expectException(Error::class);
 
-        $this->interval->getYearss();
+        $this->timespan->getYearss();
 
     }
 
@@ -92,7 +92,7 @@ final class IntervalTest extends Base {
      */
     public function testPrint ():void {
 
-        $this->assertSame('2;0;0;0;0;0;0', $this->interval->__toString());
+        $this->assertSame('2;0;0;0;0;0;0', $this->timespan->__toString());
 
     }
 
