@@ -41,7 +41,7 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-final class Obj implements Init, AccessibleCollection {
+class Obj implements Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait

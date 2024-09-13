@@ -44,7 +44,7 @@ use Closure, Generator, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-final class Gen implements Init, Collectable {
+class Gen implements Init, Collectable {
 
     /**
      * ### FireHub initial concrete trait

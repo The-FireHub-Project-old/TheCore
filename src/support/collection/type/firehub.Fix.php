@@ -44,7 +44,7 @@ use SplFixedArray, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-final class Fix implements Init, AccessibleCollection {
+class Fix implements Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait

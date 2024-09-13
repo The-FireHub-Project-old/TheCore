@@ -97,7 +97,7 @@ trait Sliceable {
      * // ['John', 'Jane']
      * ```
      *
-     * @return static<TKey, TValue> New sliced collection.
+     * @return self<TKey, TValue> New sliced collection.
      */
     public function take (int $count):self {
 
@@ -123,7 +123,7 @@ trait Sliceable {
      * // ['Jane', 'Jane', 'Richard', 'Richard']
      * ```
      *
-     * @return static<TKey, TValue> New sliced collection.
+     * @return self<TKey, TValue> New sliced collection.
      */
     public function skip (int $count):self {
 
