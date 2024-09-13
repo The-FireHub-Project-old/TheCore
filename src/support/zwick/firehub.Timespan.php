@@ -99,7 +99,7 @@ class Timespan extends Zwick {
      *
      * @return void
      */
-    private function __construct () {
+    final private function __construct () {
 
         $this->units = Collection::associative(function ():array {
 
@@ -169,7 +169,7 @@ class Timespan extends Zwick {
      *
      * @return $this This timespan.
      */
-    public function plus (Basic|Calculable $unit, int $number):self {
+    public function plus (Basic|Calculable $unit, int $number):static {
 
         match (true) {
             $unit instanceof Calculable => $this->units[$unit->parent()->value] += ($unit->calculate() * $number),
@@ -207,7 +207,7 @@ class Timespan extends Zwick {
      *
      * @return $this This timespan.
      */
-    public function minus (Basic|Calculable $unit, int $number):self {
+    public function minus (Basic|Calculable $unit, int $number):static {
 
         return $this->plus($unit, -$number);
 
@@ -271,7 +271,7 @@ class Timespan extends Zwick {
      *
      * @return $this|int This timespan or unit value.
      */
-    public function __call (string $method, array $arguments):self|int {
+    public function __call (string $method, array $arguments):static|int {
 
         $method = StrSB::toLower($method);
 
@@ -305,13 +305,13 @@ class Timespan extends Zwick {
      *
      * @throws Error If the method is not one of add methods.
      *
-     * @return self New datetime.
+     * @return static New Timespan.
      */
-    public static function __callStatic (string $method, array $arguments):self {
+    public static function __callStatic (string $method, array $arguments):static {
 
         $add_method = 'add'.StrSB::capitalize($method);
 
-        return ($instance = (new self())->$add_method(...$arguments)) instanceof self
+        return ($instance = (new static())->$add_method(...$arguments)) instanceof static
             ? $instance
             : throw new Error('Method must be one of add methods.');
 
