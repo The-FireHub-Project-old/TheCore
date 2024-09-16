@@ -465,17 +465,17 @@ class Associative extends Arr implements OverloadableCollection {
      * The comparison function.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that aren't present in any of the other
+     * collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
-    public function difference (Arr $collection, ?callable $value = null, ?callable $key = null):self {
+    public function difference (Arr $collection, ?callable $value = null, ?callable $key = null):static {
 
-        return new self( match (true) {
+        return new static( match (true) {
             DataIs::callable($value) && DataIs::callable($key) =>
             ArrLL::differenceAssocFuncKeyValue(
                 $this->storage,
@@ -548,12 +548,12 @@ class Associative extends Arr implements OverloadableCollection {
      * The comparison function.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that aren't present in any of the other
+     * collections.
      */
-    public function differenceKeys (Arr $collection, ?callable $keys = null):self {
+    public function differenceKeys (Arr $collection, ?callable $keys = null):static {
 
-        return new self($keys
+        return new static($keys
             ? ArrLL::differenceKeyFunc($this->storage, $collection->all(), $keys)
             : ArrLL::differenceKey($this->storage, $collection->all()));
 
@@ -644,17 +644,17 @@ class Associative extends Arr implements OverloadableCollection {
      * The comparison function.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that are present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that are present in any of the other
+     * collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
-    public function intersect (Arr $collection, ?callable $value = null, ?callable $key = null):self {
+    public function intersect (Arr $collection, ?callable $value = null, ?callable $key = null):static {
 
-        return new self( match (true) {
+        return new static( match (true) {
             DataIs::callable($value) && DataIs::callable($key) =>
             ArrLL::intersectAssocFuncKeyValue(
                 $this->storage,
@@ -727,12 +727,12 @@ class Associative extends Arr implements OverloadableCollection {
      * The comparison function.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that are present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that are present in any of the other
+     * collections.
      */
-    public function intersectKeys (Arr $collection, ?callable $keys = null):self {
+    public function intersectKeys (Arr $collection, ?callable $keys = null):static {
 
-        return new self($keys
+        return new static($keys
             ? ArrLL::intersectKeyFunc($this->storage, $collection->all(), $keys)
             : ArrLL::intersectKey($this->storage, $collection->all()));
 
@@ -814,11 +814,11 @@ class Associative extends Arr implements OverloadableCollection {
      * List of keys to keep.
      * </p>
      *
-     * @return \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function only (array $keys):self {
+    public function only (array $keys):static {
 
-        return new self(only($this->storage, $keys));
+        return new static(only($this->storage, $keys));
 
     }
 
@@ -843,11 +843,11 @@ class Associative extends Arr implements OverloadableCollection {
      * List of keys to keep.
      * </p>
      *
-     * @return \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function except (array $keys):self {
+    public function except (array $keys):static {
 
-        return new self(except($this->storage, $keys));
+        return new static(except($this->storage, $keys));
 
     }
 
@@ -911,15 +911,15 @@ class Associative extends Arr implements OverloadableCollection {
      * Function to call on each item in a collection.
      * </p>
      *
-     * @return self<array-key, TValue> New modified collection.
+     * @return static New modified collection.
      */
-    public function mapKeys (callable $callback):self {
+    public function mapKeys (callable $callback):static {
 
         $storage = [];
 
         foreach ($this->storage as $key => $value) $storage[$callback($value, $key)] = $value;
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -942,10 +942,8 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2, 1, 2, 3, 4, 13, 22, 27, 28, 29]
      * ```
-     *
-     * @return self<TKey, TValue> New merged collection.
      */
-    public function merge (Collectable ...$collections):self {
+    public function merge (Collectable ...$collections):static {
 
         $storage = $this->storage;
 
@@ -962,10 +960,6 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * @uses \FireHub\Core\Support\LowLevel\Arr::mergeRecursive() To merge two or more arrays recursively.
      * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::all() To get a collection as an array.
-     *
-     * @param self<TKey, TValue> ...$collections <p>
-     * Variable list of collections to recursively merge.
-     * </p>
      *
      * @example
      * ```php
@@ -990,16 +984,20 @@ class Associative extends Arr implements OverloadableCollection {
      * // ]
      * ```
      *
-     * @return static<array-key, mixed> New recursively merged collection.
+     * @param self<TKey, TValue> ...$collections <p>
+     * Variable list of collections to recursively merge.
+     * </p>
+     *
+     * @return static New recursively merged collection.
      */
-    public function mergeRecursive (Collectable ...$collections):self {
+    public function mergeRecursive (Collectable ...$collections):static {
 
         $storage = $this->storage;
 
         foreach ($collections as $collection)
             $storage = ArrLL::mergeRecursive($storage, $collection->all());
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1026,10 +1024,8 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25]
      * ```
-     *
-     * @return self<int, array<TKey, TValue>>
      */
-    public function partition (callable $callback):self {
+    public function partition (callable $callback):static {
 
         $passed = []; $failed = [];
         foreach ($this->storage as $key => $value)
@@ -1058,10 +1054,8 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * // [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John']
      * ```
-     *
-     * @return self<TKey, TValue> New collection with reversed order.
      */
-    public function reverse ():self {
+    public function reverse ():static {
 
         return new static(ArrLL::reverse($this->storage, true));
 
@@ -1090,9 +1084,9 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * @phpstan-ignore-next-line
      */
-    public function flip ():self {
+    public function flip ():static {
 
-        return new self(ArrLL::flip($this->storage)); // @phpstan-ignore-line
+        return new static(ArrLL::flip($this->storage)); // @phpstan-ignore-line
 
     }
 
@@ -1118,7 +1112,7 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * @phpstan-ignore-next-line
      */
-    public function nth (int $step, int $offset = 0):self {
+    public function nth (int $step, int $offset = 0):static {
 
         $storage = [];
 
@@ -1187,10 +1181,8 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * // ['age' => 25]
      * ```
-     *
-     * @return self<TKey, TValue> New sliced collection.
      */
-    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):self {
+    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):static {
 
         $range = new SliceRange($this->count(), $offset, $length);
 
@@ -1378,7 +1370,7 @@ class Associative extends Arr implements OverloadableCollection {
      * // ['age' => 25, 'firstname' => 'John', 'lastname' => 'Doe', 10 => 2]
      * ```
      */
-    public function shuffle ():self {
+    public function shuffle ():static {
 
         shuffle($this->storage);
 
@@ -1429,7 +1421,7 @@ class Associative extends Arr implements OverloadableCollection {
      * // ['age' => 25, 10 => 2, 'firstname' => 'John', 'lastname' => 'Doe']
      * ```
      */
-    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):static {
 
         ArrLL::sort($this->storage, $order, $flag, true);
 
@@ -1459,7 +1451,7 @@ class Associative extends Arr implements OverloadableCollection {
      * // [10 => 2, 'age' => 25, 'lastname' => 'Doe', 'firstname' => 'John']
      * ```
      */
-    public function sortBy (callable $callback):self {
+    public function sortBy (callable $callback):static {
 
         ArrLL::sortBy($this->storage, $callback, true);
 
@@ -1518,7 +1510,7 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * @return $this Sorted collection.
      */
-    public function sortKeys (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+    public function sortKeys (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):static {
 
         ArrLL::sortByKeys($this->storage, $order, $flag);
 
@@ -1556,7 +1548,7 @@ class Associative extends Arr implements OverloadableCollection {
      *
      * @return $this Sorted collection.
      */
-    public function sortKeysBy (callable $callback):self {
+    public function sortKeysBy (callable $callback):static {
 
         ArrLL::sortKeysBy($this->storage, $callback);
 

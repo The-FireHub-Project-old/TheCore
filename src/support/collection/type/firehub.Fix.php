@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Type\Contracts\Fix as FixContract;
 use FireHub\Core\Support\Collection\Contracts\Accessible as AccessibleCollection;
 use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
@@ -44,7 +45,7 @@ use SplFixedArray, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Fix implements Init, AccessibleCollection {
+class Fix implements FixContract, Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait
@@ -95,14 +96,9 @@ class Fix implements Init, AccessibleCollection {
     use Sliceable;
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
-     *
-     * @param SplFixedArray<mixed> $storage <p>
-     * Fixed the array underlying data.
-     * </p>
-     *
-     * @return void
      */
     public function __construct (
         private SplFixedArray $storage
@@ -115,9 +111,9 @@ class Fix implements Init, AccessibleCollection {
      *
      * @uses \FireHub\Core\Support\LowLevel\Arr::values() To get values from array argument.
      */
-    public static function fromArray (array $array):self {
+    public static function fromArray (array $array):static {
 
-        return new self(SplFixedArray::fromArray(Arr::values($array)));
+        return new static(SplFixedArray::fromArray(Arr::values($array)));
 
     }
 
@@ -776,7 +772,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['two', 'three']
      * ```
      */
-    public function filter (callable $callback):self {
+    public function filter (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -787,7 +783,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -815,7 +811,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['two', 'three']
      * ```
      */
-    public function reject (callable $callback):self {
+    public function reject (callable $callback):static {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value) => $value != $callback($value));
@@ -844,13 +840,13 @@ class Fix implements Init, AccessibleCollection {
      * // ['new one', 'new two', 'new three']
      * ```
      */
-    public function map (callable $callback):self {
+    public function map (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
         foreach ($this->storage as $key => $value) $storage[$key] = $callback($value);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -882,7 +878,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['one', 'two', 'three', 'one', 'two', 'three]
      * ```
      */
-    public function merge (Collectable ...$collections):self {
+    public function merge (Collectable ...$collections):static {
 
         $size = 0;
 
@@ -897,7 +893,7 @@ class Fix implements Init, AccessibleCollection {
         foreach ($collections as $collection)
             foreach ($collection as $value) $storage[$counter++] = $value;
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -925,7 +921,7 @@ class Fix implements Init, AccessibleCollection {
      *
      * @phpstan-ignore-next-line
      */
-    public function nth (int $step, int $offset = 0):self {
+    public function nth (int $step, int $offset = 0):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -938,7 +934,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -966,7 +962,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['two', 'three']
      * ```
      */
-    public function slice (int $offset, ?int $length = null):self {
+    public function slice (int $offset, ?int $length = null):static {
 
         $range = new SliceRange($this->count(), $offset, $length);
 
@@ -986,7 +982,7 @@ class Fix implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1012,7 +1008,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['one']
      * ```
      */
-    public function takeUntil (callable $callback):self {
+    public function takeUntil (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -1027,7 +1023,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1053,7 +1049,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['one']
      * ```
      */
-    public function takeWhile (callable $callback):self {
+    public function takeWhile (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -1068,7 +1064,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1094,7 +1090,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['two', 'three']
      * ```
      */
-    public function skipUntil (callable $callback):self {
+    public function skipUntil (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -1111,7 +1107,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1137,7 +1133,7 @@ class Fix implements Init, AccessibleCollection {
      * // ['two', 'three']
      * ```
      */
-    public function skipWhile (callable $callback):self {
+    public function skipWhile (callable $callback):static {
 
         $storage = new SplFixedArray($this->storage->getSize());
 
@@ -1154,7 +1150,7 @@ class Fix implements Init, AccessibleCollection {
 
         $storage->setSize($counter);
 
-        return new self($storage);
+        return new static($storage);
 
     }
 

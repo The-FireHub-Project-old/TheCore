@@ -60,7 +60,7 @@ class Indexed extends Arr {
      *
      * @return $this This collection.
      */
-    public function shift ():self {
+    public function shift ():static {
 
         ArrLL::shift($this->storage);
 
@@ -91,7 +91,7 @@ class Indexed extends Arr {
      *
      * @return $this This collection.
      */
-    public function unshift (mixed ...$values):self {
+    public function unshift (mixed ...$values):static {
 
         ArrLL::unshift($this->storage, ...$values);
 
@@ -126,7 +126,7 @@ class Indexed extends Arr {
      *
      * @see \FireHub\Core\Support\Collection\Type\Indexed::unshift() As alias to this function.
      */
-    public function prepend (mixed ...$values):self {
+    public function prepend (mixed ...$values):static {
 
         return $this->unshift(...$values);
 
@@ -151,7 +151,7 @@ class Indexed extends Arr {
      *
      * @return $this This collection.
      */
-    public function pop ():self {
+    public function pop ():static {
 
         ArrLL::pop($this->storage);
 
@@ -182,7 +182,7 @@ class Indexed extends Arr {
      *
      * @return $this This collection.
      */
-    public function push (mixed ...$values):self {
+    public function push (mixed ...$values):static {
 
         ArrLL::push($this->storage, ...$values);
 
@@ -217,7 +217,7 @@ class Indexed extends Arr {
      *
      * @see \FireHub\Core\Support\Collection\Type\Indexed::push() As alias to this function.
      */
-    public function append (mixed ...$values):self {
+    public function append (mixed ...$values):static {
 
         return $this->push(...$values);
 

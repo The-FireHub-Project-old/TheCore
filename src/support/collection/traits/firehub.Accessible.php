@@ -43,7 +43,7 @@ trait Accessible {
      * // ['John.', 'Jane.', 'Jane.', 'Jane.', 'Richard.', 'Richard.']
      * ```
      */
-    public function transform (callable $callback):self {
+    public function transform (callable $callback):static {
 
         $this->storage = $this->map($callback)->storage;
 

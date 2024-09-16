@@ -40,7 +40,7 @@ trait Sliceable {
      *
      * @since 1.0.0
      */
-    abstract public function nth (int $step, int $offset = 0):self;
+    abstract public function nth (int $step, int $offset = 0):static;
 
     /**
      * @inheritDoc
@@ -48,10 +48,8 @@ trait Sliceable {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::nth() To get even elements.
-     *
-     * @return self<TKey, TValue> New filtered collection.
      */
-    public function even ():self {
+    public function even ():static {
 
         return $this->nth(2, 1);
 
@@ -63,10 +61,8 @@ trait Sliceable {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Traits\Sliceable::nth() To get odd elements.
-     *
-     * @return self<TKey, TValue> New filtered collection.
      */
-    public function odd ():self {
+    public function odd ():static {
 
         return $this->nth(2);
 
@@ -77,7 +73,7 @@ trait Sliceable {
      *
      * @since 1.0.0
      */
-    abstract public function slice (int $offset, ?int $length = null):self;
+    abstract public function slice (int $offset, ?int $length = null):static;
 
     /**
      * @inheritDoc
@@ -96,10 +92,8 @@ trait Sliceable {
      *
      * // ['John', 'Jane']
      * ```
-     *
-     * @return self<TKey, TValue> New sliced collection.
      */
-    public function take (int $count):self {
+    public function take (int $count):static {
 
         return $this->slice(0, $count);
 
@@ -122,10 +116,8 @@ trait Sliceable {
      *
      * // ['Jane', 'Jane', 'Richard', 'Richard']
      * ```
-     *
-     * @return self<TKey, TValue> New sliced collection.
      */
-    public function skip (int $count):self {
+    public function skip (int $count):static {
 
         return $this->slice($count);
 
@@ -153,7 +145,7 @@ trait Sliceable {
      * // [Indexed['John', 'Jane'], Indexed['Jane', 'Jane'], Indexed['Richard', 'Richard']]
      * ```
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<self<TKey, TValue>> Grouped collection.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<static<TKey, TValue>> Grouped collection.
      *
      * @phpstan-ignore-next-line
      */

@@ -127,9 +127,9 @@ abstract class Arr implements Init, AccessibleCollection {
      *
      * @since 1.0.0
      *
-     * @return static<TKey, TValue> New collection from provided array.
+     * @return static New collection from provided array.
      */
-    public static function fromArray (array $array):self {
+    public static function fromArray (array $array):static {
 
         return new static($array);
 
@@ -1077,15 +1077,15 @@ abstract class Arr implements Init, AccessibleCollection {
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that aren't present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that aren't present in any of the other
+     * collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
-    public function difference (Arr $collection, ?callable $value = null):self {
+    public function difference (Arr $collection, ?callable $value = null):static {
 
         return new static(
             $value
@@ -1141,15 +1141,15 @@ abstract class Arr implements Init, AccessibleCollection {
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
      *
-     * @return static<TKey, TValue> An array containing all the entries from $collection that are present in
-     * any of the other collections.
+     * @return static An array containing all the entries from $collection that are present in any of the other
+     * collections.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value.
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
-    public function intersect (Arr $collection, ?callable $value = null):self {
+    public function intersect (Arr $collection, ?callable $value = null):static {
 
         return new static(
             $value
@@ -1297,9 +1297,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard', 1, 2, 3, 4, 13, 22, 27, 28, 29]
      * ```
      *
-     * @return self<TKey, TValue> New merged collection.
+     * @return static New merged collection.
      */
-    public function merge (Collectable ...$collections):self {
+    public function merge (Collectable ...$collections):static {
 
         $storage = $this->storage;
 
@@ -1338,9 +1338,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Function to call on each item in a collection.
      * </p>
      *
-     * @return self<int, array<TKey, TValue>>
+     * @return static New partitioned collection.
      */
-    public function partition (callable $callback):self {
+    public function partition (callable $callback):static {
 
         $passed = []; $failed = [];
         foreach ($this->storage as $value)
@@ -1369,9 +1369,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ['Richard', 'Richard', 'Jane', 'Jane', 'Jane', 'John']
      * ```
      *
-     * @return self<TKey, TValue> New collection with reversed order.
+     * @return static New collection with reversed order.
      */
-    public function reverse ():self {
+    public function reverse ():static {
 
         return new static(ArrLL::reverse($this->storage));
 
@@ -1405,11 +1405,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ['Jane', 'Richard']
      * ```
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static<TKey, TValue> New filtered collection.
      *
      * @phpstan-ignore-next-line
      */
-    public function nth (int $step, int $offset = 0):self {
+    public function nth (int $step, int $offset = 0):static {
 
         $storage = []; $counter = 0;
         foreach (
@@ -1458,11 +1458,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * Value to pad if input is less than length.
      * </p>
      *
-     * @return self<array-key, mixed> New collection with pad.
+     * @return static New collection with pad.
      *
      * @caution Keys can be re-numbered.
      */
-    public function pad (int $size, mixed $value):self {
+    public function pad (int $size, mixed $value):static {
 
         return new static(ArrLL::pad($this->storage, $size, $value));
 
@@ -1485,12 +1485,12 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ['John', 'Jane', 'Richard']
      * ```
      *
-     * @return self<TKey, TValue> New collection with unique items.
+     * @return static New collection with unique items.
      *
      * @note The new array will preserve keys.
      * @note This method is not intended to work on multidimensional arrays.
      */
-    public function unique ():self {
+    public function unique ():static {
 
         return new static(ArrLL::unique($this->storage));
 
@@ -1513,11 +1513,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ['Jane', 'Jane', 'Richard']
      * ```
      *
-     * @return self<TKey, TValue> New collection with duplicated items.
+     * @return static New collection with duplicated items.
      *
      * @note The new array will preserve keys.
      */
-    public function duplicates ():self {
+    public function duplicates ():static {
 
         return new static(duplicates($this->storage));
 
@@ -1548,11 +1548,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ]
      * ```
      *
-     * @return self<TKey, TValue> New collection with unique items.
+     * @return static New collection with unique items.
      *
      * @note The new array will preserve keys.
      */
-    public function uniqueTwoDimensional (int|string $key):self {
+    public function uniqueTwoDimensional (int|string $key):static {
 
         return new static(uniqueDuplicatesTwoDimensional($this->storage, $key)[0]);
 
@@ -1582,11 +1582,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * // ]
      * ```
      *
-     * @return self<TKey, TValue> New collection with unique items.
+     * @return static New collection with unique items.
      *
      * @note The new array will preserve keys.
      */
-    public function duplicatesTwoDimensional (int|string $key):self {
+    public function duplicatesTwoDimensional (int|string $key):static {
 
         return new static(uniqueDuplicatesTwoDimensional($this->storage, $key)[1]);
 
@@ -1728,11 +1728,11 @@ abstract class Arr implements Init, AccessibleCollection {
      * Keys in a replacement collection aren't preserved.
      * </p>
      *
-     * @return self<TKey, TValue> New sliced collection.
+     * @return static New sliced collection.
      *
      * @note Numerical keys in an array aren't preserved.
      */
-    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):self {
+    public function splice (int $offset, ?int $length = null, Collectable $replacement = null):static {
 
         $storage = ArrLL::splice($this->storage, $offset, $length, $replacement?->all());
 
@@ -1918,9 +1918,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Value to filter.
      * </p>
      *
-     * @return static<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function where (int|string $key, Comparison $operator, mixed $value):self {
+    public function where (int|string $key, Comparison $operator, mixed $value):static {
 
         return new static(filterRecursive($this->storage, $key, $operator, $value));
 
@@ -1961,9 +1961,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Value to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereNot (int|string $key, Comparison $operator, mixed $value):self {
+    public function whereNot (int|string $key, Comparison $operator, mixed $value):static {
 
         return new static(filterRecursive($this->storage, $key, $operator, $value, false));
 
@@ -2006,9 +2006,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Highest value to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereBetween (int|string $key, mixed $start, mixed $end):self {
+    public function whereBetween (int|string $key, mixed $start, mixed $end):static {
 
         return $this
             ->where($key, Comparison::GREATER_OR_EQUAL, $start)
@@ -2053,9 +2053,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Highest value to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereNotBetween (int|string $key, mixed $start, mixed $end):self {
+    public function whereNotBetween (int|string $key, mixed $start, mixed $end):static {
 
         $storage = $this->where($key, Comparison::LESS, $start)->all();
         $storage += $this->where($key, Comparison::GREATER, $end)->all();
@@ -2098,9 +2098,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Values to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereIn (int|string $key, array $values):self {
+    public function whereIn (int|string $key, array $values):static {
 
         $storage = [];
         foreach ($values as $value)
@@ -2142,9 +2142,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Values to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereNotIn (int|string $key, array $values):self {
+    public function whereNotIn (int|string $key, array $values):static {
 
         $collection = $this;
 
@@ -2191,9 +2191,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Data to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereDataIs (int|string $key, Category|Type $type):self {
+    public function whereDataIs (int|string $key, Category|Type $type):static {
 
         return new static(filterRecursiveType($this->storage, $key, $type));
 
@@ -2231,9 +2231,9 @@ abstract class Arr implements Init, AccessibleCollection {
      * Data to filter.
      * </p>
      *
-     * @return self<TKey, TValue> New filtered collection.
+     * @return static New filtered collection.
      */
-    public function whereDataIsNot (int|string $key, Category|Type $type):self {
+    public function whereDataIsNot (int|string $key, Category|Type $type):static {
 
         return new static(filterRecursiveType($this->storage, $key, $type, false));
 
@@ -2325,7 +2325,7 @@ abstract class Arr implements Init, AccessibleCollection {
      *
      * @return $this Shuffled collection.
      */
-    public function shuffle ():self {
+    public function shuffle ():static {
 
         ArrLL::shuffle($this->storage);
 
@@ -2384,7 +2384,7 @@ abstract class Arr implements Init, AccessibleCollection {
      *
      * @return $this Sorted collection.
      */
-    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):self {
+    public function sort (Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):static {
 
         ArrLL::sort($this->storage, $order, $flag);
 
@@ -2426,7 +2426,7 @@ abstract class Arr implements Init, AccessibleCollection {
      * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
      * equal.
      */
-    public function sortBy (callable $callback):self {
+    public function sortBy (callable $callback):static {
 
         ArrLL::sortBy($this->storage, $callback);
 
@@ -2475,7 +2475,7 @@ abstract class Arr implements Init, AccessibleCollection {
      * @caution Associative (string) keys will be maintained, but numeric keys will be re-indexed.
      * @note Resets array's internal pointer to the first element.
      */
-    public function multiSort (array $fields):self {
+    public function multiSort (array $fields):static {
 
         multiSort($this->storage, $fields); // @phpstan-ignore-line
 

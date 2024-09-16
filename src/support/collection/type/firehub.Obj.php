@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Type\Contracts\Obj as ObjContract;
 use FireHub\Core\Support\Collection\Contracts\Accessible as AccessibleCollection;
 use FireHub\Core\Support\Collection\Helpers\SliceRange;
 use FireHub\Core\Support\Collection\Traits\ {
@@ -41,7 +42,7 @@ use Error, SplObjectStorage , UnexpectedValueException, Traversable;
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Obj implements Init, AccessibleCollection {
+class Obj implements ObjContract, Init, AccessibleCollection {
 
     /**
      * ### FireHub initial concrete trait
@@ -92,14 +93,9 @@ class Obj implements Init, AccessibleCollection {
     use Sliceable;
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
-     *
-     * @param SplObjectStorage<object, mixed> $storage <p>
-     * Storage underlying data.
-     * </p>
-     *
-     * @return void
      */
     public function __construct (
         private SplObjectStorage $storage
@@ -116,7 +112,7 @@ class Obj implements Init, AccessibleCollection {
      *
      * @phpstan-ignore-next-line
      */
-    public static function fromArray (array $array):self {
+    public static function fromArray (array $array):static {
 
         $storage = new SplObjectStorage();
 
@@ -129,7 +125,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -925,14 +921,14 @@ class Obj implements Init, AccessibleCollection {
      * // [[object(stdClass), 'data for object 1']]
      * ```
      */
-    public function filter (callable $callback):self {
+    public function filter (callable $callback):static {
 
         $storage = new SplObjectStorage();
 
         foreach ($this->storage as $object)
             !$callback($object, $this->storage[$object]) ?: $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -966,7 +962,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[object(stdClass), 'data for object 1']]
      * ```
      */
-    public function reject (callable $callback):self {
+    public function reject (callable $callback):static {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
@@ -996,10 +992,8 @@ class Obj implements Init, AccessibleCollection {
      *
      * // [[object(stdClass), 'new data for object 1'], [object(stdClass), 'new data for object 2']]
      * ```
-     *
-     * @return self<object, mixed> New modified collection.
      */
-    public function map (callable $callback):self {
+    public function map (callable $callback):static {
 
 
         $storage = new SplObjectStorage();
@@ -1007,7 +1001,7 @@ class Obj implements Init, AccessibleCollection {
         foreach ($this->storage as $object)
             $storage[$object] = $callback($object, $this->storage[$object]); // @phpstan-ignore-line
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1046,7 +1040,7 @@ class Obj implements Init, AccessibleCollection {
      * // ]
      * ```
      */
-    public function merge (Collectable ...$collections):self {
+    public function merge (Collectable ...$collections):static {
 
         $storage = new SplObjectStorage();
 
@@ -1055,7 +1049,7 @@ class Obj implements Init, AccessibleCollection {
         foreach ($collections as $collection)
             foreach ($collection as $object) $storage[$object] = $collection[$object]; // @phpstan-ignore-line
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1087,7 +1081,7 @@ class Obj implements Init, AccessibleCollection {
      *
      * @phpstan-ignore-next-line
      */
-    public function nth (int $step, int $offset = 0):self {
+    public function nth (int $step, int $offset = 0):static {
 
         $storage = new SplObjectStorage();
 
@@ -1098,7 +1092,7 @@ class Obj implements Init, AccessibleCollection {
                 : $this->storage as $object
         ) if ($counter++ % (max($step, 1)) === 0)  $storage[$object] = $this->storage[$object]; // @phpstan-ignore-line
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1130,7 +1124,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[object(stdClass), [1,2,3]], [object(stdClass), 20]]
      * ```
      */
-    public function slice (int $offset, ?int $length = null):self {
+    public function slice (int $offset, ?int $length = null):static {
 
         $range = new SliceRange($this->count(), $offset, $length);
 
@@ -1150,7 +1144,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1180,7 +1174,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[objects(stdClass), 'data for object 1']]
      * ```
      */
-    public function takeUntil (callable $callback):self {
+    public function takeUntil (callable $callback):static {
 
         $storage = new SplObjectStorage();
 
@@ -1192,7 +1186,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1222,7 +1216,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[objects(stdClass), 'data for object 1']]
      * ```
      */
-    public function takeWhile (callable $callback):self {
+    public function takeWhile (callable $callback):static {
 
         $storage = new SplObjectStorage();
 
@@ -1234,7 +1228,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1264,7 +1258,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[objects(stdClass), [1,2,3]], [objects(stdClass), 20]]
      * ```
      */
-    public function skipUntil (callable $callback):self {
+    public function skipUntil (callable $callback):static {
 
         $storage = new SplObjectStorage();
 
@@ -1279,7 +1273,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 
@@ -1309,7 +1303,7 @@ class Obj implements Init, AccessibleCollection {
      * // [[objects(stdClass), [1,2,3]], [objects(stdClass), 20]]
      * ```
      */
-    public function skipWhile (callable $callback):self {
+    public function skipWhile (callable $callback):static {
 
         $storage = new SplObjectStorage();
 
@@ -1324,7 +1318,7 @@ class Obj implements Init, AccessibleCollection {
 
         }
 
-        return new self($storage);
+        return new static($storage);
 
     }
 

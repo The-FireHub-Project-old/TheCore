@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Collection\Type\Contracts\Gen as GenContract;
 use FireHub\Core\Support\Collection\Helpers\ {
     CountCollectables, SliceRange
 };
@@ -38,13 +39,14 @@ use Closure, Generator, Traversable;
  * @template TKey of array-key
  * @template TValue
  *
+ * @implements \FireHub\Core\Support\Collection\Type\Contracts\Gen<TKey, TValue>
  * @implements \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Gen implements Init, Collectable {
+class Gen implements GenContract, Init, Collectable {
 
     /**
      * ### FireHub initial concrete trait
@@ -87,15 +89,9 @@ class Gen implements Init, Collectable {
     use Sliceable;
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
-     *
-     * @param Closure():Generator<TKey, TValue> $callable <p>
-     * <code>Closure():Generator<TKey, TValue></code>
-     * Data from a callable source.
-     * </p>
-     *
-     * @return void
      */
     public function __construct (
         private Closure $callable
@@ -105,12 +101,10 @@ class Gen implements Init, Collectable {
      * @inheritDoc
      *
      * @since 1.0.0
-     *
-     * @return self<TKey, TValue> New collection from provided array.
      */
-    public static function fromArray (array $array):self {
+    public static function fromArray (array $array):static {
 
-        return new self(fn() => yield from $array);
+        return new static(fn() => yield from $array);
 
     }
 
@@ -691,12 +685,10 @@ class Gen implements Init, Collectable {
      *
      * // ['age' => 25, 10 => 2]
      * ```
-     *
-     * @return self<TKey, TValue> New filtered collection.
      */
-    public function filter (callable $callback):self {
+    public function filter (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             foreach ($this as $key => $value)
                 !$callback($value, $key) ?: yield $key => $value;
@@ -726,10 +718,8 @@ class Gen implements Init, Collectable {
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe']
      * ```
-     *
-     * @return self<TKey, TValue> New rejected collection.
      */
-    public function reject (callable $callback):self {
+    public function reject (callable $callback):static {
 
         /** @phpstan-ignore-next-line */
         return $this->filter(fn($value, $key) => $value != $callback($value, $key));
@@ -753,12 +743,10 @@ class Gen implements Init, Collectable {
      *
      * // ['firstname' => 'new John', 'lastname' => 'new Doe', 'age' => 'new 25', 10 => 'new 2']
      * ```
-     *
-     * @return self<TKey, mixed> New modified collection.
      */
-    public function map (callable $callback):self {
+    public function map (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             foreach ($this as $key => $value) yield $key => $callback($value, $key);
 
@@ -786,12 +774,10 @@ class Gen implements Init, Collectable {
      *
      * // ['one', 'two', 'three', 'four', 'five']
      * ```
-     *
-     * @return self<TKey, TValue> New merged collection.
      */
-    public function merge (Collectable ...$collections):self {
+    public function merge (Collectable ...$collections):static {
 
-        return new self(function () use ($collections):Generator {
+        return new static(function () use ($collections):Generator {
 
             yield from $this->invoke();
 
@@ -819,13 +805,11 @@ class Gen implements Init, Collectable {
      * // ['lastname' => 'Doe', 10 => 2]
      * ```
      *
-     * @return self<TKey, TValue> New filtered collection.
-     *
      * @phpstan-ignore-next-line
      */
-    public function nth (int $step, int $offset = 0):self {
+    public function nth (int $step, int $offset = 0):static {
 
-        return new self(function () use ($step, $offset):Generator {
+        return new static(function () use ($step, $offset):Generator {
 
             $storage = $this->invoke();
 
@@ -859,14 +843,12 @@ class Gen implements Init, Collectable {
      *
      * // ['lastname' => 'Doe', 'age' => 25]
      * ```
-     *
-     * @return self<TKey, TValue> New sliced collection.
      */
-    public function slice (int $offset, ?int $length = null):self {
+    public function slice (int $offset, ?int $length = null):static {
 
         $range = new SliceRange($this->count(), $offset, $length);
 
-        return new self(function () use ($range):Generator {
+        return new static(function () use ($range):Generator {
 
             $start = $range->start();
             $end = $range->end();
@@ -903,12 +885,10 @@ class Gen implements Init, Collectable {
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe']
      * ```
-     *
-     * @return self<TKey, TValue> New collection with items.
      */
-    public function takeUntil (callable $callback):self {
+    public function takeUntil (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             foreach ($this as $key => $value) {
 
@@ -939,12 +919,10 @@ class Gen implements Init, Collectable {
      *
      * // ['firstname' => 'John', 'lastname' => 'Doe']
      * ```
-     *
-     * @return self<TKey, TValue> New collection with items.
      */
-    public function takeWhile (callable $callback):self {
+    public function takeWhile (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             foreach ($this as $key => $value) {
 
@@ -975,12 +953,10 @@ class Gen implements Init, Collectable {
      *
      * // ['age' => 25, 10 => 2]
      * ```
-     *
-     * @return self<TKey, TValue> New collection with items.
      */
-    public function skipUntil (callable $callback):self {
+    public function skipUntil (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             $found = false;
             foreach ($this as $key => $value) {
@@ -1014,12 +990,10 @@ class Gen implements Init, Collectable {
      *
      * // ['lastname' => 'Doe', 'age' => 25, 10 => 2]
      * ```
-     *
-     * @return self<TKey, TValue> New collection with items.
      */
-    public function skipWhile (callable $callback):self {
+    public function skipWhile (callable $callback):static {
 
-        return new self(function () use ($callback):Generator {
+        return new static(function () use ($callback):Generator {
 
             $found = false;
             foreach ($this as $key => $value) {
