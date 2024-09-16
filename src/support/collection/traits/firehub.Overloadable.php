@@ -43,6 +43,8 @@ trait Overloadable {
      *
      * // John
      * ```
+     *
+     * @throws Error If the key doesn't exist in a collection.
      */
     public function get (int|string $key):mixed {
 
@@ -103,6 +105,8 @@ trait Overloadable {
      * @param TValue $value <p>
      * Collection value.
      * </p>
+     *
+     * @throws Error If the key already exists in a collection.
      *
      * @return void
      *
