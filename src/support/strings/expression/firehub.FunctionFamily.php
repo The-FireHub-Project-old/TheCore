@@ -172,7 +172,7 @@ abstract class FunctionFamily implements Init {
      * List of arguments.
      * </p>
      *
-     * @throws Error If method doesn't exist.
+     * @throws Error If the method doesn't exist.
      *
      * @return \FireHub\Core\Support\Strings\Expression\Pattern This regex pattern.
      */
