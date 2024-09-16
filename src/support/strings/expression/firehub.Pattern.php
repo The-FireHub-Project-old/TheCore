@@ -192,7 +192,7 @@ abstract class Pattern implements Init {
      * List of arguments.
      * </p>
      *
-     * @throws Error If method doesn't exist.
+     * @throws Error If the method doesn't exist.
      *
      * @return mixed Regex result.
      */
