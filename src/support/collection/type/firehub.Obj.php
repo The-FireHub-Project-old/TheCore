@@ -98,7 +98,7 @@ class Obj implements ObjContract, Init, AccessibleCollection {
      * @since 1.0.0
      */
     public function __construct (
-        private SplObjectStorage $storage
+        protected SplObjectStorage $storage
     ) {}
 
     /**

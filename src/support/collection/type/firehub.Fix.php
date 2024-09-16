@@ -101,7 +101,7 @@ class Fix implements FixContract, Init, AccessibleCollection {
      * @since 1.0.0
      */
     public function __construct (
-        private SplFixedArray $storage
+        protected SplFixedArray $storage
     ) {}
 
     /**

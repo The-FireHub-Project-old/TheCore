@@ -94,7 +94,7 @@ class Gen implements GenContract, Init, Collectable {
      * @since 1.0.0
      */
     public function __construct (
-        private Closure $callable
+        protected Closure $callable
     ) {}
 
     /**
