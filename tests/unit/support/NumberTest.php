@@ -33,6 +33,7 @@ final class NumberTest extends Base {
     public Number $zero;
     public Number $float;
     public Number $negative_float;
+
     /**
      * @since 1.0.0
      *
