@@ -1,6 +1,8 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...develop-pre-alpha-m1)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.7...develop-pre-alpha-m1)
+
+## [v0.1.7](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...v0.1.7) - (2024-09-17)
 
 ### Added
 - Create Char high-level class and tests ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [543c366](https://github.com/The-FireHub-Project/Core/pull/7/commits/543c366))
@@ -8,6 +10,8 @@
 - Create String high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [8eb4fef](https://github.com/The-FireHub-Project/Core/pull/7/commits/8eb4fef))
 - Create Number high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [3c1c472](https://github.com/The-FireHub-Project/Core/pull/7/commits/3c1c472))
 - Create Collection high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [ef5ab67](https://github.com/The-FireHub-Project/Core/pull/7/commits/ef5ab67))
+- Create Zwick high-level support classes ([#33](https://github.com/The-FireHub-Project/Core/issues/33))
+- Create Registry component ([#88](https://github.com/The-FireHub-Project/Core/issues/88), [dea629b](https://github.com/The-FireHub-Project/Core/pull/7/commits/dea629b))
 
 ### Changed
 - CharMB methods chr and ord have their descriptions changed ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [f3aca75](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3aca75))
