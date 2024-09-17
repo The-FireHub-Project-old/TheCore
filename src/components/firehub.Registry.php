@@ -47,12 +47,11 @@ final class Registry implements InitInstance {
     private Associative $registers;
 
     /**
-     * ### Constructor
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection\Type\Associative As empty list.
-     *
-     * @return void
      */
     private function __construct () {
 
