@@ -7,18 +7,19 @@
  * @copyright 2024 FireHub Web Application Framework
  * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
  *
- * @package Core\Support
+ * @package Core\Components
  *
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support;
+namespace FireHub\Core\Components;
 
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Support\Registry\Register;
+use FireHub\Core\Components\Registry\Register;
 use FireHub\Core\Support\Collection\Type\Associative;
+use FireHub\Core\Support\Str;
 use Error;
 
 /**
@@ -40,7 +41,7 @@ final class Registry implements Init {
      * @since 1.0.0
      *
      * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
-     *     \FireHub\Core\Support\Registry\Register<non-empty-lowercase-string,
+     *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>>>
      */
     private static Associative $registers;
@@ -63,10 +64,10 @@ final class Registry implements Init {
      * ### Gets register
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Registry\Register As return.
-     * @uses \FireHub\Core\Support\Registry\Register::exist() To check if item exists in register.
-     * @uses \FireHub\Core\Support\Registry\Register::add() To add item to register.
-     * @uses \FireHub\Core\Support\Registry\Register::get() To get item from register.
+     * @uses \FireHub\Core\Components\Registry\Register As return.
+     * @uses \FireHub\Core\Components\Registry\Register::exist() To check if item exists in register.
+     * @uses \FireHub\Core\Components\Registry\Register::add() To add item to register.
+     * @uses \FireHub\Core\Components\Registry\Register::get() To get item from register.
      * @uses \FireHub\Core\Support\Str::from() To create Str from $name argument.
      * @uses \FireHub\Core\Support\Str::toLower() To lowercase $name argument.
      * @uses \FireHub\Core\Support\Str::length() To check $name argument length.
@@ -79,7 +80,7 @@ final class Registry implements Init {
      *
      * @throws Error If register name length is less than three, or register name contains non-ascii characters.
      *
-     * @return \FireHub\Core\Support\Registry\Register<non-empty-lowercase-string,
+     * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>> Register.
      *
      * @note If the register doesn't exist, the method will automatically create it.
@@ -105,7 +106,7 @@ final class Registry implements Init {
      * ### Unregister register
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Registry\Register::remove() To remove register item.
+     * @uses \FireHub\Core\Components\Registry\Register::remove() To remove register item.
      *
      * @param non-empty-lowercase-string $name <p>
      * Register name.

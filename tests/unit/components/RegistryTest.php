@@ -12,16 +12,16 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace support;
+namespace components;
 
-use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Registry;
-use FireHub\Core\Support\Registry\Register;
-use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
+use FireHub\Core\Components\Registry;
+use FireHub\Core\Components\Registry\Register;
+use FireHub\Core\Testing\Base;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
- * ### Test registry support class
+ * ### Test registry component class
  * @since 1.0.0
  */
 #[CoversClass(Registry::class)]
