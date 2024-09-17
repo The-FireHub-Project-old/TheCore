@@ -15,7 +15,7 @@
 namespace FireHub\Core\Components;
 
 use FireHub\Core\Base\ {
-    Init, Trait\Concrete
+    InitInstance, Trait\ConcreteInstance
 };
 use FireHub\Core\Components\Registry\Register;
 use FireHub\Core\Support\Collection\Type\Associative;
@@ -28,13 +28,13 @@ use Error;
  *
  * @api
  */
-final class Registry implements Init {
+final class Registry implements InitInstance {
 
     /**
-     * ### FireHub initial concrete trait
+     * ### FireHub initial concrete instance trait
      * @since 1.0.0
      */
-    use Concrete;
+    use ConcreteInstance;
 
     /**
      * ### List of registers
@@ -44,7 +44,7 @@ final class Registry implements Init {
      *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>>>
      */
-    private static Associative $registers;
+    private Associative $registers;
 
     /**
      * ### Constructor
@@ -54,9 +54,9 @@ final class Registry implements Init {
      *
      * @return void
      */
-    public function __construct () {
+    private function __construct () {
 
-        if (!isset(self::$registers)) self::$registers = new Associative([]);
+        $this->registers = new Associative([]);
 
     }
 
@@ -95,10 +95,10 @@ final class Registry implements Init {
         if (!$name->expression()->check()->is()->ascii())
             throw new Error('Register name must contain only ascii characters.');
 
-        if (!self::$registers->exist($name->string())) // @phpstan-ignore-line
-            self::$registers->add($name->string(), new Register([])); // @phpstan-ignore-line
+        if (!$this->registers->exist($name->string())) // @phpstan-ignore-line
+            $this->registers->add($name->string(), new Register([])); // @phpstan-ignore-line
 
-        return self::$registers->get($name->string()); // @phpstan-ignore-line
+        return $this->registers->get($name->string()); // @phpstan-ignore-line
 
     }
 
@@ -118,7 +118,7 @@ final class Registry implements Init {
      */
     public function unregister (string $name):true {
 
-        self::$registers->remove($name);
+        $this->registers->remove($name);
 
         return true;
 
