@@ -37,7 +37,7 @@ final class RegistryTest extends Base {
      */
     public function setUp ():void {
 
-        $this->registry = new Registry();
+        $this->registry = Registry::getInstance();
 
     }
 
