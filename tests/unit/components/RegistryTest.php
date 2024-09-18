@@ -14,9 +14,9 @@
 
 namespace components;
 
+use FireHub\Core\Testing\Base;
 use FireHub\Core\Components\Registry;
 use FireHub\Core\Components\Registry\Register;
-use FireHub\Core\Testing\Base;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Error;
 
