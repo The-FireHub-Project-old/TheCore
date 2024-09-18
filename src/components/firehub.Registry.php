@@ -41,8 +41,8 @@ final class Registry implements InitInstance {
      * @since 1.0.0
      *
      * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
-     *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
-     *     \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>>>
+     *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string,
+     *     scalar>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>>>
      */
     private Associative $registers;
 
@@ -80,7 +80,8 @@ final class Registry implements InitInstance {
      * @throws Error If register name length is less than three, or register name contains non-ascii characters.
      *
      * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
-     *     \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>> Register.
+     *     array<non-empty-lowercase-string,
+     *     scalar>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>> Register.
      *
      * @note If the register doesn't exist, the method will automatically create it.
      */
