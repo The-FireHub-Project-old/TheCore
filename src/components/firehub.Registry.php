@@ -42,7 +42,7 @@ final class Registry implements InitInstance {
      *
      * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
      *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string,
-     *     scalar>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>>>
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>>>
      */
     private Associative $registers;
 
@@ -81,7 +81,7 @@ final class Registry implements InitInstance {
      *
      * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     array<non-empty-lowercase-string,
-     *     scalar>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, scalar>> Register.
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>> Register.
      *
      * @note If the register doesn't exist, the method will automatically create it.
      */
