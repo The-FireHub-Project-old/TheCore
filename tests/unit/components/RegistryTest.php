@@ -14,11 +14,11 @@
 
 namespace components;
 
-use Error;
 use FireHub\Core\Components\Registry;
 use FireHub\Core\Components\Registry\Register;
 use FireHub\Core\Testing\Base;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Error;
 
 /**
  * ### Test registry component class
