@@ -25,7 +25,7 @@ use FireHub\Core\Support\LowLevel\ {
 use FireHub\Core\Support\Enums\String\ {
     CaseFolding, Encoding, Expression\Modifier
 };
-use Error, Stringable, ValueError;
+use Error, ValueError;
 
 use function FireHub\Core\Support\Helpers\String\asBoolean;
 
