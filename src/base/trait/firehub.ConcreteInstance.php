@@ -30,7 +30,7 @@ trait ConcreteInstance {
      * ### Class instance
      * @since 1.0.0
      *
-     * @var $this
+     * @var self
      */
     private static self $instance;
 
@@ -38,7 +38,7 @@ trait ConcreteInstance {
      * ### Gets current class instance
      * @since 1.0.0
      *
-     * @return $this Class instance.
+     * @return self Class instance.
      */
     public static function getInstance ():self {
 
