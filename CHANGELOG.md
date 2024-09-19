@@ -5,6 +5,7 @@
 ## Added
 
 - Create Init Instance base type ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [817d2b7](https://github.com/The-FireHub-Project/Core/pull/7/commits/817d2b7))
+- Create Container class ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [55bb910](https://github.com/The-FireHub-Project/Core/pull/7/commits/55bb910))
 
 ## [v0.1.7](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...v0.1.7) - (2024-09-17)
 

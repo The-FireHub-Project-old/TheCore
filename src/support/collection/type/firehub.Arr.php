@@ -2327,7 +2327,7 @@ abstract class Arr implements Init, AccessibleCollection {
      */
     public function shuffle ():static {
 
-        ArrLL::shuffle($this->storage);
+        ArrLL::shuffle($this->storage); // @phpstan-ignore-line
 
         return $this;
 
