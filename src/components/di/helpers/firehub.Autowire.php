@@ -21,7 +21,7 @@ use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\Associative;
 use FireHub\Core\Support\LowLevel\Cls;
-use ReflectionClass, ReflectionException, ReflectionNamedType, ReflectionParameter;
+use Closure, ReflectionClass, ReflectionException, ReflectionNamedType, ReflectionParameter;
 
 /**
  * ### Autowire dependant objects for instance
@@ -47,13 +47,11 @@ final class Autowire implements Init {
      * ### Constructor
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Components\DI\Helpers\Autowire::resolve() To resolve parameter.
      * @uses \FireHub\Core\Support\Collection::associative() To create an associative collection for arguments.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::mapKeys() To add a parameter name as a key.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To resolve parameters.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To filter all valid arguments.
-     * @uses \FireHub\Core\Support\LowLevel\Cls::isClass() To check if an argument is a class.
-     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container if the argument is a
-     * class.
      *
      * @template TObject of object
      *
@@ -66,6 +64,9 @@ final class Autowire implements Init {
      * @param array<array-key, mixed> $parameters <p>
      * Passed parameters for resolving instance.
      * </p>
+     * @param array<non-empty-string, Closure(\FireHub\Core\Components\DI\Container $container):object> $bindings <p>
+     * Passed a list of container records bindings.
+     * </p>
      *
      * @throws ReflectionException If the class doesn't exist.
      *
@@ -74,28 +75,16 @@ final class Autowire implements Init {
     public function __construct (
         private readonly Container $container,
         private readonly string $abstract,
-        private readonly array $parameters
+        private readonly array $parameters,
+        private readonly array $bindings
     ) {
 
         $reflection = new ReflectionClass($this->abstract);
 
         $this->arguments = Collection::associative(fn() => $reflection->getConstructor()?->getParameters() ?? [])
             ->mapKeys(fn(ReflectionParameter $parameter):string => $parameter->getName())
-            ->map(function (ReflectionParameter $parameter, string $parameter_name):mixed { // @phpstan-ignore-line
-
-                foreach ($this->parameters as $key => $value) // parameters from resolve method
-                    if ($key === $parameter_name) return $value;
-
-                $parameter_type = $parameter->getType();
-
-                if ( // auto-resolve object parameters
-                    !$parameter->isOptional()
-                    && $parameter_type instanceof ReflectionNamedType
-                    && Cls::isClass($parameter_type->getName())
-                ) return $this->container->resolve($parameter_type->getName()); // @phpstan-ignore-line
-
-                return $parameter;
-            })
+            ->map(fn(ReflectionParameter $parameter, string $parameter_name):mixed // @phpstan-ignore-line
+                => $this->resolve($parameter, $parameter_name))
             ->filter(fn(mixed $value):bool => !$value instanceof ReflectionParameter); // @phpstan-ignore-line
 
     }
@@ -111,6 +100,47 @@ final class Autowire implements Init {
     public function arguments ():array {
 
         return $this->arguments->all();
+
+    }
+
+    /**
+     * ### Resolve parameter
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Cls::isClass() To check if an argument is a class.
+     * @uses \FireHub\Core\Support\LowLevel\Cls::isInterface() To check if an argument is an interface.
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container if the argument is a
+     * class.
+     *
+     * @param ReflectionParameter $parameter <p>
+     * Reflection from parameter.
+     * </p>
+     * @param string $parameter_name <p>
+     * Parameter name.
+     * </p>
+     *
+     * @return mixed Resolved parameter.
+     */
+    private function resolve (ReflectionParameter $parameter, string $parameter_name):mixed {
+
+        foreach ($this->parameters as $key => $value) // parameters from resolve method
+            if ($key === $parameter_name) return $value;
+
+        $parameter_type = $parameter->getType();
+
+        if (!$parameter_type instanceof ReflectionNamedType)
+            return $parameter;
+
+        foreach ($this->bindings as $key => $value) // parameters from context builder
+            if ($key === $parameter_type->getName()
+            ) return $value($this->container);
+
+        if ( // auto-resolve object parameters
+            !$parameter->isOptional()
+            && (Cls::isClass($parameter_type->getName()) || Cls::isInterface($parameter_type->getName()))
+        ) return $this->container->resolve($parameter_type->getName()); // @phpstan-ignore-line
+
+        return $parameter;
 
     }
 

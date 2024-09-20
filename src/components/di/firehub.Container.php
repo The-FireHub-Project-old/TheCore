@@ -17,9 +17,11 @@ namespace FireHub\Core\Components\DI;
 use FireHub\Core\Base\ {
     InitInstance, Trait\ConcreteInstance
 };
-use FireHub\Core\Components\DI\Helpers\Autowire;
 use FireHub\Core\Components\Registry;
 use FireHub\Core\Components\Registry\Register;
+use FireHub\Core\Components\DI\Helpers\ {
+    Autowire, ContextualBinding
+};
 use FireHub\Core\Components\DI\Enums\Type;
 use FireHub\Core\Support\LowLevel\ {
     DataIs, Obj
@@ -44,7 +46,6 @@ class Container implements InitInstance {
 
     /**
      * ### List of active container records
-     *
      * @since 1.0.0
      *
      * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array{
@@ -52,11 +53,18 @@ class Container implements InitInstance {
      *     type: \FireHub\Core\Components\DI\Enums\Type,
      *     instance: null|object,
      *     parameters: array<array-key, mixed>,
-     *     decorators: null|\FireHub\Core\Support\Collection\Type\Indexed<Closure(object $object, self $container):object>,
      *     tags: null|array<array-key, mixed>
      * }>
      */
-    private Register $records;
+    public Register $records;
+
+    /**
+     * ### List of container records bindings
+     * @since 1.0.0
+     *
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-string, Closure(self $container):object>>
+     */
+    public Register $bindings;
 
     /**
      * @inheritDoc
@@ -68,6 +76,7 @@ class Container implements InitInstance {
     private function __construct () {
 
         $this->records = Registry::getInstance()->register('container'); // @phpstan-ignore-line
+        $this->bindings = Registry::getInstance()->register('container_bindings'); // @phpstan-ignore-line
 
     }
 
@@ -345,6 +354,33 @@ class Container implements InitInstance {
     }
 
     /**
+     * ### Inject different implementations into each class
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Helpers\ContextualBinding As return.
+     *
+     * @template TObject of object
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Components\Container\Container;
+     * ```
+     *
+     * @param class-string<TObject> $abstract <p>
+     * Instance name in container.
+     * </p>
+     *
+     * @throws Error If the record already exists in container.
+     *
+     * @return \FireHub\Core\Components\DI\Helpers\ContextualBinding ContextualBinding builder.
+     */
+    public function when (string $abstract):ContextualBinding {
+
+        return new ContextualBinding($this, $abstract);
+
+    }
+
+    /**
      * ### Resolve binding from the container
      * @since 1.0.0
      *
@@ -418,7 +454,6 @@ class Container implements InitInstance {
             'type' => $type,
             'instance' => null,
             'parameters' => [],
-            'decorators' => null,
             'tags' => null
         ]);
 
@@ -523,8 +558,9 @@ class Container implements InitInstance {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container::register() To register binding with the container.
+     * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
-     * @uses \FireHub\Core\Components\DI\Helpers\Autowire::$arguments To get a list of resolved arguments.
+     * @uses \FireHub\Core\Components\DI\Helpers\Autowire::arguments() To get a list of resolved arguments.
      *
      * @template TObject of object
      *
@@ -539,16 +575,19 @@ class Container implements InitInstance {
      *     type: \FireHub\Core\Components\DI\Enums\Type,
      *     instance: null|object,
      *     parameters: array<array-key, mixed>,
-     *     decorators: null|\FireHub\Core\Support\Collection\Type\Indexed<Closure(object $object, self $container):object>,
      *     tags: null|array<array-key, mixed>
      * } Created record.
      */
     private function createRecord (string $abstract):array {
 
+        $bindings = $this->bindings->exist($abstract)
+            ? $this->bindings->get($abstract)
+            : [];
+
         $this->register(
             $abstract,
-            fn(Container $container, mixed ...$parameters):object=> new $abstract(
-                ...(new Autowire($container, $abstract, $parameters))->arguments()
+            fn(Container $container, mixed ...$parameters):object => new $abstract(
+                ...(new Autowire($container, $abstract, $parameters, $bindings))->arguments()
             ),
             Type::BIND
         );

@@ -16,7 +16,9 @@ namespace components\di;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Components\DI\Helpers\Autowire;
+use FireHub\Core\Components\DI\Helpers\ {
+    Autowire, ContextualBinding
+};
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Enums\Data\Type;
 use FireHub\Core\Support\Enums\String\Encoding;
@@ -30,6 +32,7 @@ use PHPUnit\Framework\Attributes\ {
  */
 #[CoversClass(Container::class)]
 #[CoversClass(Autowire::class)]
+#[CoversClass(ContextualBinding::class)]
 #[CoversClass(Type::class)]
 final class ContainerTest extends Base {
 
