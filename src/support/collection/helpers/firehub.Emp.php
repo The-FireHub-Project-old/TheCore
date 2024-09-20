@@ -21,7 +21,6 @@ use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative, Obj
 };
-use SplObjectStorage;
 
 /**
  * ### Creates an empty collection
