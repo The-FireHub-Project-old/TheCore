@@ -364,6 +364,18 @@ class Container implements InitInstance {
      * @example
      * ```php
      * use FireHub\Core\Components\Container\Container;
+     *
+     * $this->container->when(SomeClass::class)
+     *  ->needs(SomeInterface::class)
+     *  ->give(fn() => new SomeClassFromInterface::class));
+     * ```
+     * @example Contextual binding with variadic parameter.
+     * ```php
+     * use FireHub\Core\Components\Container\Container;
+     *
+     * $this->container->when(SomeClass::class)
+     *  ->needs(SomeInterface::class)
+     *  ->give(fn() => [new SomeClassFromInterface::class, new SomeClassFromInterface::class]));
      * ```
      *
      * @param class-string<TObject> $abstract <p>
@@ -561,6 +573,8 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
      * @uses \FireHub\Core\Components\DI\Helpers\Autowire::arguments() To get a list of resolved arguments.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the argument is an array.
+     * @uses \FireHub\Core\Components\DI\Enums\Type::BIND As type.
      *
      * @template TObject of object
      *
@@ -586,9 +600,19 @@ class Container implements InitInstance {
 
         $this->register(
             $abstract,
-            fn(Container $container, mixed ...$parameters):object => new $abstract(
-                ...(new Autowire($container, $abstract, $parameters, $bindings))->arguments()
-            ),
+            function (Container $container, mixed ...$parameters) use ($abstract, $bindings):object {
+
+                $arguments = (new Autowire($container, $abstract, $parameters, $bindings))->arguments();
+
+                $argument_list = [];
+                foreach ($arguments as $argument)
+                    if (DataIs::array($argument))
+                        foreach ($argument as $argument_arr) $argument_list[] = $argument_arr;
+                    else $argument_list[] = $argument;
+
+                return new $abstract(...$argument_list);
+
+            },
             Type::BIND
         );
 

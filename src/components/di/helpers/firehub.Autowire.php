@@ -39,7 +39,7 @@ final class Autowire implements Init {
      * ### List of resolved arguments
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Support\Collection\Type\Associative<array-key, ReflectionParameter>
+     * @var \FireHub\Core\Support\Collection\Type\Associative<array-key, covariant mixed>
      */
     private Associative $arguments;
 
@@ -95,7 +95,7 @@ final class Autowire implements Init {
      *
      * @uses \FireHub\Core\Support\Collection\Type\Associative::all() To get a list of resolved arguments as an array.
      *
-     * @return array<array-key, ReflectionParameter>
+     * @return array<array-key, mixed>
      */
     public function arguments ():array {
 
