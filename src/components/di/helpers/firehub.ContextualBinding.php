@@ -108,6 +108,7 @@ final class ContextualBinding implements Init {
             : $this->container->bindings->add($this->abstracts, [
                 $this->parameter => $concrete
             ]);
+
     }
 
 }
