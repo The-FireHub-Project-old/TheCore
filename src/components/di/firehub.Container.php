@@ -19,6 +19,7 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Components\Registry;
 use FireHub\Core\Components\Registry\Register;
+use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Components\DI\Helpers\ {
     Autowire, ContextualBinding
 };
@@ -52,8 +53,7 @@ class Container implements InitInstance {
      *     concrete: Closure(self $container):object,
      *     type: \FireHub\Core\Components\DI\Enums\Type,
      *     instance: null|object,
-     *     parameters: array<array-key, mixed>,
-     *     tags: null|array<array-key, mixed>
+     *     parameters: array<array-key, mixed>
      * }>
      */
     public Register $records;
@@ -67,6 +67,17 @@ class Container implements InitInstance {
     public Register $bindings;
 
     /**
+     * ### List of container record tags
+     * @since 1.0.0
+     *
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
+     *     \FireHub\Core\Support\Collection\Type\Indexed<class-string>>
+     *
+     * @phpstan-ignore-next-line
+     */
+    public Register $tags;
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
@@ -77,6 +88,7 @@ class Container implements InitInstance {
 
         $this->records = Registry::getInstance()->register('container'); // @phpstan-ignore-line
         $this->bindings = Registry::getInstance()->register('container_bindings'); // @phpstan-ignore-line
+        $this->tags = Registry::getInstance()->register('container_tags'); // @phpstan-ignore-line
 
     }
 
@@ -354,6 +366,44 @@ class Container implements InitInstance {
     }
 
     /**
+     * ### Tag binding
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Container::addTag() To add tag binding.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if $abstract is a string.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Components\Container\Container;
+     *
+     * $this->container>tag(SomeReportClass::class, 'reports');
+     * ```
+     * @example With multiple classes to tag.
+     * ```php
+     * use FireHub\Core\Components\Container\Container;
+     *
+     * $this->container>tag([SomeReportClass::class, SomeOtherReportClass:class], 'reports');
+     * ```
+     *
+     * @param class-string|class-string[] $abstract <p>
+     * Instance name in a container or list of instance names.
+     * </p>
+     * @param non-empty-lowercase-string $with <p>
+     * Tag name.
+     * </p>
+     *
+     * @return void
+     */
+    public function tag (string|array $abstract, string $with):void {
+
+        if (DataIs::string($abstract)) $this->addTag($abstract, $with);
+        else
+            foreach ($abstract as $_abstract)
+                $this->addTag($_abstract, $with);
+
+    }
+
+    /**
      * ### Inject different implementations into each class
      * @since 1.0.0
      *
@@ -465,8 +515,7 @@ class Container implements InitInstance {
             'concrete' => $concrete,
             'type' => $type,
             'instance' => null,
-            'parameters' => [],
-            'tags' => null
+            'parameters' => []
         ]);
 
     }
@@ -588,8 +637,7 @@ class Container implements InitInstance {
      *     concrete: Closure(self $container):object,
      *     type: \FireHub\Core\Components\DI\Enums\Type,
      *     instance: null|object,
-     *     parameters: array<array-key, mixed>,
-     *     tags: null|array<array-key, mixed>
+     *     parameters: array<array-key, mixed>
      * } Created record.
      */
     private function createRecord (string $abstract):array {
@@ -617,6 +665,32 @@ class Container implements InitInstance {
         );
 
         return $this->records->get($abstract);
+
+    }
+
+    /**
+     * ### Add tag binding
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
+     * @uses \FireHub\Core\Components\Registry\Register::add() To add item to a container.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::contains() Determines whether a list contains a given item.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::push() To push items at the end of the tag list.
+     *
+     * @param class-string $abstract <p>
+     * Instance name in a container or list of instance names.
+     * </p>
+     * @param non-empty-lowercase-string $with <p>
+     * Tag name.
+     * </p>
+     *
+     * @return void
+     */
+    private function addTag (string $abstract, string $with):void {
+
+        $this->tags->exist($with)
+            ? $this->tags[$with]->contains($abstract) ?: $this->tags[$with]->push($abstract) // @phpstan-ignore-line
+            : $this->tags->add($with, new Indexed([$abstract]));
 
     }
 
