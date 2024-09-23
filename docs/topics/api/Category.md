@@ -18,7 +18,7 @@
 
 ### ### Data category enum
 
-<p><format style="italic">Data category defines the category of data type.</format></p>
+<p><format style="italic">Data category defines the category of a data type.</format></p>
 
 <deflist>
     <def title="Enum basic info:">
@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\Data\Category
+    </def><def title="Implements:">
+        <list><li><a href="InitEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L23">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L27">
             View source code
         </a>
     </def>
@@ -76,12 +80,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L29">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L39">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L29">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L39">
                     View blame
                 </a>
             </def></deflist>
@@ -108,12 +112,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L45">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L35">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L45">
                     View blame
                 </a>
             </def></deflist>
@@ -140,12 +144,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L51">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L41">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/data/firehub.Category.php#L51">
                     View blame
                 </a>
             </def></deflist>

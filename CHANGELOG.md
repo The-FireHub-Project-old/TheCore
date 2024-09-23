@@ -1,17 +1,51 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...develop-pre-alpha-m1)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...develop-pre-alpha-m2)
+
+## [v0.2.0](https://github.com/The-FireHub-Project/Core/compare/v0.1.7...v0.2.0) - (2024-09-23)
+
+## Added
+
+- Create Init Instance base type ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [817d2b7](https://github.com/The-FireHub-Project/Core/pull/7/commits/817d2b7))
+- Create Container class ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [55bb910](https://github.com/The-FireHub-Project/Core/pull/7/commits/55bb910))
+
+## [v0.1.7](https://github.com/The-FireHub-Project/Core/compare/v0.1.6...v0.1.7) - (2024-09-17)
+
+### Added
+- Create Char high-level class and tests ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [543c366](https://github.com/The-FireHub-Project/Core/pull/7/commits/543c366))
+- Create contracts for high-level classes ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [2198382](https://github.com/The-FireHub-Project/Core/pull/7/commits/2198382))
+- Create String high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [8eb4fef](https://github.com/The-FireHub-Project/Core/pull/7/commits/8eb4fef))
+- Create Number high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [3c1c472](https://github.com/The-FireHub-Project/Core/pull/7/commits/3c1c472))
+- Create Collection high-level support class ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [ef5ab67](https://github.com/The-FireHub-Project/Core/pull/7/commits/ef5ab67))
+- Create Zwick high-level support classes ([#33](https://github.com/The-FireHub-Project/Core/issues/33))
+- Create Registry component ([#88](https://github.com/The-FireHub-Project/Core/issues/88), [dea629b](https://github.com/The-FireHub-Project/Core/pull/7/commits/dea629b))
+
+### Changed
+- CharMB methods chr and ord have their descriptions changed ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [f3aca75](https://github.com/The-FireHub-Project/Core/pull/7/commits/f3aca75))
+- Char high-level class is now final ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [c6ca87b](https://github.com/The-FireHub-Project/Core/pull/7/commits/c6ca87b))
+
+### Fixed
+- CharMB methods chr and ord returned Error if the result was 0 ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [d77d018](https://github.com/The-FireHub-Project/Core/pull/7/commits/d77d018))
+- Method comparePart in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#33](https://github.com/The-FireHub-Project/Core/issues/33), [3a12dbd](https://github.com/The-FireHub-Project/Core/pull/7/commits/3a12dbd))
+
+## [v0.1.6](https://github.com/The-FireHub-Project/Core/compare/v0.1.5...v0.1.5) - (2024-02-20)
 
 ### Added
 - Create Stringable contract ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [50ca73a](https://github.com/The-FireHub-Project/Core/pull/7/commits/50ca73a))
 - Add FireHub boot to PHAR, on both web and console boot ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [d3056bb](https://github.com/The-FireHub-Project/Core/pull/7/commits/d3056bb))
 - Create base test class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [4ee33fe](https://github.com/The-FireHub-Project/Core/pull/7/commits/4ee33fe))
+- Create NAN and INF number constants ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [9e69fee](https://github.com/The-FireHub-Project/Core/pull/7/commits/9e69fee))
+- Create tests for Num low-level proxy classes ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [8206144](https://github.com/The-FireHub-Project/Core/pull/7/commits/8206144))
 
 ### Fixed
 - Fixed where autoload class was throwing error if callable is used from another autoloader ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [e04b488](https://github.com/The-FireHub-Project/Core/pull/7/commits/e04b488))
 - IterablesAggregate now extends internal Traversable class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [76f0f3c](https://github.com/The-FireHub-Project/Core/pull/7/commits/76f0f3c))
 - Data low-level proxy class, method setType now throws error if trying to convert an array to string or object to some types ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [0305486](https://github.com/The-FireHub-Project/Core/pull/7/commits/0305486))
 - core method of Pat high-level class now uses __DIR__ instead of a Phar path ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [8977894](https://github.com/The-FireHub-Project/Core/pull/7/commits/8977894))
+- toTimestamp and formatInteger bugfix ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [dd82703](https://github.com/The-FireHub-Project/Core/pull/7/commits/dd82703))
+- Move some methods to Num from NumFloat low-level proxy class ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [dd82703](https://github.com/The-FireHub-Project/Core/pull/7/commits/dd82703))
+- Refactor RegexMB::encoding method ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [b7cb32e](https://github.com/The-FireHub-Project/Core/pull/7/commits/b7cb32e))
+- Methods compare and compareFirstN in Str low-level proxy class added spaceship operator because linux returns negative or positive number ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [da4d1df](https://github.com/The-FireHub-Project/Core/pull/7/commits/da4d1df))
 
 ### Changed
 - Method setType on Data low-level proxy no longer supports converting array ti string ([#23](https://github.com/The-FireHub-Project/Core/issues/23), [2002fab](https://github.com/The-FireHub-Project/Core/pull/7/commits/2002fab))

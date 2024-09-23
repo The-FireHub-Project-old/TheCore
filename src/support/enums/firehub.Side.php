@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums;
 
+use FireHub\Core\Base\ {
+    InitEnum, Trait\ConcreteEnum
+};
+
 /**
  * ### Side enum
  * @since 1.0.0
  */
-enum Side {
+enum Side implements InitEnum {
+
+    /**
+     * ### FireHub initial concrete enum trait
+     * @since 1.0.0
+     */
+    use ConcreteEnum;
 
     /**
      * ### Use left side

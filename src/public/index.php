@@ -3,7 +3,7 @@
 /**
  * This file is part of FireHub Web Application Framework package
  *
- * This is a landing file if PHAR archive is accessed through a web browser.
+ * This is a landing file if the PHAR archive is accessed through a web browser.
  * @since 1.0.0
  *
  * @author Danijel Galić <danijel.galic@outlook.com>

@@ -49,11 +49,9 @@ final class File extends FileSystem {
      * ### Tells whether the path is a regular file
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -73,11 +71,9 @@ final class File extends FileSystem {
      * ### Tells whether the path is executable
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @error\exeption E_WARNING upon failure.
      *
@@ -98,18 +94,16 @@ final class File extends FileSystem {
      * ### Tells whether the file was uploaded via HTTP POST
      *
      * Returns true if the file named by filename was uploaded via HTTP POST. This is useful to help ensure that a
-     * malicious user hasn't tried to trick the script into working on files upon which it should not be working.
+     * malicious user hasn't tried to trick the script into working on files upon which it shouldn't be working.
      * This sort of check is especially important if there is any chance that anything done with uploaded files could
      * reveal their contents to the user, or even to other users on the same system. For proper working, the function
-     * [[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], - the name of the uploaded file on
-     * the client's machine $_FILES['userfile']['name'] does not work.
+     * [[File#isUploaded()]] needs an argument like $_FILES['userfile']['tmp_name'], – the name of the uploaded file on
+     * the client's machine $_FILES['userfile']['name'] doesn't work.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
      * @return bool True on success or false on failure.
      */
@@ -123,13 +117,11 @@ final class File extends FileSystem {
      * ### Gets file size
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
-     * @throws Error If we could not get file size for file.
+     * @throws Error If we couldn't get file size for file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return int The size of the file in bytes.
@@ -141,7 +133,7 @@ final class File extends FileSystem {
     public static function size (string $path):int {
 
         return ($size = filesize($path)) !== false
-            ? $size : throw new Error("Could not get file size for {$path}.");
+            ? $size : throw new Error("Could not get file size for $path.");
 
     }
 
@@ -152,21 +144,19 @@ final class File extends FileSystem {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Constants\Path\DS To separate folders.
-     * @uses \FireHub\Core\Support\LowLevel\File::basename() To get a base name component of $to path.
+     * @uses \FireHub\Core\Support\LowLevel\File::basename() To get a base name component of $to a path.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param string $to <p>
-     * The destination path. If dest is a URL, the copy operation may fail if the wrapper does not support overwriting
-     * of existing files. If the destination file already exists, it will be overwritten.
+     * The destination path.
+     * If dest is a URL, the copy operation may fail if the wrapper doesn't support overwriting of existing files.
+     * If the destination file already exists, it will be overwritten.
      * </p>
      *
-     * @phpstan-param non-empty-string $path
-     *
-     * @throws Error If we could not copy file.
-     * @error\exeption W_WARNING if we could not copy the file.
+     * @throws Error If we couldn't copy file.
+     * @error\exeption W_WARNING if we couldn't copy the file.
      *
      * @return void
      *
@@ -175,7 +165,7 @@ final class File extends FileSystem {
     public static function copy (string $path, string $to):void {
 
         copy($path, $to.DS.self::basename($path))
-            ?: throw new Error("Could not copy file: {$path} to: {$to}.");
+            ?: throw new Error("Could not copy file: $path to: $to.");
 
     }
 
@@ -185,13 +175,11 @@ final class File extends FileSystem {
      * Attempts to remove the folder named by $path.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
-     * @throws Error If we could not delete the file.
+     * @throws Error If we couldn't delete the file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return void
@@ -199,7 +187,7 @@ final class File extends FileSystem {
     public static function delete (string $path):void {
 
         unlink($path)
-            ?: throw new Error("Could not delete file: {$path}.");
+            ?: throw new Error("Could not delete file: $path.");
 
     }
 
@@ -207,17 +195,15 @@ final class File extends FileSystem {
      * ### Create a hard link
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param string $link <p>
      * The link name.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
-     * @throws Error If we could not create a hard link for a path.
-     * @error\exeption E_WARNING if method fails, if $link already exists, or if $path does not exist.
+     * @throws Error If we couldn't create a hard link for a path.
+     * @error\exeption E_WARNING if the method fails, if $link already exists, or if $path doesn't exist.
      *
      * @return void
      *
@@ -228,16 +214,15 @@ final class File extends FileSystem {
     public static function link (string $path, string $link):void {
 
         link($path, $link)
-            ?: throw new Error("Could not create hard link for path: {$path}.");
+            ?: throw new Error("Could not create hard link for path: $path.");
 
     }
 
     /**
-     * ### Reads entire file into a string
+     * ### Reads the entire file into a string
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path of the file to read.
      * </p>
      * @param int $offset [optional] <p>
@@ -245,63 +230,56 @@ final class File extends FileSystem {
      * Seeking ($offset) is not supported with remote files. Attempting to seek on non-local files may work with small
      * offsets, but this is unpredictable because it works on the buffered stream.
      * </p>
-     * @param null|int $length [optional] <p>
-     * <code>null|non-negative-int</code>
+     * @param null|non-negative-int $length [optional] <p>
      * Maximum length of data read. The default is to read until the end of the file is reached. Note that this
      * parameter is applied to the stream processed by the filters.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param null|non-negative-int $length
      *
-     * @throws Error If we cannot get content from a path.
-     * @error\exeption E_WARNING if filename cannot be found, length is less than zero, seeking to the specified
+     * @throws Error If we can't get content from a path.
+     * @error\exeption E_WARNING if the filename can't be found, length is less than zero, seeking to the specified
      * offset in the stream fails or $path is folder.
      *
      * @return string The read data.
      *
-     * @note If you're opening a URI with special characters, such as spaces, you need to encode the URI with
+     * @note If you're opening an URI with special characters, such as spaces, you need to encode the URI with
      * urlencode().
      */
-    public static function getContent (string $path, int $offset = 0, int $length = null):string {
+    public static function getContent (string $path, int $offset = 0, ?int $length = null):string {
 
         return ($content = file_get_contents($path, false, null, $offset, $length)) !== false
             ? $content
-            : throw new Error("Cannot get content from path: {$path}.");
+            : throw new Error("Cannot get content from path: $path.");
 
     }
 
     /**
-     * ### Reads entire file into an array
+     * ### Reads the entire file into an array
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file.
      * </p>
      * @param bool $skip_empty_lines [optional] <p>
      * Skip empty lines.
      * </p>
      * @param bool $ignore_new_lines [optional] <p>
-     * Omit newline at the end of each array element.
+     * Omit a newline at the end of each array element.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
-     * @throws Error If we cannot get content from a path.
-     * @error\exeption E_WARNING if filename doesn't exist.
+     * @throws Error If we can't get content from a path.
+     * @error\exeption E_WARNING if the filename doesn't exist.
      *
-     * @return array <code>string[]</code> The file in an array. Each element of the array corresponds to a line in
-     * the file, with newline still attached.
-     * @phpstan-return string[]
+     * @return string[] The file in an array. Each element of the array corresponds to a line in the file, with the newline still attached.
      *
      * @warning When using SSL, Microsoft IIS will violate the protocol by closing the connection without sending a
      * close_notify indicator. PHP will report this as "SSL: Fatal Protocol Error" when you reach the end of the data.
-     * To work around this, the value of error_reporting should be lowered to a level that does not include warnings.
+     * To work around this, the value of error_reporting should be lowered to a level that doesn't include warnings.
      * PHP can detect buggy IIS server software when you open the stream using the https:// wrapper and will suppress
      * the warning. When using fsockopen() to create a ssl:// socket, the developer is responsible for detecting and
      * suppressing this warning.
      * @note Each line in the resulting array will include the line ending, unless $ignore_new_lines is used.
-     * @tip If PHP is not properly recognizing the line endings when reading files either on or created by a
-     * Macintosh computer, enabling the auto_detect_line_endings run-time configuration option may help resolve the
+     * @tip If PHP doesn't properly recognize the line endings when reading files either on or created by a
+     * Macintosh computer, enabling the auto_detect_line_endings runtime configuration option may help resolve the
      * problem.
      * @tip A URL can be used as a $path.
      */
@@ -313,7 +291,7 @@ final class File extends FileSystem {
             $ignore_new_lines => FILE_IGNORE_NEW_LINES,
             default => 0
         })) !== false
-            ? $content : throw new Error("Cannot get content from path: {$path}.");
+            ? $content : throw new Error("Cannot get content from path: $path.");
 
     }
 
@@ -323,12 +301,10 @@ final class File extends FileSystem {
      *
      * @uses \FireHub\Core\Support\LowLevel\File::isFile() To tell whether the $file is a regular file.
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * Path to the file where to write the data.
      * </p>
-     * @param array|string $data <p>
-     * <code><![CDATA[ array<int, string>|string ]]></code>
+     * @param array<int, string>|string $data <p>
      * The data to write.
      * </p>
      * @param bool $append [optional] <p>
@@ -338,28 +314,23 @@ final class File extends FileSystem {
      * Acquire an exclusive lock on the file while proceeding to the writing.
      * </p>
      * @param bool $create_file [optional] <p>
-     * Is true, method will create a new file if one doesn't exist.
+     * Is true, the method will create a new file if one doesn't exist.
      * </p>
-     * @phpstan-param non-empty-string $path
-     * @phpstan-param array<int, string>|string $data
-     *
-     * @throws Error If $create_file option is off and $path is not file, or could not put content on a path.
+     * @throws Error If the $create_file option is off, and $path is not file, or couldn't put content on a path.
      * @error\exeption E_WARNING if permission denied to write to file.
      *
-     * @return int <code>non-negative-int</code> Number of bytes that were written to the file, false otherwise.
-
-     * @phpstan-return non-negative-int
+     * @return non-negative-int The number of bytes that were written to the file false otherwise.
      */
     public static function putContent (string $path, array|string $data, bool $append = false, bool $lock = true, bool $create_file = false):int {
 
-        if (!$create_file && !self::isFile($path)) throw new Error("File {$path} doesn't exist.");
+        if (!$create_file && !self::isFile($path)) throw new Error("File $path doesn't exist.");
 
         return file_put_contents($path, $data, match (true) {
             $append && $lock => FILE_APPEND | LOCK_EX,
             $append => FILE_APPEND,
             $lock => LOCK_EX,
             default => 0
-        }) ?: throw new Error("Could not put content on path: {$path}.");
+        }) ?: throw new Error("Could not put content on path: $path.");
 
     }
 
@@ -369,24 +340,22 @@ final class File extends FileSystem {
      * Reads a file and writes it to the output buffer.
      * @since 1.0.0
      *
-     * @param string $path <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $path <p>
      * The filename path being read.
      * </p>
-     * @phpstan-param non-empty-string $path
      *
-     * @throws Error If we could not put read file on a path, or a path is empty.
+     * @throws Error If we couldn't put read file on a path, or a path is empty.
      * @error\exeption E_WARNING upon failure.
      *
      * @return int The number of bytes read from the file.
      *
      * @note [[File#read()]] will not present any memory issues, even when sending large files, on its own. If you
-     * encounter out of memory error ensures that output buffering is off with ob_get_level().
+     * encounter out-of-memory error ensures that output buffering is off with ob_get_level().
      */
     public static function read (string $path):int {
 
         return readfile($path)
-            ?: throw new Error("Could not put read file on path: {$path}.");
+            ?: throw new Error("Could not put read file on path: $path.");
 
     }
 
@@ -398,18 +367,14 @@ final class File extends FileSystem {
      * by $to.
      * @since 1.0.0
      *
-     * @param string $from <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $from <p>
      * Filename of the uploaded file.
      * </p>
-     * @param string $to <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $to <p>
      * Destination of the moved file.
      * </p>
-     * @phpstan-param non-empty-string $from
-     * @phpstan-param non-empty-string $to
      *
-     * @throws Error If we could not move the uploaded file.
+     * @throws Error If we couldn't move the uploaded file.
      * @error\exeption E_WARNING upon failure.
      *
      * @return void
@@ -422,7 +387,7 @@ final class File extends FileSystem {
     public static function moveUploaded (string $from, string $to):void {
 
         move_uploaded_file($from, $to)
-            ?: throw new Error("Could not move uploaded file: {$from}, to: {$to}.");
+            ?: throw new Error("Could not move uploaded file: $from, to: $to.");
 
     }
 

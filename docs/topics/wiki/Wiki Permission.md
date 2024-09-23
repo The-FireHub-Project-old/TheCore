@@ -29,9 +29,9 @@ enum Permission
 |:-----|:------|:------|
 |<a href="#nothing">NOTHING</a>|### User has no permissions|0|
 |<a href="#execute">EXECUTE</a>|### User with execute permissions can run a file as a program|1|
-|<a href="#write">WRITE</a>|### Grants the capability to modify, or remove the content of the file|2|
+|<a href="#write">WRITE</a>|### Grants the ability to modify, or remove the content of the file|2|
 |<a href="#write_execute">WRITE_EXECUTE</a>|### Combination of write and execute permissions|3|
-|<a href="#read">READ</a>|### Grants the capability to read, i.e., view the contents of the file|4|
+|<a href="#read">READ</a>|### Grants the ability to read, i.e., view the contents of the file|4|
 |<a href="#read_execute">READ_EXECUTE</a>|### Combination of read and execute permissions|5|
 |<a href="#read_write">READ_WRITE</a>|### Combination of read and write permissions|6|
 |<a href="#all">ALL</a>|### User has all permissions: read, write and execute|7|
@@ -78,7 +78,7 @@ WRITE = 2
 
 
 
-### ### Grants the capability to modify, or remove the content of the file
+### ### Grants the ability to modify, or remove the content of the file
 
 
 
@@ -110,7 +110,7 @@ READ = 4
 
 
 
-### ### Grants the capability to read, i.e., view the contents of the file
+### ### Grants the ability to read, i.e., view the contents of the file
 
 
 

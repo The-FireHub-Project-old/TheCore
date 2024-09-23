@@ -22,7 +22,9 @@ use FireHub\Core\Support\Contracts\{
     Countable, Iterator\IterablesAggregate
 };
 use PHPUnit\Framework\Attributes\CoversClass;
-use FireHub\Core\Support\Enums\Data\Type;
+use FireHub\Core\Support\Enums\Data\ {
+    Category, Type
+};
 use Error, Stringable, Traversable;
 
 /**
@@ -31,6 +33,7 @@ use Error, Stringable, Traversable;
  */
 #[CoversClass(Data::class)]
 #[CoversClass(DataIs::class)]
+#[CoversClass(Type::class)]
 final class DataTest extends Base {
 
     public array $empty_arr = [];
@@ -992,16 +995,16 @@ final class DataTest extends Base {
      *
      * @return void
      */
-    public function testSerializeValue ():void {
+    public function testSerialize ():void {
 
         $this->assertSame(
             'a:3:{s:3:"one";i:1;s:3:"two";i:2;s:5:"three";i:3;}',
-            Data::serializeValue($this->assoc_arr)
+            Data::serialize($this->assoc_arr)
         );
 
         $this->assertSame(
             's:20:"This is long string.";',
-            Data::serializeValue($this->long_string)
+            Data::serialize($this->long_string)
         );
 
     }
@@ -1015,7 +1018,7 @@ final class DataTest extends Base {
 
         $this->expectException(Error::class);
 
-        Data::serializeValue(self::countableObject());
+        Data::serialize(self::countableObject());
 
     }
 
@@ -1028,7 +1031,7 @@ final class DataTest extends Base {
 
         $this->expectException(Error::class);
 
-        Data::serializeValue(self::resource());
+        Data::serialize(self::resource());
 
     }
 
@@ -1037,16 +1040,16 @@ final class DataTest extends Base {
      *
      * @return void
      */
-    public function testUnserializeValue ():void {
+    public function testUnserialize ():void {
 
         $this->assertSame(
             $this->assoc_arr,
-            Data::unserializeValue('a:3:{s:3:"one";i:1;s:3:"two";i:2;s:5:"three";i:3;}')
+            Data::unserialize('a:3:{s:3:"one";i:1;s:3:"two";i:2;s:5:"three";i:3;}')
         );
 
         $this->assertSame(
             $this->long_string,
-            Data::unserializeValue('s:20:"This is long string.";')
+            Data::unserialize('s:20:"This is long string.";')
         );
 
     }
@@ -1060,7 +1063,7 @@ final class DataTest extends Base {
 
         $this->expectException(Error::class);
 
-        Data::unserializeValue('b:0;');
+        Data::unserialize('b:0;');
 
     }
 
@@ -1073,7 +1076,25 @@ final class DataTest extends Base {
 
         $this->expectException(Error::class);
 
-        Data::unserializeValue('N;');
+        Data::unserialize('N;');
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCategory ():void {
+
+        $this->assertSame(Category::SCALAR, Type::T_FLOAT->category());
+        $this->assertSame(Category::COMPOUND, Type::T_OBJECT->category());
+        $this->assertSame(Category::SPECIAL, Type::T_RESOURCE->category());
+        $this->assertSame(Category::SCALAR, Type::T_INT->category());
+        $this->assertSame(Category::SPECIAL, Type::T_NULL->category());
+        $this->assertSame(Category::SCALAR, Type::T_BOOL->category());
+        $this->assertSame(Category::COMPOUND, Type::T_ARRAY->category());
+        $this->assertSame(Category::SCALAR, Type::T_STRING->category());
 
     }
 

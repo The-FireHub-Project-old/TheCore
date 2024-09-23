@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\Order
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L25">
             View source code
         </a>
     </def>
@@ -57,6 +61,53 @@
 |<a href="#asc">ASC</a>|### Arranging in ascending order|&#039;ASC&#039;|
 |<a href="#desc">DESC</a>|### Arranging in descending order|&#039;DESC&#039;|
 
+### Methods
+| Type | Name | Title |
+|:-----|:-----|:------|
+|public|<a href="#reverse()">reverse</a>|### Get the reverse order|
+
+## method: reverse {id="reverse()"}
+
+<code-block lang="php">
+    <![CDATA[public Order::reverse():\FireHub\Core\Support\Enums\Order]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Get the reverse order
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L51">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L51">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li><a href="Order.md">\FireHub\Core\Support\Enums\Order</a> - <format style="italic">Reversed order.</format></li></list>
+    </def>
+</deflist>
 ## case: ASC {id="asc"}
 
 <code-block lang="php">
@@ -75,12 +126,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -112,12 +163,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Order.php#L43">
                     View blame
                 </a>
             </def></deflist>

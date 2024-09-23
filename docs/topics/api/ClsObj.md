@@ -22,7 +22,7 @@
 
 ### ### Class and object low-level proxy class
 
-<p><format style="italic">Class allows you to obtain information about classes and objects.</format></p>
+<p><format style="italic">Class allows you to collect information about classes and objects.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\ClsObj
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L37">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L40">
             View source code
         </a>
     </def>
@@ -61,17 +65,18 @@
 |public static |<a href="#methodexist()">methodExist</a>|### Checks if the class method exists|
 |public static |<a href="#propertyexist()">propertyExist</a>|### Checks if the object or class has a property|
 |public static |<a href="#ofclass()">ofClass</a>|### Checks whether the object or class is of a given type or subtype|
-|public static |<a href="#subclassof()">subClassOf</a>|### Checks if class has this class as one of its parents or implements it|
+|public static |<a href="#subclassof()">subClassOf</a>|### Checks if a class has this class as one of its parents or implements it|
 |public static |<a href="#methods()">methods</a>|### Gets the class or object methods names|
 |public static |<a href="#parentclass()">parentClass</a>|### Retrieves the parent class name for an object or class|
 |public static |<a href="#parents()">parents</a>|### Return the parent classes of the given class|
 |public static |<a href="#implements()">implements</a>|### Return the interfaces which are implemented by the given class or interface|
 |public static |<a href="#uses()">uses</a>|### Return the traits used by the given class|
 
+
 ## method: methodExist {id="methodexist()"}
 
 <code-block lang="php">
-    <![CDATA[public static ClsObj::methodExist(string|object $object_or_class, string $method):bool]]>
+    <![CDATA[public static ClsObj::methodExist(class-string|object $object_or_class, non-empty-string $method):bool]]>
 </code-block>
 
 
@@ -91,12 +96,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L58">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L58">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -107,11 +112,9 @@
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 An object instance or a class name.
-</format></li><li>string <format style="bold">$method</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$method</format> - <format style="italic">
 The method name.
 </format></li></list>
     </def>
@@ -124,7 +127,7 @@ The method name.
 ## method: propertyExist {id="propertyexist()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::propertyExist(string|object $object_or_class, string $property):bool]]>
+    <![CDATA[final public static ClsObj::propertyExist(class-string|object $object_or_class, non-empty-string $property):bool]]>
 </code-block>
 
 
@@ -148,12 +151,12 @@ The method name.
 <p><format style="italic">This method checks if the given property exists in the specified class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L89">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L88">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L89">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L88">
                     View blame
                 </a>
             </def></deflist>
@@ -164,18 +167,11 @@ The method name.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 The class name or an object of the class to test for.
-</format></li><li>string <format style="bold">$property</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$property</format> - <format style="italic">
 The name of the property.
 </format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If there was an error trying to get property.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -206,12 +202,12 @@ The name of the property.
 <p><format style="italic">Checks if the given $object_or_class is of this object type or has this object type as one of its supertypes.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L113">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L123">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L113">
                     View blame
                 </a>
             </def></deflist>
@@ -223,7 +219,6 @@ The name of the property.
 <deflist>
     <def title="This method has parameters:">
         <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
 A class name or an object instance.
 </format></li><li>string <format style="bold">$class</format> - <format style="italic">
 The class or interface name.
@@ -241,7 +236,7 @@ false otherwise.</format></li></list>
 ## method: subClassOf {id="subclassof()"}
 
 <code-block lang="php">
-    <![CDATA[public static ClsObj::subClassOf(string|object $object_or_class, string $class, bool $autoload = true):bool]]>
+    <![CDATA[public static ClsObj::subClassOf(class-string|object $object_or_class, class-string $class, bool $autoload = true):bool]]>
 </code-block>
 
 
@@ -256,17 +251,17 @@ false otherwise.</format></li></list>
 
 
 
-### ### Checks if class has this class as one of its parents or implements it
+### ### Checks if a class has this class as one of its parents or implements it
 
 <p><format style="italic">Checks if the given object_or_class has the class $class as one of its parents or implements it.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L139">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L151">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L139">
                     View blame
                 </a>
             </def></deflist>
@@ -277,10 +272,10 @@ false otherwise.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
-The tested class. No error is generated if the class does not exist.
-</format></li><li>string <format style="bold">$class</format> - <format style="italic">
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
+The tested class.
+No error is generated if the class doesn't exist.
+</format></li><li>class-string <format style="bold">$class</format> - <format style="italic">
 The class or interface name.
 </format></li><li>bool <format style="bold">$autoload</format> = true - <format style="italic">[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method.
@@ -296,7 +291,7 @@ false otherwise.</format></li></list>
 ## method: methods {id="methods()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::methods(string|object $object_or_class):array]]>
+    <![CDATA[final public static ClsObj::methods(class-string|object $object_or_class):string[]]]>
 </code-block>
 
 
@@ -320,12 +315,12 @@ false otherwise.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L176">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L161">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L176">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L161">
                     View blame
                 </a>
             </def></deflist>
@@ -336,13 +331,12 @@ false otherwise.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Cls.md#isclass()">\FireHub\Core\Support\LowLevel\Cls::isClass()</a>  - <format style="italic">To check if $object_or_class parameter is class.</format></li></list>
+        <list><li><a href="Cls.md#isclass()">\FireHub\Core\Support\LowLevel\Cls::isClass()</a>  - <format style="italic">To check if the $object_or_class parameter is class.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 The class name or an object instance.
 </format></li></list>
     </def>
@@ -354,13 +348,13 @@ The class name or an object instance.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<string> ]]></code> Returns an array of method names defined for the class.</format></li></list>
+        <list><li>string[] - <format style="italic">Returns an array of method names defined for the class.</format></li></list>
     </def>
 </deflist>
 ## method: parentClass {id="parentclass()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::parentClass(string|object $object_or_class):string|false]]>
+    <![CDATA[final public static ClsObj::parentClass(class-string|object $object_or_class):class-string|false]]>
 </code-block>
 
 
@@ -384,12 +378,12 @@ The class name or an object instance.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L196">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L196">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L178">
                     View blame
                 </a>
             </def></deflist>
@@ -400,22 +394,21 @@ The class name or an object instance.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 The tested object or class name. This parameter is optional if called from the object's method.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>string or false - <format style="italic"><code>class-string|false</code> The name of the parent class for the class that
-$object_or_class is an instance or the name, or false if object_or_class doesn't have a parent.</format></li></list>
+        <list><li>class-string or false - <format style="italic">The name of the parent class for the class that $object_or_class is an instance or the name, or false if object_or_class
+doesn't have a parent.</format></li></list>
     </def>
 </deflist>
 ## method: parents {id="parents()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::parents(string|object $object_or_class, bool $autoload = true):array]]>
+    <![CDATA[final public static ClsObj::parents(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>]]>
 </code-block>
 
 
@@ -436,15 +429,15 @@ $object_or_class is an instance or the name, or false if object_or_class doesn't
 
 ### ### Return the parent classes of the given class
 
-<p><format style="italic">This function returns an array with the name of the parent classes of the given object_or_class.</format></p>
+<p><format style="italic">This function returns an array with the name of the parent classes for the given object_or_class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L223">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L202">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L223">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L202">
                     View blame
                 </a>
             </def></deflist>
@@ -455,8 +448,7 @@ $object_or_class is an instance or the name, or false if object_or_class doesn't
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 An object (class instance) or a string (class or interface name).
 </format></li><li>bool <format style="bold">$autoload</format> = true - <format style="italic">[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method.
@@ -465,18 +457,18 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<string, class-string> ]]></code> An array on success.</format></li></list>
+        <list><li>array&lt;string,class-string&gt; - <format style="italic">An array on success.</format></li></list>
     </def>
 </deflist>
 ## method: implements {id="implements()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::implements(string|object $object_or_class, bool $autoload = true):array]]>
+    <![CDATA[final public static ClsObj::implements(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>]]>
 </code-block>
 
 
@@ -501,12 +493,12 @@ Whether to allow this function to load the class automatically through the __aut
 and its parents implement.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L252">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L228">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L252">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L228">
                     View blame
                 </a>
             </def></deflist>
@@ -517,8 +509,7 @@ and its parents implement.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 An object (class instance) or a string (class or interface name).
 </format></li><li>bool <format style="bold">$autoload</format> = true - <format style="italic">[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method.
@@ -527,18 +518,18 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<string, class-string> ]]></code> An array.</format></li></list>
+        <list><li>array&lt;string,class-string&gt; - <format style="italic">An array.</format></li></list>
     </def>
 </deflist>
 ## method: uses {id="uses()"}
 
 <code-block lang="php">
-    <![CDATA[final public static ClsObj::uses(string|object $object_or_class, bool $autoload = true):array]]>
+    <![CDATA[final public static ClsObj::uses(class-string|object $object_or_class, bool $autoload = true):array<string,class-string>]]>
 </code-block>
 
 
@@ -563,12 +554,12 @@ Whether to allow this function to load the class automatically through the __aut
 This does, however, not include any traits used by a parent class.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L281">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L254">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L281">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.ClsObj.php#L254">
                     View blame
                 </a>
             </def></deflist>
@@ -579,8 +570,7 @@ This does, however, not include any traits used by a parent class.</format></p>
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string or object <format style="bold">$object_or_class</format> - <format style="italic">
-<code>class-string|object</code>
+        <list><li>class-string or object <format style="bold">$object_or_class</format> - <format style="italic">
 An object (class instance) or a string (class or interface name).
 </format></li><li>bool <format style="bold">$autoload</format> = true - <format style="italic">[optional] 
 Whether to allow this function to load the class automatically through the __autoload magic method.
@@ -589,11 +579,11 @@ Whether to allow this function to load the class automatically through the __aut
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class does not exist and could not be loaded.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $object_or_class doesn&#039;t exist and couldn&#039;t be loaded.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<string, class-string> ]]></code> An array.</format></li></list>
+        <list><li>array&lt;string,class-string&gt; - <format style="italic">An array.</format></li></list>
     </def>
 </deflist>

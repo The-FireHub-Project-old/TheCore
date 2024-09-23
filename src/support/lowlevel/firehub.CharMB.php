@@ -14,8 +14,11 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\String\Encoding;
-use Error;
+use Error, ValueError;
 
 use function mb_chr;
 use function mb_ord;
@@ -26,7 +29,13 @@ use function mb_ord;
  * Class provides multibyte specific character functions that help you deal with multibyte encodings.
  * @since 1.0.0
  */
-final class CharMB {
+final class CharMB implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Return character by Unicode code point value
@@ -40,18 +49,21 @@ final class CharMB {
      * @param int $codepoint <p>
      * The codepoint value.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If codepoint could not be converted to character.
+     * @throws Error If codepoint couldn't be converted to character.
+     *
+     * @return string string A string containing the requested character.
      *
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values
+     *
      */
-    public static function chr (int $codepoint, Encoding $encoding = null):string {
+    public static function chr (int $codepoint, ?Encoding $encoding = null):string {
 
-        return mb_chr($codepoint, $encoding?->value)
-            ?: throw new Error('Codepoint could not be converted to character.');
+        return ($chr = mb_chr($codepoint, $encoding?->value)) !== false
+            ? $chr : throw new Error('Codepoint could not be converted to character');
 
     }
 
@@ -63,19 +75,22 @@ final class CharMB {
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
      *
-     * @param string $character <p>
+     * @param non-empty-string $character <p>
      * A character.
      * </p>
-     * @param \FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If character could not be converted to codepoint.
+     * @throws Error If character couldn't be converted to codepoint.
+     * @throws ValueError If an empty string is provided.
+     *
+     * @return int The Unicode code point for the first character of string.
      */
-    public static function ord (string $character, Encoding $encoding = null):int {
+    public static function ord (string $character, ?Encoding $encoding = null):int {
 
-        return mb_ord($character, $encoding?->value)
-            ?: throw new Error('Character could not be converted to codepoint');
+        return ($ord = mb_ord($character, $encoding?->value)) !== false
+            ? $ord : throw new Error('Character could not be converted to codepoint');
 
     }
 

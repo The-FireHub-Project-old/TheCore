@@ -129,7 +129,7 @@ original._
 <h2><a name="uudecode()"># method: uuDecode</a></h2>
 
 ```php
-public static StrEncode::uuDecode(string $data):string
+public static StrEncode::uuDecode(non-empty-string $data):string
 ```
 
 
@@ -150,7 +150,7 @@ public static StrEncode::uuDecode(string $data):string
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L110)**</sub>
 #### Parameters
 
-* string **$data** - _The uuencoded data._
+* non-empty-string **$data** - _The uuencoded data._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we cannot uudecode $data._

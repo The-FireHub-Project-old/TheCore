@@ -1,0 +1,561 @@
+<?php declare(strict_types = 1);
+
+/**
+ * This file is part of FireHub Web Application Framework package
+ *
+ * @author Danijel Galić <danijel.galic@outlook.com>
+ * @copyright 2024 FireHub Web Application Framework
+ * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
+ *
+ * @package Core\Support
+ *
+ * @version GIT: $Id$ Blob checksum.
+ */
+
+namespace FireHub\Core\Support\Zwick\Traits;
+
+use FireHub\Core\Support\Enums\DateTime\Format\ {
+    Day, Month, Time, Week, Year
+};
+use FireHub\Core\Support\Enums\DateTime\ {
+    Names\Month as MonthName, Names\WeekDay, Unit\Months, Unit\Years
+};
+use FireHub\Core\Support\Enums\Data\Type;
+use FireHub\Core\Support\LowLevel\ {
+    Data, NumInt
+};
+
+/**
+ * ### Get information about the current date\time
+ * @since 1.0.0
+ */
+trait Get {
+
+    /**
+     * ### Get millennium
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::year() To get year.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::MILLENNIUM As years unit.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::calculate() To calculate the number of units.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * $datetime = DateTime::now()->millennium();
+     *
+     * // 3
+     * ```
+     *
+     * @return int Millennium.
+     */
+    public function millennium ():int {
+
+        return NumInt::ceil(($this->year() + 1) / Years::MILLENNIUM->calculate());
+
+    }
+
+    /**
+     * ### Get century
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::year() To get year.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::CENTURY As years unit.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::calculate() To calculate the number of units.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->century();
+     *
+     * // 21
+     * ```
+     *
+     * @return int Century.
+     */
+    public function century ():int {
+
+        return NumInt::ceil(($this->year() + 1) / Years::CENTURY->calculate());
+
+    }
+
+    /**
+     * ### Get a decade in century
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::yearShort() To get a short two-digit year.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::DECADE As years unit.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Years::calculate() To calculate the number of units.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->decade();
+     *
+     * // 3
+     * ```
+     *
+     * @return int Decade.
+     */
+    public function decade ():int {
+
+        return NumInt::ceil(($this->yearShort() + 1) / Years::DECADE->calculate());
+
+    }
+
+    /**
+     * ### Get year
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Year::LONG As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example Get Calendar year.
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->year();
+     *
+     * // 2023
+     * ```
+     *
+     * @return int Year.
+     */
+    public function year ():int {
+
+        return Data::setType($this->parse(Year::LONG), Type::T_INT);
+
+    }
+
+    /**
+     * ### Get short two-digit year
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Year::SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example Get Calendar year.
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->yearShort();
+     *
+     * // 23
+     * ```
+     *
+     * @return int Year.
+     */
+    public function yearShort ():int {
+
+        return Data::setType($this->parse(Year::SHORT), Type::T_INT);
+
+    }
+
+    /**
+     * ### Get quarter in year
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::month() To get a month.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Months::QUARTER As month unit.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Unit\Months::calculate() To calculate the number of units.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * $datetime = DateTime::now()->quarter();
+     *
+     * // 3
+     * ```
+     *
+     * @return int<1, 3> Quarter in a year.
+     */
+    public function quarter ():int {
+
+        return NumInt::ceil(($this->month() + 1) / Months::QUARTER->calculate()); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Get month number
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Month::NUMERIC_SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->month();
+     *
+     * // 7
+     * ```
+     *
+     * @return int<1, 12> Month number.
+     */
+    public function month ():int {
+
+        return Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Get month name
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Names\Month As return.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Month::NUMERIC_SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Names\Month;
+     *
+     * DateTime::now()->monthName();
+     *
+     * // Month::JULY
+     * ```
+     *
+     * @return \FireHub\Core\Support\Enums\DateTime\Names\Month Month number.
+     */
+    public function monthName ():MonthName {
+
+        return MonthName::from(
+            Data::setType($this->parse(Month::NUMERIC_SHORT), Type::T_INT)
+        );
+
+    }
+
+    /**
+     * ### Get week in month
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\NumInt::ceil() To round fractions up.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::day() To day of the month.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::firstDay() To set calendar to first day of specified month.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::dayInWeek() To get day of the week
+     *
+     * @example Get Calendar year.
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->weekInMonth();
+     *
+     * // 3
+     * ```
+     *
+     * @return int<1, 5> Week in month.
+     */
+    public function weekInMonth ():int {
+
+        return NumInt::ceil(($this->day() + self::firstDay()->weekDay()->value - 1) / 7); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### The day of the month
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\DayFormat::NUMERIC_IN_MONTH_SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->day();
+     *
+     * // 2
+     * ```
+     *
+     * @return int<0, 31> Day in month number.
+     */
+    public function day ():int {
+
+        return Data::setType($this->parse(Day::NUMERIC_IN_MONTH_SHORT), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### The day of the month suffix
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\DayFormat::NUMERIC_IN_MONTH_SHORT As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->daySuffix();
+     *
+     * // th
+     * ```
+     *
+     * @return string English ordinal suffix for the day of the month, two characters.
+     */
+    public function daySuffix ():string {
+
+        return $this->parse(Day::SUFFIX);
+
+    }
+
+    /**
+     * ### The day of the year
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Day::NUMBER aS format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->dayInYear();
+     *
+     * // 195
+     * ```
+     *
+     * @return int<1, 366> Number of days in the given month.
+     */
+    public function dayInYear ():int {
+
+        return Data::setType($this->parse(Day::NUMBER), Type::T_INT) + 1; // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### The day number of the week
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Names\WeekDay As return.
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Day::NUMERIC_IN_WEEK_ISO_8601 As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     * use FireHub\Core\Support\Enums\DateTime\Ordinal;
+     * use FireHub\Core\Support\Enums\DateTime\WeekDay;
+     *
+     * DateTime::weekDay(Ordinal::LAST, WeekDay::SUNDAY)->dayInWeek();
+     *
+     * // WeekDay::SUNDAY
+     * ```
+     *
+     * @return \FireHub\Core\Support\Enums\DateTime\Names\WeekDay Weekday names enum.
+     */
+    public function weekDay ():WeekDay {
+
+        return WeekDay::from(
+            Data::setType($this->parse(Day::NUMERIC_IN_WEEK_ISO_8601), Type::T_INT)
+        );
+
+    }
+
+    /**
+     * ### 24 type hour of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::HOUR_SHORT_24 As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->hour();
+     *
+     * // 13
+     * ```
+     *
+     * @return int<0, 23> Hour of the time number.
+     */
+    public function hour ():int {
+
+        return Data::setType($this->parse(Time::HOUR_SHORT_24), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### 24 type hour of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::HOUR_SHORT_12 As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->hour();
+     *
+     * // 1
+     * ```
+     *
+     * @return int<0, 12> Hour of the time number.
+     */
+    public function hourShort ():int {
+
+        return Data::setType($this->parse(Time::HOUR_SHORT_12), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Ante meridiem and Post meridiem suffix for the hour
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::MERDIEM_LC As format type.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->merdiem();
+     *
+     * // am
+     * ```
+     *
+     * @return string Ante meridiem (am) or Post meridiem (pm).
+     */
+    public function merdiem ():string {
+
+        return $this->parse(Time::MERDIEM_LC);
+
+    }
+
+    /**
+     * ### Minute of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::MINUTES As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->minute();
+     *
+     * // 5
+     * ```
+     *
+     * @return int<0, 59> Minute of the time number.
+     */
+    public function minute ():int {
+
+        return Data::setType($this->parse(Time::MINUTES), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Second of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::SECONDS As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->second();
+     *
+     * // 7
+     * ```
+     *
+     * @return int<0, 59> Seconds of the time number.
+     */
+    public function second ():int {
+
+        return Data::setType($this->parse(Time::SECONDS), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Millisecond of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\Traits\Get::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::MILLISECONDS As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->milliSecond(false);
+     *
+     * // 1
+     * ```
+     *
+     * @return int<0, 999> Millisecond of the time number.
+     */
+    public function milliSecond ():int {
+
+        return Data::setType($this->parse(Time::MILLISECONDS), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Microsecond of the time
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Zwick\DateTime::parse() To get date and/or time according to the given format.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Time::MICROSECONDS As format type.
+     * @uses \FireHub\Core\Support\LowLevel\Data::setType() To set to integer.
+     * @uses \FireHub\Core\Support\Enums\Data\Type::T_INT To convert to integer.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\DateTime;
+     *
+     * DateTime::now()->microSecond(false);
+     *
+     * // 1409
+     * ```
+     *
+     * @return int<0, 999999> Microsecond of the time number.
+     */
+    public function microSecond ():int {
+
+        return Data::setType($this->parse(Time::MICROSECONDS), Type::T_INT); // @phpstan-ignore-line
+
+    }
+
+}

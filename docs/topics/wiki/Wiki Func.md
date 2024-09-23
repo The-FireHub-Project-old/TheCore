@@ -37,7 +37,7 @@ _Class allows you to obtain information about functions._
 <h2><a name="isfunction()"># method: isFunction</a></h2>
 
 ```php
-public static Func::isFunction(string $name):bool
+public static Func::isFunction(non-empty-string $name):bool
 ```
 
 
@@ -54,18 +54,18 @@ public static Func::isFunction(string $name):bool
 
 _Checks the list of defined functions, both built-in (internal) and user-defined, for function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L50)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L50)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L49)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L49)**</sub>
 #### Parameters
 
-* string **$name** - _The function name._
+* non-empty-string **$name** - _The function name._
 #### Returns
 
 * bool - _True if the interface exists, false otherwise._
 <h2><a name="call()"># method: call</a></h2>
 
 ```php
-public static Func::call(callable $callback, mixed ...$arguments):mixed
+public static Func::call(callable $callback, mixed ...$arguments):\FireHub\Core\Support\LowLevel\TReturn
 ```
 
 
@@ -82,8 +82,8 @@ public static Func::call(callable $callback, mixed ...$arguments):mixed
 
 _Calls the callback given by the first parameter and passes the remaining parameters as arguments._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L78)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L78)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L76)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L76)**</sub>
 #### Templates
 
 * TReturn
@@ -94,7 +94,7 @@ The callable to be called._
 * variadic mixed **$arguments** - _Zero or more parameters to be passed to the callback._
 #### Returns
 
-* mixed - _<code>TReturn</code> The return value of the callback._
+* [\FireHub\Core\Support\LowLevel\TReturn](./Wiki-TReturn) - _The return value of the callback._
 <h2><a name="registershutdown()"># method: registerShutdown</a></h2>
 
 ```php
@@ -119,8 +119,8 @@ If you call exit() within one registered shutdown function, processing will stop
 registered shutdown functions will be called. Shutdown functions may also call [[Func#registerShutdown()]]
 themselves to add a shutdown function to the end of the queue._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L114)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L114)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L112)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L112)**</sub>
 #### Parameters
 
 * callable **$callback** - _The shutdown callback to register.
@@ -150,8 +150,8 @@ public static Func::registerTick(callable $callback, mixed ...$arguments):bool
 
 _Registers the given callback to be executed when a tick is called._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L139)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L139)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L137)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L137)**</sub>
 #### Parameters
 
 * callable **$callback** - _The function to register._
@@ -182,8 +182,8 @@ public static Func::unregisterTick(callable $callback):void
 
 _De-registers the function, so it is no longer executed when a tick is called._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L158)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L158)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L156)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Func.php#L156)**</sub>
 #### Parameters
 
 * callable **$callback** - _The function to deregister._

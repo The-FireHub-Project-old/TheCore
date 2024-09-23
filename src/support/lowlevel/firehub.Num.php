@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Number\ {
     LogBase, Round
 };
@@ -21,23 +24,32 @@ use FireHub\Core\Support\Enums\Number\ {
 use function abs;
 use function ceil;
 use function floor;
+use function deg2rad;
+use function exp;
+use function hypot;
 use function log;
 use function log10;
 use function log1p;
 use function max;
 use function min;
 use function pow;
+use function rad2deg;
 use function round;
+use function sqrt;
 
 /**
  * ### Number low-level proxy class
  *
  * Class contains methods that are used on all number types.
  * @since 1.0.0
- *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-abstract class Num {
+abstract class Num implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Absolute value
@@ -49,8 +61,7 @@ abstract class Num {
      * The numeric value to process.
      * </p>
      *
-     * @return int|float <code>($number is int ? int : float)</code> The absolute value of number.
-     * @phpstan-return ($number is int ? int : float)
+     * @return ($number is int ? int : float) The absolute value of number.
      */
     final public static function absolute (float|int $number):float|int {
 
@@ -114,17 +125,17 @@ abstract class Num {
      * The value to round.
      * </p>
      * @param int $precision [optional] <p>
-     * Number of decimal digits to round to. If the precision is positive, num is rounded to precision significant
-     * digits after the decimal point. If the precision is negative, num is rounded to precision significant digits
-     * before the decimal point, i.e., to the nearest multiple of pow(10, -$precision), e.g. for a precision of -1
-     * num is rounded to tens, for a precision of -2 to hundreds, etc.
+     * Number of decimal digits to round to.
+     * If the precision is positive, the num is rounded to precision significant digits after the decimal point.
+     * If the precision is negative, num is rounded to precision significant digits
+     * before the decimal point, in other words, to the nearest multiple of pow(10, -$precision), for example,
+     * for a precision of -1 num is rounded to tens, for a precision of -2 to hundreds, and so on
      * </p>
      * @param \FireHub\Core\Support\Enums\Number\Round $round [optional] <p>
      * Specify the mode in which rounding occurs.
      * </p>
      *
-     * @return float|int <code>($precision is positive-int ? float : int)</code> Rounded number float.
-     * @phpstan-return ($precision is positive-int ? float : int)
+     * @return ($precision is positive-int ? float : int) Rounded number float.
      */
     final public static function round (float|int $number, int $precision = 0, Round $round = Round::HALF_UP):float|int {
 
@@ -162,7 +173,7 @@ abstract class Num {
     }
 
     /**
-     * ### Returns log(1 + number), computed in a way that is accurate even when the value of number is close to zero
+     * ### Returns log(1 + number), computed in a way that is accurate even when the value of the number is close to zero
      * @since 1.0.0
      *
      * @param float|int $number <p>
@@ -208,8 +219,7 @@ abstract class Num {
      * Any comparable values.
      * </p>
      *
-     * @return int|float <code>TInt</code> Value considered "highest" according to standard comparisons.
-     * @phpstan-return TInt
+     * @return TInt Value considered "highest" according to standard comparisons.
      */
     final public static function max (float|int $value, float|int ...$values):float|int {
 
@@ -232,8 +242,7 @@ abstract class Num {
      * Any comparable values.
      * </p>
      *
-     * @return int|float <code>TInt</code> Value considered "lowest" according to standard comparisons.
-     * @phpstan-return TInt
+     * @return TInt Value considered "lowest" according to standard comparisons.
      */
     final public static function min (float|int $value, float|int ...$values):float|int {
 
@@ -267,14 +276,13 @@ abstract class Num {
     /**
      * ### Format a number with grouped thousands
      *
-     * Formats a number with grouped thousands and optionally decimal digits using the rounding half up rule.
+     * Formats a number with grouped thousands and optionally decimal digits using the rounding half-up rule.
      * @since 1.0.0
      *
      * @param int|float $number <p>
      * The number being formatted.
      * </p>
-     * @param int $decimals <p>
-     * <code>non-negative-int</code>
+     * @param non-negative-int $decimals <p>
      * Sets the number of decimal digits. If 0, the decimal_separator is omitted from the return value.
      * </p>
      * @param string $decimal_separator <p>
@@ -283,9 +291,8 @@ abstract class Num {
      * @param string $thousands_separator <p>
      * Sets the separator for thousands.
      * </p>
-     * @phpstan-param non-negative-int $decimals
      *
-     * @return string A formatted version of number.
+     * @return string A formatted version of the number.
      */
     final public static function format (int|float $number, int $decimals, string $decimal_separator = '.', string $thousands_separator = ','):string {
 
@@ -295,6 +302,117 @@ abstract class Num {
             $decimal_separator,
             $thousands_separator
         );
+
+    }
+
+    /**
+     * ### Converts the number in degrees to the radian equivalent
+     * @since 1.0.0
+     *
+     * @param int|float $number <p>
+     * Angular value in degrees.
+     * </p>
+     *
+     * @return float Radian equivalent of number.
+     */
+    public static function degreesToRadian (int|float $number):float {
+
+        return deg2rad($number);
+
+    }
+
+    /**
+     * ### Converts the radian number to the equivalent number in degrees
+     * @since 1.0.0
+     *
+     * @param int|float $number <p>
+     * Radian value.
+     * </p>
+     *
+     * @return float Equivalent of number in degrees.
+     */
+    public static function radianToDegrees (int|float $number):float {
+
+        return rad2deg($number);
+
+    }
+
+    /**
+     * ### Calculates the exponent of e
+     * @since 1.0.0
+     *
+     * @param int|float $number <p>
+     * The argument to process.
+     * </p>
+     *
+     * @return float 'e' raised to the power of number.
+     *
+     * @note 'e' is the base of the natural system of logarithms, or approximately 2.718282.
+     */
+    public static function exponent (int|float $number):float {
+
+        return exp($number);
+
+    }
+
+    /**
+     * ### Returns exp($number) – 1, computed in a way that is accurate even when the value of the number is close to zero
+     *
+     * Method returns the equivalent to 'exp(num) – 1' computed in a way that is accurate even if the value of num is
+     * near zero, a case where 'exp (num) – 1' would be inaccurate due to subtraction of two numbers that are nearly
+     * equal.
+     * @since 1.0.0
+     *
+     * @param int|float $number <p>
+     * The argument to process.
+     * </p>
+     *
+     * @return float 'e' raised to the power of number.
+     *
+     * @note 'e' to the power of num minus one.
+     */
+    public static function exponent1 (int|float $number):float {
+
+        return expm1($number);
+
+    }
+
+    /**
+     * ### Calculate the length of the hypotenuse of a right-angle triangle
+     *
+     * Method returns the length of the hypotenuse of a right-angle triangle with sides of length x and y, or the
+     * distance of the point (x, y) from the origin.
+     * This is equivalent to sqrt($x*$x + $y*$y).
+     * @since 1.0.0
+     *
+     * @param int|float $x <p>
+     * Length of the first side.
+     * </p>
+     * @param int|float $y <p>
+     * Length of the second side.
+     * </p>
+     *
+     * @return float Calculated length of the hypotenuse.
+     */
+    public static function hypotenuseLength (int|float $x, int|float $y):float {
+
+        return hypot($x, $y);
+
+    }
+
+    /**
+     * ### Square root
+     * @since 1.0.0
+     *
+     * @param int|float $number  <p>
+     * The argument to process.
+     * </p>
+     *
+     * @return float The square root of num or the special value NAN for negative numbers.
+     */
+    public static function squareRoot (int|float $number):float {
+
+        return sqrt($number);
 
     }
 

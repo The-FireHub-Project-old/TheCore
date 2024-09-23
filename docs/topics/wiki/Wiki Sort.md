@@ -27,18 +27,18 @@ enum Sort
 ### Cases
 | Name | Title | Value |
 |:-----|:------|:------|
-|<a href="#sort_regular">SORT_REGULAR</a>|### Compare items normally|0|
-|<a href="#sort_numeric">SORT_NUMERIC</a>|### Compare items numerically|1|
-|<a href="#sort_string">SORT_STRING</a>|### Compare items as strings|2|
-|<a href="#sort_locale_string">SORT_LOCALE_STRING</a>|### Compare items as strings, based on the current locale|5|
-|<a href="#sort_natural">SORT_NATURAL</a>|### Compare items as strings using "natural ordering" like natsort()|6|
-|<a href="#sort_string_flag_case">SORT_STRING_FLAG_CASE</a>|### Sort strings case-insensitively|10|
-|<a href="#sort_natural_flag_case">SORT_NATURAL_FLAG_CASE</a>|### Sort natural case-insensitively|14|
+|<a href="#by_regular">BY_REGULAR</a>|### Compare items normally|0|
+|<a href="#by_numeric">BY_NUMERIC</a>|### Compare items numerically|1|
+|<a href="#by_string">BY_STRING</a>|### Compare items as strings|2|
+|<a href="#by_locale_string">BY_LOCALE_STRING</a>|### Compare items as strings, based on the current locale|5|
+|<a href="#by_natural">BY_NATURAL</a>|### Compare items as strings using "natural ordering" like natsort()|6|
+|<a href="#by_string_flag_case">BY_STRING_FLAG_CASE</a>|### Sort strings case-insensitively|10|
+|<a href="#by_natural_flag_case">BY_NATURAL_FLAG_CASE</a>|### Sort natural case-insensitively|14|
 
-<h2><a name="sort_regular"># case: SORT_REGULAR</a></h2>
+<h2><a name="by_regular"># case: BY_REGULAR</a></h2>
 
 ```php
-SORT_REGULAR
+BY_REGULAR
 ```
 
 
@@ -51,10 +51,10 @@ SORT_REGULAR
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L27)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L27)**</sub>
-<h2><a name="sort_numeric"># case: SORT_NUMERIC</a></h2>
+<h2><a name="by_numeric"># case: BY_NUMERIC</a></h2>
 
 ```php
-SORT_NUMERIC = 1
+BY_NUMERIC = 1
 ```
 
 
@@ -67,10 +67,10 @@ SORT_NUMERIC = 1
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L33)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L33)**</sub>
-<h2><a name="sort_string"># case: SORT_STRING</a></h2>
+<h2><a name="by_string"># case: BY_STRING</a></h2>
 
 ```php
-SORT_STRING = 2
+BY_STRING = 2
 ```
 
 
@@ -83,10 +83,10 @@ SORT_STRING = 2
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L39)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L39)**</sub>
-<h2><a name="sort_locale_string"># case: SORT_LOCALE_STRING</a></h2>
+<h2><a name="by_locale_string"># case: BY_LOCALE_STRING</a></h2>
 
 ```php
-SORT_LOCALE_STRING = 5
+BY_LOCALE_STRING = 5
 ```
 
 
@@ -99,10 +99,10 @@ SORT_LOCALE_STRING = 5
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L45)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L45)**</sub>
-<h2><a name="sort_natural"># case: SORT_NATURAL</a></h2>
+<h2><a name="by_natural"># case: BY_NATURAL</a></h2>
 
 ```php
-SORT_NATURAL = 6
+BY_NATURAL = 6
 ```
 
 
@@ -115,10 +115,10 @@ SORT_NATURAL = 6
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L51)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L51)**</sub>
-<h2><a name="sort_string_flag_case"># case: SORT_STRING_FLAG_CASE</a></h2>
+<h2><a name="by_string_flag_case"># case: BY_STRING_FLAG_CASE</a></h2>
 
 ```php
-SORT_STRING_FLAG_CASE = 10
+BY_STRING_FLAG_CASE = 10
 ```
 
 
@@ -131,10 +131,10 @@ SORT_STRING_FLAG_CASE = 10
 
 ><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L57)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/firehub.Sort.php#L57)**</sub>
-<h2><a name="sort_natural_flag_case"># case: SORT_NATURAL_FLAG_CASE</a></h2>
+<h2><a name="by_natural_flag_case"># case: BY_NATURAL_FLAG_CASE</a></h2>
 
 ```php
-SORT_NATURAL_FLAG_CASE = 14
+BY_NATURAL_FLAG_CASE = 14
 ```
 
 

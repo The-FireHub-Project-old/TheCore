@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Ordering enum
  * @since 1.0.0
  */
-enum Order:string {
+enum Order:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete-backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### Arranging in ascending order
@@ -31,5 +41,20 @@ enum Order:string {
      * @since 1.0.0
      */
     case DESC = 'DESC';
+
+    /**
+     * ### Get the reverse order
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Support\Enums\Order Reversed order.
+     */
+    public function reverse ():Order {
+
+        return match ($this) {
+            self::ASC => self::DESC,
+            self::DESC => self::ASC
+        };
+
+    }
 
 }

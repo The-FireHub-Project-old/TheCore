@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\StrSafe
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L48">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L49">
             View source code
         </a>
     </def>
@@ -58,19 +62,20 @@
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public static |<a href="#contains()">contains</a>|### Checks if string contains value|
+|public static |<a href="#contains()">contains</a>|### Checks if string contains a value|
 |public static |<a href="#startswith()">startsWith</a>|### Checks if a string starts with a given value|
 |public static |<a href="#endswith()">endsWith</a>|### Checks if a string ends with a given value|
 |public static |<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
 |public static |<a href="#implode()">implode</a>|### Join array elements with a string|
-|public static |<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
-|public static |<a href="#replace()">replace</a>|### Replace all occurrences of the search string with the replacement string|
+|public static |<a href="#quotemeta()">quoteMeta</a>|### Quote meta-characters|
 |public static |<a href="#repeat()">repeat</a>|### Repeat a string|
 |public static |<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
 |public static |<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
 |public static |<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |public static |<a href="#explode()">explode</a>|### Split a string by a string|
 |public static |<a href="#compare()">compare</a>|### String comparison|
+|public static |<a href="#translate()">translate</a>|### Translate characters or replace substrings|
+
 
 ## method: contains {id="contains()"}
 
@@ -94,17 +99,17 @@
 
 
 
-### ### Checks if string contains value
+### ### Checks if string contains a value
 
 <p><format style="italic">Performs a case-sensitive check indicating if $string is contained in $string.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L65">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L72">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L65">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L72">
                     View blame
                 </a>
             </def></deflist>
@@ -124,13 +129,13 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if a string contains value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if a string contains a value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: startsWith {id="startswith()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::startsWith(string $value, string $string):bool]]>
+    <![CDATA[final public static StrSafe::startsWith(non-empty-string $value, string $string):bool]]>
 </code-block>
 
 
@@ -154,12 +159,12 @@ The string to search in.
 <p><format style="italic">Performs a case-sensitive check indicating if $string begins with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L93">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L88">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L93">
                     View blame
                 </a>
             </def></deflist>
@@ -170,8 +175,7 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format> - <format style="italic">
-<code>non-empty-string></code>
+        <list><li>non-empty-string <format style="bold">$value</format> - <format style="italic">
 The value to search for.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string to search in.
@@ -180,13 +184,13 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string starts with value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string starts with value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: endsWith {id="endswith()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::endsWith(string $value, string $string):bool]]>
+    <![CDATA[final public static StrSafe::endsWith(non-empty-string $value, string $string):bool]]>
 </code-block>
 
 
@@ -210,12 +214,12 @@ The string to search in.
 <p><format style="italic">Performs a case-sensitive check indicating if $string ends with $value.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L114">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L112">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L114">
                     View blame
                 </a>
             </def></deflist>
@@ -226,8 +230,7 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$value</format> - <format style="italic">
-<code>non-empty-string></code>
+        <list><li>non-empty-string <format style="bold">$value</format> - <format style="italic">
 The value to search for.
 </format></li><li>string <format style="bold">$string</format> - <format style="italic">
 The string to search in.
@@ -236,7 +239,7 @@ The string to search in.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>bool - <format style="italic">True if string ends with value, false otherwise.</format></li></list>
+        <list><li>bool - <format style="italic">True if the string ends with value, false otherwise.</format></li></list>
     </def>
 </deflist>
 ## method: addSlashes {id="addslashes()"}
@@ -263,12 +266,12 @@ The string to search in.
 (single quote, double quote, backslash, NUL).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L134">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L136">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L134">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L136">
                     View blame
                 </a>
             </def></deflist>
@@ -298,7 +301,7 @@ The string to be escaped.
 ## method: implode {id="implode()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::implode(array $array, string $separator = &#039;&#039;):string]]>
+    <![CDATA[final public static StrSafe::implode(array<array-key,null|scalar|\Stringable> $array, string $separator = &#039;&#039;):string]]>
 </code-block>
 
 
@@ -338,8 +341,7 @@ The string to be escaped.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>array <format style="bold">$array</format> - <format style="italic">
-<code><![CDATA[ array<array-key, mixed> ]]></code>
+        <list><li>array&lt;array-key,null or scalar or <a href="Stringable&gt;.md">\Stringable&gt;</a> <format style="bold">$array</format> - <format style="italic">
 The array of strings to implode.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 The boundary string.
@@ -348,7 +350,7 @@ The boundary string.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If array item could not be converted to string.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If the array item couldn&#039;t be converted to string.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -379,17 +381,17 @@ with the separator string between each element.</format></li></list>
 
 
 
-### ### Quote meta characters
+### ### Quote meta-characters
 
 <p><format style="italic">Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L178">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L182">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L178">
                     View blame
                 </a>
             </def></deflist>
@@ -401,84 +403,13 @@ with the separator string between each element.</format></li></list>
 <deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
-<code>non-empty-string</code>
 The input string.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
-    <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If empty string is given as string.</format></li></list>
-    </def>
-</deflist>
-<deflist>
     <def title="This method returns:">
         <list><li>string - <format style="italic">The string with meta-characters quoted.</format></li></list>
-    </def>
-</deflist>
-## method: replace {id="replace()"}
-
-<code-block lang="php">
-    <![CDATA[final public static StrSafe::replace(string|array $search, string|array $replace, string $string, bool $case_sensitive = true, null|int &$count = null):string]]>
-</code-block>
-
-
-
-
-
-<tip>
-    <p>
-        This method is marked as <format style="bold">final</format>.
-    </p>
-</tip>
-
-
-
-
-
-
-
-### ### Replace all occurrences of the search string with the replacement string
-
-<p><format style="italic">This function returns a string or an array with all occurrences of search
-in a subject replaced with the given replacement value.</format></p>
-
-<deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L224">
-                    View source code
-                </a>
-            </def>
-            <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L224">
-                    View blame
-                </a>
-            </def></deflist>
-<deflist>
-    <def title="Version history:">
-        <list><li>1.0.0</li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method has parameters:">
-        <list><li>string or array <format style="bold">$search</format> - <format style="italic">
-<code><![CDATA[ string|list<string> ]]></code>
-The replacement value that replaces found search values.
-An array may be used to designate multiple replacements.
-</format></li><li>string or array <format style="bold">$replace</format> - <format style="italic">
-<code><![CDATA[ string|list<string> ]]></code>
-The string being searched and replaced on.
-</format></li><li>string <format style="bold">$string</format> - <format style="italic">
-The value being searched for.
-</format></li><li>bool <format style="bold">$case_sensitive</format> = true - <format style="italic">[optional] 
-Searched values are case-insensitive.
-</format></li><li>by reference null or int <format style="bold">$count</format> = null - <format style="italic">[optional] 
-If passed, this will hold the number of matched and replaced needles.
-</format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method returns:">
-        <list><li>string - <format style="italic">String with the replaced values.</format></li></list>
     </def>
 </deflist>
 ## method: repeat {id="repeat()"}
@@ -508,12 +439,12 @@ If passed, this will hold the number of matched and replaced needles.
 <p><format style="italic">Returns string repeated $times times.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L255">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L205">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L255">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L205">
                     View blame
                 </a>
             </def></deflist>
@@ -525,19 +456,13 @@ If passed, this will hold the number of matched and replaced needles.
 <deflist>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
-The string to be repeated.
+The string is to be repeated.
 </format></li><li>int <format style="bold">$times</format> - <format style="italic">
-<code>non-negative-int</code>
-Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0. If the
-multiplier is set to 0, the function will return an empty string.
+Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
+If the $times are set to 0 or less, the function will return an empty string.
 </format></li><li>string <format style="bold">$separator</format> = '' - <format style="italic">[optional] 
 Separator in between any repeated string.
 </format></li></list>
-    </def>
-</deflist>
-<deflist>
-    <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If $times argument is not 0 or greater.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -548,7 +473,7 @@ Separator in between any repeated string.
 ## method: stripTags {id="striptags()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrSafe::stripTags(string $string, null|string|array $allowed_tags = null):string]]>
+    <![CDATA[public static StrSafe::stripTags(string $string, null|string|array<int,string> $allowed_tags = null):string]]>
 </code-block>
 
 
@@ -569,12 +494,12 @@ Separator in between any repeated string.
 uses the same tag stripping state machine as the fgetss() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L282">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L230">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L282">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L230">
                     View blame
                 </a>
             </def></deflist>
@@ -587,9 +512,8 @@ uses the same tag stripping state machine as the fgetss() function.</format></p>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The input string.
-</format></li><li>null or string or array <format style="bold">$allowed_tags</format> = null - <format style="italic">
-<code><![CDATA[ null|string|array<int, string> ]]></code>
-You can use the optional second parameter to specify tags which should not be stripped.</format></li></list>
+</format></li><li>null or string or array&lt;int,string&gt; <format style="bold">$allowed_tags</format> = null - <format style="italic">
+You can use the optional second parameter to specify tags which shouldn't be stripped.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -620,12 +544,12 @@ You can use the optional second parameter to specify tags which should not be st
 <p><format style="italic">Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash).</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L305">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L253">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L305">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L253">
                     View blame
                 </a>
             </def></deflist>
@@ -676,8 +600,8 @@ The string to be unquoted.
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
-<p><format style="italic">This function returns a string with whitespace stripped from the beginning and end of string. Without the
-second parameter, trim() will strip these characters.
+<p><format style="italic">This function returns a string with whitespace stripped from the beginning and end of the string.
+Without the second parameter, [[StrSafe#trim()]] will strip these characters.
 
 - " " (ASCII 32 (0x20)), an ordinary space.
 - "\t" (ASCII 9 (0x09)), a tab.
@@ -687,12 +611,12 @@ second parameter, trim() will strip these characters.
 - "\v" (ASCII 11 (0x0B)), a vertical tab.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L347">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L295">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L347">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L295">
                     View blame
                 </a>
             </def></deflist>
@@ -727,7 +651,7 @@ to be stripped. With '..', you can specify a range of characters.
 ## method: explode {id="explode()"}
 
 <code-block lang="php">
-    <![CDATA[final public static StrSafe::explode(string $string, string $separator, int $limit = MAX):array]]>
+    <![CDATA[final public static StrSafe::explode(string $string, non-empty-string $separator, int<min, max> $limit = MAX):string[]]]>
 </code-block>
 
 
@@ -752,12 +676,12 @@ to be stripped. With '..', you can specify a range of characters.
 formed by the string separator.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L389">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L332">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L389">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L332">
                     View blame
                 </a>
             </def></deflist>
@@ -775,11 +699,9 @@ formed by the string separator.</format></p>
     <def title="This method has parameters:">
         <list><li>string <format style="bold">$string</format> - <format style="italic">
 The input string.
-</format></li><li>string <format style="bold">$separator</format> - <format style="italic">
-<code>non-empty-string</code>
+</format></li><li>non-empty-string <format style="bold">$separator</format> - <format style="italic">
 The boundary string.
-</format></li><li>int <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
-<code><![CDATA[ int<min, max> ]]></code>
+</format></li><li>int&lt;min, max&gt; <format style="bold">$limit</format> = MAX - <format style="italic">[optional] 
 If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
 element containing the rest of the string. If the limit parameter is negative, all components except the last
 - limit are returned. If the limit parameter is zero, then this is treated as 1.
@@ -788,14 +710,14 @@ element containing the rest of the string. If the limit parameter is negative, a
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If separator is an empty string.</format></li></list>
+        <list><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If the separator is an empty string.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-returned.</format></li></list>
+        <list><li>string[] - <format style="italic">If a delimiter contains a value not contained in string, and a negative limit is used,
+then an empty array will be returned.
+For any other limit, an array containing string will be returned.</format></li></list>
     </def>
 </deflist>
 ## method: compare {id="compare()"}
@@ -821,12 +743,12 @@ returned.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L411">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L354">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L411">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L354">
                     View blame
                 </a>
             </def></deflist>
@@ -853,5 +775,56 @@ String to compare with.
     <def title="This method returns:">
         <list><li>int&lt;-1, 1&gt; - <format style="italic">-1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if they are
 equal.</format></li></list>
+    </def>
+</deflist>
+## method: translate {id="translate()"}
+
+<code-block lang="php">
+    <![CDATA[public static StrSafe::translate(string $string, array<non-empty-string,string> $replace_pairs):string]]>
+</code-block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ### Translate characters or replace substrings
+
+
+
+<deflist><def title="Source code:">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L375">
+                    View source code
+                </a>
+            </def>
+            <def title="Blame:">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L375">
+                    View blame
+                </a>
+            </def></deflist>
+<deflist>
+    <def title="Version history:">
+        <list><li>1.0.0</li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method has parameters:">
+        <list><li>string <format style="bold">$string</format> - <format style="italic">
+The string being translated to.
+</format></li><li>array&lt;non-empty-string,string&gt; <format style="bold">$replace_pairs</format> - <format style="italic">
+An array of key-value pairs for translation.
+</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>string - <format style="italic">The translated string.</format></li></list>
     </def>
 </deflist>

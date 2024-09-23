@@ -31,12 +31,11 @@ final class Callback {
      * ### Constructor
      * @since 1.0.0
      *
-     * @param Closure(string $namespace, string $classname):(false|string)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @return void
      */
@@ -51,18 +50,17 @@ final class Callback {
      * @uses \FireHub\Core\Support\LowLevel\StrSB::explode() To split class to components.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join array elements to get namespace.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To lowercase all namespaces.
-     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get classname.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::lastKey() To get the classname.
      * @uses \FireHub\Core\Support\LowLevel\Arr::pop() To remove classname from namespace.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @param string $class <p>
      * Class FQN to resolve.
      * </p>
      *
-     * @throws Error If a system could not get class components.
+     * @throws Error If a system couldn't get class components.
      *
-     * @return array <code>array{namespace: string, classname: string}</code> Class components.
-     * @phpstan-return array{namespace: string, classname: string}
+     * @return array{namespace: string, classname: string} Class components.
      */
     private function classComponents (string $class):array {
 
@@ -95,15 +93,16 @@ final class Callback {
      *
      * @uses \FireHub\Core\Initializers\Autoload\Callback::classComponents() To get class components from class FQN.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if $class is callable or string.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if callable path return string.
      * @uses \FireHub\Core\Support\LowLevel\File::isFile() To check if $path is a valid path.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
      * @param string $class <p>
      * Fully qualified class name that is being loaded.
      * </p>
      *
-     * @throws Error If a system could not get class components.
-     * @error\exeption E_WARNING if a system cannot preload class.
+     * @throws Error If a system couldn't get class components.
+     * @error\exeption E_WARNING if a system can't preload a class.
      *
      * @return void
      */
@@ -112,7 +111,7 @@ final class Callback {
         $class_components = $this->classComponents($class);
 
         $path = DataIs::callable($this->path)
-            ? (($path_callable = ($this->path)($class_components['namespace'], $class_components['classname']))
+            ? (DataIs::string(($path_callable = ($this->path)($class_components['namespace'], $class_components['classname'])))
                 ? $path_callable
                 : false)
             : $this->path.DS.$class.'.php';

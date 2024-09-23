@@ -18,12 +18,12 @@ This class is marked as **final**.
 _The syntax for patterns used in these functions closely resembles Perl. The expression must be enclosed in the
 delimiters, a forward slash (/), for example. Delimiters can be any non-alphanumeric, non-whitespace ASCII character
 except the backslash (\) and the null byte. If the delimiter character has to be used in the expression itself,
-it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delimiters may also be used._
+it needs to be escaped by backslash. Perl style (), }, [], and <> matching delimiters may also be used._
 
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\LowLevel\RegexMB**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L39)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L41)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php)**</sub>
 
@@ -34,12 +34,13 @@ it needs to be escaped by backslash. Perl-style (), }, [], and <> matching delim
 |public static |<a href="#match()">match</a>|### Perform a regular expression match|
 |public static |<a href="#replace()">replace</a>|### Perform a regular expression search and replace|
 |public static |<a href="#replacefunc()">replaceFunc</a>|### Perform a regular expression search and replace using a callback|
+|public static |<a href="#split()">split</a>|### Split string by a regular expression|
 |public static |<a href="#encoding()">encoding</a>|### Set/Get character encoding for multibyte regex|
 
 <h2><a name="match()"># method: match</a></h2>
 
 ```php
-public static RegexMB::match(string $pattern, string $string, bool $case_sensitive = true):bool
+public static RegexMB::match(string $pattern, string $string, bool $case_sensitive = true, null|string[] &$result = null):bool
 ```
 
 
@@ -56,13 +57,15 @@ public static RegexMB::match(string $pattern, string $string, bool $case_sensiti
 
 _Searches subject for a match to the regular expression given in a pattern._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L59)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L59)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L67)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L67)**</sub>
 #### Parameters
 
 * string **$pattern** - _The regular expression pattern._
 * string **$string** - _The string being evaluated._
 * bool **$case_sensitive** = true - _[optional] 
+Case-sensitive match._
+* by reference null or string[] **$result** = null - _[optional] 
 Case-sensitive match._
 #### Returns
 
@@ -70,7 +73,7 @@ Case-sensitive match._
 <h2><a name="replace()"># method: replace</a></h2>
 
 ```php
-public static RegexMB::replace(string $pattern, string $replacement, string $string):string
+public static RegexMB::replace(string $pattern, string $replacement, string $string, bool $case_sensitive = true):string
 ```
 
 
@@ -87,13 +90,15 @@ public static RegexMB::replace(string $pattern, string $replacement, string $str
 
 _Searches $subject for matches to $pattern and replaces them with $replacement._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L93)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L93)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L105)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L105)**</sub>
 #### Parameters
 
 * string **$pattern** - _The regular expression pattern._
 * string **$replacement** - _The string to replace._
 * string **$string** - _The string being evaluated._
+* bool **$case_sensitive** = true - _[optional] 
+Case-sensitive replace._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If string is not valid for the current encoding, or while performing a regular expression search
@@ -121,8 +126,8 @@ public static RegexMB::replaceFunc(string $pattern, callable $callback, string $
 
 _Searches $subject for matches to $pattern and replaces them with $replacement._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L124)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L124)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L138)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L138)**</sub>
 #### Parameters
 
 * string **$pattern** - _The regular expression pattern._
@@ -138,10 +143,45 @@ and replace._
 #### Returns
 
 * string - _Replaced string._
+<h2><a name="split()"># method: split</a></h2>
+
+```php
+public static RegexMB::split(string $pattern, string $string, int $limit = -1):string[]
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Split string by a regular expression
+
+_Split the given string by a regular expression._
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L167)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L167)**</sub>
+#### Parameters
+
+* string **$pattern** - _The regular expression pattern._
+* string **$string** - _The input string._
+* int **$limit** = -1 - _[optional] 
+The maximum possible replacements for each pattern in each subject string.
+Defaults to -1 (no limit)._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If error while performing a regular expression split._
+#### Returns
+
+* string[] - _Array containing substrings of $string split along boundaries matched by $pattern._
 <h2><a name="encoding()"># method: encoding</a></h2>
 
 ```php
-public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding
+public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed
 ```
 
 
@@ -158,8 +198,8 @@ public static RegexMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L151)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L194)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.RegexMB.php#L194)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
@@ -169,5 +209,6 @@ Character encoding. If it is null, the internal character encoding value will be
 * [\Error](./Wiki-Error) - _If encoding is invalid or failed to get regex encoding._
 #### Returns
 
-* true or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _If encoding is set, then returns true. In this case, the internal character encoding is
-NOT changed. If encoding is omitted, then the current character encoding name for a multibyte regex is returned._
+* mixed - _If encoding is set, then returns true.
+In this case, the internal character encoding is NOT changed.
+If encoding is omitted, then the current character encoding name for a multibyte regex is returned._

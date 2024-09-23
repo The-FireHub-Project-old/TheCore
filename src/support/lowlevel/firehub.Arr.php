@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\ {
     Order, Sort, String\CaseFolding
 };
@@ -101,7 +104,13 @@ use function usort;
  * @SuppressWarnings(PHPMD.ExcessivePublicCount)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-final class Arr {
+final class Arr implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Checks if the given key or index exists in the array
@@ -112,13 +121,11 @@ final class Arr {
      * @param array-key $key <p>
      * Key to check.
      * </p>
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * An array with keys to check.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return bool True if key exists in an array, false otherwise.
+     * @return bool True if the key exists in an array, false otherwise.
      *
      * @note Method will search for the keys in the first dimension only. Nested keys in multidimensional arrays will
      * not be found.
@@ -137,13 +144,11 @@ final class Arr {
      * The searched value.
      * note: If a needle is a string, the comparison is done in a case-sensitive manner.
      * </p>
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * The array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return bool True if value is found in the array, false otherwise.
+     * @return bool True if a value is found in the array, false otherwise.
      */
     public static function inArray (mixed $value, array $array):bool {
 
@@ -158,14 +163,11 @@ final class Arr {
      * numbers from 0 to count($array)-1.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
-     * The array being evaluated.
+     * @param array<array-key, mixed> $array <p>
+     * The array is being evaluated.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return bool <code>($array is list ? true: false)</code> True if an array is a list, false otherwise.
-     * @phpstan-return ($array is list ? true: false)
+     * @return ($array is list ? true: false) True if an array is a list, false otherwise.
      *
      * @note This function returns true on empty arrays.
      */
@@ -176,14 +178,12 @@ final class Arr {
     }
 
     /**
-     * ### Sort multiple or multidimensional arrays
+     * ### Sort multiple on multidimensional arrays
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, array<array-key, mixed>> ]]></code>
+     * @param array<array-key, array<array-key, mixed>> $array <p>
      * A multidimensional array being sorted.
      * </p>
-     * @phpstan-param array<array-key, array<array-key, mixed>> $array
      *
      * @throws Error Failed to sort a multi-sort array.
      * @throws ValueError If array sizes are inconsistent.
@@ -212,19 +212,17 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * The array to apply a user function.
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
      * <code>callable (TValue $value, TKey $key):mixed</code>
-     * Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
+     * Typically, the function name takes on two parameters. The array parameter's value is the first, and the key/index
      * second. If a function name needs to be working with the actual values of the array, specify the first
-     * parameter of function name as a reference. Then, any changes made to those elements will be made in the
-     * original array itself. Users may not change the array itself from the callback function, e.g., add/delete
-     * elements, unset elements, etc.
+     * parameter of the function name as a reference. Then, any changes made to those elements will be made in the
+     * original array itself. Users may not change the array itself from the callback function, for example, add/delete
+     * elements, unset elements, and so on.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @throws ArgumentCountError If the $callback function requires more than two parameters.
@@ -247,20 +245,20 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * The array to apply a user function.
      * </p>
      * @param callable(TValue $value, TKey $key):mixed $callback <p>
      * <code>callable (TValue $value, TKey $key):mixed</code>
-     * Typically, function name takes on two parameters. The array parameter's value is the first, and the key/index
+     * Typically, the function name takes on two parameters. The array parameter's value is the first, and the key/index
      * second. If a function name needs to be working with the actual values of the array, specify the first
-     * parameter of function name as a reference. Then, any changes made to those elements will be made in the
-     * original array itself. Users may not change the array itself from the callback function. E.g., Add/delete
-     * elements, unset elements, etc.
+     * parameter of the function name as a reference. Then, any changes made to those elements will be made in the
+     * original array itself. Users may not change the array itself from the callback function. For example, Add/delete
+     * elements, unset elements, and so on.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
+     *
+     * @throws ArgumentCountError If the $callback function requires more than two parameters.
      *
      * @return true True on success.
      */
@@ -279,17 +277,13 @@ final class Arr {
      *
      * @template TValue of array-key
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array of values to count.
      * </p>
-     * @phpstan-param array<array-key, TValue> $array
      *
      * @error\exeption E_WARNING for every element that is not string or int.
      *
-     * @return array <code><![CDATA[ array<array-key, positive-int> ]]></code> An associative array of values from
-     * input as keys and their count as value.
-     * @phpstan-return array<array-key, positive-int>
+     * @return array<array-key, positive-int> An associative array of values from input as keys and their count as value.
      */
     public static function countValues (array $array):array {
 
@@ -300,14 +294,13 @@ final class Arr {
     /**
      * ### Fill an array with values
      *
-     * Fills an array with $length entries of the value of the $value parameter, keys starting at the $start_index
+     * Fills an array with $length entries of the value for the $value parameter, keys starting at the $start_index
      * parameter.
      * @since 1.0.0
      *
      * @template TValue
      *
-     * @param mixed $value <p>
-     * <code>TValue</code>
+     * @param TValue $value <p>
      * Value to use for filling.
      * </p>
      * @param int $start_index <p>
@@ -316,12 +309,10 @@ final class Arr {
      * @param non-negative-int $length <p>
      * Number of elements to insert. Must be greater than or equal to zero.
      * </p>
-     * @phpstan-param TValue $value
      *
      * @throws ValueError If $length is out of range.
      *
-     * @return array <code><![CDATA[ array<int, TValue> ]]></code> Filled array.
-     * @phpstan-return array<int, TValue>
+     * @return array<int, TValue> Filled array.
      */
     public static function fill (mixed $value, int $start_index, int $length):array {
 
@@ -338,22 +329,17 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $keys <p>
-     * <code><![CDATA[ array<array-key, array-key> ]]></code>
+     * @param array<array-key, TKey> $keys <p>
      * Array of values that will be used as keys.
      * Illegal values for a key will be converted to string.
      * </p>
-     * @param mixed $value <p>
-     * <code>TValue</code>
+     * @param TValue $value <p>
      * Value to use for filling.
      * </p>
-     * @phpstan-param array<array-key, TKey> $keys
-     * @phpstan-param TValue $value
      *
-     * @throws Error If key could not be converted to string.
+     * @throws Error If the key couldn't be converted to string.
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The filled array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filled array.
      */
     public static function fillKeys (array $keys, mixed $value):array {
 
@@ -364,7 +350,8 @@ final class Arr {
     /**
      * ### Changes the case of all keys in an array
      *
-     * Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.
+     * Returns an array with all keys from an array lowercased or uppercased.
+     * Numbered indices are left as is.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER As default parameter.
@@ -373,22 +360,19 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to work on.
      * </p>
      * @param \FireHub\Core\Support\Enums\String\CaseFolding $case [optional] <p>
      * <code>\FireHub\Core\Support\Enums\String\CaseFolding::LOWER|\FireHub\Core\Support\Enums\String\CaseFolding::UPPER</code>
      * Either LOWER or UPPER case folding.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      * @phpstan-param (
      *  \FireHub\Core\Support\Enums\String\CaseFolding::LOWER
      *  |\FireHub\Core\Support\Enums\String\CaseFolding::UPPER
      * ) $case
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array with its keys lower or uppercased.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array with its keys lower or uppercased.
      */
     public static function foldKeys (array $array, CaseFolding $case = CaseFolding::LOWER):array {
 
@@ -397,7 +381,7 @@ final class Arr {
     }
 
     /**
-     * ### ### Split an array into chunks
+     * ### Split an array into chunks
      *
      * Chunks an array into arrays with $length elements. The last chunk may contain less than $length elements.
      * @since 1.0.0
@@ -405,8 +389,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array.
      * </p>
      * @param positive-int $length <p>
@@ -417,13 +400,11 @@ final class Arr {
      * When set to true, keys will be preserved.
      * Default is false that will reindex the chunk numerically.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @throws ValueError If length is less than 1.
+     * @throws ValueError If the length is less than 1.
      *
-     * @return array <code><![CDATA[ ($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>) ]]></code>
-     * Multidimensional numerically indexed array, starting with zero, with each dimension containing $length elements.
-     * @phpstan-return ($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>)
+     * @return ($preserve_keys is true ? list<array<TKey, TValue>> : list<list<TValue>>) Multidimensional numerically indexed array, starting with zero,
+     * with each dimension is containing $length elements.
      */
     public static function chunk (array $array, int $length, bool $preserve_keys = false):array {
 
@@ -442,32 +423,24 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, array<TKey, TValue>> ]]></code>
+     * @param array<array-key, array<TKey, TValue>> $array <p>
      * A multidimensional array (record set) from which to pull a column of values. If an array of objects is provided,
      * then public properties can be directly pulled. In order for protected or private properties to be pulled,
      * the class must implement both the __get() and __isset() magic methods.
      * </p>
-     * @param int|string $key <p>
-     * <code>TKey</code>
+     * @param TKey $key <p>
      * The column of values to return. This value may be an integer key of the column you wish to retrieve, or it may
      * be a string key name for an associative array or property name. It may also be null to return complete arrays or
      * objects (this is useful together with $index to reindex the array).
      * </p>
-     * @param null|int|string $index [optional] <p>
-     * <code>null|TKey</code>
+     * @param null|TKey $index [optional] <p>
      * The column to use as the index/keys for the returned array. This value may be the integer key of the column,
      * or it may be the string key name. The value is cast as usual for array keys.
      * </p>
-     * @phpstan-param array<array-key, array<TKey, TValue>> $array
-     * @phpstan-param TKey $key
-     * @phpstan-param null|TKey $index
      *
-     * @return array <code><![CDATA[ ($index is null ? array<TValue> : array<TValue, TValue>) ]]></code> Array of values
-     * representing a single column from the input array.
-     * @phpstan-return ($index is null ? array<TValue> : array<TValue, TValue>)
+     * @return ($index is null ? array<TValue> : array<TValue, TValue>) Array of values representing a single column from the input array.
      */
-    public static function column (array $array, int|string $key, int|string $index = null):array {
+    public static function column (array $array, int|string $key, null|int|string $index = null):array {
 
         return array_column($array, $key, $index);
 
@@ -483,22 +456,17 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $keys <p>
-     * <code><![CDATA[ array<array-key, TKey> ]]></code>
+     * @param array<array-key, TKey> $keys <p>
      * Array of values to be used as keys.
      * Illegal values for a key will be converted to string.
      * </p>
-     * @param array $values <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> $values <p>
      * Array of values to be used as values on a combined array.
      * </p>
-     * @phpstan-param array<array-key, TKey> $keys
-     * @phpstan-param array<array-key, TValue> $values
      *
      * @throws ValueError If arguments $keys and $values don't have the same number of elements.
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The combined array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<array-key, TValue> The combined array.
      */
     public static function combine (array $keys, array $values):array {
 
@@ -509,27 +477,21 @@ final class Arr {
     /**
      * ### Computes the difference of arrays using values for comparison
      *
-     * Compares an array against one or more other arrays and returns the values in array that are not present in any of
+     * Compares an array against one or more other arrays and returns the values in an array that aren't present in any of
      * the other arrays.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array ...$excludes [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from
-     * $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. You can check deeper dimensions by
      * using [[Arr#difference($array1[0], $array2[0])]].
@@ -550,12 +512,10 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
@@ -563,17 +523,13 @@ final class Arr {
      * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
      * is considered to be respectively less than, equal to, or greater than the second.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-     * that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
      * value of 0, which will compare such values as equal.
-     * @note Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
+     * @note Note that this function only checks one dimension of an n-dimensional array. Of course, you can
      * check deeper dimensions by using [[Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func']].
      */
     public static function differenceFunc (array $array, array $excludes, callable $callback):array {
@@ -585,27 +541,21 @@ final class Arr {
     /**
      * ### Computes the difference of arrays using keys for comparison
      *
-     * Compares the keys from array against the keys from arrays and returns the difference. This function is like
-     * [[Arr#difference()]] except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like [[Arr#difference()]] except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array ...$excludes [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Returns an array containing all the entries from
-     * array whose keys are absent from all the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Returns an array containing all the entries from an array whose keys are absent from all the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. Of course, you can check deeper
      * dimensions by using [[Arr#differenceKey($array1[0], $array2[0])]].
@@ -619,31 +569,25 @@ final class Arr {
     /**
      * ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
      *
-     * Compares the keys from array against the keys from arrays and returns the difference. This function is like
-     * [[Arr#difference()]] except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.
+     * This function is like [[Arr#difference()]] except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-     * that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
@@ -667,20 +611,14 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array ...$excludes [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$excludes [optional] <p>
      * An array to compare against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-     * that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array. It is possible to check deeper
      * dimensions by using, for example, [[Arr#differenceAssoc($array1[0], $array2[0])]].
@@ -696,35 +634,29 @@ final class Arr {
     /**
      * ### Computes the difference of arrays with additional index check by using a callback for value comparison
      *
-     * Computes the difference of arrays with additional index check, compares data by a callback function.
+     * Computes the difference of arrays with an additional index check, compares data by a callback function.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<TKey, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-     * that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer value
      * of 0, which will compare such values as equal.
-     * @note Please note that this function only checks one dimension of an n-dimensional array. Of course, you can
+     * @note Note that this function only checks one dimension of an n-dimensional array. Of course, you can
      * check deeper dimensions by using, for example,
      * [[Arr#differenceAssocFuncValue($array1[0], $array2[0], 'some_comparison_func')]].
      */
@@ -739,30 +671,24 @@ final class Arr {
      *
      * Compares an array against arrays and returns the difference. Unlike [[Arr#difference()]], the array keys are
      * used in the comparison. Unlike [[Arr#differenceAssoc()]], a user-supplied callback function is used for the
-     * indices comparison, not internal function.
+     * indices comparison, not an internal function.
      * @since 1.0.0
      *
      * @template TKey
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<TKey, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Returns an array containing all the entries from
-     * $array that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TValue> Returns an array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -786,12 +712,10 @@ final class Arr {
      * @template TKey
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback_value <p>
@@ -802,12 +726,8 @@ final class Arr {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function for key.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
-     *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array
-     * that are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+
+     * @return array<TKey, TValue> An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -825,26 +745,21 @@ final class Arr {
     /**
      * ### Computes the intersection of arrays using values for comparison
      *
-     * Returns an array containing all the values of array that are present in all the arguments. Note that keys are
-     * preserved.
+     * Returns an array containing all the values of an array that are present in all the arguments.
+     * Note that keys are preserved.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
-     * @param array ...$arrays [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$arrays
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
      * @note Two elements are considered equal if and only if (string) $elem1 === (string) $elem2. In words: when the
      * string representation is the same.
@@ -864,24 +779,19 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Arrays containing all the entries from $array that
-     * are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Arrays containing all the entries from $array that are present in any of the other
+     * arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -898,25 +808,20 @@ final class Arr {
     /**
      * ### Computes the intersection of arrays using keys for comparison
      *
-     * Returns an array containing all the entries of array which have keys that are present in all the arguments.
+     * Returns an array containing all the entries of an array which have keys that are present in all the arguments.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
-     * @param array ...$arrays [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$arrays
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      */
     public static function intersectKey (array $array, array ...$arrays):array {
 
@@ -927,31 +832,25 @@ final class Arr {
     /**
      * ### Computes the intersection of arrays using keys for comparison by using a callback for data comparison
      *
-     * Returns an array containing all the values of array which have matching keys that are present in all the
+     * Returns an array containing all the values of an array which have matching keys that are present in all the
      * arguments.
      * @since 1.0.0
      *
      * @template TKey
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-     * are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -966,26 +865,21 @@ final class Arr {
     /**
      * ### Computes the intersection of arrays with additional index check
      *
-     * Returns an array containing all the values of array that are present in all the arguments. Note that the keys
-     * are also used in the comparison unlike in [[Arr#intersect()]].
+     * Returns an array containing all the values of an array that are present in all the arguments.
+     * Note that the keys are also used in the comparison unlike in [[Arr#intersect()]].
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array with main values to check.
      * </p>
-     * @param array ...$arrays [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$arrays [optional] <p>
      * An array to compare values against.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> ...$arrays
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
      * @note The two values from the key → value pairs are considered equal only if (string) $elem1 === (string) $elem2.
      * In other words, a strict type check is executed, so the string representation must be the same.
@@ -1007,24 +901,18 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-     * are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -1046,24 +934,18 @@ final class Arr {
      * @template TKey
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback <p>
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-     * are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -1087,12 +969,10 @@ final class Arr {
      * @template TKey
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to compare from.
      * </p>
-     * @param array $excludes <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $excludes <p>
      * An array to compare against.
      * </p>
      * @param callable(mixed $a, mixed $b):int<-1, 1> $callback_value <p>
@@ -1103,12 +983,8 @@ final class Arr {
      * <code>callable (mixed $a, mixed $b):int<-1, 1></code>
      * The comparison function for key.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
-     * @phpstan-param array<array-key, mixed> $excludes
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> An array containing all the entries from $array that
-     * are not present in any of the other arrays.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> An array containing all the entries from $array that are present in any of the other arrays.
      *
      * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
      * cast to int of the callback's return value. So values such as 0.99 and 0.1 will both be cast to an integer
@@ -1125,9 +1001,10 @@ final class Arr {
     /**
      * ### Filter elements in an array
      *
-     * Iterates over each value in the $array passing them to the $callback function. If the $callback function
-     * returns true, the current value from an $array is returned into the result array. Array keys are preserved, and
-     * may result in gaps if the $array was indexed. The result array can be re-indexed using the values() function.
+     * Iterates over each value in the $array, passing them to the $callback function.
+     * If the $callback function returns true, the current value from an $array is returned into the result array.
+     * Array keys are preserved and may result in gaps if the $array was indexed.
+     * The result array can be re-indexed using the values() function.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\LowLevel\DataIs::null To find whether a callable parameter is null.
@@ -1135,8 +1012,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to iterate over.
      * </p>
      * @param null|callable(TValue, TKey=):bool $callback [optional] <p>
@@ -1144,51 +1020,51 @@ final class Arr {
      * The callback function to use.
      * If no callback is supplied, all empty and false entries of an array will be removed.
      * </p>
+     * @param bool $pass_value [optional] <p>
+     * Pass value as the argument to callback.
+     * </p>
      * @param bool $pass_key [optional] <p>
      * Pass key as the argument to callback.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> Filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> Filtered array.
      *
-     * @caution If the array is changed from the callback function (e.g., an element added, deleted or unset) then
+     * @caution If the array is changed from the callback function (for example, an element added, deleted, or unset), then
      * behavior of this function is undefined.
      */
-    public static function filter (array $array, callable $callback = null, bool $pass_key = false):array {
+    public static function filter (array $array, ?callable $callback = null, bool $pass_value = false, bool $pass_key = false):array {
 
         if (DataIs::null($callback)) return array_filter($array);
 
-        return array_filter($array, $callback, $pass_key
-                ? ARRAY_FILTER_USE_BOTH
-                : ARRAY_FILTER_USE_KEY
-        );
+        return array_filter($array, $callback, match (true) {
+            $pass_value && $pass_key => ARRAY_FILTER_USE_BOTH,
+            $pass_key => ARRAY_FILTER_USE_KEY,
+            default => 0
+        });
 
     }
 
     /**
      * ### Exchanges all keys with their associated values in an array
      *
-     * Returns an array in flip order; i.e., keys from an $array become values and values from an $array become keys.
-     * Note that the values of $array need to be valid keys, i.e., they need to be either int or string. A warning
-     * will be emitted if a value has the wrong type, and the key/value pair in question will not be included in the
-     * result. If a value has several occurrences, the latest key will be used as its value, and all others will be
-     * lost.
+     * Returns an array in flip order; in other words, keys from an $array become values,
+     * and values from an $array become keys.
+     * Note that the values of $array need to be valid keys; in other words, they need to be either int or string.
+     * A warning will be emitted if a value has the wrong type, and the key/value pair in question will not be
+     * included in the result.
+     * If a value has several occurrences, the latest key will be used as its value, and all others will be lost.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue of array-key
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to flip.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
      * @error\exeption E_WARNING if values on $array argument are neither int nor string.
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The flipped array.
-     * @phpstan-return array<TValue, TKey>
+     * @return array<TValue, TKey> The flipped array.
      */
     public static function flip (array $array):array {
 
@@ -1197,23 +1073,23 @@ final class Arr {
     }
 
     /**
-     * ### Return all the keys or a subset of the keys of an array
+     * ### Return all the keys or a subset of the keys for an array
      *
-     * Returns the keys, numeric and string, from the $array. If a $filter is specified, then only the keys for that
-     * value are returned. Otherwise, all the keys from the array are returned.
+     * Returns the keys, numeric, and string, from the $array.
+     * If a $filter is specified, then only the keys for that value are returned.
+     * Otherwise, all the keys from the array are returned.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @template TKey of array-key
+     *
+     * @param array<TKey, mixed> $array <p>
      * An array containing keys to return.
      * </p>
      * @param mixed $filter [optional] <p>
      * If specified, then only keys containing these values are returned.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return array <code><![CDATA[ list<mixed> ]]></code> An array of all the keys in input.
-     * @phpstan-return list<mixed>
+     * @return list<TKey> An array of all the keys in input.
      */
     public static function keys (array $array, mixed $filter = null):array {
 
@@ -1231,14 +1107,11 @@ final class Arr {
      *
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> $array <p>
      * The array.
      * </p>
-     * @phpstan-param array<array-key, TValue> $array
      *
-     * @return array <code><![CDATA[ array<TValue> ]]></code> An indexed array of values.
-     * @phpstan-return array<TValue>
+     * @return array<int, TValue> An indexed array of values.
      */
     public static function values (array $array):array {
 
@@ -1247,7 +1120,7 @@ final class Arr {
     }
 
     /**
-     * ### Applies the callback to the elements of the given arrays
+     * ### Applies the callback to the elements of the given array
      *
      * Returns an array containing the results of applying the $callback to the corresponding value of an $array used as
      * arguments for the callback. The number of parameters that the $callback function accepts should match the
@@ -1258,8 +1131,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * Array to run through the callback function.
      * </p>
      * @param callable(TValue $value):mixed $callback <p>
@@ -1268,13 +1140,8 @@ final class Arr {
      * Null can be passed as a value to $callback to perform a zip operation on multiple arrays.
      * If only an array is provided, map() will return the input array.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @throws ArgumentCountError If an insufficient number of arguments is provided.
-     *
-     * @return array <code><![CDATA[ array<TKey, mixed> ]]></code> Array containing all the elements of arr1 after
-     * applying the callback function.
-     * @phpstan-return array<TKey, mixed>
+     * @return array<TKey, mixed> Array containing all the elements of arr1 after applying the callback function.
      */
     public static function map (array $array, callable $callback):array {
 
@@ -1283,26 +1150,22 @@ final class Arr {
     }
 
     /**
-     * ### Merges the elements of one or more arrays together
+     * ### Merges the elements of one or more arrays
      *
-     * Merges the elements of one or more arrays together so that the values of one are appended to the end of the
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of the
      * previous one. It returns the resulting array. If the input arrays have the same string keys, then the later
      * value for that key will overwrite the previous one. If, however, the arrays contain numeric keys, the later
-     * value will not overwrite the original value, but will be appended. Values in the input arrays with numeric
+     * value will not overwrite the original value but will be appended. Values in the input arrays with numeric
      * keys will be renumbered with incrementing keys starting from zero in the result array.
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array ...$arrays [optional] <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> ...$arrays [optional] <p>
      * Variable list of arrays to merge.
-     * </p>
-     * @phpstan-param array<TKey, TValue> ...$arrays
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The resulting array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The resulting array.
      *
      * @note If the input arrays have the same string keys, then the later value for that key will overwrite the
      * previous one.
@@ -1318,21 +1181,18 @@ final class Arr {
     /**
      * ### Merge two or more arrays recursively
      *
-     * Merges the elements of one or more arrays together so that the values of one are appended to the end of the
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of the
      * previous one. It returns the resulting array. If the input arrays have the same string keys, then the values
      * for these keys are merged into an array. This is done recursively, so that if one of the values is an array
      * itself, the function will merge it with a corresponding entry in another array too. If, however, the arrays
-     * have the same numeric key, the later value will not overwrite the original value, but will be appended.
+     * have the same numeric key, the later value will not overwrite the original value but will be appended.
      * @since 1.0.0
      *
-     * @param array ...$arrays [optional] <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> ...$arrays [optional] <p>
      * Variable list of arrays to recursively merge.
      * </p>
-     * @phpstan-param array<array-key, mixed> ...$arrays
      *
-     * @return array <code><![CDATA[ array<array-key, mixed> ]]></code> The resulting array.
-     * @phpstan-return array<array-key, mixed>
+     * @return array<array-key, mixed> The resulting array.
      */
     public static function mergeRecursive (array ...$arrays):array {
 
@@ -1343,28 +1203,25 @@ final class Arr {
     /**
      * ### Pad array to the specified length with a value
      *
-     * Returns a copy of the array padded to size specified by $length with value $value. If the length is positive,
-     * then the array is padded on the right if it's negative then on the left. If the absolute value of length is
-     * less than or equal to the length of the array, then no padding takes place. It is possible to add at most
-     * 1048576 elements at a time.
+     * Returns a copy of the array padded to the size specified by $length with value $value.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.
+     * If the absolute value of length is less than or equal to the length of the array, then no padding takes place.
+     * It is possible to add at most 1,048,576 elements at a time.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * Initial array of values to pad.
      * </p>
      * @param int $length <p>
      * New size of the array.
-     * If the length is positive, then the array is padded on the right if it's negative then on the left.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.
      * If the absolute value of length is less than or equal to the length of the array, then no padding takes place.
      * </p>
      * @param mixed $value <p>
      * Value to pad if input is less than length.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return array <code><![CDATA[ array<array-key, mixed> ]]></code> A copy of the input padded to size specified by $length with value $value.
-     * @phpstan-return array<array-key, mixed>
+     * @return array<array-key, mixed> A copy of the input padded to size specified by $length with value $value.
      *
      * @caution Keys can be re-numbered.
      */
@@ -1387,19 +1244,14 @@ final class Arr {
      *
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TValue> ]]></code>
+     * @param array<TValue> $array <p>
      * The array in which elements are replaced.
      * </p>
-     * @param array ...$replacements<p>
-     * <code><![CDATA[ array<TValue> ]]></code>
+     * @param array<TValue> ...$replacements<p>
      * Arrays from which elements will be extracted. Values from later arrays overwrite the previous values.
      * </p>
-     * @phpstan-param array<TValue> $array
-     * @phpstan-param array<TValue> ...$replacements
      *
-     * @return array <code><![CDATA[ array<TValue> ]]></code> The resulting array.
-     * @phpstan-return array<TValue>
+     * @return array<TValue> The resulting array.
      */
     public static function replace (array $array, array ...$replacements):array {
 
@@ -1421,19 +1273,14 @@ final class Arr {
      *
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TValue> ]]></code>
+     * @param array<TValue> $array <p>
      * The array in which elements are replaced.
      * </p>
-     * @param array ...$replacements<p>
-     * <code><![CDATA[ array<TValue> ]]></code>
+     * @param array<TValue> ...$replacements<p>
      * Arrays from which elements will be extracted. Values from later arrays overwrite the previous values.
      * </p>
-     * @phpstan-param array<TValue> $array
-     * @phpstan-param array<TValue> ...$replacements
      *
-     * @return array <code><![CDATA[ array<TValue> ]]></code> The resulting array.
-     * @phpstan-return array<TValue>
+     * @return array<TValue> The resulting array.
      */
     public static function replaceRecursive (array $array, array ...$replacements):array {
 
@@ -1450,18 +1297,15 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * Array to reverse.
      * </p>
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
-     * Non-numeric keys are not affected by this setting and will always be preserved.
+     * Non-numeric keys aren't affected by this setting and will always be preserved.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array <code><![CDATA[ ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) ]]></code> The reversed array.
-     * @phpstan-return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>)
+     * @return ($preserve_keys is true ? array<TKey, TValue> : array<array-key, TValue>) The reversed array.
      */
     public static function reverse (array $array, bool $preserve_keys = false):array {
 
@@ -1476,8 +1320,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The input array.
      * </p>
      * @param int $offset <p>
@@ -1493,12 +1336,12 @@ final class Arr {
      * Note that array_slice will reorder and reset the array indices by default.
      * You can change this behavior by setting preserve_keys to true.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array <code><![CDATA[ ($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>) ]]></code> Sliced array.
-     * @phpstan-return ($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>)
+     * @return ($preserve_keys is true ? array<TKey, TValue> : array<TKey|int, TValue>) Sliced array.
+     *
+     * @note Named keys will always retain their name.
      */
-    public static function slice (array $array, int $offset, int $length = null, bool $preserve_keys = false):array {
+    public static function slice (array $array, int $offset, ?int $length = null, bool $preserve_keys = false):array {
 
         return array_slice($array, $offset, $length, $preserve_keys);
 
@@ -1514,8 +1357,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * Array to splice.
      * </p>
      * @param int $offset <p>
@@ -1524,28 +1366,26 @@ final class Arr {
      * If the offset is negative, then it starts that far from the end of the input array.
      * </p>
      * @param null|int $length [optional] <p>
-     * If length is omitted, removes everything from offset to the end of the array.
-     * If length is specified and is positive, then that many elements will be removed.
-     * If length is specified and is negative, then the end of the removed portion will be that many elements from
+     * If the length is omitted, removes everything from offset to the end of the array.
+     * If the length is specified and is positive, then that many elements will be removed.
+     * If the length is specified and is negative, then the end of the removed portion will be that many elements from
      * the end of the array.
      * </p>
      * @param mixed $replacement [optional] <p>
      * If a replacement array is specified, then the removed elements will be replaced with elements from this array.
      * If offset and length are such that nothing is removed, then the elements from the replacement array or array
      * are inserted in the place specified by the offset.
-     * Keys in a replacement array are not preserved.
+     * Keys in a replacement array aren't preserved.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
-     * @phpstan-param-out array<TKey, TValue> $array
+     * @phpstan-param-out array<TKey, mixed> $array
      *
-     * @return array <code><![CDATA[ array<TKey|int, TValue> ]]></code> Spliced array.
-     * @phpstan-return array<TKey|int, TValue>
+     * @return array<TKey, TValue> Spliced array.
      *
-     * @note Numerical keys in an array are not preserved.
-     * @note If replacement is not an array, it will be typecast to one (i.e. (array) $replacement).
+     * @note Numerical keys in an array aren't preserved.
+     * @note If the replacement is not an array, it will be typecast to one (in other words (array) $replacement).
      * This may result in unexpected behavior when using an object or null replacement.
      */
-    public static function splice (array &$array, int $offset, int $length = null, mixed $replacement = []):array {
+    public static function splice (array &$array, int $offset, ?int $length = null, mixed $replacement = []):array {
 
         return array_splice($array, $offset, $length, $replacement);
 
@@ -1560,16 +1400,13 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * The array to remove duplicates.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return array <code><![CDATA[ array<TKey, TValue> ]]></code> The filtered array.
-     * @phpstan-return array<TKey, TValue>
+     * @return array<TKey, TValue> The filtered array.
      *
-     * @note The new array will preserve associative keys, and reindex others.
+     * @note The new array will preserve keys.
      * @note This method is not intended to work on multidimensional arrays.
      */
     public static function unique (array $array):array {
@@ -1588,22 +1425,19 @@ final class Arr {
      * @param int|float|string $end <p>
      * The sequence is ended upon reaching the end value.
      * </p>
-     * @param int|float $step [optional] <p>
+     * @param positive-int|float $step [optional] <p>
      * If a step value is given, it will be used as the increment between elements in the sequence. Step should be
      * given as a positive number. If not specified, a step will default to 1.
      * </p>
-     * @phpstan-param positive-int|float $step
      *
-     * @throws ValueError If &start or &end is a string implicitly cast to int because the other boundary value
+     * @throws ValueError If &start or &end is a string implicitly cast to int because of the other boundary value
      * is a number, $start or $end is a non-numeric string with more than one byte or &start or &end is the empty
      * string.
-     * @error\exeption E_WARNING If &start or &end is a string implicitly cast to int because the other boundary value
+     * @error\exeption E_WARNING If &start or &end is a string implicitly cast to int because of the other boundary value
      * is a number, $start or $end is a non-numeric string with more than one byte or &start or &end is the empty
      * string.
      *
-     * @return array <code><![CDATA[ array<int, int|float|string> ]]></code> An array of elements from start to end,
-     * inclusive, false otherwise.
-     * @phpstan-return array<int, int|float|string>
+     * @return array<int, int|float|string> An array of elements from start to end, inclusive, false otherwise.
      *
      * @note Character sequence values are limited to a length of one. If a length greater than one is entered.
      * only the first character is used.
@@ -1617,26 +1451,22 @@ final class Arr {
     /**
      * ### Pick one or more random keys out of an array
      *
-     * Picks one or more random entries out of an array, and returns the key (or keys) of the random entries.
+     * Picks one or more random entries out of an array and returns the key (or keys) of the random entries.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * The input array.
      * </p>
-     * @param int $number [optional] <p>
+     * @param positive-int $number [optional] <p>
      * Specifies how many entries should be picked.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
-     * @phpstan-param positive-int $number
      *
-     * @throws ValueError If $number is not between one and the number of elements in argument.
+     * @throws ValueError If $number is not between one and the number of elements in the argument.
      *
-     * @return array|int|string <code><![CDATA[ array<int, array-key>|int|string ]]></code> When picking only one entry,
-     * array_rand() returns the key for a random entry. Otherwise, an array of keys for the random entries is returned.
-     * @phpstan-return array<int, array-key>|int|string
+     * @return array<int, array-key>|int|string When picking only one entry, array_rand() returns the key for a random entry.
+     * Otherwise, an array of keys for the random entries is returned.
      *
-     * @caution This function does not generate cryptographically secure values, and must not be used for
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for
      * cryptographic purposes, or purposes that require returned values to be unguessable.
      */
     public static function random (array $array, int $number = 1):int|string|array {
@@ -1651,11 +1481,12 @@ final class Arr {
      * Iteratively applies the $callback function to the elements of the $array, to reduce the array to a single value.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @template TValue
+     *
+     * @param array<array-key, TValue> $array <p>
      * The input array.
      * </p>
-     * @param callable(mixed $carry, mixed $item):mixed $callback <p>
+     * @param callable(mixed $carry, TValue $item):mixed $callback <p>
      * <code>callable (mixed $carry, mixed $item):mixed</code>
      * The callable function.
      * </p>
@@ -1663,9 +1494,8 @@ final class Arr {
      * If the optional initial is available, it will be used at the beginning of the process,
      * or as a final result in case the array is empty.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
-     * @return mixed Resulting value or null if the array is empty and initial is not passed.
+     * @return mixed Resulting value or null if the array is empty and the initial is not passed.
      */
     public static function reduce (array $array, callable $callback, mixed $initial = null):mixed {
 
@@ -1674,22 +1504,19 @@ final class Arr {
     }
 
     /**
-     * ### Pop the element off the end of array
+     * ### Pop the element off the end of an array
      *
      * Pops and returns the last element value of th $array, shortening the $array by one element.
      * @since 1.0.0
      *
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The array to get the value from.
      * </p>
-     * @phpstan-param array<array-key, TValue> &$array
      * @phpstan-param-out array<array-key, TValue> $array
      *
-     * @return mixed <code>TValue|null</code> The last value of an array. If an array is empty (or is not an array), null will be returned.
-     * @phpstan-return TValue|null
+     * @return TValue|null The last value of an array. If an array is empty (or is not an array), null will be returned.
      *
      * @note This function will reset the array pointer of the input array after use.
      */
@@ -1700,27 +1527,25 @@ final class Arr {
     }
 
     /**
-     * ### Push elements onto the end of array
+     * ### Push elements onto the end of an array
      *
-     * Method treats an array as a stack, and pushes the passed variables onto the end of array. The length of array
-     * increases by the number of variables pushed.
+     * Method treats an array as a stack and pushes the passed variables onto the end of an array.
+     * The length of an array increases by the number of variables pushed.
      * @since 1.0.0
      *
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The input array.
      * </p>
      * @param TValue ...$values [optional] <p>
      * The values to push onto the end of the array.
      * </p>
-     * @phpstan-param array<array-key, TValue> &$array
      * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return int The new number of elements in the array.
      *
-     * @note If you use push to add one element to the array, it's better to use $array[] = because in that way there
+     * @note If you use push to add one element to the array, it is better to use $array[] = because in that way there
      * is no overhead of calling a function.
      */
     public static function push (array &$array, mixed ...$values):int {
@@ -1739,15 +1564,12 @@ final class Arr {
      *
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * Array to shift.
      * </p>
-     * @phpstan-param array<array-key, TValue> &$array
      * @phpstan-param-out array<array-key, TValue> $array
      *
-     * @return mixed <code>TValue|null</code> The shifted value, or null if an array is empty or is not an array.
-     * @phpstan-return TValue|null
+     * @return TValue|null The shifted value, or null if an array is empty or is not an array.
      *
      * @note This function will reset the array pointer of the input array after use.
      */
@@ -1761,20 +1583,18 @@ final class Arr {
      * ### Prepend one or more elements to the beginning of an array
      *
      * Method prepends passed elements to the front of the array.
-     * Note that the list of elements is prepended as a whole, so that the prepended elements stay in the same order.
+     * Note that the list of elements is prepended as a whole so that the prepended elements stay in the same order.
      * All numerical array keys will be modified to start counting from zero while literal keys won't be changed.
      * @since 1.0.0
      *
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The input array.
      * </p>
      * @param TValue ...$values [optional] <p>
      * The values to prepend.
      * </p>
-     * @phpstan-param array<array-key, TValue> &$array
      * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return int The new number of elements in the array.
@@ -1788,16 +1608,14 @@ final class Arr {
     }
 
     /**
-     * ### Get first key from an array
+     * ### Get the first key from an array
      *
      * Get the first key of the given $array without affecting the internal array pointer.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * An array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
      * @return null|int|string First key from $array or null if an array is empty.
      */
@@ -1808,16 +1626,14 @@ final class Arr {
     }
 
     /**
-     * ### Get last key from array
+     * ### Get the last key from an array
      *
      * Get the last key of the given $array without affecting the internal array pointer.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * An array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
      *
      * @return null|int|string Last key from $array or null if an array is empty.
      */
@@ -1833,11 +1649,11 @@ final class Arr {
      * Returns the product of values in an array.
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * The array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
+     *
+     * @error\exeption E_WARNING If $array values can't be converted to int or float.
      *
      * @return int|float The product as an integer or float.
      */
@@ -1851,11 +1667,11 @@ final class Arr {
      * ### Calculate the sum of values in an array
      * @since 1.0.0
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<array-key, mixed> $array <p>
      * The input array.
      * </p>
-     * @phpstan-param array<array-key, mixed> $array
+     *
+     * @error\exeption E_WARNING If $array values can't be converted to int or float.
      *
      * @return int|float The sum of values as an integer or float; 0 if the array is empty.
      */
@@ -1876,18 +1692,15 @@ final class Arr {
      * The searched value.
      * If $value is a string, the comparison is done in a case-sensitive manner.
      * </p>
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, mixed> ]]></code>
+     * @param array<TKey, TValue> $array <p>
      * Array to search.
      * </p>
-     * @phpstan-param array<TKey, TValue> $array
      *
-     * @return int|string|false <code>TKey|false</code> The key for value if it is found in the array, false otherwise.
-     * @phpstan-return TKey|false
+     * @return TKey|false The key for value if it is found in the array, false otherwise.
      *
-     * @warning This method may return Boolean false, but may also return a non-Boolean value which evaluates to false.
-     * Please read the section on Booleans for more information. Use the === operator for testing the return value of
-     * this function.
+     * @warning This method may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
      */
     public static function search (mixed $value, array $array):int|string|false {
 
@@ -1903,19 +1716,17 @@ final class Arr {
      *
      * @template TValue
      *
-     * @param array $array <p>
-     * <code><![CDATA[ array<array-key, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * The array.
      * </p>
-     * @phpstan-param array<array-key, TValue> &$array
      * @phpstan-param-out array<array-key, TValue> $array
      *
      * @return true Always returns true.
      *
-     * @caution This function does not generate cryptographically secure values, and must not be used for cryptographic
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for cryptographic
      * purposes, or purposes that require returned values to be unguessable.
-     * @note This function assigns new keys to the elements in array. It will remove any existing keys that may have
-     * been assigned, rather than just reordering the keys.
+     * @note This function assigns new keys to the elements in an array. It will remove any existing keys that may have
+     * been assigned, rather than reordering the keys.
      * @note Resets array's internal pointer to the first element.
      */
     public static function shuffle (array &$array):true {
@@ -1929,13 +1740,12 @@ final class Arr {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
-     * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As default parameter.
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<array-key, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
@@ -1956,7 +1766,7 @@ final class Arr {
      *
      * @todo Replace phpstan error when update is available.
      */
-    public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::SORT_REGULAR, bool $preserve_keys = false):true {
+    public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true {
 
         /** @phpstan-ignore-next-line In PHP 8.2 wrong return as bool, instead of true */
         return $order === Order::ASC
@@ -1970,17 +1780,16 @@ final class Arr {
     }
 
     /**
-     * ### Sorts array by key
+     * ### Sorts an array by key
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\Order::ASC As default parameter.
-     * @uses \FireHub\Core\Support\Enums\Sort::SORT_REGULAR As default parameter.
+     * @uses \FireHub\Core\Support\Enums\Sort::BY_REGULAR As default parameter.
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array<int|string, mixed> &$array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param \FireHub\Core\Support\Enums\Order $order [optional] <p>
@@ -1989,14 +1798,13 @@ final class Arr {
      * @param \FireHub\Core\Support\Enums\Sort $flag [optional] <p>
      * Sort flag.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
      * @note Resets array's internal pointer to the first element.
      */
-    public static function sortByKey (array &$array, Order $order = Order::ASC, Sort $flag = Sort::SORT_REGULAR):true {
+    public static function sortByKeys (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):true {
 
         return $order === Order::ASC
             ? ksort($array, $flag->value)
@@ -2011,8 +1819,7 @@ final class Arr {
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array&$array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param callable(TValue $a, TValue $b):int<-1, 1> $callback <p>
@@ -2023,12 +1830,14 @@ final class Arr {
      * @param bool $preserve_keys [optional] <p>
      * Whether you want to preserve keys from an original array or not.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
-     * @note Resets array's internal pointer to the first element.
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
      */
     public static function sortBy (array &$array, callable $callback, bool $preserve_keys = false):true {
 
@@ -2039,30 +1848,29 @@ final class Arr {
     }
 
     /**
-     * ### Sorts array by key using a user-defined comparison function
+     * ### Sorts an array by key using a user-defined comparison function
      * @since 1.0.0
      *
      * @template TKey of array-key
      * @template TValue
      *
-     * @param array &$array <p>
-     * <code><![CDATA[ array<TKey, TValue> ]]></code>
+     * @param array<TKey, TValue> &$array <p>
      * Array to sort.
      * </p>
      * @param callable(TKey $a, TKey $b):int<-1, 1> $callback <p>
      * <code><![CDATA[ callable (TKey $a, TKey $b):int<-1, 1> ]]></code>
-     * The callback comparison function. Function cmp_function should accept two parameters which will be filled
-     * by pairs of array keys. The comparison function must return an integer less than, equal to, or greater than
+     * The callback comparison function.
+     * Function cmp_function should accept two parameters which will be filled by pairs of array keys.
+     * The comparison function must return an integer less than, equal to, or greater than
      * zero if the first argument is considered to be respectively less than, equal to, or greater than the second.
      * </p>
-     * @phpstan-param array<TKey, TValue> &$array
      * @phpstan-param-out array<TKey, TValue> $array
      *
      * @return true Always true.
      *
      * @note Resets array's internal pointer to the first element.
      */
-    public static function sortKeyBy (array &$array, callable $callback):true {
+    public static function sortKeysBy (array &$array, callable $callback):true {
 
         return uksort($array, $callback);
 

@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\FileSystem;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### File permission enum
  * @since 1.0.0
  */
-enum Permission:int {
+enum Permission:int implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete-backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * ### User has no permissions
@@ -33,7 +43,7 @@ enum Permission:int {
     case EXECUTE = 1;
 
     /**
-     * ### Grants the capability to modify, or remove the content of the file
+     * ### Grants the ability to modify or remove the content of the file
      * @since 1.0.0
      */
     case WRITE = 2;
@@ -45,7 +55,7 @@ enum Permission:int {
     case WRITE_EXECUTE = 3;
 
     /**
-     * ### Grants the capability to read, i.e., view the contents of the file
+     * ### Grants the ability to read, in other words, view the contents of the file
      * @since 1.0.0
      */
     case READ = 4;
@@ -63,7 +73,7 @@ enum Permission:int {
     case READ_WRITE = 6;
 
     /**
-     * ### User has all permissions: read, write and execute
+     * ### User has all permissions: read, write, and execute
      * @since 1.0.0
      */
     case ALL = 7;

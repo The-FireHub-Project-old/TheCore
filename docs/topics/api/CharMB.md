@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\CharMB
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L29">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L32">
             View source code
         </a>
     </def>
@@ -61,10 +65,11 @@
 |public static |<a href="#chr()">chr</a>|### Return character by Unicode code point value|
 |public static |<a href="#ord()">ord</a>|### Get Unicode code point of character|
 
+
 ## method: chr {id="chr()"}
 
 <code-block lang="php">
-    <![CDATA[public static CharMB::chr(int $codepoint, \FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
+    <![CDATA[public static CharMB::chr(int $codepoint, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):string]]>
 </code-block>
 
 
@@ -85,12 +90,12 @@
 encoding. This function complements [[CharMB#ord()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L63">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L51">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L63">
                     View blame
                 </a>
             </def></deflist>
@@ -105,17 +110,27 @@ encoding. This function complements [[CharMB#ord()]].</format></p>
     </def>
 </deflist>
 <deflist>
+    <def title="This method is used by:">
+        <list><li><a href="Char.md#fromcodepoint()">\FireHub\Core\Support\Char::fromCodepoint()</a>  - <format style="italic">To get character from codepoint parameter.</format></li></list>
+    </def>
+</deflist>
+<deflist>
     <def title="This method has parameters:">
         <list><li>int <format style="bold">$codepoint</format> - <format style="italic">
 The codepoint value.
-</format></li><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
+</format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If codepoint could not be converted to character.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If codepoint couldn&#039;t be converted to character.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>string - <format style="italic">string A string containing the requested character.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -126,7 +141,7 @@ Character encoding. If it is null, the internal character encoding value will be
 ## method: ord {id="ord()"}
 
 <code-block lang="php">
-    <![CDATA[public static CharMB::ord(string $character, \FireHub\Core\Support\Enums\String\Encoding $encoding = null)]]>
+    <![CDATA[public static CharMB::ord(non-empty-string $character, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int]]>
 </code-block>
 
 
@@ -146,12 +161,12 @@ Character encoding. If it is null, the internal character encoding value will be
 <p><format style="italic">Returns the Unicode code point value of the given character. This function complements [[CharMB#chr()]].</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L90">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L75">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.CharMB.php#L90">
                     View blame
                 </a>
             </def></deflist>
@@ -167,15 +182,20 @@ Character encoding. If it is null, the internal character encoding value will be
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$character</format> - <format style="italic">
+        <list><li>non-empty-string <format style="bold">$character</format> - <format style="italic">
 A character.
-</format></li><li><a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
+</format></li><li>null or <a href="Encoding.md">\FireHub\Core\Support\Enums\String\Encoding</a> <format style="bold">$encoding</format> = null - <format style="italic">[optional] 
 Character encoding. If it is null, the internal character encoding value will be used.
 </format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If character could not be converted to codepoint.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If character couldn&#039;t be converted to codepoint.</format></li><li><a href="ValueError.md">\ValueError</a> - <format style="italic">If an empty string is provided.</format></li></list>
+    </def>
+</deflist>
+<deflist>
+    <def title="This method returns:">
+        <list><li>int - <format style="italic">The Unicode code point for the first character of string.</format></li></list>
     </def>
 </deflist>

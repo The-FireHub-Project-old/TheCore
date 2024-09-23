@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\Data\Type;
 use Error, ValueError;
 
@@ -39,7 +42,13 @@ use function time;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class DateAndTime {
+final class DateAndTime implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Check for valid date
@@ -48,21 +57,15 @@ final class DateAndTime {
      * properly defined.
      * @since 1.0.0
      *
-     * @param int $year <p>
-     * <code>int<1, 32767></code>
-     * The year is between 1 and 32767 inclusive
+     * @param int<1, 32767> $year <p>
+     * The year is between 1 and 32,767 inclusive
      * </p>
-     * @param int $month <p>
-     * <code>int<1, 12></code>
+     * @param int<1, 12> $month <p>
      * The month is between 1 and 12 inclusive.
      * </p>
-     * @param int $day <p>
-     * <code>int<1, 31></code>
+     * @param int<1, 31> $day <p>
      * The day is within the allowed number of days for the given month. Leap years are taken into consideration.
      * </p>
-     * @phpstan-param int<1, 32767> $year
-     * @phpstan-param int<1, 12> $month
-     * @phpstan-param int<1, 31> $day
      *
      * @return bool True, if the date given is valid, otherwise returns false.
      */
@@ -73,22 +76,18 @@ final class DateAndTime {
     }
 
     /**
-     * ### Returns associative array with detailed info about given date/time
+     * ### Returns associative array with detailed info about the given date /time
      *
      * Method parses the given datetime string according to the same rules as [[DateAndTime#stringToTimestamp()]].
      * @since 1.0.0
      *
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * String representing the date/time.
      * </p>
-     * @phpstan-param non-empty-string $datetime
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> Associative array with detailed info about given
-     * date/time.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> Associative array with detailed info about the given date /time.
      *
-     * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
+     * @warning The number of array elements in the warning and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
      */
     public static function parse (string $datetime):array {
@@ -98,27 +97,21 @@ final class DateAndTime {
     }
 
     /**
-     * ### Get info about given date formatted according to the specified format
+     * ### Get info about the given date formatted according to the specified format
      * @since 1.0.0
      *
-     * @param string $format <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $format <p>
      * Format accepted by date with some extras.
      * </p>
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * String representing the date/time.
      * </p>
-     * @phpstan-param non-empty-string $format
-     * @phpstan-param non-empty-string $datetime
      *
      * @throws ValueError If $datetime contains NULL-bytes.
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> Associative array with detailed info about a
-     * given date/time.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> Associative array with detailed info about a given date/time.
      *
-     * @warning The number of array elements in the warnings and errors arrays might be less than warning_count or
+     * @warning The number of array elements in the warning and errors arrays might be less than warning_count or
      * error_count if they occurred at the same position.
      */
     public static function parseFromFormat (string $format, string $datetime):array {
@@ -152,7 +145,7 @@ final class DateAndTime {
      *
      * @link https://www.php.net/manual/en/datetime.format.php To check valid $format formats.
      */
-    public static function format (string $format = 'Y-m-d H:i:s.u', int $timestamp = null, bool $gmt = false):string {
+    public static function format (string $format = 'Y-m-d H:i:s.u', ?int $timestamp = null, bool $gmt = false):string {
 
         return $gmt ? gmdate($format, $timestamp) : date($format, $timestamp);
 
@@ -166,15 +159,13 @@ final class DateAndTime {
      * [[DateAndTime#time()]].
      * @since 1.0.0
      *
-     * @param string $format <p>
-     * <code>'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z'</code>
+     * @param 'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z' $format <p>
      * Single format character.
      * </p>
      * @param null|int $timestamp [optional] <p>
      * The optional timestamp parameter is an integer Unix timestamp that defaults to the current local time
      * if a timestamp is not given.
      * </p>
-     * @phpstan-param 'B'|'d'|'h'|'H'|'i'|'I'|'L'|'m'|'s'|'t'|'U'|'w'|'W'|'y'|'Y'|'z'|'Z' $format
      *
      * @throws Error If failed to format a Unix timestamp as integer.
      * @error\exeption E_WARNING If the time zone is not valid.
@@ -183,10 +174,11 @@ final class DateAndTime {
      *
      * @link https://www.php.net/manual/en/function.idate.phP
      */
-    public static function formatInteger (string $format, int $timestamp = null):int {
+    public static function formatInteger (string $format, ?int $timestamp = null):int {
 
-        return idate($format, $timestamp)
-            ?: throw new Error('Failed to format a Unix timestamp as integer.');
+        return ($format = idate($format, $timestamp)) !== false
+            ? $format
+            : throw new Error('Failed to format a Unix timestamp as integer.');
 
     }
 
@@ -195,7 +187,7 @@ final class DateAndTime {
      * @since 1.0.0
      *
      * @param null|int $timestamp [optional] <p>
-     * The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if timestamp
+     * The optional timestamp parameter is an int Unix timestamp that defaults to the current local time if the timestamp
      * is omitted or null.
      * </p>
      *
@@ -222,7 +214,7 @@ final class DateAndTime {
      *  dts: mixed
      * }
      */
-    public static function get (int $timestamp = null):array {
+    public static function get (?int $timestamp = null):array {
 
         $get_date = getdate($timestamp);
         $get_date['timestamp'] = $get_date[0];
@@ -248,7 +240,7 @@ final class DateAndTime {
      * Longitude in degrees.
      * </p>
      *
-     * @throws Error If we could not get information about sunset and twilight.
+     * @throws Error If we couldn't get information about sunset and twilight.
      *
      * @return array <code><![CDATA[ array<sunrise: int|bool, sunset: int|bool, transit: int|bool,
      * civil_twilight_begin: int|bool, civil_twilight_end: int|bool, nautical_twilight_begin: int|bool,
@@ -269,7 +261,7 @@ final class DateAndTime {
     public static function sunInfo (int $timestamp, float $latitude, float $longitude):array {
 
         /**
-         * PHPStan reports that date_sun_info returns array<string, bool|int>
+         * PHPStan reports that date_sun_info returns an array<string, bool|int>
          * @phpstan-ignore-next-line
          */
         return date_sun_info($timestamp, $latitude, $longitude)
@@ -285,16 +277,14 @@ final class DateAndTime {
      * given in baseTimestamp, or the current time if baseTimestamp is not supplied.
      * @since 1.0.0
      *
-     * @param string $datetime <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $datetime <p>
      * A date/time string.
      * </p>
      * @param null|int $timestamp [optional] <p>
      * The timestamp which is used as a base for the calculation of relative dates.
      * </p>
-     * @phpstan-param non-empty-string $datetime
      *
-     * @throws Error If we could not convert string to timestamp.
+     * @throws Error If we couldn't convert string to timestamp.
      * @error\exeption E_WARNING if the time zone is not valid.
      *
      * @return int A timestamp.
@@ -309,10 +299,10 @@ final class DateAndTime {
      * integer.). For 64-bit versions of PHP, the valid range of a timestamp is effectively infinite, as 64 bits can
      * represent approximately 293 billion years in either direction.
      */
-    public static function stringToTimestamp (string $datetime, int $timestamp = null):int {
+    public static function stringToTimestamp (string $datetime, ?int $timestamp = null):int {
 
-        return strtotime($datetime, $timestamp)
-            ?: throw new Error('Could not convert string to timestamp.');
+        return ($timestamp = strtotime($datetime, $timestamp)) !== false
+            ? $timestamp : throw new Error('Could not convert string to timestamp.');
 
     }
 
@@ -324,9 +314,9 @@ final class DateAndTime {
      * @since 1.0.0
      *
      * @param int $hour <p>
-     * The number of hours relative to the start of the day is determined by month, day and year. Negative values
+     * The number of hours relative to the start of the day is determined by month, day, and year. Negative values
      * reference the hour before midnight of the day in question. Values greater than 23 reference the appropriate
-     * hour in the following day(s).
+     * hour on the following day(s).
      * </p>
      * @param null|int $minute <p>
      * The number of the minute relative to the start of the hour. Negative values reference the minute in the
@@ -342,31 +332,32 @@ final class DateAndTime {
      * @param null|int $month <p>
      * The number of the month relative to the end of the previous year. Values 1 to 12 reference the normal calendar
      * months of the year in question. Values less than 1 (including negative values) reference the months in the
-     * previous year in reverse order, so 0 is December, -1 is November, etc. Values greater than 12 reference the
-     * appropriate month in the following year(s).
+     * previous year in reverse order, so 0 is December, -1 is November, and so on.
+     * Values greater than 12 reference the appropriate month in the following year(s).
      * </p>
      * @param null|int $day <p>
-     * The number of the day relative to the end of the previous month. Values 1 to 28, 29, 30 or 31 (depending upon
+     * The number of the days relative to the end of the previous month. Values 1 to 28, 29, 30, or 31 (depending upon
      * the month) reference the normal days in the relevant month. Values less than 1 (including negative values)
      * reference the days in the previous month, so 0 is the last day of the previous month, -1 is the day before
-     * that, etc. Values greater than the number of days in the relevant month reference the appropriate day in the
+     * that, and so on.
+     * Values greater than the number of days in the relevant month reference the appropriate day in the
      * following month(s).
      * </p>
      * @param bool $gmt [optional] <p>
      * Get a GMT/UTC timestamp.
      * </p>
      *
-     * @throws Error If timestamp doesn't fit in a PHP integer.
+     * @throws Error If the timestamp doesn't fit in a PHP integer.
      *
      * @return int The Unix timestamp of the arguments given.
      */
-    public static function toTimestamp (int $hour, int $minute = null, int $second = null, int $year = null, int $month = null, int $day = null, bool $gmt = false):int {
+    public static function toTimestamp (int $hour, ?int $minute = null, ?int $second = null, ?int $year = null, ?int $month = null, ?int $day = null, bool $gmt = false):int {
 
         return (
-            $gmt
+            $timestamp = $gmt
                 ? gmmktime($hour, $minute, $second, $month, $day, $year)
                 : mktime($hour, $minute, $second, $month, $day, $year)
-        ) ?: throw new Error("Timestamp doesn't fit in a PHP integer.");
+        ) !== false ? $timestamp : throw new Error("Timestamp doesn't fit in a PHP integer.");
 
     }
 
@@ -378,7 +369,7 @@ final class DateAndTime {
      *
      * @return int The current timestamp.
      *
-     * @tip Timestamp of the start for the request is available in $_SERVER['REQUEST_TIME'].
+     * @tip The timestamp of the start for the request is available in $_SERVER['REQUEST_TIME'].
      */
     public static function time ():int {
 
@@ -406,8 +397,7 @@ final class DateAndTime {
 
         $time_list = StrSB::explode(microtime(), ' ');
 
-        if (!$time_list)
-        throw new Error('Separator cannot be empty string.');
+        if (!$time_list) throw new Error('Separator cannot be empty string.');
 
         return Data::setType(StrSB::part($time_list[0], 2, 6), Type::T_INT);
 

@@ -14,6 +14,10 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
+
 use function get_declared_classes;
 use function get_declared_interfaces;
 use function get_declared_traits;
@@ -28,17 +32,21 @@ use function get_defined_functions;
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
  */
-final class Declared {
+final class Declared implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Gets the declared classes
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared classes in
-     * the current script.
-     * @phpstan-return array<class-string>
+     * @return array<class-string> Array of the names for the declared classes in the current script.
      *
-     * @note Note that depending on what extensions you have compiled or loaded into PHP, additional classes could be
+     * @note Note that depending on what extensions you've compiled or loaded into PHP, additional classes could be
      * present. This means that you will not be able to define your own classes using these names.
      */
     public static function classes ():array {
@@ -51,9 +59,7 @@ final class Declared {
      * ### Gets the declared interfaces
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared interfaces in
-     * the current script.
-     * @phpstan-return array<class-string>
+     * @return array<class-string> Array of the names for the declared interfaces in the current script.
      */
     public static function interfaces ():array {
 
@@ -65,9 +71,7 @@ final class Declared {
      * ### Gets the declared traits
      * @since 1.0.0
      *
-     * @return array <code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared traits in
-     * the current script.
-     * @phpstan-return array<class-string>
+     * @return array<class-string> Array of the names for the declared traits in the current script.
      */
     public static function traits ():array {
 
@@ -87,9 +91,8 @@ final class Declared {
      * and constants and their values in the second dimension.
      * </p>
      *
-     * @return array <code><![CDATA[ ($categorize is true ? array<string, array<non-empty-string, mixed>> : array<non-empty-string, mixed>) ]]></code>
-     * array of constant name => constant value array, optionally grouped by extension name registering the constant.
-     * @phpstan-return ($categorize is true ? array<string, array<non-empty-string, mixed>> : array<mixed>)
+     * @return ($categorize is true ? array<string, array<non-empty-string, mixed>> : array<mixed>) Array of constant name => constant value array,
+     * optionally grouped by extension name registering the constant.
      */
     public static function constants (bool $categorize = false):array {
 
@@ -105,10 +108,9 @@ final class Declared {
      * Whether disabled functions should be excluded from the return value.
      * </p>
      *
-     * @return array <code>array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}</code>
+     * @return array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}
      * A multidimensional array containing a list of all defined functions, both built-in (internal) and user-defined.
-     * The internal functions will be accessible via $arr["internal"], and the user defined ones using $arr["user"].
-     * @phpstan-return array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}
+     * The internal functions will be accessible via $arr["internal"], and the user-defined ones using $arr["user"].
      */
     public static function functions (bool $exclude_disabled = true):array {
 

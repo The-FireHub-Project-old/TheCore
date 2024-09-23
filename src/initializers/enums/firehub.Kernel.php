@@ -22,7 +22,7 @@ use FireHub\Core\Kernel\ {
 };
 
 /**
- * ### Enum for available Kernel types
+ * ### Enum for possible Kernel types
  * @since 1.0.0
  */
 enum Kernel {
@@ -52,7 +52,7 @@ enum Kernel {
     case CONSOLE;
 
     /**
-     * ### Run selected Kernel
+     * ### Run the selected Kernel
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Kernel\HTTP\Kernel To create HTTP Kernel.

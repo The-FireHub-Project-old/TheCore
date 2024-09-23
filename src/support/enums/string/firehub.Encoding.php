@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\String;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Supported character encodings enum
  * @since 1.0.0
  */
-enum Encoding:string {
+enum Encoding:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete-backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0

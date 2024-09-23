@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use FireHub\Core\Support\Enums\DateTime\Zone;
 use Error;
 
@@ -24,10 +27,16 @@ use function timezone_abbreviations_list;
 /**
  * ### Timezone low-level proxy class
  *
- * A time zone is an area that observes a uniform standard time for legal, commercial and social purposes.
+ * A time zone is an area that observes a uniform standard time for legal, commercial, and social purposes.
  * @since 1.0.0
  */
-final class DateAndTimeZone {
+final class DateAndTimeZone implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Gets the default timezone used by all date/time functions in a script
@@ -35,12 +44,12 @@ final class DateAndTimeZone {
      * In order of preference, this function returns the default timezone by:
      * - reading the timezone set using the setDefaultTimezone() method (if any).
      * - reading the value of the 'date.timezone' ini option (if set).
-     * If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.
+     * If none of the above succeeds, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\DateTime\Zone To check for valid timezone.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Zone To check for a valid timezone.
      *
-     * @throws Error If we cannot get the default timezone.
+     * @throws Error If we can't get the default timezone.
      *
      * @return \FireHub\Core\Support\Enums\DateTime\Zone Timezone enum.
      */
@@ -65,7 +74,7 @@ final class DateAndTimeZone {
      *
      * @throws Error If failed to set the default timezone.
      *
-     * @return bool Always true.
+     * @return true Always true.
      *
      * @phpstan-ignore-next-line PHPStan reports that the method could still return bool.
      */

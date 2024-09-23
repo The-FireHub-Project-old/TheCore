@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Constant Name:">
         \FireHub\Core\Support\Constants\Number\SIZE
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L57">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L59">
             View source code
         </a>
     </def>
@@ -54,6 +54,6 @@
 ### Used by
 <deflist>
     <def title="This constant is used by:">
-        <list><li><a href="is64bit.md">\FireHub\Core\Support\Helpers\PHP\is64bit()</a>  - <format style="italic">To get the size of an integer in bytes in this build of PHP.</format></li></list>
+        <list><li><a href="is64bit.md">\FireHub\Core\Support\Helpers\PHP\is64bit()</a>  - <format style="italic">To get the size of an integer in bytes in this build of PHP.</format></li><li><a href="is32bit.md">\FireHub\Core\Support\Helpers\PHP\is32bit()</a>  - <format style="italic">To get the size of an integer in bytes in this build of PHP.</format></li></list>
     </def>
 </deflist>

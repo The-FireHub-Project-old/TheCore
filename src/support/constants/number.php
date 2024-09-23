@@ -14,6 +14,8 @@
 
 namespace FireHub\Core\Support\Constants\Number;
 
+use const INF as PHP_INF;
+use const NAN as PHP_NAN;
 use const PHP_FLOAT_DIG;
 use const PHP_FLOAT_EPSILON;
 use const PHP_FLOAT_MAX;
@@ -95,3 +97,23 @@ const FLOAT_MIN = PHP_FLOAT_MIN;
  * @api
  */
 const FLOAT_MAX = PHP_FLOAT_MAX;
+
+/**
+ * ### The infinite
+ * @since 1.0.0
+ *
+ * @var float \FireHub\Core\Support\Constants\Number\INF
+ *
+ * @api
+ */
+const INF = PHP_INF;
+
+/**
+ * ### Not A Number
+ * @since 1.0.0
+ *
+ * @var float \FireHub\Core\Support\Constants\Number\NAN
+ *
+ * @api
+ */
+const NAN = PHP_NAN;

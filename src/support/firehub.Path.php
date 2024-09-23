@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 use FireHub\Core\Support\LowLevel\Folder;
 use Error, Phar, Throwable;
 
@@ -27,7 +30,13 @@ use const FireHub\Core\Support\Constants\Path\DS;
  *
  * @api
  */
-final class Path {
+final class Path implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Get FireHub project path
@@ -35,12 +44,11 @@ final class Path {
      *
      * @uses \FireHub\Core\Support\Path::phar() To get a current phar path.
      * @uses \FireHub\Core\Support\LowLevel\Folder::parent() To return a parent core phar folder.
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
-     * @throws Error If a system could not load your project phar.
+     * @throws Error If a system couldn't load your project phar.
      *
-     * @return string <code>non-empty-string</code> FireHub project path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string FireHub project path.
      */
     public static function project ():string {
 
@@ -60,10 +68,9 @@ final class Path {
      * ### Get FireHub Core path
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform specific.
+     * @uses \FireHub\Core\Support\Constants\Path\DS As system definition for separating folders, platform-specific.
      *
-     * @return string <code>non-empty-string</code> FireHub Core path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string FireHub Core path.
      */
     public static function core ():string {
 
@@ -79,10 +86,9 @@ final class Path {
      * If true, a full phar URL is returned; otherwise the full path on disk to the phar archive is returned.
      * </p>
      *
-     * @throws Error If a system could not get a current phar path.
+     * @throws Error If a system couldn't get a current phar path.
      *
-     * @return string <code>non-empty-string</code> Current phar path.
-     * @phpstan-return non-empty-string
+     * @return non-empty-string Current phar path.
      */
     private static function phar (bool $return_phar):string {
 

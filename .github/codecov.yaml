@@ -1,0 +1,183 @@
+codecov:
+
+  # The age you want coverage reports to expire at, or if you want to disable this check. Expired reports will not be processed by codecov.
+  # max_report_age can be listed in hours '#h' (hours) or '#d' (days).
+  max_report_age: 12
+
+  # Should Codecov's default path fixes be disabled.
+  disable_default_path_fixes: no
+
+  # Should Codecov wait for all other statuses to pass before sending its status.
+  require_ci_to_pass: yes
+
+# The Codecov pull request comment is a quick overview of how a pull request (and relevant commits) will affect the code coverage.
+# This simple integration allows developers to see the effects of their work, without having to leave the familiar GitHub UI.
+# The PR comment provides details on the coverage changes in the pull request that help with speeding up code reviews,
+# and ensuring that all incoming features and fixes are well tested.
+# The comment is customizable to adjust the behavior and logic, as well as the actual output, please see below for configuration details.
+comment:
+
+  # Customize your comment layout by choosing the order and types of components to include.
+  # The following are components you can add or choose to opt out of.
+  # Omitting any of these from your layout will cause them to not show up.
+  layout: reach,diff,flags,tree,reach
+
+  # Choose the way Codecov submits comments in your pull requests.
+  #  default: update, if exists. Otherwise, post new.
+  # - once: update, if exists. Otherwise, post new. Skip if deleted.
+  # - new: delete old and post new.
+  behavior: default
+
+  # You can force comments to post on pull requests even if Codecov doesn't have coverage reports for either the base or head commit.
+  # This generally isn't recommended since, without base and head coverage report information, the resulting comment is not very helpful.
+  # However, setting both require_base and require_head to false can allow you to test the ability of Codecov to post a comment to your
+  # pull requests without needing to upload coverage for both the base and head commit.
+  require_head: true
+  require_base: true
+
+  # For those using the CarryForward Flags feature, CarryForward Flags do not show in the pull request
+  # comment by default.
+  show_carryforward_flags: false
+
+coverage:
+
+  # What precision do you want the coverage value to be (from 0 to 5).
+  precision: 2
+
+  # The value range where you want the value to be green.
+  range: 60..80
+
+  # Which direction to you want to round the coverage value.
+  # One of 'down', 'up', 'nearest'.
+  round: down
+
+  # Useful for blocking Pull Requests that don't meet a particular coverage threshold.
+  status:
+
+    # This behavior will be applied to all checks by default.
+    default_rules:
+
+      # Determines how we handle status checks for which no flag coverage has been newly uploaded on a commit.
+      # This includes status checks where flags have carried forward coverage (since coverage was no newly uploaded),
+      # as well as flags for which coverage is missing entirely.
+      # - include: (default) All the status checks defined in the YAML file will be processed and sent as normal.
+      # - exclude: Status checks that haven't newly uploaded any flag coverage will not be sent.
+      # - pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically.
+      flag_coverage_not_uploaded_behavior: include
+
+    # Measures overall project coverage and compares it against the base of the pull request or parent commit.
+    project:
+
+      default:
+
+        # Choose a minimum coverage ratio that the commit must meet to be considered a success.
+        # - auto or X%.
+        target: auto
+
+        # Allow the coverage to drop by X%, and posting a success status.
+        threshold: 0%
+
+        # Array of paths and/or regular expressions can be provided and the status will report the combined coverage
+        # for the files that match the path name / regular expression.
+        paths:
+          - "src"
+
+        # Use this on commits / PRs where you won't be uploading coverage but still want codecov status checks to pass.
+        # - failure: the status will fail if there is no report for the head.
+        # - success: the status will pass if there is no report for the head.
+        if_not_found: success
+
+        # - error: Will set the status to success only if the CI is successful.
+        # - success: Will set the status to success even if the CI fails.
+        if_ci_failed: error
+
+        # If true is specified the resulting status will pass no matter what the coverage is
+        # or what other settings are specified.
+        # Informational mode is great to use if you want to expose codecov information to other developers in your
+        # pull request without necessarily gating PRs on that information.
+        informational: false
+
+        # If true no status will be posted for commits not on a pull request.
+        only_pulls: false
+
+        # Determines how we handle status checks for which no flag coverage has been newly uploaded on a commit.
+        # This includes status checks where flags have carriedForward coverage (since coverage was no newly uploaded),
+        # as well as flags for which coverage is missing entirely.
+        # - include: All the status checks defined in the YAML file will be processed and sent as normal.
+        # - exclude: Status checks that haven't newly uploaded any flag coverage will not be sent.
+        # - pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically.
+        flag_coverage_not_uploaded_behavior: include
+
+    # Only measures lines adjusted in the pull request or single commit, if the commit is not in a pull request.
+    # This status provides an indication on how well the pull request is tested.
+    patch:
+
+      default:
+
+        # Choose a minimum coverage ratio that the commit must meet to be considered a success.
+        # - auto or X%.
+        target: auto
+
+        # Allow the coverage to drop by X%, and posting a success status.
+        threshold: 0%
+
+        # Array of paths and/or regular expressions can be provided and the status will report the combined coverage
+        # for the files that match the path name / regular expression.
+        paths:
+          - "src"
+
+        # Use this on commits / PRs where you won't be uploading coverage but still want codecov status checks to pass.
+        # - failure: the status will fail if there is no report for the head.
+        # - success: the status will pass if there is no report for the head.
+        if_not_found: success
+
+        # - error: Will set the status to success only if the CI is successful.
+        # - success: Will set the status to success even if the CI fails.
+        if_ci_failed: error
+
+        # If true is specified the resulting status will pass no matter what the coverage is
+        # or what other settings are specified.
+        # Informational mode is great to use if you want to expose codecov information to other developers in your
+        # pull request without necessarily gating PRs on that information.
+        informational: false
+
+        # If true no status will be posted for commits not on a pull request.
+        only_pulls: false
+
+        # Determines how we handle status checks for which no flag coverage has been newly uploaded on a commit.
+        # This includes status checks where flags have carriedForward coverage (since coverage was no newly uploaded),
+        # as well as flags for which coverage is missing entirely.
+        # - include: All the status checks defined in the YAML file will be processed and sent as normal.
+        # - exclude: Status checks that haven't newly uploaded any flag coverage will not be sent.
+        # - pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically.
+        flag_coverage_not_uploaded_behavior: include
+
+    # Changes in coverage that are NOT included in the commit/pull diff, and report these changes as a commit status.
+    changes: false
+
+component_management:
+
+  default_rules:
+
+    statuses:
+      - type: project
+        target: auto
+
+  individual_components:
+
+    - component_id: module_support
+      name: support
+      paths:
+        - "src/support/**"
+
+    - component_id: module_initializers
+      name: initializers
+      paths:
+        - "src/initializers/**"
+
+github_checks:
+
+  annotations: true
+
+# Toggle the sending of notifications through the Codecov Slack App
+slack_app: true

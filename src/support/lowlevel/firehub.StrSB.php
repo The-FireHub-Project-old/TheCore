@@ -21,7 +21,9 @@ use function addcslashes;
 use function chunk_split;
 use function count_chars;
 use function lcfirst;
+use function str_ireplace;
 use function str_pad;
+use function str_replace;
 use function str_shuffle;
 use function str_split;
 use function str_word_count;
@@ -42,7 +44,6 @@ use function strrpos;
 use function strspn;
 use function strtolower;
 use function strtoupper;
-use function strtr;
 use function substr;
 use function substr_compare;
 use function substr_count;
@@ -58,7 +59,6 @@ use function wordwrap;
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyMethods)
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StrSB extends StrSafe {
@@ -74,12 +74,12 @@ final class StrSB extends StrSafe {
      * @param string $string <p>
      * The string to be escaped.
      * </p>
-     * @param string $characters [optional] <p>
+     * @param null|string $characters [optional] <p>
      * The list of characters to be escaped. Non-alphanumeric characters with ASCII codes lower than 32 and higher
      * than 126 converted to octal representation.
      * </p>
      */
-    public static function addSlashes (string $string, string $characters = null):string {
+    public static function addSlashes (string $string, ?string $characters = null):string {
 
         return empty($characters)
             ? parent::addSlashes($string)
@@ -90,22 +90,22 @@ final class StrSB extends StrSafe {
     /**
      * ### Split a string into smaller chunks
      *
-     * Can be used to split a string into smaller chunks, which is useful for e.g., converting base64_encode() output to
-     * match RFC 2045 semantics. It inserts $separator every $length characters.
+     * Can be used to split a string into smaller chunks, which is useful, for example, converting base64_encode()
+     * output to match RFC 2045 semantics.
+     * It inserts $separator every $length characters.
      * @since 1.0.0
      *
      * @param string $string <p>
      * The string to be chunked.
      * </p>
-     * @param int $length [optional] <p>
+     * @param positive-int $length [optional] <p>
      * The chunk length.
      * </p>
      * @param string $separator [optional] <p>
      * The line-ending sequence.
      * </p>
-     * @phpstan-param positive-int $length
      *
-     * @throws ValueError If length is less than 1.
+     * @throws ValueError If the length is less than 1.
      *
      * @return string The chunked string.
      */
@@ -134,15 +134,13 @@ final class StrSB extends StrSafe {
      * If the value of $length is negative, less than, or equal to the length of the input string, no padding takes
      * place.
      * </p>
-     * @param string $pad [optional] <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $pad [optional] <p>
      * The pad may be truncated if the required number of padding characters can't be evenly divided by the pad's
      * length.
      * </p>
      * @param \FireHub\Core\Support\Enums\Side $side [optional] <p>
      * Pad side.
      * </p>
-     * @phpstan-param non-empty-string $pad
      *
      * @throws Error If the pad is empty.
      *
@@ -159,10 +157,49 @@ final class StrSB extends StrSafe {
     }
 
     /**
+     * ### Replace all occurrences of the search string with the replacement string
+     *
+     * This function returns a string or an array with all occurrences of search in a subject replaced with the given replacement value.
+     * @since 1.0.0
+     *
+     * @param string|list<string> $search <p>
+     * The replacement value that replaces found search values.
+     * An array may be used to designate multiple replacements.
+     * </p>
+     * @param string|list<string> $replace <p>
+     * The string being searched and replaced on.
+     * </p>
+     * @param string $string <p>
+     * The value being searched for.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Searched values are case-insensitive.
+     * </p>
+     * @param null|int &$count [optional] <p>
+     * If passed, this will hold the number of matched and replaced needles.
+     * </p>
+     * @param-out int $count
+     *
+     * @return string String with the replaced values.
+     *
+     * @note Multibyte characters may not work as expected while $case_sensitive is on.
+     * @note Because the method replaces left to right, it might replace a previously inserted value when doing
+     * multiple replacements.
+     * @tip To replace text based on a pattern rather than a fixed string, use preg_replace().
+     */
+    public static function replace (string|array $search, string|array $replace, string $string, bool $case_sensitive = true, ?int &$count = null):string {
+
+        if ($case_sensitive) return str_replace($search, $replace, $string, $count);
+
+        return str_ireplace($search, $replace, $string, $count);
+
+    }
+
+    /**
      * ### Replace text within a portion of a string
      *
-     * Replaces a copy of string delimited by the $offset and (optionally) $length parameters with the string given in
-     * $replace.
+     * Replaces a copy of string delimited by the $offset and (optionally) $length parameters with
+     * the string given in $replace.
      * @since 1.0.0
      *
      * @param string $string <p>
@@ -172,19 +209,21 @@ final class StrSB extends StrSafe {
      * The replacement string.
      * </p>
      * @param int $offset <p>
-     * If offset is non-negative, the replacing will begin at the into string. If offset is negative, the replacing
-     * will begin at the character from the end of the string.
+     * If the offset is non-negative, the replacing will begin at the into string.
+     * If offset is negative, the replacing will begin at the character from the end of the string.
      * </p>
      * @param null|int $length [optional] <p>
      * If given and is positive, it represents the length of the portion of string which is to be replaced. If it is
-     * negative, it represents the number of characters from the end of string at which to stop replacing. If it is
-     * not given, then it will default to strlen(string); i.e., end the replacing at the end of string. Of course, if
-     * length is zero, then this function will have the effect of inserting $replace into string at the given offset.
+     * negative, it represents the number of characters from the end of the string at which to stop replacing.
+     * If it is not given, then it will default to strlen(string); in other words, end the replacing at the end of
+     * the string.
+     * Of course, if length is zero, then this function will have the effect of inserting $replace into string at the
+     * given offset.
      * </p>
      *
      * @return string String with the replaced values.
      */
-    public static function replacePart (string $string, string $replace, int $offset, int $length = null):string {
+    public static function replacePart (string $string, string $replace, int $offset, ?int $length = null):string {
 
         return substr_replace($string, $replace, $offset, $length);
 
@@ -200,7 +239,7 @@ final class StrSB extends StrSafe {
      *
      * @return string The shuffled string.
      *
-     * @caution This function does not generate cryptographically secure values, and must not be used for
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for
      * cryptographic purposes, or purposes that require returned values to be unguessable.
      */
     public static function shuffle (string $string):string {
@@ -220,7 +259,7 @@ final class StrSB extends StrSafe {
      * The string to be unquoted.
      * </p>
      * @param bool $c_representation [optional] <p>
-     * If true, octal and hexadecimal representation from addSlashes method are recognized.
+     * If true, octal and hexadecimal representation from the addSlashes method is recognized.
      * </p>
      */
     public static function stripSlashes (string $string, bool $c_representation = false):string {
@@ -324,14 +363,14 @@ final class StrSB extends StrSafe {
     }
 
     /**
-     * ### Make a first character of string uppercased
+     * ### Make the first character of string uppercased
      * @since 1.0.0
      *
      * @param string $string <p>
      * The string being converted.
      * </p>
      *
-     * @return string String with first character uppercased.
+     * @return string String with the first character uppercased.
      */
     public static function capitalize (string $string):string {
 
@@ -350,33 +389,11 @@ final class StrSB extends StrSafe {
      * The string being converted.
      * </p>
      *
-     * @return string String with first character lowercased.
+     * @return string String with the first character lowercased.
      */
     public static function deCapitalize (string $string):string {
 
         return lcfirst($string);
-
-    }
-
-    /**
-     * ### Translate characters or replace substrings
-     * @since 1.0.0
-     *
-     * @param string $string <p>
-     * The string being translated to.
-     * </p>
-     * @param string $from <p>
-     * An array of key-value pairs for translation.
-     * </p>
-     * @param string $to <p>
-     * The string replaced from.
-     * </p>
-     *
-     * @return string The translated string.
-     */
-    public static function translate (string $string, string $from, string $to):string {
-
-        return strtr($string, $from, $to);
 
     }
 
@@ -409,7 +426,7 @@ final class StrSB extends StrSafe {
     }
 
     /**
-     * ### Find first part of a string
+     * ### Find the first part of a string
      *
      * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
      * @since 1.0.0
@@ -424,7 +441,7 @@ final class StrSB extends StrSafe {
      * If true, return the part of the string before the first occurrence (excluding the find string).
      * </p>
      *
-     * @return string|false The portion of string or false if needle is not found.
+     * @return string|false The portion of string or false if the needle is not found.
      */
     public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true):string|false {
 
@@ -435,7 +452,7 @@ final class StrSB extends StrSafe {
     }
 
     /**
-     * ### Find last part of a string
+     * ### Find the last part of a string
      *
      * This function returns the portion of $string which starts at the last occurrence of $find and goes until the
      * end of $string.
@@ -448,7 +465,7 @@ final class StrSB extends StrSafe {
      * The string being searched.
      * </p>
      *
-     * @return string|false The portion of string, or false if needle is not found.
+     * @return string|false The portion of string, or false if the needle is not found.
      */
     public static function lastPart (string $find, string $string):string|false {
 
@@ -485,13 +502,11 @@ final class StrSB extends StrSafe {
      * The examined string.
      * </p>
      *
-     * @return array <code><![CDATA[ array<int, int> ]]></code> An array with the byte-value as a key with a frequency
-     * greater than zero are listed.
-     * @phpstan-return array<int, int>
+     * @return array<int, int> An array with the byte-value as a key with a frequency greater than zero are listed.
      */
     public static function countByChar (string $string):array {
 
-        /** @phpstan-ignore-next-line Return is always array because mode is set to 1. */
+        /** @phpstan-ignore-next-line Return is always array because the mode is set to 1. */
         return count_chars($string, 1);
 
     }
@@ -503,19 +518,16 @@ final class StrSB extends StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $length [optional] <p>
      * Maximum length of the chunk.
      * </p>
-     * @phpstan-param positive-int $length
      *
-     * @throws Error If length is less than 1.
+     * @throws Error If the length is less than 1.
      *
-     * @return array <code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
-     * @phpstan-return array<int, string>
+     * @return array<int, string> If the optional $length parameter is specified, the returned array will be broken down
+     * into chunks with each being $length in length, except the final chunk which may be shorter if the string doesn't
+     * divide evenly.
+     * The default $length is 1, meaning every chunk will be one byte in size.
      */
     public static function split (string $string, int $length = 1):array {
 
@@ -528,9 +540,11 @@ final class StrSB extends StrSafe {
     /**
      * ### Count number of words in string
      *
-     * Counts the number of words inside string. If the optional format is not specified, then the return value will
-     * be an integer representing the number of words found. In the event the format is specified,
-     * the return value will be an array, the content of which is dependent on the format.
+     * Counts the number of words inside a string.
+     * If the optional format is not specified, then the return value will be an integer representing the number of
+     * words found.
+     * In the event the format is specified, the return value will be an array, the content of which is dependent on
+     * the format.
      * The possible value for the format and the resultant outputs are listed below.
      * @since 1.0.0
      *
@@ -540,22 +554,19 @@ final class StrSB extends StrSafe {
      * @param null|string $characters [optional] <p>
      * A list of additional characters which will be considered as 'word'.
      * </p>
-     * @param int $format [optional] <p>
-     * <code><![CDATA[ 0|1|2 ]]></code>
+     * @param 0|1|2 $format [optional] <p>
      * A string to search words.
-     * 0 - returns the number of words found.
-     * 1 - returns an array containing all the words found inside the string.
-     * 2 - returns an associative array, where the key is the numeric position of the word inside the string and the
+     * 0 – returns the number of words found.
+     * 1 – returns an array containing all the words found inside the string.
+     * 2 – returns an associative array, where the key is the numeric position of the word inside the string and the
      * value is the actual word itself.
      * </p>
-     * @phpstan-param 0|1|2 $format
      *
      * @throws Error If failed to count words for string.
      *
-     * @return int|array <code><![CDATA[ int|array<int, string> ]]></code> Number of words found or list of words.
-     * @phpstan-return int|array<int, string>
+     * @return int|array<int, string> Number of words found or list of words.
      */
-    public static function countWords (string $string, string $characters = null, int $format = 0):int|array {
+    public static function countWords (string $string, ?string $characters = null, int $format = 0):int|array {
 
         return str_word_count($string, $format, $characters)
             ?: throw new Error('Failed to count words for string.');
@@ -563,10 +574,10 @@ final class StrSB extends StrSafe {
     }
 
     /**
-     * ### Get number of times the searched substring occurs in the string
+     * ### Get the number of times the searched substring occurs in the string
      *
-     * Returns the number of times the needle substring occurs in the haystack string. Please note that needle is
-     * case-sensitive.
+     * Returns the number of times the needle substring occurs in the haystack string.
+     * Note that the needle is case-sensitive.
      * @since 1.0.0
      *
      * @param string $string <p>
@@ -576,15 +587,15 @@ final class StrSB extends StrSafe {
      * The string being found.
      * </p>
      * @param int $start [optional] <p>
-     * The offset where to start counting. If the offset is negative, counting starts from the end of the string.
+     * The offset is where to start counting.
+     * If the offset is negative, counting starts from the end of the string.
      * </p>
      * @param null|int $length [optional] <p>
      * The maximum length after the specified offset to search for the substring. It outputs a warning if the offset
      * plus the length is greater than the $string length. A negative length counts from the end of $string.
      * </p>
      *
-     * @return int <code>non-negative-int</code> Number of times the searched substring occurs in the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int The number of times the searched substring occurs in the string.
      *
      * @note This method doesn't count overlapped substring.
      */
@@ -597,7 +608,7 @@ final class StrSB extends StrSafe {
     /**
      * ### Length of the initial segment for a string consisting entirely of characters contained within a given mask
      *
-     * Finds the length of the initial segment of $string that contains only characters from $characters.
+     * Finds the length of the initial segment for $string that contains only characters from $characters.
      * @since 1.0.0
      *
      * @param string $string <p>
@@ -607,21 +618,25 @@ final class StrSB extends StrSafe {
      * The list of allowable characters.
      * </p>
      * @param int $offset [optional] <p>
-     * The position in subject to start searching. If start is given and is non-negative, then
-     * [[StrSB#segmentMatching()]] will begin examining the subject at the start position. For instance, in the
-     * string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c', and so forth. If
-     * start is given and is negative, then [[StrSB#segmentMatching()]] will begin examining subject at the start
-     * position from the end of subject.
+     * The position in a subject to start searching.
+     * If start is given and is non-negative, then [[StrSB#segmentMatching()]] will begin examining the subject at
+     * the start position.
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.
+     * If start is given and is negative, then [[StrSB#segmentMatching()]] will begin examining the subject at the start
+     * position from the end of a subject.
      * </p>
      * @param int|null $length [optional] <p>
-     * The length of the segment from subject to examine. If length is given and is non-negative, then the subject
-     * will be examined for length characters after the starting position. If length is given and is negative, then
-     * the subject will be examined from the starting position up-to-length characters from the end of the subject.
+     * The length of the segment from the subject to examine.
+     * If length is given and is non-negative, then the subject will be examined for length characters after the
+     * starting position.
+     * If length is given and is negative, then the subject will be examined from the starting position up-to-length
+     * characters from the end of the subject.
      * </p>
      *
      * @return int The length of the initial segment for string which consists entirely of characters in characters.
      *
-     * @note When offset parameter is set, the returned length is counted starting from this position, not from
+     * @note When the offset parameter is set, the returned length is counted starting from this position, not from
      * beginning of the string.
      */
     public static function segmentMatching (string $string, string $characters, int $offset = 0, ?int $length = null):int {
@@ -633,7 +648,7 @@ final class StrSB extends StrSafe {
     /**
      * ### Find length of initial segment not matching mask
      *
-     * Returns the length of the initial segment of $string which does not contain any of the characters in $characters.
+     * Returns the length of the initial segment for $string which doesn't contain any of the characters in $characters.
      * @since 1.0.0
      *
      * @param string $string <p>
@@ -643,22 +658,26 @@ final class StrSB extends StrSafe {
      * The string containing every disallowed character.
      * </p>
      * @param int $offset [optional] <p>
-     * The position in subject to start searching. If start is given and is non-negative, then
-     * [[StrSB#segmentNotMatching()]] will begin examining the subject at the start position. For instance, in the
-     * string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c', and so forth. If
-     * start is given and is negative, then [[StrSB#segmentNotMatching()]] will begin examining subject at the start
-     * position from the end of subject.
+     * The position in a subject to start searching.
+     * If start is given and is non-negative, then [[StrSB#segmentNotMatching()]] will begin examining the subject at
+     * the start position.
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.
+     * If start is given and is negative, then [[StrSB#segmentNotMatching()]] will begin examining the subject at the
+     * start position from the end of a subject.
      * </p>
      * @param null|int $length [optional] <p>
-     * The length of the segment from subject to examine. If length is given and is non-negative, then the subject
-     * will be examined for length characters after the starting position. If length is given and is negative, then
-     * the subject will be examined from the starting position up-to-length characters from the end of the subject.
+     * The length of the segment from the subject to examine.
+     * If length is given and is non-negative, then the subject will be examined for length characters after the
+     * starting position.
+     * If length is given and is negative, then the subject will be examined from the starting position up-to-length
+     * characters from the end of the subject.
      * </p>
      *
      * @return int The length of the initial segment from string which consists entirely of characters not in
      * characters.
      *
-     * @note When offset parameter is set, the returned length is counted starting from this position, not from
+     * @note When the offset parameter is set, the returned length is counted starting from this position, not from
      * beginning of the string.
      */
     public static function segmentNotMatching (string $string, string $characters, int $offset = 0, ?int $length = null):int {
@@ -675,8 +694,7 @@ final class StrSB extends StrSafe {
      * The string being measured for length.
      * </p>
      *
-     * @return int <code>non-negative-int</code> String length.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int String length.
      *
      * @note The function returns the number of bytes rather than the number of characters in a string.
      */
@@ -707,7 +725,7 @@ final class StrSB extends StrSafe {
 
         return $case_sensitive
             ? parent::compare($string_1, $string_2)
-            : strcasecmp($string_1, $string_2);
+            : strcasecmp($string_1, $string_2) <=> 0;
 
     }
 
@@ -729,14 +747,14 @@ final class StrSB extends StrSafe {
      * length of haystack minus the offset.
      * </p>
      * @param bool $case_sensitive [optional] <p>
-     * If case_sensitive is true, comparison is case-insensitive.
+     * If case_sensitive is true, the comparison is case-insensitive.
      * </p>
      *
      * @throws ValueError If $offset is higher than $string_1.
      *
-     * @return int -1 if string1 is less than string2, 1 if string1 is greater than string2 and 0 if they are equal.
+     * @return int -1 if string1 is less than string2, 1 if string1 is greater than string2 and zero if they're equal.
      */
-    public static function comparePart (string $string_1, string $string_2, int $offset, int $length = null, bool $case_sensitive = true):int {
+    public static function comparePart (string $string_1, string $string_2, int $offset, ?int $length = null, bool $case_sensitive = true):int {
 
         return substr_compare(
             $string_1,
@@ -744,7 +762,7 @@ final class StrSB extends StrSafe {
             $offset,
             $length,
             !$case_sensitive
-        );
+        ) <=> 0;
 
     }
 
@@ -763,11 +781,11 @@ final class StrSB extends StrSafe {
      * </p>
      *
      * @return int|false -1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if they are
-     * equal, or false if length is less than 0.
+     * equal, or false if the length is less than 0.
      */
     public static function compareFirstN (string $string_1, string $string_2, int $length):int|false {
 
-        return $length > 0 ? strncmp($string_1, $string_2, $length) : false;
+        return $length > 0 ? strncmp($string_1, $string_2, $length) <=> 0 : false;
 
     }
 
@@ -790,9 +808,9 @@ final class StrSB extends StrSafe {
      *
      * @return int|false Numeric position of the first occurrence or false if none exist.
      *
-     * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-     * false. Please read the section on Booleans for more information. Use the === operator for testing the return
-     * value of this function.
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
      */
     public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0):int|false {
 
@@ -821,9 +839,9 @@ final class StrSB extends StrSafe {
      *
      * @return int|false Numeric position of the last occurrence or false if none exist.
      *
-     * @warning This function may return Boolean false, but may also return a non-Boolean value which evaluates to
-     * false. Please read the section on Booleans for more information. Use the === operator for testing the return
-     * value of this function.
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
      */
     public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0):int|false {
 

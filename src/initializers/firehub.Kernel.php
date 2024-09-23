@@ -14,13 +14,23 @@
 
 namespace FireHub\Core\Initializers;
 
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
+
 /**
  * ### Abstract Base Kernel
  *
- * Process requests that come in through various sources and give a client appropriate response.
+ * Process requests that come in through various sources and give a client the appropriate response.
  * @since 1.0.0
  */
-abstract class Kernel {
+abstract class Kernel implements Init {
+
+    /**
+     * ### FireHub initial concrete trait
+     * @since 1.0.0
+     */
+    use Concrete;
 
     /**
      * ### Handle client runtime

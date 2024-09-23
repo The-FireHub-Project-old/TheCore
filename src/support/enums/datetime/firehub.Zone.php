@@ -14,11 +14,21 @@
 
 namespace FireHub\Core\Support\Enums\DateTime;
 
+use FireHub\Core\Base\ {
+    InitBackedEnum, Trait\ConcreteBackedEnum
+};
+
 /**
  * ### Timezones enum
  * @since 1.0.0
  */
-enum Zone:string {
+enum Zone:string implements InitBackedEnum {
+
+    /**
+     * ### FireHub initial concrete-backed enum trait
+     * @since 1.0.0
+     */
+    use ConcreteBackedEnum;
 
     /**
      * @since 1.0.0
@@ -464,6 +474,11 @@ enum Zone:string {
      * @since 1.0.0
      */
     case AMERICA_CHIHUAHUA = 'America/Chihuahua';
+
+    /**
+     * @since 1.0.0
+     */
+    case AMERICA_CIUDAD_JUAREZ = 'America/Ciudad_Juarez';
 
     /**
      * @since 1.0.0
@@ -1703,12 +1718,12 @@ enum Zone:string {
     /**
      * @since 1.0.0
      */
-    case EUROPE_KIEV = 'Europe/Kiev';
+    case EUROPE_KIROV = 'Europe/Kirov';
 
     /**
      * @since 1.0.0
      */
-    case EUROPE_KIROV = 'Europe/Kirov';
+    case EUROPE_KYIV = 'Europe/Kyiv';
 
     /**
      * @since 1.0.0

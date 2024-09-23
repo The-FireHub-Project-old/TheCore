@@ -40,11 +40,10 @@ use function mb_substr_count;
 /**
  * ### Multibyte string low-level proxy class
  *
- * Class provides multibyte specific string functions that help you deal with multibyte encodings.
+ * Class provides multibyte-specific string functions that help you deal with multibyte encodings.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class StrMB extends StrSafe {
 
@@ -59,7 +58,7 @@ final class StrMB extends StrSafe {
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::LOWER To convert to lowercase.
      * @uses \FireHub\Core\Support\Enums\String\CaseFolding::TITLE To convert to title-case.
      *
-     * @param $string <p>
+     * @param string $string <p>
      * The string being converted.
      * </p>
      * @param \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding <p>
@@ -69,9 +68,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string Converted string.
+     * @return ($string is non-empty-string ? non-empty-string : string) Converted string.
      */
-    public static function convert (string $string, CaseFolding $caseFolding, Encoding $encoding = null):string {
+    public static function convert (string $string, CaseFolding $caseFolding, ?Encoding $encoding = null):string {
 
         return mb_convert_case($string, match ($caseFolding) {
             CaseFolding::UPPER => 0,
@@ -85,7 +84,7 @@ final class StrMB extends StrSafe {
      * ### Get part of string
      *
      * Performs a multibyte safe [[StrSB#part()]] operation based on the number of characters. Position is counted
-     * from the beginning of $string. First character's position is 0. Second character position is 1, and so on.
+     * from the beginning of $string. The first character's position is 0. The second character's position is 1, and so on.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -95,8 +94,8 @@ final class StrMB extends StrSafe {
      * </p>
      * @param int $start <p>
      * If start is non-negative, the returned string will start at the start position in string, counting from zero.
-     * For instance, in the string 'abcdef', the character at position 0 is 'a',
-     * the character at position 2 is 'c', and so forth.
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.
      * If the start is negative, the returned string will start at the start character from the end of the string.
      * </p>
      * @param null|int $length [optional] <p>
@@ -109,14 +108,14 @@ final class StrMB extends StrSafe {
      *
      * @return string The portion of string specified by the start and length parameters.
      */
-    public static function part (string $string, int $start, int $length = null, Encoding $encoding = null):string {
+    public static function part (string $string, int $start, int $length = null, ?Encoding $encoding = null):string {
 
         return mb_substr($string, $start, $length, $encoding?->value);
 
     }
 
     /**
-     * ### Find first part of a string
+     * ### Find the first part of a string
      *
      * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
      * @since 1.0.0
@@ -139,9 +138,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string|false The portion of string or false if needle is not found.
+     * @return string|false The portion of string or false if the needle is not found.
      */
-    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, Encoding $encoding = null):string|false {
+    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
         if ($case_sensitive) return mb_strstr($string, $find, $before_needle, $encoding?->value);
 
@@ -150,7 +149,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find last part of a string
+     * ### Find the last part of a string
      *
      * This function returns the portion of $string which starts at the last occurrence of $find and goes until the
      * end of $string.
@@ -174,9 +173,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return string|false The portion of string, or false if needle is not found.
+     * @return string|false The portion of string, or false if the needle is not found.
      */
-    public static function lastPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, Encoding $encoding = null):string|false {
+    public static function lastPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true, ?Encoding $encoding = null):string|false {
 
         if ($case_sensitive) return mb_strrchr($string, $find, $before_needle, $encoding?->value);
 
@@ -198,25 +197,22 @@ final class StrMB extends StrSafe {
      * @param string $string <p>
      * The input string.
      * </p>
-     * @param int $length [optional] <p>
-     * <code>positive-int</code>
+     * @param positive-int $length [optional] <p>
      * Maximum length of the chunk.
      * </p>
      * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
-     * @phpstan-param positive-int $length
      *
-     * @throws Error If length is less than 1.
+     * @throws Error If the length is less than 1.
      *
-     * @return array <code><![CDATA[ array<int, string> ]]></code> If the optional $length parameter is specified, the
-     * returned array will be broken down into chunks with each being $length in length, except the final chunk which
-     * may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-     * byte in size.
-     * @phpstan-return array<int, string>
+     * @return list<non-empty-string> If the optional $length parameter is specified, the returned array will be broken down into chunks with each being
+     * $length in length, except the final chunk, which may be shorter if the string doesn't divide evenly. The default $length is 1, meaning every chunk
+     * will be one byte in size.
      */
-    public static function split (string $string, int $length = 1, Encoding $encoding = null):array {
+    public static function split (string $string, int $length = 1, ?Encoding $encoding = null):array {
 
+        /** @phpstan-ignore-next-line Since length is more than one, it must be non-empty-string */
         return !$length < 1
             ? mb_str_split($string, $length, $encoding?->value)
             : throw new Error('Length must be at least 1.');
@@ -224,7 +220,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Get number of times the searched substring occurs in the string
+     * ### Get the number of times the searched substring occurs in the string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -239,10 +235,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return int <code>non-negative-int</code> Number of times the searched substring occurs in the string.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int The number of times the searched substring occurs in the string.
      */
-    public static function partCount (string $string, string $search, Encoding $encoding = null):int {
+    public static function partCount (string $string, string $search, ?Encoding $encoding = null):int {
 
         return mb_substr_count($string, $search, $encoding?->value);
 
@@ -263,17 +258,16 @@ final class StrMB extends StrSafe {
      *
      * @error\exeption E_WARNING If the encoding is unknown.
      *
-     * @return int <code>non-negative-int</code> String length.
-     * @phpstan-return non-negative-int
+     * @return non-negative-int String length.
      */
-    public static function length (string $string, Encoding $encoding = null):int {
+    public static function length (string $string, ?Encoding $encoding = null):int {
 
         return mb_strlen($string, $encoding?->value);
 
     }
 
     /**
-     * ### Find the position of the first occurrence of a substring in a string
+     * ### Find the position of the first occurrence for a substring in a string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -294,9 +288,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return false|int Numeric position of the first occurrence or false if none exist.
+     * @return false|non-negative-int Numeric position of the first occurrence or false if none exist.
      */
-    public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
+    public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, ?Encoding $encoding = null):false|int {
 
         if ($case_sensitive) return mb_strpos($string, $search, $offset, $encoding?->value);
 
@@ -305,7 +299,7 @@ final class StrMB extends StrSafe {
     }
 
     /**
-     * ### Find the position of the last occurrence of a substring in a string
+     * ### Find the position of the last occurrence for a substring in a string
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\String\Encoding The encoding parameter for character encoding.
@@ -326,9 +320,9 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @return false|int Numeric position of the last occurrence or false if none exist.
+     * @return false|non-negative-int Numeric position of the last occurrence or false if none exist.
      */
-    public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, Encoding $encoding = null):false|int {
+    public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0, ?Encoding $encoding = null):false|int {
 
         if ($case_sensitive) return mb_strrpos($string, $search, $offset, $encoding?->value);
 
@@ -349,13 +343,12 @@ final class StrMB extends StrSafe {
      * </p>
      *
      * @throws ValueError If the value of encoding is an invalid encoding.
-     * @throws Error If we could not get current encoding.
+     * @throws Error If we couldn't get current encoding.
      *
-     * @return true|\FireHub\Core\Support\Enums\String\Encoding If encoding is set, then returns true. In this case, the
-     * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
-     * encoding name is returned.
+     * @return ($encoding is null ? \FireHub\Core\Support\Enums\String\Encoding : true) If encoding is set, then returns true. In this case, the
+     * character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned.
      */
-    public static function encoding (Encoding $encoding = null):true|Encoding {
+    public static function encoding (?Encoding $encoding = null):true|Encoding {
 
         return $encoding
             ? mb_internal_encoding($encoding->value)
@@ -409,12 +402,12 @@ final class StrMB extends StrSafe {
      * Character encoding. If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws Error If we could not convert string.
+     * @throws Error If we couldn't convert string.
      * @throws ValueError If the value of $to or $from is an invalid encoding.
      *
      * @return string Encoded string.
      */
-    public static function convertEncoding (string $string, Encoding $to, Encoding $from = null):string {
+    public static function convertEncoding (string $string, Encoding $to, ?Encoding $from = null):string {
 
         return mb_convert_encoding($string, $to->value, $from?->value)
             ?: throw new Error('Could not convert string.');
@@ -436,7 +429,7 @@ final class StrMB extends StrSafe {
      *
      * @return True on success or false on failure.
      */
-    public static function checkEncoding (string $string, Encoding $encoding = null):bool {
+    public static function checkEncoding (string $string, ?Encoding $encoding = null):bool {
 
         /** @phpstan-ignore-next-line PHPStan reports return should be true */
         return mb_check_encoding($string, $encoding?->value);

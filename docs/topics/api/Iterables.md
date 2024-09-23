@@ -63,7 +63,7 @@
 |public|<a href="#valid()">valid</a>|### Checks if the current position is valid|
 |public|<a href="#current()">current</a>|### Return the current element|
 |public|<a href="#key()">key</a>|### Return the key of the current element|
-|public|<a href="#next()">next</a>|### Move forward to next element|
+|public|<a href="#next()">next</a>|### Move forward to the next element|
 |public|<a href="#rewind()">rewind</a>|### Rewind the iterator to the first element|
 
 ## method: valid {id="valid()"}
@@ -111,7 +111,7 @@
 ## method: current {id="current()"}
 
 <code-block lang="php">
-    <![CDATA[public Iterables::current():mixed]]>
+    <![CDATA[public Iterables::current():\FireHub\Core\Support\Contracts\Iterator\TValue]]>
 </code-block>
 
 
@@ -131,12 +131,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L50">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -147,13 +147,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic"><code>TValue</code> Current element.</format></li></list>
+        <list><li><a href="TValue.md">\FireHub\Core\Support\Contracts\Iterator\TValue</a> - <format style="italic">Current element.</format></li></list>
     </def>
 </deflist>
 ## method: key {id="key()"}
 
 <code-block lang="php">
-    <![CDATA[public Iterables::key():mixed]]>
+    <![CDATA[public Iterables::key():null|\FireHub\Core\Support\Contracts\Iterator\TKey]]>
 </code-block>
 
 
@@ -173,12 +173,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L61">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L57">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L61">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L57">
                     View blame
                 </a>
             </def></deflist>
@@ -189,7 +189,7 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>mixed - <format style="italic"><code>null|TKey</code> Key of the current element.</format></li></list>
+        <list><li>null or <a href="TKey.md">\FireHub\Core\Support\Contracts\Iterator\TKey</a> - <format style="italic">Key of the current element.</format></li></list>
     </def>
 </deflist>
 ## method: next {id="next()"}
@@ -210,17 +210,17 @@
 
 
 
-### ### Move forward to next element
+### ### Move forward to the next element
 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L71">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L67">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L71">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L67">
                     View blame
                 </a>
             </def></deflist>
@@ -257,12 +257,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L77">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L81">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/iterator/firehub.Iterables.php#L77">
                     View blame
                 </a>
             </def></deflist>

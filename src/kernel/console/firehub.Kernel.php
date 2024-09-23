@@ -19,7 +19,7 @@ use FireHub\Core\Initializers\Kernel as BaseKernel;
 /**
  * ### Console Kernel
  *
- * Process Console requests that come in through various sources and give a client appropriate response.
+ * Process Console requests that come in through various sources and give a client the appropriate response.
  * @since 1.0.0
  */
 final class Kernel extends BaseKernel {

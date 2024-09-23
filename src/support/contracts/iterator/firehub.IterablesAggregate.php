@@ -34,9 +34,7 @@ interface IterablesAggregate extends Traversable, IteratorAggregate {
      * ### Retrieve an external iterator
      * @since 1.0.0
      *
-     * @return InternalTraversable <code><![CDATA[ Traversable<TKey, TValue> ]]></code>
-     * An instance of an object implementing Iterator or Traversable.
-     * @phpstan-return InternalTraversable<TKey, TValue>
+     * @return InternalTraversable<TKey, TValue> An instance of an object implementing Iterator or Traversable.
      */
     public function getIterator ():InternalTraversable;
 

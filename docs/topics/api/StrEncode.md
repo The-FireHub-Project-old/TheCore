@@ -33,8 +33,12 @@ language, allowing them to be stored, transmitted, and transformed using digital
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\StrEncode
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L33">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L36">
             View source code
         </a>
     </def>
@@ -66,6 +70,7 @@ language, allowing them to be stored, transmitted, and transformed using digital
 |public static |<a href="#quotedprintableencode()">quotedPrintableEncode</a>|### Convert a 8bit string to a quoted-printable data|
 |public static |<a href="#quotedprintabledecode()">quotedPrintableDecode</a>|### Convert a quoted-printable data to an 8 bit string|
 
+
 ## method: base64Encode {id="base64encode()"}
 
 <code-block lang="php">
@@ -86,16 +91,16 @@ language, allowing them to be stored, transmitted, and transformed using digital
 
 ### ### Encodes string with MIME base64
 
-<p><format style="italic">This encoding is designed to make binary data survive transport through transport layers that are not 8-bit
+<p><format style="italic">This encoding is designed to make binary data survive transport through transport layers that aren't 8-bit
 clean, such as mail bodies. Base64-encoded data takes about 33% more space than the original data.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L57">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L48">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L57">
                     View blame
                 </a>
             </def></deflist>
@@ -139,12 +144,12 @@ The data to be encoded.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L66">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L75">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L66">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L75">
                     View blame
                 </a>
             </def></deflist>
@@ -162,7 +167,7 @@ The base64 encoded data.
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we cannot decode $data to base64.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we can&#039;t decode $data to base64.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -195,12 +200,12 @@ printable characters, making them safe for network transmissions. Uuencoded data
 original.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L89">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L98">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L89">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L98">
                     View blame
                 </a>
             </def></deflist>
@@ -224,7 +229,7 @@ The data to be encoded.
 ## method: uuDecode {id="uudecode()"}
 
 <code-block lang="php">
-    <![CDATA[public static StrEncode::uuDecode(string $data):string]]>
+    <![CDATA[public static StrEncode::uuDecode(non-empty-string $data):string]]>
 </code-block>
 
 
@@ -244,12 +249,12 @@ The data to be encoded.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L110">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L119">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L110">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L119">
                     View blame
                 </a>
             </def></deflist>
@@ -260,7 +265,7 @@ The data to be encoded.
 </deflist>
 <deflist>
     <def title="This method has parameters:">
-        <list><li>string <format style="bold">$data</format> - <format style="italic">
+        <list><li>non-empty-string <format style="bold">$data</format> - <format style="italic">
 The uuencoded data.
 </format></li></list>
     </def>
@@ -298,12 +303,12 @@ The uuencoded data.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L138">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L129">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L138">
                     View blame
                 </a>
             </def></deflist>
@@ -347,12 +352,12 @@ The data to be encoded.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L147">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L156">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L147">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrEncode.php#L156">
                     View blame
                 </a>
             </def></deflist>

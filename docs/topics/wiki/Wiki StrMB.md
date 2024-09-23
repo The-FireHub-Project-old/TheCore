@@ -20,7 +20,7 @@ _Class provides multibyte specific string functions that help you deal with mult
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\LowLevel\StrMB**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L49)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L48)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php)**</sub>
 
@@ -35,8 +35,8 @@ _Class provides multibyte specific string functions that help you deal with mult
 |public static |<a href="#split()">split</a>|### Given a multibyte string, return an array of its characters|
 |public static |<a href="#partcount()">partCount</a>|### Get number of times the searched substring occurs in the string|
 |public static |<a href="#length()">length</a>|### Get string length|
-|public static |<a href="#firstposition()">firstPosition</a>|### Find the position of the first occurrence of a substring in a string|
-|public static |<a href="#lastposition()">lastPosition</a>|### Find the position of the last occurrence of a substring in a string|
+|public static |<a href="#firstposition()">firstPosition</a>|### Find the position of the first occurrence for a substring in a string|
+|public static |<a href="#lastposition()">lastPosition</a>|### Find the position of the last occurrence for a substring in a string|
 |public static |<a href="#encoding()">encoding</a>|### Set/Get internal character encoding|
 |public static |<a href="#detectencoding()">detectEncoding</a>|### Detect character encoding|
 |public static |<a href="#convertencoding()">convertEncoding</a>|### Convert a string from one character encoding to another|
@@ -47,18 +47,18 @@ _Class provides multibyte specific string functions that help you deal with mult
 |inherited public static |<a href="#addslashes()">addSlashes</a>|### Quote string with slashes|
 |inherited public static |<a href="#implode()">implode</a>|### Join array elements with a string|
 |inherited public static |<a href="#quotemeta()">quoteMeta</a>|### Quote meta characters|
-|inherited public static |<a href="#replace()">replace</a>|### Replace all occurrences of the search string with the replacement string|
 |inherited public static |<a href="#repeat()">repeat</a>|### Repeat a string|
 |inherited public static |<a href="#striptags()">stripTags</a>|### Strip HTML and PHP tags from a string|
 |inherited public static |<a href="#stripslashes()">stripSlashes</a>|### Un-quotes a quoted string|
 |inherited public static |<a href="#trim()">trim</a>|### Strip whitespace (or other characters) from the beginning and end of a string|
 |inherited public static |<a href="#explode()">explode</a>|### Split a string by a string|
 |inherited public static |<a href="#compare()">compare</a>|### String comparison|
+|inherited public static |<a href="#translate()">translate</a>|### Translate characters or replace substrings|
 
 <h2><a name="convert()"># method: convert</a></h2>
 
 ```php
-public static StrMB::convert( $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):string
+public static StrMB::convert(string $string, \FireHub\Core\Support\Enums\String\CaseFolding $caseFolding, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed
 ```
 
 
@@ -75,17 +75,17 @@ public static StrMB::convert( $string, \FireHub\Core\Support\Enums\String\CaseFo
 
 _Performs case folding on a string, converted in the way specified by $caseFolding._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L74)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L73)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L73)**</sub>
 #### Parameters
 
-*  **$string** - _The string being converted._
+* string **$string** - _The string being converted._
 * [\FireHub\Core\Support\Enums\String\CaseFolding](./Wiki-CaseFolding) **$caseFolding** - _The case folding type._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* string - _Converted string._
+* mixed - _Converted string._
 <h2><a name="part()"># method: part</a></h2>
 
 ```php
@@ -107,14 +107,14 @@ public static StrMB::part(string $string, int $start, null|int $length = null, n
 _Performs a multibyte safe [[StrSB#part()]] operation based on the number of characters. Position is counted
 from the beginning of $string. First character's position is 0. Second character position is 1, and so on._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L111)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L111)**</sub>
 #### Parameters
 
 * string **$string** - _The string to extract the substring from._
 * int **$start** - _If start is non-negative, the returned string will start at the start position in string, counting from zero.
-For instance, in the string 'abcdef', the character at position 0 is 'a',
-the character at position 2 is 'c', and so forth.
+For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+and so forth.
 If the start is negative, the returned string will start at the start character from the end of the string._
 * null or int **$length** = null - _[optional] 
 Maximum number of characters to use from string.
@@ -144,8 +144,8 @@ public static StrMB::firstPart(string $find, string $string, bool $before_needle
 
 _Returns part of $string starting from and including the first occurrence of $find to the end of $string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L144)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L143)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L143)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -180,8 +180,8 @@ public static StrMB::lastPart(string $find, string $string, bool $before_needle 
 _This function returns the portion of $string which starts at the last occurrence of $find and goes until the
 end of $string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L179)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L178)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L178)**</sub>
 #### Parameters
 
 * string **$find** - _String to find._
@@ -198,7 +198,7 @@ Character encoding. If it is null, the internal character encoding value will be
 <h2><a name="split()"># method: split</a></h2>
 
 ```php
-public static StrMB::split(string $string, int $length = 1, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):array
+public static StrMB::split(string $string, positive-int $length = 1, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):list<non-empty-string>
 ```
 
 
@@ -218,13 +218,12 @@ variable character size as well as fixed-size encodings of 1,2 or 4 byte charact
 is specified, the string is broken down into chunks of the specified length in characters (not bytes). The
 $encoding parameter can be optionally specified, and it is good practice to do so._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L218)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L213)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L213)**</sub>
 #### Parameters
 
 * string **$string** - _The input string._
-* int **$length** = 1 - _[optional] 
-<code>positive-int</code>
+* positive-int **$length** = 1 - _[optional] 
 Maximum length of the chunk._
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _[optional] 
 Character encoding. If it is null, the internal character encoding value will be used._
@@ -233,14 +232,13 @@ Character encoding. If it is null, the internal character encoding value will be
 * [\Error](./Wiki-Error) - _If length is less than 1._
 #### Returns
 
-* array - _<code>array<int, string></code> If the optional $length parameter is specified, the
-returned array will be broken down into chunks with each being $length in length, except the final chunk which
-may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk will be one
-byte in size._
+* list&lt;non-empty-string&gt; - _If the optional $length parameter is specified, the returned array will be broken down into chunks with each being
+$length in length, except the final chunk which may be shorter if the string does not divide evenly. The default $length is 1, meaning every chunk
+will be one byte in size._
 <h2><a name="partcount()"># method: partCount</a></h2>
 
 ```php
-public static StrMB::partCount(string $string, string $search, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int
+public static StrMB::partCount(string $string, string $search, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
 
 
@@ -257,8 +255,8 @@ public static StrMB::partCount(string $string, string $search, null|\FireHub\Cor
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L245)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L240)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L240)**</sub>
 #### Parameters
 
 * string **$string** - _The string being checked._
@@ -267,11 +265,11 @@ public static StrMB::partCount(string $string, string $search, null|\FireHub\Cor
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* int - _<code>non-negative-int</code> Number of times the searched substring occurs in the string._
+*  - _non-negative-int Number of times the searched substring occurs in the string._
 <h2><a name="length()"># method: length</a></h2>
 
 ```php
-public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):int
+public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
 
 
@@ -288,8 +286,8 @@ public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\Str
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L269)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L263)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L263)**</sub>
 #### Parameters
 
 * string **$string** - _The string being measured for length._
@@ -297,11 +295,11 @@ public static StrMB::length(string $string, null|\FireHub\Core\Support\Enums\Str
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* int - _<code>non-negative-int</code> String length._
+*  - _non-negative-int String length._
 <h2><a name="firstposition()"># method: firstPosition</a></h2>
 
 ```php
-public static StrMB::firstPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):false|int
+public static StrMB::firstPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
 
 
@@ -314,12 +312,12 @@ public static StrMB::firstPosition(string $search, string $string, bool $case_se
 
 
 
-### ### Find the position of the first occurrence of a substring in a string
+### ### Find the position of the first occurrence for a substring in a string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L299)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L299)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L293)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L293)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._
@@ -332,11 +330,11 @@ If specified, search will start this number of characters counted from the begin
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* false or int - _Numeric position of the first occurrence or false if none exist._
+*  - _false|non-negative-int Numeric position of the first occurrence or false if none exist._
 <h2><a name="lastposition()"># method: lastPosition</a></h2>
 
 ```php
-public static StrMB::lastPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):false|int
+public static StrMB::lastPosition(string $search, string $string, bool $case_sensitive = true, int $offset, null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null)
 ```
 
 
@@ -349,12 +347,12 @@ public static StrMB::lastPosition(string $search, string $string, bool $case_sen
 
 
 
-### ### Find the position of the last occurrence of a substring in a string
+### ### Find the position of the last occurrence for a substring in a string
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L331)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L331)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L325)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L325)**</sub>
 #### Parameters
 
 * string **$search** - _A string to find position._
@@ -367,11 +365,11 @@ If specified, search will start this number of characters counted from the begin
 Character encoding. If it is null, the internal character encoding value will be used._
 #### Returns
 
-* false or int - _Numeric position of the last occurrence or false if none exist._
+*  - _false|non-negative-int Numeric position of the last occurrence or false if none exist._
 <h2><a name="encoding()"># method: encoding</a></h2>
 
 ```php
-public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):true|\FireHub\Core\Support\Enums\String\Encoding
+public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $encoding = null):mixed
 ```
 
 
@@ -388,8 +386,8 @@ public static StrMB::encoding(null|\FireHub\Core\Support\Enums\String\Encoding $
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L358)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L358)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L351)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L351)**</sub>
 #### Parameters
 
 * null or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) **$encoding** = null - _Encoding is the character encoding name used for the HTTP input character encoding conversion, HTTP output
@@ -401,9 +399,8 @@ module. You should notice that the internal encoding is totally different from t
 * [\Error](./Wiki-Error) - _If we could not get current encoding._
 #### Returns
 
-* true or [\FireHub\Core\Support\Enums\String\Encoding](./Wiki-Encoding) - _If encoding is set, then returns true. In this case, the
-character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character
-encoding name is returned._
+* mixed - _If encoding is set, then returns true. In this case, the
+character encoding for multibyte regex is NOT changed. If encoding is omitted, then the current character encoding name is returned._
 <h2><a name="detectencoding()"># method: detectEncoding</a></h2>
 
 ```php
@@ -424,8 +421,8 @@ public static StrMB::detectEncoding(string $string):null|\FireHub\Core\Support\E
 
 _Detects the most likely character encoding for string from an ordered list of candidates._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L382)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L382)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L375)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L375)**</sub>
 #### Parameters
 
 * string **$string** - _The string to detect encoding._
@@ -454,8 +451,8 @@ public static StrMB::convertEncoding(string $string, \FireHub\Core\Support\Enums
 _Converts string from $from, or the current internal encoding, to $to. If a string is an array, all its $string
 values will be converted recursively._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L417)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L417)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L410)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L410)**</sub>
 #### Parameters
 
 * string **$string** - _The string to be converted._
@@ -489,8 +486,8 @@ public static StrMB::checkEncoding(string $string, null|\FireHub\Core\Support\En
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L439)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L439)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L432)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrMB.php#L432)**</sub>
 #### Parameters
 
 * string **$string** - _The string to check encoding on._
@@ -519,8 +516,8 @@ This method is marked as **final**.
 
 _Performs a case-sensitive check indicating if $string is contained in $string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L65)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L65)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L63)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L63)**</sub>
 #### Parameters
 
 * string **$value** - _The value to search for._
@@ -531,7 +528,7 @@ _Performs a case-sensitive check indicating if $string is contained in $string._
 <h2><a name="startswith()"># method: startsWith</a></h2>
 
 ```php
-final public static StrSafe::startsWith(string $value, string $string):bool
+final public static StrSafe::startsWith(non-empty-string $value, string $string):bool
 ```
 
 
@@ -549,12 +546,11 @@ This method is marked as **final**.
 
 _Performs a case-sensitive check indicating if $string begins with $value._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L88)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L88)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L84)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L84)**</sub>
 #### Parameters
 
-* string **$value** - _<code>non-empty-string></code>
-The value to search for._
+* non-empty-string **$value** - _The value to search for._
 * string **$string** - _The string to search in._
 #### Returns
 
@@ -562,7 +558,7 @@ The value to search for._
 <h2><a name="endswith()"># method: endsWith</a></h2>
 
 ```php
-final public static StrSafe::endsWith(string $value, string $string):bool
+final public static StrSafe::endsWith(non-empty-string $value, string $string):bool
 ```
 
 
@@ -580,12 +576,11 @@ This method is marked as **final**.
 
 _Performs a case-sensitive check indicating if $string ends with $value._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L112)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L112)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L105)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L105)**</sub>
 #### Parameters
 
-* string **$value** - _<code>non-empty-string></code>
-The value to search for._
+* non-empty-string **$value** - _The value to search for._
 * string **$string** - _The string to search in._
 #### Returns
 
@@ -611,8 +606,8 @@ public static StrSafe::addSlashes(string $string):string
 _Backslashes are added before characters that need to be escaped:
 (single quote, double quote, backslash, NUL)._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L134)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L134)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L127)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L127)**</sub>
 #### Parameters
 
 * string **$string** - _The string to be escaped._
@@ -622,7 +617,7 @@ _Backslashes are added before characters that need to be escaped:
 <h2><a name="implode()"># method: implode</a></h2>
 
 ```php
-final public static StrSafe::implode(array $array, string $separator = &#039;&#039;):string
+final public static StrSafe::implode(array<array-key,null|scalar|\Stringable> $array, string $separator = &#039;&#039;):string
 ```
 
 
@@ -640,12 +635,11 @@ This method is marked as **final**.
 
 _Join array elements with a $separator string._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L160)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L160)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L151)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L151)**</sub>
 #### Parameters
 
-* array **$array** - _<code>array<array-key, mixed></code>
-The array of strings to implode._
+* array&lt;array-key,null or scalar or [\Stringable&gt;](./Wiki-Stringable&gt;) **$array** - _The array of strings to implode._
 * string **$separator** = '' - _[optional] 
 The boundary string._
 #### Throws
@@ -676,57 +670,14 @@ This method is marked as **final**.
 
 _Returns a version of str with a backslash character (\) before every character that is among these: .\+*?[^]($)._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L182)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L182)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L169)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L169)**</sub>
 #### Parameters
 
-* string **$string** - _<code>non-empty-string</code>
-The input string._
-#### Throws
-
-* [\Error](./Wiki-Error) - _If empty string is given as string._
+* string **$string** - _The input string._
 #### Returns
 
 * string - _The string with meta-characters quoted._
-<h2><a name="replace()"># method: replace</a></h2>
-
-```php
-final public static StrSafe::replace(string|array $search, string|array $replace, string $string, bool $case_sensitive = true, null|int &$count = null):string
-```
-
-
-
-
-
-> [!IMPORTANT]
-This method is marked as **final**.
-
-
-
-
-
-### ### Replace all occurrences of the search string with the replacement string
-
-_This function returns a string or an array with all occurrences of search
-in a subject replaced with the given replacement value._
-
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L224)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L224)**</sub>
-#### Parameters
-
-* string or array **$search** - _<code>string|list<string></code>
-The replacement value that replaces found search values.
-An array may be used to designate multiple replacements._
-* string or array **$replace** - _<code>string|list<string></code>
-The string being searched and replaced on._
-* string **$string** - _The value being searched for._
-* bool **$case_sensitive** = true - _[optional] 
-Searched values are case-insensitive._
-* by reference null or int **$count** = null - _[optional] 
-If passed, this will hold the number of matched and replaced needles._
-#### Returns
-
-* string - _String with the replaced values._
 <h2><a name="repeat()"># method: repeat</a></h2>
 
 ```php
@@ -748,26 +699,22 @@ This method is marked as **final**.
 
 _Returns string repeated $times times._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L255)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L255)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L196)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L196)**</sub>
 #### Parameters
 
 * string **$string** - _The string to be repeated._
-* int **$times** - _<code>non-negative-int</code>
-Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0. If the
-multiplier is set to 0, the function will return an empty string._
+* int **$times** - _Number of time the input string should be repeated. Multiplier has to be greater than or equal to 0.
+If the $times is set to 0 or less, the function will return empty string._
 * string **$separator** = '' - _[optional] 
 Separator in between any repeated string._
-#### Throws
-
-* [\Error](./Wiki-Error) - _If $times argument is not 0 or greater._
 #### Returns
 
 * string - _Repeated string._
 <h2><a name="striptags()"># method: stripTags</a></h2>
 
 ```php
-public static StrSafe::stripTags(string $string, null|string|array $allowed_tags = null):string
+public static StrSafe::stripTags(string $string, null|string|array<int,string> $allowed_tags = null):string
 ```
 
 
@@ -785,13 +732,12 @@ public static StrSafe::stripTags(string $string, null|string|array $allowed_tags
 _This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given string. It
 uses the same tag stripping state machine as the fgetss() function._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L282)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L282)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L221)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L221)**</sub>
 #### Parameters
 
 * string **$string** - _The input string._
-* null or string or array **$allowed_tags** = null - _<code>null|string|array<int, string></code>
-You can use the optional second parameter to specify tags which should not be stripped._
+* null or string or array&lt;int,string&gt; **$allowed_tags** = null - _You can use the optional second parameter to specify tags which should not be stripped._
 #### Returns
 
 * string - _the Stripped string._
@@ -815,8 +761,8 @@ public static StrSafe::stripSlashes(string $string):string
 
 _Backslashes are removed: (backslashes become single quote, double backslashes are made into a single backslash)._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L305)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L305)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L244)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L244)**</sub>
 #### Parameters
 
 * string **$string** - _The string to be unquoted._
@@ -843,8 +789,8 @@ This method is marked as **final**.
 
 ### ### Strip whitespace (or other characters) from the beginning and end of a string
 
-_This function returns a string with whitespace stripped from the beginning and end of string. Without the
-second parameter, trim() will strip these characters.
+_This function returns a string with whitespace stripped from the beginning and end of string.
+Without the second parameter, [[StrSafe#trim()]] will strip these characters.
 
 - " " (ASCII 32 (0x20)), an ordinary space.
 - "\t" (ASCII 9 (0x09)), a tab.
@@ -853,8 +799,8 @@ second parameter, trim() will strip these characters.
 - "\0" (ASCII 0 (0x00)), the NUL-byte.
 - "\v" (ASCII 11 (0x0B)), a vertical tab._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L347)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L347)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L286)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L286)**</sub>
 #### Parameters
 
 * string **$string** - _The string that will be trimmed._
@@ -870,7 +816,7 @@ to be stripped. With '..', you can specify a range of characters._
 <h2><a name="explode()"># method: explode</a></h2>
 
 ```php
-final public static StrSafe::explode(string $string, string $separator, int $limit = MAX):array
+final public static StrSafe::explode(string $string, non-empty-string $separator, int<min, max> $limit = MAX):string[]
 ```
 
 
@@ -889,15 +835,13 @@ This method is marked as **final**.
 _Returns an array of strings, each of which is a substring of string formed by splitting it on boundaries
 formed by the string separator._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L389)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L389)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L322)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L322)**</sub>
 #### Parameters
 
 * string **$string** - _The input string._
-* string **$separator** - _<code>non-empty-string</code>
-The boundary string._
-* int **$limit** = MAX - _[optional] 
-<code>int<min, max></code>
+* non-empty-string **$separator** - _The boundary string._
+* int&lt;min, max&gt; **$limit** = MAX - _[optional] 
 If the limit is set and positive, the returned array will contain a maximum of limit elements with the last
 element containing the rest of the string. If the limit parameter is negative, all components except the last
 - limit are returned. If the limit parameter is zero, then this is treated as 1._
@@ -906,9 +850,8 @@ element containing the rest of the string. If the limit parameter is negative, a
 * [\ValueError](./Wiki-ValueError) - _If separator is an empty string._
 #### Returns
 
-* array - _<code>string[]</code> If delimiter contains a value that is not contained in string and a negative
-limit is used, then an empty array will be returned. For any other limit, an array containing string will be
-returned._
+* string[] - _If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned.
+For any other limit, an array containing string will be returned._
 <h2><a name="compare()"># method: compare</a></h2>
 
 ```php
@@ -929,8 +872,8 @@ public static StrSafe::compare(string $string_1, string $string_2):int<-1, 1>
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L411)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L411)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L344)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L344)**</sub>
 #### Parameters
 
 * string **$string_1** - _String to compare against._
@@ -939,3 +882,32 @@ public static StrSafe::compare(string $string_1, string $string_2):int<-1, 1>
 
 * int&lt;-1, 1&gt; - _-1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if they are
 equal._
+<h2><a name="translate()"># method: translate</a></h2>
+
+```php
+public static StrSafe::translate(string $string, array<non-empty-string,string> $replace_pairs):string
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Translate characters or replace substrings
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L365)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.StrSafe.php#L365)**</sub>
+#### Parameters
+
+* string **$string** - _The string being translated to._
+* array&lt;non-empty-string,string&gt; **$replace_pairs** - _An array of key-value pairs for translation._
+#### Returns
+
+* string - _The translated string._

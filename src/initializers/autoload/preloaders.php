@@ -16,6 +16,18 @@
  */
 
 return [
+    \FireHub\Core\Support\Contracts\JsonSerializable::class,
+    \FireHub\Core\Support\Contracts\Magic\Serializable::class,
+    \FireHub\Core\Base\Base::class,
+    \FireHub\Core\Base\Init::class,
+    \FireHub\Core\Base\InitStatic::class,
+    \FireHub\Core\Base\InitEnum::class,
+    \FireHub\Core\Base\InitBackedEnum::class,
+    \FireHub\Core\Base\Trait\Base::class,
+    \FireHub\Core\Base\Trait\Concrete::class,
+    \FireHub\Core\Base\Trait\ConcreteStatic::class,
+    \FireHub\Core\Base\Trait\ConcreteEnum::class,
+    \FireHub\Core\Base\Trait\ConcreteBackedEnum::class,
     \FireHub\Core\Support\LowLevel\Arr::class,
     \FireHub\Core\Support\LowLevel\CharMB::class,
     \FireHub\Core\Support\LowLevel\CharSB::class,
@@ -38,7 +50,7 @@ return [
     \FireHub\Core\Support\LowLevel\NumFloat::class,
     \FireHub\Core\Support\LowLevel\NumInt::class,
     \FireHub\Core\Support\LowLevel\RegexMB::class,
-    \FireHub\Core\Support\LowLevel\RegexSB::class,
+    \FireHub\Core\Support\LowLevel\Regex::class,
     \FireHub\Core\Support\LowLevel\SplAutoload::class,
     \FireHub\Core\Support\LowLevel\StrEncode::class,
     \FireHub\Core\Support\LowLevel\StrSafe::class,

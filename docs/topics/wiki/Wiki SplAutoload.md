@@ -179,7 +179,7 @@ The autoload function that will be unregistered._
 <h2><a name="functions()"># method: functions</a></h2>
 
 ```php
-public static SplAutoload::functions():array
+public static SplAutoload::functions():array<array-key,mixed>
 ```
 
 
@@ -196,11 +196,11 @@ public static SplAutoload::functions():array
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L145)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L144)**</sub>
 #### Returns
 
-* array - _<code>array<array-key, mixed></code> An array of all registered autoload functions.
+* array&lt;array-key,mixed&gt; - _An array of all registered autoload functions.
 If no function is registered, or autoloaded queue is not activated, then the return value will be an empty array._
 <h2><a name="load()"># method: load</a></h2>
 
@@ -222,8 +222,8 @@ public static SplAutoload::load(class-string $class):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L164)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.SplAutoload.php#L163)**</sub>
 #### Parameters
 
 * class-string **$class** - _Fully qualified class name that is being called._

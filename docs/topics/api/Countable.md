@@ -59,7 +59,7 @@
 ## method: count {id="count()"}
 
 <code-block lang="php">
-    <![CDATA[public Countable::count():int]]>
+    <![CDATA[public Countable::count()]]>
 </code-block>
 
 
@@ -79,12 +79,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Countable.php#L34">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/contracts/firehub.Countable.php#L33">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Countable.php#L34">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/contracts/firehub.Countable.php#L33">
                     View blame
                 </a>
             </def></deflist>
@@ -95,6 +95,6 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>int - <format style="italic"><code>non-negative-int</code> Number of elements of an object.</format></li></list>
+        <list><li> - <format style="italic">non-negative-int Number of elements of an object.</format></li></list>
     </def>
 </deflist>

@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\Declared
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L31">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L35">
             View source code
         </a>
     </def>
@@ -64,10 +68,11 @@
 |public static |<a href="#constants()">constants</a>|### Gets the declared constants|
 |public static |<a href="#functions()">functions</a>|### Gets the declared functions|
 
+
 ## method: classes {id="classes()"}
 
 <code-block lang="php">
-    <![CDATA[public static Declared::classes():array]]>
+    <![CDATA[public static Declared::classes():class-string[]]]>
 </code-block>
 
 
@@ -87,12 +92,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L44">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L52">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L44">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L52">
                     View blame
                 </a>
             </def></deflist>
@@ -103,14 +108,13 @@
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared classes in
-the current script.</format></li></list>
+        <list><li>class-string[] - <format style="italic">Array of the names for the declared classes in the current script.</format></li></list>
     </def>
 </deflist>
 ## method: interfaces {id="interfaces()"}
 
 <code-block lang="php">
-    <![CDATA[public static Declared::interfaces():array]]>
+    <![CDATA[public static Declared::interfaces():class-string[]]]>
 </code-block>
 
 
@@ -130,12 +134,12 @@ the current script.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L58">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L64">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L58">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L64">
                     View blame
                 </a>
             </def></deflist>
@@ -146,14 +150,13 @@ the current script.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared interfaces in
-the current script.</format></li></list>
+        <list><li>class-string[] - <format style="italic">Array of the names for the declared interfaces in the current script.</format></li></list>
     </def>
 </deflist>
 ## method: traits {id="traits()"}
 
 <code-block lang="php">
-    <![CDATA[public static Declared::traits():array]]>
+    <![CDATA[public static Declared::traits():class-string[]]]>
 </code-block>
 
 
@@ -173,12 +176,12 @@ the current script.</format></li></list>
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L76">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L76">
                     View blame
                 </a>
             </def></deflist>
@@ -189,14 +192,13 @@ the current script.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ array<class-string> ]]></code> Array of the names for the declared traits in
-the current script.</format></li></list>
+        <list><li>class-string[] - <format style="italic">Array of the names for the declared traits in the current script.</format></li></list>
     </def>
 </deflist>
 ## method: constants {id="constants()"}
 
 <code-block lang="php">
-    <![CDATA[public static Declared::constants(bool $categorize = false):array]]>
+    <![CDATA[public static Declared::constants(bool $categorize = false):mixed]]>
 </code-block>
 
 
@@ -217,12 +219,12 @@ the current script.</format></li></list>
 as well as those created with the define() function.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L94">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L97">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L94">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L97">
                     View blame
                 </a>
             </def></deflist>
@@ -241,14 +243,14 @@ and constants and their values in the second dimension.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code><![CDATA[ ($categorize is true ? array<string, array<non-empty-string, mixed>> : array<non-empty-string, mixed>) ]]></code>
-array of constant name => constant value array, optionally grouped by extension name registering the constant.</format></li></list>
+        <list><li>mixed - <format style="italic">Array of constant name => constant value array,
+optionally grouped by extension name registering the constant.</format></li></list>
     </def>
 </deflist>
 ## method: functions {id="functions()"}
 
 <code-block lang="php">
-    <![CDATA[public static Declared::functions(bool $exclude_disabled = true):array]]>
+    <![CDATA[public static Declared::functions(bool $exclude_disabled = true)]]>
 </code-block>
 
 
@@ -268,12 +270,12 @@ array of constant name => constant value array, optionally grouped by extension 
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L115">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L113">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Declared.php#L115">
                     View blame
                 </a>
             </def></deflist>
@@ -291,8 +293,8 @@ Whether disabled functions should be excluded from the return value.
 </deflist>
 <deflist>
     <def title="This method returns:">
-        <list><li>array - <format style="italic"><code>array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}</code>
+        <list><li> - <format style="italic">array{internal: non-empty-array<int, callable-string>, user: array<int, callable-string>}
 A multidimensional array containing a list of all defined functions, both built-in (internal) and user-defined.
-The internal functions will be accessible via $arr["internal"], and the user defined ones using $arr["user"].</format></li></list>
+The internal functions will be accessible via $arr["internal"], and the user-defined ones using $arr["user"].</format></li></list>
     </def>
 </deflist>

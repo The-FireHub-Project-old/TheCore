@@ -22,7 +22,7 @@
 
 ### ### Timezone low-level proxy class
 
-<p><format style="italic">A time zone is an area that observes a uniform standard time for legal, commercial and social purposes.</format></p>
+<p><format style="italic">A time zone is an area that observes a uniform standard time for legal, commercial, and social purposes.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -32,8 +32,12 @@
 
 <deflist><def title="Fully Qualified Class Name:">
         \FireHub\Core\Support\LowLevel\DateAndTimeZone
+    </def><def title="Implements:">
+        <list><li><a href="InitStatic.md">\FireHub\Core\Base\InitStatic</a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteStatic.md">\FireHub\Core\Base\Trait\ConcreteStatic</a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L30">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L33">
             View source code
         </a>
     </def>
@@ -62,6 +66,7 @@
 |public static |<a href="#setdefaulttimezone()">setDefaultTimezone</a>|### Sets the default timezone used by all date/time functions in a script|
 |public static |<a href="#abbreviationlist()">abbreviationList</a>|### Get an associative array containing dst, offset and the timezone name alias|
 
+
 ## method: getDefaultTimezone {id="getdefaulttimezone()"}
 
 <code-block lang="php">
@@ -85,15 +90,15 @@
 <p><format style="italic">In order of preference, this function returns the default timezone by:
 - reading the timezone set using the setDefaultTimezone() method (if any).
 - reading the value of the 'date.timezone' ini option (if set).
-If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.</format></p>
+If none of the above succeeds, [[DateAndTimeZone#getDefaultTimezone()]] will return a default timezone of UTC.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L47">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L56">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L47">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L56">
                     View blame
                 </a>
             </def></deflist>
@@ -104,12 +109,12 @@ If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will retu
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Zone.md">\FireHub\Core\Support\Enums\DateTime\Zone</a>  - <format style="italic">To check for valid timezone.</format></li></list>
+        <list><li><a href="Zone.md">\FireHub\Core\Support\Enums\DateTime\Zone</a>  - <format style="italic">To check for a valid timezone.</format></li></list>
     </def>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we cannot get the default timezone.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If we can&#039;t get the default timezone.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -141,12 +146,12 @@ If none of the above succeed, [[DateAndTimeZone#getDefaultTimezone()]] will retu
 default timezone in your script, you can also use the INI setting 'date.timezone' to set the default timezone.</format></p>
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L81">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L72">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L81">
                     View blame
                 </a>
             </def></deflist>
@@ -195,12 +200,12 @@ The timezone identifier.
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L100">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L91">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.DateAndTimeZone.php#L100">
                     View blame
                 </a>
             </def></deflist>

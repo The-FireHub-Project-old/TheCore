@@ -22,7 +22,7 @@
 
 ### ### Main FireHub class for bootstrapping
 
-<p><format style="italic">This class contains all system definitions, constants and dependant components for FireHub bootstrapping.</format></p>
+<p><format style="italic">This class contains all system definitions, constants, and dependant components for FireHub bootstrapping.</format></p>
 
 <deflist>
     <def title="Class basic info:">
@@ -148,7 +148,7 @@
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Kernel.md">\FireHub\Core\Initializers\Enums\Kernel</a>  - <format style="italic">As parameter.</format></li><li><a href="Kernel.md#run()">\FireHub\Core\Initializers\Enums\Kernel::run()</a>  - <format style="italic">To run selected Kernel.</format></li><li><a href="Firehub.md#bootloaders()">\FireHub\Core\Firehub::bootloaders()</a>  - <format style="italic">To initialize bootloaders.</format></li><li><a href="Firehub.md#kernel()">\FireHub\Core\Firehub::kernel()</a>  - <format style="italic">To process Kernel.</format></li></list>
+        <list><li><a href="Kernel.md">\FireHub\Core\Initializers\Enums\Kernel</a>  - <format style="italic">As parameter.</format></li><li><a href="Kernel.md#run()">\FireHub\Core\Initializers\Enums\Kernel::run()</a>  - <format style="italic">To run the selected Kernel.</format></li><li><a href="Firehub.md#bootloaders()">\FireHub\Core\Firehub::bootloaders()</a>  - <format style="italic">To initialize bootloaders.</format></li><li><a href="Firehub.md#kernel()">\FireHub\Core\Firehub::kernel()</a>  - <format style="italic">To process Kernel.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -160,7 +160,7 @@ Pick Kernel from Kernel enum, process your request and return the appropriate re
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system cannot load constant, helper or autoload files, or a system cannot load autoload files,
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system can&#039;t load constant, helper, or autoload files, or a system can&#039;t load autoload files,
 or failed to register autoloader.</format></li></list>
     </def>
 </deflist>
@@ -189,7 +189,7 @@ or failed to register autoloader.</format></li></list>
 
 ### ### Initialize bootloaders
 
-<p><format style="italic">Load series of bootloaders required to boot FireHub framework.</format></p>
+<p><format style="italic">Load the series of bootloaders required to boot FireHub framework.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/firehub.FireHub.php#L92">
@@ -213,7 +213,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system cannot load constant, helper or autoload files, or a system cannot load autoload files,
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system can&#039;t load constant, helper, or autoload files, or a system can&#039;t load autoload files,
 or failed to register autoloader.</format></li></list>
     </def>
 </deflist>
@@ -242,7 +242,7 @@ or failed to register autoloader.</format></li></list>
 
 ### ### Register constants
 
-<p><format style="italic">This method will scan Initializers\Constants folder and automatically include all PHP files.</format></p>
+<p><format style="italic">This method will scan the Initializers\Constants folder and automatically include all PHP files.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/firehub.FireHub.php#L112">
@@ -266,7 +266,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system cannot load constant files.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system can&#039;t load constant files.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -294,7 +294,7 @@ or failed to register autoloader.</format></li></list>
 
 ### ### Register helper functions
 
-<p><format style="italic">This method will scan Initializers\Helpers folder and automatically include all PHP files.</format></p>
+<p><format style="italic">This method will scan the Initializers\Helpers folder and automatically include all PHP files.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/firehub.FireHub.php#L143">
@@ -318,7 +318,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system cannot load helper files.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system can&#039;t load helper files.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -365,7 +365,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Autoload.md#include()">\FireHub\Core\Initializers\Autoload::include()</a>  - <format style="italic">To manually include a list of classes.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
+        <list><li><a href="Autoload.md#include()">\FireHub\Core\Initializers\Autoload::include()</a>  - <format style="italic">To manually include a list of classes.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform-specific.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -375,7 +375,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method throws:">
-        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system cannot load autoload files.</format></li></list>
+        <list><li><a href="Error.md">\Error</a> - <format style="italic">If a system can&#039;t load autoload files.</format></li></list>
     </def>
 </deflist>
 <deflist>
@@ -403,7 +403,7 @@ or failed to register autoloader.</format></li></list>
 
 ### ### Load autoloader
 
-<p><format style="italic">This method contains definitions and series of functions needed for calling classes.</format></p>
+<p><format style="italic">This method contains definitions and a series of functions needed for calling classes.</format></p>
 
 <deflist><def title="Source code:">
                 <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/firehub.FireHub.php#L228">
@@ -422,7 +422,7 @@ or failed to register autoloader.</format></li></list>
 </deflist>
 <deflist>
     <def title="This method uses:">
-        <list><li><a href="Autoload.md#prepend()">\FireHub\Core\Initializers\Autoload::prepend()</a>  - <format style="italic">To register FireHub main autoloader.</format></li><li><a href="StrSB.md#explode()">\FireHub\Core\Support\LowLevel\StrSB::explode()</a>  - <format style="italic">To create an array from namespace.</format></li><li><a href="StrSB.md#implode()">\FireHub\Core\Support\LowLevel\StrSB::implode()</a>  - <format style="italic">To join component into namespace.</format></li><li><a href="StrSB.md#tolower()">\FireHub\Core\Support\LowLevel\StrSB::toLower()</a>  - <format style="italic">To lowercase all namespace components</format></li><li><a href="Arr.md#firstkey()">\FireHub\Core\Support\LowLevel\Arr::firstKey()</a>  - <format style="italic">To check if the first key is firehub and core.</format></li><li><a href="Arr.md#shift()">\FireHub\Core\Support\LowLevel\Arr::shift()</a>  - <format style="italic">To remove firehub and core form namespace.</format></li><li><a href="Path.md#core()">\FireHub\Core\Support\Path::core()</a>  - <format style="italic">To get FireHub Core path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform specific.</format></li></list>
+        <list><li><a href="Autoload.md#prepend()">\FireHub\Core\Initializers\Autoload::prepend()</a>  - <format style="italic">To register FireHub main autoloader.</format></li><li><a href="StrSB.md#explode()">\FireHub\Core\Support\LowLevel\StrSB::explode()</a>  - <format style="italic">To create an array from namespace.</format></li><li><a href="StrSB.md#implode()">\FireHub\Core\Support\LowLevel\StrSB::implode()</a>  - <format style="italic">To join component into namespace.</format></li><li><a href="StrSB.md#tolower()">\FireHub\Core\Support\LowLevel\StrSB::toLower()</a>  - <format style="italic">To lowercase all namespace components</format></li><li><a href="Arr.md#firstkey()">\FireHub\Core\Support\LowLevel\Arr::firstKey()</a>  - <format style="italic">To check if the first key is firehub and core.</format></li><li><a href="Arr.md#shift()">\FireHub\Core\Support\LowLevel\Arr::shift()</a>  - <format style="italic">To remove firehub and core form namespace.</format></li><li><a href="Path.md#core()">\FireHub\Core\Support\Path::core()</a>  - <format style="italic">To get FireHub Core path.</format></li><li><a href="DS.md">\FireHub\Core\Support\Constants\Path\DS</a>  - <format style="italic">As system definition for separating folders, platform-specific.</format></li></list>
     </def>
 </deflist>
 <deflist>

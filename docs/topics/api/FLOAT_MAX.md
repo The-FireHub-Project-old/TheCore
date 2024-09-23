@@ -29,7 +29,7 @@
 <deflist><def title="Fully Qualified Constant Name:">
         \FireHub\Core\Support\Constants\Number\FLOAT_MAX
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L97">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/constants/number.php#L99">
             View source code
         </a>
     </def>

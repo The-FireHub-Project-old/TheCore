@@ -23,10 +23,12 @@ use Closure, Error, Throwable;
 /**
  * ### Automatically loads classes and interfaces
  *
- * Autoload registers any number of autoloaders, enabling for classes and interfaces to be automatically loaded if they
- * are currently not defined. By registering autoloaders, FireHub is given a last chance to load the class or
- * interface before it fails with an error. Any class-like construct may be autoloaded the same way. That includes
- * classes, interfaces, traits, and enumerations.
+ * Autoload registers any number of autoloaders, enabling for classes and interfaces to be automatically loaded
+ * if they're currently not defined.
+ * By registering autoloaders, FireHub is given a last chance to load the class or interface
+ * before it fails with an error.
+ * Any class-like construct may be autoloaded the same way.
+ * That includes classes, interfaces, traits, and enumerations.
  * @since 1.0.0
  *
  * @api
@@ -47,10 +49,9 @@ final class Autoload {
      *
      * @uses \FireHub\Core\Initializers\Autoload\Callback As autoload function being registered.
      * @uses \FireHub\Core\Support\LowLevel\SplAutoload::register() To register a callback function as an autoloader.
-     * @uses \FireHub\Core\Initializers\Autoload\Loaders::add() To add new callback function as loader with alias.
+     * @uses \FireHub\Core\Initializers\Autoload\Loaders::add() To add a new callback function as loader with alias.
      *
-     * @param string $alias <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $alias $alias <p>
      * Autoloader implementation name.
      * </p>
      * @param \FireHub\Core\Initializers\Autoload\Callback $callback <p>
@@ -59,10 +60,9 @@ final class Autoload {
      * @param bool $prepend <p>
      * If true, autoloader will be prepended queue instead of appending it.
      * </p>
-     * @phpstan-param non-empty-string $alias
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return void
      */
@@ -105,18 +105,16 @@ final class Autoload {
      * ]);
      * ```
      *
-     * @param array $classes <p>
-     * <code>class-string[]</code>
-     * List of classes to be preloaders. These preloaders will be called in order as they are in the list.
+     * @param class-string[] $classes <p>
+     * List of classes to be preloaders. These preloaders will be called in order as they're in the list.
      * </p>
      * @param callable(string $class):string $callback <p>
      * <code>callable(string $class):string</code>
      * Get a class path for including.
      * </p>
-     * @phpstan-param class-string[] $classes
      *
-     * @throws Error If a system cannot preload class.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @throws Error If a system can't preload a class.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return void
      */
@@ -128,14 +126,14 @@ final class Autoload {
     }
 
     /**
-     * ### Register new autoload implementation at the end of the queue
+     * ### Register a new autoloaded implementation at the end of the queue
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::$callback To invoke autoload function being registered.
      *
      * @example Registering new autoload implementation.
      *
-     * First parameter is autoloaded name that can be later used to unregistered same autoloader, while the second
+     * First parameter is autoloaded name that can be later used to unregister the same autoloader, while the second
      * parameter should be a root path where all your classes are stored.
      *
      * ```php
@@ -143,7 +141,7 @@ final class Autoload {
      *
      * Autoload::append('MyApp', 'path_to_my_app/');
      * ```
-     * @example Registering new autoload implementation with function.
+     * @example Registering a new autoloaded implementation with function.
      *
      * Alternatively, you can use callback instead of writing a direct root path. Callback should still return a root
      * path for your classes, but this way you can manipulate a returning result like in example bellow.
@@ -162,20 +160,17 @@ final class Autoload {
      * });
      * ```
      *
-     * @param string $alias <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $alias <p>
      * Autoloader implementation name.
      * </p>
-     * @param Closure(string $namespace, string $classname):(string|false)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param non-empty-string $alias
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return self Autoload implementation.
      */
@@ -189,23 +184,20 @@ final class Autoload {
      * ### This method is alias for [[Autoload#append()]]
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Initializers\Autoload::append() To register new autoload implementation at the end of
+     * @uses \FireHub\Core\Initializers\Autoload::append() To register a new autoloaded implementation at the end of
      * the queue.
      *
-     * @param string $alias <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $alias <p>
      * Autoloader implementation name.
      * </p>
-     * @param Closure(string $namespace, string $classname):(string|false)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param non-empty-string $alias
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @throws Error If failed to register autoloader.
-     * @error\exeption E_WARNING if a system cannot preload class for autoloader.
+     * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
      * @return self Autoload implementation.
      */
@@ -216,7 +208,7 @@ final class Autoload {
     }
 
     /**
-     * ### Register new autoload implementation at the beginning of the queue
+     * ### Register a new autoloaded implementation at the beginning of the queue
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Autoload::$callback To invoke autoload function being registered.
@@ -228,17 +220,14 @@ final class Autoload {
      * Autoload::prepend('MyApp', 'path_to_my_app/');
      * ```
      *
-     * @param string $alias <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $alias <p>
      * Autoloader implementation name.
      * </p>
-     * @param Closure(string $namespace, string $classname):(string|false)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param non-empty-string $alias
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @throws Error If failed to register autoloader.
      *
@@ -269,11 +258,9 @@ final class Autoload {
      * Autoload::unregister('MyApp');
      * ```
      *
-     * @param string $alias <p>
-     * <code>non-empty-string</code>
+     * @param non-empty-string $alias <p>
      * Autoloader implementation name.
      * </p>
-     * @phpstan-param non-empty-string $alias
      *
      * @throws Error If failed to unregister the autoloader.
      *
@@ -332,11 +319,9 @@ final class Autoload {
      * Autoload::load('\MyApp\MyClass');
      * ```
      *
-     * @param string $class <p>
-     * <code>class-string</code>
+     * @param class-string $class <p>
      * Fully qualified class name that is being called.
      * </p>
-     * @phpstan-param class-string $class
      *
      * @return void
      */
@@ -352,12 +337,11 @@ final class Autoload {
      *
      * @uses \FireHub\Core\Initializers\Autoload\Callback As new autoload function.
      *
-     * @param Closure(string $namespace, string $classname):(string|false)|string $path <p>
+     * @param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path <p>
      * <code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
      * Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
      * inside a root path.
      * </p>
-     * @phpstan-param Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string $path
      *
      * @return \FireHub\Core\Initializers\Autoload\Callback New autoload function.
      */

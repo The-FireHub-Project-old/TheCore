@@ -25,16 +25,42 @@ This class is marked as **final**.
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php)**</sub>
 
 
+### Properties
+| Name | Title | Value | Default |
+|:-----|:------|:------|:--------|
+|readonly private|<a href="#$path">path</a>|||
+
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
 |public|<a href="#__construct()">__construct</a>|### Constructor|
+|private|<a href="#classcomponents()">classComponents</a>|### Get class components from class FQN|
 |public|<a href="#__invoke()">__invoke</a>|### Invoke autoload function being registered|
 
+<h2><a name="$path"># property: path</a></h2>
+
+```php
+readonly private \Closure|string $path
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L43)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L43)**</sub>
 <h2><a name="__construct()"># method: __construct</a></h2>
 
 ```php
-public Callback::__construct(callable|string $path):void
+public Callback::__construct(callable|non-empty-string $path):void
 ```
 
 
@@ -51,16 +77,47 @@ public Callback::__construct(callable|string $path):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L43)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L43)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L42)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L42)**</sub>
 #### Parameters
 
-* callable or string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
+* callable or non-empty-string **$path** - _<code>Closure(string $namespace, string $classname):(non-empty-string|false)|non-empty-string</code>
 Folder path where autoloader will try to find classes. All namespace components will be resolved as folders
 inside a root path._
 #### Returns
 
 * void
+<h2><a name="classcomponents()"># method: classComponents</a></h2>
+
+```php
+private Callback::classComponents(string $class):array{namespace: string, classname: string}
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Get class components from class FQN
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L65)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L65)**</sub>
+#### Parameters
+
+* string **$class** - _Class FQN to resolve._
+#### Throws
+
+* [\Error](./Wiki-Error) - _If a system could not get class components._
+#### Returns
+
+* array{namespace: string, classname: string} - _Class components._
 <h2><a name="__invoke()"># method: __invoke</a></h2>
 
 ```php
@@ -81,8 +138,8 @@ public Callback::__invoke(string $class):void
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L110)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L110)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L109)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/initializers/autoload/firehub.Callback.php#L109)**</sub>
 #### Parameters
 
 * string **$class** - _Fully qualified class name that is being loaded._

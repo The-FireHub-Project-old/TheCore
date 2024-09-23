@@ -20,7 +20,7 @@ _Class contains methods that are used on all number types._
 <sub>_This class was created by Danijel Galić &lt;danijel.galic@outlook.com&gt;_</sub><br/><sub>_Copyright: 2024 FireHub Web Application Framework_</sub><br/><sub>_License: &lt;https://opensource.org/licenses/OSL-3.0&gt; OSL Open Source License version 3_</sub><br/><sub>_Version: GIT: $Id$ Blob checksum._</sub>
 
 ><sub>Fully Qualified Class Name:  **\FireHub\Core\Support\LowLevel\Num**</sub><br/>
-    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L40)**</sub><br/>
+    <sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L43)**</sub><br/>
         <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php)**</sub><br/>
         <sub>History:  **[view history](https://github.com/The-FireHub-Project/Core/commits/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php)**</sub>
 
@@ -39,11 +39,17 @@ _Class contains methods that are used on all number types._
 |public static |<a href="#min()">min</a>|### Find lowest value|
 |public static |<a href="#power()">power</a>|### Exponential expression|
 |public static |<a href="#format()">format</a>|### Format a number with grouped thousands|
+|public static |<a href="#degreestoradian()">degreesToRadian</a>|### Converts the number in degrees to the radian equivalent|
+|public static |<a href="#radiantodegrees()">radianToDegrees</a>|### Converts the radian number to the equivalent number in degrees|
+|public static |<a href="#exponent()">exponent</a>|### Calculates the exponent of e|
+|public static |<a href="#exponent1()">exponent1</a>|### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero|
+|public static |<a href="#hypotenuselength()">hypotenuseLength</a>|### Calculate the length of the hypotenuse of a right-angle triangle|
+|public static |<a href="#squareroot()">squareRoot</a>|### Square root|
 
 <h2><a name="absolute()"># method: absolute</a></h2>
 
 ```php
-final public static Num::absolute(float|int $number):int|float
+final public static Num::absolute(float|int $number):mixed
 ```
 
 
@@ -61,14 +67,14 @@ This method is marked as **final**.
 
 _Returns the absolute value of $number._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L55)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L55)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L57)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L57)**</sub>
 #### Parameters
 
 * float or int **$number** - _The numeric value to process._
 #### Returns
 
-* int or float - _<code>($number is int ? int : float)</code> The absolute value of number._
+* mixed - _The absolute value of number._
 <h2><a name="ceil()"># method: ceil</a></h2>
 
 ```php
@@ -90,8 +96,8 @@ This method is marked as **final**.
 
 _Returns the next highest integer value by rounding up $number if necessary._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L75)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L75)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L77)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L77)**</sub>
 #### Parameters
 
 * float or int **$number** - _The value to round up._
@@ -119,8 +125,8 @@ This method is marked as **final**.
 
 _Returns the next lowest integer value (as float) by rounding down $number if necessary._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L95)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L95)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L97)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L97)**</sub>
 #### Parameters
 
 * float or int **$number** - _The value to round down._
@@ -130,7 +136,7 @@ _Returns the next lowest integer value (as float) by rounding down $number if ne
 <h2><a name="round()"># method: round</a></h2>
 
 ```php
-final public static Num::round(float|int $number, int $precision, \FireHub\Core\Support\Enums\Number\Round $round = Round::HALF_UP):float|int
+final public static Num::round(float|int $number, int $precision, \FireHub\Core\Support\Enums\Number\Round $round = Round::HALF_UP):mixed
 ```
 
 
@@ -149,8 +155,8 @@ This method is marked as **final**.
 _Returns the rounded value of $number to specified $precision (number of digits after the decimal point).
 $precision can also be negative or zero (default)._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L129)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L129)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L130)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L130)**</sub>
 #### Parameters
 
 * float or int **$number** - _The value to round._
@@ -163,7 +169,7 @@ num is rounded to tens, for a precision of -2 to hundreds, etc._
 Specify the mode in which rounding occurs._
 #### Returns
 
-* float or int - _<code>($precision is positive-int ? float : int)</code> Rounded number float._
+* mixed - _Rounded number float._
 <h2><a name="log()"># method: log</a></h2>
 
 ```php
@@ -185,8 +191,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L158)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L158)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L159)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L159)**</sub>
 #### Parameters
 
 * float or int **$number** - _The value to calculate the logarithm for._
@@ -216,8 +222,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L174)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L174)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L175)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L175)**</sub>
 #### Parameters
 
 * float or int **$number** - _The argument to process._
@@ -245,8 +251,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L190)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L190)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L191)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L191)**</sub>
 #### Parameters
 
 * float or int **$number** - _The argument to process._
@@ -256,7 +262,7 @@ This method is marked as **final**.
 <h2><a name="max()"># method: max</a></h2>
 
 ```php
-final public static Num::max(\FireHub\Core\Support\LowLevel\TInt $value, \FireHub\Core\Support\LowLevel\TInt ...$values):int|float
+final public static Num::max(\FireHub\Core\Support\LowLevel\TInt $value, \FireHub\Core\Support\LowLevel\TInt ...$values):\FireHub\Core\Support\LowLevel\TInt
 ```
 
 
@@ -287,11 +293,11 @@ Any comparable value._
 Any comparable values._
 #### Returns
 
-* int or float - _<code>TInt</code> Value considered "highest" according to standard comparisons._
+* [\FireHub\Core\Support\LowLevel\TInt](./Wiki-TInt) - _Value considered "highest" according to standard comparisons._
 <h2><a name="min()"># method: min</a></h2>
 
 ```php
-final public static Num::min(\FireHub\Core\Support\LowLevel\TInt $value, \FireHub\Core\Support\LowLevel\TInt ...$values):int|float
+final public static Num::min(\FireHub\Core\Support\LowLevel\TInt $value, \FireHub\Core\Support\LowLevel\TInt ...$values):\FireHub\Core\Support\LowLevel\TInt
 ```
 
 
@@ -309,8 +315,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L238)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L238)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L237)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L237)**</sub>
 #### Templates
 
 * TInt of int|float
@@ -322,7 +328,7 @@ Any comparable value._
 Any comparable values._
 #### Returns
 
-* int or float - _<code>TInt</code> Value considered "lowest" according to standard comparisons._
+* [\FireHub\Core\Support\LowLevel\TInt](./Wiki-TInt) - _Value considered "lowest" according to standard comparisons._
 <h2><a name="power()"># method: power</a></h2>
 
 ```php
@@ -344,8 +350,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L261)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L261)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L260)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L260)**</sub>
 #### Parameters
 
 * float or int **$base** - _The base to use._
@@ -376,15 +382,187 @@ This method is marked as **final**.
 
 _Formats a number with grouped thousands and optionally decimal digits using the rounding half up rule._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L290)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L290)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L287)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L287)**</sub>
 #### Parameters
 
 * int or float **$number** - _The number being formatted._
-* int **$decimals** - _<code>non-negative-int</code>
-Sets the number of decimal digits. If 0, the decimal_separator is omitted from the return value._
+* int **$decimals**
 * string **$decimal_separator** = '.' - _Sets the separator for the decimal point._
 * string **$thousands_separator** = ',' - _Sets the separator for thousands._
 #### Returns
 
 * string - _A formatted version of number._
+<h2><a name="degreestoradian()"># method: degreesToRadian</a></h2>
+
+```php
+public static Num::degreesToRadian(int|float $number):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Converts the number in degrees to the radian equivalent
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L308)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L308)**</sub>
+#### Parameters
+
+* int or float **$number** - _Angular value in degrees._
+#### Returns
+
+* float - _Radian equivalent of number._
+<h2><a name="radiantodegrees()"># method: radianToDegrees</a></h2>
+
+```php
+public static Num::radianToDegrees(int|float $number):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Converts the radian number to the equivalent number in degrees
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L324)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L324)**</sub>
+#### Parameters
+
+* int or float **$number** - _Radian value._
+#### Returns
+
+* float - _Equivalent of number in degrees._
+<h2><a name="exponent()"># method: exponent</a></h2>
+
+```php
+public static Num::exponent(int|float $number):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Calculates the exponent of e
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L342)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L342)**</sub>
+#### Parameters
+
+* int or float **$number** - _The argument to process._
+#### Returns
+
+* float - _'e' raised to the power of number._
+<h2><a name="exponent1()"># method: exponent1</a></h2>
+
+```php
+public static Num::exponent1(int|float $number):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Returns exp($number) - 1, computed in a way that is accurate even when the value of number is close to zero
+
+_Method returns the equivalent to 'exp(num) - 1' computed in a way that is accurate even if the value of num is
+near zero, a case where 'exp (num) - 1' would be inaccurate due to subtraction of two numbers that are nearly
+equal._
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L364)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L364)**</sub>
+#### Parameters
+
+* int or float **$number** - _The argument to process._
+#### Returns
+
+* float - _'e' raised to the power of number._
+<h2><a name="hypotenuselength()"># method: hypotenuseLength</a></h2>
+
+```php
+public static Num::hypotenuseLength(int|float $x, int|float $y):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Calculate the length of the hypotenuse of a right-angle triangle
+
+_Method returns the length of the hypotenuse of a right-angle triangle with sides of length x and y, or the
+distance of the point (x, y) from the origin.
+This is equivalent to sqrt($x*$x + $y*$y)._
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L387)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L387)**</sub>
+#### Parameters
+
+* int or float **$x** - _Length of the first side._
+* int or float **$y** - _Length of the second side._
+#### Returns
+
+* float - _Calculated length of the hypotenuse._
+<h2><a name="squareroot()"># method: squareRoot</a></h2>
+
+```php
+public static Num::squareRoot(int|float $number):float
+```
+
+
+
+
+
+
+
+
+
+
+
+### ### Square root
+
+
+
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L403)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Num.php#L403)**</sub>
+#### Parameters
+
+* int or float **$number** - _The argument to process._
+#### Returns
+
+* float - _The square root of num or the special value NAN for negative numbers._

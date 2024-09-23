@@ -28,8 +28,12 @@
 
 <deflist><def title="Fully Qualified Enum Name:">
         \FireHub\Core\Support\Enums\String\CaseFolding
+    </def><def title="Implements:">
+        <list><li><a href="InitBackedEnum.md"></a></li></list>
+    </def><def title="Uses:">
+        <list><li><a href="ConcreteBackedEnum.md"></a></li></list>
     </def><def title="Source code:">
-        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L21">
+        <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L25">
             View source code
         </a>
     </def>
@@ -76,12 +80,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L37">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L27">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L37">
                     View blame
                 </a>
             </def></deflist>
@@ -92,7 +96,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to lowercase.</format></li></list>
+        <list><li><a href="Char.md#tolower()">\FireHub\Core\Support\Char::toLower()</a>  - <format style="italic">To lowercase character.</format></li><li><a href="IStr.md#contains()">\FireHub\Core\Support\IStr::contains()</a>  - <format style="italic">To lowercase string.</format></li><li><a href="IStr.md#equals()">\FireHub\Core\Support\IStr::equals()</a>  - <format style="italic">To lowercase string.</format></li><li><a href="IStr.md#containtimes()">\FireHub\Core\Support\IStr::containTimes()</a>  - <format style="italic">To lowercase string.</format></li><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">As default parameter.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to lowercase.</format></li><li><a href="Str.md#tolower()">\FireHub\Core\Support\Strings\Str::toLower()</a>  - <format style="italic">To convert string to lowercase.</format></li><li><a href="Str.md#decapitalize()">\FireHub\Core\Support\Strings\Str::deCapitalize()</a>  - <format style="italic">To lowercase the first character of a string.</format></li></list>
     </def>
 </deflist>
 ## case: UPPER {id="upper"}
@@ -113,12 +117,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L43">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L33">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L43">
                     View blame
                 </a>
             </def></deflist>
@@ -129,7 +133,7 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to uppercase.</format></li></list>
+        <list><li><a href="Char.md#toupper()">\FireHub\Core\Support\Char::toUpper()</a>  - <format style="italic">To uppercase character.</format></li><li><a href="Arr.md#foldkeys()">\FireHub\Core\Support\LowLevel\Arr::foldKeys()</a>  - <format style="italic">To fold keys to uppercase.</format></li><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to uppercase.</format></li><li><a href="Str.md#toupper()">\FireHub\Core\Support\Strings\Str::toUpper()</a>  - <format style="italic">To convert string to uppercase.</format></li><li><a href="Str.md#capitalize()">\FireHub\Core\Support\Strings\Str::capitalize()</a>  - <format style="italic">To uppercase the first character of a string.</format></li></list>
     </def>
 </deflist>
 ## case: TITLE {id="title"}
@@ -150,12 +154,12 @@
 
 
 <deflist><def title="Source code:">
-                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L49">
                     View source code
                 </a>
             </def>
             <def title="Blame:">
-                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L39">
+                <a href="https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/enums/string/firehub.CaseFolding.php#L49">
                     View blame
                 </a>
             </def></deflist>
@@ -166,6 +170,6 @@
 </deflist>
 <deflist>
     <def title="This case is used by:">
-        <list><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to title-case.</format></li></list>
+        <list><li><a href="StrMB.md#convert()">\FireHub\Core\Support\LowLevel\StrMB::convert()</a>  - <format style="italic">To convert to title-case.</format></li><li><a href="Str.md#totitle()">\FireHub\Core\Support\Strings\Str::toTitle()</a>  - <format style="italic">To convert string to title-case.</format></li></list>
     </def>
 </deflist>

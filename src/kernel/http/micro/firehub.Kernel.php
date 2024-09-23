@@ -19,7 +19,7 @@ use FireHub\Core\Initializers\Kernel as BaseKernel;
 /**
  * ### Micro HTTP Kernel
  *
- * Process Micro HTTP requests that come in through various sources and give a client appropriate response.
+ * Process Micro HTTP requests that come in through various sources and give a client an appropriate response.
  * @since 1.0.0
  */
 final class Kernel extends BaseKernel {

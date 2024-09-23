@@ -14,6 +14,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
 use Error;
 
 use function base64_decode;
@@ -30,12 +33,18 @@ use function quoted_printable_encode;
  * language, allowing them to be stored, transmitted, and transformed using digital computers.
  * @since 1.0.0
  */
-final class StrEncode {
+final class StrEncode implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Encodes string with MIME base64
      *
-     * This encoding is designed to make binary data survive transport through transport layers that are not 8-bit
+     * This encoding is designed to make binary data survive transport through transport layers that aren't 8-bit
      * clean, such as mail bodies. Base64-encoded data takes about 33% more space than the original data.
      * @since 1.0.0
      *
@@ -59,7 +68,7 @@ final class StrEncode {
      * The base64 encoded data.
      * </p>
      *
-     * @throws Error If we cannot decode $data to base64.
+     * @throws Error If we can't decode $data to base64.
      *
      * @return string Decoded string.
      */
@@ -96,12 +105,12 @@ final class StrEncode {
      * ### Decode an uuencoded data
      * @since 1.0.0
      *
-     * @param string $data <p>
+     * @param non-empty-string $data <p>
      * The uuencoded data.
      * </p>
-     * @phpstan-param non-empty-string $data
      *
      * @throws Error If we cannot uudecode $data.
+     * @error\exeption E_WARNING if $data is not a valid uuencoded string.
      *
      * @return string Decoded data as a string.
      *

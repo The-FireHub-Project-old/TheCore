@@ -65,7 +65,7 @@ _Class contains methods related to folders._
 <h2><a name="create()"># method: create</a></h2>
 
 ```php
-public static Folder::create(string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global, bool $recursive = false):void
+public static Folder::create(non-empty-string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global, bool $recursive = false):void
 ```
 
 
@@ -82,12 +82,11 @@ public static Folder::create(string $path, \FireHub\Core\Support\Enums\FileSyste
 
 _Attempts to create the folder specified by $path._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L70)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L70)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L68)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L68)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to folder ot disk partition._
+* non-empty-string **$path** - _Path to folder ot disk partition._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$owner** - _File owner permission._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$owner_group** - _File owner group permission._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$global** - _Everyone's permission._
@@ -102,7 +101,7 @@ If true, then any parent folders to the $path specified will also be created, wi
 <h2><a name="delete()"># method: delete</a></h2>
 
 ```php
-public static Folder::delete(string $path):void
+public static Folder::delete(non-empty-string $path):void
 ```
 
 
@@ -119,12 +118,11 @@ public static Folder::delete(string $path):void
 
 _Attempts to remove the folder named by $path._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L95)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L95)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L91)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L91)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to folder._
+* non-empty-string **$path** - _Path to folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not delete the folder._
@@ -134,7 +132,7 @@ Path to folder._
 <h2><a name="isfolder()"># method: isFolder</a></h2>
 
 ```php
-public static Folder::isFolder(string $path):bool
+public static Folder::isFolder(non-empty-string $path):bool
 ```
 
 
@@ -151,12 +149,11 @@ public static Folder::isFolder(string $path):bool
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L120)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L120)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L114)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L114)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the folder. If filename is a relative filename, it will be checked relative to the current working
+* non-empty-string **$path** - _Path to the folder. If filename is a relative filename, it will be checked relative to the current working
 folder. If filename is a symbolic or hard link, then the link will be resolved and checked. If you have
 enabled open_basedir, further restrictions may apply._
 #### Returns
@@ -165,7 +162,7 @@ enabled open_basedir, further restrictions may apply._
 <h2><a name="totalspace()"># method: totalSpace</a></h2>
 
 ```php
-public static Folder::totalSpace(string $path):float
+public static Folder::totalSpace(non-empty-string $path):float
 ```
 
 
@@ -182,12 +179,11 @@ public static Folder::totalSpace(string $path):float
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L146)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L146)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L138)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L138)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to folder ot disk partition._
+* non-empty-string **$path** - _Path to folder ot disk partition._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get disk space for a path._
@@ -197,7 +193,7 @@ Path to folder ot disk partition._
 <h2><a name="freespace()"># method: freeSpace</a></h2>
 
 ```php
-public static Folder::freeSpace(string $path):float
+public static Folder::freeSpace(non-empty-string $path):float
 ```
 
 
@@ -214,12 +210,11 @@ public static Folder::freeSpace(string $path):float
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L173)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L173)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L163)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.Folder.php#L163)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to folder ot disk partition._
+* non-empty-string **$path** - _Path to folder ot disk partition._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get disk space for a path._
@@ -229,7 +224,7 @@ Path to folder ot disk partition._
 <h2><a name="exist()"># method: exist</a></h2>
 
 ```php
-final public static FileSystem::exist(string $path):bool
+final public static FileSystem::exist(non-empty-string $path):bool
 ```
 
 
@@ -247,19 +242,18 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L91)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L91)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L88)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the file or folder._
+* non-empty-string **$path** - _Path to the file or folder._
 #### Returns
 
 * bool - _True if the file or directory specified by filename exists, false otherwise._
 <h2><a name="isreadable()"># method: isReadable</a></h2>
 
 ```php
-final public static FileSystem::isReadable(string $path):bool
+final public static FileSystem::isReadable(non-empty-string $path):bool
 ```
 
 
@@ -277,19 +271,18 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L114)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L114)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L109)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the file or folder._
+* non-empty-string **$path** - _Path to the file or folder._
 #### Returns
 
 * bool - _True if the file or directory specified by $path exists and is readable, false otherwise._
 <h2><a name="iswritable()"># method: isWritable</a></h2>
 
 ```php
-final public static FileSystem::isWritable(string $path):bool
+final public static FileSystem::isWritable(non-empty-string $path):bool
 ```
 
 
@@ -307,19 +300,18 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L136)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L136)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L129)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the file._
+* non-empty-string **$path** - _Path to the file._
 #### Returns
 
 * bool - _True if the filename exists and is writable._
 <h2><a name="issymboliclink()"># method: isSymbolicLink</a></h2>
 
 ```php
-final public static FileSystem::isSymbolicLink(string $path):bool
+final public static FileSystem::isSymbolicLink(non-empty-string $path):bool
 ```
 
 
@@ -337,19 +329,18 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L158)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L158)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L149)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the file._
+* non-empty-string **$path** - _Path to the file._
 #### Returns
 
 * bool - _True if the filename exists and is a symbolic link, false otherwise._
 <h2><a name="rename()"># method: rename</a></h2>
 
 ```php
-public static FileSystem::rename(string $path, string $new_name):void
+public static FileSystem::rename(non-empty-string $path, non-empty-string $new_name):void
 ```
 
 
@@ -368,14 +359,12 @@ _Attempts to rename $path to $new_name, moving it between directories if necessa
 $new_name exists, it will be overwritten. If renaming a directory and $new_name exists, this function will
 emit a warning._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L194)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L194)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L181)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-The old name path._
-* string **$new_name** - _<code>non-empty-string</code>
-The new name._
+* non-empty-string **$path** - _The old name path._
+* non-empty-string **$new_name** - _The new name._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not rename a path._
@@ -385,7 +374,7 @@ The new name._
 <h2><a name="basename()"># method: basename</a></h2>
 
 ```php
-final public static FileSystem::basename(string $path, string $suffix = &#039;&#039;):string
+final public static FileSystem::basename(non-empty-string $path, string $suffix = &#039;&#039;):string
 ```
 
 
@@ -403,12 +392,11 @@ This method is marked as **final**.
 
 _Given a string containing the path to a file or directory, this function will return the trailing name component._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L225)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L225)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L210)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-A path. On Windows, both slash (/) and backslash (\) are used as directory separator character. In other
+* non-empty-string **$path** - _A path. On Windows, both slash (/) and backslash (\) are used as directory separator character. In other
 environments, it is the forward slash (/)._
 * string **$suffix** = '' - _[optional] 
 If the name component ends in suffix, this will also be cut off._
@@ -436,8 +424,8 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L255)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L255)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L240)**</sub>
 #### Parameters
 
 * string **$path** - _The path to be parsed._
@@ -467,8 +455,8 @@ This method is marked as **final**.
 _Expands all symbolic links and resolves references to /./, /../ and extra / characters in the input path and
 returns the canonical absolute pathname. Trailing delimiters, such as \ and /, are also removed._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L294)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L294)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L280)**</sub>
 #### Parameters
 
 * string **$path** - _The path being checked._
@@ -482,7 +470,7 @@ executable permissions._
 <h2><a name="parent()"># method: parent</a></h2>
 
 ```php
-final public static FileSystem::parent(string $path, int $levels = 1):string
+final public static FileSystem::parent(non-empty-string $path, positive-int $levels = 1):string
 ```
 
 
@@ -501,14 +489,12 @@ This method is marked as **final**.
 _Given a string containing the path of a file or directory, this function will return the parent folder's path
 that is levels up from the current folder._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L327)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L327)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L309)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-A path._
-* int **$levels** = 1 - _[optional] 
-<code>positive-int</code>
+* non-empty-string **$path** - _A path._
+* positive-int **$levels** = 1 - _[optional] 
 The number of parent folders to go up. This must be an integer greater than 0._
 #### Throws
 
@@ -520,7 +506,7 @@ returned, indicating the current folder._
 <h2><a name="getgroup()"># method: getGroup</a></h2>
 
 ```php
-final public static FileSystem::getGroup(string $path):int
+final public static FileSystem::getGroup(non-empty-string $path):int
 ```
 
 
@@ -538,12 +524,11 @@ This method is marked as **final**.
 
 _Gets the file or folder group. The group ID is returned in numerical format._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L354)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L354)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L334)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path of the file or folder._
+* non-empty-string **$path** - _Path of the file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get a group for file._
@@ -553,7 +538,7 @@ Path of the file or folder._
 <h2><a name="setgroup()"># method: setGroup</a></h2>
 
 ```php
-final public static FileSystem::setGroup(string $path, string|int $group):void
+final public static FileSystem::setGroup(non-empty-string $path, non-empty-string|int $group):void
 ```
 
 
@@ -572,14 +557,12 @@ This method is marked as **final**.
 _Attempts to change the group of the file or folder $path to $group. Only the superuser may change the group of
 files arbitrarily; other users may change the group of files to any group of which that user is a member._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L362)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path of the file or folder._
-* string or int **$group** - _<code>non-empty-string|int</code>
-A group name or number._
+* non-empty-string **$path** - _Path of the file or folder._
+* non-empty-string or int **$group** - _A group name or number._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not set a group for file or folder._
@@ -589,7 +572,7 @@ A group name or number._
 <h2><a name="getowner()"># method: getOwner</a></h2>
 
 ```php
-final public static FileSystem::getOwner(string $path):int
+final public static FileSystem::getOwner(non-empty-string $path):int
 ```
 
 
@@ -607,12 +590,11 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L412)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L412)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L386)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path of the file or folder._
+* non-empty-string **$path** - _Path of the file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get an owner for file or folder._
@@ -622,7 +604,7 @@ Path of the file or folder._
 <h2><a name="setowner()"># method: setOwner</a></h2>
 
 ```php
-final public static FileSystem::setOwner(string $path, string|int $user):void
+final public static FileSystem::setOwner(non-empty-string $path, non-empty-string|int $user):void
 ```
 
 
@@ -640,14 +622,12 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L443)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L443)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L413)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Pth of the file or folder._
-* string or int **$user** - _<code>non-empty-string|int</code>
-A username or number._
+* non-empty-string **$path** - _Pth of the file or folder._
+* non-empty-string or int **$user** - _A username or number._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get an owner for file or folder._
@@ -657,7 +637,7 @@ A username or number._
 <h2><a name="getpermissions()"># method: getPermissions</a></h2>
 
 ```php
-final public static FileSystem::getPermissions(string $path):string
+final public static FileSystem::getPermissions(non-empty-string $path):string
 ```
 
 
@@ -675,12 +655,11 @@ This method is marked as **final**.
 
 _Gets permissions for the given path._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L473)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L473)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L441)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-The path._
+* non-empty-string **$path** - _The path._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get permissions for a path._
@@ -690,7 +669,7 @@ The path._
 <h2><a name="setpermissions()"># method: setPermissions</a></h2>
 
 ```php
-final public static FileSystem::setPermissions(string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global):void
+final public static FileSystem::setPermissions(non-empty-string $path, \FireHub\Core\Support\Enums\FileSystem\Permission $owner, \FireHub\Core\Support\Enums\FileSystem\Permission $owner_group, \FireHub\Core\Support\Enums\FileSystem\Permission $global):void
 ```
 
 
@@ -708,12 +687,11 @@ This method is marked as **final**.
 
 _Attempts to change the mode of the specified path to that given in permissions._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L517)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L517)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L483)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-The path._
+* non-empty-string **$path** - _The path._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$owner** - _File owner permission._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$owner_group** - _File owner group permission._
 * [\FireHub\Core\Support\Enums\FileSystem\Permission](./Wiki-Permission) **$global** - _Everyone's permission,_
@@ -726,7 +704,7 @@ The path._
 <h2><a name="lastaccessed()"># method: lastAccessed</a></h2>
 
 ```php
-final public static FileSystem::lastAccessed(string $path):int
+final public static FileSystem::lastAccessed(non-empty-string $path):int
 ```
 
 
@@ -744,12 +722,11 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L547)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L547)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L511)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to file or folder._
+* non-empty-string **$path** - _Path to file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get last accessed time for a path._
@@ -759,7 +736,7 @@ Path to file or folder._
 <h2><a name="lastmodified()"># method: lastModified</a></h2>
 
 ```php
-final public static FileSystem::lastModified(string $path):int
+final public static FileSystem::lastModified(non-empty-string $path):int
 ```
 
 
@@ -778,12 +755,11 @@ This method is marked as **final**.
 _Represents when the data or content is changed or modified, not including that of metadata such as ownership or
 owner group._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L575)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L575)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L537)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to file or folder._
+* non-empty-string **$path** - _Path to file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get last modified time for a path._
@@ -793,7 +769,7 @@ Path to file or folder._
 <h2><a name="lastchanged()"># method: lastChanged</a></h2>
 
 ```php
-final public static FileSystem::lastChanged(string $path):int
+final public static FileSystem::lastChanged(non-empty-string $path):int
 ```
 
 
@@ -812,12 +788,11 @@ This method is marked as **final**.
 _Represents the time when the metadata or inode data of a file is altered, such as the change of permissions,
 ownership or group._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L608)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L608)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L568)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to file or folder._
+* non-empty-string **$path** - _Path to file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not get last changed time for a path._
@@ -827,7 +802,7 @@ Path to file or folder._
 <h2><a name="setlastaccessedandmodification()"># method: setLastAccessedAndModification</a></h2>
 
 ```php
-final public static FileSystem::setLastAccessedAndModification(string $path, null|int $last_accessed = null, null|int $last_modified = null):true
+final public static FileSystem::setLastAccessedAndModification(non-empty-string $path, null|int $last_accessed = null, null|int $last_modified = null):true
 ```
 
 
@@ -846,12 +821,11 @@ This method is marked as **final**.
 _Attempts to set the access and modification times of the file named in the filename parameter to the value
 given in mtime. Note that the access time is always modified, regardless of the number of parameters._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L642)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L642)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L600)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to file or folder._
+* non-empty-string **$path** - _Path to file or folder._
 * null or int **$last_accessed** = null - _[optional] 
 The touch time. If mtime is null, the current system time() is used._
 * null or int **$last_modified** = null - _[optional] 
@@ -866,7 +840,7 @@ value passed to the mtime parameter. If both are null, the current system time i
 <h2><a name="inode()"># method: inode</a></h2>
 
 ```php
-final public static FileSystem::inode(string $path):int
+final public static FileSystem::inode(non-empty-string $path):int
 ```
 
 
@@ -884,12 +858,11 @@ This method is marked as **final**.
 
 _Inode are special disk blocks they are created when the file system is created._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L668)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L668)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L624)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to file or folder._
+* non-empty-string **$path** - _Path to file or folder._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we don&#039;t get inode for a path._
@@ -899,7 +872,7 @@ Path to file or folder._
 <h2><a name="list()"># method: list</a></h2>
 
 ```php
-final public static FileSystem::list(string $folder, null|\FireHub\Core\Support\Enums\Order $order = null):array
+final public static FileSystem::list(non-empty-string $folder, null|\FireHub\Core\Support\Enums\Order $order = null):string[]
 ```
 
 
@@ -917,12 +890,11 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L697)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L650)**</sub>
 #### Parameters
 
-* string **$folder** - _<code>non-empty-string</code>
-The folder that will be scanned._
+* non-empty-string **$folder** - _The folder that will be scanned._
 * null or [\FireHub\Core\Support\Enums\Order](./Wiki-Order) **$order** = null - _[optional] 
 Result order._
 #### Throws
@@ -930,11 +902,11 @@ Result order._
 * [\Error](./Wiki-Error) - _If $folder is empty, or we could not list files and directories inside the specified folder._
 #### Returns
 
-* array - _<code>string[]</code> An array of filenames._
+* string[] - _An array of filenames._
 <h2><a name="search()"># method: search</a></h2>
 
 ```php
-final public static FileSystem::search(string $pattern, bool $only_folders = false):array
+final public static FileSystem::search(non-empty-string $pattern, bool $only_folders = false):string[]
 ```
 
 
@@ -953,12 +925,11 @@ This method is marked as **final**.
 _This method searches for all the path-names matching patterns according to the rules used by the libc glob()
 function, which is similar to the rules used by common shells._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L739)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L739)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L688)**</sub>
 #### Parameters
 
-* string **$pattern** - _<code>non-empty-string</code>
-The pattern. No tilde expansion or parameter substitution is done.
+* non-empty-string **$pattern** - _The pattern. No tilde expansion or parameter substitution is done.
 - * - Matches zero or more characters.
 - ? - Matches exactly one character (any character).
 - [...] - Matches one character from a group of characters. If the first character is !, matches any character
@@ -971,12 +942,11 @@ Return only directory entries which match the pattern._
 * [\Error](./Wiki-Error) - _If there was an error while searching for a path._
 #### Returns
 
-* array - _<code>string[]</code> An array containing the matched files/folders, an empty array if no file
-matched._
+* string[] - _An array containing the matched files/folders, an empty array if no file matched._
 <h2><a name="symlink()"># method: symlink</a></h2>
 
 ```php
-final public static FileSystem::symlink(string $path, string $link):void
+final public static FileSystem::symlink(non-empty-string $path, non-empty-string $link):void
 ```
 
 
@@ -994,14 +964,12 @@ This method is marked as **final**.
 
 _Creates a symbolic link to the existing $path with the specified name $link._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L768)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L768)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L713)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the symlink._
-* string **$link** - _<code>non-empty-string</code>
-The link name._
+* non-empty-string **$path** - _Path to the symlink._
+* non-empty-string **$link** - _The link name._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not create symlink for a path with link._
@@ -1011,7 +979,7 @@ The link name._
 <h2><a name="symlinktarget()"># method: symlinkTarget</a></h2>
 
 ```php
-final public static FileSystem::symlinkTarget(string $path):string
+final public static FileSystem::symlinkTarget(non-empty-string $path):string
 ```
 
 
@@ -1029,12 +997,11 @@ This method is marked as **final**.
 
 
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L789)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L789)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L732)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the symlink._
+* non-empty-string **$path** - _Path to the symlink._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not target for a path._
@@ -1044,7 +1011,7 @@ Path to the symlink._
 <h2><a name="symlinkgroup()"># method: symlinkGroup</a></h2>
 
 ```php
-final public static FileSystem::symlinkGroup(string $path, string|int $group):void
+final public static FileSystem::symlinkGroup(non-empty-string $path, non-empty-string|int $group):void
 ```
 
 
@@ -1063,14 +1030,12 @@ This method is marked as **final**.
 _Attempts to change the group of the symlink filenames to group. Only the superuser may change the group of a
 symlink arbitrarily. Other users may change the group of a symlink to any group of which that user is a member._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L823)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L823)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L762)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the symlink._
-* string or int **$group** - _<code>non-empty-string|int</code>
-The group specified by name or number._
+* non-empty-string **$path** - _Path to the symlink._
+* non-empty-string or int **$group** - _The group specified by name or number._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not change a symlink group._
@@ -1080,7 +1045,7 @@ The group specified by name or number._
 <h2><a name="symlinkowner()"># method: symlinkOwner</a></h2>
 
 ```php
-final public static FileSystem::symlinkOwner(string $path, string|int $user):void
+final public static FileSystem::symlinkOwner(non-empty-string $path, non-empty-string|int $user):void
 ```
 
 
@@ -1099,14 +1064,12 @@ This method is marked as **final**.
 _Attempts to change the owner of the symlink $path to user $user. Only the superuser may change the owner of a
 symlink._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L857)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L857)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L793)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the symlink._
-* string or int **$user** - _<code>non-empty-string|int</code>
-Username or number._
+* non-empty-string **$path** - _Path to the symlink._
+* non-empty-string or int **$user** - _Username or number._
 #### Throws
 
 * [\Error](./Wiki-Error) - _If we could not change symlink ownership._
@@ -1116,7 +1079,7 @@ Username or number._
 <h2><a name="statistics()"># method: statistics</a></h2>
 
 ```php
-final public static FileSystem::statistics(string $path, bool $symlink = false):array
+final public static FileSystem::statistics(non-empty-string $path, bool $symlink = false):array
 ```
 
 
@@ -1135,12 +1098,11 @@ This method is marked as **final**.
 _Gathers the statistics of the file named by filename. If filename is a symbolic link, statistics are from the
 file itself, not the symlink - use $symlink argument to change that behavior._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L891)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L891)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L825)**</sub>
 #### Parameters
 
-* string **$path** - _<code>non-empty-string</code>
-Path to the file or folder._
+* non-empty-string **$path** - _Path to the file or folder._
 * bool **$symlink** = false - _[optional] 
 If true, the method gives information about a file or symbolic link._
 #### Throws
@@ -1179,8 +1141,8 @@ information about non-existent files. So, if you call [[FileSystem#exist()]] on 
 will return false until you create the file. If you create the file, it will return true even if you then
 delete the file. However, [[File#delete()]] clears the cache automatically._
 
-><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L930)**</sub><br/>
-        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L930)**</sub>
+><sub>Source code:  **[view source code](https://github.com/The-FireHub-Project/Core/blob/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864)**</sub><br/>
+        <sub>Blame:  **[view blame](https://github.com/The-FireHub-Project/Core/blame/develop-pre-alpha-m1/src/support/lowlevel/firehub.FileSystem.php#L864)**</sub>
 #### Parameters
 
 * bool **$clear_realpath_cache** = false - _[optional] 

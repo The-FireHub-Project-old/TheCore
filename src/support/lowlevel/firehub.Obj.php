@@ -23,13 +23,13 @@ use function spl_object_id;
 /**
  * ### Object low-level proxy class
  *
- * Class allows you to obtain information about objects.
+ * Class allows you to collect information about objects.
  * @since 1.0.0
  */
 final class Obj extends ClsObj {
 
     /**
-     * ### Return the integer object handle for given object
+     * ### Return the integer object handle for a given object
      *
      * This function returns a unique identifier for the object. The object id is unique for the lifetime of the object.
      * Once the object is destroyed, its id may be reused for other objects. This behavior is similar to [[Obj#hash()]].
@@ -53,9 +53,10 @@ final class Obj extends ClsObj {
     /**
      * ### Return hash id for a given object
      *
-     * This function returns a unique identifier for the object. This id can be used as a hash key for storing objects,
-     * or for identifying an object, as long as the object is not destroyed. Once the object is destroyed, its hash
-     * may be reused for other objects.
+     * This function returns a unique identifier for the object.
+     * This id can be used as a hash key for storing objects or for identifying an object, as long as the object is
+     * not destroyed.
+     * Once the object is destroyed, its hash may be reused for other objects.
      * @since 1.0.0
      *
      * @param object $object <p>
@@ -82,8 +83,7 @@ final class Obj extends ClsObj {
      * The tested object.
      * </p>
      *
-     * @return string <code>class-string</code> The name of the class of which object is an instance.
-     * @phpstan-return class-string
+     * @return class-string The name of the class of which object is an instance.
      */
     public static function className (object $object):string {
 
@@ -92,18 +92,16 @@ final class Obj extends ClsObj {
     }
 
     /**
-     * ### Gets the properties of the given object
+     * ### Gets the public properties of the given object
      *
-     * Gets the accessible non-static properties of the given object according to scope.
+     * Gets the accessible non-static public properties of the given object.
      * @since 1.0.0
      *
      * @param object $object <p>
      * An object instance.
      * </p>
      *
-     * @return array <code><![CDATA[ array<string, mixed> ]]></code> An associative array of defined object-accessible
-     * non-static properties for a specified object in scope.
-     * @phpstan-return array<string, mixed>
+     * @return array<string, mixed> An associative array of defined object-accessible non-static properties for a specified object in scope.
      *
      * @note Uninitialized properties are considered inaccessible, and thus will not be included in the array.
      */
@@ -114,7 +112,7 @@ final class Obj extends ClsObj {
     }
 
     /**
-     * ### Gets the class public property values
+     * ### Gets the mangled object properties
      *
      * Returns an array whose elements are the object's properties. The keys are the member variable names, with a
      * few notable exceptions: private variables have the class name prepended to the variable name, and protected
@@ -126,9 +124,7 @@ final class Obj extends ClsObj {
      * An object instance.
      * </p>
      *
-     * @return array <code><![CDATA[ array-key, mixed> ]]></code> An array containing all properties, regardless
-     * of visibility, of an object.
-     * @phpstan-return array<array-key, mixed>
+     * @return array<array-key, mixed> An array containing all properties, regardless of visibility, of an object.
      */
     public static function mangledProperties (object $object):array {
 

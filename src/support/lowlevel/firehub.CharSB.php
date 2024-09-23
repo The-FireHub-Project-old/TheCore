@@ -14,6 +14,10 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Base\ {
+    InitStatic, Trait\ConcreteStatic
+};
+
 use function chr;
 use function ord;
 
@@ -23,7 +27,13 @@ use function ord;
  * Class allows you to manipulate characters in various ways.
  * @since 1.0.0
  */
-final class CharSB {
+final class CharSB implements InitStatic {
+
+    /**
+     * ### FireHub initial concrete static trait
+     * @since 1.0.0
+     */
+    use ConcreteStatic;
 
     /**
      * ### Generate a single-byte string from a number
@@ -31,7 +41,7 @@ final class CharSB {
      * Returns a one-character string containing the character specified by interpreting $codepoint as an unsigned
      * integer. This can be used to create a one-character string in a single-byte encoding such as ASCII, ISO-8859,
      * or Windows 1252, by passing the position of a desired character in the encoding's mapping table. However, note
-     * that this function is not aware of any string encoding, and in particular cannot be passed a Unicode code point
+     * that this function is not aware of any string encoding, and in particular can't be passed a Unicode code point
      * value to generate a string in a multibyte encoding like UTF-8 or UTF-16. This function complements
      * [[CharSB#ord()]].
      * @since 1.0.0

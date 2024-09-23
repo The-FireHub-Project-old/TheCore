@@ -39,7 +39,7 @@ _Data type defines the type of data a variable can store._
 ### Methods
 | Type | Name | Title |
 |:-----|:-----|:------|
-|public|<a href="#category()">category</a>|## Gets data type category|
+|public|<a href="#category()">category</a>|## Gets the data type category|
 
 <h2><a name="category()"># method: category</a></h2>
 
@@ -57,7 +57,7 @@ public Type::category():\FireHub\Core\Support\Enums\Data\Category
 
 
 
-### ## Gets data type category
+### ## Gets the data type category
 
 
 
