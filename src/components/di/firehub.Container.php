@@ -404,6 +404,35 @@ class Container implements InitInstance {
     }
 
     /**
+     * ### Gat all provided tag bindings
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To resolve an object on each tag object.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::all() To get all tag objects as array.
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Components\Container\Container;
+     *
+     * $this->container>tagged('reports');
+     * ```
+     *
+     * @param non-empty-lowercase-string $with <p>
+     * Tag name.
+     * </p>
+     *
+     * @return object[]
+     */
+    public function tagged (string $with):array {
+
+        return $this->tags[$with] // @phpstan-ignore-line
+            ->map(fn($tag) => $this->resolve($tag))
+            ->all();
+
+    }
+
+    /**
      * ### Inject different implementations into each class
      * @since 1.0.0
      *
