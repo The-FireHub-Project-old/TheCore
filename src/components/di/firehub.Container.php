@@ -25,9 +25,9 @@ use FireHub\Core\Components\DI\Helpers\ {
 };
 use FireHub\Core\Components\DI\Enums\Type;
 use FireHub\Core\Support\LowLevel\ {
-    DataIs, Obj
+    DataIs, Func, Obj
 };
-use Closure, Error;
+use Closure, Error, ReflectionClass, ReflectionException, ReflectionMethod;
 
 /**
  * ### Inversion of Control (IoC) / Dependency Injection (DI) Container
@@ -36,6 +36,8 @@ use Closure, Error;
  * @since 1.0.0
  *
  * @api
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Container implements InitInstance {
 
@@ -515,6 +517,85 @@ class Container implements InitInstance {
     }
 
     /**
+     * ### Call method on resolved binding from the container
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if abstract is callable.
+     * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
+     * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
+     * @uses \FireHub\Core\Components\DI\Container::callMethod() To call method on resolved binding from the container.
+     *
+     * @param class-string|Closure(self $container):object $abstract <p>
+     * <code>Closure (self $container):object</code>
+     * Concrete class for container object instance.
+     * </p>
+     * @param non-empty-string $method <p>
+     * Method name.
+     * </p>
+     * @param array<array-key, mixed> $parameters [optional] <p>
+     * Optional parameters for resolving instance.
+     * </p>
+     *
+     * @throws Error If abstract is Closure but doesn't return an object.
+     * @throws ReflectionException if the class or method doesn't exist.
+     *
+     * @return mixed Returns the return value of the callback, or false on error.
+     */
+    public function call (string|Closure $abstract, string $method, array $parameters = []):mixed {
+
+        $object = DataIs::callable($abstract)
+            ? $abstract($this)
+            : $this->resolve($abstract);
+
+        if (!DataIs::object($object)) throw new Error('If abstract is Closure, it must return object.');
+
+        $bindings = $this->bindings->exist($object::class)
+            ? $this->bindings->get($object::class)
+            : [];
+
+        $reflection = new ReflectionMethod($object, $method);
+
+        /** @phpstan-ignore-next-line */
+        return $this->callMethod($reflection, $abstract, $method, $parameters, $bindings);
+
+    }
+
+    /**
+     * ### Call static method on resolved binding from the container
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if abstract is callable.
+     * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
+     * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
+     * @uses \FireHub\Core\Components\DI\Container::callMethod() To call method on resolved binding from the container.
+     *
+     * @param class-string $abstract <p>
+     * Concrete class for container object instance.
+     * </p>
+     * @param non-empty-string $method <p>
+     * Method name.
+     * </p>
+     * @param array<array-key, mixed> $parameters [optional] <p>
+     * Optional parameters for resolving instance.
+     * </p>
+     *
+     * @throws ReflectionException if the class or method doesn't exist.
+     *
+     * @return mixed Returns the return value of the callback, or false on error.
+     */
+    public function callStatically (string $abstract, string $method, array $parameters = []):mixed {
+
+        $bindings = $this->bindings->exist($abstract)
+            ? $this->bindings->get($abstract)
+            : [];
+
+        $reflection = new ReflectionMethod($abstract, $method);
+
+        return $this->callMethod($reflection, $abstract, $method, $parameters, $bindings);
+
+    }
+
+    /**
      * ### Register binding with the container
      * @since 1.0.0
      *
@@ -679,7 +760,9 @@ class Container implements InitInstance {
             $abstract,
             function (Container $container, mixed ...$parameters) use ($abstract, $bindings):object {
 
-                $arguments = (new Autowire($container, $abstract, $parameters, $bindings))->arguments();
+                $reflection = new ReflectionClass($abstract);
+
+                $arguments = (new Autowire($container, $reflection->getConstructor(), $parameters, $bindings))->arguments();
 
                 $argument_list = [];
                 foreach ($arguments as $argument)
@@ -694,6 +777,46 @@ class Container implements InitInstance {
         );
 
         return $this->records->get($abstract);
+
+    }
+
+    /**
+     * ### Call method on resolved binding from the container
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Helpers\Autowire::arguments() To get a list of resolved arguments.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the argument is an array.
+     * @uses \FireHub\Core\Support\LowLevel\Func::callWithArray() To call method from class.
+     *
+     * @param ReflectionMethod $reflection <p>
+     * Reflection information about a method.
+     * </p>
+     * @param class-string $abstract <p>
+     * Concrete class for container object instance.
+     * </p>
+     * @param non-empty-string $method <p>
+     * Method name.
+     * </p>
+     * @param array<array-key, mixed> $parameters [optional] <p>
+     * Optional parameters for resolving instance.
+     * </p>
+     * @param array<non-empty-string, Closure(self $container):object> $bindings [optional] <p>
+     * Optional parameters for resolving instance.
+     * </p>
+     *
+     * @return mixed Returns the return value of the callback, or false on error.
+     */
+    private function callMethod (ReflectionMethod $reflection, string $abstract, string $method, array $parameters = [], array $bindings = []):mixed {
+
+        $arguments = (new Autowire($this, $reflection, $parameters, $bindings))->arguments();
+
+        $argument_list = [];
+        foreach ($arguments as $argument)
+            if (DataIs::array($argument))
+                foreach ($argument as $argument_arr) $argument_list[] = $argument_arr;
+            else $argument_list[] = $argument;
+
+        return Func::callWithArray([$abstract, $method], $argument_list); // @phpstan-ignore-line
 
     }
 

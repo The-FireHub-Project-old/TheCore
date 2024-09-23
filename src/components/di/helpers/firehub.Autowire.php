@@ -21,7 +21,7 @@ use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\Associative;
 use FireHub\Core\Support\LowLevel\Cls;
-use Closure, ReflectionClass, ReflectionException, ReflectionNamedType, ReflectionParameter;
+use Closure, ReflectionFunctionAbstract, ReflectionNamedType, ReflectionParameter;
 
 /**
  * ### Autowire dependant objects for instance
@@ -53,12 +53,10 @@ final class Autowire implements Init {
      * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To resolve parameters.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To filter all valid arguments.
      *
-     * @template TObject of object
-     *
      * @param \FireHub\Core\Components\DI\Container $container <p>
      * Container instance.
      * </p>
-     * @param class-string<TObject> $abstract <p>
+     * @param null|ReflectionFunctionAbstract $abstract <p>
      * Class name in container.
      * </p>
      * @param array<array-key, mixed> $parameters <p>
@@ -68,20 +66,16 @@ final class Autowire implements Init {
      * Passed a list of container records bindings.
      * </p>
      *
-     * @throws ReflectionException If the class doesn't exist.
-     *
      * @return void
      */
     public function __construct (
         private readonly Container $container,
-        private readonly string $abstract,
+        private readonly ?ReflectionFunctionAbstract $abstract,
         private readonly array $parameters,
         private readonly array $bindings
     ) {
 
-        $reflection = new ReflectionClass($this->abstract);
-
-        $this->arguments = Collection::associative(fn() => $reflection->getConstructor()?->getParameters() ?? [])
+        $this->arguments = Collection::associative(fn() => $this->abstract?->getParameters() ?? [])
             ->mapKeys(fn(ReflectionParameter $parameter):string => $parameter->getName())
             ->map(fn(ReflectionParameter $parameter, string $parameter_name):mixed // @phpstan-ignore-line
                 => $this->resolve($parameter, $parameter_name))
