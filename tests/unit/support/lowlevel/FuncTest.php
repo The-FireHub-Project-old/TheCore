@@ -48,4 +48,15 @@ final class FuncTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testCallWithArray ():void {
+
+        $this->assertSame('Hi!', Func::callWithArray(fn() => 'Hi!', []));
+
+    }
+
 }

@@ -21,6 +21,7 @@ use Error;
 
 use function function_exists;
 use function call_user_func;
+use function call_user_func_array;
 use function register_shutdown_function;
 use function register_tick_function;
 use function unregister_tick_function;
@@ -85,6 +86,33 @@ final class Func implements InitStatic {
     public static function call (callable $callback, mixed ...$arguments):mixed {
 
         return call_user_func($callback, ...$arguments);
+
+    }
+
+    /**
+     * ### Call the callback with an array of parameters
+     *
+     * Calls the callback given by the first parameter with the parameters in $arguments.
+     * @since 1.0.0
+     *
+     * @template TReturn
+     *
+     * @param callable():TReturn $callback <p>
+     * <code>callable():TReturn</code>
+     * The callable to be called.
+     * </p>
+     * @param mixed[] $arguments <p>
+     * The parameters that are to be passed to the function as an indexed array.
+     * </p>
+     *
+     * @return TReturn The return value of the callback.
+     *
+     * @note Callbacks registered with this method will not be called if there is an uncaught exception thrown
+     * in a previous callback.
+     */
+    public static function callWithArray (callable $callback, array $arguments):mixed {
+
+        return call_user_func_array($callback, $arguments); // @phpstan-ignore-line
 
     }
 
