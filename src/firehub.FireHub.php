@@ -17,6 +17,7 @@ namespace FireHub\Core;
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Initializers\Autoload;
 use FireHub\Core\Support\Path;
+use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
     Arr, StrSB
@@ -53,6 +54,7 @@ final class FireHub {
      * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
      * @uses \FireHub\Core\Firehub::bootloaders() To initialize bootloaders.
      * @uses \FireHub\Core\Firehub::kernel() To process Kernel.
+     * @uses \FireHub\Core\Components\DI\Container As a dependency injection container.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
@@ -68,7 +70,7 @@ final class FireHub {
 
         return (new self)
             ->bootloaders()
-            ->kernel($kernel->run());
+            ->kernel($kernel->run(Container::getInstance()));
 
     }
 
