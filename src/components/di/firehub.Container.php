@@ -537,6 +537,13 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
      * @uses \FireHub\Core\Components\DI\Container::callMethod() To call method on resolved binding from the container.
      *
+     * @example
+     * ```php
+     * use FireHub\Core\Components\DI\Container;
+     *
+     * $this->container->call(SomeClass::class, 'someMethod', ['param' => 'value']);
+     * ```
+     *
      * @param class-string|Closure(self $container):object $abstract <p>
      * <code>Closure (self $container):object</code>
      * Concrete class for container object instance.
@@ -568,7 +575,13 @@ class Container implements InitInstance {
         $reflection = new ReflectionMethod($object, $method);
 
         /** @phpstan-ignore-next-line */
-        return $this->callMethod($reflection, $abstract, $method, $parameters, $bindings);
+        return $this->callMethod(
+            $reflection,
+            $this->resolve($abstract), // @phpstan-ignore-line
+            $method,
+            $parameters,
+            $bindings
+        );
 
     }
 
@@ -580,6 +593,13 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
      * @uses \FireHub\Core\Components\DI\Container::callMethod() To call method on resolved binding from the container.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Components\DI\Container;
+     *
+     * $this->container->callStatically(SomeClass::class, 'someMethod', ['param' => 'value']);
+     * ```
      *
      * @param class-string $abstract <p>
      * Concrete class for container object instance.
@@ -808,8 +828,8 @@ class Container implements InitInstance {
      * @param ReflectionMethod $reflection <p>
      * Reflection information about a method.
      * </p>
-     * @param class-string $abstract <p>
-     * Concrete class for container object instance.
+     * @param class-string|object $abstract <p>
+     * Concrete or abstract class for container object instance.
      * </p>
      * @param non-empty-string $method <p>
      * Method name.
@@ -823,7 +843,7 @@ class Container implements InitInstance {
      *
      * @return mixed Returns the return value of the callback, or false on error.
      */
-    private function callMethod (ReflectionMethod $reflection, string $abstract, string $method, array $parameters = [], array $bindings = []):mixed {
+    private function callMethod (ReflectionMethod $reflection, string|object $abstract, string $method, array $parameters = [], array $bindings = []):mixed {
 
         $arguments = (new Autowire($this, $reflection, $parameters, $bindings))->arguments();
 
