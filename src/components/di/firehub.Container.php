@@ -80,17 +80,29 @@ class Container implements InitInstance {
     public Register $tags;
 
     /**
+     * ### Service manager
+     * @since 1.0.0
+     *
+     * @var \FireHub\Core\Components\DI\ServiceManager
+     */
+    private ServiceManager $service_manager;
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\Registry As registry list.
+     * @uses \FireHub\Core\Components\DI\ServiceManager::addServiceProviders() To add service providers.
      */
     private function __construct () {
 
         $this->records = Registry::getInstance()->register('container'); // @phpstan-ignore-line
         $this->bindings = Registry::getInstance()->register('container_bindings'); // @phpstan-ignore-line
         $this->tags = Registry::getInstance()->register('container_tags'); // @phpstan-ignore-line
+
+        $this->service_manager = new ServiceManager($this);
+        $this->service_manager->addServiceProviders();
 
     }
 
@@ -683,6 +695,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from the container.
      * @uses \FireHub\Core\Components\Registry\Register::update() To update item from container.
+     * @uses \FireHub\Core\Components\DI\ServiceManager::loadDeferredProviders() To load deferred providers.
      * @uses \FireHub\Core\Components\DI\Container::createRecord() To create a record for container.
      * @uses \FireHub\Core\Components\DI\Container::checkRecordInstance() To check if the instance is from abstract.
      * @uses \FireHub\Core\Components\DI\Enums\Type::BIND As register type.
@@ -706,7 +719,11 @@ class Container implements InitInstance {
 
         $record = $this->records->exist($abstract)
             ? $this->records->get($abstract)
-            : $this->createRecord($abstract);
+            : (
+                $this->service_manager->loadDeferredProviders($abstract)
+                    ? $this->records->get($abstract)
+                    : $this->createRecord($abstract)
+            );
 
         if (!$record['instance']
             || $record['type'] === Type::BIND

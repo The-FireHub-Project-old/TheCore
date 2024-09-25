@@ -7,25 +7,23 @@
  * @copyright 2024 FireHub Web Application Framework
  * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
  *
- * @package Core\Initializers
+ * @package Core\Components
  *
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Initializers;
+namespace FireHub\Core\Components\DI;
 
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Components\DI\Contracts\DeferredServiceProvider;
 
 /**
- * ### Abstract Base Kernel
- *
- * Process requests that come in through various sources and give a client the appropriate response.
+ * ### Service providers give the benefit of organizing your container definitions
  * @since 1.0.0
  */
-abstract class Kernel implements Init {
+abstract class ServiceProvider implements Init {
 
     /**
      * ### FireHub initial concrete trait
@@ -50,11 +48,23 @@ abstract class Kernel implements Init {
     ) {}
 
     /**
-     * ### Handle client runtime
+     * ### Bind services into container
      * @since 1.0.0
      *
-     * @return string Response from Kernel.
+     * @return void
      */
-    abstract public function runtime ():string;
+    public function register () {}
+
+    /**
+     * ### Check if the service provider is deferred
+     * @since 1.0.0
+     *
+     * @return bool True if service provider is deferred, false otherwise.
+     */
+    public function isDeferred ():bool {
+
+        return $this instanceof DeferredServiceProvider;
+
+    }
 
 }
