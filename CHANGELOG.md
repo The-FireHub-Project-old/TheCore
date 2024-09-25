@@ -2,11 +2,12 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...develop-pre-alpha-m2)
 
+## Added
+- Create ServiceProvider and ServiceManager classes ([#91](https://github.com/The-FireHub-Project/Core/issues/91), [b7db0cd](https://github.com/The-FireHub-Project/Core/pull/91/commits/b7db0cd))
 
 ## [v0.2.0](https://github.com/The-FireHub-Project/Core/compare/v0.1.7...v0.2.0) - (2024-09-23)
 
 ## Added
-
 - Create Init Instance base type ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [817d2b7](https://github.com/The-FireHub-Project/Core/pull/7/commits/817d2b7))
 - Create Container class ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [55bb910](https://github.com/The-FireHub-Project/Core/pull/7/commits/55bb910))
 

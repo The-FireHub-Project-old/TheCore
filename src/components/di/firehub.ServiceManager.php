@@ -17,7 +17,9 @@ namespace FireHub\Core\Components\DI;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Components\DI\Contracts\DeferredServiceProvider;
+use FireHub\Core\Components\DI\Contracts\ {
+    BootableServiceProvider, DeferredServiceProvider
+};
 use FireHub\Core\Components\Registry;
 use FireHub\Core\Components\Registry\Register;
 use FireHub\Core\Support\Collection\Type\Indexed;
@@ -87,7 +89,7 @@ final class ServiceManager implements Init {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Contracts\DeferredServiceProvider::provides() To check all deferred services.
-     * @uses \FireHub\Core\Components\DI\ServiceProvider::register() To bind services into container.
+     * @uses \FireHub\Core\Components\DI\ServiceManager::registerServiceProvider() To register service provider.
      *
      * @param class-string $abstract <p>
      * Instance name in container.
@@ -100,7 +102,7 @@ final class ServiceManager implements Init {
         foreach ($this->providers['deferred'] as $provider) // @phpstan-ignore-line
             foreach ($provider->provides() as $service) // @phpstan-ignore-line
                 if ($abstract === $service) {
-                    (new $provider($this->container))->register(); // @phpstan-ignore-line
+                    $this->registerServiceProvider($provider); // @phpstan-ignore-line
                     return true;
                 }
 
@@ -114,7 +116,7 @@ final class ServiceManager implements Init {
      *
      * @uses \FireHub\Core\Components\Registry\Register::add() To add item to a container.
      * @uses \FireHub\Core\Components\DI\ServiceProvider::isDeferred() To check if the service provider is deferred.
-     * @uses \FireHub\Core\Components\DI\ServiceProvider::register() To bind services into container.
+     * @uses \FireHub\Core\Components\DI\ServiceManager::registerServiceProvider() To register service provider.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::push() To push items at the end of the tag list.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To apply the callback to each collection item.
      *
@@ -132,7 +134,29 @@ final class ServiceManager implements Init {
 
         }
 
-        $this->providers['eager']->map(fn($value) => (new $value($this->container))->register()); // @phpstan-ignore-line
+        $this->providers['eager']->map(fn($value) => $this->registerServiceProvider($value)); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Register service provider
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\ServiceProvider::register() To bind services into container.
+     * @uses \FireHub\Core\Components\DI\Contracts\BootableServiceProvider::boot() Invoke if the service provider is
+     * bootable.
+     *
+     * @param \FireHub\Core\Components\DI\ServiceProvider $service_provider <p>
+     * Service provider to register.
+     * </p>
+     *
+     * @return void
+     */
+    private function registerServiceProvider (ServiceProvider $service_provider):void {
+
+        $service_provider->register();
+
+        !$service_provider instanceof BootableServiceProvider ?: $service_provider->boot();
 
     }
 
