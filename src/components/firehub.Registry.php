@@ -112,7 +112,7 @@ final class Registry implements InitInstance {
      * Register name.
      * </p>
      *
-     * @thrown Error If the key doesn't exist in a collection
+     * @throws Error If the register doesn't exist.
      *
      * @return true Always true.
      */
@@ -121,6 +121,48 @@ final class Registry implements InitInstance {
         $this->registers->remove($name);
 
         return true;
+
+    }
+
+    /**
+     * ### Get register
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\Registry\Register::get To get the register.
+     *
+     * @param non-empty-lowercase-string $name <p>
+     * Register name.
+     * </p>
+     *
+     * @throws Error If the register doesn't exist.
+     *
+     * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
+     *     array<non-empty-lowercase-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>> Register.
+     */
+    public function get (string $name):Register {
+
+        return $this->registers->get($name);
+
+    }
+
+    /**
+     * ### Check if register exist
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\Registry\Register::exist() To check if a register exists.
+     *
+     * @param non-empty-lowercase-string $name <p>
+     * Register name.
+     * </p>
+     *
+     * @throws Error If the register doesn't exist.
+     *
+     * @return bool True if register exists, false otherwise.
+     */
+    public function registered (string $name):bool {
+
+        return $this->registers->exist($name);
 
     }
 
