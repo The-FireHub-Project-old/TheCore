@@ -517,6 +517,7 @@ class Container implements InitInstance {
      * </p>
      *
      * @throws Error If a container is implementing null for abstract, or abstract is binding to a different class.
+     * @throws ReflectionException If the class doesn't exist.
      *
      * @return TObject Object from the container.
      */
@@ -732,6 +733,7 @@ class Container implements InitInstance {
      * </p>
      *
      * @throws Error If a container is implementing null for abstract, or abstract is binding to a different class.
+     * @throws ReflectionException If the class doesn't exist.
      *
      * @return void
      */
@@ -779,6 +781,7 @@ class Container implements InitInstance {
      * </p>
      *
      * @throws Error If the record already exists in container.
+     * @throws ReflectionException If the class does not exist.
      *
      * @return array{
      *     concrete: Closure(self $container):object,
