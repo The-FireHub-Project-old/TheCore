@@ -786,7 +786,7 @@ class Container implements InitInstance {
      * </p>
      *
      * @throws Error If the record already exists in container.
-     * @throws ReflectionException If the class does not exist.
+     * @throws ReflectionException If the class doesn't exist.
      *
      * @return array{
      *     concrete: Closure(self $container):object,
