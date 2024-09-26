@@ -491,6 +491,7 @@ class Container implements InitInstance {
      *
      * @uses \FireHub\Core\Components\DI\Container::setRecordInstance() To set an instance from abstract.
      * @uses \FireHub\Core\Components\DI\Container::getRecordInstance() To get an instance from abstract.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::null() To check if resolved instance is null.
      *
      * @template TObject of object
      *
@@ -521,11 +522,15 @@ class Container implements InitInstance {
      *
      * @return TObject Object from the container.
      */
-    public function resolve (string $abstract, array $parameters = []):?object {
+    public function resolve (string $abstract, array $parameters = []):object {
 
         $this->setRecordInstance($abstract, $parameters);
 
-        return $this->getRecordInstance($abstract);
+        $instance = $this->getRecordInstance($abstract);
+
+        return DataIs::null($instance)
+            ? throw new Error('Could not resolve object.')
+            : $instance;
 
     }
 
