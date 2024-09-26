@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.2...develop-pre-alpha-m2)
 
+- Created read-only Collections ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [6a2c32f](https://github.com/The-FireHub-Project/Core/pull/91/commits/6a2c32f))
+- Added a read-only collection as a possible Register type ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [ba8edc0](https://github.com/The-FireHub-Project/Core/pull/91/commits/ba8edc0))
+
 ## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)
 
 ### Added
