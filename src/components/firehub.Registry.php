@@ -42,7 +42,8 @@ final class Registry implements InitInstance {
      *
      * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
      *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string,
-     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>>>
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadOnlyAssociative<non-empty-lowercase-string, mixed>>>
      */
     private Associative $registers;
 
@@ -81,7 +82,8 @@ final class Registry implements InitInstance {
      *
      * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     array<non-empty-lowercase-string,
-     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>> Register.
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadOnlyAssociative<non-empty-lowercase-string, mixed>> Register.
      *
      * @note If the register doesn't exist, the method will automatically create it.
      */
@@ -138,7 +140,8 @@ final class Registry implements InitInstance {
      *
      * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
      *     array<non-empty-lowercase-string,
-     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>> Register.
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadOnlyAssociative<non-empty-lowercase-string, mixed>> Register.
      */
     public function get (string $name):Register {
 
