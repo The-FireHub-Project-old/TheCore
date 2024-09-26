@@ -2,6 +2,17 @@
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...develop-pre-alpha-m2)
 
+## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)
+
+### Added
+- Created Facade ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [b55e20b](https://github.com/The-FireHub-Project/Core/pull/91/commits/b55e20b))
+
+### Changed
+- Adds ReflectionException to Container ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [f9711b7](https://github.com/The-FireHub-Project/Core/pull/91/commits/f9711b7))
+- Added instance check if an object on resolve method inside Container ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [ad63495](https://github.com/The-FireHub-Project/Core/pull/91/commits/ad63495))
+
+## [v0.2.1](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...v0.2.1) - (2024-09-25)
+
 ## Added
 - Create ServiceProvider and ServiceManager classes ([#91](https://github.com/The-FireHub-Project/Core/issues/91), [b7db0cd](https://github.com/The-FireHub-Project/Core/pull/91/commits/b7db0cd))
 
