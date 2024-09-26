@@ -1,6 +1,6 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...develop-pre-alpha-m2)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.2...develop-pre-alpha-m2)
 
 ## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)
 
