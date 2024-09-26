@@ -1557,7 +1557,8 @@ class Associative extends Arr implements OverloadableCollection {
     }
 
     /**
-     * ### Pick one or more random values out of the collection
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Helpers\Arr\random() To pick one or more random values out of the array.
@@ -1585,13 +1586,6 @@ class Associative extends Arr implements OverloadableCollection {
      * ```
      *
      * @throws Error If a collection has zero items.
-     *
-     * @param positive-int $number [optional] <p>
-     * Specifies how many entries you want to pick from a collection.
-     * </p>
-     *
-     * @return mixed If you're picking only one entry, returns a random entry.
-     * Otherwise, it returns a collection of random items.
      */
     public function random (int $number = 1):mixed {
 
