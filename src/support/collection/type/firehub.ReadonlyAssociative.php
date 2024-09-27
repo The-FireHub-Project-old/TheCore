@@ -15,6 +15,7 @@
 namespace FireHub\Core\Support\Collection\Type;
 
 use FireHub\Core\Support\Collection\Type\Traits\Associative as AssociativeTrait;
+use Error;
 
 /**
  * ### Read-only associative array collection type
@@ -49,5 +50,63 @@ class ReadonlyAssociative extends ReadonlyArr {
     public function __construct (
         protected array $storage
     ) {}
+
+    /**
+     * ### Gets item from collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative::exist() To check if an item exists in a collection.
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @throws Error If the key doesn't exist in a collection.
+     *
+     * @return TValue Item from a collection.
+     */
+    public function get (int|string $key):mixed {
+
+        return $this->exist($key)
+            ? $this->storage[$key]
+            : throw new Error("Key $key doesn't exist in collection.");
+
+    }
+
+    /**
+     * ### Check if item exist in collection
+     * @since 1.0.0
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return bool True on success, false otherwise.
+     */
+    public function exist (int|string $key):bool {
+
+        return isset($this->storage[$key]);
+
+    }
+
+    /**
+     * ### Check if item exist in collection
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative::exist() To check if an item exists in a collection.
+     *
+     * @param TKey $key <p>
+     * Collection key.
+     * </p>
+     *
+     * @return bool True on success, false otherwise.
+     *
+     * @note This method is an alias of has method.
+     */
+    public function has (int|string $key):bool {
+
+        return $this->exist($key);
+
+    }
 
 }
