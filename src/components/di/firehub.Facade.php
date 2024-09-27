@@ -35,7 +35,7 @@ abstract class Facade implements Init {
      * ### List of active facade instances
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, object>
+     * @var \FireHub\Core\Support\Collection\Type\Associative<class-string, object>
      */
     private static Associative $instances;
 

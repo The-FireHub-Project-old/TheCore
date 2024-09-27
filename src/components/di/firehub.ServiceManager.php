@@ -41,7 +41,7 @@ final class ServiceManager implements Init {
      * @since 1.0.0
      *
      * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
-     *     \FireHub\Core\Support\Collection\Type\Indexed<class-string>>
+     *     \FireHub\Core\Support\Collection\Type\Indexed<non-empty-lowercase-string>>
      *
      * @phpstan-ignore-next-line
      */
@@ -51,7 +51,7 @@ final class ServiceManager implements Init {
      * ### Predefined list of service providers
      * @since 1.0.0
      *
-     * @var class-string[]
+     * @var non-empty-lowercase-string[]
      */
     private array $predefined_providers = [];
 
@@ -91,7 +91,7 @@ final class ServiceManager implements Init {
      * @uses \FireHub\Core\Components\DI\Contracts\DeferredServiceProvider::provides() To check all deferred services.
      * @uses \FireHub\Core\Components\DI\ServiceManager::registerServiceProvider() To register service provider.
      *
-     * @param class-string $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      *

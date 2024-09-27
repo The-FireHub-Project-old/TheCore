@@ -62,9 +62,10 @@ class Container implements InitInstance {
 
     /**
      * ### List of container records bindings
+     *
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-string, Closure(self $container):object>>
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string, Closure(self $container):object>>
      */
     public Register $bindings;
 
@@ -112,8 +113,6 @@ class Container implements InitInstance {
      *
      * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      *
-     * @template TObject of object
-     *
      * @example
      * ```php
      * use FireHub\Core\Components\DI\Container;
@@ -128,7 +127,7 @@ class Container implements InitInstance {
      * // true
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string$abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -152,8 +151,6 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::register() To register binding with the container.
      * @uses \FireHub\Core\Components\DI\Enums\Type::BIND As register type.
      *
-     * @template TObject of object
-     *
      * @example
      * ```php
      * use FireHub\Core\Components\DI\Container;
@@ -173,7 +170,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -198,9 +195,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::bind() To register new binding with the container.
      *
-     * @template TObject of objecT
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -225,8 +220,6 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::register() To register binding with the container.
      * @uses \FireHub\Core\Components\DI\Enums\Type::SHARED As register type.
      *
-     * @template TObject of object
-     *
      * @example
      * ```php
      * use FireHub\Core\Components\DI\Container;
@@ -237,7 +230,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -262,9 +255,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To register a new singleton binding with the container.
      *
-     * @template TObject of objecT
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -289,8 +280,6 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::register() To register binding with the container.
      * @uses \FireHub\Core\Components\DI\Enums\Type::SCOPED As register type.
      *
-     * @template TObject of object
-     *
      * @example
      * ```php
      * use FireHub\Core\Components\DI\Container;
@@ -301,7 +290,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -326,9 +315,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::scoped() To register a new scoped binding with the container.
      *
-     * @template TObject of objecT
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -350,8 +337,6 @@ class Container implements InitInstance {
      * Instance binding creates objects current instance.
      * @since 1.0.0
      *
-     * @template TObject of object
-     *
      * @uses \FireHub\Core\Components\DI\Container::register() To register binding with the container.
      * @uses \FireHub\Core\Components\DI\Enums\Type::SHARED As register type.
      *
@@ -362,7 +347,7 @@ class Container implements InitInstance {
      * $this->container->instance(SomeClass::class, new SomeClass());
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param object $instance $concrete <p>
@@ -436,7 +421,10 @@ class Container implements InitInstance {
      * Tag name.
      * </p>
      *
-     * @return object[]
+     * @throws Error If a container is implementing null for abstract, or abstract is binding to a different class.
+     * @throws ReflectionException If the class doesn't exist.
+     *
+     * @return object[] List of tagged bindings.
      */
     public function tagged (string $with):array {
 
@@ -451,8 +439,6 @@ class Container implements InitInstance {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Helpers\ContextualBinding As return.
-     *
-     * @template TObject of object
      *
      * @example
      * ```php
@@ -471,7 +457,7 @@ class Container implements InitInstance {
      *  ->give(fn() => [new SomeClassFromInterface::class, new SomeClassFromInterface::class]));
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -491,7 +477,7 @@ class Container implements InitInstance {
      *
      * @uses \FireHub\Core\Components\DI\Container::setRecordInstance() To set an instance from abstract.
      * @uses \FireHub\Core\Components\DI\Container::getRecordInstance() To get an instance from abstract.
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::null() To check if resolved instance is null.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::null() To check if the resolved instance is null.
      *
      * @template TObject of object
      *
@@ -510,7 +496,7 @@ class Container implements InitInstance {
      *  ]);
      * ```
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      * @param array<array-key, mixed> $parameters [optional] <p>
@@ -528,7 +514,7 @@ class Container implements InitInstance {
 
         $instance = $this->getRecordInstance($abstract);
 
-        return DataIs::null($instance)
+        return DataIs::null($instance) // @phpstan-ignore-line
             ? throw new Error('Could not resolve object.')
             : $instance;
 
@@ -550,7 +536,7 @@ class Container implements InitInstance {
      * $this->container->call(SomeClass::class, 'someMethod', ['param' => 'value']);
      * ```
      *
-     * @param class-string|Closure(self $container):object $abstract <p>
+     * @param non-empty-lowercase-string|Closure(self $container):object $abstract <p>
      * <code>Closure (self $container):object</code>
      * Concrete class for container object instance.
      * </p>
@@ -570,12 +556,12 @@ class Container implements InitInstance {
 
         $object = DataIs::callable($abstract)
             ? $abstract($this)
-            : $this->resolve($abstract);
+            : $this->resolve($abstract); // @phpstan-ignore-line
 
         if (!DataIs::object($object)) throw new Error('If abstract is Closure, it must return object.');
 
-        $bindings = $this->bindings->exist($object::class)
-            ? $this->bindings->get($object::class)
+        $bindings = $this->bindings->exist($object::class) // @phpstan-ignore-line
+            ? $this->bindings->get($object::class) // @phpstan-ignore-line
             : [];
 
         $reflection = new ReflectionMethod($object, $method);
@@ -607,7 +593,7 @@ class Container implements InitInstance {
      * $this->container->callStatically(SomeClass::class, 'someMethod', ['param' => 'value']);
      * ```
      *
-     * @param class-string $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Concrete class for container object instance.
      * </p>
      * @param non-empty-string $method <p>
@@ -640,9 +626,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Enums\Type As parameter.
      * @uses \FireHub\Core\Components\Registry\Register::add() To add item to a container.
      *
-     * @template TObject of object
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param Closure(self $container):object $concrete <p>
@@ -675,9 +659,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Support\LowLevel\Obj::ofClass() To check if the object is of this class or has this class as
      * one of its parents.
      *
-     * @template TObject of object
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param object $instance <p>
@@ -700,7 +682,7 @@ class Container implements InitInstance {
      *
      * @template TObject of object
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -730,7 +712,7 @@ class Container implements InitInstance {
      *
      * @template TObject of object
      *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      * @param array<array-key, mixed> $parameters <p>
@@ -744,20 +726,20 @@ class Container implements InitInstance {
      */
     private function setRecordInstance (string $abstract, array $parameters):void {
 
-        $record = $this->records->exist($abstract)
-            ? $this->records->get($abstract)
+        $record = $this->records->exist($abstract) // @phpstan-ignore-line
+            ? $this->records->get($abstract) // @phpstan-ignore-line
             : (
-                $this->service_manager->loadDeferredProviders($abstract)
-                    ? $this->records->get($abstract)
-                    : $this->createRecord($abstract)
+                $this->service_manager->loadDeferredProviders($abstract) // @phpstan-ignore-line
+                    ? $this->records->get($abstract) // @phpstan-ignore-line
+                    : $this->createRecord($abstract) // @phpstan-ignore-line
             );
 
         if (!$record['instance']
             || $record['type'] === Type::BIND
             || ($record['type'] === Type::SCOPED && $record['parameters'] !== $parameters)
-        ) $this->records->update($abstract ,[
+        ) $this->records->update($abstract ,[ // @phpstan-ignore-line
             'instance' => $this->checkRecordInstance(
-                $abstract,
+                $abstract, // @phpstan-ignore-line
                 ($object = DataIs::null($object = $record['concrete']($this, ...$parameters))
                     ? throw new Error("Container is implementing null for $abstract!")
                     : $object)
@@ -779,9 +761,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the argument is an array.
      * @uses \FireHub\Core\Components\DI\Enums\Type::BIND As type.
      *
-     * @template TObject of object
-     *
-     * @param class-string<TObject> $abstract <p>
+     * @param non-empty-lowercase-string $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -805,7 +785,7 @@ class Container implements InitInstance {
             $abstract,
             function (Container $container, mixed ...$parameters) use ($abstract, $bindings):object {
 
-                $reflection = new ReflectionClass($abstract);
+                $reflection = new ReflectionClass($abstract); // @phpstan-ignore-line
 
                 $arguments = (new Autowire($container, $reflection->getConstructor(), $parameters, $bindings))->arguments();
 
@@ -836,7 +816,7 @@ class Container implements InitInstance {
      * @param ReflectionMethod $reflection <p>
      * Reflection information about a method.
      * </p>
-     * @param class-string|object $abstract <p>
+     * @param non-empty-lowercase-string|object $abstract <p>
      * Concrete or abstract class for container object instance.
      * </p>
      * @param non-empty-string $method <p>

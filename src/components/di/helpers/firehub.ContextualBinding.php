@@ -37,7 +37,7 @@ final class ContextualBinding implements Init {
      * ### Parameter for resolving instance
      * @since 1.0.0
      *
-     * @var null|non-empty-string
+     * @var null|non-empty-lowercase-string
      */
     private ?string $parameter = null;
 
@@ -47,12 +47,10 @@ final class ContextualBinding implements Init {
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
      *
-     * @template TObject of object
-     *
      * @param Container $container <p>
      * Container instance.
      * </p>
-     * @param class-string<TObject> $abstracts <p>
+     * @param non-empty-lowercase-string $abstracts <p>
      * Instance name in container.
      * </p>
      */
@@ -65,7 +63,7 @@ final class ContextualBinding implements Init {
      * ### When implementations needs instance
      * @since 1.0.0
      *
-     * @param non-empty-string $parameter <p>
+     * @param non-empty-lowercase-string $parameter <p>
      * Parameter for resolving instance.
      * </p>
      *
