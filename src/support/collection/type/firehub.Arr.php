@@ -38,7 +38,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @template TKey of array-key
  * @template TValue
  *
- * @extends \FireHub\Core\Support\Collection\Type\ReadOnlyArr<TKey, TValue>
+ * @extends \FireHub\Core\Support\Collection\Type\ReadonlyArr<TKey, TValue>
  * @implements \FireHub\Core\Support\Collection\Contracts\Accessible<TKey, TValue>
  *
  * @SuppressWarnings(PHPMD.TooManyMethods)
@@ -46,7 +46,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @SuppressWarnings(PHPMD.ExcessiveClassLength)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-abstract class Arr extends ReadOnlyArr implements AccessibleCollection {
+abstract class Arr extends ReadonlyArr implements AccessibleCollection {
 
     /**
      * ### This trait allows applying the callback to each collection item

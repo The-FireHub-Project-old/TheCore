@@ -22,9 +22,9 @@ namespace FireHub\Core\Support\Collection\Type;
  *
  * @template TValue
  *
- * @extends \FireHub\Core\Support\Collection\Type\ReadOnlyArr<array-key, TValue>
+ * @extends \FireHub\Core\Support\Collection\Type\ReadonlyArr<array-key, TValue>
  */
-class ReadOnlyIndexed extends ReadOnlyArr {
+class ReadonlyIndexed extends ReadonlyArr {
 
     /**
      * @inheritDoc

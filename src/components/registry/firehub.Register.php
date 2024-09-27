@@ -23,7 +23,7 @@ use FireHub\Core\Support\Collection\Type\Associative;
  * @template TKey of non-empty-lowercase-string
  * @template TValue of array<non-empty-lowercase-string,
  *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
- *     mixed>|\FireHub\Core\Support\Collection\Type\ReadOnlyAssociative<non-empty-lowercase-string, mixed>
+ *     mixed>|\FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-lowercase-string, mixed>
  *
  * @extends \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue>
  */

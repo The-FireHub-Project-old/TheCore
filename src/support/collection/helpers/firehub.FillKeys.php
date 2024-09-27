@@ -19,7 +19,7 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
-    Associative, Gen, ReadOnlyAssociative
+    Associative, Gen, ReadonlyAssociative
 };
 use FireHub\Core\Support\LowLevel\Arr;
 
@@ -76,15 +76,16 @@ final class FillKeys implements Init {
      * ### Fill as a read-only associative collection
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection::readOnlyAssociative() To create a read-only associative collection.
+     * @uses \FireHub\Core\Support\Collection::readonlyAssociative() To create a read-only associative collection.
      * @uses \FireHub\Core\Support\LowLevel\Arr::fillKeys() To fill an array with values, specifying keys.
-     * @uses \FireHub\Core\Support\Collection\Type\ReadOnlyAssociative As return.
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative As return.
      *
-     * @return \FireHub\Core\Support\Collection\Type\ReadOnlyAssociative<TKey, TValue> Associative read-only collection type.
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyAssociative<TKey, TValue> Associative read-only
+     * collection type.
      */
-    public function readOnlyAssociative ():ReadOnlyAssociative {
+    public function readonlyAssociative ():ReadonlyAssociative {
 
-        return Collection::readOnlyAssociative(Arr::fillKeys($this->keys, $this->value));
+        return Collection::readonlyAssociative(Arr::fillKeys($this->keys, $this->value));
 
     }
 

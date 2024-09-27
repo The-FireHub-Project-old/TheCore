@@ -44,7 +44,7 @@ use function FireHub\Core\Support\Helpers\Arr\ {
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-abstract class ReadOnlyArr implements Init, ReadCollectable {
+abstract class ReadonlyArr implements Init, ReadCollectable {
 
     /**
      * ### FireHub initial concrete trait

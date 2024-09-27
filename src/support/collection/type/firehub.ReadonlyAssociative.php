@@ -25,9 +25,9 @@ use FireHub\Core\Support\Collection\Type\Traits\Associative as AssociativeTrait;
  * @template TKey of array-key
  * @template TValue
  *
- * @extends \FireHub\Core\Support\Collection\Type\ReadOnlyArr<TKey, TValue>
+ * @extends \FireHub\Core\Support\Collection\Type\ReadonlyArr<TKey, TValue>
  */
-class ReadOnlyAssociative extends ReadOnlyArr {
+class ReadonlyAssociative extends ReadonlyArr {
 
     /**
      * ### Associative array trait

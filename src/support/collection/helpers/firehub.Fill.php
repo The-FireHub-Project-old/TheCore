@@ -19,7 +19,7 @@ use FireHub\Core\Base\ {
 };
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Collection\Type\ {
-    Indexed, Fix, Gen, ReadOnlyIndexed
+    Indexed, Fix, Gen, ReadonlyIndexed
 };
 use FireHub\Core\Support\LowLevel\Arr;
 
@@ -87,14 +87,14 @@ final class Fill implements Init {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Collection::list() To create an indexed collection.
-     * @uses \FireHub\Core\Support\Collection\Type\ReadOnlyIndexed As return.
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyIndexed As return.
      * @uses \FireHub\Core\Support\LowLevel\Arr::fill() To fill an array with values.
      *
-     * @return \FireHub\Core\Support\Collection\Type\ReadOnlyIndexed<TValue> Indexed read-only collection type.
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<TValue> Indexed read-only collection type.
      */
-    public function readOnlyList ():ReadOnlyIndexed {
+    public function readonlyList ():ReadonlyIndexed {
 
-        return Collection::readOnlyList(Arr::fill($this->value, 0, $this->length));
+        return Collection::readonlyList(Arr::fill($this->value, 0, $this->length));
 
     }
 
