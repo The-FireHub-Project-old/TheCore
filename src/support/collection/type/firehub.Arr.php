@@ -71,6 +71,18 @@ abstract class Arr extends ReadonlyArr implements AccessibleCollection {
     use Sliceable;
 
     /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @param array<TKey, TValue> $storage <p>
+     * Array underlying data.
+     * </p>
+     *
+     * @return void
+     */
+    abstract public function __construct (array $storage);
+
+    /**
      * ### Group collection by user-defined function until a result is true
      * @since 1.0.0
      *
