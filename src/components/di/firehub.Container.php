@@ -743,7 +743,7 @@ class Container implements InitInstance {
                 ($object = DataIs::null($object = $record['concrete']($this, ...$parameters))
                     ? throw new Error("Container is implementing null for $abstract!")
                     : $object)
-            ) ? $object
+                ) ? $object
                 : throw new Error("Container cannot resolve: $abstract, because it is binding to a different class: ".$object::class),
             'parameters' => $parameters
         ]);
