@@ -12,28 +12,22 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Kernel\Console;
+namespace FireHub\Core\Kernel;
 
-use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\Request;
+use FireHub\Core\Base\ {
+    Init, Trait\Concrete
+};
 
 /**
- * ### Console Kernel
- *
- * Process Console requests that come in through various sources and give a client the appropriate response.
+ * ### Interact with the current request being handled by your application
  * @since 1.0.0
  */
-class Kernel extends BaseKernel {
+abstract class Request implements Init {
 
     /**
-     * @inheritDoc
-     *
+     * ### FireHub initial concrete trait
      * @since 1.0.0
      */
-    public function handle (Request $request):string {
-
-        return 'Console Torch';
-
-    }
+    use Concrete;
 
 }

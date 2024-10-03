@@ -14,26 +14,14 @@
 
 namespace FireHub\Core\Kernel\Console;
 
-use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\Request;
+use FireHub\Core\Kernel\Request as BaseRequest;
 
 /**
- * ### Console Kernel
+ * ### Console Request
  *
- * Process Console requests that come in through various sources and give a client the appropriate response.
+ * Interact with the current console request being handled by your application
  * @since 1.0.0
  */
-class Kernel extends BaseKernel {
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     */
-    public function handle (Request $request):string {
-
-        return 'Console Torch';
-
-    }
+class Request extends BaseRequest {
 
 }

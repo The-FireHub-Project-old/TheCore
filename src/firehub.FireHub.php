@@ -51,10 +51,8 @@ final class FireHub {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Enums\Kernel As parameter.
-     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
      * @uses \FireHub\Core\Firehub::bootloaders() To initialize bootloaders.
      * @uses \FireHub\Core\Firehub::kernel() To process Kernel.
-     * @uses \FireHub\Core\Components\DI\Container As a dependency injection container.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
@@ -70,7 +68,7 @@ final class FireHub {
 
         return (new self)
             ->bootloaders()
-            ->kernel($kernel->run(Container::getInstance()));
+            ->kernel($kernel);
 
     }
 
@@ -257,11 +255,13 @@ final class FireHub {
      * ### Process Kernel
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Initializers\Kernel As parameter.
-     * @uses \FireHub\Core\Kernel\HTTP\Kernel::handle() To handle client request.
+     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
+     * @uses \FireHub\Core\Initializers\Enums\Kernel::request() To get Request for selected Kernel.
+     * @uses \FireHub\Core\Components\DI\Container As a dependency injection container.
+     * @uses \FireHub\Core\Initializers\Kernel::handle() To handle client request.
      *
-     * @param \FireHub\Core\Initializers\Kernel $kernel <p>
-     * Picked Kernel from Kernel enum, process your request and return the appropriate response.
+     * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
+     * Pick Kernel from Kernel enum, process your request and return the appropriate response.
      * </p>
      *
      * @return string Response from Kernel.
@@ -269,9 +269,11 @@ final class FireHub {
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod) PHPMD has a bug where it reports unused method unless directory
      * called.
      */
-    private function kernel (BaseKernel $kernel):string {
+    private function kernel (Kernel $kernel):string {
 
-        return $kernel->handle();
+        $kernel_instance = $kernel->run(Container::getInstance());
+
+        return $kernel_instance->handle($kernel->request());
 
     }
 

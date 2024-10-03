@@ -15,6 +15,7 @@
 namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
+use FireHub\Core\Kernel\Request;
 
 /**
  * ### HTTP Kernel
@@ -22,14 +23,14 @@ use FireHub\Core\Initializers\Kernel as BaseKernel;
  * Process HTTP requests that come in through various sources and give a client the appropriate response.
  * @since 1.0.0
  */
-final class Kernel extends BaseKernel {
+class Kernel extends BaseKernel {
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
      */
-    public function handle ():string {
+    public function handle (Request $request):string {
 
         return 'HTTP Torch';
 
