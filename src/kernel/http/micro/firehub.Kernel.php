@@ -29,7 +29,7 @@ final class Kernel extends BaseKernel {
      *
      * @since 1.0.0
      */
-    public function runtime ():string {
+    public function handle ():string {
 
         return 'Micro HTTP Torch';
 

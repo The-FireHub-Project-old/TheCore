@@ -55,6 +55,6 @@ abstract class Kernel implements Init {
      *
      * @return string Response from Kernel.
      */
-    abstract public function runtime ():string;
+    abstract public function handle ():string;
 
 }
