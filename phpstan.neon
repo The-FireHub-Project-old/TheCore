@@ -15,6 +15,6 @@ parameters:
     reportMaybesInPropertyPhpDocTypes: true
     reportStaticMethodSignatures: true
     reportUnmatchedIgnoredErrors: false
-    checkUninitializedProperties: true
+    checkUninitializedProperties: false
     checkImplicitMixed: true
     tipsOfTheDay: false

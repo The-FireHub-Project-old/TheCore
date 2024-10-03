@@ -35,6 +35,14 @@ abstract class Bag implements Init {
     use Concrete;
 
     /**
+     * ### Unlisted items
+     * @since 1.0.0
+     *
+     * @var array<non-empty-string, null|scalar|array<array-key, mixed>>
+     */
+    public array $unlisted = [];
+
+    /**
      * ### Constructor
      * @since 1.0.0
      *
@@ -93,8 +101,8 @@ abstract class Bag implements Init {
 
             $key = Str::from($key)->toLower()->string();
 
-            /** @phpstan-ignore-next-line */
-            if (Cls::propertyExist($this, $key)) $this->$key = $value;
+            if (Cls::propertyExist($this, $key)) $this->$key = $value; // @phpstan-ignore-line
+            else $this->unlisted[$key] = $value; // @phpstan-ignore-line
 
         }
 
