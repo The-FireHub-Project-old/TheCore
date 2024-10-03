@@ -51,7 +51,7 @@ class Container implements InitInstance {
      * ### List of active container records
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array{
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-string, array{
      *     concrete: Closure(self $container):object,
      *     type: \FireHub\Core\Components\DI\Enums\Type,
      *     instance: null|object,
@@ -65,7 +65,7 @@ class Container implements InitInstance {
      *
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string, Closure(self $container):object>>
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-string, array<non-empty-string, Closure(self $container):object>>
      */
     public Register $bindings;
 
@@ -73,7 +73,7 @@ class Container implements InitInstance {
      * ### List of container record tags
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
+     * @var \FireHub\Core\Components\Registry\Register<non-empty-string,
      *     \FireHub\Core\Support\Collection\Type\Indexed<class-string>>
      *
      * @phpstan-ignore-next-line
@@ -127,7 +127,7 @@ class Container implements InitInstance {
      * // true
      * ```
      *
-     * @param non-empty-lowercase-string$abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -170,7 +170,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -195,7 +195,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::bind() To register new binding with the container.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -230,7 +230,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -255,7 +255,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To register a new singleton binding with the container.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -290,7 +290,7 @@ class Container implements InitInstance {
      * );
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -315,7 +315,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Container::bound() Check if binding exists in the container.
      * @uses \FireHub\Core\Components\DI\Container::scoped() To register a new scoped binding with the container.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * <code>Closure (self $container):object</code>
      * Instance name in container.
      * </p>
@@ -347,7 +347,7 @@ class Container implements InitInstance {
      * $this->container->instance(SomeClass::class, new SomeClass());
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param object $instance $concrete <p>
@@ -457,7 +457,7 @@ class Container implements InitInstance {
      *  ->give(fn() => [new SomeClassFromInterface::class, new SomeClassFromInterface::class]));
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -496,7 +496,7 @@ class Container implements InitInstance {
      *  ]);
      * ```
      *
-     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
+     * @param class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      * @param array<array-key, mixed> $parameters [optional] <p>
@@ -536,7 +536,7 @@ class Container implements InitInstance {
      * $this->container->call(SomeClass::class, 'someMethod', ['param' => 'value']);
      * ```
      *
-     * @param non-empty-lowercase-string|Closure(self $container):object $abstract <p>
+     * @param non-empty-string|Closure(self $container):object $abstract <p>
      * <code>Closure (self $container):object</code>
      * Concrete class for container object instance.
      * </p>
@@ -593,7 +593,7 @@ class Container implements InitInstance {
      * $this->container->callStatically(SomeClass::class, 'someMethod', ['param' => 'value']);
      * ```
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Concrete class for container object instance.
      * </p>
      * @param non-empty-string $method <p>
@@ -626,7 +626,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Components\DI\Enums\Type As parameter.
      * @uses \FireHub\Core\Components\Registry\Register::add() To add item to a container.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param Closure(self $container):object $concrete <p>
@@ -659,7 +659,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Support\LowLevel\Obj::ofClass() To check if the object is of this class or has this class as
      * one of its parents.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Instance name in container.
      * </p>
      * @param object $instance <p>
@@ -682,7 +682,7 @@ class Container implements InitInstance {
      *
      * @template TObject of object
      *
-     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
+     * @param class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -712,7 +712,7 @@ class Container implements InitInstance {
      *
      * @template TObject of object
      *
-     * @param non-empty-lowercase-string|class-string<TObject> $abstract <p>
+     * @param class-string<TObject> $abstract <p>
      * Instance name in container.
      * </p>
      * @param array<array-key, mixed> $parameters <p>
@@ -761,7 +761,7 @@ class Container implements InitInstance {
      * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the argument is an array.
      * @uses \FireHub\Core\Components\DI\Enums\Type::BIND As type.
      *
-     * @param non-empty-lowercase-string $abstract <p>
+     * @param non-empty-string $abstract <p>
      * Instance name in container.
      * </p>
      *
@@ -816,7 +816,7 @@ class Container implements InitInstance {
      * @param ReflectionMethod $reflection <p>
      * Reflection information about a method.
      * </p>
-     * @param non-empty-lowercase-string|object $abstract <p>
+     * @param non-empty-string|object $abstract <p>
      * Concrete or abstract class for container object instance.
      * </p>
      * @param non-empty-string $method <p>

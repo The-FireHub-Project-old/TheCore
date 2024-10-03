@@ -37,7 +37,7 @@ final class ContextualBinding implements Init {
      * ### Parameter for resolving instance
      * @since 1.0.0
      *
-     * @var null|non-empty-lowercase-string
+     * @var null|non-empty-string
      */
     private ?string $parameter = null;
 
@@ -50,7 +50,7 @@ final class ContextualBinding implements Init {
      * @param Container $container <p>
      * Container instance.
      * </p>
-     * @param non-empty-lowercase-string $abstracts <p>
+     * @param non-empty-string $abstracts <p>
      * Instance name in container.
      * </p>
      */
@@ -63,7 +63,7 @@ final class ContextualBinding implements Init {
      * ### When implementations needs instance
      * @since 1.0.0
      *
-     * @param non-empty-lowercase-string $parameter <p>
+     * @param non-empty-string $parameter <p>
      * Parameter for resolving instance.
      * </p>
      *
