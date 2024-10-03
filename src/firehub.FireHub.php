@@ -258,7 +258,7 @@ final class FireHub {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Kernel As parameter.
-     * @uses \FireHub\Core\Kernel\HTTP\Kernel::runtime() To handle client runtime.
+     * @uses \FireHub\Core\Kernel\HTTP\Kernel::handle() To handle client request.
      *
      * @param \FireHub\Core\Initializers\Kernel $kernel <p>
      * Picked Kernel from Kernel enum, process your request and return the appropriate response.
@@ -271,7 +271,7 @@ final class FireHub {
      */
     private function kernel (BaseKernel $kernel):string {
 
-        return $kernel->runtime();
+        return $kernel->handle();
 
     }
 

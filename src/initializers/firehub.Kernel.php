@@ -50,7 +50,7 @@ abstract class Kernel implements Init {
     ) {}
 
     /**
-     * ### Handle client runtime
+     * ### Handle client request
      * @since 1.0.0
      *
      * @return string Response from Kernel.
