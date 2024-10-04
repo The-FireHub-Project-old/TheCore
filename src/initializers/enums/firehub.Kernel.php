@@ -15,7 +15,6 @@
 namespace FireHub\Core\Initializers\Enums;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\Server;
 use FireHub\Core\Kernel\Request as Request;
 use FireHub\Core\Kernel\HTTP\ {
     Kernel as HTTP_Kernel,
@@ -27,11 +26,7 @@ use FireHub\Core\Kernel\Console\ {
     Request as Console_Request
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Support\Collection;
-use FireHub\Core\Support\Bags\ {
-    Server as ServerBag, RequestHeaders
-};
-use FireHub\Core\Support\LowLevel\StrSB;
+use FireHub\Core\Support\Bags\RequestHeaders;
 
 /**
  * ### Enum for possible Kernel types
@@ -88,36 +83,18 @@ enum Kernel {
      * ### Get Request for selected Kernel
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection::associative() As bag list.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::partition() To separate collection items in a server bag
-     * and header bag.
-     * @uses \FireHub\Core\Kernel\Server To add to container.
      * @uses \FireHub\Core\Kernel\HTTP\Request To add to container.
      * @uses \FireHub\Core\Kernel\Console\Request To add to container.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::startsWith() To check if bag item start with HTTP_.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::contains() To check if bag item contains word AUTH.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To bind request as a singleton.
-     * @uses \FireHub\Core\Support\Bags\Server As server bag.
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
      *
      * @return \FireHub\Core\Kernel\Request Current request being handled by your application.
-     *
-     * @SuppressWarnings(PHPMD.Superglobals)
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function request ():Request {
 
-        [$headers, $server] = Collection::associative($_SERVER)->partition(
-            /** @phpstan-ignore-next-line */
-            fn($value, $key) => StrSB::startsWith('HTTP_', $key) || StrSB::contains('AUTH', $key)
-        );
-
         $container = Container::getInstance();
-
-        $container->singleton(Server::class, fn() => new Server(
-            new ServerBag($server) // @phpstan-ignore-line
-        ));
 
         switch ($this) {
 
@@ -129,8 +106,8 @@ enum Kernel {
 
             default:
 
-                $container->singleton(HTTP_Request::class, fn() => new HTTP_Request(
-                    new RequestHeaders($headers) // @phpstan-ignore-line
+                $container->singleton(HTTP_Request::class, fn($container) => new HTTP_Request(
+                    $container->resolve(RequestHeaders::class)
                 ));
 
                 return $container->resolve(HTTP_Request::class);
