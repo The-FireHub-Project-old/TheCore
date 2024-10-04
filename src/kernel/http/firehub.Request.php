@@ -15,9 +15,7 @@
 namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Kernel\Request as BaseRequest;
-use FireHub\Core\Support\Bags\ {
-    Server, RequestHeaders
-};
+use FireHub\Core\Support\Bags\RequestHeaders;
 
 /**
  * ### HTTP Request
@@ -31,9 +29,6 @@ class Request extends BaseRequest {
      * ### Constructor
      * @since 1.0.0
      *
-     * @param \FireHub\Core\Support\Bags\Server $server <p>
-     * Bag for server and execution environment information.
-     * </p>
      * @param \FireHub\Core\Support\Bags\RequestHeaders $request_headers <p>
      * Bag for HTTP request header variables.
      * </p>
@@ -41,7 +36,6 @@ class Request extends BaseRequest {
      * @return void
      */
     public function __construct (
-        private readonly Server $server,
         private readonly RequestHeaders $request_headers
     ) {}
 

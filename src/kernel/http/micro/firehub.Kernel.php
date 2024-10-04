@@ -14,7 +14,7 @@
 
 namespace FireHub\Core\Kernel\HTTP\Micro;
 
-use FireHub\Core\Kernel\HTTP\Kernel as BaseKernel;
+use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\Request;
 
 /**

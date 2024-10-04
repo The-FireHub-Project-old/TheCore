@@ -15,6 +15,7 @@
 namespace FireHub\Core\Initializers\Enums;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
+use FireHub\Core\Kernel\Server;
 use FireHub\Core\Kernel\Request as Request;
 use FireHub\Core\Kernel\HTTP\ {
     Kernel as HTTP_Kernel,
@@ -28,7 +29,7 @@ use FireHub\Core\Kernel\Console\ {
 use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Bags\ {
-    Server, RequestHeaders
+    Server as ServerBag, RequestHeaders
 };
 use FireHub\Core\Support\LowLevel\StrSB;
 
@@ -90,12 +91,15 @@ enum Kernel {
      * @uses \FireHub\Core\Support\Collection::associative() As bag list.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::partition() To separate collection items in a server bag
      * and header bag.
-     * @uses \FireHub\Core\Kernel\HTTP\Request As return.
-     * @uses \FireHub\Core\Kernel\Console\Request As return.
+     * @uses \FireHub\Core\Kernel\Server To add to container.
+     * @uses \FireHub\Core\Kernel\HTTP\Request To add to container.
+     * @uses \FireHub\Core\Kernel\Console\Request To add to container.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::startsWith() To check if bag item start with HTTP_.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::contains() To check if bag item contains word AUTH.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To bind request as a singleton.
+     * @uses \FireHub\Core\Support\Bags\Server As server bag.
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
      *
      * @return \FireHub\Core\Kernel\Request Current request being handled by your application.
      *
@@ -111,6 +115,10 @@ enum Kernel {
 
         $container = Container::getInstance();
 
+        $container->singleton(Server::class, fn() => new Server(
+            new ServerBag($server) // @phpstan-ignore-line
+        ));
+
         switch ($this) {
 
             case self::CONSOLE:
@@ -122,7 +130,7 @@ enum Kernel {
             default:
 
                 $container->singleton(HTTP_Request::class, fn() => new HTTP_Request(
-                    new Server($server), new RequestHeaders($headers) // @phpstan-ignore-line
+                    new RequestHeaders($headers) // @phpstan-ignore-line
                 ));
 
                 return $container->resolve(HTTP_Request::class);
