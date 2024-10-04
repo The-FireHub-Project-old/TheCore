@@ -47,37 +47,4 @@ final class Server implements Init {
         private readonly ServerBag $server
     ) {}
 
-    /**
-     * ### Check if the current request is secured
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Kernel\HTTP\Request::schema() To get current schema.
-     *
-     * @return bool True if the request is secured, false otherwise.
-     */
-    public function isSecure ():bool {
-
-        return $this->schema() === 'https';
-
-    }
-
-    /**
-     * ### Get current schema
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Bags\Server::$https
-     * @uses \FireHub\Core\Support\Bags\Server::$unlisted
-     *
-     * @return 'http'|'https' Current schema.
-     */
-    public function schema ():string {
-
-        return (
-            (isset($this->server->unlisted['http_x_forwarded_proto']) && $this->server->unlisted['http_x_forwarded_proto'] === 'https')
-            || (isset($this->server->unlisted['http_x_forwarded_ssl']) && $this->server->unlisted['http_x_forwarded_ssl'] === 'on')
-        ) || $this->server->https !== 'off'
-            ? 'https' : 'http';
-
-    }
-
 }

@@ -295,7 +295,7 @@ final class FireHub {
             fn($value, $key) => StrSB::startsWith('HTTP_', $key)
                 || StrSB::startsWith('REQUEST', $key)
                 || StrSB::contains('AUTH', $key)
-                || $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
+                || $key === 'HTTPS'|| $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
         );
 
         $container = Container::getInstance();

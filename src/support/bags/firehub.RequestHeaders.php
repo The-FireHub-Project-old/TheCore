@@ -26,6 +26,14 @@ use FireHub\Core\Support\Bag;
 final class RequestHeaders extends Bag {
 
     /**
+     * ### Set to a non-empty value different to "off" if the script was queried through the HTTPS protocol
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $https = 'off';
+
+    /**
      * ### Contents of the Host: header from the current request, if there is one
      * @since 1.0.0
      *
@@ -82,7 +90,7 @@ final class RequestHeaders extends Bag {
      *
      * @var string
      */
-    public string $request_method = '';
+    public string $method = '';
 
     /**
      * ### The URI which was given to access this page
@@ -90,7 +98,7 @@ final class RequestHeaders extends Bag {
      *
      * @var string
      */
-    public string $request_uri = '';
+    public string $uri = '';
 
     /**
      * ### The Un-encoded URI which was given to access this page
@@ -98,7 +106,7 @@ final class RequestHeaders extends Bag {
      *
      * @var string
      */
-    public string $request_un_encoded_uri = '';
+    public string $un_encoded_uri = '';
 
     /**
      * ### The query string, if any, via which the page was accessed
@@ -275,7 +283,7 @@ final class RequestHeaders extends Bag {
      *
      * @var int
      */
-    public int $request_time;
+    public int $time;
 
     /**
      * ### The timestamp for the start of the request, with microsecond precision
@@ -283,7 +291,7 @@ final class RequestHeaders extends Bag {
      *
      * @var float
      */
-    public float $request_time_float;
+    public float $time_float;
 
     /**
      * @inheritDoc
@@ -298,6 +306,8 @@ final class RequestHeaders extends Bag {
             'auth_username' => 'PHP_AUTH_USER',
             'auth_password' => 'PHP_AUTH_PW',
             'connection' => 'HTTP_CONNECTION',
+            'method' => 'REQUEST_METHOD',
+            'uri' => 'REQUEST_URI',
             'request_un_encoded_uri' => 'UNENCODED_URL',
             'script_arguments' => 'argv',
             'script_argument_number' => 'argc',
@@ -314,7 +324,9 @@ final class RequestHeaders extends Bag {
             'if_modified_since' => 'HTTP_IF-MODIFIED-SINCE',
             'if_unmodified_since' => 'HTTP_IF-UNMODIFIED-SINCE',
             'if_none_match' => 'HTTP_IF-NONE-MATCH',
-            'permissions_policy' => 'HTTP_PERMISSIONS-POLICY'
+            'permissions_policy' => 'HTTP_PERMISSIONS-POLICY',
+            'time' => 'REQUEST_TIME',
+            'time_float' => 'REQUEST_TIME_FLOAT'
         ];
 
     }

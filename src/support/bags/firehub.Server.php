@@ -26,14 +26,6 @@ use FireHub\Core\Support\Bag;
 final class Server extends Bag {
 
     /**
-     * ### Set to a non-empty value different to "off" if the script was queried through the HTTPS protocol
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $https = 'off';
-
-    /**
      * ### The filename of the currently executing script, relative to the document root
      * @since 1.0.0
      *
