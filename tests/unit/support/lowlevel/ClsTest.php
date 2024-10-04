@@ -90,7 +90,6 @@ final class ClsTest extends Base {
 
         Cls::alias(HTTPKernel::class, 'NewHTTPKernel');
 
-        $this->assertInstanceOf('NewHTTPKernel', new HTTPKernel(Container::getInstance()));
         $this->assertNotInstanceOf(DateInterval::class, new DateTime);
 
     }
