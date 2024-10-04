@@ -17,7 +17,7 @@ namespace FireHub\Core\Support\Bags;
 use FireHub\Core\Support\Bag;
 
 /**
- * ### Server and execution environment information
+ * ### Server and execution environment information bag
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.TooManyFields)
