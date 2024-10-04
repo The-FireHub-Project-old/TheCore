@@ -74,70 +74,6 @@ final class Server extends Bag {
     public string $script_document_root;
 
     /**
-     * ### The timestamp for the start of the request
-     * @since 1.0.0
-     *
-     * @var int
-     */
-    public int $request_time;
-
-    /**
-     * ### The timestamp for the start of the request, with microsecond precision
-     * @since 1.0.0
-     *
-     * @var float
-     */
-    public float $request_time_float;
-
-    /**
-     * ### Array of arguments passed to the script when running from the command line
-     * @since 1.0.0
-     *
-     * @var array<non-empty-string, non-empty-string>
-     */
-    public array $script_arguments = [];
-
-    /**
-     * ### The number of arguments passed to the script when running from the command line
-     * @since 1.0.0
-     *
-     * @var non-negative-int
-     */
-    public int $script_argument_number = 0;
-
-    /**
-     * ### Which request method was used to access the page
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $request_method = '';
-
-    /**
-     * ### The URI which was given to access this page
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $request_uri = '';
-
-    /**
-     * ### The Un-encoded URI which was given to access this page
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $request_un_encoded_uri = '';
-
-    /**
-     * ### The query string, if any, via which the page was accessed
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $query_string = '';
-
-    /**
      * ### The name of the server host under which the current script is executing
      * @since 1.0.0
      *
@@ -249,12 +185,9 @@ final class Server extends Bag {
             'script_path' => 'SCRIPT_NAME',
             'script_filesystem_path' => 'PATH_TRANSLATED',
             'script_document_root' => 'DOCUMENT_ROOT',
-            'script_arguments' => 'argv',
-            'script_argument_number' => 'argc',
             'server_host' => 'SERVER_NAME',
             'server_address' => 'SERVER_ADDR',
             'local_address' => 'LOCAL_ADDR',
-            'request_un_encoded_uri' => 'UNENCODED_URL',
             'remote_address' => 'REMOTE_ADDR',
             'remote_user_redirect' => 'REDIRECT_REMOTE_USER'
         ];

@@ -292,7 +292,10 @@ final class FireHub {
 
         [$headers, $server] = Collection::associative($_SERVER)->partition(
         /** @phpstan-ignore-next-line */
-            fn($value, $key) => StrSB::startsWith('HTTP_', $key) || StrSB::contains('AUTH', $key)
+            fn($value, $key) => StrSB::startsWith('HTTP_', $key)
+                || StrSB::startsWith('REQUEST', $key)
+                || StrSB::contains('AUTH', $key)
+                || $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
         );
 
         $container = Container::getInstance();

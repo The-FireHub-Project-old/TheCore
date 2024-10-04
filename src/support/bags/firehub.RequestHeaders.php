@@ -77,6 +77,54 @@ final class RequestHeaders extends Bag {
     public string $connection_keep_alive = '';
 
     /**
+     * ### Which request method was used to access the page
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $request_method = '';
+
+    /**
+     * ### The URI which was given to access this page
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $request_uri = '';
+
+    /**
+     * ### The Un-encoded URI which was given to access this page
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $request_un_encoded_uri = '';
+
+    /**
+     * ### The query string, if any, via which the page was accessed
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $query_string = '';
+
+    /**
+     * ### Array of arguments passed to the script when running from the command line
+     * @since 1.0.0
+     *
+     * @var array<non-empty-string, non-empty-string>
+     */
+    public array $script_arguments = [];
+
+    /**
+     * ### The number of arguments passed to the script when running from the command line
+     * @since 1.0.0
+     *
+     * @var non-negative-int
+     */
+    public int $script_argument_number = 0;
+
+    /**
      * ### Lets servers and network peers identify the application, operating system, vendor, and/or version of the
      * requesting user agent
      * @since 1.0.0
@@ -222,6 +270,22 @@ final class RequestHeaders extends Bag {
     public string $permissions_policy = '';
 
     /**
+     * ### The timestamp for the start of the request
+     * @since 1.0.0
+     *
+     * @var int
+     */
+    public int $request_time;
+
+    /**
+     * ### The timestamp for the start of the request, with microsecond precision
+     * @since 1.0.0
+     *
+     * @var float
+     */
+    public float $request_time_float;
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
@@ -234,6 +298,9 @@ final class RequestHeaders extends Bag {
             'auth_username' => 'PHP_AUTH_USER',
             'auth_password' => 'PHP_AUTH_PW',
             'connection' => 'HTTP_CONNECTION',
+            'request_un_encoded_uri' => 'UNENCODED_URL',
+            'script_arguments' => 'argv',
+            'script_argument_number' => 'argc',
             'user_agent' => 'HTTP_USER_AGENT',
             'accept' => 'HTTP_ACCEPT',
             'accept_language' => 'HTTP_ACCEPT_LANGUAGE',
