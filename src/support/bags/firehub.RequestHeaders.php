@@ -308,7 +308,7 @@ final class RequestHeaders extends Bag {
             'connection' => 'HTTP_CONNECTION',
             'method' => 'REQUEST_METHOD',
             'uri' => 'REQUEST_URI',
-            'request_un_encoded_uri' => 'UNENCODED_URL',
+            'un_encoded_uri' => 'UNENCODED_URL',
             'script_arguments' => 'argv',
             'script_argument_number' => 'argc',
             'user_agent' => 'HTTP_USER_AGENT',
