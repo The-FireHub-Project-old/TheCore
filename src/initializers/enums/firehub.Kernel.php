@@ -15,6 +15,7 @@
 namespace FireHub\Core\Initializers\Enums;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
+use FireHub\Core\Kernel\Server;
 use FireHub\Core\Kernel\Request as Request;
 use FireHub\Core\Kernel\HTTP\ {
     Kernel as HTTP_Kernel,
@@ -63,18 +64,19 @@ enum Kernel {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
+     * @uses \FireHub\Core\Kernel\Server As parameter.
      * @uses \FireHub\Core\Kernel\HTTP\Kernel To create HTTP Kernel.
      * @uses \FireHub\Core\Kernel\HTTP\Micro\Kernel To create Micro HTTP Kernel.
      * @uses \FireHub\Core\Kernel\Console\Kernel To create Console Kernel.
      *
      * @return \FireHub\Core\Initializers\Kernel Selected Kernel.
      */
-    public function run (Container $container):BaseKernel {
+    public function run (Container $container, Server $server):BaseKernel {
 
         return match ($this) {
-            self::HTTP => new HTTP_Kernel($container),
-            self::MICRO_HTTP => new HTTP_Micro_Kernel($container),
-            self::CONSOLE => new Console_Kernel($container)
+            self::HTTP => new HTTP_Kernel($container, $server),
+            self::MICRO_HTTP => new HTTP_Micro_Kernel($container, $server),
+            self::CONSOLE => new Console_Kernel($container, $server)
         };
 
     }

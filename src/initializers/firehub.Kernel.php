@@ -18,7 +18,9 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Kernel\Request;
+use FireHub\Core\Kernel\ {
+    Request, Server
+};
 
 /**
  * ### Abstract Base Kernel
@@ -43,11 +45,15 @@ abstract class Kernel implements Init {
      * @param \FireHub\Core\Components\DI\Container $container <p>
      * Dependency injection container.
      * </p>
+     * @param \FireHub\Core\Kernel\Server $server <p>
+     * Server and execution environment information.
+     * </p>
      *
      * @return void
      */
     final public function __construct (
-        protected readonly Container $container
+        protected readonly Container $container,
+        protected readonly Server $server
     ) {}
 
     /**
