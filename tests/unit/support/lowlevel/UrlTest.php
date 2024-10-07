@@ -71,6 +71,17 @@ final class UrlTest extends Base {
      *
      * @return void
      */
+    public function testParseQuery ():void {
+
+        $this->assertSame(['MyValue' => 'Something'],Url::parseQuery('MyValue=Something'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testEncodeDecode ():void {
 
         $this->assertSame(

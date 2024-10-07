@@ -22,6 +22,7 @@ use function get_headers;
 use function get_meta_tags;
 use function http_build_query;
 use function parse_url;
+use function parse_str;
 use function urldecode;
 use function urlencode;
 
@@ -115,6 +116,26 @@ final class Url implements InitStatic {
     public static function parse (string $url):array|false {
 
         return parse_url($url);
+
+    }
+
+    /**
+     * ### Parses the URL query into variables
+     * @since 1.0.0
+     *
+     * @param string $query <p>
+     * The input query.
+     * </p>
+     *
+     * @return array<non-empty-string, non-empty-string> Parsed query.
+     *
+     * @caution Whitespaces are replaced with underscores.
+     */
+    public static function parseQuery (string $query):array {
+
+        parse_str($query, $result);
+
+        return $result;
 
     }
 
