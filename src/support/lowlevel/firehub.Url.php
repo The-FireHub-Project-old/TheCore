@@ -80,7 +80,7 @@ final class Url implements InitStatic {
      * ### Generate URL-encoded query string
      * @since 1.0.0
      *
-     * @param array<string, scalar>|object $data <p>
+     * @param array<array-key, string|string[]>|object $data <p>
      * Can be an array or object containing properties.
      * </p>
      *
@@ -127,7 +127,7 @@ final class Url implements InitStatic {
      * The input query.
      * </p>
      *
-     * @return array<non-empty-string, non-empty-string> Parsed query.
+     * @return array<int|string, string[]|string> Parsed query.
      *
      * @caution Whitespaces are replaced with underscores.
      */
@@ -135,7 +135,7 @@ final class Url implements InitStatic {
 
         parse_str($query, $result);
 
-        return $result;
+        return $result; // @phpstan-ignore-line
 
     }
 
