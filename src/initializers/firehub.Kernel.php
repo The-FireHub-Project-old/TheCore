@@ -21,6 +21,7 @@ use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Kernel\ {
     Request, Server
 };
+use FireHub\Core\Kernel\Bootstraps\Bootstrap;
 
 /**
  * ### Abstract Base Kernel
@@ -37,10 +38,21 @@ abstract class Kernel implements Init {
     use Concrete;
 
     /**
+     * ### List of bootstraps required for instantiating all Kernels
+     * @since 1.0.0
+     *
+     * @var class-string[]
+     */
+    private array $bootstraps = [];
+
+    /**
      * ### Constructor
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
+     * @uses \FireHub\Core\Kernel\Server As parameter.
+     * @uses \FireHub\Core\Initializers\Kernel::bootBootstraps() To boot all bootstraps required for instantiating all
+     * Kernels.
      *
      * @param \FireHub\Core\Components\DI\Container $container <p>
      * Dependency injection container.
@@ -54,7 +66,11 @@ abstract class Kernel implements Init {
     final public function __construct (
         protected readonly Container $container,
         protected readonly Server $server
-    ) {}
+    ) {
+
+        $this->bootBootstraps();
+
+    }
 
     /**
      * ### Handle client request
@@ -67,5 +83,27 @@ abstract class Kernel implements Init {
      * @return string Response from Kernel.
      */
     abstract public function handle (Request $request):string;
+
+    /**
+     * ### Boot all bootstraps required for instantiating all Kernels
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\Bootstraps\Bootstrap::boot() To boot bootstraps.
+     *
+     * @return $this This object.
+     */
+    private function bootBootstraps ():self {
+
+        foreach ($this->bootstraps as $bootstrap) {
+
+            $bootstrap = new $bootstrap;
+
+            if ($bootstrap instanceof Bootstrap) $bootstrap->boot();
+
+        }
+
+        return $this;
+
+    }
 
 }
