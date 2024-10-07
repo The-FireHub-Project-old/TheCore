@@ -274,7 +274,7 @@ final class FireHub {
      *
      * @return $this This object.
      */
-    public function loadBootloaders ():self {
+    private function loadBootloaders ():self {
 
         foreach ($this->bootloaders as $bootloader) {
 
