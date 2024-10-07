@@ -15,14 +15,10 @@
 namespace FireHub\Core;
 
 use FireHub\Core\Initializers\Autoload;
+use FireHub\Core\Initializers\Bootloaders\Bootloader;
 use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Kernel\Server;
-use FireHub\Core\Support\{
-    Collection, Path
-};
-use FireHub\Core\Support\Bags\ {
-    RequestHeaders, Server as ServerBag
-};
+use FireHub\Core\Support\Path;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
     Arr, StrSB
@@ -40,6 +36,16 @@ use const FireHub\Core\Support\Constants\Path\DS;
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 final class FireHub {
+
+    /**
+     * ### List of bootloaders required for instantiating the FireHub framework
+     * @since 1.0.0
+     *
+     * @var class-string[]
+     */
+    private array $bootloaders = [
+        \FireHub\Core\Initializers\Bootloaders\RegisterKernel::class
+    ];
 
     /**
      * ### Constructor
@@ -89,6 +95,7 @@ final class FireHub {
      * @uses \FireHub\Core\FireHub::registerHelpers() To register helpers.
      * @uses \FireHub\Core\FireHub::preload() To load preloader classes.
      * @uses \FireHub\Core\Firehub::autoload() To load autoloader.
+     * @uses \FireHub\Core\FireHub::$bootloaders To load bootloaders required for instantiating the FireHub framework.
      *
      * @throws Error If a system can't load constant, helper, or autoload files, or a system can't load autoload files,
      * or failed to register autoloader.
@@ -102,7 +109,8 @@ final class FireHub {
             ->registerConstants()
             ->registerHelpers()
             ->preload()
-            ->autoload();
+            ->autoload()
+            ->loadBootloaders();
 
     }
 
@@ -259,23 +267,37 @@ final class FireHub {
     }
 
     /**
+     * ### Load bootloaders required for instantiating the FireHub framework
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Initializers\Bootloaders\Bootloader::load() To load bootloader.
+     *
+     * @return $this This object.
+     */
+    public function loadBootloaders ():self {
+
+        foreach ($this->bootloaders as $bootloader) {
+
+            $bootloader = new $bootloader;
+
+            if ($bootloader instanceof Bootloader) $bootloader->load();
+
+        }
+
+        return $this;
+
+    }
+
+    /**
      * ### Process Kernel
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Collection::associative() As bag list.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::partition() To separate collection items in a server bag
-     * and header bag.
      * @uses \FireHub\Core\Kernel\Server To add to container.
-     * @uses \FireHub\Core\Support\Bags\Server As server bag.
-     * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
      * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
      * @uses \FireHub\Core\Initializers\Enums\Kernel::request() To get Request for selected Kernel.
      * @uses \FireHub\Core\Initializers\Kernel::handle() To handle client request.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
-     * @uses \FireHub\Core\Components\DI\Container::singleton() To bind request as a singleton.
      * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::startsWith() To check if bag item start with HTTP_.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::contains() To check if bag item contains word AUTH.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
@@ -283,29 +305,13 @@ final class FireHub {
      *
      * @return string Response from Kernel.
      *
-     * @SuppressWarnings(PHPMD.Superglobals)
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod) PHPMD has a bug where it reports unused method unless directory
      * called.
      */
     private function kernel (Kernel $kernel):string {
 
-        [$headers, $server] = Collection::associative($_SERVER)->partition(
-        /** @phpstan-ignore-next-line */
-            fn($value, $key) => StrSB::startsWith('HTTP_', $key)
-                || StrSB::startsWith('REQUEST', $key)
-                || StrSB::contains('AUTH', $key)
-                || $key === 'HTTPS'|| $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
-        );
-
         $container = Container::getInstance();
-
-        $container->singleton(ServerBag::class, fn() => new ServerBag($server)); // @phpstan-ignore-line
-        $container->singleton(RequestHeaders::class, fn() => new RequestHeaders($headers)); // @phpstan-ignore-line
-
-        $container->singleton(Server::class, fn($container) => new Server(
-            $container->resolve(ServerBag::class)
-        ));
 
         $kernel_instance = $kernel->run($container, $container->resolve(Server::class));
 
