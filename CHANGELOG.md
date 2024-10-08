@@ -6,6 +6,7 @@
 - Added a read-only collection as a possible Register type ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [ba8edc0](https://github.com/The-FireHub-Project/Core/pull/91/commits/ba8edc0))
 - Create Bag support class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [8258250](https://github.com/The-FireHub-Project/Core/pull/91/commits/8258250))
 - Create a Server and Headers bag ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [1fef686](https://github.com/The-FireHub-Project/Core/pull/91/commits/1fef686))
+- Create Url low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [b0dbbdb](https://github.com/The-FireHub-Project/Core/pull/91/commits/b0dbbdb))
 
 ## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)
 

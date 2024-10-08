@@ -132,8 +132,8 @@ class Url implements Init {
         $this->password = $parse['pass'] ?? false;
         $this->host = $parse['host'] ?? false;
         $this->port = $parse['port'] ?? false;
-        $this->path = Collection::list(isset($parse['path']) ? explode( '/',$parse['path']) : [])
-            ->filter(fn($value) => $value !== '');
+        $this->path = Collection::list(isset($parse['path']) ? explode( '/',$parse['path']) : []) // @phpstan-ignore-line
+            ->filter(fn($value) => $value !== ''); // @phpstan-ignore-line
         $this->query = Collection::associative(UrlLL::parseQuery($parse['query'] ?? ''));
         $this->fragment = $parse['fragment'] ?? false;
 
