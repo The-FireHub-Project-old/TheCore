@@ -52,6 +52,7 @@ final class RegisterKernel implements Bootloader {
         /** @phpstan-ignore-next-line */
             fn($value, $key) => StrSB::startsWith('HTTP_', $key)
                 || StrSB::startsWith('REQUEST', $key)
+                || StrSB::startsWith('REMOTE_', $key)
                 || StrSB::contains('AUTH', $key)
                 || $key === 'HTTPS'|| $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
         );

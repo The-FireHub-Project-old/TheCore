@@ -123,49 +123,6 @@ final class Server extends Bag {
     public string $server_port = '';
 
     /**
-     * ### The Host name from which the user is viewing the current page
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_host = '';
-
-    /**
-     * ### The IP address from which the user is viewing the current page
-     * @since 1.0.0
-     *
-     * @var string
-     *
-     * @note  The web server must be configured to create this variable. For example, in Apache HostnameLookups On
-     * must be set inside httpd.conf for it to exist. See also gethostbyaddr().
-     */
-    public string $remote_address = '';
-
-    /**
-     * ### The port being used on the user's machine to communicate with the web server
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_port = '';
-
-    /**
-     * ### The authenticated user
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_user = '';
-
-    /**
-     * ### The authenticated user if the request is internally redirected
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_user_redirect = '';
-
-    /**
      * @inheritDoc
      *
      * @since 1.0.0

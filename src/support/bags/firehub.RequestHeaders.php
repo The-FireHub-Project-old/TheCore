@@ -278,6 +278,49 @@ final class RequestHeaders extends Bag {
     public string $permissions_policy = '';
 
     /**
+     * ### The Host name from which the user is viewing the current page
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $remote_host = '';
+
+    /**
+     * ### The IP address from which the user is viewing the current page
+     * @since 1.0.0
+     *
+     * @var string
+     *
+     * @note  The web server must be configured to create this variable. For example, in Apache HostnameLookups On
+     * must be set inside httpd.conf for it to exist. See also gethostbyaddr().
+     */
+    public string $remote_address = '';
+
+    /**
+     * ### The port being used on the user's machine to communicate with the web server
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $remote_port = '';
+
+    /**
+     * ### The authenticated user
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $remote_user = '';
+
+    /**
+     * ### The authenticated user if the request is internally redirected
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $remote_user_redirect = '';
+
+    /**
      * ### The timestamp for the start of the request
      * @since 1.0.0
      *
@@ -325,6 +368,8 @@ final class RequestHeaders extends Bag {
             'if_unmodified_since' => 'HTTP_IF-UNMODIFIED-SINCE',
             'if_none_match' => 'HTTP_IF-NONE-MATCH',
             'permissions_policy' => 'HTTP_PERMISSIONS-POLICY',
+            'remote_address' => 'REMOTE_ADDR',
+            'remote_user_redirect' => 'REDIRECT_REMOTE_USER',
             'time' => 'REQUEST_TIME',
             'time_float' => 'REQUEST_TIME_FLOAT'
         ];
