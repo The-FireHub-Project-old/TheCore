@@ -22,7 +22,9 @@ use FireHub\Core\Support\ {
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Bags\RequestHeaders;
 use FireHub\Core\Support\Enums\URL\Schema;
-use FireHub\Core\Support\Enums\HTTP\ContentEncoding;
+use FireHub\Core\Support\Enums\HTTP\ {
+    ContentEncoding, MimeType
+};
 
 /**
  * ### HTTP Request
@@ -234,12 +236,30 @@ class Request extends BaseRequest {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept_encoding
+     * @uses \FireHub\Core\Support\Collection::associative() To create an accept header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To remove empty values.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To split encoding name and weight.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
      *
-     * @return string|false Accept header or false if no acceptance header request was sent.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding, weight: float}> Accept-list.
      */
-    public function accept ():string|false {
+    public function accept ():Indexed {
 
-        return $this->headers->accept ?: false;
+        /** @phpstan-ignore-next-line */
+        return Collection::list(Str::from($this->headers->accept)->break(','))
+            ->map(function ($value) {
+                $value = Str::from($value)->break(';q=');
+                if (MimeType::tryFrom($value[0])) {
+                    return [
+                        'encoding' => MimeType::from($value[0]),
+                        'weight' => (float)($value[1] ?? 1)
+                    ];
+                }
+                return '';
+            })
+            ->filter(fn($value) => $value !== ''); // @phpstan-ignore-line;
 
     }
 
