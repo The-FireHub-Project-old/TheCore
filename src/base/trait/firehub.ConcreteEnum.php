@@ -47,4 +47,20 @@ trait ConcreteEnum {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public static function casesIf (callable $callback):array {
+
+        $cases = [];
+        foreach (self::cases() as $case) {
+            if ($callback($case)) $cases[] = $case;
+        }
+
+        return $cases;
+
+    }
+
 }

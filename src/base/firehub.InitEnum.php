@@ -31,4 +31,12 @@ interface InitEnum extends Base, UnitEnum {
      */
     public static function cases ():array;
 
+    /**
+     * ### Generates a list of cases on an enum based on callable
+     * @since 1.0.0
+     *
+     * @return array<static> Packed array of all cases in an enumeration based on callable, in order of declaration.
+     */
+    public static function casesIf (callable $callback):array;
+
 }
