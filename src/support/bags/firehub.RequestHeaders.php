@@ -71,8 +71,6 @@ final class RequestHeaders extends Bag {
      * @since 1.0.0
      *
      * @var string
-     *
-     * @note Set the Connection header to "keep-alive" for this header to have any effect.
      */
     public string $connection = '';
 
@@ -81,6 +79,8 @@ final class RequestHeaders extends Bag {
      * @since 1.0.0
      *
      * @var string
+     *
+     * @note Set the Connection header to "keep-alive" for this header to have any effect.
      */
     public string $connection_keep_alive = '';
 
@@ -297,6 +297,22 @@ final class RequestHeaders extends Bag {
     public string $remote_address = '';
 
     /**
+     * ### The IP address from which the user is viewing the current page if behind the proxy server
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $remote_address_forwarded = '';
+
+    /**
+     * ### The IP address provided by the user from which the user is viewing the current page if behind the proxy server
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $client_ip = '';
+
+    /**
      * ### The port being used on the user's machine to communicate with the web server
      * @since 1.0.0
      *
@@ -369,6 +385,8 @@ final class RequestHeaders extends Bag {
             'if_none_match' => 'HTTP_IF-NONE-MATCH',
             'permissions_policy' => 'HTTP_PERMISSIONS-POLICY',
             'remote_address' => 'REMOTE_ADDR',
+            'remote_address_forwarded' => 'HTTP_X_FORWARDED_FOR',
+            'client_ip' => 'HTTP_CLIENT_IP',
             'remote_user_redirect' => 'REDIRECT_REMOTE_USER',
             'time' => 'REQUEST_TIME',
             'time_float' => 'REQUEST_TIME_FLOAT'
