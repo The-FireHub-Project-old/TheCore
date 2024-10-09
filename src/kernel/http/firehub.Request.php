@@ -21,9 +21,8 @@ use FireHub\Core\Support\ {
 };
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Bags\RequestHeaders;
-use FireHub\Core\Support\Enums\URL\Schema;
-use FireHub\Core\Support\Enums\HTTP\ {
-    ContentEncoding, MimeType
+use FireHub\Core\Support\Enums\ {
+    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType
 };
 use FireHub\Core\Support\LowLevel\Arr;
 
@@ -242,6 +241,7 @@ class Request extends BaseRequest {
      * header in a collection.
      * @uses \FireHub\Core\Support\Str::from() To create string.
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      * @uses \FireHub\Core\Support\Str::containTimes() To check how many times character (*) exists.
      * @uses \FireHub\Core\Support\Str::startsWith() To check if the acceptance header starts with a given value.
      * @uses \FireHub\Core\Support\Str::carryUntil() To carry acceptance header until character (*).
@@ -251,7 +251,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
      * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\MimeType, weight: float}> Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType, weight: float}> Accept-list.
      */
     public function accept ():Indexed {
 
@@ -259,7 +259,7 @@ class Request extends BaseRequest {
         Collection::list(Str::from($this->headers->accept)->break(','))
             ->each(function ($value) use (&$result) { // @phpstan-ignore-line
 
-                $value = Str::from($value);
+                $value = Str::from($value)->trim();
 
                 $values = $value->break(';q=');
 
@@ -268,7 +268,7 @@ class Request extends BaseRequest {
                     case MimeType::tryFrom($values[0]):
 
                         $result[] = [
-                            'encoding' => MimeType::from($values[0]),
+                            'type' => MimeType::from($values[0]),
                             'weight' => (float)($values[1] ?? 1)
                         ];
 
@@ -283,7 +283,7 @@ class Request extends BaseRequest {
                         foreach ($cases as $case)
                             if (!Arr::inArray($case, Arr::column($result, 'encoding')))
                                 $result[] = [
-                                    'encoding' => $case,
+                                    'type' => $case,
                                     'weight' => (float)($values[1] ?? 1)
                                 ];
 
@@ -306,12 +306,27 @@ class Request extends BaseRequest {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept_language
+     * @uses \FireHub\Core\Support\Collection::list() To create an accept-encoding header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To split language and weight.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return string|false Accept language header or false if no acceptance header request was sent.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{language: non-empty-string, country: \FireHub\Core\Support\Enums\Geo\Country|false, weight: float}> Accept language header.
      */
-    public function acceptLanguage ():string|false {
+    public function acceptLanguage ():Indexed {
 
-        return $this->headers->accept_language ?: false;
+        /** @phpstan-ignore-next-line */
+        return Collection::list(Str::from($this->headers->accept_language)->break(','))
+            ->map(function ($value) {
+                $value = Str::from($value)->trim()->break(';q=');
+                $locale_identifier = Str::from($value[0])->break('-');
+                return [
+                    'language' => Language::fromAlpha2($locale_identifier[0]), // @phpstan-ignore-line
+                    'country' => isset($locale_identifier[1]) ? Country::fromAlpha2($locale_identifier[1]) : false, // @phpstan-ignore-line
+                    'weight' => (float)($value[1] ?? 1)
+                ];
+            });
 
     }
 
@@ -323,21 +338,22 @@ class Request extends BaseRequest {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept_encoding
-     * @uses \FireHub\Core\Support\Collection::associative() To create an accept-encoding header list.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To remove empty values.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To split encoding name and weight.
+     * @uses \FireHub\Core\Support\Collection::list() To create an accept-encoding header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::filter() To remove empty values.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To split encoding name and weight.
      * @uses \FireHub\Core\Support\Str::from() To create string.
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
      * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding, weight: float}> Accept-encoding header list.
      */
     public function acceptEncoding ():Indexed {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->accept_encoding)->break(', '))
+        return Collection::list(Str::from($this->headers->accept_encoding)->break(','))
             ->filter(fn($value) => $value !== '') // @phpstan-ignore-line
             ->map(function ($value) {
-                $value = Str::from($value)->break(';q=');
+                $value = Str::from($value)->trim()->break(';q=');
                 return [
                     'encoding' => ContentEncoding::from($value[0]),
                     'weight' => (float)($value[1] ?? 1)
