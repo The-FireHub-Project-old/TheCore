@@ -9,8 +9,10 @@
 - Create Url low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [b0dbbdb](https://github.com/The-FireHub-Project/Core/pull/91/commits/b0dbbdb))
 - Create Request ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [5f93f00](https://github.com/The-FireHub-Project/Core/pull/91/commits/5f93f00))
 
-### Fixed
+## Added
+- Added casesIf method for all enums ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [2e8ed3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/2e8ed3b))
 
+### Fixed
 - carryUntil and carryUntilLast had bug if none found they were returning an empty result ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [a492ebe](https://github.com/The-FireHub-Project/Core/pull/91/commits/a492ebe))
 
 ## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)

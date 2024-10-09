@@ -25,6 +25,7 @@ use FireHub\Core\Support\Enums\URL\Schema;
 use FireHub\Core\Support\Enums\HTTP\ {
     ContentEncoding, MimeType
 };
+use FireHub\Core\Support\LowLevel\Arr;
 
 /**
  * ### HTTP Request
@@ -236,30 +237,63 @@ class Request extends BaseRequest {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept
-     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$accept_encoding
-     * @uses \FireHub\Core\Support\Collection::associative() To create an accept header list.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::filter() To remove empty values.
-     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To split encoding name and weight.
+     * @uses \FireHub\Core\Support\Collection::list() To create an accept header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::each() To call a user-generated function on each acceptance
+     * header in a collection.
      * @uses \FireHub\Core\Support\Str::from() To create string.
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::containTimes() To check how many times character (*) exists.
+     * @uses \FireHub\Core\Support\Str::startsWith() To check if the acceptance header starts with a given value.
+     * @uses \FireHub\Core\Support\Str::carryUntil() To carry acceptance header until character (*).
+     * @uses \FireHub\Core\Support\Str::string() To get raw string.
+     * @uses \FireHub\Core\Support\Enums\HTTP\MimeType::casesIf() To generate a list of cases on an enum based on
+     * callable.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
+     * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding, weight: float}> Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\MimeType, weight: float}> Accept-list.
      */
     public function accept ():Indexed {
 
-        /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->accept)->break(','))
-            ->map(function ($value) {
-                $value = Str::from($value)->break(';q=');
-                if (MimeType::tryFrom($value[0])) {
-                    return [
-                        'encoding' => MimeType::from($value[0]),
-                        'weight' => (float)($value[1] ?? 1)
-                    ];
+        $result = [];
+        Collection::list(Str::from($this->headers->accept)->break(','))
+            ->each(function ($value) use (&$result) { // @phpstan-ignore-line
+
+                $value = Str::from($value);
+
+                $values = $value->break(';q=');
+
+                switch (true) {
+
+                    case MimeType::tryFrom($values[0]):
+
+                        $result[] = [
+                            'encoding' => MimeType::from($values[0]),
+                            'weight' => (float)($values[1] ?? 1)
+                        ];
+
+                        break;
+
+                    case $value->containTimes('*') === 1:
+
+                        $cases = MimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
+                            Str::from($values[0])->carryUntil('*')->string() // @phpstan-ignore-line
+                        ));
+
+                        foreach ($cases as $case)
+                            if (!Arr::inArray($case, Arr::column($result, 'encoding')))
+                                $result[] = [
+                                    'encoding' => $case,
+                                    'weight' => (float)($values[1] ?? 1)
+                                ];
+
+                        break;
+
                 }
-                return '';
-            })
-            ->filter(fn($value) => $value !== ''); // @phpstan-ignore-line;
+
+            });
+
+        return Collection::list($result);
 
     }
 
