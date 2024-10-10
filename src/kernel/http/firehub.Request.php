@@ -19,7 +19,9 @@ use FireHub\Core\Kernel\Enums\Method;
 use FireHub\Core\Support\ {
     Collection, Str, Url, Zwick\DateTime
 };
-use FireHub\Core\Support\Collection\Type\Indexed;
+use FireHub\Core\Support\Collection\Type\ {
+    Indexed, Associative
+};
 use FireHub\Core\Support\Bags\RequestHeaders;
 use FireHub\Core\Support\Enums\ {
     Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType, HTTP\Cache\Request as RequestCache
@@ -481,6 +483,31 @@ class Request extends BaseRequest {
                     },
                     'weight' => (float)($value[1] ?? 1)
                 ];
+            });
+
+    }
+
+    /**
+     * ### Contains stored HTTP cookies associated with the server
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$cookie
+     * @uses \FireHub\Core\Support\Collection::Associative() To create a cookie header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To split encoding name and weight.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, non-empty-string> Cookie list.
+     */
+    public function cookie ():Associative {
+
+        /** @phpstan-ignore-next-line */
+        return Collection::associative(Str::from($this->headers->cookie)->break('; '))
+            ->map(function ($value, &$key) { // @phpstan-ignore-line
+                $kv = Str::from($value)->trim()->break('=');
+                $key = $kv[0];
+                return $kv[1];
             });
 
     }

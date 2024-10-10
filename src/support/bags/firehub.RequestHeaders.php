@@ -201,8 +201,7 @@ final class RequestHeaders extends Bag {
     public string $priority = '';
 
     /**
-     * ### Contains stored HTTP cookies associated with the server (in other words, previously sent by the server with
-     * the Set-Cookie header or set in JavaScript using Document.cookie)
+     * ### Contains stored HTTP cookies associated with the server
      * @since 1.0.0
      *
      * @var string
