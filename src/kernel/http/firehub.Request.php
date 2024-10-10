@@ -188,7 +188,7 @@ class Request extends BaseRequest {
      * ### Get connection information
      *
      * Allows the sender to hint about how the connection may be used to set a timeout and a maximum number of
-     * requests
+     * requests.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$connection
@@ -488,6 +488,20 @@ class Request extends BaseRequest {
     }
 
     /**
+     * ### Indicates expectations that need to be met by the server to handle the request successfully
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$remote_host
+     *
+     * @return string|false Except header or false if no except header was sent.
+     */
+    public function except ():string|false {
+
+        return $this->headers->expect ?: false;
+
+    }
+
+    /**
      * ### Contains stored HTTP cookies associated with the server
      * @since 1.0.0
      *
@@ -553,11 +567,11 @@ class Request extends BaseRequest {
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$remote_port
      *
-     * @return non-empty-string|false Port or false if no port was sent.
+     * @return int|false Port or false if no port was sent.
      */
-    public function remotePort ():string|false {
+    public function remotePort ():int|false {
 
-        return $this->headers->remote_port ?: false;
+        return $this->headers->remote_port ? (int)$this->headers->remote_port : false;
 
     }
 
