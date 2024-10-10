@@ -45,6 +45,18 @@ final class TimestampTest extends Base {
      *
      * @return void
      */
+    public function testFromFloat ():void {
+
+        $this->assertSame('1724412073.123400', Timestamp::fromFloat(1724412073.1234)->microtime());
+        $this->assertSame('1724412073.000000', Timestamp::fromFloat(1724412073.0)->microtime());
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testSeconds ():void {
 
         $this->assertSame(1724412073, $this->timestamp->seconds());
