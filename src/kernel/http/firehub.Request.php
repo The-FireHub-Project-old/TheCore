@@ -17,7 +17,7 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Kernel\Request as BaseRequest;
 use FireHub\Core\Kernel\Enums\Method;
 use FireHub\Core\Support\ {
-    Collection, Str, Url
+    Collection, Str, Url, Zwick\DateTime
 };
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Bags\RequestHeaders;
@@ -25,12 +25,16 @@ use FireHub\Core\Support\Enums\ {
     Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType
 };
 use FireHub\Core\Support\LowLevel\Arr;
+use Exception;
 
 /**
  * ### HTTP Request
  *
  * Interact with the current HTTP request being handled by your application
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Request extends BaseRequest {
 
@@ -208,6 +212,80 @@ class Request extends BaseRequest {
     public function connectionKeepAlive ():string|false {
 
         return $this->headers->connection_keep_alive ?: false;
+
+    }
+
+    /**
+     * ### Makes the request conditional
+     *
+     * The server sends back the requested resource, with a 200 status, only if it has been last modified after the
+     * given date. If the resource has not been modified since, the response is a 304 without the body. The
+     * Last-Modified response header of a previous request contains the date of the last modification. Unlike
+     * If-Unmodified-Since, If-Modified-Since can only be used with a GET or HEAD.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$if_modified_since
+     * @uses \FireHub\Core\Support\Zwick\DateTime AS return.
+     *
+     * @throws Exception Emits Exception in case of an error.
+     *
+     * @return \FireHub\Core\Support\Zwick\DateTime|false Datetime of requested modified since date or false if not
+     * sent.
+     */
+    public function ifModifiedSince ():DateTime|false {
+
+        return $this->headers->if_modified_since
+            ? DateTime::from($this->headers->if_modified_since)
+            : false;
+
+    }
+
+    /**
+     * ### Makes the request for the resource conditional
+     *
+     * The server will send the requested resource or accept it in the case of a POST or another non-safe method only
+     * if the resource has not been modified after the date specified by this HTTP header. If the resource has been
+     * modified after the specified date, the response will be a 412-Precondition Failed error.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$if_unmodified_since
+     * @uses \FireHub\Core\Support\Zwick\DateTime AS return.
+     *
+     * @throws Exception Emits Exception in case of an error.
+     *
+     * @return \FireHub\Core\Support\Zwick\DateTime|false Datetime of requested unmodified since date or false if not
+     * sent.
+     */
+    public function ifUnModifiedSince ():DateTime|false {
+
+        return $this->headers->if_unmodified_since
+            ? DateTime::from($this->headers->if_unmodified_since)
+            : false;
+
+    }
+
+    /**
+     * ### Makes the request conditional
+     *
+     * For GET and HEAD methods, the server will return the requested resource, with a 200 status, only if it doesn't
+     * have an ETag matching the given ones. For other methods, the request will be processed only if the eventually
+     * existing resource's ETag doesn't match any of the values listed.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$if_none_match
+     * @uses \FireHub\Core\Support\Collection::list() To create an accept header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To apply the callback to each collection item.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<\FireHub\Core\Support\Strings\Str> If-none-match list.
+     */
+    public function ifNoneMatch ():Indexed {
+
+        /** @phpstan-ignore-next-line */
+        return Collection::list(Str::from($this->headers->if_none_match)->break(','))
+            ->map(fn($value) => Str::from($value)->trim());
 
     }
 

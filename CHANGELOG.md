@@ -8,6 +8,7 @@
 - Create a Server and Headers bag ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [1fef686](https://github.com/The-FireHub-Project/Core/pull/91/commits/1fef686))
 - Create Url low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [b0dbbdb](https://github.com/The-FireHub-Project/Core/pull/91/commits/b0dbbdb))
 - Create Request ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [5f93f00](https://github.com/The-FireHub-Project/Core/pull/91/commits/5f93f00))
+- Create Hash low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [d5f9d23](https://github.com/The-FireHub-Project/Core/pull/91/commits/d5f9d23))
 
 ## Added
 - Added casesIf method for all enums ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [2e8ed3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/2e8ed3b))
