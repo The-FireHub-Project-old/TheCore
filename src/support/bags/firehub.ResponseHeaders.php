@@ -180,6 +180,19 @@ final class ResponseHeaders extends Bag {
     public string $strict_transport_security = '';
 
     /**
+     * ### Describes the parts of the request message aside from the method
+     *
+     * Describes the parts of the request message aside from the method and URL that influenced the content of the
+     * response it occurs in. Most often, this is used to create a cache key when content negotiation is in use.
+     * The same header value should be used on all responses for a given URL, including 304 Not Modified responses and
+     * the "default" response.
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $vary = '';
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
