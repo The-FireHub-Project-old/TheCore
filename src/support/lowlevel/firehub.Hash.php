@@ -139,11 +139,10 @@ final class Hash implements InitStatic {
      * When set to true, outputs raw binary data. False outputs lowercase hexits.
      * </p>
      *
-     * @return bool Returns true when the two strings are equal, false otherwise.
-     *
-     * @caution It is important to provide the user-supplied string as the second parameter, rather than the first.
+     * @return string|false Returns a string containing the calculated message digest as lowercase hexits unless
+     * binary is set to true, in which case the raw binary representation of the message digest is returned.
      */
-    public static function file (string $filename, Algorithm $algorithm, bool $binary = false):bool {
+    public static function file (string $filename, Algorithm $algorithm, bool $binary = false):string|false {
 
         return hash_file($algorithm->value, $filename, $binary);
 
@@ -161,7 +160,7 @@ final class Hash implements InitStatic {
      * @param non-empty-string $key <p>
      * Input keying material (raw binary). Can't be empty.
      * </p>
-     * @param int $length [optional] <p>
+     * @param non-negative-int $length [optional] <p>
      * Desired output length in bytes. Can't be greater than 255 times the chosen hash function size.
      * If the length is 0, the output length will default to the chosen hash function size.
      * </p>
@@ -173,8 +172,8 @@ final class Hash implements InitStatic {
      * While optional, adding random salt significantly improves the strength of HKDF.
      * </p>
      *
-     * @throws ValueError If the key is empty, algo is unknown/non-cryptographic, length is less than 0 or too large
-     * (greater than 255 times the size of the hash function).
+     * @throws ValueError if the algorithm is unknown, the key is empty, algo is unknown/non-cryptographic, length is
+     * less than zero or too large (greater than 255 times the size of the hash function).
      *
      * @return string Returns a string containing a raw binary representation of the derived key (also known as output
      * keying material – OKM).
