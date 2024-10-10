@@ -22,7 +22,7 @@ use FireHub\Core\Support\ {
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Bags\RequestHeaders;
 use FireHub\Core\Support\Enums\ {
-    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType
+    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType, HTTP\Cache\Request as RequestCache
 };
 use FireHub\Core\Support\LowLevel\Arr;
 use Exception;
@@ -290,6 +290,38 @@ class Request extends BaseRequest {
     }
 
     /**
+     * ### ### Control caching in browsers
+     *
+     * Field holds directives (instructions) – in both requests and responses – that control caching in browsers
+     * and shared caches (for example, Proxies, CDNs).
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$cache
+     * @uses \FireHub\Core\Support\Collection::list() To create a cache header list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To apply the callback to each collection item.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
+     * @uses \FireHub\Core\Support\Str::string() To get raw string.
+     * @uses \FireHub\Core\Support\Enums\HTTP\Cache\Request As list.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|string}> Cache list.
+     */
+    public function cache ():Indexed {
+
+        /** @phpstan-ignore-next-line */
+        return Collection::list(Str::from($this->headers->cache)->break(','))
+            ->map(function ($value) {
+                $values = Str::from($value)->trim()->break('=');
+                return [
+                    'directive' => RequestCache::from($values[0]),
+                    'argument' => $values[1] ?? null
+                ];
+            });
+
+    }
+
+    /**
      * ### Lets servers and network peers identify the application, operating system, vendor, and/or version of the
      * requesting user agent
      * @since 1.0.0
@@ -329,7 +361,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
      * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|false, weight: float}> Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|null, weight: float}> Accept-list.
      */
     public function accept ():Indexed {
 
@@ -346,7 +378,7 @@ class Request extends BaseRequest {
                     case $values[0] === '*/*':
 
                         $result[] = [
-                            'type' => false,
+                            'type' => null,
                             'weight' => (float)($values[1] ?? 1)
                         ];
 
@@ -400,7 +432,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{language: non-empty-string, country: \FireHub\Core\Support\Enums\Geo\Country|false, weight: float}> Accept language header.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{language: non-empty-string, country: \FireHub\Core\Support\Enums\Geo\Country|null, weight: float}> Accept language header.
      */
     public function acceptLanguage ():Indexed {
 
@@ -411,7 +443,7 @@ class Request extends BaseRequest {
                 $locale_identifier = Str::from($value[0])->break('-');
                 return [
                     'language' => Language::fromAlpha2($locale_identifier[0]), // @phpstan-ignore-line
-                    'country' => isset($locale_identifier[1]) ? Country::fromAlpha2($locale_identifier[1]) : false, // @phpstan-ignore-line
+                    'country' => isset($locale_identifier[1]) ? Country::fromAlpha2($locale_identifier[1]) : null, // @phpstan-ignore-line
                     'weight' => (float)($value[1] ?? 1)
                 ];
             });
@@ -433,11 +465,9 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|false, weight: float}> Accept-encoding header list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}> Accept-encoding header list.
      */
     public function acceptEncoding ():Indexed {
-
-        $this->headers->accept_encoding = 'deflate, gzip;q=1.0, *;q=0.5';
 
         /** @phpstan-ignore-next-line */
         return Collection::list(Str::from($this->headers->accept_encoding)->break(','))
@@ -446,7 +476,7 @@ class Request extends BaseRequest {
                 $value = Str::from($value)->trim()->break(';q=');
                 return [
                     'encoding' => match (true) {
-                        $value[0] === '*' => false,
+                        $value[0] === '*' => null,
                         default => ContentEncoding::from($value[0])
                     },
                     'weight' => (float)($value[1] ?? 1)
