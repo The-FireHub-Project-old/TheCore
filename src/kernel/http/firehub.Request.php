@@ -282,13 +282,14 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<\FireHub\Core\Support\Strings\Str> If-none-match list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<\FireHub\Core\Support\Strings\Str>|false If-none-match list.
      */
-    public function ifNoneMatch ():Indexed {
+    public function ifNoneMatch ():Indexed|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->if_none_match)->break(','))
-            ->map(fn($value) => Str::from($value)->trim());
+        return empty($this->headers->if_none_match) ? false
+            : Collection::list(Str::from($this->headers->if_none_match)->break(','))
+                ->map(fn($value) => Str::from($value)->trim());
 
     }
 
@@ -308,19 +309,20 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::string() To get raw string.
      * @uses \FireHub\Core\Support\Enums\HTTP\Cache\Request As list.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|string}> Cache list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|string}>|false Cache list.
      */
-    public function cache ():Indexed {
+    public function cache ():Indexed|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->cache)->break(','))
-            ->map(function ($value) {
-                $values = Str::from($value)->trim()->break('=');
-                return [
-                    'directive' => RequestCache::from($values[0]),
-                    'argument' => $values[1] ?? null
-                ];
-            });
+        return empty($this->headers->cache) ? false
+            : Collection::list(Str::from($this->headers->cache)->break(','))
+                ->map(function ($value) {
+                    $values = Str::from($value)->trim()->break('=');
+                    return [
+                        'directive' => RequestCache::from($values[0]),
+                        'argument' => $values[1] ?? null
+                    ];
+                });
 
     }
 
@@ -364,9 +366,11 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
      * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|null, weight: float}> Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|null, weight: float}>|false Accept-list.
      */
-    public function accept ():Indexed {
+    public function accept ():Indexed|false {
+
+        if (empty($this->headers->accept)) return false;
 
         $result = [];
         Collection::list(Str::from($this->headers->accept)->break(','))
@@ -435,21 +439,23 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{language: non-empty-string, country: \FireHub\Core\Support\Enums\Geo\Country|null, weight: float}> Accept language header.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{language: non-empty-string, country: \FireHub\Core\Support\Enums\Geo\Country|null, weight: float}>|false Accept language header.
      */
-    public function acceptLanguage ():Indexed {
+    public function acceptLanguage ():Indexed|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->accept_language)->break(','))
-            ->map(function ($value) {
-                $value = Str::from($value)->trim()->break(';q=');
-                $locale_identifier = Str::from($value[0])->break('-');
-                return [
-                    'language' => Language::fromAlpha2($locale_identifier[0]), // @phpstan-ignore-line
-                    'country' => isset($locale_identifier[1]) ? Country::fromAlpha2($locale_identifier[1]) : null, // @phpstan-ignore-line
-                    'weight' => (float)($value[1] ?? 1)
-                ];
-            });
+        return empty($this->headers->accept_language) ? false
+            : Collection::list(Str::from($this->headers->accept_language)
+                ->break(','))
+                ->map(function ($value) {
+                    $value = Str::from($value)->trim()->break(';q=');
+                    $locale_identifier = Str::from($value[0])->break('-');
+                    return [
+                        'language' => Language::fromAlpha2($locale_identifier[0]), // @phpstan-ignore-line
+                        'country' => isset($locale_identifier[1]) ? Country::fromAlpha2($locale_identifier[1]) : null, // @phpstan-ignore-line
+                        'weight' => (float)($value[1] ?? 1)
+                    ];
+                });
 
     }
 
@@ -468,23 +474,24 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}> Accept-encoding header list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}>|false Accept-encoding header list.
      */
-    public function acceptEncoding ():Indexed {
+    public function acceptEncoding ():Indexed|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->accept_encoding)->break(','))
-            ->filter(fn($value) => $value !== '') // @phpstan-ignore-line
-            ->map(function ($value) {
-                $value = Str::from($value)->trim()->break(';q=');
-                return [
-                    'encoding' => match (true) {
-                        $value[0] === '*' => null,
-                        default => ContentEncoding::from($value[0])
-                    },
-                    'weight' => (float)($value[1] ?? 1)
-                ];
-            });
+        return empty($this->headers->accept_encoding) ? false
+            : Collection::list(Str::from($this->headers->accept_encoding)->break(','))
+                ->filter(fn($value) => $value !== '') // @phpstan-ignore-line
+                ->map(function ($value) {
+                    $value = Str::from($value)->trim()->break(';q=');
+                    return [
+                        'encoding' => match (true) {
+                            $value[0] === '*' => null,
+                            default => ContentEncoding::from($value[0])
+                        },
+                        'weight' => (float)($value[1] ?? 1)
+                    ];
+                });
 
     }
 
@@ -513,26 +520,25 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}> Accept-encoding header list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}>|false Accept-encoding header list.
      */
-    public function forwarded ():Indexed {
-
-        $this->headers->forwarded = 'for=192.0.2.60;proto=http;by=203.0.113.43, for=192.0.2.43,for=198.51.100.17';
+    public function forwarded ():Indexed|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::list(Str::from($this->headers->forwarded)->break(','))
-            ->map(function ($value) {
-                $result = [];
+        return empty($this->headers->forwarded) ? false
+            : Collection::list(Str::from($this->headers->forwarded)->break(','))
+                ->map(function ($value) {
+                    $result = [];
 
-                $hosts = Str::from($value)->trim()->break(';');
+                    $hosts = Str::from($value)->trim()->break(';');
 
-                foreach ($hosts as $host) {
-                    $directives = Str::from($host)->trim()->break('=');
-                    $result[$directives[0]] = $directives[1];
-                }
+                    foreach ($hosts as $host) {
+                        $directives = Str::from($host)->trim()->break('=');
+                        $result[$directives[0]] = $directives[1];
+                    }
 
-                return $result;
-            });
+                    return $result;
+                });
 
     }
 
@@ -547,17 +553,18 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, non-empty-string> Cookie list.
+     * @return \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, non-empty-string>|false Cookie list.
      */
-    public function cookie ():Associative {
+    public function cookie ():Associative|false {
 
         /** @phpstan-ignore-next-line */
-        return Collection::associative(Str::from($this->headers->cookie)->break('; '))
-            ->map(function ($value, &$key) { // @phpstan-ignore-line
-                $kv = Str::from($value)->trim()->break('=');
-                $key = $kv[0];
-                return $kv[1];
-            });
+        return empty($this->headers->cookie) ? false
+            : Collection::associative(Str::from($this->headers->cookie)->break('; '))
+                ->map(function ($value, &$key) { // @phpstan-ignore-line
+                    $kv = Str::from($value)->trim()->break('=');
+                    $key = $kv[0];
+                    return $kv[1];
+                });
 
     }
 
