@@ -37,6 +37,7 @@ use Exception;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Request extends BaseRequest {
 
@@ -498,6 +499,40 @@ class Request extends BaseRequest {
     public function except ():string|false {
 
         return $this->headers->expect ?: false;
+
+    }
+
+    /**
+     * ### Contains information that may be added by reverse proxy servers
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$forwarded
+     * @uses \FireHub\Core\Support\Collection::list() To create a proxy list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To split encoding name and weight.
+     * @uses \FireHub\Core\Support\Str::from() To create string.
+     * @uses \FireHub\Core\Support\Str::break() To split encodings.
+     * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}> Accept-encoding header list.
+     */
+    public function forwarded ():Indexed {
+
+        $this->headers->forwarded = 'for=192.0.2.60;proto=http;by=203.0.113.43, for=192.0.2.43,for=198.51.100.17';
+
+        /** @phpstan-ignore-next-line */
+        return Collection::list(Str::from($this->headers->forwarded)->break(','))
+            ->map(function ($value) {
+                $result = [];
+
+                $hosts = Str::from($value)->trim()->break(';');
+
+                foreach ($hosts as $host) {
+                    $directives = Str::from($host)->trim()->break('=');
+                    $result[$directives[0]] = $directives[1];
+                }
+
+                return $result;
+            });
 
     }
 
