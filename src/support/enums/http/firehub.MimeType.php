@@ -31,12 +31,6 @@ enum MimeType:string implements InitBackedEnum {
     use ConcreteBackedEnum;
 
     /**
-     * ### Any content media type
-     * @since 1.0.0
-     */
-    case ANY = '*/*';
-
-    /**
      * ### Binary files
      *
      * This is the default for binary files. As it means an unknown binary file, browsers usually don't execute it or

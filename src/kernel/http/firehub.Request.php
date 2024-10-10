@@ -329,7 +329,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
      * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType, weight: float}> Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|false, weight: float}> Accept-list.
      */
     public function accept ():Indexed {
 
@@ -342,6 +342,15 @@ class Request extends BaseRequest {
                 $values = $value->break(';q=');
 
                 switch (true) {
+
+                    case $values[0] === '*/*':
+
+                        $result[] = [
+                            'type' => false,
+                            'weight' => (float)($values[1] ?? 1)
+                        ];
+
+                        break;
 
                     case MimeType::tryFrom($values[0]):
 
@@ -371,6 +380,7 @@ class Request extends BaseRequest {
 
             });
 
+        /** @phpstan-ignore-next-line */
         return Collection::list($result);
 
     }
@@ -423,9 +433,11 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding, weight: float}> Accept-encoding header list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|false, weight: float}> Accept-encoding header list.
      */
     public function acceptEncoding ():Indexed {
+
+        $this->headers->accept_encoding = 'deflate, gzip;q=1.0, *;q=0.5';
 
         /** @phpstan-ignore-next-line */
         return Collection::list(Str::from($this->headers->accept_encoding)->break(','))
@@ -433,7 +445,10 @@ class Request extends BaseRequest {
             ->map(function ($value) {
                 $value = Str::from($value)->trim()->break(';q=');
                 return [
-                    'encoding' => ContentEncoding::from($value[0]),
+                    'encoding' => match (true) {
+                        $value[0] === '*' => false,
+                        default => ContentEncoding::from($value[0])
+                    },
                     'weight' => (float)($value[1] ?? 1)
                 ];
             });

@@ -31,12 +31,6 @@ enum ContentEncoding:string implements InitBackedEnum {
     use ConcreteBackedEnum;
 
     /**
-     * ### Any content encoding
-     * @since 1.0.0
-     */
-    case ANY = '*';
-
-    /**
      * ### AES-GCM encryption with a 128-bit content encryption key
      * @since 1.0.0
      */
