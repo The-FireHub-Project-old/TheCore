@@ -569,6 +569,20 @@ class Request extends BaseRequest {
     }
 
     /**
+     * ### Contains an internet email address for a human user who controls the requesting user agent
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$from
+     *
+     * @return non-empty-string|false Email address or false if no email address was sent.
+     */
+    public function from ():string|false {
+
+        return $this->headers->from ?: false;
+
+    }
+
+    /**
      * ### Get the hostname from which the user is viewing the current page
      * @since 1.0.0
      *

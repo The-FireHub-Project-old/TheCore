@@ -270,15 +270,6 @@ final class RequestHeaders extends Bag {
     public string $if_none_match = '';
 
     /**
-     * ### Provides a mechanism to allow and deny the use of browser features in a document or within any iframe
-     * elements in the document
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $permissions_policy = '';
-
-    /**
      * ### The Host name from which the user is viewing the current page
      * @since 1.0.0
      *

@@ -193,6 +193,14 @@ final class ResponseHeaders extends Bag {
     public string $vary = '';
 
     /**
+     * ### Provides a mechanism to allow and deny the use of browser features in a document or within any iframe elements in the document
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $permissions_policy = '';
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
@@ -215,7 +223,8 @@ final class ResponseHeaders extends Bag {
             'last_modified' => 'Last-Modified',
             'link' => 'Link',
             'server_timing' => 'Server-Timing',
-            'strict_transport_security' => 'Strict-Transport-Security'
+            'strict_transport_security' => 'Strict-Transport-Security',
+            'permissions_policy' => 'Permissions-Policy'
         ];
 
     }
