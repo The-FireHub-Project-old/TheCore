@@ -18,9 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Kernel\ {
-    Request, Server
-};
+use FireHub\Core\Kernel\Request;
 use FireHub\Core\Kernel\Bootstraps\Bootstrap;
 
 /**
@@ -50,22 +48,17 @@ abstract class Kernel implements Init {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
-     * @uses \FireHub\Core\Kernel\Server As parameter.
      * @uses \FireHub\Core\Initializers\Kernel::bootBootstraps() To boot all bootstraps required for instantiating all
      * Kernels.
      *
      * @param \FireHub\Core\Components\DI\Container $container <p>
      * Dependency injection container.
      * </p>
-     * @param \FireHub\Core\Kernel\Server $server <p>
-     * Server and execution environment information.
-     * </p>
      *
      * @return void
      */
     final public function __construct (
-        protected readonly Container $container,
-        protected readonly Server $server
+        protected readonly Container $container
     ) {
 
         $this->bootBootstraps();

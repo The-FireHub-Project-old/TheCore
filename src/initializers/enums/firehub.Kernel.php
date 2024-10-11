@@ -15,19 +15,24 @@
 namespace FireHub\Core\Initializers\Enums;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\Server;
-use FireHub\Core\Kernel\Request as Request;
+use FireHub\Core\Kernel\ {
+    Request, Server
+};
 use FireHub\Core\Kernel\HTTP\ {
     Kernel as HTTP_Kernel,
     Micro\Kernel as HTTP_Micro_Kernel,
-    Request as HTTP_Request
+    Request as HTTP_Request,
+    Server as HTTP_Server
 };
 use FireHub\Core\Kernel\Console\ {
     Kernel as Console_Kernel,
-    Request as Console_Request
+    Request as Console_Request,
+    Server as Console_Server
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Support\Bags\RequestHeaders;
+use FireHub\Core\Support\Bags\ {
+    RequestHeaders, Server as ServerBag
+};
 
 /**
  * ### Enum for possible Kernel types
@@ -64,19 +69,18 @@ enum Kernel {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
-     * @uses \FireHub\Core\Kernel\Server As parameter.
      * @uses \FireHub\Core\Kernel\HTTP\Kernel To create HTTP Kernel.
      * @uses \FireHub\Core\Kernel\HTTP\Micro\Kernel To create Micro HTTP Kernel.
      * @uses \FireHub\Core\Kernel\Console\Kernel To create Console Kernel.
      *
      * @return \FireHub\Core\Initializers\Kernel Selected Kernel.
      */
-    public function run (Container $container, Server $server):BaseKernel {
+    public function run (Container $container):BaseKernel {
 
         return match ($this) {
-            self::HTTP => new HTTP_Kernel($container, $server),
-            self::MICRO_HTTP => new HTTP_Micro_Kernel($container, $server),
-            self::CONSOLE => new Console_Kernel($container, $server)
+            self::HTTP => new HTTP_Kernel($container),
+            self::MICRO_HTTP => new HTTP_Micro_Kernel($container),
+            self::CONSOLE => new Console_Kernel($container)
         };
 
     }
@@ -87,10 +91,13 @@ enum Kernel {
      *
      * @uses \FireHub\Core\Kernel\HTTP\Request To add to container.
      * @uses \FireHub\Core\Kernel\Console\Request To add to container.
+     * @uses \FireHub\Core\Kernel\HTTP\Server To add to container.
+     * @uses \FireHub\Core\Kernel\Console\Server To add to container.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To bind request as a singleton.
      * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
+     * @uses \FireHub\Core\Support\Bags\Server As server bag.
      *
      * @return \FireHub\Core\Kernel\Request Current request being handled by your application.
      */
@@ -99,10 +106,15 @@ enum Kernel {
         $container = Container::getInstance();
 
         $headers = $container->resolve(RequestHeaders::class);
+        $server_bag = $container->resolve(ServerBag::class);
 
         switch ($this) {
 
             case self::CONSOLE:
+
+                $container->singleton(Console_Server::class, fn() => new Console_Server(
+                    $server_bag
+                ));
 
                 $container->singleton(Console_Request::class, fn() => new Console_Request(
                     $headers
@@ -111,6 +123,10 @@ enum Kernel {
                 return $container->resolve(Console_Request::class);
 
             default:
+
+                $container->singleton(HTTP_Server::class, fn() => new HTTP_Server(
+                    $server_bag
+                ));
 
                 $container->singleton(HTTP_Request::class, fn() => new HTTP_Request(
                     $headers

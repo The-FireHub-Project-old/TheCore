@@ -15,7 +15,6 @@
 namespace FireHub\Core\Initializers\Bootloaders;
 
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Kernel\Server;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Bags\RequestHeaders;
 use FireHub\Core\Support\Bags\Server as ServerBag;
@@ -36,7 +35,6 @@ final class RegisterKernel implements Bootloader {
      * @uses \FireHub\Core\Support\Collection::associative() As bag list.
      * @uses \FireHub\Core\Support\Collection\Type\Associative::partition() To separate collection items in a server bag
      * and header bag.
-     * @uses \FireHub\Core\Kernel\Server To add to container.
      * @uses \FireHub\Core\Support\Bags\Server As server bag.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
@@ -61,10 +59,6 @@ final class RegisterKernel implements Bootloader {
 
         $container->singleton(ServerBag::class, fn() => new ServerBag($server)); // @phpstan-ignore-line
         $container->singleton(RequestHeaders::class, fn() => new RequestHeaders($headers)); // @phpstan-ignore-line
-
-        $container->singleton(Server::class, fn($container) => new Server(
-            $container->resolve(ServerBag::class)
-        ));
 
     }
 

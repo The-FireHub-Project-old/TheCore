@@ -313,7 +313,7 @@ final class FireHub {
 
         $container = Container::getInstance();
 
-        $kernel_instance = $kernel->run($container, $container->resolve(Server::class));
+        $kernel_instance = $kernel->run($container);
 
         return $kernel_instance->handle($kernel->request());
 
