@@ -120,7 +120,7 @@ final class RequestHeaders extends Bag {
      * ### Array of arguments passed to the script when running from the command line
      * @since 1.0.0
      *
-     * @var array<non-empty-string, non-empty-string>
+     * @var non-empty-string[]
      */
     public array $script_arguments = [];
 
@@ -133,8 +133,7 @@ final class RequestHeaders extends Bag {
     public int $script_argument_number = 0;
 
     /**
-     * ### Lets servers and network peers identify the application, operating system, vendor, and/or version of the
-     * requesting user agent
+     * ### Identify the application, operating system, vendor, and/or version of the requesting user agent
      * @since 1.0.0
      *
      * @var string
