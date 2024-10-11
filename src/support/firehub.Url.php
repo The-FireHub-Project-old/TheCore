@@ -82,7 +82,6 @@ class Url implements Init {
 
     /**
      * ### URL path
-     *
      * @since 1.0.0
      *
      * @var \FireHub\Core\Support\Collection\Type\Indexed<non-empty-string>
