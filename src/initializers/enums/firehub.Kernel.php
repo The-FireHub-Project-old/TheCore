@@ -98,18 +98,22 @@ enum Kernel {
 
         $container = Container::getInstance();
 
+        $headers = $container->resolve(RequestHeaders::class);
+
         switch ($this) {
 
             case self::CONSOLE:
 
-                $container->singleton(Console_Request::class, fn() => new Console_Request());
+                $container->singleton(Console_Request::class, fn() => new Console_Request(
+                    $headers
+                ));
 
                 return $container->resolve(Console_Request::class);
 
             default:
 
-                $container->singleton(HTTP_Request::class, fn($container) => new HTTP_Request(
-                    $container->resolve(RequestHeaders::class)
+                $container->singleton(HTTP_Request::class, fn() => new HTTP_Request(
+                    $headers
                 ));
 
                 return $container->resolve(HTTP_Request::class);

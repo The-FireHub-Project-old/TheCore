@@ -17,17 +17,16 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Kernel\Request as BaseRequest;
 use FireHub\Core\Kernel\Enums\Method;
 use FireHub\Core\Support\ {
-    Collection, Str, Url, Zwick\DateTime, Zwick\Timestamp
+    Collection, Str, Url, Zwick\DateTime
 };
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
 };
-use FireHub\Core\Support\Bags\RequestHeaders;
 use FireHub\Core\Support\Enums\ {
     Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType, HTTP\Cache\Request as RequestCache
 };
 use FireHub\Core\Support\LowLevel\Arr;
-use Error, Exception;
+use Exception;
 
 /**
  * ### HTTP Request
@@ -40,20 +39,6 @@ use Error, Exception;
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 class Request extends BaseRequest {
-
-    /**
-     * ### Constructor
-     * @since 1.0.0
-     *
-     * @param \FireHub\Core\Support\Bags\RequestHeaders $headers <p>
-     * Bag for HTTP request header variables.
-     * </p>
-     *
-     * @return void
-     */
-    public function __construct (
-        private readonly RequestHeaders $headers
-    ) {}
 
     /**
      * ### Check if the current request is secured
@@ -644,25 +629,6 @@ class Request extends BaseRequest {
 
         return $this->headers->remote_user
             ?: ($this->headers->remote_user_redirect ?: false);
-
-    }
-
-    /**
-     * ### The timestamp for the start of the request, with microsecond precision
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$time_float
-     * @uses \FireHub\Core\Support\Zwick\DateTime::fromTimestamp() To create datetime from timestamp.
-     * @uses \FireHub\Core\Support\Zwick\Timestamp::fromFloat() To create a timestamp from float.
-     *
-     * @throws Exception Emits Exception in case of an error.
-     * @throws Error If we couldn't convert string to timestamp.
-     *
-     * @return \FireHub\Core\Support\Zwick\DateTime Datetime of requested.
-     */
-    public function time ():DateTime {
-
-        return DateTime::fromTimestamp(Timestamp::fromFloat($this->headers->time_float));
 
     }
 
