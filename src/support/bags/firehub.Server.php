@@ -63,7 +63,7 @@ final class Server extends Bag {
      *
      * @var string
      */
-    public string $script_document_root;
+    public string $script_document_root = '';
 
     /**
      * ### The name of the server host under which the current script is executing
@@ -76,23 +76,7 @@ final class Server extends Bag {
      * the hostname supplied by the client, which can be spoofed. It is not safe to rely on this value in
      * security-dependent contexts.
      */
-    public string $server_host = '';
-
-    /**
-     * ### The IP address of the server under which the current script is executing
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $server_address = '';
-
-    /**
-     * ### The IP address of the IIS server under which the current script is executing
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $local_address = '';
+    public string $host = '';
 
     /**
      * ### Name and revision of the information protocol via which the page was requested
@@ -100,15 +84,15 @@ final class Server extends Bag {
      *
      * @var string
      */
-    public string $server_protocol = '';
+    public string $protocol = '';
 
     /**
-     * ### Server identification string, given in the headers when responding to requests
+     * ### The IP address of the server under which the current script is executing
      * @since 1.0.0
      *
      * @var string
      */
-    public string $server_software = '';
+    public string $address = '';
 
     /**
      * ### The port on the server machine being used by the web server for communication
@@ -120,7 +104,23 @@ final class Server extends Bag {
      * the physical (real) port, otherwise, this value can be spoofed, and it may or may not return the physical port
      * value. It is not safe to rely on this value in security-dependent contexts.
      */
-    public string $server_port = '';
+    public string $port = '';
+
+    /**
+     * ### Server identification string, given in the headers when responding to requests
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $software = '';
+
+    /**
+     * ### The IP address of the IIS server under which the current script is executing
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    public string $local_address = '';
 
     /**
      * @inheritDoc
@@ -134,8 +134,11 @@ final class Server extends Bag {
             'script_path' => 'SCRIPT_NAME',
             'script_filesystem_path' => 'PATH_TRANSLATED',
             'script_document_root' => 'DOCUMENT_ROOT',
-            'server_host' => 'SERVER_NAME',
-            'server_address' => 'SERVER_ADDR',
+            'host' => 'SERVER_NAME',
+            'protocol' => 'SERVER_PROTOCOL',
+            'address' => 'SERVER_ADDR',
+            'port' => 'SERVER_PORT',
+            'software' => 'SERVER_SOFTWARE',
             'local_address' => 'LOCAL_ADDR',
             'remote_address' => 'REMOTE_ADDR',
             'remote_user_redirect' => 'REDIRECT_REMOTE_USER'
