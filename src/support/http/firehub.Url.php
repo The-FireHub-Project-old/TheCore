@@ -12,10 +12,13 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support;
+namespace FireHub\Core\Support\HTTP;
 
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
+};
+use FireHub\Core\Support\ {
+    Collection, Str
 };
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
@@ -324,13 +327,13 @@ class Url implements Init {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\URL\Schema::withAuthority() To get URL schema with authority.
-     * @uses \FireHub\Core\Support\Url::username() To get URL username.
-     * @uses \FireHub\Core\Support\Url::passwsord() To get URL password.
-     * @uses \FireHub\Core\Support\Url::host() To get URL host.
-     * @uses \FireHub\Core\Support\Url::port() To get URL port.
-     * @uses \FireHub\Core\Support\Url::path() To get URL path.
-     * @uses \FireHub\Core\Support\Url::query() To parse URL query.
-     * @uses \FireHub\Core\Support\Url::fragment() To get URL fragment.
+     * @uses \FireHub\Core\Support\HTTP\Url::username() To get URL username.
+     * @uses \FireHub\Core\Support\HTTP\Url::passwsord() To get URL password.
+     * @uses \FireHub\Core\Support\HTTP\Url::host() To get URL host.
+     * @uses \FireHub\Core\Support\HTTP\Url::port() To get URL port.
+     * @uses \FireHub\Core\Support\HTTP\Url::path() To get URL path.
+     * @uses \FireHub\Core\Support\HTTP\Url::query() To parse URL query.
+     * @uses \FireHub\Core\Support\HTTP\Url::fragment() To get URL fragment.
      *
      * @return string URL.
      */

@@ -12,11 +12,11 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace support;
+namespace support\http;
 
-use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\Url;
 use FireHub\Core\Support\Enums\URL\Schema;
+use FireHub\Core\Support\HTTP\Url;
+use FireHub\Core\Testing\Base;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 /**

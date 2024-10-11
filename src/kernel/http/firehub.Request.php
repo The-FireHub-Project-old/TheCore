@@ -17,7 +17,7 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Kernel\Request as BaseRequest;
 use FireHub\Core\Kernel\Enums\Method;
 use FireHub\Core\Support\ {
-    Collection, Str, Url, Zwick\DateTime
+    Collection, Str, Zwick\DateTime, HTTP\Url
 };
 use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
@@ -142,13 +142,13 @@ class Request extends BaseRequest {
      * ### Get URL which was given to access this page
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Url::from() To create URL from current url.
+     * @uses \FireHub\Core\Support\HTTP\Url::from() To create URL from current url.
      * @uses \FireHub\Core\Kernel\HTTP\Request::schema() To get current schema.
      * @uses \FireHub\Core\Support\Enums\URL\Schema::withAuthority() To get URL schema with authority.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$host
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$uri
      *
-     * @return \FireHub\Core\Support\Url Url.
+     * @return \FireHub\Core\Support\HTTP\Url Url.
      */
     public function url ():Url {
 
