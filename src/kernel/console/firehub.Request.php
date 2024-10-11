@@ -15,6 +15,7 @@
 namespace FireHub\Core\Kernel\Console;
 
 use FireHub\Core\Kernel\Request as BaseRequest;
+use FireHub\Core\Support\Console\Input;
 
 /**
  * ### Console Request
@@ -23,5 +24,20 @@ use FireHub\Core\Kernel\Request as BaseRequest;
  * @since 1.0.0
  */
 class Request extends BaseRequest {
+
+    /**
+     * ### Input support class from arguments passed to the script when running from the command line
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$script_arguments
+     * @uses \FireHub\Core\Support\Console\Input As return.
+     *
+     * @return \FireHub\Core\Support\Console\Input Input support class.
+     */
+    public function arguments ():Input {
+
+        return new Input($this->headers->script_arguments);
+
+    }
 
 }

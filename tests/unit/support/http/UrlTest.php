@@ -27,7 +27,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Schema::class)]
 final class UrlTest extends Base {
 
-    public Url $url ;
+    public Url $url;
 
     public Url $empty;
 
