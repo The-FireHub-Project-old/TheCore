@@ -58,7 +58,7 @@ abstract class Server implements Init {
      */
     public function hostname ():string|false {
 
-        return Network::hostname();
+        return Network::hostname() ?: false;
 
     }
 
