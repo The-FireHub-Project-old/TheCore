@@ -20,7 +20,7 @@ use FireHub\Core\Support\Console\Input;
 /**
  * ### Console Request
  *
- * Interact with the current console request being handled by your application
+ * Interact with the current console request being handled by your application.
  * @since 1.0.0
  */
 class Request extends BaseRequest {

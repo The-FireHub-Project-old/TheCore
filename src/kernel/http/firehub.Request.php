@@ -31,7 +31,7 @@ use Exception;
 /**
  * ### HTTP Request
  *
- * Interact with the current HTTP request being handled by your application
+ * Interact with the current HTTP request being handled by your application.
  * @since 1.0.0
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
