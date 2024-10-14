@@ -76,7 +76,7 @@ final class Server extends Bag {
      * the hostname supplied by the client, which can be spoofed. It is not safe to rely on this value in
      * security-dependent contexts.
      */
-    public string $host = '';
+    public string $name = '';
 
     /**
      * ### Name and revision of the information protocol via which the page was requested
@@ -134,7 +134,7 @@ final class Server extends Bag {
             'script_path' => 'SCRIPT_NAME',
             'script_filesystem_path' => 'PATH_TRANSLATED',
             'script_document_root' => 'DOCUMENT_ROOT',
-            'host' => 'SERVER_NAME',
+            'name' => 'SERVER_NAME',
             'protocol' => 'SERVER_PROTOCOL',
             'address' => 'SERVER_ADDR',
             'port' => 'SERVER_PORT',

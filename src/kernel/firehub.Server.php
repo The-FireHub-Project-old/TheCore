@@ -18,6 +18,7 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Bags\Server as ServerBag;
+use FireHub\Core\Support\LowLevel\Network;
 
 /**
  * ### Server and execution environment information
@@ -46,6 +47,20 @@ abstract class Server implements Init {
     public function __construct (
         protected readonly ServerBag $server
     ) {}
+
+    /**
+     * ### Gets the host name for the local machine
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Network::hostname() To get the host name.
+     *
+     * @return non-empty-string|false String with the hostname on success, otherwise false is returned.
+     */
+    public function hostname ():string|false {
+
+        return Network::hostname();
+
+    }
 
     /**
      * ### Filename of the currently executing script, relative to the document root

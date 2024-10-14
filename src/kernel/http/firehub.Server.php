@@ -40,18 +40,18 @@ class Server extends BaseServer {
      * ### The name of the server host under which the current script is executing
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Bags\Server::$script_document_root
+     * @uses \FireHub\Core\Support\Bags\Server::$name
      *
-     * @return non-empty-string|false Server host.
+     * @return non-empty-string|false Server name.
      *
      * @caution If the script is running on a virtual host, this will be the value defined for that virtual host.
      * @note Under Apache 2, UseCanonicalName = On and ServerName must be set. Otherwise, this value reflects
      * the hostname supplied by the client, which can be spoofed. It is not safe to rely on this value in
      * security-dependent contexts.
      */
-    public function host ():string|false {
+    public function name ():string|false {
 
-        return $this->server->host ?: false;
+        return $this->server->name ?: false;
 
     }
 

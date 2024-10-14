@@ -21,11 +21,11 @@ use FireHub\Core\Kernel\Console\Server as ConsoleServer;
  * ### Console Server and execution environment information
  * @since 1.0.0
  *
+ * @method static string|false hostname () Gets the host name for the local machine
  * @method static string script () Filename of the currently executing script, relative to the document root
  * @method static string scriptFilename () Absolute pathname of the currently executing script
  * @method static string scriptPath () Contains the current script's path
  * @method static string scriptFilesystemPath () Filesystem- (not document root-) based path to the current script after the server has done any virtual-to-real mapping
- *
  */
 class Server extends Facade {
 
