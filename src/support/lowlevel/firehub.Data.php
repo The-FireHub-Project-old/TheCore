@@ -17,9 +17,12 @@ namespace FireHub\Core\Support\LowLevel;
 use FireHub\Core\Base\ {
     InitStatic, Trait\ConcreteStatic
 };
-use FireHub\Core\Support\Enums\Data\Type;
-use Error, Exception, Stringable;
+use FireHub\Core\Support\Enums\Data\ {
+    Type, ResourceType
+};
+use Error, Exception, Stringable, TypeError;
 
+use function get_resource_type;
 use function gettype;
 use function serialize;
 use function settype;
@@ -154,6 +157,24 @@ final class Data implements InitStatic {
         }) ?: throw new Error('Failed to set a type for value.');
 
         return $value;
+
+    }
+
+    /**
+     * ### Gets the resource type
+     * @since 1.0.0
+     *
+     * @param resource $resource <p>
+     * The evaluated resource handle.
+     * </p>
+     *
+     * @throws TypeError If the $resource parameter is not a resource.
+     *
+     * @return null|\FireHub\Core\Support\Enums\Data\ResourceType Resource type or null if is not a resource.
+     */
+    public static function getResourceType (mixed $resource):?ResourceType {
+
+        return ResourceType::tryFrom(get_resource_type($resource));
 
     }
 
