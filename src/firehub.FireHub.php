@@ -228,7 +228,6 @@ final class FireHub {
      * @uses \FireHub\Core\Initializers\Autoload::prepend() To register FireHub main autoloader.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::explode() To create an array from namespace.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join component into namespace.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To lowercase all namespace components
      * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To check if the first key is firehub and core.
      * @uses \FireHub\Core\Support\LowLevel\Arr::shift() To remove firehub and core form namespace.
      * @uses \FireHub\Core\Support\Path::core() To get FireHub Core path.
@@ -253,12 +252,7 @@ final class FireHub {
 
             $namespace = StrSB::implode($namespace, DS);
 
-            $classname_component = StrSB::explode($classname, '_');
-            $classname = Arr::shift($classname_component);
-            $classname_component = StrSB::implode($classname_component, '_');
-            $suffix = !empty($classname_component) ? StrSB::toLower('.'.$classname_component) : '';
-
-            return Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php';
+            return Path::core().DS.$namespace.DS.'firehub.'.$classname.'.php';
         });
 
         return $this;
