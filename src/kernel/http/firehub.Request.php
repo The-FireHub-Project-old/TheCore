@@ -77,7 +77,7 @@ class Request extends BaseRequest {
     }
 
     /**
-     * ### Get HTTP authentication type
+     * ### Get an HTTP authentication type
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$auth
@@ -142,7 +142,7 @@ class Request extends BaseRequest {
      * ### Get URL which was given to access this page
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\HTTP\Url::from() To create URL from current url.
+     * @uses \FireHub\Core\Support\HTTP\Url As return.
      * @uses \FireHub\Core\Kernel\HTTP\Request::schema() To get current schema.
      * @uses \FireHub\Core\Support\Enums\URL\Schema::withAuthority() To get URL schema with authority.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$host
@@ -279,7 +279,7 @@ class Request extends BaseRequest {
     }
 
     /**
-     * ### ### Control caching in browsers
+     * ### Control caching in browsers
      *
      * Field holds directives (instructions) – in both requests and responses – that control caching in browsers
      * and shared caches (for example, Proxies, CDNs).
@@ -312,8 +312,7 @@ class Request extends BaseRequest {
     }
 
     /**
-     * ### Lets servers and network peers identify the application, operating system, vendor, and/or version of the
-     * requesting user agent
+     * ### Lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$user_agent
@@ -582,7 +581,7 @@ class Request extends BaseRequest {
     }
 
     /**
-     * ### Get IP address from which the user is viewing the current page
+     * ### Get the IP address from which the user is viewing the current page
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$remote_address_forwarded
