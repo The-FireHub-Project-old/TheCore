@@ -12,10 +12,10 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Facade;
+namespace FireHub\Core\Support\Facade\Kernel\Console;
 
 use FireHub\Core\Components\DI\Facade;
-use FireHub\Core\Kernel\Console\Request;
+use FireHub\Core\Kernel\Console\Request as ConsoleRequest;
 
 /**
  * ### Console Request
@@ -26,7 +26,7 @@ use FireHub\Core\Kernel\Console\Request;
  * @method static \FireHub\Core\Support\Console\Input arguments () Input support class from arguments passed to the script when running from the command line
  * @method static \FireHub\Core\Support\Zwick\DateTime time () The timestamp for the start of the request, with microsecond precision
  */
-class ConsoleRequest extends Facade {
+class Request extends Facade {
 
     /**
      * @inheritDoc
@@ -35,7 +35,7 @@ class ConsoleRequest extends Facade {
      */
     public static function record ():string {
 
-        return Request::class;
+        return ConsoleRequest::class;
 
     }
 

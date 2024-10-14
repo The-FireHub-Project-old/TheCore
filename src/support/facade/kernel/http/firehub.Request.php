@@ -12,10 +12,10 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\Facade;
+namespace FireHub\Core\Support\Facade\Kernel\HTTP;
 
 use FireHub\Core\Components\DI\Facade;
-use FireHub\Core\Kernel\HTTP\Request;
+use FireHub\Core\Kernel\HTTP\Request as HttpRequest;
 
 /**
  * ### HTTP Request
@@ -53,7 +53,7 @@ use FireHub\Core\Kernel\HTTP\Request;
  *
  * @phpstan-ignore-next-line
  */
-class HttpRequest extends Facade {
+class Request extends Facade {
 
     /**
      * @inheritDoc
@@ -62,7 +62,7 @@ class HttpRequest extends Facade {
      */
     public static function record ():string {
 
-        return Request::class;
+        return HttpRequest::class;
 
     }
 
