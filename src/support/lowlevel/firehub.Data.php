@@ -170,11 +170,11 @@ final class Data implements InitStatic {
      *
      * @throws TypeError If the $resource parameter is not a resource.
      *
-     * @return null|\FireHub\Core\Support\Enums\Data\ResourceType Resource type or null if is not a resource.
+     * @return \FireHub\Core\Support\Enums\Data\ResourceType Resource type or null if is not a resource.
      */
-    public static function getResourceType (mixed $resource):?ResourceType {
+    public static function getResourceType (mixed $resource):ResourceType {
 
-        return ResourceType::tryFrom(get_resource_type($resource));
+        return ResourceType::from(get_resource_type($resource));
 
     }
 

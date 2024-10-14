@@ -31,6 +31,11 @@ enum ResourceType:string implements InitBackedEnum {
      * @since 1.0.0
      */
     use ConcreteBackedEnum;
+
+    /**
+     * @since 1.0.0
+     */
+    case UNKNOWN = 'Unknown';
     
     /**
      * @since 1.0.0
