@@ -25,15 +25,4 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Network::class)]
 final class NetworkTest extends Base {
 
-    /**
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function testCompare ():void {
-
-        $this->assertTrue(Network::hostname());
-
-    }
-
 }

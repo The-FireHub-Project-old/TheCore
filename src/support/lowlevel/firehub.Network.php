@@ -18,6 +18,8 @@ use FireHub\Core\Base\ {
     InitStatic, Trait\ConcreteStatic
 };
 
+
+use function gethostbyaddr;
 use function gethostbyname;
 use function gethostbynamel;
 use function gethostname;
@@ -87,6 +89,22 @@ final class Network implements InitStatic {
     final public static function ipListFromHostname (string $hostname):array|false {
 
         return gethostbynamel($hostname);
+
+    }
+
+    /**
+     * ### Get the Internet host name corresponding to a given IP address
+     * @since 1.0.0
+     *
+     * @param string $ip <p>
+     * The host IP address.
+     * </p>
+     *
+     * @return string|false The host IP address or false on failure.
+     */
+    final public static function hostnameByAddress (string $ip):string|false {
+
+        return gethostbyaddr($ip);
 
     }
 
