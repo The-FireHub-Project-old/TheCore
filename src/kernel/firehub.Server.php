@@ -63,6 +63,22 @@ abstract class Server implements Init {
     }
 
     /**
+     * ### Gets the IPv4 address for the local machine
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\Server::hostname() To get the host name for the local machine.
+     * @uses \FireHub\Core\Support\LowLevel\Network::ipFromHostname() To get the IPv4 address corresponding to a
+     * given Internet host name.
+     *
+     * @return string|false String with the hostname on success, otherwise false is returned.
+     */
+    public function ip ():string|false {
+
+        return $this->hostname() ? Network::ipFromHostname($this->hostname()) : false;
+
+    }
+
+    /**
      * ### Filename of the currently executing script, relative to the document root
      * @since 1.0.0
      *

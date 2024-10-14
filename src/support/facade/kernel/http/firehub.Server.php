@@ -22,6 +22,7 @@ use FireHub\Core\Kernel\HTTP\Server as HttpServer;
  * @since 1.0.0
  *
  * @method static string|false hostname () Gets the host name for the local machine
+ * @method static string|false ip () Gets the IPv4 address for the local machine
  * @method static string|false name () The name of the server host under which the current script is executing
  * @method static string|false protocol () Name and revision of the information protocol via which the page was requested
  * @method static string|false address () The IP address of the server under which the current script is executing

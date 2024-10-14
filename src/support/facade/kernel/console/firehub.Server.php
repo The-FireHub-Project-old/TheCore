@@ -22,6 +22,7 @@ use FireHub\Core\Kernel\Console\Server as ConsoleServer;
  * @since 1.0.0
  *
  * @method static string|false hostname () Gets the host name for the local machine
+ * @method static string|false ip () Gets the IPv4 address for the local machine
  * @method static string script () Filename of the currently executing script, relative to the document root
  * @method static string scriptFilename () Absolute pathname of the currently executing script
  * @method static string scriptPath () Contains the current script's path

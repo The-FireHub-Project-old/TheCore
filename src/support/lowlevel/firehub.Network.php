@@ -18,6 +18,8 @@ use FireHub\Core\Base\ {
     InitStatic, Trait\ConcreteStatic
 };
 
+use function gethostbyname;
+use function gethostbynamel;
 use function gethostname;
 
 /**
@@ -47,6 +49,44 @@ final class Network implements InitStatic {
     final public static function hostname ():string|false {
 
         return gethostname();
+
+    }
+
+    /**
+     * ### Get the IPv4 address corresponding to a given Internet host name
+     *
+     * Returns the IPv4 address of the Internet host specified by hostname.
+     * @since 1.0.0
+     *
+     * @param string $hostname <p>
+     * The host name.
+     * </p>
+     *
+     * @return string|false IPv4 address or false on failure.
+     */
+    final public static function ipFromHostname (string $hostname):string|false {
+
+        $ip = gethostbyname($hostname);
+
+        return $ip === $hostname ? false : $ip;
+
+    }
+
+    /**
+     * ### Get a list of IPv4 addresses corresponding to a given Internet host name
+     *
+     * Returns a list of IPv4 addresses to which the Internet host specified by hostname resolves.
+     * @since 1.0.0
+     *
+     * @param string $hostname <p>
+     * The host name.
+     * </p>
+     *
+     * @return string[]|false Array of IPv4 addresses or false if the hostname couldn't be resolved.
+     */
+    final public static function ipListFromHostname (string $hostname):array|false {
+
+        return gethostbynamel($hostname);
 
     }
 
