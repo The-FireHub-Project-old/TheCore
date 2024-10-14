@@ -17,7 +17,6 @@ namespace FireHub\Core;
 use FireHub\Core\Initializers\Autoload;
 use FireHub\Core\Initializers\Bootloaders\Bootloader;
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Kernel\Server;
 use FireHub\Core\Support\Path;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
@@ -44,7 +43,7 @@ final class FireHub {
      * @var class-string[]
      */
     private array $bootloaders = [
-        \FireHub\Core\Initializers\Bootloaders\RegisterKernel::class
+        \FireHub\Core\Initializers\Bootloaders\RegisterBags::class
     ];
 
     /**

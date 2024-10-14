@@ -21,11 +21,10 @@ use FireHub\Core\Support\Bags\Server as ServerBag;
 use FireHub\Core\Support\LowLevel\StrSB;
 
 /**
- * ### Register provided Kernel
- *
+ * ### Register bags
  * @since 1.0.0
  */
-final class RegisterKernel implements Bootloader {
+final class RegisterBags implements Bootloader {
 
     /**
      * @inheritDoc
