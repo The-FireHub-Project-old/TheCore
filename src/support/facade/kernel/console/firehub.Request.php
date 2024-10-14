@@ -23,8 +23,8 @@ use FireHub\Core\Kernel\Console\Request as ConsoleRequest;
  * Interact with the current console request being handled by your application.
  * @since 1.0.0
  *
- * @method static \FireHub\Core\Support\Console\Input arguments () Input support class from arguments passed to the script when running from the command line
- * @method static \FireHub\Core\Support\Zwick\DateTime time () The timestamp for the start of the request, with microsecond precision
+ * @method static \FireHub\Core\Support\Console\Input arguments () ### Input support class from arguments passed to the script when running from the command line
+ * @method static \FireHub\Core\Support\Zwick\DateTime time () ### The timestamp for the start of the request, with microsecond precision
  */
 class Request extends Facade {
 
