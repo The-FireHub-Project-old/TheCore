@@ -18,7 +18,6 @@ use FireHub\Core\Base\ {
     InitStatic, Trait\ConcreteStatic
 };
 
-
 use function gethostbyaddr;
 use function gethostbyname;
 use function gethostbynamel;
