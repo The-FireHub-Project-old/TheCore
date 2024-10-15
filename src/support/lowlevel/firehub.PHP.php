@@ -301,7 +301,9 @@ final class PHP implements InitStatic {
     }
 
     /**
-     * ### Information about the operating system PHP is running one "cli" whereas with Apache it may have several different values
+     * ### Gets OS information
+     *
+     * Information about the operating system PHP is running one "cli" whereas with Apache it may have several different values
      * depending on the exact SAPI used.
      * @since 1.0.0
      *

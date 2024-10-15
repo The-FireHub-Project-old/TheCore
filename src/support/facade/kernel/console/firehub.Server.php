@@ -25,6 +25,9 @@ use FireHub\Core\Kernel\Console\Server as ConsoleServer;
  * @method static string|false serverAPI () ### Type of interface between web server and PHP
  * @method static string|false hostname () ### Gets the host name for the local machine
  * @method static string|false ip () ### Gets the IPv4 address for the local machine
+ * @method static array osInfo () ### Gets OS information
+ * @method static string|false phpVersion (?string $extension = null) ### Gets the current PHP or extension version
+ * @method static string zendVersion (?string $extension = null) ### Gets the version of the current Zend engine
  * @method static string script () ### Filename of the currently executing script, relative to the document root
  * @method static string scriptFilename () ### Absolute pathname of the currently executing script
  * @method static string scriptPath () ### Contains the current script's path
@@ -40,6 +43,10 @@ use FireHub\Core\Kernel\Console\Server as ConsoleServer;
  * @method static string|false getConfigurationOptions (?string $extension = null) ### Gets all configuration options
  * @method static string|false setConfigurationOption (string $option, null|int|float|string|bool $value) ### Sets the value of a configuration option
  * @method static void restoreConfigurationOption (string $option) ### Restores the value of a configuration option to its original value
+ * @method static string tempFolder () ### Gets a directory path used for temporary files
+ * @method static int getMemoryUsage () ### Gets the amount of memory allocated to PHP
+ * @method static int getMemoryPeakUsage () ### Gets the peak of memory allocated by PHP
+ * @method static void resetMemoryPeakUsage () ### Reset the peak memory usage
  *
  * @phpstan-ignore-next-line
  */

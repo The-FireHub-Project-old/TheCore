@@ -120,6 +120,57 @@ abstract class Server implements Init {
     }
 
     /**
+     * ### Gets OS information
+     *
+     * Information about the operating system PHP is running one "cli" whereas with Apache it may have several different values
+     * depending on the exact SAPI used.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::osInfo To get OS information.
+     *
+     * @return array{name: string, release: string, version: string, machine: string} Operating system Information.
+     */
+    public static function osInfo ():array {
+
+        return PHP::osInfo();
+
+    }
+
+    /**
+     * ### Gets the current PHP or extension version
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::phpVersion To get the current PHP or extension version.
+     *
+     * @param null|non-empty-string $extension <p>
+     * An optional extension name.
+     * </p>
+     *
+     * @return string|false The current PHP version as a string. If a string argument is provided for extension
+     * parameter, phpversion() returns the version of that extension, or false if there is no version information
+     * associated or the extension isn't enabled.
+     */
+    public static function phpVersion (?string $extension = null):string|false {
+
+        return PHP::version($extension);
+
+    }
+
+    /**
+     * ### Gets the version of the current Zend engine
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::zendVersion To get the version of the current Zend engine.
+     *
+     * @return string Zend Engine version number, as a string.
+     */
+    public static function zendVersion ():string {
+
+        return PHP::zendVersion();
+
+    }
+
+    /**
      * ### Filename of the currently executing script, relative to the document root
      * @since 1.0.0
      *
@@ -411,6 +462,62 @@ abstract class Server implements Init {
     public static function restoreConfigurationOption (string $option):void {
 
         PHP::restoreConfigurationOption($option);
+
+    }
+
+    /**
+     * ### Gets a directory path used for temporary files
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::tempFolder() To get a directory path used for temporary files.
+     *
+     * @return string Path of the temporary directory.
+     */
+    public static function tempFolder ():string {
+
+        return PHP::tempFolder();
+
+    }
+
+    /**
+     * ### Gets the amount of memory allocated to PHP
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getMemoryUsage() To get the amount of memory allocated to PHP.
+     *
+     * @return non-negative-int The memory amount in bytes.
+     */
+    public static function getMemoryUsage ():int {
+
+        return PHP::getMemoryUsage();
+
+    }
+
+    /**
+     * ### Gets the peak of memory allocated by PHP
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getMemoryPeakUsage() To get the peak of memory allocated by PHP.
+     *
+     * @return non-negative-int The memory peak in bytes.
+     */
+    public static function getMemoryPeakUsage ():int {
+
+        return PHP::getMemoryPeakUsage();
+
+    }
+
+    /**
+     * ### Reset the peak memory usage
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::resetMemoryPeakUsage() To reset the peak memory usage.
+     *
+     * @return void
+     */
+    public static function resetMemoryPeakUsage ():void {
+
+        PHP::resetMemoryPeakUsage();
 
     }
 
