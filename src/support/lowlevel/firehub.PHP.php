@@ -86,7 +86,7 @@ final class PHP implements InitStatic {
     }
 
     /**
-     * ### Array with the names of the functions of a module
+     * ### Array with the names of the functions for a module
      * @since 1.0.0
      *
      * @param string $extension <p>
