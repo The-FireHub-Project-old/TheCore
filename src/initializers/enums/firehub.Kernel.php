@@ -15,19 +15,17 @@
 namespace FireHub\Core\Initializers\Enums;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\ {
-    Request, Server
-};
+use FireHub\Core\Kernel\Request;
 use FireHub\Core\Kernel\HTTP\ {
     Kernel as HTTP_Kernel,
     Micro\Kernel as HTTP_Micro_Kernel,
-    Request as HTTP_Request,
-    Server as HTTP_Server
+    Server as HTTP_Server,
+    Request as HTTP_Request
 };
 use FireHub\Core\Kernel\Console\ {
     Kernel as Console_Kernel,
-    Request as Console_Request,
-    Server as Console_Server
+    Server as Console_Server,
+    Request as Console_Request
 };
 use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Support\Bags\ {
@@ -99,7 +97,7 @@ enum Kernel {
      * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
      * @uses \FireHub\Core\Support\Bags\Server As server bag.
      *
-     * @return \FireHub\Core\Kernel\Request Current request being handled by your application.
+     * @return \FireHub\Core\Kernel\Request The current request being handled by your application.
      */
     public function request ():Request {
 
