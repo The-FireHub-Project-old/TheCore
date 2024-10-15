@@ -239,7 +239,7 @@ abstract class Server implements Init {
      */
     public static function getEnvironmentVariable (?string $name = null):ReadonlyAssociative {
 
-        return Collection::readonlyAssociative(PHP::getEnvironmentVariable()); // @phpstan-ignore-line
+        return Collection::readonlyAssociative(PHP::getEnvironmentVariable($name)); // @phpstan-ignore-line
 
     }
 
@@ -264,6 +264,118 @@ abstract class Server implements Init {
     public static function setEnvironmentVariable (string $key, string $value):bool {
 
         return PHP::setEnvironmentVariable($key.'='.$value);
+
+    }
+
+    /**
+     * ### Retrieve a path to the loaded php.ini file
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getConfigurationPath() To get the retrieve path to the loaded php.ini
+     * file.
+     *
+     * @return non-empty-string|false The loaded php.ini path, or false if one is not loaded.
+     */
+    public static function getConfigurationPath ():string|false {
+
+        return PHP::getConfigurationPath();
+
+    }
+
+    /**
+     * ### Gets the value of a configuration option
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getConfigurationOption() To get the value of a configuration option.
+     *
+     * @param non-empty-string $option <p>
+     * The configuration option name.
+     * </p>
+     *
+     * @return string|false Value of the configuration option as a string on success, or an empty string for null
+     * values. Returns false if the configuration option doesn't exist.
+     *
+     * @note A boolean ini value of off will be returned as an empty string or "0" while a boolean ini value of on
+     * will be returned as "1". The function can also return the literal string of INI value.
+     * @note Method can't read "array" ini options such as pdo.dsn.*, and returns false in this case.
+     */
+    public static function getConfigurationOption (string $option):string|false {
+
+        return PHP::getConfigurationOption($option);
+
+    }
+
+    /**
+     * ### Gets all configuration options
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative To create a list collection from all the configuration options.
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getConfigurationOption() To get all configuration options.
+     *
+     * @param null|non-empty-string $extension <p>
+     * An optional extension name. If not null or the string core, the function returns only options specific for
+     * that extension.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, array{global_value: null|int|string, local_value: null|int|string, access: \FireHub\Core\Support\Enums\PHP\IniAccessLevel}>|false
+     * Associative array with directive name as the array key. Returns false and raises an E_WARNING level error if
+     * the extension doesn't exist.
+     *
+     * @note Method ignores "array" ini options such as pdo.dsn.*.
+     */
+    public static function getConfigurationOptions (?string $extension = null):readonlyAssociative|false {
+
+        $options = PHP::getConfigurationOptions($extension);
+
+        return $options // @phpstan-ignore-line
+            ? Collection::readonlyAssociative($options) : false;
+
+    }
+
+    /**
+     * ### Sets the value of a configuration option
+     *
+     * Sets the value of the given configuration option. The configuration option will keep this new value during the
+     * script's execution and will be restored at the script's ending.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::setConfigurationOption() To set the value of a configuration option.
+     *
+     * @param non-empty-string $option <p>
+     * The configuration option name.
+     * </p>
+     * @param null|scalar $value <p>
+     * The new value for the option.
+     * </p>
+     *
+     * @return bool Returns the true on success, false on failure.
+     *
+     * @note A boolean ini value of off will be returned as an empty string or "0" while a boolean ini value of on
+     * will be returned as "1". The function can also return the literal string of INI value.
+     * @note Method can't read "array" ini options such as pdo.dsn.*, and returns false in this case.
+     */
+    public static function setConfigurationOption (string $option, null|int|float|string|bool $value):bool {
+
+        return  PHP::setConfigurationOption($option, $value);
+
+    }
+
+    /**
+     * ### Restores the value of a configuration option to its original value
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::restoreConfigurationOption() To restore the value of a configuration
+     * option to its original value.
+     *
+     * @param non-empty-string $option <p>
+     * The configuration option name.
+     * </p>
+     *
+     * @return void
+     */
+    public static function restoreConfigurationOption (string $option):void {
+
+        PHP::restoreConfigurationOption($option);
 
     }
 

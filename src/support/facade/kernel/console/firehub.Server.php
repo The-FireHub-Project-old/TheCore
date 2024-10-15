@@ -33,6 +33,11 @@ use FireHub\Core\Kernel\Console\Server as ConsoleServer;
  * @method static \FireHub\Core\Support\Collection\Type\ReadonlyIndexed includedFiles () ### Collection with the names of included or required files
  * @method static \FireHub\Core\Support\Collection\Type\ReadonlyAssociative getEnvironmentVariable () ### Gets all the environment variables
  * @method static bool setEnvironmentVariable (string $key, string $value) ### Sets the value of an environment variable
+ * @method static bool getConfigurationPath (string $key, string $value) ### Retrieve a path to the loaded php.ini file
+ * @method static string|false getConfigurationOption (string $key, string $value) ### Gets the value of a configuration option
+ * @method static string|false getConfigurationOptions (?string $extension = null) ### Gets all configuration options
+ * @method static string|false setConfigurationOption (string $option, null|int|float|string|bool $value) ### Sets the value of a configuration option
+ * @method static void restoreConfigurationOption (string $option) ### Restores the value of a configuration option to its original value
  *
  * @phpstan-ignore-next-line
  */
