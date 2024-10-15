@@ -32,7 +32,7 @@ final class PHPTest extends Base {
      */
     public function testSetEnvironmentVariables ():void {
 
-        $this->assertTrue(PHP::setEnvironmentVariables('FOO=BAR'));
+        $this->assertTrue(PHP::setEnvironmentVariable('FOO=BAR'));
 
     }
 
