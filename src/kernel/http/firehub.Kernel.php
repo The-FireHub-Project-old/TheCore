@@ -16,7 +16,6 @@ namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\Request;
-use FireHub\Core\Support\Bags\ResponseHeaders;
 
 /**
  * ### HTTP Kernel
