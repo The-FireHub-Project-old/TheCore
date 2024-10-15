@@ -17,8 +17,14 @@ namespace FireHub\Core\Kernel;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Support\Collection;
+use FireHub\Core\Support\Collection\Type\ {
+    ReadonlyIndexed, ReadonlyAssociative
+};
 use FireHub\Core\Support\Bags\Server as ServerBag;
-use FireHub\Core\Support\LowLevel\Network;
+use FireHub\Core\Support\LowLevel\ {
+    Network, PHP
+};
 
 /**
  * ### Server and execution environment information
@@ -93,6 +99,20 @@ abstract class Server implements Init {
     }
 
     /**
+     * ### Gets the name of the owner for the current PHP script
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::scriptOwner() To get the name of the owner for the current PHP script.
+     *
+     * @return string Username as a string.
+     */
+    public static function scriptOwner ():string {
+
+        return PHP::scriptOwner();
+
+    }
+
+    /**
      * ### Absolute pathname of the currently executing script
      * @since 1.0.0
      *
@@ -131,6 +151,119 @@ abstract class Server implements Init {
     public function scriptFilesystemPath ():string {
 
         return $this->server->script_filesystem_path;
+
+    }
+
+    /**
+     * ### Find out whether an extension is loaded
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::isExtensionLoaded() To find out whether an extension is loaded.
+     *
+     * @param string $name <p>
+     * The extension name. This parameter is case-insensitive.
+     * </p>
+     *
+     * @return bool True, if the extension identified by an extension is loaded, false otherwise.
+     */
+    public function isExtensionLoaded (string $name):bool {
+
+        return PHP::isExtensionLoaded($name);
+
+    }
+
+    /**
+     * ### Collection with the names of all modules compiled and loaded
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection::readonlyList() To create a list collection from extensions.
+     * @uses \FireHub\Core\Support\LowLevel\PHP::loadedExtensions() To get an array with the names of all modules
+     * compiled and loaded.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<string> Indexed collection of all the module names.
+     */
+    public function loadedExtensions ():ReadonlyIndexed {
+
+        return Collection::readonlyList(PHP::loadedExtensions());
+
+    }
+
+    /**
+     * ### Collection with the names of the functions for a module
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection::readonlyList() To create a list collection from extension functions.
+     * @uses \FireHub\Core\Support\LowLevel\PHP::loadedExtensions() To get an array with the names of the functions
+     * of a module.
+     *
+     * @param string $extension <p>
+     * The module name. This parameter is case-insensitive.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<string>|false Array with all the functions, or false if an
+     * extension is not a valid extension.
+     */
+    public static function extensionFunctions (string $extension):ReadonlyIndexed|false {
+
+        $extensions = PHP::extensionFunctions($extension);
+
+        return $extensions
+            ? Collection::readonlyList($extensions) : false;
+
+    }
+
+    /**
+     * ### Collection with the names of included or required files
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection::readonlyList() To create a list collection from included files.
+     * @uses \FireHub\Core\Support\LowLevel\PHP::includedFiles() To get an array with the names of included or
+     * required files.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<string> Array of the names for all files referenced by include and family.
+     */
+    public static function includedFiles ():ReadonlyIndexed {
+
+        return Collection::readonlyList(PHP::includedFiles());
+
+    }
+
+    /**
+     * ### Gets all the environment variables
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative To create a list collection from all the environment variables.
+     * @uses \FireHub\Core\Support\LowLevel\PHP::getEnvironmentVariable() To get all the environment variables.
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, string> Environment variables list.
+     */
+    public static function getEnvironmentVariable (?string $name = null):ReadonlyAssociative {
+
+        return Collection::readonlyAssociative(PHP::getEnvironmentVariable()); // @phpstan-ignore-line
+
+    }
+
+    /**
+     * ### Sets the value of an environment variable
+     *
+     * Adds assignment to the server environment. The environment variable will only exist for the duration of the
+     * current request. At the end of the request, the environment is restored to its original state.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::setEnvironmentVariable() To set the value of an environment variable.
+     *
+     * @param non-empty-string $key <p>
+     * The setting key.
+     * </p>
+     * @param non-empty-string $value <p>
+     * The setting value.
+     * </p>
+     *
+     * @return bool True on success or false on failure.
+     */
+    public static function setEnvironmentVariable (string $key, string $value):bool {
+
+        return PHP::setEnvironmentVariable($key.'='.$value);
 
     }
 

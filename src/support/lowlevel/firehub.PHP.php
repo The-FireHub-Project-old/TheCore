@@ -158,7 +158,7 @@ final class PHP implements InitStatic {
      *
      * @return bool True on success or false on failure.
      */
-    public static function setEnvironmentVariables (string $assignment):bool {
+    public static function setEnvironmentVariable (string $assignment):bool {
 
         return putenv($assignment);
 

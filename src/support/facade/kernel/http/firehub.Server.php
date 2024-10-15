@@ -33,6 +33,14 @@ use FireHub\Core\Kernel\HTTP\Server as HttpServer;
  * @method static string scriptPath () ### Contains the current script's path
  * @method static string scriptFilesystemPath () ### Filesystem- (not document root-) based path to the current script after the server has done any virtual-to-real mapping
  * @method static string|false scriptDocumentRoot () ### Document root directory under which the current script is executing, as defined in the server's configuration file
+ * @method static bool isExtensionLoaded (string $name) ### Find out whether an extension is loaded
+ * @method static \FireHub\Core\Support\Collection\Type\ReadonlyIndexed loadedExtensions () ### Collection with the names of all modules compiled and loaded
+ * @method static \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<string>|false extensionFunctions (string $extension) ### Collection with the names of the functions for a module
+ * @method static \FireHub\Core\Support\Collection\Type\ReadonlyIndexed includedFiles () ### Collection with the names of included or required files
+ * @method static \FireHub\Core\Support\Collection\Type\ReadonlyAssociative getEnvironmentVariable () ### Gets all the environment variables
+ * @method static bool setEnvironmentVariable (string $key, string $value) ### Sets the value of an environment variable
+ *
+ * @phpstan-ignore-next-line
  */
 class Server extends Facade {
 
