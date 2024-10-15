@@ -21,6 +21,8 @@ use FireHub\Core\Kernel\HTTP\Server as HttpServer;
  * ### HTTP Server and execution environment information
  * @since 1.0.0
  *
+ * @method static string|false processID () ### Gets PHP's process ID
+ * @method static string|false serverAPI () ### Type of interface between web server and PHP
  * @method static string|false hostname () ### Gets the host name for the local machine
  * @method static string|false ip () ### Gets the IPv4 address for the local machine
  * @method static string|false name () ### The name of the server host under which the current script is executing

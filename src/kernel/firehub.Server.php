@@ -55,6 +55,41 @@ abstract class Server implements Init {
     ) {}
 
     /**
+     * ### Gets PHP's process ID
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::processID() To get PHP's process ID.
+     *
+     * @return int|false Current PHP process ID, or false on error.
+     *
+     * @warning Process IDs aren't unique, thus they're a weak entropy source. We recommend against relying on pids
+     * in security-dependent contexts.
+     */
+    public static function processID ():int|false {
+
+        return PHP::processID();
+
+    }
+
+    /**
+     * ### Type of interface between web server and PHP
+     *
+     * Returns a lowercase string that describes the type of interface (the Server API, SAPI) that PHP is using. For
+     * example, in CLI PHP this string will be "cli" whereas with Apache it may have several different values
+     * depending on the exact SAPI used.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\PHP::serverAPI() To get a type of interface between web server and PHP.
+     *
+     * @return non-empty-lowercase-string|false Interface type, or false on failure.
+     */
+    public static function serverAPI ():string|false {
+
+        return PHP::serverAPI();
+
+    }
+
+    /**
      * ### Gets the host name for the local machine
      * @since 1.0.0
      *

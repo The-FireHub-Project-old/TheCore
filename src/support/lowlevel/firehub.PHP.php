@@ -285,7 +285,7 @@ final class PHP implements InitStatic {
     }
 
     /**
-     * ### Gets the peak of memory allocated by PHP
+     * ### Type of interface between web server and PHP
      *
      * Returns a lowercase string that describes the type of interface (the Server API, SAPI) that PHP is using. For
      * example, in CLI PHP this string will be "cli" whereas with Apache it may have several different values
