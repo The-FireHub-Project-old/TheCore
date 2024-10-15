@@ -18,7 +18,9 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Kernel\Request;
+use FireHub\Core\Kernel\ {
+    Request, Response
+};
 use FireHub\Core\Kernel\Bootstraps\Bootstrap;
 
 /**
@@ -69,13 +71,16 @@ abstract class Kernel implements Init {
      * ### Handle client request
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Kernel\Request As parameter.
+     * @uses \FireHub\Core\Kernel\Response As return.
+     *
      * @param \FireHub\Core\Kernel\Request $request <p>
      * Interact with the current request being handled by your application.
      * </p>
      *
-     * @return string Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Response from Kernel.
      */
-    abstract public function handle (Request $request):string;
+    abstract public function handle (Request $request):Response;
 
     /**
      * ### Boot all bootstraps required for instantiating all Kernels

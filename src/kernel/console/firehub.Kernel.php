@@ -29,10 +29,13 @@ class Kernel extends BaseKernel {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve response.
+     * @uses \FireHub\Core\Kernel\Console\Response As return.
      */
-    public function handle (Request $request):string {
+    public function handle (Request $request):Response {
 
-        return 'Console Torch';
+        return $this->container->resolve(Response::class);
 
     }
 

@@ -17,6 +17,7 @@ namespace FireHub\Core;
 use FireHub\Core\Initializers\Autoload;
 use FireHub\Core\Initializers\Bootloaders\Bootloader;
 use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Kernel\Response;
 use FireHub\Core\Support\Path;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
@@ -65,6 +66,7 @@ final class FireHub {
      * @uses \FireHub\Core\Initializers\Enums\Kernel As parameter.
      * @uses \FireHub\Core\Firehub::bootloaders() To initialize bootloaders.
      * @uses \FireHub\Core\Firehub::kernel() To process Kernel.
+     * @uses \FireHub\Core\Kernel\Response As return.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
@@ -74,9 +76,9 @@ final class FireHub {
      * or failed to register autoloader.
      * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
-     * @return string Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Response from Kernel.
      */
-    public static function boot (Kernel $kernel):string {
+    public static function boot (Kernel $kernel):Response {
 
         return (new self)
             ->bootloaders()
@@ -291,18 +293,19 @@ final class FireHub {
      * @uses \FireHub\Core\Initializers\Kernel::handle() To handle client request.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
      * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
+     * @uses \FireHub\Core\Kernel\Response As return.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
      * </p>
      *
-     * @return string Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Response from Kernel.
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod) PHPMD has a bug where it reports unused method unless directory
      * called.
      */
-    private function kernel (Kernel $kernel):string {
+    private function kernel (Kernel $kernel):Response {
 
         $container = Container::getInstance();
 
