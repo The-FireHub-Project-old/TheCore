@@ -212,7 +212,7 @@ final class ResponseHeaders extends Bag {
             'authenticate' => 'WWW-Authenticate',
             'cache' => 'Cache-Control',
             'clear_site_data' => 'Clear-Site-Data',
-            'content_type' => 'Content-type',
+            'content_type' => 'Content-Type',
             'content_disposition' => 'Content-Disposition',
             'content_encoding' => 'Content-Encoding',
             'content_language' => 'Content-Language',
