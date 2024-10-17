@@ -18,7 +18,6 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Support\Contracts\Magic\Stringable;
-use FireHub\Core\Support\Bags\ResponseHeaders;
 
 /**
  * ### Response holds all the information that needs to be sent back to the client from a given request
@@ -31,19 +30,5 @@ abstract class Response implements Init, Stringable {
      * @since 1.0.0
      */
     use Concrete;
-
-    /**
-     * ### Constructor
-     * @since 1.0.0
-     *
-     * @param \FireHub\Core\Support\Bags\ResponseHeaders $headers <p>
-     * Bag for response header variables.
-     * </p>
-     *
-     * @return void
-     */
-    public function __construct (
-        protected readonly ResponseHeaders $headers
-    ) {}
 
 }

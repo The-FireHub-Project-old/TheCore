@@ -17,7 +17,7 @@ namespace FireHub\Core\Initializers\Bootloaders;
 use FireHub\Core\Components\DI\Container;
 use FireHub\Core\Support\Collection;
 use FireHub\Core\Support\Bags\ {
-    RequestHeaders, ResponseHeaders, Server as ServerBag
+    RequestHeaders, Server as ServerBag
 };
 use FireHub\Core\Support\LowLevel\StrSB;
 
@@ -37,7 +37,6 @@ final class RegisterBags implements Bootloader {
      * and header bag.
      * @uses \FireHub\Core\Support\Bags\Server As server bag.
      * @uses \FireHub\Core\Support\Bags\RequestHeaders As request bag.
-     * @uses \FireHub\Core\Support\Bags\ResponseHeaders As response bag.
      * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
      * @uses \FireHub\Core\Components\DI\Container::singleton() To bind request as a singleton.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::startsWith() To check if bag item start with HTTP_.
@@ -60,7 +59,6 @@ final class RegisterBags implements Bootloader {
 
         $container->singleton(ServerBag::class, fn() => new ServerBag($server)); // @phpstan-ignore-line
         $container->singleton(RequestHeaders::class, fn() => new RequestHeaders($headers)); // @phpstan-ignore-line
-        $container->singleton(ResponseHeaders::class, fn() => new ResponseHeaders([])); // @phpstan-ignore-line
 
     }
 

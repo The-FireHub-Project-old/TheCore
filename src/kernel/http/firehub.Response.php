@@ -25,6 +25,20 @@ use FireHub\Core\Kernel\Response as BaseResponse;
 class Response extends BaseResponse {
 
     /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
+     * Interact with the current HTTP request being handled by your application.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        protected readonly Request $request
+    ) {}
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
