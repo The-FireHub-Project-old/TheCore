@@ -7,12 +7,12 @@
  * @copyright 2024 FireHub Web Application Framework
  * @license <https://opensource.org/licenses/OSL-3.0> OSL Open Source License version 3
  *
- * @package Core\Kernel
+ * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Kernel\Enums;
+namespace FireHub\Core\Support\Enums\HTTP;
 
 use FireHub\Core\Base\ {
     InitEnum, Trait\ConcreteEnum

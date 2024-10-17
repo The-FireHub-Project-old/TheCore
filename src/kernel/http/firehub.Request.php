@@ -15,7 +15,6 @@
 namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Kernel\Request as BaseRequest;
-use FireHub\Core\Kernel\Enums\Method;
 use FireHub\Core\Support\ {
     Collection, Str, Zwick\DateTime, HTTP\Url
 };
@@ -23,7 +22,7 @@ use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
 };
 use FireHub\Core\Support\Enums\ {
-    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\MimeType, HTTP\Cache\Request as RequestCache
+    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\Method, HTTP\MimeType, HTTP\Cache\Request as RequestCache
 };
 use FireHub\Core\Support\LowLevel\Arr;
 use Exception;
@@ -160,9 +159,9 @@ class Request extends BaseRequest {
      * ### Get request method
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Kernel\Enums\Method::getConstantValue() To get enum from value.
+     * @uses \FireHub\Core\Support\Enums\HTTP\Method::getConstantValue() To get enum from value.
      *
-     * @return \FireHub\Core\Kernel\Enums\Method Method enum.
+     * @return \FireHub\Core\Support\Enums\HTTP\Method Method enum.
      */
     public function method ():Method {
 
