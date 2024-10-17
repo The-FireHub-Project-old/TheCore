@@ -22,6 +22,8 @@ use FireHub\Core\Support\Str;
 /**
  * ### HTTP content media type
  * @since 1.0.0
+ *
+ * @link https://www.iana.org/assignments/media-types/media-types.xhtml For a complete list.
  */
 enum MimeType:string implements InitBackedEnum {
 
@@ -95,6 +97,30 @@ enum MimeType:string implements InitBackedEnum {
      * @since 1.0.0
      */
     case AVIF = 'image/avif';
+
+    /**
+     * ### Woff Font Format
+     * @since 1.0.0
+     */
+    case WOFF = 'font/woff';
+
+    /**
+     * ### Woff2 Font Format
+     * @since 1.0.0
+     */
+    case WOFF2 = 'font/woff2';
+
+    /**
+     * ### TTF Font Format
+     * @since 1.0.0
+     */
+    case TTF = 'font/ttf';
+
+    /**
+     * ### OTF Font Format
+     * @since 1.0.0
+     */
+    case OTF = 'font/otf';
 
     /**
      * ### Graphics Interchange Format
