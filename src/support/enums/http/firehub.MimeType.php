@@ -17,6 +17,7 @@ namespace FireHub\Core\Support\Enums\HTTP;
 use FireHub\Core\Base\ {
     InitBackedEnum, Trait\ConcreteBackedEnum
 };
+use FireHub\Core\Support\Str;
 
 /**
  * ### HTTP content media type
@@ -124,5 +125,29 @@ enum MimeType:string implements InitBackedEnum {
      * @since 1.0.0
      */
     case WEBP = 'image/webp';
+
+    /**
+     * ### Get case types
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\MimeType::casesIf() To generate a list of cases on an enum based on
+     * callable.
+     * @uses \FireHub\Core\Support\Str::from() To create a string form type.
+     * @uses \FireHub\Core\Support\Str::startsWith() To check if type starts with type argument.
+     * @uses \FireHub\Core\Support\Str::string() To get raw string.
+     *
+     * @param non-empty-string $type <p>
+     * Cases that start with type.
+     * </p>
+     *
+     * @return self[] List of case types.
+     */
+    public static function casesType (string $type):array {
+
+        return MimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
+            Str::from($type)->string() // @phpstan-ignore-line
+        ));
+
+    }
 
 }
