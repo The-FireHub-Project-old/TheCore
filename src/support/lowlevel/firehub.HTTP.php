@@ -61,13 +61,13 @@ final class HTTP implements InitStatic {
      * The optional replace parameter indicates whether the header should replace a previous similar header or add a
      * second header of the same type.
      * </p>
-     * @param \FireHub\Core\Support\Enums\HTTP\Contracts\StatusCode|false $response_code [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\HTTP\Contracts\StatusCode $response_code [optional] <p>
      * Forces the HTTP response code to the specified value.
      * </p>
      *
      * @return void
      */
-    public static function header (string $header, bool $replace = true, StatusCodeContract|false $response_code = false):void {
+    public static function header (string $header, bool $replace = true, ?StatusCodeContract $response_code = null):void {
 
         header($header, $replace, $response_code ? $response_code->code() : 0);
 
@@ -82,7 +82,7 @@ final class HTTP implements InitStatic {
      * @uses \FireHub\Core\Support\Enums\HTTP\WebDavStatusCode::fromCode() To get code from status.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::bool() To check if function returns boolean.
      *
-     * @param \FireHub\Core\Support\Enums\HTTP\Contracts\StatusCode|false $code [optional] <p>
+     * @param null|\FireHub\Core\Support\Enums\HTTP\Contracts\StatusCode $code [optional] <p>
      * The optional response_code will set the response code.
      * </p>
      *
@@ -92,7 +92,7 @@ final class HTTP implements InitStatic {
      * returned if response_code is provided, and it is not invoked in a web server environment (but only when
      * no previous response status has been set).
      */
-    public static function responseCode (StatusCodeContract|false $code = false):StatusCodeContract|bool {
+    public static function responseCode (?StatusCodeContract $code = null):StatusCodeContract|bool {
 
         $response = http_response_code($code ? $code->code() : 0);
 
