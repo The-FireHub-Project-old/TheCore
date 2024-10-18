@@ -28,7 +28,9 @@ use FireHub\Core\Support\Enums\HTTP\ {
     ContentEncoding, Method, CommonMimeType,
     Authentication\Scheme as AuthenticationScheme , Cache\Request as RequestCache
 };
-use FireHub\Core\Support\LowLevel\Arr;
+use FireHub\Core\Support\LowLevel\ {
+    Arr, DataIs
+};
 use Exception;
 
 /**
@@ -304,6 +306,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      * @uses \FireHub\Core\Support\Str::string() To get raw string.
      * @uses \FireHub\Core\Support\Enums\HTTP\Cache\Request As list.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::numeric() To check if argument is numeric.
      *
      * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|string}>|false Cache list.
      */
@@ -313,11 +316,16 @@ class Request extends BaseRequest {
         return empty($this->headers->cache) ? false
             : Collection::list(Str::from($this->headers->cache)->break(','))
                 ->map(function ($value) {
+
                     $values = Str::from($value)->trim()->break('=');
+
                     return [
                         'directive' => RequestCache::from($values[0]),
-                        'argument' => $values[1] ?? null
+                        'argument' => isset($values[1])
+                            ? (DataIs::numeric($values[1]) ? (int)$values[1] : $values[1])
+                            : null
                     ];
+
                 });
 
     }
