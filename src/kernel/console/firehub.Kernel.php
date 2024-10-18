@@ -15,7 +15,7 @@
 namespace FireHub\Core\Kernel\Console;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
-use FireHub\Core\Kernel\Request;
+use FireHub\Core\Kernel\Request as BaseRequest;
 
 /**
  * ### Console Kernel
@@ -32,10 +32,16 @@ class Kernel extends BaseKernel {
      *
      * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve response.
      * @uses \FireHub\Core\Kernel\Console\Response As return.
+     *
+     * @param \FireHub\Core\Kernel\Console\Request $request <p>
+     * Interact with the current request being handled by your application.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
      */
-    public function handle (Request $request):Response {
+    public function handle (BaseRequest $request):Response {
 
-        return $this->container->resolve(Response::class);
+        return new Response($request, 'Console Torch');
 
     }
 

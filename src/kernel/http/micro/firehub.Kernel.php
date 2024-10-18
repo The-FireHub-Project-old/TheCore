@@ -16,8 +16,9 @@ namespace FireHub\Core\Kernel\HTTP\Micro;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\ {
-    Request, Response
+    Request as BaseRequest, Response as BaseResponse
 };
+use FireHub\Core\Kernel\HTTP\Response;
 
 /**
  * ### Micro HTTP Kernel
@@ -34,10 +35,16 @@ class Kernel extends BaseKernel {
      *
      * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve response.
      * @uses \FireHub\Core\Kernel\HTTP\Response As return.
+     *
+     * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
+     * Interact with the current request being handled by your application.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
      */
-    public function handle (Request $request):Response {
+    public function handle (BaseRequest $request):BaseResponse {
 
-        return $this->container->resolve(Response::class);
+        return new Response($request, 'HTTP Micro Torch');
 
     }
 
