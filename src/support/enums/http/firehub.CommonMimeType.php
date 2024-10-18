@@ -20,12 +20,12 @@ use FireHub\Core\Base\ {
 use FireHub\Core\Support\Str;
 
 /**
- * ### HTTP content media type
+ * ### HTTP common content media type
  * @since 1.0.0
  *
  * @link https://www.iana.org/assignments/media-types/media-types.xhtml For a complete list.
  */
-enum MimeType:string implements InitBackedEnum {
+enum CommonMimeType:string implements InitBackedEnum {
 
     /**
      * ### FireHub initial concrete-backed enum trait
@@ -156,7 +156,7 @@ enum MimeType:string implements InitBackedEnum {
      * ### Get case types
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Enums\HTTP\MimeType::casesIf() To generate a list of cases on an enum based on
+     * @uses \FireHub\Core\Support\Enums\HTTP\CommonMimeType::casesIf() To generate a list of cases on an enum based on
      * callable.
      * @uses \FireHub\Core\Support\Str::from() To create a string form type.
      * @uses \FireHub\Core\Support\Str::startsWith() To check if type starts with type argument.
@@ -170,7 +170,7 @@ enum MimeType:string implements InitBackedEnum {
      */
     public static function casesType (string $type):array {
 
-        return MimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
+        return CommonMimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
             Str::from($type)->string() // @phpstan-ignore-line
         ));
 

@@ -22,7 +22,8 @@ use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
 };
 use FireHub\Core\Support\Enums\ {
-    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\Method, HTTP\MimeType, HTTP\Cache\Request as RequestCache
+    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\Method, HTTP\CommonMimeType, HTTP\Cache\Request as
+    RequestCache
 };
 use FireHub\Core\Support\LowLevel\Arr;
 use Exception;
@@ -340,16 +341,16 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::from() To create string.
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
-     * @uses \FireHub\Core\Support\Str::containTimes() To check how many times character (*) exists.
+     * @uses \FireHub\Core\Support\Str::containTimes() To check how much times character (*) exists.
      * @uses \FireHub\Core\Support\Str::startsWith() To check if the acceptance header starts with a given value.
      * @uses \FireHub\Core\Support\Str::carryUntil() To carry acceptance header until character (*).
      * @uses \FireHub\Core\Support\Str::string() To get raw string.
-     * @uses \FireHub\Core\Support\Enums\HTTP\MimeType::casesIf() To generate a list of cases on an enum based on
+     * @uses \FireHub\Core\Support\Enums\HTTP\CommonMimeType::casesIf() To generate a list of cases on an enum based on
      * callable.
      * @uses \FireHub\Core\Support\LowLevel\Arr::inArray() To check if the acceptance header exists in an 'encoding' column.
      * @uses \FireHub\Core\Support\LowLevel\Arr::column() To create an array with an 'encoding' column.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\MimeType|null, weight: float}>|false Accept-list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{type: \FireHub\Core\Support\Enums\HTTP\CommonMimeType|null, weight: float}>|false Accept-list.
      */
     public function accept ():Indexed|false {
 
@@ -374,10 +375,10 @@ class Request extends BaseRequest {
 
                         break;
 
-                    case MimeType::tryFrom($values[0]):
+                    case CommonMimeType::tryFrom($values[0]):
 
                         $result[] = [
-                            'type' => MimeType::from($values[0]),
+                            'type' => CommonMimeType::from($values[0]),
                             'weight' => (float)($values[1] ?? 1)
                         ];
 
@@ -385,7 +386,7 @@ class Request extends BaseRequest {
 
                     case $value->containTimes('*') === 1:
 
-                        $cases = MimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
+                        $cases = CommonMimeType::casesIf(fn($case) => Str::from($case->value)->startsWith(
                             Str::from($values[0])->carryUntil('*')->string() // @phpstan-ignore-line
                         ));
 
