@@ -26,7 +26,7 @@ use FireHub\Core\Support\Bag;
 final class ResponseHeaders extends Bag {
 
     /**
-     * ### Advertises which media types are accepted by the server for HTTP post requests
+     * ### Advertises which the server accepts media types for HTTP post-requests
      * @since 1.0.0
      *
      * @var string
@@ -34,8 +34,7 @@ final class ResponseHeaders extends Bag {
     public string $accept_post = '';
 
     /**
-     * ### Defines the HTTP authentication methods ("challenges") that might be used to gain access to a specific
-     * resource
+     * ### Defines the HTTP authentication methods ("challenges") that might be used to gain access to a specific resource
      * @since 1.0.0
      *
      * @var string

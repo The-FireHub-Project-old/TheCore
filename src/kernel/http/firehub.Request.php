@@ -22,8 +22,11 @@ use FireHub\Core\Support\Collection\Type\ {
     Indexed, Associative
 };
 use FireHub\Core\Support\Enums\ {
-    Language, Geo\Country, URL\Schema, HTTP\ContentEncoding, HTTP\Method, HTTP\CommonMimeType, HTTP\Cache\Request as
-    RequestCache
+    Language, Geo\Country, URL\Schema
+};
+use FireHub\Core\Support\Enums\HTTP\ {
+    ContentEncoding, Method, CommonMimeType,
+    Authentication\Scheme as AuthenticationScheme , Cache\Request as RequestCache
 };
 use FireHub\Core\Support\LowLevel\Arr;
 use Exception;
@@ -81,12 +84,20 @@ class Request extends BaseRequest {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Bags\RequestHeaders::$auth
+     * @uses \FireHub\Core\Support\Str::from() To create string from auth header.
+     * @uses \FireHub\Core\Support\Enums\HTTP\Authentication\Scheme::from() To create authentication schema enum.
      *
-     * @return non-empty-string|false Authorized type or false type is unknown or missing.
+     * @return mixed[]|false Authorized type or false type is unknown or missing.
      */
-    public function authorization ():string|false {
+    public function authorization ():array|false {
 
-        return $this->headers->auth ?: false;
+        $authorization = Str::from($this->headers->auth)->break(' ');
+
+        if ($authorization[0] === '') return false;
+
+        $authorization[0] = AuthenticationScheme::from($authorization[0]);
+
+        return $authorization;
 
     }
 
