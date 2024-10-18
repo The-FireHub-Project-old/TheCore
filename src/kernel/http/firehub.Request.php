@@ -84,7 +84,7 @@ class Request extends BaseRequest {
      *
      * @return non-empty-string|false Authorized type or false type is unknown or missing.
      */
-    public function authentication ():string|false {
+    public function authorization ():string|false {
 
         return $this->headers->auth ?: false;
 
