@@ -374,7 +374,7 @@ final class RequestHeaders extends Bag {
             'if_modified_since' => 'HTTP_IF_MODIFIED_SINCE',
             'if_unmodified_since' => 'HTTP_IF_UNMODIFIED_SINCE',
             'if_none_match' => 'HTTP_IF_NONE_MATCH',
-            'permissions_policy' => 'HTTP_PERMISSIONS-POLICY',
+            'permissions_policy' => 'HTTP_PERMISSIONS_POLICY',
             'remote_address' => 'REMOTE_ADDR',
             'remote_address_forwarded' => 'HTTP_X_FORWARDED_FOR',
             'client_ip' => 'HTTP_CLIENT_IP',
