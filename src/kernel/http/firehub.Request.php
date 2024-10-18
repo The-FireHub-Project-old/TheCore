@@ -308,7 +308,7 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Enums\HTTP\Cache\Request As list.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::numeric() To check if argument is numeric.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|string}>|false Cache list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\Cache\Request, argument: null|int|string}>|false Cache list.
      */
     public function cache ():Indexed|false {
 
