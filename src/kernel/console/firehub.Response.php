@@ -31,22 +31,15 @@ class Response extends BaseResponse {
      * @param \FireHub\Core\Kernel\Console\Request $request <p>
      * Interact with the current console request being handled by your application.
      * </p>
+     * @param string $content [optional] <p>
+     * Response content.
+     * </p>
      *
      * @return void
      */
     public function __construct (
-        protected readonly Request $request
+        protected readonly Request $request,
+        protected string $content = ''
     ) {}
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     */
-    public function __toString ():string {
-
-        return 'Console Torch';
-
-    }
 
 }

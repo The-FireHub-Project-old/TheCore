@@ -31,4 +31,37 @@ abstract class Response implements Init, Stringable {
      */
     use Concrete;
 
+    /**
+     * ### Response content
+     * @since 1.0.0
+     *
+     * @var string
+     */
+    protected string $content = '';
+
+    /**
+     * ### Get response content
+     * @since 1.0.0
+     *
+     * @return string
+     */
+    public function content ():string {
+
+        return $this->content;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @uses \FireHub\Core\Kernel\Response::content() To get response content
+     *
+     * @since 1.0.0
+     */
+    public function __toString ():string {
+
+        return $this->content();
+
+    }
+
 }
