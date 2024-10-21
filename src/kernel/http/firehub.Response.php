@@ -18,9 +18,10 @@ use FireHub\Core\Kernel\Response as BaseResponse;
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Enums\HTTP\ {
-    CommonMimeType, ContentDisposition, SiteData, StatusCode,
+    CommonMimeType, ContentDisposition, ContentEncoding, SiteData, StatusCode,
     Authentication\Scheme, Contracts\StatusCode as StatusCodeContract
 };
+use FireHub\Core\Support\Enums\Language;
 use FireHub\Core\Support\Enums\Hash\Algorithm;
 use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\LowLevel\ {
@@ -228,6 +229,62 @@ class Response extends BaseResponse {
     public function contentDisposition (ContentDisposition $disposition, ?string $filename = null):self {
 
         $this->replaceHeader('Content-Disposition: '.$disposition->value.($filename ? '; '.$filename : ''));
+
+        return $this;
+
+    }
+
+    /**
+     * ### Describes the language intended for the audience, so users can differentiate it according to their own preferred language
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\Language::alpha2() To get alpha 2 language code.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
+     * @uses \FireHub\Core\Support\Str::string() To get raw string from string.
+     *
+     * @param \FireHub\Core\Support\Enums\Language ...$language <p>
+     * Language enum.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function contentLanguage (Language ...$language):self {
+
+        $directives = [];
+        foreach ($language as $directive) $directives[] = $directive->alpha2();
+
+        $this->replaceHeader('Content-Language: '.Str::fromList($directives, ', ')->string());
+
+        return $this;
+
+    }
+
+    /**
+     * ### Lists any encodings that have been applied to a resource, and in what order
+     *
+     * This lets the recipient know how to decode the data to get the original content format described in the
+     * Content-Type header. Content encoding is mainly used to compress content without losing information about
+     * the original media type.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\ContentEncoding As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
+     * @uses \FireHub\Core\Support\Str::string() To get raw string from string.
+     *
+     * @param \FireHub\Core\Support\Enums\HTTP\ContentEncoding ...$encoding <p>
+     * HTTP content encoding.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function contentEncoding (ContentEncoding ...$encoding):self {
+
+        $directives = [];
+        foreach ($encoding as $directive) $directives[] = $directive->value;
+
+        $this->replaceHeader('Content-Encoding: '.Str::fromList($directives, ', ')->string());
 
         return $this;
 
