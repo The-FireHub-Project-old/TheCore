@@ -17,9 +17,6 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\Request as BaseRequest;
 
-use FireHub\Core\Support\Collection;
-use FireHub\Core\Support\Enums\HTTP\Cache\Response as ResponseCache;
-
 /**
  * ### HTTP Kernel
  *
@@ -44,14 +41,7 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
-        return (new Response($request, 'HTTP Torch'))->cache(Collection::list([
-            ['directive' => ResponseCache::PRIVATE],
-            ['directive' => ResponseCache::MAX_AGE, 'argument' => 5],
-            ['directive' => ResponseCache::SHARED_MAX_AGE, 'argument' => 5],
-            ['directive' => ResponseCache::MUST_REVALIDATE]
-        ]));
-
-        //return $this->container->resolve(Response::class, ['content' => 'tests']);
+        return (new Response($request, 'HTTP Torch'));
 
     }
 

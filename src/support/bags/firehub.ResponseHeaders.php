@@ -42,8 +42,10 @@ final class ResponseHeaders extends Bag {
     public string $authenticate = '';
 
     /**
-     * ### Field holds directives (instructions) – in both requests and responses – that control caching in browsers
-     * and shared caches (for example, Proxies, CDNs)
+     * ### Control caching in browsers
+     *
+     * Field holds directives (instructions) – in both requests and responses – that control caching in browsers
+     * and shared caches (for example, Proxies, CDNs).
      * @since 1.0.0
      *
      * @var string
