@@ -563,4 +563,17 @@ enum StatusCode:string implements StatusCodeContract {
 
     }
 
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::code() To get status code.
+     */
+    public function codeStatus ():string {
+
+        return $this->code(). ' '.$this->value;
+
+    }
+
 }

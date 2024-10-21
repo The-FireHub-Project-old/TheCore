@@ -42,4 +42,12 @@ interface StatusCode extends InitBackedEnum {
      */
     public function code ():int;
 
+    /**
+     * ### Get status code with status
+     * @since 1.0.0
+     *
+     * @return string Status code with status.
+     */
+    public function codeStatus ():string;
+
 }
