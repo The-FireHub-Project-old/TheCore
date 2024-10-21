@@ -18,10 +18,11 @@ use FireHub\Core\Kernel\Response as BaseResponse;
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Enums\HTTP\ {
-    CommonMimeType, StatusCode,
-    Authentication\Scheme, Cache\Response as CacheDirectives, Contracts\StatusCode as StatusCodeContract
+    CommonMimeType, ContentDisposition, SiteData, StatusCode,
+    Authentication\Scheme, Contracts\StatusCode as StatusCodeContract
 };
 use FireHub\Core\Support\Enums\Hash\Algorithm;
+use FireHub\Core\Support\Enums\String\Encoding;
 use FireHub\Core\Support\LowLevel\ {
     Hash, HTTP
 };
@@ -31,6 +32,8 @@ use FireHub\Core\Support\LowLevel\ {
  *
  * Response holds all the information that needs to be sent back to the client from a given request.
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Response extends BaseResponse {
 
@@ -143,6 +146,88 @@ class Response extends BaseResponse {
         /** @phpstan-ignore-next-line */
         if ($e_tags && $e_tags->any(fn($value) => $value->string() === '"'.Hash::generate($this->content(), Algorithm::MD5).'"'))
             $this->replaceHeader('HTTP/1.1 '.StatusCode::NOT_MODIFIED->codeStatus());
+
+        return $this;
+
+    }
+
+    /**
+     * ### Clears browsing data (cookies, storage, cache) associated with the requesting website
+     *
+     * The Clear-Site-Data header accepts one or more directives.
+     * If all types of data should be cleared, the wildcard directive (*) can be used.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\SiteData As parameter.
+     * @uses \FireHub\Core\Support\Str::from() To create string from SiteData enum.
+     * @uses \FireHub\Core\Support\Str::surround() To surround directives with double quotes.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @param \FireHub\Core\Support\Enums\HTTP\SiteData ...$data <p>
+     * HTTP site data.
+     * </p>
+     *
+     * @return $this This response.
+     *
+     * @note This feature is available only in secure contexts (HTTPS).
+     */
+    public function clearData (SiteData ...$data):self {
+
+        $data = $data ?: ['*'];
+
+        $directives = [];
+        foreach ($data as $directive)
+            $directives[] = Str::from($directive instanceOf SiteData ? $directive->value : $directive)->surround('"');
+
+        $directives = Str::fromList($directives, ', ');
+
+        $this->replaceHeader('Clear-Site-Data: '.$directives);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Indicate the original media type of the resource prior to any content encoding applied before transmission
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\CommonMimeType As parameter.
+     * @uses \FireHub\Core\Support\Enums\String\Encoding As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @param \FireHub\Core\Support\Enums\HTTP\CommonMimeType $type <p>
+     * HTTP common content media type.
+     * </p>
+     * @param null|\FireHub\Core\Support\Enums\String\Encoding $encoding [optional] <p>
+     * Character encodings enum.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function contentType (CommonMimeType $type, ?Encoding $encoding = null):self {
+
+        $this->replaceHeader('Content-Type: '.$type->value.($encoding ? '; charset='.$encoding->value : ''));
+
+        return $this;
+
+    }
+
+    /**
+     * ### Indicate if the content is expected to be displayed inline or downloaded
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\HTTP\ContentDisposition As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @param \FireHub\Core\Support\Enums\HTTP\ContentDisposition $disposition <p>
+     * HTTP content disposition.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function contentDisposition (ContentDisposition $disposition, ?string $filename = null):self {
+
+        $this->replaceHeader('Content-Disposition: '.$disposition->value.($filename ? '; '.$filename : ''));
 
         return $this;
 

@@ -44,6 +44,12 @@ enum CommonMimeType:string implements InitBackedEnum {
     case BIN = 'application/octet-stream';
 
     /**
+     * ### JSON content
+     * @since 1.0.0
+     */
+    case JSON = 'application/json';
+
+    /**
      * ### XML content
      * @since 1.0.0
      */

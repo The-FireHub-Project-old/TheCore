@@ -94,8 +94,7 @@ final class ResponseHeaders extends Bag {
     public string $content_encoding = '';
 
     /**
-     * ### Describes the language intended for the audience, so users can differentiate it according to their own
-     * preferred language
+     * ### Describes the language intended for the audience, so users can differentiate it according to their own preferred language
      * @since 1.0.0
      *
      * @var string
