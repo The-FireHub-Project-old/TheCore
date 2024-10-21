@@ -30,7 +30,6 @@ class Kernel extends BaseKernel {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve response.
      * @uses \FireHub\Core\Kernel\Console\Response As return.
      *
      * @param \FireHub\Core\Kernel\Console\Request $request <p>
