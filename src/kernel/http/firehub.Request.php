@@ -523,7 +523,8 @@ class Request extends BaseRequest {
      * @uses \FireHub\Core\Support\Str::break() To split encodings.
      * @uses \FireHub\Core\Support\Str::trim() To strip whitespace.
      *
-     * @return \FireHub\Core\Support\Collection\Type\Indexed<array{encoding: \FireHub\Core\Support\Enums\HTTP\ContentEncoding|null, weight: float}>|false Accept-encoding header list.
+     * @return \FireHub\Core\Support\Collection\Type\Indexed<array<string|string>>|false Reverse proxy server
+     * information.
      */
     public function forwarded ():Indexed|false {
 
