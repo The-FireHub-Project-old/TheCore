@@ -15,7 +15,6 @@
 namespace FireHub\Core\Kernel\Console;
 
 use FireHub\Core\Kernel\Response as BaseResponse;
-use FireHub\Core\Kernel\Console\Server;
 
 /**
  * ### Console Response
