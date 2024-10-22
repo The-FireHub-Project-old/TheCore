@@ -504,6 +504,26 @@ class Response extends BaseResponse {
     }
 
     /**
+     * ### Indicates the URL to redirect a page to
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @param string $url <p>
+     * A relative (to the request URL) or absolute URL.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function redirect (string $url):self {
+
+        $this->replaceHeader('Location: '.$url);
+
+        return $this;
+
+    }
+
+    /**
      * ### Send a raw HTTP header
      * @since 1.0.0
      *
