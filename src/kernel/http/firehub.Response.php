@@ -16,7 +16,9 @@ namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Kernel\Response as BaseResponse;
 use FireHub\Core\Support\Str;
-use FireHub\Core\Support\Collection\Type\Indexed;
+use FireHub\Core\Support\Collection\Type\ {
+    Indexed, Associative
+};
 use FireHub\Core\Support\Zwick\ {
     DateTime, Timestamp
 };
@@ -124,6 +126,7 @@ class Response extends BaseResponse {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Kernel\HTTP\Response::eTag() To set identifier for a specific version of a resource.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::status() To set a response status code.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To create a string from a list.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::any() To verify that any item of a collection passes a
      * given truth test.
@@ -135,7 +138,6 @@ class Response extends BaseResponse {
      * @uses \FireHub\Core\Kernel\HTTP\Request::ifNoneMatch() To check if etag exists.
      * @uses \FireHub\Core\Support\Enums\Hash\Algorithm::MD5 As hash algorithm.
      * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::NOT_MODIFIED As status code.
-     * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::codeStatus() To get status code with status.
      *
      * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive:\FireHub\Core\Support\Enums\HTTP\Cache\Response, argument: null|int|string}> $directives <p>
      * List of directives.
@@ -156,7 +158,7 @@ class Response extends BaseResponse {
 
         /** @phpstan-ignore-next-line */
         if ($e_tags && $e_tags->any(fn($value) => $value->string() === '"'.Hash::generate($this->content(), Algorithm::MD5).'"'))
-            $this->replaceHeader('HTTP/1.1 '.StatusCode::NOT_MODIFIED->codeStatus());
+            $this->status(StatusCode::NOT_MODIFIED);
 
         return $this;
 
@@ -377,6 +379,59 @@ class Response extends BaseResponse {
         $this->replaceHeader('Last-Modified: '.DateTime::fromTimestamp(
                 Timestamp::from(File::lastModified($this->server->scriptFilename()))
             )->parse(Predefined::RFC7231));
+
+        return $this;
+
+    }
+
+    /**
+     * ### Provides a means for serializing one or more links in HTTP headers
+     *
+     * This header has the same semantics as the HTML <link> element. The benefit of using the Link header is that
+     * the browser can start pre-connecting or preloading resources before the HTML itself is fetched and processed.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Associative As parameter.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To create a string from a list.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::status() To set a response status code.
+     *
+     * @param string $uri <p>
+     * The URI reference.
+     * </p>
+     * @param \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, non-empty-string> $parameters <p>
+     * The link header contains parameters, equivalent to attributes of the <link> element.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function link (string $uri, Associative $parameters):self {
+
+        $parameters = $parameters->map(fn($value, $key) => $key.'="'.$value.'"'); // @phpstan-ignore-line
+
+        $this->setHeader('Link: <'.$uri.'>; '.Str::fromList($parameters, '; '));
+        $this->status(StatusCode::EARLY_HINTS);
+
+        return $this;
+
+    }
+
+    /**
+     * ### Set response status code
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::codeStatus() To get status code with status.
+     *
+     * @param \FireHub\Core\Support\Enums\HTTP\StatusCode $status_code <p>
+     * Response status code.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function status (StatusCode $status_code):self {
+
+        $this->replaceHeader('HTTP/1.1 '.$status_code->codeStatus());
 
         return $this;
 
