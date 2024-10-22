@@ -313,7 +313,7 @@ class Response extends BaseResponse {
      * @uses \FireHub\Core\Support\Enums\HTTP\CSP\Directive As list value.
      * @uses \FireHub\Core\Support\Enums\HTTP\CSP\Value As list value.
      *
-     * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive:\FireHub\Core\Support\Enums\HTTP\CSP\Directive, value: \FireHub\Core\Support\Enums\HTTP\CSP\Value|string}> $directives <p>
+     * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive: \FireHub\Core\Support\Enums\HTTP\CSP\Directive, value: \FireHub\Core\Support\Enums\HTTP\CSP\Value|string}> $directives <p>
      * List of directives.
      * </p>
      *
@@ -432,6 +432,28 @@ class Response extends BaseResponse {
     public function status (StatusCode $status_code):self {
 
         $this->replaceHeader('HTTP/1.1 '.$status_code->codeStatus());
+
+        return $this;
+
+    }
+
+    /**
+     * ### Set response status code
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, int|float> $metrics <p>
+     * List of metrics.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function serverTiming (Associative $metrics):self {
+
+        $metrics = $metrics->map(fn($value, $key) => $key.';dur='.$value); // @phpstan-ignore-line
+
+        $this->replaceHeader('Server-Timing: '.Str::fromList($metrics, ', '));
 
         return $this;
 
