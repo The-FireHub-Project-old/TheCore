@@ -27,12 +27,35 @@ use FireHub\Core\Components\DI\Container;
 class Kernel extends BaseKernel {
 
     /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Container As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Server As parameter.
+     *
+     * @param \FireHub\Core\Components\DI\Container $container <p>
+     * Dependency injection container.
+     * </p>
+     * @param \FireHub\Core\Kernel\Console\Server $server <p>
+     * Server and execution environment information.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        protected Container $container,
+        protected Server $server
+    ) {
+
+        parent::__construct($container);
+
+    }
+
+    /**
      * @inheritDoc
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
-     * @uses \FireHub\Core\Kernel\Console\Server As Console Server and execution environment information.
      * @uses \FireHub\Core\Kernel\Console\Response As return.
      *
      * @param \FireHub\Core\Kernel\Console\Request $request <p>
@@ -43,8 +66,10 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
+        var_dump($request);
+
         return new Response(
-            Container::getInstance()->resolve(Server::class), $request, 'Console Torch'
+            $this->server, $request, 'Console Torch'
         );
 
     }

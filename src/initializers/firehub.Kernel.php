@@ -59,8 +59,8 @@ abstract class Kernel implements Init {
      *
      * @return void
      */
-    final public function __construct (
-        protected readonly Container $container
+    public function __construct (
+        protected Container $container
     ) {
 
         $this->bootBootstraps();
