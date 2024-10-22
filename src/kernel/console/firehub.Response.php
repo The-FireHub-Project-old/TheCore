@@ -15,6 +15,7 @@
 namespace FireHub\Core\Kernel\Console;
 
 use FireHub\Core\Kernel\Response as BaseResponse;
+use FireHub\Core\Kernel\Console\Server;
 
 /**
  * ### Console Response
@@ -28,6 +29,9 @@ class Response extends BaseResponse {
      * ### Constructor
      * @since 1.0.0
      *
+     * @param \FireHub\Core\Kernel\Console\Server $server <p>
+     * Console Server and execution environment information.
+     * </p>
      * @param \FireHub\Core\Kernel\Console\Request $request <p>
      * Interact with the current console request being handled by your application.
      * </p>
@@ -38,6 +42,7 @@ class Response extends BaseResponse {
      * @return void
      */
     public function __construct (
+        protected readonly Server $server,
         protected readonly Request $request,
         protected string $content = ''
     ) {}

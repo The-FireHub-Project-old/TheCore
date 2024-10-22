@@ -17,15 +17,18 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Kernel\Response as BaseResponse;
 use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Collection\Type\Indexed;
+use FireHub\Core\Support\Zwick\ {
+    DateTime, Timestamp
+};
 use FireHub\Core\Support\Enums\HTTP\ {
     CommonMimeType, ContentDisposition, ContentEncoding, SiteData, StatusCode,
-    Authentication\Scheme, Contracts\StatusCode as StatusCodeContract, CSP\Directive, CSP\Value
+    Authentication\Scheme, Contracts\StatusCode as StatusCodeContract, CSP\Value
 };
 use FireHub\Core\Support\Enums\ {
-    Language, Hash\Algorithm, String\Encoding
+    Language, DateTime\Format\Predefined, Hash\Algorithm, String\Encoding
 };
 use FireHub\Core\Support\LowLevel\ {
-    Hash, HTTP
+    File, Hash, HTTP
 };
 
 /**
@@ -42,6 +45,9 @@ class Response extends BaseResponse {
      * ### Constructor
      * @since 1.0.0
      *
+     * @param \FireHub\Core\Kernel\HTTP\Server $server <p>
+     * HTTP Server and execution environment information.
+     * </p>
      * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
      * Interact with the current HTTP request being handled by your application.
      * </p>
@@ -52,6 +58,7 @@ class Response extends BaseResponse {
      * @return void
      */
     public function __construct (
+        protected readonly Server $server,
         protected readonly Request $request,
         protected string $content = ''
     ) {}
@@ -341,6 +348,35 @@ class Response extends BaseResponse {
     public function eTag (string $value):self {
 
         $this->setHeader('Etag: "'.$value.'"');
+
+        return $this;
+
+    }
+
+    /**
+     * ### Identifier for a specific version of a resource
+     *
+     * It lets caches be more efficient and save bandwidth, as a web server doesn't need to resend a full response if
+     * the content wasn't changed. Additionally, e-tags help to prevent simultaneous updates of a resource from
+     * overwriting each other ("midair collisions").
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::fromTimestamp() To create datetime from a script modified time.
+     * @uses \FireHub\Core\Support\Zwick\DateTime::parse() To parse date according to the given format.
+     * @uses \FireHub\Core\Support\Zwick\Timestamp::from() To create a timestamp from a script modified time.
+     * @uses \FireHub\Core\Support\LowLevel\File::lastModified() To get the last modification time of a script.
+     * @uses \FireHub\Core\Kernel\HTTP\Server::scriptFilename() To get the absolute pathname of the currently executing
+     * script.
+     * @uses \FireHub\Core\Support\Enums\DateTime\Format\Predefined::RFC7231 As datetime format.
+     *
+     * @return $this This response.
+     */
+    public function lastModified ():self {
+
+        $this->replaceHeader('Last-Modified: '.DateTime::fromTimestamp(
+                Timestamp::from(File::lastModified($this->server->scriptFilename()))
+            )->parse(Predefined::RFC7231));
 
         return $this;
 

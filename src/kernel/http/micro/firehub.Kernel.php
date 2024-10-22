@@ -18,7 +18,10 @@ use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\ {
     Request as BaseRequest, Response as BaseResponse
 };
-use FireHub\Core\Kernel\HTTP\Response;
+use FireHub\Core\Kernel\HTTP\ {
+    Response, Server
+};
+use FireHub\Core\Components\DI\Container;
 
 /**
  * ### Micro HTTP Kernel
@@ -33,6 +36,8 @@ class Kernel extends BaseKernel {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
+     * @uses \FireHub\Core\Kernel\HTTP\Server As HTTP Server and execution environment information.
      * @uses \FireHub\Core\Kernel\HTTP\Response As return.
      *
      * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
@@ -43,7 +48,9 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):BaseResponse {
 
-        return new Response($request, 'HTTP Micro Torch');
+        return new Response(
+            Container::getInstance()->resolve(Server::class), $request, 'HTTP Micro Torch'
+        );
 
     }
 

@@ -16,6 +16,7 @@ namespace FireHub\Core\Kernel\HTTP;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\Request as BaseRequest;
+use FireHub\Core\Components\DI\Container;
 
 /**
  * ### HTTP Kernel
@@ -30,6 +31,8 @@ class Kernel extends BaseKernel {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
+     * @uses \FireHub\Core\Kernel\HTTP\Server As HTTP Server and execution environment information.
      * @uses \FireHub\Core\Kernel\HTTP\Response As return.
      *
      * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
@@ -40,7 +43,9 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
-        return (new Response($request, 'HTTP Torch'));
+        return (new Response(
+            Container::getInstance()->resolve(Server::class), $request, 'HTTP Torch')
+        );
 
     }
 
