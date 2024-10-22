@@ -165,6 +165,32 @@ class Response extends BaseResponse {
     }
 
     /**
+     * ### Describes the parts of the request message aside from the method
+     *
+     * Describes the parts of the request message aside from the method and URL that influenced the content of the
+     * response it occurs in. Most often, this is used to create a cache key when content negotiation is in use.
+     * The same header value should be used on all responses for a given URL, including 304 Not Modified responses and
+     * the "default" response.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Indexed<non-empty-string> $headers <p>
+     * List of header names.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function vary (Indexed $headers):self {
+
+        $this->replaceHeader('Vary: '.Str::fromList($headers, ', '));
+
+        return $this;
+
+    }
+
+    /**
      * ### Clears browsing data (cookies, storage, cache) associated with the requesting website
      *
      * The Clear-Site-Data header accepts one or more directives.
@@ -442,6 +468,8 @@ class Response extends BaseResponse {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Collection\Type\Associative::map() To apply the callback to each collection item.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
      *
      * @param \FireHub\Core\Support\Collection\Type\Associative<non-empty-string, int|float> $metrics <p>
      * List of metrics.
@@ -454,6 +482,22 @@ class Response extends BaseResponse {
         $metrics = $metrics->map(fn($value, $key) => $key.';dur='.$value); // @phpstan-ignore-line
 
         $this->replaceHeader('Server-Timing: '.Str::fromList($metrics, ', '));
+
+        return $this;
+
+    }
+
+    /**
+     * ### Informs browsers that the site should only be accessed using HTTPS
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     *
+     * @return $this This response.
+     */
+    public function forceHTTPS ():self {
+
+        $this->replaceHeader('Strict-Transport-Security: max-age=63072000; includeSubDomains; preload');
 
         return $this;
 
