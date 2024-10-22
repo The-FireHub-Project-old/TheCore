@@ -66,10 +66,6 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
-        //var_dump(Container::getInstance()->resolve(Server::class));
-
-        //var_dump($request);
-
         return new Response(
             $this->server, $request, 'HTTP Torch'
         );
