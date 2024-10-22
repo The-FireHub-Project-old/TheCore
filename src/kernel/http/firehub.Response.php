@@ -19,11 +19,11 @@ use FireHub\Core\Support\Str;
 use FireHub\Core\Support\Collection\Type\Indexed;
 use FireHub\Core\Support\Enums\HTTP\ {
     CommonMimeType, ContentDisposition, ContentEncoding, SiteData, StatusCode,
-    Authentication\Scheme, Contracts\StatusCode as StatusCodeContract
+    Authentication\Scheme, Contracts\StatusCode as StatusCodeContract, CSP\Directive, CSP\Value
 };
-use FireHub\Core\Support\Enums\Language;
-use FireHub\Core\Support\Enums\Hash\Algorithm;
-use FireHub\Core\Support\Enums\String\Encoding;
+use FireHub\Core\Support\Enums\ {
+    Language, Hash\Algorithm, String\Encoding
+};
 use FireHub\Core\Support\LowLevel\ {
     Hash, HTTP
 };
@@ -129,7 +129,9 @@ class Response extends BaseResponse {
      * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::NOT_MODIFIED As status code.
      * @uses \FireHub\Core\Support\Enums\HTTP\StatusCode::codeStatus() To get status code with status.
      *
-     * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive:\FireHub\Core\Support\Enums\HTTP\Cache\Response, argument: null|int|string}> $directives
+     * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive:\FireHub\Core\Support\Enums\HTTP\Cache\Response, argument: null|int|string}> $directives <p>
+     * List of directives.
+     * </p>
      *
      * @return $this This response.
      */
@@ -285,6 +287,35 @@ class Response extends BaseResponse {
         foreach ($encoding as $directive) $directives[] = $directive->value;
 
         $this->replaceHeader('Content-Encoding: '.Str::fromList($directives, ', ')->string());
+
+        return $this;
+
+    }
+
+    /**
+     * ### Allows website administrators to control resources the user agent is allowed to load for a given page
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
+     * @uses \FireHub\Core\Support\Str::fromList() To create a string from a list.
+     * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To create a string from a list.
+     * @uses \FireHub\Core\Support\Enums\HTTP\CSP\Directive As list value.
+     * @uses \FireHub\Core\Support\Enums\HTTP\CSP\Value As list value.
+     *
+     * @param \FireHub\Core\Support\Collection\Type\Indexed<array{directive:\FireHub\Core\Support\Enums\HTTP\CSP\Directive, value: \FireHub\Core\Support\Enums\HTTP\CSP\Value|string}> $directives <p>
+     * List of directives.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function contentSecurityPolicy (Indexed $directives):self {
+
+        $directives = $directives->map(
+            fn($value) => $value['directive']->value.' '.($value['value'] instanceof Value ? $value['value']->value : $value['value'])
+        );
+
+        $this->replaceHeader('Content-Security-Policy: '.Str::fromList($directives, '; ')); // @phpstan-ignore-line
 
         return $this;
 
