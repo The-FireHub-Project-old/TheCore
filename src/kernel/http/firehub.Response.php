@@ -116,6 +116,7 @@ class Response extends BaseResponse {
      * and shared caches (for example, Proxies, CDNs).
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::eTag() To set identifier for a specific version of a resource.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::map() To create a string from a list.
      * @uses \FireHub\Core\Support\Collection\Type\Indexed::any() To verify that any item of a collection passes a
      * given truth test.
@@ -142,7 +143,7 @@ class Response extends BaseResponse {
         });
 
         $this->replaceHeader('Cache-Control: '.Str::fromList($directives, ', ')); // @phpstan-ignore-line
-        $this->replaceHeader('Etag: "'.Hash::generate($this->content(), Algorithm::MD5).'"');
+        $this->eTag(Hash::generate($this->content(), Algorithm::MD5));
 
         $e_tags = $this->request->ifNoneMatch();
 
@@ -316,6 +317,30 @@ class Response extends BaseResponse {
         );
 
         $this->replaceHeader('Content-Security-Policy: '.Str::fromList($directives, '; ')); // @phpstan-ignore-line
+
+        return $this;
+
+    }
+
+    /**
+     * ### Identifier for a specific version of a resource
+     *
+     * It lets caches be more efficient and save bandwidth, as a web server doesn't need to resend a full response if
+     * the content wasn't changed. Additionally, e-tags help to prevent simultaneous updates of a resource from
+     * overwriting each other ("midair collisions").
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Response::setHeader() To send a raw HTTP header.
+     *
+     * @param string $value <p>
+     * Entity tag is a string of ASCII characters that uniquely represents the requested resource.
+     * </p>
+     *
+     * @return $this This response.
+     */
+    public function eTag (string $value):self {
+
+        $this->setHeader('Etag: "'.$value.'"');
 
         return $this;
 
