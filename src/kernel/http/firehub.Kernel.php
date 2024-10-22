@@ -43,8 +43,8 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
-        return (new Response(
-            Container::getInstance()->resolve(Server::class), $request, 'HTTP Torch')
+        return new Response(
+            Container::getInstance()->resolve(Server::class), $request, 'HTTP Torch'
         );
 
     }
