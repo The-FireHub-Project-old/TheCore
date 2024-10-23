@@ -524,7 +524,6 @@ class Container implements InitInstance {
      * ### Call method on resolved binding from the container
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\DataIs::callable() To check if abstract is callable.
      * @uses \FireHub\Core\Components\Registry\Register::exist() Check if a record exists.
      * @uses \FireHub\Core\Components\Registry\Register::get() To get item from a container.
      * @uses \FireHub\Core\Components\DI\Container::callMethod() To call method on resolved binding from the container.
@@ -536,8 +535,7 @@ class Container implements InitInstance {
      * $this->container->call(SomeClass::class, 'someMethod', ['param' => 'value']);
      * ```
      *
-     * @param non-empty-string|Closure(self $container):object $abstract <p>
-     * <code>Closure (self $container):object</code>
+     * @param non-empty-string $abstract <p>
      * Concrete class for container object instance.
      * </p>
      * @param non-empty-string $method <p>
@@ -547,24 +545,17 @@ class Container implements InitInstance {
      * Optional parameters for resolving instance.
      * </p>
      *
-     * @throws Error If abstract is Closure but doesn't return an object.
      * @throws ReflectionException if the class or method doesn't exist.
      *
      * @return mixed Returns the return value of the callback, or false on error.
      */
-    public function call (string|Closure $abstract, string $method, array $parameters = []):mixed {
+    public function call (string $abstract, string $method, array $parameters = []):mixed {
 
-        $object = DataIs::callable($abstract)
-            ? $abstract($this)
-            : $this->resolve($abstract); // @phpstan-ignore-line
-
-        if (!DataIs::object($object)) throw new Error('If abstract is Closure, it must return object.');
-
-        $bindings = $this->bindings->exist($object::class) // @phpstan-ignore-line
-            ? $this->bindings->get($object::class) // @phpstan-ignore-line
+        $bindings = $this->bindings->exist($abstract) // @phpstan-ignore-line
+            ? $this->bindings->get($abstract) // @phpstan-ignore-line
             : [];
 
-        $reflection = new ReflectionMethod($object, $method);
+        $reflection = new ReflectionMethod($abstract, $method);
 
         /** @phpstan-ignore-next-line */
         return $this->callMethod(
