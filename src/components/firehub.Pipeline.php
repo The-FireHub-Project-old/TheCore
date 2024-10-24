@@ -136,7 +136,7 @@ class Pipeline implements Init {
                 $pipe, $this->method, ['current' => $this->object, 'carry' => $destination]
             );
 
-        }, $destination);
+        }, $destination($this->object));
 
     }
 
