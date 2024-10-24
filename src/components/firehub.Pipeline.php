@@ -119,8 +119,8 @@ class Pipeline implements Init {
      * @uses \FireHub\Core\Support\LowLevel\Arr::reduce() tO reduce the pipes to a single value using a callback
      * function.
      *
-     * @param Closure $destination <p>
-     * <code>Closure (mixed ...$param):mixed</code>
+     * @param Closure(mixed):mixed $destination <p>
+     * <code>Closure(mixed):mixed</code>
      * Destination callback.
      * </p>
      *
