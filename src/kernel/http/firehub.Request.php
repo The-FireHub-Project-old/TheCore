@@ -596,7 +596,7 @@ class Request extends BaseRequest {
      */
     public function contentLength ():int {
 
-        return (int)$this->headers->content_length;
+        return (int)$this->headers->content_length; // @phpstan-ignore-line
 
     }
 
