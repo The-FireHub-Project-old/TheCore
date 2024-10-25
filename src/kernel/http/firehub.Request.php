@@ -61,6 +61,20 @@ class Request extends BaseRequest {
     }
 
     /**
+     * ### Check if the current request is not secured
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Request::isSecure() To check if the current request is secured.
+     *
+     * @return bool True if the request is unsecured, false otherwise.
+     */
+    public function notSecure ():bool {
+
+        return !$this->isSecure();
+
+    }
+
+    /**
      * ### Get current schema
      * @since 1.0.0
      *
