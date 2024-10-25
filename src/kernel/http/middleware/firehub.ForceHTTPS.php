@@ -36,6 +36,7 @@ final class ForceHTTPS extends Middleware {
      * @uses \FireHub\Core\Kernel\HTTP\Response::redirect() To redirect page to secured schema.
      * @uses \FireHub\Core\Kernel\HTTP\Response::forceHTTPS() To inform browsers that the site should only be accessed
      * using HTTPS.
+     * @uses \FireHub\Core\Support\HTTP\Url::host() To get current request host.
      * @uses \FireHub\Core\Support\HTTP\Url::scheme() To set current request scheme to HTTPS.
      * @uses \FireHub\Core\Support\HTTP\Url::parse() To parse the current request URL with HTTPS.
      * @uses \FireHub\Core\Support\Enums\URL\Schema::HTTPS As URL scheme.
