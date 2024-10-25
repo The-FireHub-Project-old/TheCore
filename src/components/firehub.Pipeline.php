@@ -18,7 +18,9 @@ use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
 use FireHub\Core\Components\DI\Container;
-use FireHub\Core\Support\LowLevel\Arr;
+use FireHub\Core\Support\LowLevel\ {
+    Arr, DataIs
+};
 use Closure;
 
 /**
@@ -45,7 +47,7 @@ class Pipeline implements Init {
      * ### List of pipes
      * @since 1.0.0
      *
-     * @var class-string[]
+     * @var class-string[]|object[]
      */
     private array $pipes = [];
 
@@ -79,7 +81,7 @@ class Pipeline implements Init {
      * ### Set the array of pipes
      * @since 1.0.0
      *
-     * @param class-string[] $pipes <p>
+     * @param class-string[]|object[] $pipes <p>
      * Array of pipes.
      * </p>
      *
@@ -116,6 +118,7 @@ class Pipeline implements Init {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Components\DI\Container::call() To call method on resolved binding.
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::object() To check if a pipe is an object.
      * @uses \FireHub\Core\Support\LowLevel\Arr::reduce() tO reduce the pipes to a single value using a callback
      * function.
      *
@@ -132,9 +135,11 @@ class Pipeline implements Init {
 
         return Arr::reduce($this->pipes, function ($carry, $pipe) use ($destination) {
 
-            return Container::getInstance()->call(
-                $pipe, $this->method, ['current' => $this->object, 'carry' => $destination]
-            );
+            return DataIs::object($pipe)
+                ? $pipe->{$this->method}($this->object, $destination)
+                : Container::getInstance()->call(
+                    $pipe, $this->method, ['current' => $this->object, 'carry' => $destination]
+                );
 
         }, $destination($this->object));
 
