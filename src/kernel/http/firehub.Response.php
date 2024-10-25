@@ -464,7 +464,10 @@ class Response extends BaseResponse {
     }
 
     /**
-     * ### Set response status code
+     * ### Communicates one or more metrics and descriptions for a given request-response cycle
+     *
+     * It is used to surface any backend server timing metrics (for example, database read/write, CPU time, file system
+     * access, and so on) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Kernel\HTTP\Response::replaceHeader() To send and replace a raw HTTP header.
