@@ -587,6 +587,20 @@ class Request extends BaseRequest {
     }
 
     /**
+     * ### Indicates the size of the message body, in bytes, sent to the recipient
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\RequestHeaders::$content_length
+     *
+     * @return non-negative-int Size of the message body, in bytes.
+     */
+    public function contentLength ():int {
+
+        return (int)$this->headers->content_length;
+
+    }
+
+    /**
      * ### Contains an internet email address for a human user who controls the requesting user agent
      * @since 1.0.0
      *

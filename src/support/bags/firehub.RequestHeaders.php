@@ -208,6 +208,14 @@ final class RequestHeaders extends Bag {
     public string $cookie = '';
 
     /**
+     * ### Indicates the size of the message body, in bytes, sent to the recipient
+     * @since 1.0.0
+     *
+     * @var non-empty-string
+     */
+    public string $content_length = '0';
+
+    /**
      * ### Indicates expectations that need to be met by the server to handle the request successfully
      * @since 1.0.0
      *
@@ -366,6 +374,7 @@ final class RequestHeaders extends Bag {
             'accept_language' => 'HTTP_ACCEPT_LANGUAGE',
             'accept_encoding' => 'HTTP_ACCEPT_ENCODING',
             'cache' => 'HTTP_CACHE_CONTROL',
+            'content_length' => 'HTTP_CONTENT_LENGTH',
             'priority' => 'HTTP_PRIORITY',
             'cookie' => 'HTTP_COOKIE',
             'expect' => 'HTTP_EXCEPT',
