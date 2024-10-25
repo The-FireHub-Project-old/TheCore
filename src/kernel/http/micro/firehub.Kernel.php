@@ -22,6 +22,7 @@ use FireHub\Core\Kernel\HTTP\ {
     Response, Server
 };
 use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Components\Pipeline;
 
 /**
  * ### Micro HTTP Kernel
@@ -71,9 +72,13 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):BaseResponse {
 
-        return new Response(
-            $this->server, $request, 'HTTP Micro Torch'
-        );
+        /** @phpstan-ignore-next-line */
+        return (new Pipeline)
+            ->send($request)
+            ->through([])
+            ->then(fn($request) => new Response(
+                $this->server, $request, 'HTTP Micro Torch' // @phpstan-ignore-line
+            ));
 
     }
 

@@ -3,6 +3,8 @@
 ## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.3...develop-pre-alpha-m2)
 
 ### Added
+- Created Pipeline ([#104](https://github.com/The-FireHub-Project/Core/issues/104), [4801a3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/4801a3b))
+- Created Middleware ([#104](https://github.com/The-FireHub-Project/Core/issues/104), [f88709c](https://github.com/The-FireHub-Project/Core/pull/91/commits/f88709c))
 
 ## [v0.2.3](https://github.com/The-FireHub-Project/Core/compare/v0.2.2...v0.2.3) - (2024-10-22)
 

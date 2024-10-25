@@ -17,6 +17,7 @@ namespace FireHub\Core\Kernel\HTTP;
 use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Kernel\Request as BaseRequest;
 use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Components\Pipeline;
 
 /**
  * ### HTTP Kernel
@@ -66,9 +67,13 @@ class Kernel extends BaseKernel {
      */
     public function handle (BaseRequest $request):Response {
 
-        return new Response(
-            $this->server, $request, 'HTTP Torch'
-        );
+        /** @phpstan-ignore-next-line */
+        return (new Pipeline)
+            ->send($request)
+            ->through([])
+            ->then(fn($request) => new Response(
+                $this->server, $request, 'HTTP Torch' // @phpstan-ignore-line
+            ));
 
     }
 
