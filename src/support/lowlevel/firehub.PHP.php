@@ -28,6 +28,7 @@ use function getenv;
 use function getmypid;
 use function ini_get;
 use function ini_get_all;
+use function ini_parse_quantity;
 use function ini_restore;
 use function ini_set;
 use function memory_get_peak_usage;
@@ -266,6 +267,25 @@ final class PHP implements InitStatic {
     public static function restoreConfigurationOption (string $option):void {
 
         ini_restore($option);
+
+    }
+
+    /**
+     * ### Get interpreted size from ini shorthand syntax
+     * @since 1.0.0
+     *
+     * @param non-empty-string $shorthand <p>
+     * Ini shorthand to parse, there must be a number followed by an optional multiplier.
+     * The following multipliers are supported: k/K (1024), m/M (1048576), g/G (1073741824).
+     * The number can be a decimal, hex (prefixed with 0x or 0X), octal (prefixed with 0o, 0O, or 0) or binary
+     * (prefixed with 0b or 0B).
+     * </p>
+     *
+     * @return int Interpreted size in bytes on success from ini shorthand.
+     */
+    public static function parseConfigurationQuantity (string $shorthand):int {
+
+        return ini_parse_quantity($shorthand);
 
     }
 
