@@ -62,7 +62,11 @@ class Kernel extends BaseKernel {
      *
      * @since 1.0.0
      *
+     * @uses \FireHub\Core\Kernel\HTTP\Request As parameter.
      * @uses \FireHub\Core\Kernel\HTTP\Response As return.
+     * @uses \FireHub\Core\Components\Pipeline::send() To send a request through a pipeline.
+     * @uses \FireHub\Core\Components\Pipeline::through() To set the array of pipes.
+     * @uses \FireHub\Core\Components\Pipeline::then() To run the pipeline with a final destination callback.
      *
      * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
      * Interact with the current request being handled by your application.

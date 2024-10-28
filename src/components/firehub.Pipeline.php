@@ -60,7 +60,7 @@ class Pipeline implements Init {
     private string $method = 'handle';
 
     /**
-     * ### Send through a pipeline
+     * ### Send an object through a pipeline
      * @since 1.0.0
      *
      * @param object $object <p>
