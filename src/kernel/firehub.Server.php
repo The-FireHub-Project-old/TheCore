@@ -442,7 +442,7 @@ abstract class Server implements Init {
      */
     public static function setConfigurationOption (string $option, null|int|float|string|bool $value):bool {
 
-        return  PHP::setConfigurationOption($option, $value);
+        return PHP::setConfigurationOption($option, $value);
 
     }
 
