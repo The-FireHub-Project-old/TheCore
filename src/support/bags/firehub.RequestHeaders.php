@@ -277,65 +277,6 @@ final class RequestHeaders extends Bag {
     public string $if_none_match = '';
 
     /**
-     * ### The Host name from which the user is viewing the current page
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_host = '';
-
-    /**
-     * ### The IP address from which the user is viewing the current page
-     * @since 1.0.0
-     *
-     * @var string
-     *
-     * @note  The web server must be configured to create this variable. For example, in Apache HostnameLookups On
-     * must be set inside httpd.conf for it to exist. See also gethostbyaddr().
-     */
-    public string $remote_address = '';
-
-    /**
-     * ### The IP address from which the user is viewing the current page if behind the proxy server
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_address_forwarded = '';
-
-    /**
-     * ### The IP address provided by the user from which the user is viewing the current page if behind the proxy server
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $client_ip = '';
-
-    /**
-     * ### The port being used on the user's machine to communicate with the web server
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_port = '';
-
-    /**
-     * ### The authenticated user
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_user = '';
-
-    /**
-     * ### The authenticated user if the request is internally redirected
-     * @since 1.0.0
-     *
-     * @var string
-     */
-    public string $remote_user_redirect = '';
-
-    /**
      * ### The timestamp for the start of the request
      * @since 1.0.0
      *
@@ -384,10 +325,6 @@ final class RequestHeaders extends Bag {
             'if_unmodified_since' => 'HTTP_IF_UNMODIFIED_SINCE',
             'if_none_match' => 'HTTP_IF_NONE_MATCH',
             'permissions_policy' => 'HTTP_PERMISSIONS_POLICY',
-            'remote_address' => 'REMOTE_ADDR',
-            'remote_address_forwarded' => 'HTTP_X_FORWARDED_FOR',
-            'client_ip' => 'HTTP_CLIENT_IP',
-            'remote_user_redirect' => 'REDIRECT_REMOTE_USER',
             'time' => 'REQUEST_TIME',
             'time_float' => 'REQUEST_TIME_FLOAT'
         ];

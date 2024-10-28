@@ -120,4 +120,69 @@ class Server extends BaseServer {
 
     }
 
+    /**
+     * ### Get the hostname from which the user is viewing the current page
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_host
+     *
+     * @return non-empty-string|false Hostname or false if no hostname was sent.
+     */
+    public function remoteHost ():string|false {
+
+        return $this->server->remote_host ?: false;
+
+    }
+
+    /**
+     * ### Get the IP address from which the user is viewing the current page
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_address_forwarded
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_address
+     * @uses \FireHub\Core\Support\Bags\Server::$client_ip
+     *
+     * @return non-empty-string|false IP address or false if no IP address was sent.
+     */
+    public function remoteAddress ():string|false {
+
+        return match (true) {
+            $this->server->remote_address_forwarded !== '' => $this->server->remote_address_forwarded,
+            $this->server->remote_address !== '' => $this->server->remote_address,
+            $this->server->client_ip !== '' => $this->server->client_ip,
+            default => false
+        };
+
+    }
+
+    /**
+     * ### Get the port being used on the user's machine to communicate with the web server
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_port
+     *
+     * @return int|false Port or false if no port was sent.
+     */
+    public function remotePort ():int|false {
+
+        return $this->server->remote_port ? (int)$this->server->remote_port : false;
+
+    }
+
+    /**
+     * ### Get the authenticated user
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_user
+     * @uses \FireHub\Core\Support\Bags\Server::$remote_user_redirect
+     *
+     * @return non-empty-string|false Authenticated user or false if no user was sent.
+     */
+    public function remoteUser ():string|false {
+
+        return $this->server->remote_user
+            ?: ($this->server->remote_user_redirect ?: false);
+
+    }
+
 }

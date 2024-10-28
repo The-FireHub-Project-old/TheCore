@@ -43,14 +43,17 @@ final class RegisterBags implements Bootloader {
      * @uses \FireHub\Core\Support\LowLevel\StrSB::contains() To check if bag item contains word AUTH.
      *
      * @SuppressWarnings(PHPMD.Superglobals)
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     public function load ():void {
 
         [$headers, $server] = Collection::associative($_SERVER)->partition(
         /** @phpstan-ignore-next-line */
-            fn($value, $key) => StrSB::startsWith('HTTP_', $key)
+            fn($value, $key) =>
+                $key !== 'HTTP_X_FORWARDED_FOR'
+                && $key !== 'HTTP_CLIENT_IP'
+                && StrSB::startsWith('HTTP_', $key)
                 || StrSB::startsWith('REQUEST', $key)
-                || StrSB::startsWith('REMOTE_', $key)
                 || StrSB::contains('AUTH', $key)
                 || $key === 'HTTPS'|| $key === 'UNENCODED_URL' || $key === 'QUERY_STRING' || $key === 'argv' || $key === 'argc'
         );

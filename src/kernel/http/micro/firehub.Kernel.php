@@ -38,6 +38,9 @@ class Kernel extends BaseKernel {
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
      * @uses \FireHub\Core\Kernel\HTTP\Server As parameter.
+     * @uses \FireHub\Core\Components\Pipeline::send() To send a request through a pipeline.
+     * @uses \FireHub\Core\Components\Pipeline::through() To set the array of pipes.
+     * @uses \FireHub\Core\Components\Pipeline::return() To run the pipeline and return the result.
      *
      * @param \FireHub\Core\Components\DI\Container $container <p>
      * Dependency injection container.
@@ -54,6 +57,11 @@ class Kernel extends BaseKernel {
     ) {
 
         parent::__construct($container);
+
+        (new Pipeline)
+            ->send($server)
+            ->through([])
+            ->return();
 
     }
 
