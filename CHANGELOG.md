@@ -1,6 +1,8 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.3...develop-pre-alpha-m2)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.4...develop-pre-alpha-m2)
+
+## [v0.2.4](https://github.com/The-FireHub-Project/Core/compare/v0.2.3...v0.2.4) - (2024-10-28)
 
 ### Added
 - Created Pipeline ([#104](https://github.com/The-FireHub-Project/Core/issues/104), [4801a3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/4801a3b))
