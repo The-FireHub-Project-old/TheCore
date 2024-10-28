@@ -19,7 +19,7 @@ use FireHub\Core\Base\ {
 };
 
 /**
- * ### Ordering enum
+ * ### HTTP request methods
  * @since 1.0.0
  */
 enum Method implements InitEnum {
