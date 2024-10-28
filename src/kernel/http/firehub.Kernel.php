@@ -70,10 +70,13 @@ class Kernel extends BaseKernel {
      * @uses \FireHub\Core\Components\Pipeline::send() To send a request through a pipeline.
      * @uses \FireHub\Core\Components\Pipeline::through() To set the array of pipes.
      * @uses \FireHub\Core\Components\Pipeline::then() To run the pipeline with a final destination callback.
+     * @uses \FireHub\Core\Kernel\Console\Router::dispatch() To dispatch the request to the application.
      *
      * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
      * Interact with the current request being handled by your application.
      * </p>
+     *
+     * @return \FireHub\Core\Kernel\HTTP\Response Information that needs to be sent back to the client from a given request.
      *
      * @phpstan-ignore-next-line
      */
@@ -83,9 +86,7 @@ class Kernel extends BaseKernel {
         return (new Pipeline)
             ->send($request)
             ->through([])
-            ->then(fn($request) => new Response(
-                $this->server, $request, 'HTTP Torch' // @phpstan-ignore-line
-            ));
+            ->then(fn($request) => (new Router)->dispatch($this->server, $request)); // @phpstan-ignore-line
 
     }
 

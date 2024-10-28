@@ -78,7 +78,7 @@ abstract class Kernel implements Init {
      * Interact with the current request being handled by your application.
      * </p>
      *
-     * @return \FireHub\Core\Kernel\Response Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Information that needs to be sent back to the client from a given request.
      */
     abstract public function handle (Request $request):Response;
 
