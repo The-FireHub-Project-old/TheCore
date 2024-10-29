@@ -62,7 +62,6 @@ class Container implements InitInstance {
 
     /**
      * ### List of container records bindings
-     *
      * @since 1.0.0
      *
      * @var \FireHub\Core\Components\Registry\Register<non-empty-string, array<non-empty-string, Closure(self $container):object>>
