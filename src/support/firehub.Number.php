@@ -98,8 +98,6 @@ class Number implements Init, Numbers {
 
     }
 
-
-
     /**
      * @inheritDoc
      *
