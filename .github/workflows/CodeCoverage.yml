@@ -19,7 +19,7 @@ jobs:
           extensions: mbstring
           tools: phpunit
       - name: Run PHPUnit and collect coverage
-        run: phpunit --coverage-clover coverage.xml .
+        run: phpunit --log-junit junit.xml --coverage-clover coverage.xml .
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4-beta
         env:
