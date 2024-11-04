@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: actions/add-to-project@v1.0.2
         with:
-          project-url: https://github.com/orgs/The-FireHub-Project/projects/1
+          project-url: https://github.com/orgs/The-FireHub-Project-old/projects/1
           github-token: ${{ secrets.FIREHUB }}
+          labeled: "status: Waiting Triage"
