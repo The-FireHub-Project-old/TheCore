@@ -1,0 +1,33 @@
+name: Metrics2
+on:
+  push:
+    branches:
+      - '*'
+      #- '!master'
+  pull_request:
+    branches:
+      - '*'
+      #- '!master'
+  # Schedule daily updates
+  #schedule: [{cron: "0 0 * * *"}]
+  # (optional) Run workflow manuallyy
+  workflow_dispatch:
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update metrics"
+          template: classic
+          filename: github-metrics2.svg
+          token: ${{ secrets.FIREHUB }}
+          base: header, activity, community, repositories, metadata
