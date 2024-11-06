@@ -31,3 +31,10 @@ jobs:
           filename: github-metrics2.svg
           token: ${{ secrets.FIREHUB }}
           base: header, activity, community, repositories, metadata
+
+          plugin_activity: yes
+          plugin_activity_visibility: public
+          plugin_activity_timestamps: true
+
+          plugin_code: yes
+          plugin_code_languages: php
