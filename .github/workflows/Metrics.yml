@@ -24,7 +24,7 @@ jobs:
         with:
           output_action: commit
           committer_branch: metrics-renders
-          committer_message: "chore: update metrics"
+          committer_message: "Update metrics"
           template: repository
           user: The-FireHub-Project-old
           repo: TheCore
