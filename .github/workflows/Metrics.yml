@@ -34,8 +34,6 @@ jobs:
           plugin_activity: yes
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
-          plugin_code: yes
-          plugin_code_languages: php
-          plugin_code_load: 400
           plugin_contributors: yes
+          plugin_contributors_head: ${{ github.head_ref || github.ref_name }}
           plugin_contributors_contributions: yes
