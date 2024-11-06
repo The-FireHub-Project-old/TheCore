@@ -38,3 +38,6 @@ jobs:
 
           plugin_code: yes
           plugin_code_languages: php
+
+          plugin_followup: yes
+          plugin_followup_indepth: yes
