@@ -34,4 +34,5 @@ jobs:
           #plugin_activity: yes
           #plugin_activity_visibility: public
           #plugin_activity_timestamps: true
+          plugin_contributors: yes
           plugin_contributors_contributions: yes
