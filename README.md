@@ -21,7 +21,6 @@
 FireHub is a powerful web application framework with elegant syntax.
 
 ![Metrics](/github-metrics.svg)
-![achievements](/metrics.plugin.achievements.compact.svg)
 
 ## Installation
 
