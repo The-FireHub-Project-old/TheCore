@@ -10,7 +10,7 @@ on:
       #- '!master'
   # Schedule daily updates
   #schedule: [{cron: "0 0 * * *"}]
-  # (optional) Run workflow manually
+  # (optional) Run workflow manuallyy
   workflow_dispatch:
 jobs:
   github-metrics:
@@ -27,3 +27,7 @@ jobs:
           repo: TheCore
           filename: github-metrics.svg
           token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_activity: yes
+          plugin_activity_visibility: public
+          plugin_activity_timestamps: true
