@@ -17,6 +17,11 @@ namespace FireHub\Core\Initializers;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
+use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Kernel\ {
+    Request, Response
+};
+use FireHub\Core\Kernel\Bootstraps\Bootstrap;
 
 /**
  * ### Abstract Base Kernel
@@ -33,11 +38,70 @@ abstract class Kernel implements Init {
     use Concrete;
 
     /**
-     * ### Handle client runtime
+     * ### List of bootstraps required for instantiating all Kernels
      * @since 1.0.0
      *
-     * @return string Response from Kernel.
+     * @var class-string[]
      */
-    abstract public function runtime ():string;
+    private array $bootstraps = [];
+
+    /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Container As parameter.
+     * @uses \FireHub\Core\Initializers\Kernel::bootBootstraps() To boot all bootstraps required for instantiating all
+     * Kernels.
+     *
+     * @param \FireHub\Core\Components\DI\Container $container <p>
+     * Dependency injection container.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        protected Container $container
+    ) {
+
+        $this->bootBootstraps();
+
+    }
+
+    /**
+     * ### Handle client request
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\Request As parameter.
+     * @uses \FireHub\Core\Kernel\Response As return.
+     *
+     * @param \FireHub\Core\Kernel\Request $request <p>
+     * Interact with the current request being handled by your application.
+     * </p>
+     *
+     * @return \FireHub\Core\Kernel\Response Information that needs to be sent back to the client from a given request.
+     */
+    abstract public function handle (Request $request):Response;
+
+    /**
+     * ### Boot all bootstraps required for instantiating all Kernels
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\Bootstraps\Bootstrap::boot() To boot bootstraps.
+     *
+     * @return $this This object.
+     */
+    private function bootBootstraps ():self {
+
+        foreach ($this->bootstraps as $bootstrap) {
+
+            $bootstrap = new $bootstrap;
+
+            if ($bootstrap instanceof Bootstrap) $bootstrap->boot();
+
+        }
+
+        return $this;
+
+    }
 
 }

@@ -17,7 +17,7 @@ namespace FireHub\Core\Support\Collection\Helpers;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Contracts\HighLevel\ReadCollectable;
 
 /**
  * ### Count elements in Collectables, counted recursively
@@ -46,23 +46,23 @@ final class CountCollectables implements Init {
      * ### Constructor
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As parameter.
      *
-     * @param \FireHub\Core\Support\Contracts\HighLevel\Collectable<TKey, TValue> $collectable <p>
+     * @param \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable<TKey, TValue> $collectable <p>
      * Collectable instance to count.
      * </p>
      *
      * @return void
      */
     public function __construct (
-        private readonly Collectable $collectable
+        private readonly ReadCollectable $collectable
     ){}
 
     /**
      * ### Call an object as a function
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As parameter.
      *
      * @return non-negative-int Number of elements in Collectables, counted recursively.
      */
@@ -71,7 +71,7 @@ final class CountCollectables implements Init {
         foreach ($this->collectable as $item) {
 
             $this->count++;
-            if ($item instanceof Collectable) $this->count += (new self($item))();
+            if ($item instanceof ReadCollectable) $this->count += (new self($item))();
 
         }
 

@@ -1,11 +1,46 @@
 # Release Notes for v0.x.x.pre-alpha
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...develop-pre-alpha-m2)
+## [Unreleased](https://github.com/The-FireHub-Project/Core/compare/v0.2.4...develop-pre-alpha-m2)
+
+## [v0.2.4](https://github.com/The-FireHub-Project/Core/compare/v0.2.3...v0.2.4) - (2024-10-28)
+
+### Added
+- Created Pipeline ([#104](https://github.com/The-FireHub-Project/Core/issues/104), [4801a3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/4801a3b))
+- Created Middleware ([#104](https://github.com/The-FireHub-Project/Core/issues/104), [f88709c](https://github.com/The-FireHub-Project/Core/pull/91/commits/f88709c))
+
+## [v0.2.3](https://github.com/The-FireHub-Project/Core/compare/v0.2.2...v0.2.3) - (2024-10-22)
+
+### Added
+- Created read-only Collections ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [6a2c32f](https://github.com/The-FireHub-Project/Core/pull/91/commits/6a2c32f))
+- Added a read-only collection as a possible Register type ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [ba8edc0](https://github.com/The-FireHub-Project/Core/pull/91/commits/ba8edc0))
+- Create Bag support class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [8258250](https://github.com/The-FireHub-Project/Core/pull/91/commits/8258250))
+- Create a Server and Headers bag ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [1fef686](https://github.com/The-FireHub-Project/Core/pull/91/commits/1fef686))
+- Create Url low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [b0dbbdb](https://github.com/The-FireHub-Project/Core/pull/91/commits/b0dbbdb))
+- Create Request ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [5f93f00](https://github.com/The-FireHub-Project/Core/pull/91/commits/5f93f00))
+- Create Hash low-level class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [d5f9d23](https://github.com/The-FireHub-Project/Core/pull/91/commits/d5f9d23))
+- Create a PHP low-level support class ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [a49f5a4](https://github.com/The-FireHub-Project/Core/pull/91/commits/a49f5a4))
+- Added casesIf method for all enums ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [2e8ed3b](https://github.com/The-FireHub-Project/Core/pull/91/commits/2e8ed3b))
+
+### Fixed
+- carryUntil and carryUntilLast had bug if none found they were returning an empty result ([#95](https://github.com/The-FireHub-Project/Core/issues/95), [a492ebe](https://github.com/The-FireHub-Project/Core/pull/91/commits/a492ebe))
+
+## [v0.2.2](https://github.com/The-FireHub-Project/Core/compare/v0.2.1...v0.2.2) - (2024-09-26)
+
+### Added
+- Created Facade ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [b55e20b](https://github.com/The-FireHub-Project/Core/pull/91/commits/b55e20b))
+
+### Changed
+- Adds ReflectionException to Container ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [f9711b7](https://github.com/The-FireHub-Project/Core/pull/91/commits/f9711b7))
+- Added instance check if an object on resolve method inside Container ([#94](https://github.com/The-FireHub-Project/Core/issues/94), [ad63495](https://github.com/The-FireHub-Project/Core/pull/91/commits/ad63495))
+
+## [v0.2.1](https://github.com/The-FireHub-Project/Core/compare/v0.2.0...v0.2.1) - (2024-09-25)
+
+### Added
+- Create ServiceProvider and ServiceManager classes ([#91](https://github.com/The-FireHub-Project/Core/issues/91), [b7db0cd](https://github.com/The-FireHub-Project/Core/pull/91/commits/b7db0cd))
 
 ## [v0.2.0](https://github.com/The-FireHub-Project/Core/compare/v0.1.7...v0.2.0) - (2024-09-23)
 
-## Added
-
+### Added
 - Create Init Instance base type ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [817d2b7](https://github.com/The-FireHub-Project/Core/pull/7/commits/817d2b7))
 - Create Container class ([#89](https://github.com/The-FireHub-Project/Core/issues/89), [55bb910](https://github.com/The-FireHub-Project/Core/pull/7/commits/55bb910))
 

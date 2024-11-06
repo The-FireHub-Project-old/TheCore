@@ -20,8 +20,10 @@ use FireHub\Core\Support\Collection\Type\Associative;
  * ### Recording of registry items
  * @since 1.0.0
  *
- * @template TKey of non-empty-lowercase-string
- * @template TValue of array<non-empty-lowercase-string, mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>
+ * @template TKey of non-empty-string
+ * @template TValue of array<non-empty-string,
+ *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-string,
+ *     mixed>|\FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, mixed>
  *
  * @extends \FireHub\Core\Support\Collection\Type\Associative<TKey, TValue>
  */

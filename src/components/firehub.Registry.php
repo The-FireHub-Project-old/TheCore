@@ -40,9 +40,10 @@ final class Registry implements InitInstance {
      * ### List of registers
      * @since 1.0.0
      *
-     * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string,
-     *     \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string, array<non-empty-lowercase-string,
-     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>>>
+     * @var \FireHub\Core\Support\Collection\Type\Associative<non-empty-string,
+     *     \FireHub\Core\Components\Registry\Register<non-empty-string, array<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, mixed>>>
      */
     private Associative $registers;
 
@@ -73,15 +74,16 @@ final class Registry implements InitInstance {
      * @uses \FireHub\Core\Support\Str::string() To get raw string from the $name argument.
      * @uses \FireHub\Core\Support\Str::expression() As regular expression.
      *
-     * @param non-empty-lowercase-string $name <p>
+     * @param non-empty-string $name <p>
      * Register name.
      * </p>
      *
      * @throws Error If register name length is less than three, or register name contains non-ascii characters.
      *
-     * @return \FireHub\Core\Components\Registry\Register<non-empty-lowercase-string,
-     *     array<non-empty-lowercase-string,
-     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-lowercase-string, mixed>> Register.
+     * @return \FireHub\Core\Components\Registry\Register<non-empty-string,
+     *     array<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, mixed>> Register.
      *
      * @note If the register doesn't exist, the method will automatically create it.
      */
@@ -108,11 +110,11 @@ final class Registry implements InitInstance {
      *
      * @uses \FireHub\Core\Components\Registry\Register::remove() To remove register item.
      *
-     * @param non-empty-lowercase-string $name <p>
+     * @param non-empty-string $name <p>
      * Register name.
      * </p>
      *
-     * @thrown Error If the key doesn't exist in a collection
+     * @throws Error If the register doesn't exist.
      *
      * @return true Always true.
      */
@@ -121,6 +123,49 @@ final class Registry implements InitInstance {
         $this->registers->remove($name);
 
         return true;
+
+    }
+
+    /**
+     * ### Get register
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\Registry\Register::get To get the register.
+     *
+     * @param non-empty-string $name <p>
+     * Register name.
+     * </p>
+     *
+     * @throws Error If the register doesn't exist.
+     *
+     * @return \FireHub\Core\Components\Registry\Register<non-empty-string,
+     *     array<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\Associative<non-empty-string,
+     *     mixed>|\FireHub\Core\Support\Collection\Type\ReadonlyAssociative<non-empty-string, mixed>> Register.
+     */
+    public function get (string $name):Register {
+
+        return $this->registers->get($name);
+
+    }
+
+    /**
+     * ### Check if register exist
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\Registry\Register::exist() To check if a register exists.
+     *
+     * @param non-empty-string $name <p>
+     * Register name.
+     * </p>
+     *
+     * @throws Error If the register doesn't exist.
+     *
+     * @return bool True if register exists, false otherwise.
+     */
+    public function registered (string $name):bool {
+
+        return $this->registers->exist($name);
 
     }
 

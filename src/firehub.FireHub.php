@@ -14,8 +14,10 @@
 
 namespace FireHub\Core;
 
-use FireHub\Core\Initializers\Kernel as BaseKernel;
 use FireHub\Core\Initializers\Autoload;
+use FireHub\Core\Initializers\Bootloaders\Bootloader;
+use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Kernel\Response;
 use FireHub\Core\Support\Path;
 use FireHub\Core\Initializers\Enums\Kernel;
 use FireHub\Core\Support\LowLevel\ {
@@ -30,8 +32,20 @@ use const FireHub\Core\Support\Constants\Path\DS;
  *
  * This class contains all system definitions, constants, and dependant components for FireHub bootstrapping.
  * @since 1.0.0
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 final class FireHub {
+
+    /**
+     * ### List of bootloaders required for instantiating the FireHub framework
+     * @since 1.0.0
+     *
+     * @var class-string[]
+     */
+    private array $bootloaders = [
+        \FireHub\Core\Initializers\Bootloaders\RegisterBags::class
+    ];
 
     /**
      * ### Constructor
@@ -50,9 +64,9 @@ final class FireHub {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Initializers\Enums\Kernel As parameter.
-     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
      * @uses \FireHub\Core\Firehub::bootloaders() To initialize bootloaders.
      * @uses \FireHub\Core\Firehub::kernel() To process Kernel.
+     * @uses \FireHub\Core\Kernel\Response As return.
      *
      * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
      * Pick Kernel from Kernel enum, process your request and return the appropriate response.
@@ -62,13 +76,13 @@ final class FireHub {
      * or failed to register autoloader.
      * @error\exeption E_WARNING if a system can't preload class for autoloader.
      *
-     * @return string Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Response from Kernel.
      */
-    public static function boot (Kernel $kernel):string {
+    public static function boot (Kernel $kernel):Response {
 
         return (new self)
             ->bootloaders()
-            ->kernel($kernel->run());
+            ->kernel($kernel);
 
     }
 
@@ -82,6 +96,7 @@ final class FireHub {
      * @uses \FireHub\Core\FireHub::registerHelpers() To register helpers.
      * @uses \FireHub\Core\FireHub::preload() To load preloader classes.
      * @uses \FireHub\Core\Firehub::autoload() To load autoloader.
+     * @uses \FireHub\Core\FireHub::$bootloaders To load bootloaders required for instantiating the FireHub framework.
      *
      * @throws Error If a system can't load constant, helper, or autoload files, or a system can't load autoload files,
      * or failed to register autoloader.
@@ -95,7 +110,8 @@ final class FireHub {
             ->registerConstants()
             ->registerHelpers()
             ->preload()
-            ->autoload();
+            ->autoload()
+            ->loadBootloaders();
 
     }
 
@@ -214,7 +230,6 @@ final class FireHub {
      * @uses \FireHub\Core\Initializers\Autoload::prepend() To register FireHub main autoloader.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::explode() To create an array from namespace.
      * @uses \FireHub\Core\Support\LowLevel\StrSB::implode() To join component into namespace.
-     * @uses \FireHub\Core\Support\LowLevel\StrSB::toLower() To lowercase all namespace components
      * @uses \FireHub\Core\Support\LowLevel\Arr::firstKey() To check if the first key is firehub and core.
      * @uses \FireHub\Core\Support\LowLevel\Arr::shift() To remove firehub and core form namespace.
      * @uses \FireHub\Core\Support\Path::core() To get FireHub Core path.
@@ -239,13 +254,30 @@ final class FireHub {
 
             $namespace = StrSB::implode($namespace, DS);
 
-            $classname_component = StrSB::explode($classname, '_');
-            $classname = Arr::shift($classname_component);
-            $classname_component = StrSB::implode($classname_component, '_');
-            $suffix = !empty($classname_component) ? StrSB::toLower('.'.$classname_component) : '';
-
-            return Path::core().DS.$namespace.DS.'firehub.'.$classname.$suffix.'.php';
+            return Path::core().DS.$namespace.DS.'firehub.'.$classname.'.php';
         });
+
+        return $this;
+
+    }
+
+    /**
+     * ### Load bootloaders required for instantiating the FireHub framework
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Initializers\Bootloaders\Bootloader::load() To load bootloader.
+     *
+     * @return $this This object.
+     */
+    private function loadBootloaders ():self {
+
+        foreach ($this->bootloaders as $bootloader) {
+
+            $bootloader = new $bootloader;
+
+            if ($bootloader instanceof Bootloader) $bootloader->load();
+
+        }
 
         return $this;
 
@@ -255,21 +287,31 @@ final class FireHub {
      * ### Process Kernel
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Initializers\Kernel As parameter.
-     * @uses \FireHub\Core\Kernel\HTTP\Kernel::runtime() To handle client runtime.
+     * @uses \FireHub\Core\Kernel\Server To add to container.
+     * @uses \FireHub\Core\Initializers\Enums\Kernel::run() To run the selected Kernel.
+     * @uses \FireHub\Core\Initializers\Enums\Kernel::request() To get Request for selected Kernel.
+     * @uses \FireHub\Core\Initializers\Kernel::handle() To handle client request.
+     * @uses \FireHub\Core\Components\DI\Container::getInstance() To get container instance.
+     * @uses \FireHub\Core\Components\DI\Container::resolve() To resolve binding from the container.
+     * @uses \FireHub\Core\Kernel\Response As return.
      *
-     * @param \FireHub\Core\Initializers\Kernel $kernel <p>
-     * Picked Kernel from Kernel enum, process your request and return the appropriate response.
+     * @param \FireHub\Core\Initializers\Enums\Kernel $kernel <p>
+     * Pick Kernel from Kernel enum, process your request and return the appropriate response.
      * </p>
      *
-     * @return string Response from Kernel.
+     * @return \FireHub\Core\Kernel\Response Response from Kernel.
      *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod) PHPMD has a bug where it reports unused method unless directory
      * called.
      */
-    private function kernel (BaseKernel $kernel):string {
+    private function kernel (Kernel $kernel):Response {
 
-        return $kernel->runtime();
+        $container = Container::getInstance();
+
+        $kernel_instance = $kernel->run($container);
+
+        return $kernel_instance->handle($kernel->request());
 
     }
 

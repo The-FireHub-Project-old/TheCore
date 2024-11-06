@@ -23,7 +23,7 @@ use FireHub\Core\Support\Contracts\{
 };
 use PHPUnit\Framework\Attributes\CoversClass;
 use FireHub\Core\Support\Enums\Data\ {
-    Category, Type
+    Category, Type, ResourceType
 };
 use Error, Stringable, Traversable;
 
@@ -34,6 +34,7 @@ use Error, Stringable, Traversable;
 #[CoversClass(Data::class)]
 #[CoversClass(DataIs::class)]
 #[CoversClass(Type::class)]
+#[CoversClass(ResourceType::class)]
 final class DataTest extends Base {
 
     public array $empty_arr = [];
@@ -948,6 +949,17 @@ final class DataTest extends Base {
         $this->assertIsBool(Data::setType(self::resource(), Type::T_BOOL));
         $this->assertIsObject(Data::setType(self::resource(), Type::T_OBJECT));
         $this->assertNull(Data::setType(self::resource(), Type::T_NULL));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testGetResourceType ():void {
+
+        $this->assertSame(ResourceType::STREAM, Data::getResourceType($this->resource()));
 
     }
 

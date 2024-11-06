@@ -17,13 +17,13 @@ namespace FireHub\Core\Support\Collection\Helpers;
 use FireHub\Core\Base\ {
     Init, Trait\Concrete
 };
-use FireHub\Core\Support\Contracts\HighLevel\Collectable;
+use FireHub\Core\Support\Contracts\HighLevel\ReadCollectable;
 
 /**
  * ### Conditionable methods for collection
  * @since 1.0.0
  *
- * @template-covariant TCollectable of \FireHub\Core\Support\Contracts\HighLevel\Collectable
+ * @template-covariant TCollectable of \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable
  */
 final class Condition implements Init {
 
@@ -37,7 +37,7 @@ final class Condition implements Init {
      * ### Constructor
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As parameter.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As parameter.
      *
      * @param TCollectable $collectable <p>
      * Collectable instance to condition upon.
@@ -46,14 +46,14 @@ final class Condition implements Init {
      * @return void
      */
     public function __construct (
-        private readonly Collectable $collectable
+        private readonly ReadCollectable $collectable
     ){}
 
     /**
      * ### Execute the given callback when the first argument given to the method evaluates to true
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As return-
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As return.
      *
      * @example
      * ```php
@@ -82,7 +82,7 @@ final class Condition implements Init {
      *
      * @return TCollectable This collection.
      */
-    public function is (bool $condition, callable $condition_meet, ?callable $condition_not_meet = null):Collectable {
+    public function is (bool $condition, callable $condition_meet, ?callable $condition_not_meet = null):ReadCollectable {
 
         $condition
             ? $condition_meet($this->collectable)
@@ -98,7 +98,7 @@ final class Condition implements Init {
      * ### Execute the given callback unless the first argument given to the method evaluates to true
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As return.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As return.
      *
      * @example
      * ```php
@@ -127,7 +127,7 @@ final class Condition implements Init {
      *
      * @return TCollectable This collection.
      */
-    public function unless (bool $condition, callable $condition_meet, ?callable $condition_not_meet = null):Collectable {
+    public function unless (bool $condition, callable $condition_meet, ?callable $condition_not_meet = null):ReadCollectable {
 
         !$condition
             ? $condition_meet($this->collectable)
@@ -145,8 +145,8 @@ final class Condition implements Init {
      *
      * @uses \FireHub\Core\Support\Collection\Helpers\Condition::is() To execute the given callback when the first
      * argument given to the method evaluates to true.
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::isEmpty() Check if a collection is empty.
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As return.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable::isEmpty() Check if a collection is empty.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As return.
      *
      * @example
      * ```php
@@ -167,7 +167,7 @@ final class Condition implements Init {
      *
      * @return TCollectable This collection.
      */
-    public function empty (callable $callback):Collectable {
+    public function empty (callable $callback):ReadCollectable {
 
         return $this->is($this->collectable->isEmpty(), $callback);
 
@@ -179,8 +179,8 @@ final class Condition implements Init {
      *
      * @uses \FireHub\Core\Support\Collection\Helpers\Condition::is() To execute the given callback when the first
      * argument given to the method evaluates to true.
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable::isNotEmpty() Check if a collection is not empty.
-     * @uses \FireHub\Core\Support\Contracts\HighLevel\Collectable As return.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable::isNotEmpty() Check if a collection is not empty.
+     * @uses \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable As return.
      *
      * @example
      * ```php
@@ -201,7 +201,7 @@ final class Condition implements Init {
      *
      * @return TCollectable This collection.
      */
-    public function notEmpty (callable $callback):Collectable {
+    public function notEmpty (callable $callback):ReadCollectable {
 
         return $this->is($this->collectable->isNotEmpty(), $callback);
 

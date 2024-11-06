@@ -1389,7 +1389,7 @@ abstract class Str implements Init, Strings {
 
         $this->string = StrMB::firstPart(
             $find, $this->string, true, true, $this->encoding
-        ) ?: '';
+        ) ?: $this->string;
 
         return $this;
 
@@ -1465,7 +1465,7 @@ abstract class Str implements Init, Strings {
 
         $this->string = StrMB::lastPart(
             $find, $this->string, true, true, $this->encoding
-        ) ?: '';
+        ) ?: $this->string;
 
         return $this;
 

@@ -152,4 +152,35 @@ final class ContainerTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RunInSeparateProcess]
+    public function testCall ():void {
+
+        $this->container->bind(
+            Str::class, fn(Container $container):object => new Str('test')
+        );
+
+        $this->assertTrue($this->container->call(Str::class, 'startsWith', ['value' => 't']));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    #[RunInSeparateProcess]
+    public function testCallStatically ():void {
+
+        $this->assertEquals(
+            Str::from('test'),
+            $this->container->callStatically(Str::class, 'from', ['string' => 'test'])
+        );
+
+    }
+
 }

@@ -47,12 +47,10 @@ final class ContextualBinding implements Init {
      *
      * @uses \FireHub\Core\Components\DI\Container As parameter.
      *
-     * @template TObject of object
-     *
      * @param Container $container <p>
      * Container instance.
      * </p>
-     * @param class-string<TObject> $abstracts <p>
+     * @param non-empty-string $abstracts <p>
      * Instance name in container.
      * </p>
      */

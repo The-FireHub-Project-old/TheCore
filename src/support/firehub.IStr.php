@@ -32,7 +32,7 @@ use const FireHub\Core\Support\Constants\Number\MAX;
  *
  * @api
  */
-final class IStr extends Str {
+class IStr extends Str {
 
     /**
      * @inheritDoc

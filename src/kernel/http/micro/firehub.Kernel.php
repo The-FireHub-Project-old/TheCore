@@ -15,6 +15,14 @@
 namespace FireHub\Core\Kernel\HTTP\Micro;
 
 use FireHub\Core\Initializers\Kernel as BaseKernel;
+use FireHub\Core\Kernel\ {
+    Request as BaseRequest, Response as BaseResponse
+};
+use FireHub\Core\Kernel\HTTP\ {
+    Response, Server
+};
+use FireHub\Core\Components\DI\Container;
+use FireHub\Core\Components\Pipeline;
 
 /**
  * ### Micro HTTP Kernel
@@ -22,16 +30,67 @@ use FireHub\Core\Initializers\Kernel as BaseKernel;
  * Process Micro HTTP requests that come in through various sources and give a client an appropriate response.
  * @since 1.0.0
  */
-final class Kernel extends BaseKernel {
+class Kernel extends BaseKernel {
+
+    /**
+     * ### Constructor
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Components\DI\Container As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Server As parameter.
+     * @uses \FireHub\Core\Components\Pipeline::send() To send a request through a pipeline.
+     * @uses \FireHub\Core\Components\Pipeline::through() To set the array of pipes.
+     * @uses \FireHub\Core\Components\Pipeline::return() To run the pipeline and return the result.
+     *
+     * @param \FireHub\Core\Components\DI\Container $container <p>
+     * Dependency injection container.
+     * </p>
+     * @param \FireHub\Core\Kernel\HTTP\Server $server <p>
+     * Server and execution environment information.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct (
+        protected Container $container,
+        protected Server $server
+    ) {
+
+        parent::__construct($container);
+
+        (new Pipeline)
+            ->send($server)
+            ->through([])
+            ->return();
+
+    }
 
     /**
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Kernel\HTTP\Request As parameter.
+     * @uses \FireHub\Core\Kernel\HTTP\Response As return.
+     * @uses \FireHub\Core\Components\Pipeline::send() To send a request through a pipeline.
+     * @uses \FireHub\Core\Components\Pipeline::through() To set the array of pipes.
+     * @uses \FireHub\Core\Components\Pipeline::then() To run the pipeline with a final destination callback.
+     *
+     * @param \FireHub\Core\Kernel\HTTP\Request $request <p>
+     * Interact with the current request being handled by your application.
+     * </p>
+     *
+     * @phpstan-ignore-next-line
      */
-    public function runtime ():string {
+    public function handle (BaseRequest $request):BaseResponse {
 
-        return 'Micro HTTP Torch';
+        /** @phpstan-ignore-next-line */
+        return (new Pipeline)
+            ->send($request)
+            ->through([])
+            ->then(fn($request) => new Response(
+                $this->server, $request, 'HTTP Micro Torch' // @phpstan-ignore-line
+            ));
 
     }
 

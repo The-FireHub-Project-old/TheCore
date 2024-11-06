@@ -83,6 +83,28 @@ final class RegistryTest extends Base {
      *
      * @return void
      */
+    public function testGet ():void {
+
+        $this->assertInstanceOf(Register::class, $this->registry->get('test'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function testRegistered ():void {
+
+        $this->assertTrue($this->registry->registered('test'));
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return void
+     */
     public function testUnregister ():void {
 
         $this->assertTrue($this->registry->unregister('test'));

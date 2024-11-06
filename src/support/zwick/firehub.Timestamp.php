@@ -89,7 +89,7 @@ class Timestamp implements Init, Stringable {
     }
 
     /**
-     * ### Create timestamp from string
+     * ### Create a timestamp from seconds and fractions
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Enums\DateTime\Epoch::UNIX As default parameter.
@@ -112,10 +112,49 @@ class Timestamp implements Init, Stringable {
      * Timestamp reference point.
      * </p>
      *
-     * @return self New unix timestamp from string.
+     * @return self New unix timestamp from seconds and fractions.
      */
     public static function from (int $seconds, int $fractions = 0, Epoch|string $epoch = Epoch::UNIX):self {
 
+        return new self($seconds, $fractions, $epoch);
+
+    }
+
+    /**
+     * ### Create a timestamp from float
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Enums\DateTime\Epoch::UNIX As default parameter.
+     * @uses \FireHub\Core\Support\Str::from() To create a string from $seconds_milliseconds.
+     * @uses \FireHub\Core\Support\Str::break() To split seconds and milliseconds.
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Zwick\Timestamp;
+     *
+     * Timestamp::fromFloat(1724412073.4391);
+     *
+     * // 1,724,412,073.439100
+     * ```
+     * @param float $seconds_milliseconds <p>
+     * Timestamp seconds and milliseconds.
+     * </p>
+     * @param \FireHub\Core\Support\Enums\DateTime\Epoch|non-empty-string $epoch [optional] <p>
+     * Timestamp reference point.
+     * </p>
+     *
+     * @return self New unix timestamp from float.
+     */
+    public static function fromFloat (float $seconds_milliseconds, Epoch|string $epoch = Epoch::UNIX):self {
+
+        $seconds_milliseconds = Str::from($seconds_milliseconds)->break('.');
+
+        $seconds = (int)$seconds_milliseconds[0];
+        $fractions = isset($seconds_milliseconds[1]) && ($seconds_milliseconds[1] > 0 || $seconds_milliseconds[1] <= 999_999)
+            ? (int)$seconds_milliseconds[1] * 1000
+            : 0;
+
+        /** @phpstan-ignore-next-line */
         return new self($seconds, $fractions, $epoch);
 
     }

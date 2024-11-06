@@ -20,7 +20,7 @@ use FireHub\Core\Support\Collection\Helpers\Condition;
  * ### This trait allows usage of conditionable methods for collection
  * @since 1.0.0
  *
- * @template-covariant TCollectable of \FireHub\Core\Support\Contracts\HighLevel\Collectable
+ * @template-covariant TCollectable of \FireHub\Core\Support\Contracts\HighLevel\ReadCollectable
  */
 trait Conditionable {
 

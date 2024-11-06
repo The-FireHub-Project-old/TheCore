@@ -18,7 +18,7 @@ use FireHub\Core\Base\ {
     InitStatic, Trait\ConcreteStatic
 };
 use FireHub\Core\Support\Collection\Type\ {
-    Indexed, Associative, Fix, Gen, Obj
+    Indexed, Associative, Fix, Gen, Obj, ReadonlyIndexed, ReadonlyAssociative
 };
 use FireHub\Core\Support\Collection\Helpers\ {
     Emp, Fill, FillAssoc, FillKeys, Range
@@ -73,6 +73,35 @@ class Collection implements InitStatic {
     }
 
     /**
+     * ### Indexed read-only array collection type
+     *
+     * Collections which have numerical indexes in an ordered sequential manner (starting from 0 and ending with n-1).
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyIndexed As return.
+     *
+     * @template TValue
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::readonlyList(fn ():array => ['one', 'two', 'three']);
+     * ```
+     *
+     * @param array<TValue>|Closure():array<TValue> $storage <p>
+     * Array underlying data.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyIndexed<TValue> Indexed read-only collection.
+     */
+    public static function readonlyList (array|Closure $storage):ReadonlyIndexed {
+
+        return new ReadonlyIndexed($storage instanceof Closure ? $storage(): $storage);
+
+    }
+
+    /**
      * ### Associative array collection type
      *
      * Collections that use named keys that you assign to them.
@@ -105,6 +134,42 @@ class Collection implements InitStatic {
     public static function associative (array|Closure $storage):Associative {
 
         return new Associative($storage instanceof Closure ? $storage(): $storage);
+
+    }
+
+    /**
+     * ### Associative read-only array collection type
+     *
+     * Collections that use named keys that you assign to them.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\Collection\Type\ReadonlyAssociative As return.
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @example
+     * ```php
+     * use FireHub\Core\Support\Collection;
+     *
+     * $collection = Collection::readonlyAssociative(fn ():array => [
+     *  'firstname' => 'John',
+     *  'lastname' => 'Doe',
+     *  'age' => 25,
+     *  'height' => '190cm',
+     *  'gender' => 'male'
+     * ]);
+     * ```
+     *
+     * @param array<TKey, TValue>|Closure():array<TKey, TValue> $storage <p>
+     * Array underlying data.
+     * </p>
+     *
+     * @return \FireHub\Core\Support\Collection\Type\ReadonlyAssociative<TKey, TValue> Associative read-only collection.
+     */
+    public static function readonlyAssociative (array|Closure $storage):ReadonlyAssociative {
+
+        return new ReadonlyAssociative($storage instanceof Closure ? $storage(): $storage);
 
     }
 
