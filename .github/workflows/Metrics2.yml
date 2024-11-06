@@ -37,6 +37,7 @@ jobs:
           plugin_activity_timestamps: true
 
           plugin_code: yes
+          plugin_code_days: 365
           plugin_code_languages: php
 
           plugin_followup: yes
