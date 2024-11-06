@@ -27,7 +27,7 @@ jobs:
           repo: TheCore
           filename: github-metrics.svg
           token: ${{ secrets.FIREHUB }}
-          base: ""
+          base: header
           plugin_activity: yes
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
