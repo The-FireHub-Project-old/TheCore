@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - '*'
-      - '!master'
+      #- '!master'
   pull_request:
     branches:
       - '*'
-      - '!master'
+      #- '!master'
   # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
   # (optional) Run workflow manually
