@@ -23,6 +23,8 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           output_action: commit
+          retries: 1
+          retries_delay: 10
           committer_branch: metrics-renders
           committer_message: "Update metrics"
           template: classic
