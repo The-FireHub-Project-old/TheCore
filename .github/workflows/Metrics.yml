@@ -35,5 +35,5 @@ jobs:
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
           plugin_contributors: yes
-          plugin_contributors_head: ${{ github.head_ref }}
+          plugin_contributors_head: ${{ github.head_ref || github.ref_name }}
           plugin_contributors_contributions: yes
