@@ -34,3 +34,6 @@ jobs:
           plugin_activity: yes
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
+          plugin_code: yes
+          plugin_code_languages: javascript, typescript
+          plugin_code_load: 400
