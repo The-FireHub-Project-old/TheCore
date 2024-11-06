@@ -25,7 +25,7 @@ jobs:
           output_action: commit
           committer_branch: metrics-renders
           committer_message: "Update metrics"
-          template: repository
+          template: classic
           user: The-FireHub-Project-old
           repo: TheCore
           filename: github-metrics.svg
