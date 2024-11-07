@@ -20,9 +20,17 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          repository: The-FireHub-Project-old/Skeleton
+          ref: 'master'
+          token:  ${{ secrets.FIREHUB }}
       - uses: lowlighter/metrics@latest
         with:
-          output_action: commit
+          #output_action: commit
+          output_action: none
           retries: 1
           retries_delay: 10
           committer_branch: metrics-renders
