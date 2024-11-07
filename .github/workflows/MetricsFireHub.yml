@@ -35,7 +35,7 @@ jobs:
           template: classic
           filename: github-metrics-firehub-activity.svg
           token: ${{ secrets.FIREHUB }}
-          base_indepth: yes
+          base: ""
           plugin_activity: yes
           plugin_activity_days: 365
           plugin_activity_visibility: public
