@@ -1,0 +1,25 @@
+name: Metrics The FreHub Project
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update base metrics"
+          template: classic
+          filename: github-metrics-firehub-base.svg
+          token: ${{ secrets.FIREHUB }}
+          base_indepth: yes
