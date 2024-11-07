@@ -67,4 +67,5 @@ jobs:
           #plugin_people_thanks:
 
           plugin_projects: yes
+          plugin_projects_repositories: The-FireHub-Project/projects/1, The-FireHub-Project/projects/2
           plugin_projects_descriptions: yes
