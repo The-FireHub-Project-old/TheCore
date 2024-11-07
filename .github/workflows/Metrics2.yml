@@ -54,5 +54,6 @@ jobs:
           plugin_languages_categories: data, markup, programming, prose
           plugin_languages_recent_categories: data, markup, programming, prose
 
-          plugin_lines: yes
-          plugin_lines_sections: base, repositories, history
+          plugin_pagespeed: yes
+          plugin_pagespeed_url: https://the-firehub-project.github.io/
+          plugin_pagespeed_detailed: yes
