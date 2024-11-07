@@ -52,3 +52,8 @@ jobs:
           plugin_followup_indepth: yes
 
           plugin_languages: yes
+          plugin_languages_indepth: true
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_details: bytes-size, percentage, lines
+          plugin_languages_categories: data, markup, programming, prose
+          plugin_languages_recent_categories: data, markup, programming, prose
