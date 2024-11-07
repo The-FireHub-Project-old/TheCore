@@ -20,17 +20,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: lowlighter/metrics@latest
         with:
-          #output_action: commit
-          output_action: none
+          output_action: commit
           retries: 1
           retries_delay: 10
-          #committer_branch: metrics-renders
-          #committer_message: "Update metrics"
+          committer_branch: metrics-renders
+          committer_message: "Update metrics"
           template: repository
           user: The-FireHub-Project-old
           repo: TheCore
@@ -82,15 +78,3 @@ jobs:
 
           plugin_stargazers: yes
           plugin_stargazers_days: 0
-
-      - uses: cpina/github-action-push-to-another-repository@maim
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.FIREHUB }}
-        with:
-          source-directory: '/metrics_renders/'
-          destination-github-username: 'The-FireHub-Project-old'
-          destination-repository-name: 'Skeleton'
-          user-email: danijel.galic@outlook.com
-          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: master
-          target-directory: '/'
