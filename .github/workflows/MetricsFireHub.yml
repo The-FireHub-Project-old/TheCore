@@ -21,7 +21,7 @@ jobs:
           committer_branch: metrics-renders
           committer_message: "Update base metrics"
           template: classic
-          filename: github-metrics-firehub-base.svg
+          filename: resources/graphics/images/metrics/base.svg
           token: ${{ secrets.FIREHUB }}
           base_indepth: yes
       - name: Update activity
