@@ -61,3 +61,7 @@ jobs:
           plugin_pagespeed: yes
           plugin_pagespeed_url: https://the-firehub-project.github.io/
           plugin_pagespeed_detailed: yes
+
+          plugin_people: yes
+          plugin_people_types: sponsors, contributors, stargazers, watchers, thanks
+          plugin_people_thanks: me
