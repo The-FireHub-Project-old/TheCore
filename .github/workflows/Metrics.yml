@@ -50,3 +50,5 @@ jobs:
             
           plugin_followup: yes
           plugin_followup_indepth: yes
+
+          plugin_languages: yes
