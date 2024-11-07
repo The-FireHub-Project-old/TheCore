@@ -12,7 +12,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - name: Update base
+        uses: lowlighter/metrics@latest
         with:
           output_action: commit
           retries: 1
@@ -23,3 +24,19 @@ jobs:
           filename: github-metrics-firehub-base.svg
           token: ${{ secrets.FIREHUB }}
           base_indepth: yes
+      - name: Update activity
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update activity metrics"
+          template: classic
+          filename: github-metrics-firehub-activity.svg
+          token: ${{ secrets.FIREHUB }}
+          base_indepth: yes
+          plugin_activity: yes
+          plugin_activity_days: 365
+          plugin_activity_visibility: public
+          plugin_activity_timestamps: true
