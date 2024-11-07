@@ -37,6 +37,110 @@ jobs:
           token: ${{ secrets.FIREHUB }}
           base: ""
           plugin_activity: yes
-          plugin_activity_days: 365
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
+      - name: Update code
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update code metrics"
+          template: classic
+          filename: github-metrics-firehub-code.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_code: yes
+          plugin_code_days: 365
+          plugin_code_languages: php
+      - name: Update followup
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update followup metrics"
+          template: classic
+          filename: github-metrics-firehub-followup.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_followup: yes
+          plugin_followup_indepth: yes
+      - name: Update habits
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update habits metrics"
+          template: classic
+          filename: github-metrics-firehub-habits.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_habits: yes
+          plugin_habits_days: 30
+          plugin_habits_charts: yes
+      - name: Update languages
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update languages metrics"
+          template: classic
+          filename: github-metrics-firehub-languages.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_languages: yes
+          plugin_languages_indepth: true
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_details: bytes-size, percentage, lines
+          plugin_languages_categories: data, markup, programming, prose
+          plugin_languages_recent_categories: data, markup, programming, prose
+      - name: Update people
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update people metrics"
+          template: classic
+          filename: github-metrics-firehub-people.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_people: yes
+          plugin_people_types: followers, sponsors, members, thanks
+          # plugin_people_thanks:
+      - name: Update sponsors
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update sponsors metrics"
+          template: classic
+          filename: github-metrics-firehub-sponsors.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_sponsors: yes
+          plugin_sponsors_title: Sponsor Us!
+      - name: Update stargazers
+        uses: lowlighter/metrics@latest
+        with:
+          output_action: commit
+          retries: 1
+          retries_delay: 10
+          committer_branch: metrics-renders
+          committer_message: "Update stargazers metrics"
+          template: classic
+          filename: github-metrics-firehub-stargazers.svg
+          token: ${{ secrets.FIREHUB }}
+          base: ""
+          plugin_stargazers: yes
+          plugin_stargazers_days: 0
