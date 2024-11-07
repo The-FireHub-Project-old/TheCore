@@ -61,3 +61,10 @@ jobs:
           plugin_people: yes
           plugin_people_types: followers, following, sponsored, sponsors, members, thanks
           # plugin_people_thanks:
+
+          plugin_projects: yes
+          plugin_projects_repositories: The-FireHub-Project/projects/1, The-FireHub-Project/projects/2
+          plugin_projects_descriptions: yes
+
+          #plugin_rss: yes
+          #plugin_rss_source: https://news.ycombinator.com/rss
