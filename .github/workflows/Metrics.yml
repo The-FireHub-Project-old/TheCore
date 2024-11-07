@@ -72,3 +72,6 @@ jobs:
 
           #plugin_rss: yes
           #plugin_rss_source: https://news.ycombinator.com/rss
+
+          plugin_sponsors: yes
+          plugin_sponsors_title: Sponsor Us!
