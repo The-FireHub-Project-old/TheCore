@@ -138,40 +138,6 @@ jobs:
           plugin_people: yes
           plugin_people_types: sponsors, contributors, stargazers, watchers, thanks
           #plugin_people_thanks:
-      #- name: Update projects
-        #uses: lowlighter/metrics@latest
-        #with:
-          #output_action: commit
-          #retries: 1
-          #retries_delay: 10
-          #committer_branch: metrics-renders
-          #committer_message: "Update projects metrics"
-          #template: repository
-          #user: The-FireHub-Project-old
-          #repo: TheCore
-          #filename: github-metrics-core-projects.svg
-          #token: ${{ secrets.FIREHUB }}
-          #base: ""
-          #plugin_projects: yes
-          #plugin_projects_repositories: :user/:repo/projects/:project_id
-          #plugin_projects_descriptions: yes
-      #- name: Update rss
-        #uses: lowlighter/metrics@latest
-        #with:
-          #output_action: commit
-          #retries: 1
-          #retries_delay: 10
-          #committer_branch: metrics-renders
-          #committer_message: "Update rss metrics"
-          #template: repository
-          #user: The-FireHub-Project-old
-          #repo: TheCore
-          #filename: github-metrics-core-rss.svg
-          #token: ${{ secrets.FIREHUB }}
-          #base: ""
-          #plugin_projects: yes
-          #plugin_rss: yes
-          #plugin_rss_source: https://news.ycombinator.com/rss
       - name: Update sponsors
         uses: lowlighter/metrics@latest
         with:
