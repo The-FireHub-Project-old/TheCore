@@ -57,3 +57,6 @@ jobs:
           plugin_languages_details: bytes-size, percentage, lines
           plugin_languages_categories: data, markup, programming, prose
           plugin_languages_recent_categories: data, markup, programming, prose
+
+          plugin_licenses: yes
+          plugin_licenses_ratio: yes
