@@ -44,24 +44,6 @@ jobs:
           plugin_activity_days: 365
           plugin_activity_visibility: public
           plugin_activity_timestamps: true
-      - name: Update activity
-        uses: lowlighter/metrics@latest
-        with:
-          output_action: commit
-          retries: 1
-          retries_delay: 10
-          committer_branch: metrics-renders
-          committer_message: "Update activity metrics"
-          template: repository
-          user: The-FireHub-Project-old
-          repo: TheCore
-          filename: github-metrics-core-activity.svg
-          token: ${{ secrets.FIREHUB }}
-          base: ""
-          plugin_activity: yes
-          plugin_activity_days: 365
-          plugin_activity_visibility: public
-          plugin_activity_timestamps: true
       - name: Update contributors
         uses: lowlighter/metrics@latest
         with:
@@ -77,7 +59,7 @@ jobs:
           token: ${{ secrets.FIREHUB }}
           base: ""
           plugin_contributors: yes
-          #plugin_contributors_head: ${{ github.head_ref || github.ref_name }}
+          plugin_contributors_head: ${{ github.head_ref || github.ref_name }}
           plugin_contributors_contributions: yes
           plugin_contributors_sections: categories
           plugin_contributors_categories: |
