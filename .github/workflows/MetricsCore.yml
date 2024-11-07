@@ -64,8 +64,11 @@ jobs:
           plugin_contributors_sections: categories
           plugin_contributors_categories: |
             {
+              "💻 Code":["src/**"],
+              "💻 Dot files":[".**"],
               "📚 Documentation":["README.md", "**/README.md"],
-              "💻 Code (other)":["src/**", "Dockerfile"]
+              "#️⃣ Legal": ["/LICENCE.md", "/CITATION.cff"],
+              "#️⃣ Others": ["*"]
             }
       - name: Update followup
         uses: lowlighter/metrics@latest
