@@ -23,9 +23,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: The-FireHub-Project-old/Skeleton
-          ref: 'master'
-          token:  ${{ secrets.FIREHUB }}
       - uses: lowlighter/metrics@latest
         with:
           #output_action: commit
@@ -86,12 +83,14 @@ jobs:
           plugin_stargazers: yes
           plugin_stargazers_days: 0
 
-          run: |
-            set +e
-            git checkout metrics-renders
-            git config user.name github-actions[bot]
-            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-            sudo mv /metrics_renders/* ./
-            git add --all
-            git commit -m "chore: push metrics"
-            git push
+      - uses: cpina/github-action-push-to-another-repository@maim
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.FIREHUB }}
+        with:
+          source-directory: '/metrics_renders/'
+          destination-github-username: 'The-FireHub-Project-old'
+          destination-repository-name: 'Skeleton'
+          user-email: danijel.galic@outlook.com
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: master
+          target-directory: '/'
