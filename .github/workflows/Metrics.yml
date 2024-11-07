@@ -64,4 +64,10 @@ jobs:
 
           plugin_people: yes
           plugin_people_types: sponsors, contributors, stargazers, watchers, thanks
-          plugin_people_thanks: me
+          #plugin_people_thanks:
+
+          plugin_posts: yes
+          plugin_posts_source: hashnode
+          plugin_posts_descriptions: yes
+          plugin_posts_covers: yes
+          
