@@ -22,6 +22,8 @@ FireHub is a powerful web application framework with elegant syntax.
 
 ![Metrics](/github-metrics.svg)
 
+![Metrics](/github-metrics2.svg)
+
 ## Installation
 
 ![Packagist PHP Version](https://img.shields.io/packagist/dependency-v/firehub/core/php?version=v0.1.2)
