@@ -75,3 +75,6 @@ jobs:
 
           plugin_sponsors: yes
           plugin_sponsors_title: Sponsor Us!
+
+          plugin_stargazers: yes
+          plugin_stargazers_days: 0
