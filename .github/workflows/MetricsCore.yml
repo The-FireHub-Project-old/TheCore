@@ -1,4 +1,4 @@
-name: Metrics3
+name: Metrics FireHub Core
 on:
   push:
     branches:
@@ -22,6 +22,6 @@ jobs:
           template: repository
           user: The-FireHub-Project-old
           repo: TheCore
-          filename: github-metrics-base.svg
+          filename: github-metrics-core-base.svg
           token: ${{ secrets.FIREHUB }}
           base_indepth: yes
