@@ -61,3 +61,8 @@ jobs:
           plugin_people: yes
           plugin_people_types: followers, following, sponsored, sponsors, members, thanks
           # plugin_people_thanks:
+
+          plugin_posts: yes
+          plugin_posts_source: hashnode
+          plugin_posts_descriptions: yes
+          plugin_posts_covers: yes
