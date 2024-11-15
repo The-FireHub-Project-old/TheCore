@@ -7,14 +7,18 @@ parameters:
     excludePaths:
         analyseAndScan:
             - src/testing/
-    treatPhpDocTypesAsCertain: false
+    treatPhpDocTypesAsCertain: true
     checkExplicitMixedMissingReturn: true
     checkFunctionNameCase: true
     checkInternalClassCaseSensitivity: true
     reportMaybesInMethodSignatures: true
     reportMaybesInPropertyPhpDocTypes: true
+    #reportPossiblyNonexistentConstantArrayOffset: true
+    #reportWrongPhpDocTypeInVarTag: true
+    #reportAlwaysTrueInLastCondition: true
     reportStaticMethodSignatures: true
-    reportUnmatchedIgnoredErrors: false
-    checkUninitializedProperties: true
+    reportUnmatchedIgnoredErrors: true
+    checkUninitializedProperties: false
     checkImplicitMixed: true
+    #checkMissingOverrideMethodAttribute: true
     tipsOfTheDay: false
