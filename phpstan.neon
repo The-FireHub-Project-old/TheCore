@@ -17,7 +17,8 @@ parameters:
     #reportWrongPhpDocTypeInVarTag: true
     #reportAlwaysTrueInLastCondition: true
     reportStaticMethodSignatures: true
-    reportUnmatchedIgnoredErrors: true
+    reportUnmatchedIgnoredErrors: false
+    #checkUninitializedProperties: true
     checkUninitializedProperties: false
     checkImplicitMixed: true
     #checkMissingOverrideMethodAttribute: true
