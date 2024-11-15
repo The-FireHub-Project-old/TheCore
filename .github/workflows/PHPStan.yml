@@ -1,0 +1,27 @@
+name: PHPStan
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        php-versions: ['8.3']
+    name: Run PHPStan with PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install PHP
+        uses: shivammathur/setup-php@2.31.1
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring
+          tools: phpstan
+      - name: Run PHPStan
+        run: phpstan analyse --memory-limit=256M
